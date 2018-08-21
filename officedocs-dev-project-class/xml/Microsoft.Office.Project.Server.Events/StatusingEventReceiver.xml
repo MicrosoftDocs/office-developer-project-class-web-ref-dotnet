@@ -1,0 +1,1078 @@
+﻿<Type Name="StatusingEventReceiver" FullName="Microsoft.Office.Project.Server.Events.StatusingEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class StatusingEventReceiver : Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit StatusingEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.StatusingEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class StatusingEventReceiver&#xA;Implements IStatusingEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class StatusingEventReceiver abstract : Microsoft::Office::Project::Server::Events::IStatusingEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type StatusingEventReceiver = class&#xA;    interface IStatusingEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected StatusingEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; StatusingEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApplied">
+      <MemberSignature Language="C#" Value="public virtual void OnApplied (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnApplied(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApplied(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnApplied (contextInfo As PSContextInfo, e As StatusingPostApplyEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnApplied(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusingPostApplyEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApplied : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs -&gt; unit&#xA;override this.OnApplied : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs -&gt; unit" Usage="statusingEventReceiver.OnApplied (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAppliedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnAppliedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAppliedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAppliedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAppliedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusingPostApplyEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAppliedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusingPostApplyEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAppliedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs -&gt; unit&#xA;override this.OnAppliedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAppliedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAppliedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusingPostApplyEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApplying">
+      <MemberSignature Language="C#" Value="public virtual void OnApplying (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnApplying(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApplying(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnApplying (contextInfo As PSContextInfo, e As StatusingPreApplyEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnApplying(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusingPreApplyEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApplying : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs -&gt; unit&#xA;override this.OnApplying : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs -&gt; unit" Usage="statusingEventReceiver.OnApplying (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApplyingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs OnApplyingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs OnApplyingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApplyingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnApplyingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusingPreApplyEventArgs) As StatusingPreApplyEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusingPreApplyEventArgs ^ OnApplyingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusingPreApplyEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApplyingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs&#xA;override this.OnApplyingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs" Usage="statusingEventReceiver.OnApplyingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnApplyingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusingPreApplyEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApprovalsUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnApprovalsUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnApprovalsUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApprovalsUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnApprovalsUpdated (contextInfo As PSContextInfo, e As StatusUpdateApprovalsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnApprovalsUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusUpdateApprovalsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApprovalsUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs -&gt; unit&#xA;override this.OnApprovalsUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnApprovalsUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApprovalsUpdatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnApprovalsUpdatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnApprovalsUpdatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApprovalsUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnApprovalsUpdatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusUpdateApprovalsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnApprovalsUpdatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusUpdateApprovalsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApprovalsUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs -&gt; unit&#xA;override this.OnApprovalsUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnApprovalsUpdatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnApprovalsUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApprovalsUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnApprovalsUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnApprovalsUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApprovalsUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnApprovalsUpdating (contextInfo As PSContextInfo, e As StatusUpdateApprovalsPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnApprovalsUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusUpdateApprovalsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApprovalsUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs -&gt; unit&#xA;override this.OnApprovalsUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnApprovalsUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnApprovalsUpdatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs OnApprovalsUpdatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs OnApprovalsUpdatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApprovalsUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnApprovalsUpdatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusUpdateApprovalsPreEventArgs) As StatusUpdateApprovalsPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusUpdateApprovalsPreEventArgs ^ OnApprovalsUpdatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusUpdateApprovalsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnApprovalsUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs&#xA;override this.OnApprovalsUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs" Usage="statusingEventReceiver.OnApprovalsUpdatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnApprovalsUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDelegated">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDelegated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDelegated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDelegated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDelegated (contextInfo As PSContextInfo, e As StatusDelegateTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDelegated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDelegateTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDelegated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs -&gt; unit&#xA;override this.OnAssignmentDelegated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDelegated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDelegatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDelegatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDelegatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDelegatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDelegatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDelegateTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDelegatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDelegateTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDelegatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs -&gt; unit&#xA;override this.OnAssignmentDelegatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDelegatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentDelegatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDelegateTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDelegating">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDelegating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDelegating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDelegating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDelegating (contextInfo As PSContextInfo, e As StatusDelegateTaskPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDelegating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDelegateTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDelegating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs -&gt; unit&#xA;override this.OnAssignmentDelegating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDelegating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDelegatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs OnAssignmentDelegatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs OnAssignmentDelegatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDelegatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnAssignmentDelegatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDelegateTaskPreEventArgs) As StatusDelegateTaskPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusDelegateTaskPreEventArgs ^ OnAssignmentDelegatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDelegateTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDelegatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs&#xA;override this.OnAssignmentDelegatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs" Usage="statusingEventReceiver.OnAssignmentDelegatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentDelegatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDelegateTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDeleted (contextInfo As PSContextInfo, e As StatusDeleteTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDeleteTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs -&gt; unit&#xA;override this.OnAssignmentDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDeletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDeletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDeletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDeletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDeleteTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDeletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDeleteTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs -&gt; unit&#xA;override this.OnAssignmentDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDeletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentDeleting (contextInfo As PSContextInfo, e As StatusDeleteTaskPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDeleteTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs -&gt; unit&#xA;override this.OnAssignmentDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentDeletingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs OnAssignmentDeletingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs OnAssignmentDeletingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnAssignmentDeletingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDeleteTaskPreEventArgs) As StatusDeleteTaskPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusDeleteTaskPreEventArgs ^ OnAssignmentDeletingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDeleteTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs&#xA;override this.OnAssignmentDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs" Usage="statusingEventReceiver.OnAssignmentDeletingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentWorkDataSet">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentWorkDataSet (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentWorkDataSet(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentWorkDataSet(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentWorkDataSet (contextInfo As PSContextInfo, e As AssignmentWorkDataSetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentWorkDataSet(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::AssignmentWorkDataSetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentWorkDataSet : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs -&gt; unit&#xA;override this.OnAssignmentWorkDataSet : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentWorkDataSet (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentWorkDataSetRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentWorkDataSetRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentWorkDataSetRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentWorkDataSetRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentWorkDataSetRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As AssignmentWorkDataSetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentWorkDataSetRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::AssignmentWorkDataSetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentWorkDataSetRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs -&gt; unit&#xA;override this.OnAssignmentWorkDataSetRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentWorkDataSetRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentWorkDataSetRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentWorkDataSetting">
+      <MemberSignature Language="C#" Value="public virtual void OnAssignmentWorkDataSetting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnAssignmentWorkDataSetting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentWorkDataSetting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnAssignmentWorkDataSetting (contextInfo As PSContextInfo, e As AssignmentWorkDataSetPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnAssignmentWorkDataSetting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::AssignmentWorkDataSetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentWorkDataSetting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs -&gt; unit&#xA;override this.OnAssignmentWorkDataSetting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnAssignmentWorkDataSetting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnAssignmentWorkDataSettingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs OnAssignmentWorkDataSettingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs OnAssignmentWorkDataSettingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentWorkDataSettingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnAssignmentWorkDataSettingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As AssignmentWorkDataSetPreEventArgs) As AssignmentWorkDataSetPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::AssignmentWorkDataSetPreEventArgs ^ OnAssignmentWorkDataSettingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::AssignmentWorkDataSetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnAssignmentWorkDataSettingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs&#xA;override this.OnAssignmentWorkDataSettingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs" Usage="statusingEventReceiver.OnAssignmentWorkDataSettingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnAssignmentWorkDataSettingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AssignmentWorkDataSetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnHistoryDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnHistoryDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnHistoryDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnHistoryDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnHistoryDeleted (contextInfo As PSContextInfo, e As StatusDeleteHistoryPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnHistoryDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDeleteHistoryPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnHistoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs -&gt; unit&#xA;override this.OnHistoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnHistoryDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnHistoryDeletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnHistoryDeletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnHistoryDeletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnHistoryDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnHistoryDeletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDeleteHistoryPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnHistoryDeletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDeleteHistoryPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnHistoryDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs -&gt; unit&#xA;override this.OnHistoryDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnHistoryDeletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnHistoryDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnHistoryDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnHistoryDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnHistoryDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnHistoryDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnHistoryDeleting (contextInfo As PSContextInfo, e As StatusDeleteHistoryPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnHistoryDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusDeleteHistoryPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnHistoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs -&gt; unit&#xA;override this.OnHistoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnHistoryDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnHistoryDeletingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs OnHistoryDeletingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs OnHistoryDeletingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnHistoryDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnHistoryDeletingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusDeleteHistoryPreEventArgs) As StatusDeleteHistoryPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusDeleteHistoryPreEventArgs ^ OnHistoryDeletingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusDeleteHistoryPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnHistoryDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs&#xA;override this.OnHistoryDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs" Usage="statusingEventReceiver.OnHistoryDeletingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnHistoryDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusDeleteHistoryPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusSubmiting">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusSubmiting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusSubmiting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmiting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusSubmiting (contextInfo As PSContextInfo, e As StatusSubmitPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusSubmiting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusSubmitPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusSubmiting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs -&gt; unit&#xA;override this.OnStatusSubmiting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusSubmiting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusSubmitingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs OnStatusSubmitingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs OnStatusSubmitingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmitingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnStatusSubmitingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusSubmitPreEventArgs) As StatusSubmitPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusSubmitPreEventArgs ^ OnStatusSubmitingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusSubmitPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusSubmitingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs&#xA;override this.OnStatusSubmitingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs" Usage="statusingEventReceiver.OnStatusSubmitingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnStatusSubmitingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusSubmitPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusSubmitted">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusSubmitted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusSubmitted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmitted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusSubmitted (contextInfo As PSContextInfo, e As StatusSubmitPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusSubmitted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusSubmitPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusSubmitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs -&gt; unit&#xA;override this.OnStatusSubmitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusSubmitted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusSubmittedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusSubmittedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusSubmittedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusSubmittedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusSubmitPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusSubmittedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusSubmitPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusSubmittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs -&gt; unit&#xA;override this.OnStatusSubmittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusSubmittedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnStatusSubmittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusUpdated (contextInfo As PSContextInfo, e As StatusUpdatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusUpdatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs -&gt; unit&#xA;override this.OnStatusUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusUpdatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusUpdatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusUpdatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusUpdatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusUpdatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusUpdatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusUpdatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs -&gt; unit&#xA;override this.OnStatusUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusUpdatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnStatusUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnStatusUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStatusUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStatusUpdating (contextInfo As PSContextInfo, e As StatusUpdatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStatusUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusUpdatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs -&gt; unit&#xA;override this.OnStatusUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnStatusUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStatusUpdatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs OnStatusUpdatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs OnStatusUpdatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnStatusUpdatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusUpdatePreEventArgs) As StatusUpdatePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusUpdatePreEventArgs ^ OnStatusUpdatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusUpdatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStatusUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs&#xA;override this.OnStatusUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs" Usage="statusingEventReceiver.OnStatusUpdatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnStatusUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusUpdatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTaskCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnTaskCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTaskCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnTaskCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTaskCreated (contextInfo As PSContextInfo, e As StatusCreateTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTaskCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusCreateTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTaskCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs -&gt; unit&#xA;override this.OnTaskCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnTaskCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTaskCreatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnTaskCreatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTaskCreatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnTaskCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTaskCreatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusCreateTaskPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTaskCreatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusCreateTaskPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTaskCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs -&gt; unit&#xA;override this.OnTaskCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs -&gt; unit" Usage="statusingEventReceiver.OnTaskCreatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnTaskCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusCreateTaskPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTaskCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnTaskCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTaskCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnTaskCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTaskCreating (contextInfo As PSContextInfo, e As StatusCreateTaskPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTaskCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StatusCreateTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTaskCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs -&gt; unit&#xA;override this.OnTaskCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs -&gt; unit" Usage="statusingEventReceiver.OnTaskCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTaskCreatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs OnTaskCreatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs OnTaskCreatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnTaskCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnTaskCreatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StatusCreateTaskPreEventArgs) As StatusCreateTaskPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::StatusCreateTaskPreEventArgs ^ OnTaskCreatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StatusCreateTaskPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTaskCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs&#xA;override this.OnTaskCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs" Usage="statusingEventReceiver.OnTaskCreatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IStatusingEventReceiverRemote.OnTaskCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusCreateTaskPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
