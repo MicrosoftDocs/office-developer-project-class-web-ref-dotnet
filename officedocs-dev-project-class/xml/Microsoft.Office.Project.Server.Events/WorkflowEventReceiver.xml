@@ -1,0 +1,387 @@
+﻿<Type Name="WorkflowEventReceiver" FullName="Microsoft.Office.Project.Server.Events.WorkflowEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class WorkflowEventReceiver : Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit WorkflowEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class WorkflowEventReceiver&#xA;Implements IWorkflowEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class WorkflowEventReceiver abstract : Microsoft::Office::Project::Server::Events::IWorkflowEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type WorkflowEventReceiver = class&#xA;    interface IWorkflowEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected WorkflowEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; WorkflowEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCompleted">
+      <MemberSignature Language="C#" Value="public virtual void OnCompleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CompletedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCompleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CompletedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnCompleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CompletedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCompleted (contextInfo As PSContextInfo, e As CompletedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCompleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CompletedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCompleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CompletedPostEventArgs -&gt; unit&#xA;override this.OnCompleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CompletedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnCompleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CompletedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCompletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCompletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CompletedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCompletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CompletedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnCompletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CompletedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCompletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CompletedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCompletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CompletedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCompletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CompletedPostEventArgs -&gt; unit&#xA;override this.OnCompletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CompletedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnCompletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnCompletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CompletedPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CompletedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectTypeChanged">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectTypeChanged (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectTypeChanged(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnProjectTypeChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectTypeChanged (contextInfo As PSContextInfo, e As ProjectTypeChangedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectTypeChanged(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectTypeChangedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectTypeChanged : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs -&gt; unit&#xA;override this.OnProjectTypeChanged : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnProjectTypeChanged (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectTypeChangedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectTypeChangedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectTypeChangedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnProjectTypeChangedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectTypeChangedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ProjectTypeChangedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectTypeChangedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ProjectTypeChangedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectTypeChangedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs -&gt; unit&#xA;override this.OnProjectTypeChangedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnProjectTypeChangedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnProjectTypeChangedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectTypeChangedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectTypeChanging">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectTypeChanging (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectTypeChanging(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnProjectTypeChanging(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectTypeChanging (contextInfo As PSContextInfo, e As ProjectTypeChangingEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectTypeChanging(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectTypeChangingEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectTypeChanging : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs -&gt; unit&#xA;override this.OnProjectTypeChanging : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs -&gt; unit" Usage="workflowEventReceiver.OnProjectTypeChanging (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectTypeChangingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs OnProjectTypeChangingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs OnProjectTypeChangingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnProjectTypeChangingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnProjectTypeChangingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ProjectTypeChangingEventArgs) As ProjectTypeChangingEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ProjectTypeChangingEventArgs ^ OnProjectTypeChangingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ProjectTypeChangingEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectTypeChangingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs -&gt; Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs&#xA;override this.OnProjectTypeChangingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs -&gt; Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs" Usage="workflowEventReceiver.OnProjectTypeChangingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnProjectTypeChangingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectTypeChangingEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnRunning">
+      <MemberSignature Language="C#" Value="public virtual void OnRunning (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnRunning(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnRunning(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnRunning (contextInfo As PSContextInfo, e As WorkflowRunningEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnRunning(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::WorkflowRunningEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnRunning : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs -&gt; unit&#xA;override this.OnRunning : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs -&gt; unit" Usage="workflowEventReceiver.OnRunning (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnRunningRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs OnRunningRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs OnRunningRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnRunningRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnRunningRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As WorkflowRunningEventArgs) As WorkflowRunningEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::WorkflowRunningEventArgs ^ OnRunningRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::WorkflowRunningEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnRunningRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs -&gt; Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs&#xA;override this.OnRunningRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs -&gt; Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs" Usage="workflowEventReceiver.OnRunningRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnRunningRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.WorkflowRunningEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStageEntered">
+      <MemberSignature Language="C#" Value="public virtual void OnStageEntered (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStageEntered(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnStageEntered(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStageEntered (contextInfo As PSContextInfo, e As StageEnteredPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStageEntered(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StageEnteredPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStageEntered : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs -&gt; unit&#xA;override this.OnStageEntered : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnStageEntered (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStageEnteredRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnStageEnteredRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStageEnteredRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnStageEnteredRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStageEnteredRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StageEnteredPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStageEnteredRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StageEnteredPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStageEnteredRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs -&gt; unit&#xA;override this.OnStageEnteredRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnStageEnteredRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnStageEnteredRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StageEnteredPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStarted">
+      <MemberSignature Language="C#" Value="public virtual void OnStarted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.StartedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStarted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.StartedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnStarted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StartedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStarted (contextInfo As PSContextInfo, e As StartedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStarted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::StartedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStarted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StartedPostEventArgs -&gt; unit&#xA;override this.OnStarted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.StartedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnStarted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StartedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnStartedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnStartedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.StartedPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnStartedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.StartedPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.WorkflowEventReceiver.OnStartedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StartedPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnStartedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As StartedPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnStartedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::StartedPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnStartedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StartedPostEventArgs -&gt; unit&#xA;override this.OnStartedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.StartedPostEventArgs -&gt; unit" Usage="workflowEventReceiver.OnStartedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IWorkflowEventReceiverRemote.OnStartedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.StartedPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StartedPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

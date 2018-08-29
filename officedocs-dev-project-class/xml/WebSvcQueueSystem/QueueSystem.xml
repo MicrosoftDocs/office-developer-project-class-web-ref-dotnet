@@ -1,0 +1,864 @@
+﻿<Type Name="QueueSystem" FullName="WebSvcQueueSystem.QueueSystem">
+  <TypeSignature Language="C#" Value="public class QueueSystem : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit QueueSystem extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcQueueSystem.QueueSystem" />
+  <TypeSignature Language="VB.NET" Value="Public Class QueueSystem&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class QueueSystem : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type QueueSystem = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="QueueSystemSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public QueueSystem ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; QueueSystem();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelCorrelation">
+      <MemberSignature Language="C#" Value="public void CancelCorrelation (Guid correlationUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelCorrelation(valuetype System.Guid correlationUID, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelCorrelation(System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelCorrelation (correlationUID As Guid, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelCorrelation(Guid correlationUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelCorrelation : Guid * bool -&gt; unit" Usage="queueSystem.CancelCorrelation (correlationUID, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationUID" Type="System.Guid" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="correlationUID">To be added.</param>
+        <param name="cancelSendIncompleteJobs">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJob">
+      <MemberSignature Language="C#" Value="public void CancelJob (Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJob(valuetype System.Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJob(System.Guid,System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJob (jobUID As Guid, cancelCorrelationJobs As Boolean, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJob(Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelJob : Guid * bool * bool -&gt; unit" Usage="queueSystem.CancelJob (jobUID, cancelCorrelationJobs, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJob", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="cancelCorrelationJobs" Type="System.Boolean" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">To be added.</param>
+        <param name="cancelCorrelationJobs">To be added.</param>
+        <param name="cancelSendIncompleteJobs">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJobAndCorrelation">
+      <MemberSignature Language="C#" Value="public void CancelJobAndCorrelation (Guid jobUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJobAndCorrelation(valuetype System.Guid jobUID, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJobAndCorrelation(System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJobAndCorrelation (jobUID As Guid, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJobAndCorrelation(Guid jobUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelJobAndCorrelation : Guid * bool -&gt; unit" Usage="queueSystem.CancelJobAndCorrelation (jobUID, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJobAndCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">To be added.</param>
+        <param name="cancelSendIncompleteJobs">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJobSimple">
+      <MemberSignature Language="C#" Value="public void CancelJobSimple (Guid jobUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJobSimple(valuetype System.Guid jobUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJobSimple(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJobSimple (jobUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJobSimple(Guid jobUID);" />
+      <MemberSignature Language="F#" Value="member this.CancelJobSimple : Guid -&gt; unit" Usage="queueSystem.CancelJobSimple jobUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJobSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobCompletionState">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.JobState GetJobCompletionState (Guid jobUID, out string errorString);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype WebSvcQueueSystem.JobState GetJobCompletionState(valuetype System.Guid jobUID, [out] string&amp; errorString) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobCompletionState(System.Guid,System.String@)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobCompletionState (jobUID As Guid, ByRef errorString As String) As JobState" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::JobState GetJobCompletionState(Guid jobUID, [Runtime::InteropServices::Out] System::String ^ % errorString);" />
+      <MemberSignature Language="F#" Value="member this.GetJobCompletionState : Guid *  -&gt; WebSvcQueueSystem.JobState" Usage="queueSystem.GetJobCompletionState (jobUID, errorString)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobCompletionState", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.JobState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="errorString" Type="System.String" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">To be added.</param>
+        <param name="errorString">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobCount">
+      <MemberSignature Language="C#" Value="public int GetJobCount (Guid[] CorrelationGUIDs, WebSvcQueueSystem.JobState[] jobStates, WebSvcQueueSystem.QueueMsgType[] messageTypes);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobCount(valuetype System.Guid[] CorrelationGUIDs, valuetype WebSvcQueueSystem.JobState[] jobStates, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobCount(System.Guid[],WebSvcQueueSystem.JobState[],WebSvcQueueSystem.QueueMsgType[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobCount (CorrelationGUIDs As Guid(), jobStates As JobState(), messageTypes As QueueMsgType()) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobCount(cli::array &lt;Guid&gt; ^ CorrelationGUIDs, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ jobStates, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes);" />
+      <MemberSignature Language="F#" Value="member this.GetJobCount : Guid[] * WebSvcQueueSystem.JobState[] * WebSvcQueueSystem.QueueMsgType[] -&gt; int" Usage="queueSystem.GetJobCount (CorrelationGUIDs, jobStates, messageTypes)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobCount", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CorrelationGUIDs" Type="System.Guid[]" />
+        <Parameter Name="jobStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+      </Parameters>
+      <Docs>
+        <param name="CorrelationGUIDs">To be added.</param>
+        <param name="jobStates">To be added.</param>
+        <param name="messageTypes">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobGroupWaitTime">
+      <MemberSignature Language="C#" Value="public int GetJobGroupWaitTime (Guid trackingID, WebSvcQueueSystem.QueueMsgType messageType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobGroupWaitTime(valuetype System.Guid trackingID, valuetype WebSvcQueueSystem.QueueMsgType messageType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobGroupWaitTime(System.Guid,WebSvcQueueSystem.QueueMsgType)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobGroupWaitTime (trackingID As Guid, messageType As QueueMsgType) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobGroupWaitTime(Guid trackingID, WebSvcQueueSystem::QueueMsgType messageType);" />
+      <MemberSignature Language="F#" Value="member this.GetJobGroupWaitTime : Guid * WebSvcQueueSystem.QueueMsgType -&gt; int" Usage="queueSystem.GetJobGroupWaitTime (trackingID, messageType)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobGroupWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="trackingID" Type="System.Guid" />
+        <Parameter Name="messageType" Type="WebSvcQueueSystem.QueueMsgType" />
+      </Parameters>
+      <Docs>
+        <param name="trackingID">To be added.</param>
+        <param name="messageType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobGroupWaitTimeSimple">
+      <MemberSignature Language="C#" Value="public int GetJobGroupWaitTimeSimple (Guid trackingID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobGroupWaitTimeSimple(valuetype System.Guid trackingID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobGroupWaitTimeSimple(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobGroupWaitTimeSimple (trackingID As Guid) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobGroupWaitTimeSimple(Guid trackingID);" />
+      <MemberSignature Language="F#" Value="member this.GetJobGroupWaitTimeSimple : Guid -&gt; int" Usage="queueSystem.GetJobGroupWaitTimeSimple trackingID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobGroupWaitTimeSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="trackingID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="trackingID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobWaitTime">
+      <MemberSignature Language="C#" Value="public int GetJobWaitTime (Guid jobID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobWaitTime(valuetype System.Guid jobID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobWaitTime(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobWaitTime (jobID As Guid) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobWaitTime(Guid jobID);" />
+      <MemberSignature Language="F#" Value="member this.GetJobWaitTime : Guid -&gt; int" Usage="queueSystem.GetJobWaitTime jobID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="jobID">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMyJobCount">
+      <MemberSignature Language="C#" Value="public int GetMyJobCount (WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetMyJobCount(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionState, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetMyJobCount(WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetMyJobCount (messageTypes As QueueMsgType(), JobCompletionState As JobState(), fromDate As DateTime, toDate As DateTime, maxRows As Integer) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetMyJobCount(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows);" />
+      <MemberSignature Language="F#" Value="member this.GetMyJobCount : WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int -&gt; int" Usage="queueSystem.GetMyJobCount (messageTypes, JobCompletionState, fromDate, toDate, maxRows)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetMyJobCount", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionState" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">To be added.</param>
+        <param name="JobCompletionState">To be added.</param>
+        <param name="fromDate">To be added.</param>
+        <param name="toDate">To be added.</param>
+        <param name="maxRows">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetProposedJobWaitTime">
+      <MemberSignature Language="C#" Value="public int GetProposedJobWaitTime (Guid correlationUID, WebSvcQueueSystem.QueueMsgType messageType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetProposedJobWaitTime(valuetype System.Guid correlationUID, valuetype WebSvcQueueSystem.QueueMsgType messageType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetProposedJobWaitTime(System.Guid,WebSvcQueueSystem.QueueMsgType)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetProposedJobWaitTime (correlationUID As Guid, messageType As QueueMsgType) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetProposedJobWaitTime(Guid correlationUID, WebSvcQueueSystem::QueueMsgType messageType);" />
+      <MemberSignature Language="F#" Value="member this.GetProposedJobWaitTime : Guid * WebSvcQueueSystem.QueueMsgType -&gt; int" Usage="queueSystem.GetProposedJobWaitTime (correlationUID, messageType)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetProposedJobWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationUID" Type="System.Guid" />
+        <Parameter Name="messageType" Type="WebSvcQueueSystem.QueueMsgType" />
+      </Parameters>
+      <Docs>
+        <param name="correlationUID">To be added.</param>
+        <param name="messageType">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PurgeQueueStatistics">
+      <MemberSignature Language="C#" Value="public void PurgeQueueStatistics (WebSvcQueueSystem.QueueMsgType[] messageTypes);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void PurgeQueueStatistics(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.PurgeQueueStatistics(WebSvcQueueSystem.QueueMsgType[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub PurgeQueueStatistics (messageTypes As QueueMsgType())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void PurgeQueueStatistics(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes);" />
+      <MemberSignature Language="F#" Value="member this.PurgeQueueStatistics : WebSvcQueueSystem.QueueMsgType[] -&gt; unit" Usage="queueSystem.PurgeQueueStatistics messageTypes" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/PurgeQueueStatistics", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueuePurgeArchivedJobs">
+      <MemberSignature Language="C#" Value="public void QueuePurgeArchivedJobs (Guid jobUid, WebSvcQueueSystem.QueueID queueId, Nullable&lt;Guid&gt; correlationUID, Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt; messageType, Nullable&lt;int&gt; hoursHistory);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void QueuePurgeArchivedJobs(valuetype System.Guid jobUid, valuetype WebSvcQueueSystem.QueueID queueId, valuetype System.Nullable`1&lt;valuetype System.Guid&gt; correlationUID, valuetype System.Nullable`1&lt;valuetype WebSvcQueueSystem.QueueMsgType&gt; messageType, valuetype System.Nullable`1&lt;int32&gt; hoursHistory) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.QueuePurgeArchivedJobs(System.Guid,WebSvcQueueSystem.QueueID,System.Nullable{System.Guid},System.Nullable{WebSvcQueueSystem.QueueMsgType},System.Nullable{System.Int32})" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void QueuePurgeArchivedJobs(Guid jobUid, WebSvcQueueSystem::QueueID queueId, Nullable&lt;Guid&gt; correlationUID, Nullable&lt;WebSvcQueueSystem::QueueMsgType&gt; messageType, Nullable&lt;int&gt; hoursHistory);" />
+      <MemberSignature Language="F#" Value="member this.QueuePurgeArchivedJobs : Guid * WebSvcQueueSystem.QueueID * Nullable&lt;Guid&gt; * Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt; * Nullable&lt;int&gt; -&gt; unit" Usage="queueSystem.QueuePurgeArchivedJobs (jobUid, queueId, correlationUID, messageType, hoursHistory)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/QueuePurgeArchivedJobs", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUid" Type="System.Guid" />
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+        <Parameter Name="correlationUID" Type="System.Nullable&lt;System.Guid&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="messageType" Type="System.Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="hoursHistory" Type="System.Nullable&lt;System.Int32&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="jobUid">To be added.</param>
+        <param name="queueId">To be added.</param>
+        <param name="correlationUID">To be added.</param>
+        <param name="messageType">To be added.</param>
+        <param name="hoursHistory">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadAllJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatus (WebSvcQueueSystem.JobState[] jobStates, WebSvcQueueSystem.QueueMsgType[] messageTypes, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatus(valuetype WebSvcQueueSystem.JobState[] jobStates, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadAllJobStatus(WebSvcQueueSystem.JobState[],WebSvcQueueSystem.QueueMsgType[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadAllJobStatus(cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ jobStates, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadAllJobStatus : WebSvcQueueSystem.JobState[] * WebSvcQueueSystem.QueueMsgType[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadAllJobStatus (jobStates, messageTypes, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadAllJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="jobStates">To be added.</param>
+        <param name="messageTypes">To be added.</param>
+        <param name="fromDate">To be added.</param>
+        <param name="toDate">To be added.</param>
+        <param name="maxRows">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <param name="sortColumn">To be added.</param>
+        <param name="sortOrder">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadAllJobStatusSimple">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatusSimple (DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatusSimple(valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadAllJobStatusSimple(System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadAllJobStatusSimple(DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadAllJobStatusSimple : DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadAllJobStatusSimple (fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadAllJobStatusSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="fromDate">To be added.</param>
+        <param name="toDate">To be added.</param>
+        <param name="maxRows">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <param name="sortColumn">To be added.</param>
+        <param name="sortOrder">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadJobStatus (WebSvcQueueSystem.QueueStatusRequestDataSet qsrDS, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadJobStatus(class WebSvcQueueSystem.QueueStatusRequestDataSet qsrDS, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadJobStatus(WebSvcQueueSystem::QueueStatusRequestDataSet ^ qsrDS, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadJobStatus : WebSvcQueueSystem.QueueStatusRequestDataSet * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadJobStatus (qsrDS, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="qsrDS" Type="WebSvcQueueSystem.QueueStatusRequestDataSet" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="qsrDS">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <param name="sortColumn">To be added.</param>
+        <param name="sortOrder">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadJobStatusSimple">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadJobStatusSimple (Guid[] jobUIDs, bool includeWaitTime);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadJobStatusSimple(valuetype System.Guid[] jobUIDs, bool includeWaitTime) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadJobStatusSimple (jobUIDs As Guid(), includeWaitTime As Boolean) As QueueStatusDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadJobStatusSimple(cli::array &lt;Guid&gt; ^ jobUIDs, bool includeWaitTime);" />
+      <MemberSignature Language="F#" Value="member this.ReadJobStatusSimple : Guid[] * bool -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadJobStatusSimple (jobUIDs, includeWaitTime)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadJobStatusSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUIDs" Type="System.Guid[]" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUIDs">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadMyJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadMyJobStatus (WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadMyJobStatus(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionState, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadMyJobStatus(WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadMyJobStatus(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadMyJobStatus : WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadMyJobStatus (messageTypes, JobCompletionState, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadMyJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionState" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">To be added.</param>
+        <param name="JobCompletionState">To be added.</param>
+        <param name="fromDate">To be added.</param>
+        <param name="toDate">To be added.</param>
+        <param name="maxRows">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <param name="sortColumn">To be added.</param>
+        <param name="sortOrder">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadProjectJobStatus (Guid[] projectGUIDs, WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionStates, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadProjectJobStatus(valuetype System.Guid[] projectGUIDs, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionStates, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadProjectJobStatus(System.Guid[],WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadProjectJobStatus(cli::array &lt;Guid&gt; ^ projectGUIDs, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionStates, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadProjectJobStatus : Guid[] * WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadProjectJobStatus (projectGUIDs, messageTypes, JobCompletionStates, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadProjectJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projectGUIDs" Type="System.Guid[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="projectGUIDs">To be added.</param>
+        <param name="messageTypes">To be added.</param>
+        <param name="JobCompletionStates">To be added.</param>
+        <param name="fromDate">To be added.</param>
+        <param name="toDate">To be added.</param>
+        <param name="maxRows">To be added.</param>
+        <param name="includeWaitTime">To be added.</param>
+        <param name="sortColumn">To be added.</param>
+        <param name="sortOrder">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadQueueConfiguration">
+      <MemberSignature Language="C#" Value="public string ReadQueueConfiguration (WebSvcQueueSystem.QueueID queueId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string ReadQueueConfiguration(valuetype WebSvcQueueSystem.QueueID queueId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadQueueConfiguration(WebSvcQueueSystem.QueueID)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; System::String ^ ReadQueueConfiguration(WebSvcQueueSystem::QueueID queueId);" />
+      <MemberSignature Language="F#" Value="member this.ReadQueueConfiguration : WebSvcQueueSystem.QueueID -&gt; string" Usage="queueSystem.ReadQueueConfiguration queueId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadQueueConfiguration", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+      </Parameters>
+      <Docs>
+        <param name="queueId">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RetryCorrelation">
+      <MemberSignature Language="C#" Value="public void RetryCorrelation (Guid correlationGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RetryCorrelation(valuetype System.Guid correlationGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.RetryCorrelation(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub RetryCorrelation (correlationGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void RetryCorrelation(Guid correlationGUID);" />
+      <MemberSignature Language="F#" Value="member this.RetryCorrelation : Guid -&gt; unit" Usage="queueSystem.RetryCorrelation correlationGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/RetryCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="correlationGUID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RetryJob">
+      <MemberSignature Language="C#" Value="public void RetryJob (Guid JobGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RetryJob(valuetype System.Guid JobGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.RetryJob(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub RetryJob (JobGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void RetryJob(Guid JobGUID);" />
+      <MemberSignature Language="F#" Value="member this.RetryJob : Guid -&gt; unit" Usage="queueSystem.RetryJob JobGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/RetryJob", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="JobGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="JobGUID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetQueueConfiguration">
+      <MemberSignature Language="C#" Value="public void SetQueueConfiguration (WebSvcQueueSystem.QueueID queueId, string name, string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetQueueConfiguration(valuetype WebSvcQueueSystem.QueueID queueId, string name, string value) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.SetQueueConfiguration(WebSvcQueueSystem.QueueID,System.String,System.String)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetQueueConfiguration(WebSvcQueueSystem::QueueID queueId, System::String ^ name, System::String ^ value);" />
+      <MemberSignature Language="F#" Value="member this.SetQueueConfiguration : WebSvcQueueSystem.QueueID * string * string -&gt; unit" Usage="queueSystem.SetQueueConfiguration (queueId, name, value)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/SetQueueConfiguration", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="queueId">To be added.</param>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnblockCorrelation">
+      <MemberSignature Language="C#" Value="public void UnblockCorrelation (Guid correlationGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UnblockCorrelation(valuetype System.Guid correlationGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.UnblockCorrelation(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UnblockCorrelation (correlationGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UnblockCorrelation(Guid correlationGUID);" />
+      <MemberSignature Language="F#" Value="member this.UnblockCorrelation : Guid -&gt; unit" Usage="queueSystem.UnblockCorrelation correlationGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/UnblockCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="correlationGUID">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
