@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one lookup table.</summary>
+    <remarks>
+      <para>For an example, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="APP_ENTITY_UID">
@@ -39,8 +42,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a custom field alternate entity GUID that is specified in an App package for Project Online.</summary>
+        <value>A custom field alternate entity GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -66,8 +69,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the lookup table code masks. </summary>
+        <returns>An array of row objects.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -93,8 +96,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets all of the values in the lookup table tree.</summary>
+        <returns>An array of row objects.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -120,8 +123,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.APP_ENTITY_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,8 +151,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -174,8 +179,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUTDATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +207,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_FILL_ALL_LEVELS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,8 +235,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_PRIMARY_LCID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -255,8 +263,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_SORT_ORDER_ENUM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -282,8 +291,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.MOD_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -308,9 +318,44 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the unique identifier of the user who has the lookup table checked out for modification.</summary>
+        <value>The GUID of a user.</value>
+        <remarks>
+          <para>Opening a lookup table in the Edit Lookup Table page of Project Web App checks out the lookup table to the user.</para>
+          <para>To help understand the <b>LT_CHECKOUTBY</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object that contains one lookup table (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). The name of the lookup table is "Location".</para>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTables</b> element has the following values.</para>
+          <code>&amp;lt;LookupTables&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_NAME&amp;gt;Location&amp;lt;/LT_NAME&amp;gt;
+    &amp;lt;LT_SORT_ORDER_ENUM&amp;gt;1&amp;lt;/LT_SORT_ORDER_ENUM&amp;gt;
+    &amp;lt;LT_PRIMARY_LCID&amp;gt;1033&amp;lt;/LT_PRIMARY_LCID&amp;gt;
+    &amp;lt;LT_FILL_ALL_LEVELS&amp;gt;false&amp;lt;/LT_FILL_ALL_LEVELS&amp;gt;
+    &amp;lt;LT_CHECKOUTBY&amp;gt;88936e51-dcb3-4953-b191-ce1bfeb92049&amp;lt;/LT_CHECKOUTBY&amp;gt;
+    &amp;lt;LT_CHECKOUTDATE&amp;gt;2011-08-28T10:19:47.72-07:00&amp;lt;/LT_CHECKOUTDATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2011-08-28T10:19:00.59-07:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/LookupTables&amp;gt;</code>
+          <para>If the lut.LookupTables[0].LT_CHECKOUTBY value is a null reference (Nothing in Visual Basic), the XML file does not contain the <b>LT_CHECKOUTBY</b> child element.</para>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>IsLutCheckedOut</b> method shows a message box and returns <b>false</b> if the lookup table is not checked out. <b>LookupTableWS</b> is an arbitrary name for a reference to the <b>LookupTable</b> Web service, and <b>lookupTable</b> is an initialized <b>LookupTableWS.LookupTable</b>object.</para>
+          <code>private bool IsLutCheckedOut(Guid lutUid)
+{
+    bool isCheckedOut = true;
+    Guid[] lutUids = { lutUid };
+
+    LookupTableWS.LookupTableDataSet lut = 
+        lookupTable.ReadLookupTablesByUids(lutUids, false, 1033);
+    if (lut.LookupTables[0].IsLT_CHECKOUTBYNull())
+    {
+        MessageBox.Show("Lookup table " + lut.LookupTables[0].LT_NAME 
+            + " is not checked out.");
+        isCheckedOut = false;
+    }
+    return isCheckedOut;
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="LT_CHECKOUTDATE">
@@ -334,9 +379,24 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the date on which the lookup table was last checked out.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>To help understand the <b>LT_CHECKOUTDATE</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object that contains one lookup table (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). The name of the lookup table is "Location", and the lookup table is not checked out.</para>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTables</b> element has the following values.</para>
+          <code>&amp;lt;LookupTables&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_NAME&amp;gt;Location&amp;lt;/LT_NAME&amp;gt;
+    &amp;lt;LT_SORT_ORDER_ENUM&amp;gt;1&amp;lt;/LT_SORT_ORDER_ENUM&amp;gt;
+    &amp;lt;LT_PRIMARY_LCID&amp;gt;1033&amp;lt;/LT_PRIMARY_LCID&amp;gt;
+    &amp;lt;LT_FILL_ALL_LEVELS&amp;gt;false&amp;lt;/LT_FILL_ALL_LEVELS&amp;gt;
+    &amp;lt;LT_CHECKOUTDATE&amp;gt;2011-08-28T10:19:47.72-07:00&amp;lt;/LT_CHECKOUTDATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2011-08-28T10:19:00.59-07:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/LookupTables&amp;gt;</code>
+          <para>The local <b>System.DateTime</b> value of lut.LookupTables[0].LT_CHECKOUTDATE is 8/28/2011 10:19:47 AM. The local time is seven hours earlier than Greenwich Mean Time.</para>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_FILL_ALL_LEVELS">
@@ -360,9 +420,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets whether all levels of a hierarchical lookup table must have a value.</summary>
+        <value>
+          <b>True</b> if all levels must have a value; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The default value of <b>LT_FILL_ALL_LEVELS</b> is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_NAME">
@@ -386,9 +450,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the lookup table.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For an example, see Walkthrough: Creating a Hierarchical Lookup Table.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_PRIMARY_LCID">
@@ -412,9 +479,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the primary locale identifier for the lookup table.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To help understand the <b>LT_PRIMARY_LCID</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object that contains one lookup table (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTables</b> element has the following values.</para>
+          <code>&amp;lt;LookupTables&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_NAME&amp;gt;Location&amp;lt;/LT_NAME&amp;gt;
+    &amp;lt;LT_SORT_ORDER_ENUM&amp;gt;1&amp;lt;/LT_SORT_ORDER_ENUM&amp;gt;
+    &amp;lt;LT_PRIMARY_LCID&amp;gt;1033&amp;lt;/LT_PRIMARY_LCID&amp;gt;
+    &amp;lt;LT_FILL_ALL_LEVELS&amp;gt;false&amp;lt;/LT_FILL_ALL_LEVELS&amp;gt;
+    &amp;lt;LT_CHECKOUTDATE&amp;gt;2011-08-28T10:19:47.72-07:00&amp;lt;/LT_CHECKOUTDATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2011-08-28T10:19:00.59-07:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/LookupTables&amp;gt;</code>
+          <para>The <b>LT_PRIMARY_LCID</b> value 1033 indicates U.S. English.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_SORT_ORDER_ENUM">
@@ -438,9 +519,24 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the sort order of the lookup table, specified by the <see cref="T:Microsoft.Office.Project.Server.Library.LookupTables.SortOrder" /> enumeration.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To help understand the <b>LT_SORT_ORDER_ENUM</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object that contains one lookup table (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTables</b> element has the following values.</para>
+          <code>&amp;lt;LookupTables&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_NAME&amp;gt;Location&amp;lt;/LT_NAME&amp;gt;
+    &amp;lt;LT_SORT_ORDER_ENUM&amp;gt;1&amp;lt;/LT_SORT_ORDER_ENUM&amp;gt;
+    &amp;lt;LT_PRIMARY_LCID&amp;gt;1033&amp;lt;/LT_PRIMARY_LCID&amp;gt;
+    &amp;lt;LT_FILL_ALL_LEVELS&amp;gt;false&amp;lt;/LT_FILL_ALL_LEVELS&amp;gt;
+    &amp;lt;LT_CHECKOUTDATE&amp;gt;2011-08-28T10:19:47.72-07:00&amp;lt;/LT_CHECKOUTDATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2011-08-28T10:19:00.59-07:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/LookupTables&amp;gt;</code>
+          <para>The <b>LT_SORT_ORDER_ENUM</b> value 1 indicates an ascending sort order.</para>
+          <para>For more information, see Walkthrough: Creating a Hierarchical Lookup Table.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_UID">
@@ -464,9 +560,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the unique identifier of the lookup table.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For more information, see Walkthrough: Creating a Hierarchical Lookup Table.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MOD_DATE">
@@ -490,9 +589,25 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the most recent modification date of the lookup table.</summary>
+        <value>
+          <b>True</b> if the property is null; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>To help understand the <b>MOD_DATE</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object that contains one lookup table (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). The name of the lookup table is "Location", and the lookup table is not checked out.</para>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTables</b> element has the following values.</para>
+          <code>&amp;lt;LookupTables&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_NAME&amp;gt;Location&amp;lt;/LT_NAME&amp;gt;
+    &amp;lt;LT_SORT_ORDER_ENUM&amp;gt;1&amp;lt;/LT_SORT_ORDER_ENUM&amp;gt;
+    &amp;lt;LT_PRIMARY_LCID&amp;gt;1033&amp;lt;/LT_PRIMARY_LCID&amp;gt;
+    &amp;lt;LT_FILL_ALL_LEVELS&amp;gt;false&amp;lt;/LT_FILL_ALL_LEVELS&amp;gt;
+    &amp;lt;LT_CHECKOUTDATE&amp;gt;2011-08-28T10:19:47.72-07:00&amp;lt;/LT_CHECKOUTDATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2011-08-28T10:19:00.59-07:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/LookupTables&amp;gt;</code>
+          <para>The local <b>System.DateTime</b> value of lut.LookupTables[0].MOD_DATE is 8/28/2011 10:19:47 AM. The local time is seven hours earlier than Greenwich Mean Time.</para>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetAPP_ENTITY_UIDNull">
@@ -517,7 +632,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.APP_ENTITY_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -543,7 +658,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUTBY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -569,7 +684,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUTDATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -595,7 +710,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_FILL_ALL_LEVELS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -621,7 +736,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_PRIMARY_LCID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -647,7 +762,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_SORT_ORDER_ENUM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -673,7 +788,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.MOD_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

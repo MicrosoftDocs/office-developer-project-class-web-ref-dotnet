@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.AdminPostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,9 +56,12 @@
         <Parameter Name="createdItems" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="createdItems">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="createdItems">A collection of GUIDs of items that have a common denominator.</param>
+        <summary>Creates an instance of the <b>GroupCreatePostEventArgs</b> class.</summary>
+        <remarks>
+          <para>Grouping is a technique that is used to make viewing information in a project easier.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

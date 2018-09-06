@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.UserDelegationEventReceiver.OnChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.UserDelegationUpdatePostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,8 +56,8 @@
         <Parameter Name="updatedDelegations" Type="System.Collections.ObjectModel.Collection&lt;Microsoft.Office.Project.Server.Events.UserDelegationInfo&gt;" />
       </Parameters>
       <Docs>
-        <param name="updatedDelegations">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="updatedDelegations">A collection of the GUIDs that represent users who delegate permissions and users to whom permissions are delegated.</param>
+        <summary>Creates an instance of the <b>UserDelegationUpdatePostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +77,7 @@
         <ReturnType>System.Collections.ObjectModel.Collection&lt;Microsoft.Office.Project.Server.Events.UserDelegationInfo&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of the GUIDs that represent users who delegate permissions and users to whom permissions are delegated.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

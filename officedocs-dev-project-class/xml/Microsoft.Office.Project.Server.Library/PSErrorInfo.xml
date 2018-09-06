@@ -13,9 +13,17 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes members that get information about a Project Server error that occurs during run time.</summary>
+    <remarks>
+      <para>For code examples that use the <b>PSErrorInfo</b> class, and for tips on finding more information about Project Server errors, see Project Server Error Codes. See also other PSI topics that include code examples, such as <see cref="M:WebSvcProject.Project.ReadProject(System.Guid,WebSvcProject.DataStoreEnum)" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="ErrId">
@@ -34,8 +42,8 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.PSErrorID</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the Project Server error identification number.</summary>
+        <value>One of the <see cref="T:Microsoft.Office.Project.Server.Library.PSErrorID" /> constants.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,8 +63,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the Project Server error.</summary>
+        <value>One of the <see cref="T:Microsoft.Office.Project.Server.Library.PSErrorID" /> names.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,8 +85,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the attribute names of a Project Server error, if any.</summary>
+        <returns>An array of error attribute names, or a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,8 +106,8 @@
         <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the attributes of a Project Server error, if any.</summary>
+        <value>An array of error attributes, or a null reference (Nothing in Visual Basic).</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -119,9 +127,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the GUID of the Project Server error.</summary>
+        <value>The internal GUID value of a Project Server error.</value>
+        <remarks>
+          <para>Third-party applications should use the <b>ErrId</b>, <b>ErrName</b>, and <b>ErrorAttributes</b> properties, and the <b>ErrorAttributeNames</b> method, to get information about a Project Server error.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

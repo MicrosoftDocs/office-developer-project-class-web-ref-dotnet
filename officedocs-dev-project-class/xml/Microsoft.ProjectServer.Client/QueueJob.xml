@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Queues a project for publishing.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates a new instance of the <b>QueueJob</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +72,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Cancels the queue job.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +97,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the queue job.</summary>
+        <value>The queue job GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -122,10 +122,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False.</b></returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -150,8 +151,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.JobState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current progress of a job that is queued.</summary>
+        <value>An object that contains the job state.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +177,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.QueueMsgType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the queue message type, for sending a job to the Project Server Queue System..</summary>
+        <value>An enumerated value, represented by a <b>QueueMsgType</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,8 +203,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the percentage complete value for the queue job.</summary>
+        <value>A percentage number.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,8 +229,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Project</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project that is queued.</summary>
+        <value>A <b>Project</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +255,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the resource that submitted the queue job.</summary>
+        <value>An <b>EnterpriseResource</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,8 +281,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the expected wait time before the queue job will complete.</summary>
+        <value>An object that represents a time interval.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

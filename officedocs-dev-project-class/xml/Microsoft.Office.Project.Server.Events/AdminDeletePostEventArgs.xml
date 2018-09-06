@@ -13,9 +13,39 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.AdminPostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides post-event properties for deleted items in other event argument classes.</summary>
+    <remarks>
+      <para>Following are classes that take advantage of the <b>AdminDeletePostEventArgs</b> class:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs" />
+          </description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -52,9 +82,9 @@
         <Parameter Name="deletionComments" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="deletedItems">To be added.</param>
-        <param name="deletionComments">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="deletedItems">A collection of GUIDS that represent items that have been deleted.</param>
+        <param name="deletionComments">Text that provides information about items that have been deleted.</param>
+        <summary>Creates an instance of the <b>AdminDeletePostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -74,7 +104,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets text that provides information about items that have been deleted.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

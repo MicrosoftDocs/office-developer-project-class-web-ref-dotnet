@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Includes fields and methods for values of the default Project Server lookup tables.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Initializes a <b>LookupTables</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -57,8 +57,11 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies that any length for a code mask sequence is acceptable.</summary>
+        <remarks>
+          <para>Value = 0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="COST_TYPE_LT_UID">
@@ -77,8 +80,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Cost Type lookup table.</summary>
+        <remarks>
+          <para>Value = 0000e630-4965-42b3-a697-88f060891b22.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DEPARTMENTS_LT_UID">
@@ -97,8 +103,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Departments lookup table.</summary>
+        <remarks>
+          <para>Value = E7397277-1AB0-4096-B2DD-57029A055BA4.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRelativeImportanceComplement">
@@ -120,10 +129,13 @@
         <Parameter Name="relativeImportanceValue" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="relativeImportanceValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="relativeImportanceValue">GUID of the relative importance item.</param>
+        <summary>Gets the GUID of the complement (the additive inverse) of the relative importance.</summary>
+        <returns>Returns the GUID of the opposite relative importance value.</returns>
+        <remarks>
+          <para>For example, if <paramref name="relativeImportanceValue" /> is <b>RELATIVE_IMPORTANCE_MODERATE_LESS_LT_STRUCT_UID</b>, the <b>GetRelativeImportanceComplement</b> method returns <b>RELATIVE_IMPORTANCE_MODERATE_MORE_LT_STRUCT_UID</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="INVALID_LT_NAME_CHARS">
@@ -148,9 +160,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Gets invalid characters for lookup table names.</summary>
+        <returns>Array of the left square bracket '[' and right square bracket ']' characters, which are invalid in lookup table names.</returns>
+        <remarks>
+          <para>The '[' and ']' characters are not valid in lookup table names because they break formulas.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsTextMaskSequence">
@@ -171,10 +186,15 @@
         <Parameter Name="maskSequence" Type="Microsoft.Office.Project.Server.Library.LookupTables+MaskSequence" />
       </Parameters>
       <Docs>
-        <param name="maskSequence">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="maskSequence">Specifies one of the <see cref="T:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence" /> values.</param>
+        <summary>Determines whether one of the text mask sequence values is used.</summary>
+        <returns>
+          <b>True</b> if <paramref name="maskSequence" /> is a text type of code mask.</returns>
+        <remarks>
+          <para>The <b>IsTextMaskSequence</b> method returns <b>True</b> if the <paramref name="maskSequence" /> value is one of the following: <b>NUMBER_TEXT</b>, <b>UPPERCASE</b>, <b>LOWERCASE</b>, or <b>CHARACTERS</b>.</para>
+          <para>The method returns <b>False</b> if the <paramref name="maskSequence" /> value is <b>DATE</b>, <b>COST</b>, <b>DURATION</b>, <b>NUMBER_DECIMAL</b>, or <b>FLAG</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsValidProjectImpact">
@@ -196,10 +216,41 @@
         <Parameter Name="projectIMpactValue" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectIMpactValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectIMpactValue">GUID of a project impact value.</param>
+        <summary>Determines whether the specified project impact GUID is a valid value.</summary>
+        <returns>
+          <b>True</b> if <paramref name="projectIMpactValue" /> is a valid GUID for a project impact.</returns>
+        <remarks>
+          <para>The <b>IsValidProjectImpact</b> method returns <b>True</b> if the <paramref name="projectIMpactValue" /> parameter is one of the following:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.PROJECT_IMPACT_NONE_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.PROJECT_IMPACT_LOW_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.PROJECT_IMPACT_MODERATE_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.PROJECT_IMPACT_STRONG_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.PROJECT_IMPACT_EXTREME_LT_STRUCT_UID" />
+              </description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsValidRelativeImportance">
@@ -221,10 +272,51 @@
         <Parameter Name="relativeImportanceValue" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="relativeImportanceValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="relativeImportanceValue">GUID of a project impact value.</param>
+        <summary>Determines whether the specified GUID for relative importance is a valid value.</summary>
+        <returns>
+          <b>True</b> if <paramref name="relativeImportanceValue" /> is a valid GUID for relative importance.</returns>
+        <remarks>
+          <para>The <b>IsValidProjectImpact</b> method returns <b>True</b> if the <paramref name="relativeImportanceValue" /> parameter is one of the following:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_EXTREME_LESS_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_STRONG_LESS_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_MODERATE_LESS_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_EQUAL_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_MODERATE_MORE_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_STRONG_MORE_LT_STRUCT_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.RELATIVE_IMPORTANCE_EXTREME_MORE_LT_STRUCT_UID" />
+              </description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_COOKIE_LEN">
@@ -244,8 +336,11 @@
       </ReturnValue>
       <MemberValue>32766</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of a lookup table cookie.</summary>
+        <remarks>
+          <para>Value = 32,766 (0x7ffe) bytes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_DESCRIPTION_LEN">
@@ -265,8 +360,11 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of a lookup table description.</summary>
+        <remarks>
+          <para>Value = 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_LEN_LT_NAME">
@@ -285,8 +383,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of a lookup table name.</summary>
+        <remarks>
+          <para>Value = 50 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_LEVEL">
@@ -306,8 +407,11 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum number of levels in a hierarchical text lookup table.</summary>
+        <remarks>
+          <para>Value = 255 levels.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_PHONETICS_LEN">
@@ -327,8 +431,11 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of the phonetics in a text lookup table item.</summary>
+        <remarks>
+          <para>Value = 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_SEPARATOR_LENGTH">
@@ -348,8 +455,11 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of a separator in a code mask.</summary>
+        <remarks>
+          <para>Value = 3 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MAX_VALUE_LEN">
@@ -369,8 +479,11 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Maximum length of a text lookup table item.</summary>
+        <remarks>
+          <para>Value = 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MIN_LEVEL">
@@ -390,8 +503,11 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Minimum number of levels in a hierarchical text lookup table.</summary>
+        <remarks>
+          <para>Value = 1 level.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MIN_VALUE_LEN">
@@ -411,8 +527,11 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Minimum length of a text lookup table item.</summary>
+        <remarks>
+          <para>Value = 1 character.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NO_SORT_ORDER">
@@ -432,8 +551,11 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default sort order for a lookup table.</summary>
+        <remarks>
+          <para>Value = 0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_EXTREME_LT_DEFAULT_BACK_COLOR">
@@ -452,8 +574,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for extreme impact.</summary>
+        <remarks>
+          <para>RGB value = 0x254061 (2441313).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_EXTREME_LT_DEFAULT_FORE_COLOR">
@@ -472,8 +597,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for extreme impact.</summary>
+        <remarks>
+          <para>RGB value = 0xFFFFFF (16777215; white).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_EXTREME_LT_DEFAULT_WEIGHT">
@@ -492,8 +620,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for extreme impact.</summary>
+        <remarks>
+          <para>Value = 9.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_EXTREME_LT_STRUCT_UID">
@@ -512,8 +643,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the extreme impact item in the internal impact lookup table.</summary>
+        <remarks>
+          <para>Value = 628B9396-D788-4f0f-A62F-242A20091CAB.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_LOW_LT_DEFAULT_BACK_COLOR">
@@ -532,8 +666,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for low impact.</summary>
+        <remarks>
+          <para>RGB value = 0x254061 (2441313).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_LOW_LT_DEFAULT_FORE_COLOR">
@@ -552,8 +689,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for low impact.</summary>
+        <remarks>
+          <para>RGB value = 0x254061 (2441313).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_LOW_LT_DEFAULT_WEIGHT">
@@ -572,8 +712,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for low impact.</summary>
+        <remarks>
+          <para>Value = 1.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_LOW_LT_STRUCT_UID">
@@ -592,8 +735,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the low impact item in the internal impact lookup table.</summary>
+        <remarks>
+          <para>Value = 779271C4-894D-4385-9E33-1251A9E80541.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_LT_UID">
@@ -612,8 +758,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the internal Project Impact lookup table.</summary>
+        <remarks>
+          <para>Value = E8BCEC5D-8707-4048-8FF0-4D386457EDF7.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_MODERATE_LT_DEFAULT_BACK_COLOR">
@@ -632,8 +781,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for moderate impact.</summary>
+        <remarks>
+          <para>RGB value = 0x95B3D7 (9810903).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_MODERATE_LT_DEFAULT_FORE_COLOR">
@@ -652,8 +804,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for moderate impact.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_MODERATE_LT_DEFAULT_WEIGHT">
@@ -672,8 +827,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for moderate impact.</summary>
+        <remarks>
+          <para>Value = 3.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_MODERATE_LT_STRUCT_UID">
@@ -692,8 +850,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the moderate impact item in the internal impact lookup table.</summary>
+        <remarks>
+          <para>Value = 877999EE-97F7-4048-9052-AEF6C161039C.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_NONE_LT_DEFAULT_BACK_COLOR">
@@ -712,8 +873,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for no impact.</summary>
+        <remarks>
+          <para>RGB value = 0xDCE6F2 (14477042).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_NONE_LT_DEFAULT_FORE_COLOR">
@@ -732,8 +896,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for no impact.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_NONE_LT_DEFAULT_WEIGHT">
@@ -752,8 +919,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for no impact.</summary>
+        <remarks>
+          <para>Value = 0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_NONE_LT_STRUCT_UID">
@@ -772,8 +942,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the no impact item in the internal impact lookup table.</summary>
+        <remarks>
+          <para>Value = 53C910B9-F205-4d77-A093-058858F9F297.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_STRONG_LT_DEFAULT_BACK_COLOR">
@@ -792,8 +965,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for strong impact.</summary>
+        <remarks>
+          <para>RGB value = 0x376092 (3629202).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_STRONG_LT_DEFAULT_FORE_COLOR">
@@ -812,8 +988,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for strong impact.</summary>
+        <remarks>
+          <para>RGB value = 0xFFFFFF (16777215; white).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_STRONG_LT_DEFAULT_WEIGHT">
@@ -832,8 +1011,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for strong impact.</summary>
+        <remarks>
+          <para>Value =6.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_IMPACT_STRONG_LT_STRUCT_UID">
@@ -852,8 +1034,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the strong impact item in the internal impact lookup table.</summary>
+        <remarks>
+          <para>Value = 426F8D32-6961-4b4b-91AB-705F0200F45E.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_STATE_APPROVED_LT_STRUCT_UID">
@@ -872,8 +1057,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Approved item in the project State lookup table.</summary>
+        <remarks>
+          <para>Value = 5C66E3FE-5272-4AE6-85C8-ACCAE320E41E.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_STATE_LT_UID">
@@ -892,8 +1080,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the project State lookup table, upgraded from Microsoft Office Project Server 2007.</summary>
+        <remarks>
+          <para>Value = 0000d944-db4c-40a7-ac91-3a15e904aaed.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_STATE_PROPOSED_LT_STRUCT_UID">
@@ -912,8 +1103,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Proposed item in the project State lookup table.</summary>
+        <remarks>
+          <para>Value = 3440A8B9-740D-4A61-A0A2-551FF309E098.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJECT_STATE_REJECTED_LT_STRUCT_UID">
@@ -932,8 +1126,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Rejected item in the project State lookup table.</summary>
+        <remarks>
+          <para>Value = 2352833D-45BD-4A07-990A-40BEF5CB0996.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RBS_LT_UID">
@@ -952,8 +1149,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the RBS lookup table.</summary>
+        <remarks>
+          <para>Value = 00008e67-65a3-4898-baaa-d82d995bbb02.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EQUAL_LT_DEFAULT_BACK_COLOR">
@@ -972,8 +1172,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for equal importance.</summary>
+        <remarks>
+          <para>RGB value = 0x95B3D7 (9810903).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EQUAL_LT_DEFAULT_FORE_COLOR">
@@ -992,8 +1195,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for equal importance.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EQUAL_LT_DEFAULT_WEIGHT">
@@ -1012,8 +1218,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for equal importance.</summary>
+        <remarks>
+          <para>Value = 1.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EQUAL_LT_STRUCT_UID">
@@ -1032,8 +1241,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Equal item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = 70C6D37A-17DB-4e32-A35E-B1DB2E58A0AF.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_LESS_LT_DEFAULT_BACK_COLOR">
@@ -1052,8 +1264,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for extreme – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xF0F5FA (15791610).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_LESS_LT_DEFAULT_FORE_COLOR">
@@ -1072,8 +1287,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for extreme – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_LESS_LT_DEFAULT_WEIGHT">
@@ -1092,8 +1310,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for extreme – less relative importance.</summary>
+        <remarks>
+          <para>Value = 1 / 9.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_LESS_LT_STRUCT_UID">
@@ -1112,8 +1333,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Extreme - Less item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = C073A7AF-23F8-463b-9555-9A15A435A078.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_MORE_LT_DEFAULT_BACK_COLOR">
@@ -1132,8 +1356,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for extreme – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x10253F (1058111).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_MORE_LT_DEFAULT_FORE_COLOR">
@@ -1152,8 +1379,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for extreme – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xFFFFFF (16777215; white).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_MORE_LT_DEFAULT_WEIGHT">
@@ -1172,8 +1402,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for extreme – more relative importance.</summary>
+        <remarks>
+          <para>Value =9.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_EXTREME_MORE_LT_STRUCT_UID">
@@ -1192,8 +1425,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Extreme - More item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = 42CA55A4-DDD2-431b-84D3-B8CC21FD1FB9.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_LT_UID">
@@ -1212,8 +1448,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Relative Importance internal lookup table.</summary>
+        <remarks>
+          <para>Value = 5AD95F2A-CB3E-43d4-B42B-FAF2DB138590.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_LESS_LT_DEFAULT_BACK_COLOR">
@@ -1232,8 +1471,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for moderate – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xB9CDE5 (12176869).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_LESS_LT_DEFAULT_FORE_COLOR">
@@ -1252,8 +1494,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for moderate – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_LESS_LT_DEFAULT_WEIGHT">
@@ -1272,8 +1517,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for moderate – less relative importance.</summary>
+        <remarks>
+          <para>Value = 1 / 3.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_LESS_LT_STRUCT_UID">
@@ -1292,8 +1540,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Moderate - Less item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = 9CECF611-8F36-4ca2-89E4-640537848513.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_MORE_LT_DEFAULT_BACK_COLOR">
@@ -1312,8 +1563,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for moderate – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x376092 (3629202).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_MORE_LT_DEFAULT_FORE_COLOR">
@@ -1332,8 +1586,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for moderate – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xFFFFFF (16777215; white).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_MORE_LT_DEFAULT_WEIGHT">
@@ -1352,8 +1609,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for moderate – more relative importance.</summary>
+        <remarks>
+          <para>Value =3.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_MODERATE_MORE_LT_STRUCT_UID">
@@ -1372,8 +1632,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Moderate - More item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = 3E0D4FFF-52A6-4235-9B2D-8FB26D74A139.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_LESS_LT_DEFAULT_BACK_COLOR">
@@ -1392,8 +1655,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for strong – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xDCE6F2 (14477042).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_LESS_LT_DEFAULT_FORE_COLOR">
@@ -1412,8 +1678,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for strong – less relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x0 (black).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_LESS_LT_DEFAULT_WEIGHT">
@@ -1432,8 +1701,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for strong – less relative importance.</summary>
+        <remarks>
+          <para>Value = 1 / 6.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_LESS_LT_STRUCT_UID">
@@ -1452,8 +1724,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Strong - Less item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = 4EF61D74-54DF-453f-9707-99937D46430A.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_MORE_LT_DEFAULT_BACK_COLOR">
@@ -1472,8 +1747,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default background color for strong – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0x254061 (2441313).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_MORE_LT_DEFAULT_FORE_COLOR">
@@ -1492,8 +1770,11 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default foreground color for strong – more relative importance.</summary>
+        <remarks>
+          <para>RGB value = 0xFFFFFF (16777215; white).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_MORE_LT_DEFAULT_WEIGHT">
@@ -1512,8 +1793,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Default weight for strong – more relative importance.</summary>
+        <remarks>
+          <para>Value =6.0.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RELATIVE_IMPORTANCE_STRONG_MORE_LT_STRUCT_UID">
@@ -1532,8 +1816,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Strong - More item in the Relative Importance lookup table.</summary>
+        <remarks>
+          <para>Value = F3EC95C9-FD01-4a24-AE79-D93E8F33DB2B.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReportingLookupTableMemberNotSetUid">
@@ -1552,8 +1839,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Not Set item for lookup table data in the Reporting database.</summary>
+        <remarks>
+          <para>Value = 9D50D50F-4B3E-4BC7-929D-DE2CBCAF097B.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_BLANK_LT_STRUCT_UID">
@@ -1572,8 +1862,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Not Specified item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 000079d2-4a43-41fc-b264-98d23fadd84b.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_BLOCKED_LT_STRUCT_UID">
@@ -1592,8 +1885,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Blocked item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 0000eee0-9844-4de1-97c1-357d94cd8802.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_COMPLETED_LT_STRUCT_UID">
@@ -1612,8 +1908,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Completed item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 00001db0-125e-4641-b5fc-2a52ba36e278.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_EARLY_LT_STRUCT_UID">
@@ -1632,8 +1931,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Early item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 00001441-3cf6-4710-b877-2e17914fa97c.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_LATE_LT_STRUCT_UID">
@@ -1652,8 +1954,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Late item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 0000c45d-8a43-4eb0-9b74-e535b391988a.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_LT_UID">
@@ -1672,8 +1977,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the Health lookup table for the Health task custom field.</summary>
+        <remarks>
+          <para>Value = 0000a4aa-160e-499a-905f-d498472dfb35.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_HEALTH_ON_SCHEDULE_LT_STRUCT_UID">
@@ -1692,8 +2000,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>GUID of the On Schedule item in the Health lookup table.</summary>
+        <remarks>
+          <para>Value = 0000bb21-b2ae-410a-88b6-82c108903823.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

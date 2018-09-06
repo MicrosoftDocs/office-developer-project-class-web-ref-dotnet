@@ -11,8 +11,11 @@
   </AssemblyInfo>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>An interface that enables communication between the project detail page (PDP) infrastructure and a Web Part on the PDP.</summary>
+    <remarks>
+      <para>A Web Part must implement the <b>IPWAPDPPart</b> interface to integrate with the PDP infrastructure.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="DataStore">
@@ -31,9 +34,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.DataStoreEnum</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the Draft database or the Published database as the source for reading project data in a Web Part on a project detail page.</summary>
+        <value>The value can be only <b>WorkingStore</b> or <b>PublishedStore</b>.</value>
+        <remarks>
+          <para>Project detail pages can be used for either viewing a published project or editing the working draft of a project. The PDP infrastructure sets the <b>DataStore</b> property based on the current edit mode of the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Editable">
@@ -52,9 +58,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that indicates whether a Web Part on the project detail page can be edited.</summary>
+        <value>
+          <b>True</b> if the Web Part is editable; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure sets the <b>IPWAPDPPart</b> property during initialization of the PDP.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HasRequiredFields">
@@ -73,9 +83,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether the Web Part on a project detail page has any required fields.</summary>
+        <value>
+          <b>True</b> if the Web Part has one or more required fields; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure uses the <b>HasRequiredFields</b> property to determine whether the project detail page shows the Required Fields legend at the top of the page.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PDPUid">
@@ -94,9 +108,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the project detail page on which a Web Part is currently loaded.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The PDP infrastructure sets the <b>PDPUid</b> property when a Web Part is initialized on a project detail page.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SaveEnabled">
@@ -115,9 +132,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether the Save button is enabled in the Web Part on a project detail page.</summary>
+        <value>
+          <b>True</b> if the Save button is enabled; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure uses the <b>SaveEnabled</b> property to enable the Save button on a Web Part.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains the settings for registering one event handler in Project Server.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the full name of the assembly that implements the event handler.</summary>
+        <value>The assembly name.</value>
+        <remarks>
+          <para>The assembly name contains the complete strong name in the global assembly cache, for example:</para>
+          <para>AssemblyName, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a26b5449ac4a4cf3</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CancelOnError">
@@ -65,8 +69,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a Boolean value that indicates whether pre-events should be canceled by default when there is an error firing the event.</summary>
+        <value>
+          <b>True</b> if pre-events should be cancelled by default when there is an error; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,9 +96,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the fully qualified name of the class in the assembly that implements the event handler.</summary>
+        <value>The class name.</value>
+        <remarks>
+          <para>For example, if the namespace in an event handler assembly is <b>TestEventHandlers.ProjectEventHandlers</b> and the class name of an event handler is <b>TestProjectPublished</b>, the fully qualified name is <b>TestEventHandlers.ProjectEventHandlers.TestProjectPublished</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Description">
@@ -117,9 +125,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the description of the event handler.</summary>
+        <value>The event handler description.</value>
+        <remarks>
+          <para>Optional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EndpointUrl">
@@ -143,8 +154,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the network location of the event handler.</summary>
+        <value>The network location of the event handler.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -169,8 +180,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID that is associated with the event handler.</summary>
+        <value>The event handler GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -195,9 +206,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the identifier of the event that is dispatched by the event handler.</summary>
+        <value>The event GUID.</value>
+        <remarks>
+          <para>The event identifier is one of the constants in the <see cref="T:WebSvcEvents.PSEventID" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsAssemblyNameNull">
@@ -222,8 +236,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the assembly name is null.</summary>
+        <returns>
+          <b>True</b> if the assembly name is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -249,8 +264,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.CancelOnError" /> property is a null value.</summary>
+        <returns>
+          <b>True</b> if <b>CancelOnError</b> is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -276,8 +292,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the class name is null.</summary>
+        <returns>
+          <b>True</b> if the class name is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,8 +320,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Description" /> property is a null value.</summary>
+        <returns>
+          <b>True</b> if <b>Description</b> is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -330,8 +348,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.EndpointUrl" /> property is a null value.</summary>
+        <returns>
+          <b>True</b> if <b>EndpointUrl</b> is null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -357,8 +376,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Order" /> property is a null value.</summary>
+        <returns>
+          <b>True</b> if Order is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -383,8 +403,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the unique name of the event handler.</summary>
+        <value>The event handler unique name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -409,9 +429,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the integer that represents the relative sequence of the event handler.</summary>
+        <value>A 32-bit integer that represents the sequence number.</value>
+        <remarks>
+          <para>If there are multiple event handlers that are associated with a single event, the order number determines the sequence in which the event handlers are invoked. The <b>Order</b> property should be set to a value greater than <b>0</b> and less than <b>1000</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetAssemblyNameNull">
@@ -436,7 +459,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the assembly name to null.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,7 +485,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.CancelOnError" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -488,7 +511,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the class name to null.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -514,7 +537,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Description" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -540,7 +563,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.EndpointUrl" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -566,7 +589,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Order" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

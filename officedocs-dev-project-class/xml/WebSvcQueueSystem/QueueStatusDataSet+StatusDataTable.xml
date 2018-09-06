@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains queue job status values for specific <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of the <b>StatusDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">An object that stores all the data that is needed to serialize or deserialize an object.</param>
+        <param name="context">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
+        <summary>Creates a new instance of the <b>StatusDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcQueueSystem.QueueStatusDataSet+StatusRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">The <b>StatusRow</b> object to add.</param>
+        <summary>Adds a <b>StatusRow</b> object to the <b>StatusDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddStatusRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> parameter, for example, AddStatusRow(QueueStatusDataSet.StatusRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload, which uses individual parameters for all fields in <b>StatusRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -128,7 +142,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clones the structure of the <b>StatusDataTable</b>, including all <b>StatusDataTable</b> schemas and constraints.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -154,7 +168,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.CorrelationGUID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -180,7 +194,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.CorrelationPriority" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -209,7 +223,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>StatusDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -236,7 +250,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a new instance of a <b>StatusDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -262,7 +276,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.ErrorInfo" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -292,7 +306,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>StatusDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -319,7 +333,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the type of the <b>StatusDataRow</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -349,7 +363,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -375,7 +389,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.GroupPriority" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -404,8 +418,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">An integer that specifies a row in the <b>StatusDataTable</b>.</param>
+        <summary>Gets a row object in the <b>StatusDataTable</b> by using the specified parameter.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -431,7 +445,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.JobCompletionState" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -457,7 +471,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.JobGroupGUID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -483,7 +497,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.JobGUID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -509,7 +523,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.JobInfoGUID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -535,7 +549,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.LastAdminAction" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -561,7 +575,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.MachineName" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -587,7 +601,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.MessageType" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -644,7 +658,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new <b>StatusRow</b> in the <b>StatusDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -673,8 +687,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.StatusRowChanged" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -702,8 +716,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.StatusRowChanging" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -731,8 +745,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.StatusRowDeleted" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -760,8 +774,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.StatusRowDeleting" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -786,7 +800,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.PercentComplete" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -812,7 +826,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.QueueCompletedTime" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -838,7 +852,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.QueueEntryTime" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -864,7 +878,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.QueueID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -916,7 +930,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.QueuePosition" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -942,7 +956,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.QueueProcessingTime" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -997,8 +1011,8 @@
         <Parameter Name="row" Type="WebSvcQueueSystem.QueueStatusDataSet+StatusRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>StatusDataRow</b> that is to be deleted.</param>
+        <summary>Deletes the specified <b>StatusDataRow</b> from the <b>StatusDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1023,7 +1037,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.ResourceGUID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1075,7 +1089,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.ServiceName" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1096,7 +1110,7 @@
         <ReturnType>WebSvcQueueSystem.QueueStatusDataSet+StatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>StatusDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1116,7 +1130,7 @@
         <ReturnType>WebSvcQueueSystem.QueueStatusDataSet+StatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>StatusDataTable</b> is to be changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1136,7 +1150,7 @@
         <ReturnType>WebSvcQueueSystem.QueueStatusDataSet+StatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>StatusDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1156,7 +1170,7 @@
         <ReturnType>WebSvcQueueSystem.QueueStatusDataSet+StatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>StatusDataTable</b> is to be deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1181,7 +1195,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusDataTable.WaitTime" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a collection of stages that are grouped to identify a common set of activities in the project life cycle.</summary>
+    <remarks>
+      <para>Examples of phases are project creation, project selection, and project management.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>Phase</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +75,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>Phase</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a phase description.</summary>
+        <value>A phase description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the object identifier as a <b>GUID</b>.</summary>
+        <value>A <b>GUID</b> value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -148,10 +151,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +180,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a phase name.</summary>
+        <value>A phase name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,9 +206,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.StageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a collection of stages for a phase.</summary>
+        <value>A collection of <b>Stage</b> objects.</value>
+        <remarks>
+          <para>A stage represents one step in a project life cycle.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

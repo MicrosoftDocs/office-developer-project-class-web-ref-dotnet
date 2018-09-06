@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ReportingEventReceiver.OnUserViewChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ReportingPostUserViewChangedEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -52,9 +57,9 @@
         <Parameter Name="viewWasTruncated" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="userViewName">To be added.</param>
-        <param name="viewWasTruncated">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="userViewName">A string that contains the name of the user view that was regenerated.</param>
+        <param name="viewWasTruncated">A Boolean value that indicates whether the regenerated user view exceeded the number of columns that it is possible to display.</param>
+        <summary>Creates an instance of the <b>ReportingPostUserViewChangedEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -75,7 +80,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a text string that contains the regenerated user view name and a Boolean value that indicates whether the view was truncated.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -96,7 +101,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a string that contains the name of the user view that was regenerated.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +122,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether the regenerated user view exceeded the number of columns that it is possible to display.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

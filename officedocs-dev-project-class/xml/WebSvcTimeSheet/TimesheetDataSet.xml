@@ -26,9 +26,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedDataSetSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the dataset that is used when working with the <see cref="T:WebSvcTimeSheet.TimeSheet" /> object and other objects in the <see cref="N:WebSvcTimeSheet" /> namespace.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -50,7 +53,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>TimesheetDataSet</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +79,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>TimesheetDataSet</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -109,9 +112,12 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+ActionsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains a record of <see cref="T:Microsoft.Office.Project.Server.Library.TimesheetEnum.Action" /> actions performed on this timesheet.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>Actions</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.ActionsRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Actuals">
@@ -141,9 +147,12 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+ActualsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the actual number of hours that the resource worked for the entries that are specified in the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.Lines" /> property.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>Actuals</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.ActualsRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Audits">
@@ -173,9 +182,13 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+AuditsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains a line for each <see cref="T:Microsoft.Office.Project.Server.Library.TimesheetEnum.AuditOperationType" /> object that is applied to a timesheet.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Auditing must be enabled on the server. </para>
+          <para>The <b>Audits</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.AuditsRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -232,9 +245,12 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+CustomFieldsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains a row for each custom field that is defined for timesheets.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>CustomFields</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.CustomFieldsRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSchemaSerializable">
@@ -289,7 +305,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -321,9 +337,12 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+HeadersDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains an entry for each timesheet in this dataset.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>Headers</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.HeadersRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InitializeDerivedDataSet">
@@ -379,9 +398,12 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+LinesDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains a row for each line of each timesheet in this dataset.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>Lines</b> table is composed of <see cref="T:WebSvcTimeSheet.TimesheetDataSet.LinesRow" /> rows.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadXmlSerializable">
@@ -437,7 +459,7 @@
         <ReturnType>System.Data.DataRelationCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of relations that link tables and enable navigation from parent tables to child tables in the <b>TimesheetDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -555,8 +577,8 @@
         <ReturnType>WebSvcTimeSheet.TimesheetDataSet+StatusingChangeLogDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the statusing data change log for the timesheet single entry mode.</summary>
+        <value>A data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -584,7 +606,7 @@
         <ReturnType>System.Data.DataTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of tables in the <b>TimesheetDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

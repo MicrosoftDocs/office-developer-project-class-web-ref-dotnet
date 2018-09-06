@@ -20,10 +20,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlType(Namespace="http://schemas.microsoft.com/office/project/server/webservices/Admin/")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Manages synchronization settings between Active Directory groups and the Enterprise Resource Pool.</summary>
+    <remarks>
+      <para>The <b>ADSyncGroupSettings</b> class includes properties that you can set on the Active Directory Synchronization page in Project Web App (http://[ServerName]/[ProjectServerName]/layouts/pwa/admin/ADSyncERP.aspx). Use the <see cref="M:WebSvcAdmin.Admin.GetActiveDirectorySyncGroupSettings" /> and <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> PSI methods to manage Active Directory group synchronization settings.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -39,7 +45,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a instance of the <b>ADSyncGroupSettings</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,7 +65,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether to automatically reactivate inactive users that are found in the Active Directory group during synchronization.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -80,7 +86,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Time of the previous update for Active Directory synchronization with groups. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -122,7 +128,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether group updates for Active Directory synchronization are scheduled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,7 +149,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time to start Active Directory service synchronization.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -164,7 +170,7 @@
         <ReturnType>WebSvcAdmin.ADSyncStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies an <see cref="T:WebSvcAdmin.ADSyncStatus" /> value for Active Directory synchronization with a group.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -185,9 +191,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the update frequency for Active Directory synchronization with groups. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Specify both the <b>UpdateFrequency</b> integer value and the <see cref="P:WebSvcAdmin.ADSyncGroupSettings.UpdateFrequencyUnit" />, for example 1 month or 3 days.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateFrequencyUnit">
@@ -206,9 +215,12 @@
         <ReturnType>WebSvcAdmin.ADSyncFrequencyUnit</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the update frequency unit of time for Active Directory synchronization with groups.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Specify the <see cref="P:WebSvcAdmin.ADSyncGroupSettings.UpdateFrequency" /> with the <b>UpdateFrequencyUnit</b> integer value with the, for example 1 month or 3 days.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

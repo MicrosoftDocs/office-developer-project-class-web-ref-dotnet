@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.UserDelegationEventReceiver.OnChanging(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.UserDelegationUpdatePreEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,8 +56,8 @@
         <Parameter Name="ds" Type="Microsoft.Office.Project.Server.Schema.UserDelegationDataSet" />
       </Parameters>
       <Docs>
-        <param name="ds">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ds">A dataset that represents users who delegate permissions and users to whom permissions are delegated.</param>
+        <summary>Creates an instance of the <b>UserDelegationUpdatePreEventArgs</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +77,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Schema.UserDelegationDataSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a dataset that represents users who delegate permissions and users to whom permissions are delegated.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -13,8 +13,14 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Identifies a Project Server pre-event or post-event.</summary>
+    <remarks>
+      <para>
+        <b>Note</b>: The <see cref="N:WebSvcEvents" /> namespace also includes the <see cref="T:WebSvcEvents.PSEventID" /> type.</para>
+      <para>When actions are canceled, there are some differences in behavior for the 88 pre-event handlers. You should test the behavior when an action is canceled, and provide instructions to users for the specific situation.  In general, Project Professional 2010 shows an error message in the Status Bar that something is wrong in the queue, or that the project is not published, but does not display the <b>CancelReason</b> property to the end user. In Project Web App, with the June 2011 cumulative update for Project Server 2010, project detail pages (PDPs) do display the cancel reason.  Some canceled actions also show in the Queue Job Error Details dialog box in Project Web App.</para>
+      <para>Some canceled actions also show in the Queue Job Error Details dialog box in Project Web App. With <b>ProjectEventReceiver</b> methods for example, if code in the <b>OnCreating</b> or <b>OnUpdating</b> event handlers sets the <b>CancelReason</b> property, that text would also be displayed in the queue information. However, the <b>OnDeleting</b> and <b>OnSummaryPublished</b> event handlers do not show the <b>CancelReason</b> value in the queue information. For more information about developing and testing pre-event handlers, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="AdminAdSyncERPSynchronized">
@@ -34,7 +40,7 @@
       </ReturnValue>
       <MemberValue>10</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=10. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminAdSyncERPSynchronizing">
@@ -54,7 +60,7 @@
       </ReturnValue>
       <MemberValue>11</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=11. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminAdSyncGroupsSynchronized">
@@ -74,7 +80,7 @@
       </ReturnValue>
       <MemberValue>14</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=14. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminAdSyncGroupsSynchronizing">
@@ -94,7 +100,7 @@
       </ReturnValue>
       <MemberValue>15</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=15. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminAdSyncGroupSynchronized">
@@ -114,7 +120,7 @@
       </ReturnValue>
       <MemberValue>12</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=12. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminAdSyncGroupSynchronizing">
@@ -134,7 +140,7 @@
       </ReturnValue>
       <MemberValue>13</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=13. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminLineClassUpdated">
@@ -154,7 +160,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminLineClassUpdating">
@@ -174,7 +180,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminReportingPeriodUpdated">
@@ -194,7 +200,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminReportingPeriodUpdating">
@@ -214,7 +220,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminStatusReportsDeleted">
@@ -234,7 +240,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. <b>Admin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminStatusReportsDeleting">
@@ -254,7 +260,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. <b>Admin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarChanged">
@@ -274,7 +280,7 @@
       </ReturnValue>
       <MemberValue>20</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=20. <b>Calendar </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarChanging">
@@ -294,7 +300,7 @@
       </ReturnValue>
       <MemberValue>21</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=21. <b>Calendar </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCheckedIn">
@@ -314,7 +320,7 @@
       </ReturnValue>
       <MemberValue>24</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=24. <b>Calendar </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCheckedOut">
@@ -334,7 +340,7 @@
       </ReturnValue>
       <MemberValue>22</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=22. <b>Calendar </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCheckingIn">
@@ -354,7 +360,7 @@
       </ReturnValue>
       <MemberValue>25</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=25. <b>Calendar </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCheckingOut">
@@ -374,7 +380,7 @@
       </ReturnValue>
       <MemberValue>23</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=23. <b>Calendar </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCreated">
@@ -394,7 +400,7 @@
       </ReturnValue>
       <MemberValue>16</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=16. <b>Calendar </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarCreating">
@@ -414,7 +420,7 @@
       </ReturnValue>
       <MemberValue>17</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=17. <b>Calendar </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarDeleted">
@@ -434,7 +440,7 @@
       </ReturnValue>
       <MemberValue>18</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=18. <b>Calendar </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CalendarDeleting">
@@ -454,7 +460,7 @@
       </ReturnValue>
       <MemberValue>19</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=19. <b>Calendar </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CubeAdminCubeBuilding">
@@ -474,7 +480,7 @@
       </ReturnValue>
       <MemberValue>176</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=176. <b>CubeAdmin</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CubeAdminCubeBuilt">
@@ -494,7 +500,7 @@
       </ReturnValue>
       <MemberValue>175</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=175. <b>CubeAdmin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CubeAdminCubeProcessed">
@@ -514,7 +520,7 @@
       </ReturnValue>
       <MemberValue>183</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=183. <b>CubeAdmin</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCheckedIn">
@@ -534,7 +540,7 @@
       </ReturnValue>
       <MemberValue>34</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=34. <b>CustomFields </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCheckedOut">
@@ -554,7 +560,7 @@
       </ReturnValue>
       <MemberValue>32</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=32. <b>CustomFields </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCheckingIn">
@@ -574,7 +580,7 @@
       </ReturnValue>
       <MemberValue>35</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=35. <b>CustomFields </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCheckingOut">
@@ -594,7 +600,7 @@
       </ReturnValue>
       <MemberValue>33</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=33. <b>CustomFields </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCreated">
@@ -614,7 +620,7 @@
       </ReturnValue>
       <MemberValue>26</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=26. <b>CustomFields </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsCreating">
@@ -634,7 +640,7 @@
       </ReturnValue>
       <MemberValue>27</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=27. <b>CustomFields </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsDeleted">
@@ -654,7 +660,7 @@
       </ReturnValue>
       <MemberValue>28</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=28. <b>CustomFields </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsDeleting">
@@ -674,7 +680,7 @@
       </ReturnValue>
       <MemberValue>29</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=29. <b>CustomFields </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsUpdated">
@@ -694,7 +700,7 @@
       </ReturnValue>
       <MemberValue>30</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=30. <b>CustomFields </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="CustomFieldsUpdating">
@@ -714,7 +720,7 @@
       </ReturnValue>
       <MemberValue>31</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=31. <b>CustomFields </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="Deprecated8">
@@ -734,7 +740,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. Deprecated; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="Deprecated9">
@@ -754,7 +760,7 @@
       </ReturnValue>
       <MemberValue>9</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=9. Deprecated; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCheckedIn">
@@ -774,7 +780,7 @@
       </ReturnValue>
       <MemberValue>44</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=44. <b>LookupTable</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCheckedOut">
@@ -794,7 +800,7 @@
       </ReturnValue>
       <MemberValue>42</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=42. <b>LookupTable</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCheckingIn">
@@ -814,7 +820,7 @@
       </ReturnValue>
       <MemberValue>45</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=45. <b>LookupTable</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCheckingOut">
@@ -834,7 +840,7 @@
       </ReturnValue>
       <MemberValue>43</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=43. <b>LookupTable</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCreated">
@@ -854,7 +860,7 @@
       </ReturnValue>
       <MemberValue>36</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=36. <b>LookupTable</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableCreating">
@@ -874,7 +880,7 @@
       </ReturnValue>
       <MemberValue>37</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=37. <b>LookupTable</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableDeleted">
@@ -894,7 +900,7 @@
       </ReturnValue>
       <MemberValue>38</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=38. <b>LookupTable</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableDeleting">
@@ -914,7 +920,7 @@
       </ReturnValue>
       <MemberValue>39</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=39. <b>LookupTable</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableUpdated">
@@ -934,7 +940,7 @@
       </ReturnValue>
       <MemberValue>40</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=40. <b>LookupTable</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="LookupTableUpdating">
@@ -954,7 +960,7 @@
       </ReturnValue>
       <MemberValue>41</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=41. <b>LookupTable</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="NotificationsSending">
@@ -974,7 +980,7 @@
       </ReturnValue>
       <MemberValue>152</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=152. <b>Notifications </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="NotificationsSent">
@@ -994,7 +1000,7 @@
       </ReturnValue>
       <MemberValue>151</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=151. <b>Notifications </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="OptimizerOptimizerSolutionCommitted">
@@ -1014,7 +1020,7 @@
       </ReturnValue>
       <MemberValue>193</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=193. <b>Optimizer</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="OptimizerPlannerSolutionCommitted">
@@ -1034,7 +1040,7 @@
       </ReturnValue>
       <MemberValue>192</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=192. <b>Optimizer</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectActivityUpgraded">
@@ -1054,7 +1060,7 @@
       </ReturnValue>
       <MemberValue>59</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=59. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectActivityUpgrading">
@@ -1074,7 +1080,7 @@
       </ReturnValue>
       <MemberValue>60</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=60. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectAdded">
@@ -1094,7 +1100,7 @@
       </ReturnValue>
       <MemberValue>179</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=179. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectAdding">
@@ -1114,7 +1120,7 @@
       </ReturnValue>
       <MemberValue>180</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=180. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectCheckIn">
@@ -1134,7 +1140,7 @@
       </ReturnValue>
       <MemberValue>51</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=51. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectCreated">
@@ -1154,7 +1160,7 @@
       </ReturnValue>
       <MemberValue>46</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=46. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectCreating">
@@ -1174,7 +1180,7 @@
       </ReturnValue>
       <MemberValue>47</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=47. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectDeleted">
@@ -1194,7 +1200,7 @@
       </ReturnValue>
       <MemberValue>48</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=48. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectDeleting">
@@ -1214,7 +1220,7 @@
       </ReturnValue>
       <MemberValue>49</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=49. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectEntitiesDeleted">
@@ -1234,7 +1240,7 @@
       </ReturnValue>
       <MemberValue>181</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=181. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectEntitiesDeleting">
@@ -1254,7 +1260,7 @@
       </ReturnValue>
       <MemberValue>182</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=182. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectPublished">
@@ -1274,7 +1280,7 @@
       </ReturnValue>
       <MemberValue>53</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=53. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectPublishing">
@@ -1294,7 +1300,7 @@
       </ReturnValue>
       <MemberValue>54</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=54. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSaved">
@@ -1314,7 +1320,7 @@
       </ReturnValue>
       <MemberValue>50</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=50. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSaveFailed">
@@ -1334,7 +1340,7 @@
       </ReturnValue>
       <MemberValue>52</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=52. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSummaryPublished">
@@ -1354,7 +1360,7 @@
       </ReturnValue>
       <MemberValue>206</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=206. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSummaryPublishing">
@@ -1374,7 +1380,7 @@
       </ReturnValue>
       <MemberValue>207</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=207. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSyncedProjectEnterpriseEntities">
@@ -1394,7 +1400,7 @@
       </ReturnValue>
       <MemberValue>224</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=224. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectSyncingProjectEnterpriseEntities">
@@ -1414,7 +1420,7 @@
       </ReturnValue>
       <MemberValue>225</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=225. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdated">
@@ -1434,7 +1440,7 @@
       </ReturnValue>
       <MemberValue>177</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=177. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdatedPwaProject">
@@ -1454,7 +1460,7 @@
       </ReturnValue>
       <MemberValue>226</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=226. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdatedScheduledProject">
@@ -1474,7 +1480,7 @@
       </ReturnValue>
       <MemberValue>190</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=190. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdating">
@@ -1494,7 +1500,7 @@
       </ReturnValue>
       <MemberValue>178</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=178. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdatingPwaProject">
@@ -1514,7 +1520,7 @@
       </ReturnValue>
       <MemberValue>227</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=227. <b>Project</b> pre-event. </summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectUpdatingScheduledProject">
@@ -1534,7 +1540,7 @@
       </ReturnValue>
       <MemberValue>191</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=191. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectWssWorkspaceAddressDeleted">
@@ -1554,7 +1560,7 @@
       </ReturnValue>
       <MemberValue>57</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=57. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectWssWorkspaceAddressDeleting">
@@ -1574,7 +1580,7 @@
       </ReturnValue>
       <MemberValue>58</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=58. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectWssWorkspaceAddressUpdated">
@@ -1594,7 +1600,7 @@
       </ReturnValue>
       <MemberValue>55</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=55. <b>Project</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectWssWorkspaceAddressUpdating">
@@ -1614,7 +1620,7 @@
       </ReturnValue>
       <MemberValue>56</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=56. <b>Project</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingCommittedSolutionDecisionChanged">
@@ -1634,7 +1640,7 @@
       </ReturnValue>
       <MemberValue>216</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=216. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingCustomFieldChanged">
@@ -1654,7 +1660,7 @@
       </ReturnValue>
       <MemberValue>63</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=63. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingCustomFieldCreated">
@@ -1674,7 +1680,7 @@
       </ReturnValue>
       <MemberValue>62</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=62. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingCustomFieldDeleted">
@@ -1694,7 +1700,7 @@
       </ReturnValue>
       <MemberValue>64</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=64. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingEnterpriseProjectTypeDeleted">
@@ -1714,7 +1720,7 @@
       </ReturnValue>
       <MemberValue>213</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=213. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingEnterpriseProjectTypeUpdated">
@@ -1734,7 +1740,7 @@
       </ReturnValue>
       <MemberValue>212</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=212. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingFiscalPeriodChanged">
@@ -1754,7 +1760,7 @@
       </ReturnValue>
       <MemberValue>66</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=66. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingFiscalPeriodDeleted">
@@ -1774,7 +1780,7 @@
       </ReturnValue>
       <MemberValue>67</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=67. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingLookupTableChanged">
@@ -1794,7 +1800,7 @@
       </ReturnValue>
       <MemberValue>69</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=69. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingLookupTableCreated">
@@ -1814,7 +1820,7 @@
       </ReturnValue>
       <MemberValue>68</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=68. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingLookupTableDeleted">
@@ -1834,7 +1840,7 @@
       </ReturnValue>
       <MemberValue>70</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=70. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectChanged">
@@ -1854,7 +1860,7 @@
       </ReturnValue>
       <MemberValue>72</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=72. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectCreated">
@@ -1874,7 +1880,7 @@
       </ReturnValue>
       <MemberValue>71</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=71. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectDeleted">
@@ -1894,7 +1900,7 @@
       </ReturnValue>
       <MemberValue>73</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=73. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectSummaryChanged">
@@ -1914,7 +1920,7 @@
       </ReturnValue>
       <MemberValue>215</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=215. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectWorkflowInformationChanged">
@@ -1934,7 +1940,7 @@
       </ReturnValue>
       <MemberValue>214</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=214. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectWorkspaceChanged">
@@ -1954,7 +1960,7 @@
       </ReturnValue>
       <MemberValue>87</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=87. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectWorkspaceCreated">
@@ -1974,7 +1980,7 @@
       </ReturnValue>
       <MemberValue>86</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=86. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingProjectWorkspaceDeleted">
@@ -1994,7 +2000,7 @@
       </ReturnValue>
       <MemberValue>88</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=88. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingResourceCapacitiesChanged">
@@ -2014,7 +2020,7 @@
       </ReturnValue>
       <MemberValue>61</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=61. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingResourceCapacityTimeRangeChanged">
@@ -2034,7 +2040,7 @@
       </ReturnValue>
       <MemberValue>74</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=74. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingResourceChanged">
@@ -2054,7 +2060,7 @@
       </ReturnValue>
       <MemberValue>76</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=76. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingResourceCreated">
@@ -2074,7 +2080,7 @@
       </ReturnValue>
       <MemberValue>75</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=75. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingResourceDeleted">
@@ -2094,7 +2100,7 @@
       </ReturnValue>
       <MemberValue>77</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=77. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetAdjusted">
@@ -2114,7 +2120,7 @@
       </ReturnValue>
       <MemberValue>79</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=79. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetClassChanged">
@@ -2134,7 +2140,7 @@
       </ReturnValue>
       <MemberValue>81</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=81. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetDeleted">
@@ -2154,7 +2160,7 @@
       </ReturnValue>
       <MemberValue>80</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=80. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetPeriodChanged">
@@ -2174,7 +2180,7 @@
       </ReturnValue>
       <MemberValue>83</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=83. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetPeriodCreated">
@@ -2194,7 +2200,7 @@
       </ReturnValue>
       <MemberValue>82</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=82. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetPeriodDeleted">
@@ -2214,7 +2220,7 @@
       </ReturnValue>
       <MemberValue>84</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=84. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetProjectAggregated">
@@ -2234,7 +2240,7 @@
       </ReturnValue>
       <MemberValue>194</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=194. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetSaved">
@@ -2254,7 +2260,7 @@
       </ReturnValue>
       <MemberValue>78</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=78. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingTimesheetStatusChanged">
@@ -2274,7 +2280,7 @@
       </ReturnValue>
       <MemberValue>85</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=85. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingUserViewChanged">
@@ -2294,7 +2300,7 @@
       </ReturnValue>
       <MemberValue>65</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=65. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingWorkflowPhaseDeleted">
@@ -2314,7 +2320,7 @@
       </ReturnValue>
       <MemberValue>209</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=209. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingWorkflowPhaseUpdated">
@@ -2334,7 +2340,7 @@
       </ReturnValue>
       <MemberValue>208</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=208. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingWorkflowStageDeleted">
@@ -2354,7 +2360,7 @@
       </ReturnValue>
       <MemberValue>211</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=211. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingWorkflowStageUpdated">
@@ -2374,7 +2380,7 @@
       </ReturnValue>
       <MemberValue>210</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=210. <b>Reporting</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceActivated">
@@ -2394,7 +2400,7 @@
       </ReturnValue>
       <MemberValue>97</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=97. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceActivating">
@@ -2414,7 +2420,7 @@
       </ReturnValue>
       <MemberValue>98</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=98. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceChanged">
@@ -2434,7 +2440,7 @@
       </ReturnValue>
       <MemberValue>95</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=95. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceChanging">
@@ -2454,7 +2460,7 @@
       </ReturnValue>
       <MemberValue>96</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=96. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCheckedIn">
@@ -2474,7 +2480,7 @@
       </ReturnValue>
       <MemberValue>101</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=101. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCheckedOut">
@@ -2494,7 +2500,7 @@
       </ReturnValue>
       <MemberValue>99</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=99. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCheckingIn">
@@ -2514,7 +2520,7 @@
       </ReturnValue>
       <MemberValue>102</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=102. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCheckingOut">
@@ -2534,7 +2540,7 @@
       </ReturnValue>
       <MemberValue>100</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=100. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCreated">
@@ -2554,7 +2560,7 @@
       </ReturnValue>
       <MemberValue>89</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=89. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceCreating">
@@ -2574,7 +2580,7 @@
       </ReturnValue>
       <MemberValue>90</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=90. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceDeactivated">
@@ -2594,7 +2600,7 @@
       </ReturnValue>
       <MemberValue>93</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=93. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceDeactivating">
@@ -2614,7 +2620,7 @@
       </ReturnValue>
       <MemberValue>94</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=94. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceDeleted">
@@ -2634,7 +2640,7 @@
       </ReturnValue>
       <MemberValue>91</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=91. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceDeleting">
@@ -2654,7 +2660,7 @@
       </ReturnValue>
       <MemberValue>92</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=92. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourcePlanResourcePlanPublished">
@@ -2674,7 +2680,7 @@
       </ReturnValue>
       <MemberValue>222</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=222. <b>ResourcePlan</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourcePlanResourcePlanPublishing">
@@ -2694,7 +2700,7 @@
       </ReturnValue>
       <MemberValue>223</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=223. <b>ResourcePlan</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceSetAuthorization">
@@ -2714,7 +2720,7 @@
       </ReturnValue>
       <MemberValue>103</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=103. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResourceSettingAuthorization">
@@ -2734,7 +2740,7 @@
       </ReturnValue>
       <MemberValue>104</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=104. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesCopied">
@@ -2754,7 +2760,7 @@
       </ReturnValue>
       <MemberValue>157</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=157. <b>Rules</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesCopying">
@@ -2774,7 +2780,7 @@
       </ReturnValue>
       <MemberValue>158</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=158. <b>Rules</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesCreated">
@@ -2794,7 +2800,7 @@
       </ReturnValue>
       <MemberValue>153</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=153. <b>Rules</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesCreating">
@@ -2814,7 +2820,7 @@
       </ReturnValue>
       <MemberValue>154</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=154. <b>Rules</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesDeleted">
@@ -2834,7 +2840,7 @@
       </ReturnValue>
       <MemberValue>155</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=155. <b>Rules</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesDeleting">
@@ -2854,7 +2860,7 @@
       </ReturnValue>
       <MemberValue>156</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=156. <b>Rules</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesProcessed">
@@ -2874,7 +2880,7 @@
       </ReturnValue>
       <MemberValue>159</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=159. <b>Rules</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="RulesProcessing">
@@ -2894,7 +2900,7 @@
       </ReturnValue>
       <MemberValue>160</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=160. <b>Rules</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryCreated">
@@ -2914,7 +2920,7 @@
       </ReturnValue>
       <MemberValue>115</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=115. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryCreating">
@@ -2934,7 +2940,7 @@
       </ReturnValue>
       <MemberValue>116</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=116. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryDeleted">
@@ -2954,7 +2960,7 @@
       </ReturnValue>
       <MemberValue>113</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=113. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryDeleting">
@@ -2974,7 +2980,7 @@
       </ReturnValue>
       <MemberValue>114</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=114. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryUpdated">
@@ -2994,7 +3000,7 @@
       </ReturnValue>
       <MemberValue>117</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=117. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityCategoryUpdating">
@@ -3014,7 +3020,7 @@
       </ReturnValue>
       <MemberValue>118</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=118. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupCreated">
@@ -3034,7 +3040,7 @@
       </ReturnValue>
       <MemberValue>109</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=109. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupCreating">
@@ -3054,7 +3060,7 @@
       </ReturnValue>
       <MemberValue>110</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=110. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupDeleted">
@@ -3074,7 +3080,7 @@
       </ReturnValue>
       <MemberValue>107</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=107. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupDeleting">
@@ -3094,7 +3100,7 @@
       </ReturnValue>
       <MemberValue>108</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=108. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupUpdated">
@@ -3114,7 +3120,7 @@
       </ReturnValue>
       <MemberValue>111</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=111. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupUpdating">
@@ -3134,7 +3140,7 @@
       </ReturnValue>
       <MemberValue>112</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=112. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityOrganizationalPermissionsUpdated">
@@ -3154,7 +3160,7 @@
       </ReturnValue>
       <MemberValue>105</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=105. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityOrganizationalPermissionsUpdating">
@@ -3174,7 +3180,7 @@
       </ReturnValue>
       <MemberValue>106</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=106. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryCreated">
@@ -3194,7 +3200,7 @@
       </ReturnValue>
       <MemberValue>184</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=184. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryCreating">
@@ -3214,7 +3220,7 @@
       </ReturnValue>
       <MemberValue>185</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=185. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryDeleted">
@@ -3234,7 +3240,7 @@
       </ReturnValue>
       <MemberValue>188</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=188. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryDeleting">
@@ -3254,7 +3260,7 @@
       </ReturnValue>
       <MemberValue>189</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=189. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryUpdated">
@@ -3274,7 +3280,7 @@
       </ReturnValue>
       <MemberValue>186</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=186. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityProjectCategoryUpdating">
@@ -3294,7 +3300,7 @@
       </ReturnValue>
       <MemberValue>187</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=187. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateCreated">
@@ -3314,7 +3320,7 @@
       </ReturnValue>
       <MemberValue>119</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=119. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateCreating">
@@ -3334,7 +3340,7 @@
       </ReturnValue>
       <MemberValue>120</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=120. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateDeleted">
@@ -3354,7 +3360,7 @@
       </ReturnValue>
       <MemberValue>123</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=123. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateDeleting">
@@ -3374,7 +3380,7 @@
       </ReturnValue>
       <MemberValue>124</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=124. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateUpdated">
@@ -3394,7 +3400,7 @@
       </ReturnValue>
       <MemberValue>121</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=121. <b>Security</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="SecurityTemplateUpdating">
@@ -3414,7 +3420,7 @@
       </ReturnValue>
       <MemberValue>122</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=122. <b>Security</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingApplied">
@@ -3434,7 +3440,7 @@
       </ReturnValue>
       <MemberValue>133</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=133. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingApplying">
@@ -3454,7 +3460,7 @@
       </ReturnValue>
       <MemberValue>134</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=134. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingApprovalsUpdated">
@@ -3474,7 +3480,7 @@
       </ReturnValue>
       <MemberValue>149</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=149. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingApprovalsUpdating">
@@ -3494,7 +3500,7 @@
       </ReturnValue>
       <MemberValue>150</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=150. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentDelegated">
@@ -3514,7 +3520,7 @@
       </ReturnValue>
       <MemberValue>143</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=143. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentDelegating">
@@ -3534,7 +3540,7 @@
       </ReturnValue>
       <MemberValue>144</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=144. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentDeleted">
@@ -3554,7 +3560,7 @@
       </ReturnValue>
       <MemberValue>141</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=141. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentDeleting">
@@ -3574,7 +3580,7 @@
       </ReturnValue>
       <MemberValue>142</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=142. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentWorkDataSet">
@@ -3594,7 +3600,7 @@
       </ReturnValue>
       <MemberValue>147</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=148. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingAssignmentWorkDataSetting">
@@ -3614,7 +3620,7 @@
       </ReturnValue>
       <MemberValue>148</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=149. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingHistoryDeleted">
@@ -3634,7 +3640,7 @@
       </ReturnValue>
       <MemberValue>135</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=135. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingHistoryDeleting">
@@ -3654,7 +3660,7 @@
       </ReturnValue>
       <MemberValue>136</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=136. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingStatusSubmiting">
@@ -3674,7 +3680,7 @@
       </ReturnValue>
       <MemberValue>140</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=140. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingStatusSubmitted">
@@ -3694,7 +3700,7 @@
       </ReturnValue>
       <MemberValue>139</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=139. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingStatusUpdated">
@@ -3714,7 +3720,7 @@
       </ReturnValue>
       <MemberValue>137</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=137. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingStatusUpdating">
@@ -3734,7 +3740,7 @@
       </ReturnValue>
       <MemberValue>138</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=138. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingTaskCreated">
@@ -3754,7 +3760,7 @@
       </ReturnValue>
       <MemberValue>145</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=145. <b>Statusing</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusingTaskCreating">
@@ -3774,7 +3780,7 @@
       </ReturnValue>
       <MemberValue>146</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=146. <b>Statusing</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsRequestCreated">
@@ -3794,7 +3800,7 @@
       </ReturnValue>
       <MemberValue>125</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=125. <b>StatusReports </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsRequestCreating">
@@ -3814,7 +3820,7 @@
       </ReturnValue>
       <MemberValue>126</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=126. <b>StatusReports </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsRequestUpdated">
@@ -3834,7 +3840,7 @@
       </ReturnValue>
       <MemberValue>127</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=127. <b>StatusReports </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsRequestUpdating">
@@ -3854,7 +3860,7 @@
       </ReturnValue>
       <MemberValue>128</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=128. <b>StatusReports </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsResponseCreated">
@@ -3874,7 +3880,7 @@
       </ReturnValue>
       <MemberValue>129</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=129. <b>StatusReports </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsResponseCreating">
@@ -3894,7 +3900,7 @@
       </ReturnValue>
       <MemberValue>130</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=130. <b>StatusReports </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsResponseUpdated">
@@ -3914,7 +3920,7 @@
       </ReturnValue>
       <MemberValue>131</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=131. <b>StatusReports </b>post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="StatusReportsResponseUpdating">
@@ -3934,7 +3940,7 @@
       </ReturnValue>
       <MemberValue>132</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=132. <b>StatusReports </b>pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetCreated">
@@ -3954,7 +3960,7 @@
       </ReturnValue>
       <MemberValue>161</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=161. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetCreating">
@@ -3974,7 +3980,7 @@
       </ReturnValue>
       <MemberValue>162</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=162. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetDeleted">
@@ -3994,7 +4000,7 @@
       </ReturnValue>
       <MemberValue>163</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=163. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetDeleting">
@@ -4014,7 +4020,7 @@
       </ReturnValue>
       <MemberValue>164</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=164. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetLineApproved">
@@ -4034,7 +4040,7 @@
       </ReturnValue>
       <MemberValue>173</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=173. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetLineApproving">
@@ -4054,7 +4060,7 @@
       </ReturnValue>
       <MemberValue>174</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=174. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetRecalled">
@@ -4074,7 +4080,7 @@
       </ReturnValue>
       <MemberValue>169</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=169. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetRecalling">
@@ -4094,7 +4100,7 @@
       </ReturnValue>
       <MemberValue>170</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=170. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetReviewed">
@@ -4114,7 +4120,7 @@
       </ReturnValue>
       <MemberValue>171</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=171. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetReviewing">
@@ -4134,7 +4140,7 @@
       </ReturnValue>
       <MemberValue>172</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=172. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetSubmitted">
@@ -4154,7 +4160,7 @@
       </ReturnValue>
       <MemberValue>167</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=167. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetSubmitting">
@@ -4174,7 +4180,7 @@
       </ReturnValue>
       <MemberValue>168</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=168. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetUpdated">
@@ -4194,7 +4200,7 @@
       </ReturnValue>
       <MemberValue>165</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=165. <b>Timesheet</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetUpdating">
@@ -4214,7 +4220,7 @@
       </ReturnValue>
       <MemberValue>166</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=166. <b>Timesheet</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationActivated">
@@ -4234,7 +4240,7 @@
       </ReturnValue>
       <MemberValue>196</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=196. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationActivating">
@@ -4254,7 +4260,7 @@
       </ReturnValue>
       <MemberValue>197</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=197. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationChanged">
@@ -4274,7 +4280,7 @@
       </ReturnValue>
       <MemberValue>198</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=198. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationChanging">
@@ -4294,7 +4300,7 @@
       </ReturnValue>
       <MemberValue>199</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=199. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationCreated">
@@ -4314,7 +4320,7 @@
       </ReturnValue>
       <MemberValue>202</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=202. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationCreating">
@@ -4334,7 +4340,7 @@
       </ReturnValue>
       <MemberValue>203</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=203. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationDeactivated">
@@ -4354,7 +4360,7 @@
       </ReturnValue>
       <MemberValue>200</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=200. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationDeactivating">
@@ -4374,7 +4380,7 @@
       </ReturnValue>
       <MemberValue>201</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=201. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationDeleted">
@@ -4394,7 +4400,7 @@
       </ReturnValue>
       <MemberValue>204</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=204. <b>Resource</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserDelegationDeleting">
@@ -4414,7 +4420,7 @@
       </ReturnValue>
       <MemberValue>205</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=205. <b>Resource</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowCompleted">
@@ -4434,7 +4440,7 @@
       </ReturnValue>
       <MemberValue>221</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=221. <b>Workflow</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowProjectTypeChanged">
@@ -4454,7 +4460,7 @@
       </ReturnValue>
       <MemberValue>218</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=218. <b>Workflow</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowProjectTypeChanging">
@@ -4474,7 +4480,7 @@
       </ReturnValue>
       <MemberValue>217</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=217. <b>Workflow</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowRunning">
@@ -4494,7 +4500,7 @@
       </ReturnValue>
       <MemberValue>195</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=195. <b>Workflow</b> pre-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowStageEntered">
@@ -4514,7 +4520,7 @@
       </ReturnValue>
       <MemberValue>219</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=219. <b>Workflow</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowStarted">
@@ -4534,7 +4540,7 @@
       </ReturnValue>
       <MemberValue>220</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=220. <b>Workflow</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WssInteropWssWorkspaceCreated">
@@ -4554,7 +4560,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. <b>WssInterop</b> post-event.</summary>
       </Docs>
     </Member>
     <Member MemberName="WssInteropWssWorkspaceCreating">
@@ -4574,7 +4580,7 @@
       </ReturnValue>
       <MemberValue>7</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=7. <b>WssInterop</b> pre-event.</summary>
       </Docs>
     </Member>
   </Members>

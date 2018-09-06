@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmitted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -52,9 +57,9 @@
         <Parameter Name="comment" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="updateguids">To be added.</param>
-        <param name="comment">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="updateguids">A collection of GUIDs that represent one or more modified saved assignments that are submitted to the project manager for approval.</param>
+        <param name="comment">The comment to send with a status submission.</param>
+        <summary>Creates an instance of the <b>StatusSubmitPostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -74,7 +79,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the comment to send with a status submission.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -95,7 +100,7 @@
         <ReturnType>System.Guid[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of GUIDs that represent one or more modified saved assignments that are submitted to the project manager for approval.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

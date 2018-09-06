@@ -13,8 +13,46 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the type of Project Server data.</summary>
+    <remarks>
+      <para>Project, resource, task, and assignment enterprise custom field definitions use <b>PSDataType</b> to specify the type of data. For example, see <see cref="P:WebSvcProject.ProjectDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> for the task custom field. Enterprise custom fields can be one of the following types:</para>
+      <list type="bullet">
+        <item>
+          <description>Cost: <b>COST</b></description>
+        </item>
+        <item>
+          <description>Date: <b>DATE</b></description>
+        </item>
+        <item>
+          <description>Duration: <b>DURATION</b></description>
+        </item>
+        <item>
+          <description>Flag: <b>YESNO</b></description>
+        </item>
+        <item>
+          <description>Number: <b>NUMBER</b></description>
+        </item>
+        <item>
+          <description>Text: <b>STRING</b></description>
+        </item>
+      </list>
+      <para>The following constants are defined in a private assembly:</para>
+      <list type="bullet">
+        <item>
+          <description>DUR_MULTIPLIER  =     10</description>
+        </item>
+        <item>
+          <description>COST_MULTIPLIER =    100</description>
+        </item>
+        <item>
+          <description>WORK_MULTIPLIER =   1000</description>
+        </item>
+        <item>
+          <description>UNITS_MULTIPLIER = 10000</description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="ACCRUAL">
@@ -34,7 +72,7 @@
       </ReturnValue>
       <MemberValue>13</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=13. Index into accrual table.</summary>
       </Docs>
     </Member>
     <Member MemberName="BAD_FORMATTYPE">
@@ -54,7 +92,7 @@
       </ReturnValue>
       <MemberValue>-1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=-1. Bad format type.</summary>
       </Docs>
     </Member>
     <Member MemberName="BEGINDATE">
@@ -74,7 +112,7 @@
       </ReturnValue>
       <MemberValue>57</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=57. Start date.</summary>
       </Docs>
     </Member>
     <Member MemberName="BLANKEXID">
@@ -94,7 +132,7 @@
       </ReturnValue>
       <MemberValue>38</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=38. External ID shown as blank string.</summary>
       </Docs>
     </Member>
     <Member MemberName="BOOKING">
@@ -114,7 +152,7 @@
       </ReturnValue>
       <MemberValue>54</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=54. Resource booking.</summary>
       </Docs>
     </Member>
     <Member MemberName="BOOL">
@@ -134,7 +172,7 @@
       </ReturnValue>
       <MemberValue>16</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=16. Index into boolean string table.</summary>
       </Docs>
     </Member>
     <Member MemberName="CONSTYPE">
@@ -154,7 +192,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Index into constraint table.</summary>
       </Docs>
     </Member>
     <Member MemberName="CONTOURTYPE">
@@ -174,7 +212,7 @@
       </ReturnValue>
       <MemberValue>14</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=14. Index into contour table.</summary>
       </Docs>
     </Member>
     <Member MemberName="COST">
@@ -194,7 +232,7 @@
       </ReturnValue>
       <MemberValue>9</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=9. Value in 1/COST_MULTIPLIER dollars.</summary>
       </Docs>
     </Member>
     <Member MemberName="COSTRATE">
@@ -214,7 +252,7 @@
       </ReturnValue>
       <MemberValue>11</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=11. Value in 1/COST_MULTIPLIER dollars per 1/DUR_MULTIPLIER minutes.</summary>
       </Docs>
     </Member>
     <Member MemberName="DATE">
@@ -234,7 +272,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Date, where HIWORD contains the day offset from 1/1/1984. LOWORD (0 – 1440) contains the minute offset from 12:00 am.</summary>
       </Docs>
     </Member>
     <Member MemberName="DEMREQ">
@@ -254,7 +292,7 @@
       </ReturnValue>
       <MemberValue>52</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=52. Resource request type.</summary>
       </Docs>
     </Member>
     <Member MemberName="DOUBLE">
@@ -274,7 +312,7 @@
       </ReturnValue>
       <MemberValue>18</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=18. A <b>Double</b> value.</summary>
       </Docs>
     </Member>
     <Member MemberName="DURATION">
@@ -294,7 +332,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. Value in 1/DUR_MULTIPLIER minutes.</summary>
       </Docs>
     </Member>
     <Member MemberName="DUROFFSET">
@@ -314,7 +352,7 @@
       </ReturnValue>
       <MemberValue>7</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=7. Value in 1/DUR_MULTIPLIER minutes since 1/1/1984.</summary>
       </Docs>
     </Member>
     <Member MemberName="ELAPSEDDUR">
@@ -334,7 +372,7 @@
       </ReturnValue>
       <MemberValue>28</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=28. Elapsed duration values.</summary>
       </Docs>
     </Member>
     <Member MemberName="ENUM1">
@@ -354,7 +392,7 @@
       </ReturnValue>
       <MemberValue>47</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=47. Enumerated type used by Web client.</summary>
       </Docs>
     </Member>
     <Member MemberName="ENUM2">
@@ -374,7 +412,7 @@
       </ReturnValue>
       <MemberValue>48</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=48. Enumerated type used by Web client.</summary>
       </Docs>
     </Member>
     <Member MemberName="ENUM3">
@@ -394,7 +432,7 @@
       </ReturnValue>
       <MemberValue>49</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=49. Enumerated type used by Web client.</summary>
       </Docs>
     </Member>
     <Member MemberName="EVMETH">
@@ -414,7 +452,7 @@
       </ReturnValue>
       <MemberValue>53</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=53. Earned value method.</summary>
       </Docs>
     </Member>
     <Member MemberName="EXID">
@@ -434,7 +472,7 @@
       </ReturnValue>
       <MemberValue>37</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=37. External identification number.</summary>
       </Docs>
     </Member>
     <Member MemberName="FINISHDATE">
@@ -454,7 +492,7 @@
       </ReturnValue>
       <MemberValue>27</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=27. Finish date, where the value is the same as <b>DATE</b>, except the default finish time is used when a date string does not include the time.</summary>
       </Docs>
     </Member>
     <Member MemberName="GPI">
@@ -474,7 +512,7 @@
       </ReturnValue>
       <MemberValue>34</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=34. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="GUID">
@@ -494,7 +532,7 @@
       </ReturnValue>
       <MemberValue>42</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=42. A GUID value.</summary>
       </Docs>
     </Member>
     <Member MemberName="HLFRIENDLYNAME">
@@ -514,7 +552,7 @@
       </ReturnValue>
       <MemberValue>30</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=30. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="HLHREF">
@@ -534,7 +572,7 @@
       </ReturnValue>
       <MemberValue>33</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=33. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="HLLOCATION">
@@ -554,7 +592,7 @@
       </ReturnValue>
       <MemberValue>32</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=32. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="HLSCREENTIP">
@@ -574,7 +612,7 @@
       </ReturnValue>
       <MemberValue>46</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=46. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="HLTARGET">
@@ -594,7 +632,7 @@
       </ReturnValue>
       <MemberValue>31</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=31. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="INDICATOR">
@@ -614,7 +652,7 @@
       </ReturnValue>
       <MemberValue>36</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=36. Indicator.</summary>
       </Docs>
     </Member>
     <Member MemberName="INVALID">
@@ -634,7 +672,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Invalid data. Forces an error return.</summary>
       </Docs>
     </Member>
     <Member MemberName="LINK">
@@ -654,7 +692,7 @@
       </ReturnValue>
       <MemberValue>25</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=25. Index to type of task link (SS, FF, FS, SF).</summary>
       </Docs>
     </Member>
     <Member MemberName="LONG">
@@ -674,7 +712,7 @@
       </ReturnValue>
       <MemberValue>24</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=24. A <b>Long</b> value.</summary>
       </Docs>
     </Member>
     <Member MemberName="MATERIALWORK">
@@ -694,7 +732,7 @@
       </ReturnValue>
       <MemberValue>45</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=45. Same as <b>TSMATERIALWORK</b> (timesheet material work).</summary>
       </Docs>
     </Member>
     <Member MemberName="MONIKER">
@@ -714,7 +752,7 @@
       </ReturnValue>
       <MemberValue>35</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=35. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="MULTICURRENCY">
@@ -734,7 +772,7 @@
       </ReturnValue>
       <MemberValue>55</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=55. Multicurrency.</summary>
       </Docs>
     </Member>
     <Member MemberName="NUMBER">
@@ -754,7 +792,7 @@
       </ReturnValue>
       <MemberValue>15</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=15. A plain number.</summary>
       </Docs>
     </Member>
     <Member MemberName="NUMTYPES">
@@ -774,7 +812,7 @@
       </ReturnValue>
       <MemberValue>56</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=56. Numerical types.</summary>
       </Docs>
     </Member>
     <Member MemberName="PERCENT">
@@ -794,7 +832,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. Percent.</summary>
       </Docs>
     </Member>
     <Member MemberName="PRIORITY">
@@ -814,7 +852,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Index into priority table.</summary>
       </Docs>
     </Member>
     <Member MemberName="PSSTRINGS">
@@ -834,7 +872,7 @@
       </ReturnValue>
       <MemberValue>50</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=50. Project Server string data.</summary>
       </Docs>
     </Member>
     <Member MemberName="R8PCT">
@@ -854,7 +892,7 @@
       </ReturnValue>
       <MemberValue>41</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=41. Used for percent allocation, where the data may overflow a word. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="RATETABLE">
@@ -874,7 +912,7 @@
       </ReturnValue>
       <MemberValue>40</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=40. Assignment rate table (used by VBA in Project Professional). Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="RSCTYPE">
@@ -894,7 +932,7 @@
       </ReturnValue>
       <MemberValue>43</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=43. Resource type.</summary>
       </Docs>
     </Member>
     <Member MemberName="RTF">
@@ -914,7 +952,7 @@
       </ReturnValue>
       <MemberValue>26</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=26. Rich text format (RTF) data. Not supported.</summary>
       </Docs>
     </Member>
     <Member MemberName="SIMPLERATE">
@@ -934,7 +972,7 @@
       </ReturnValue>
       <MemberValue>44</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=44. Simple rate.</summary>
       </Docs>
     </Member>
     <Member MemberName="STARTDATE">
@@ -954,7 +992,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Start date.</summary>
       </Docs>
     </Member>
     <Member MemberName="STRING">
@@ -974,7 +1012,7 @@
       </ReturnValue>
       <MemberValue>21</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=21. A <b>String</b> value.</summary>
       </Docs>
     </Member>
     <Member MemberName="TASKMODE">
@@ -994,7 +1032,7 @@
       </ReturnValue>
       <MemberValue>58</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=58. Task mode (automatically or manually scheduled).</summary>
       </Docs>
     </Member>
     <Member MemberName="TASKSTATUS">
@@ -1014,7 +1052,7 @@
       </ReturnValue>
       <MemberValue>51</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=51. Task status (complete, on schedule, late, future task, or none).</summary>
       </Docs>
     </Member>
     <Member MemberName="TASKTYPE">
@@ -1034,7 +1072,7 @@
       </ReturnValue>
       <MemberValue>29</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=29. Task type (fixed units, fixed work, or fixed duration).</summary>
       </Docs>
     </Member>
     <Member MemberName="TIME">
@@ -1054,7 +1092,7 @@
       </ReturnValue>
       <MemberValue>23</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=23. Minutes since 12:00 am (midnight).</summary>
       </Docs>
     </Member>
     <Member MemberName="TIMELABEL">
@@ -1074,7 +1112,7 @@
       </ReturnValue>
       <MemberValue>22</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=22. Time label.</summary>
       </Docs>
     </Member>
     <Member MemberName="TSMATERIALWORK">
@@ -1094,7 +1132,7 @@
       </ReturnValue>
       <MemberValue>45</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=45. Timesheet material work.</summary>
       </Docs>
     </Member>
     <Member MemberName="UID">
@@ -1114,7 +1152,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Project unique identification number (ID).</summary>
       </Docs>
     </Member>
     <Member MemberName="UNITS">
@@ -1134,7 +1172,7 @@
       </ReturnValue>
       <MemberValue>12</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=12. Value in 1/UNITS_MULTIPLIER units.</summary>
       </Docs>
     </Member>
     <Member MemberName="WGUSER">
@@ -1154,7 +1192,7 @@
       </ReturnValue>
       <MemberValue>39</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=39. Workgroup user type.</summary>
       </Docs>
     </Member>
     <Member MemberName="WORD">
@@ -1174,7 +1212,7 @@
       </ReturnValue>
       <MemberValue>20</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=20. A <b>Word</b> value (two bytes).</summary>
       </Docs>
     </Member>
     <Member MemberName="WORK">
@@ -1194,7 +1232,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. Work value in 1/WORK_MULTIPLIER minutes.</summary>
       </Docs>
     </Member>
     <Member MemberName="WORKRATE">
@@ -1214,7 +1252,7 @@
       </ReturnValue>
       <MemberValue>10</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=10. Work rate value in (1/DUR_MULTIPLIER minutes per 1/DUR_MULTIPLIER minutes.</summary>
       </Docs>
     </Member>
     <Member MemberName="YESNO">
@@ -1234,7 +1272,7 @@
       </ReturnValue>
       <MemberValue>17</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=17. Index into a yes/no string table.</summary>
       </Docs>
     </Member>
   </Members>

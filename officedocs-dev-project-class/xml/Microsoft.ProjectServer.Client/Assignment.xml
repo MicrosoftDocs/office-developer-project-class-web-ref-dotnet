@@ -19,8 +19,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains the common properties for draft assignments and published assignments.</summary>
+    <remarks>
+      <para>The <b>DraftAssignment</b> class and the <b>PublishedAssignment</b> class are derived from the <b>Assignment</b> class. All of the properties in the <b>Assignment</b> class are read-only. To set the value of assignment properties, use a <b>DraftAssignment</b> object.</para>
+      <para>For more information about fields in Microsoft Project 2013, see <a href="http://office.microsoft.com/en-us/project-help/available-fields-reference-HA010370279.aspx">Available fields reference</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +48,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>Assignment</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +75,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the actual cost of work performed (ACWP) for the assignment to date.</summary>
+        <value>The value of the ACWP.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +101,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the actual overtime cost for the assignment.</summary>
+        <value>The value of the overtime cost.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,9 +127,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total planned costs of the assignment.</summary>
+        <value>The value of the baseline cost.</value>
+        <remarks>
+          <para>Baseline Cost = (Work * Standard Rate) + (Overtime Work * Overtime Rate) + Per Use Cost</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineCostPerUse">
@@ -149,8 +156,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the cost per use of a resource on an assignment, at the time of the project baseline.</summary>
+        <value>The value of the baseline cost per use.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +182,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the planned completion date for an assignment, at the time of the project baseline.</summary>
+        <value>The planned completion date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +208,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the planned start date for an assignment, at the time of the project baseline.</summary>
+        <value>The planned start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,9 +234,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets total planned person-hours scheduled for an assignment, at the time of the project baseline.</summary>
+        <value>The total planned hours.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the baseline work, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.BaselineWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineWorkTimeSpan">
@@ -253,8 +263,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval of planned person-hours scheduled for an assignment, at the time of the project baseline.</summary>
+        <value>The total planned hours.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,9 +289,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the budgeted cost of work performed (BCWP).</summary>
+        <value>The value of the BCWP.</value>
+        <remarks>
+          <para>BCWP is the cumulative value of percent complete, multiplied by the timephased baseline costs. It is calculated up to the status date or today's date. BCWP is also known as earned value (EV).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BudgetedCostWorkScheduled">
@@ -305,9 +318,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the budgeted cost of work scheduled (BCWS) for the assignment.</summary>
+        <value>The value of the BCWS.</value>
+        <remarks>
+          <para>The BCWS is the sum of the timephased baseline costs of an assignment, up to the status date or today's date.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CostVariance">
@@ -331,9 +347,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the cost variance (CV), which is the difference between the baseline cost and the total cost of the assignment.</summary>
+        <value>The value of the CV.</value>
+        <remarks>
+          <para>Cost variance is the difference between the budgeted cost of work performed and the actual cost of work performed for the assignment, as in the following equation:</para>
+          <para>CV = BCWP - ACWP</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CostVarianceAtCompletion">
@@ -357,9 +377,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the cost variance at completion (VAC) for the assignment.</summary>
+        <value>The value of the VAC.</value>
+        <remarks>
+          <para>VAC = (Budgeted at completion) – (Estimated at completion)</para>
+          <para>The budgeted at completion cost is the baseline cost.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Created">
@@ -383,8 +407,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when the assignment was created.</summary>
+        <value>The date of creation.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -409,9 +433,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the current cost variance (CV).</summary>
+        <value>The value of the current CV.</value>
+        <remarks>
+          <para>The current earned value CV shows the difference between how much it should have cost and how much it has actually cost to achieve the current level of completion, up to the status date or today's date.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CustomFields">
@@ -435,8 +462,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of custom fields for the assignment.</summary>
+        <value>The custom field collection.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,9 +488,14 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the variance of the finish date of the assignment.</summary>
+        <value>The duration of the finish variance. For example, 2d (two days) or 3w (three weeks).</value>
+        <remarks>
+          <para>The finish variance is the difference between the baseline finish date and the current finish date of the assignment, as in the following formula:</para>
+          <para>Finish Variance = Finish – Baseline Finish</para>
+          <para>To get the <b>TimeSpan</b> value for the finish variance, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.FinishVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FinishVarianceTimeSpan">
@@ -487,9 +519,13 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the variance of the finish date of the assignment.</summary>
+        <value>The duration of the finish variance.</value>
+        <remarks>
+          <para>The finish variance is the difference between the baseline finish date and the current finish date of the assignment, as in the following formula:</para>
+          <para>Finish Variance = Finish – Baseline Finish</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Id">
@@ -513,8 +549,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the assignment.</summary>
+        <value>The unique identifier.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -538,9 +574,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -566,9 +602,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that shows whether the resource has accepted the assignment.</summary>
+        <value>
+          <b>True</b> if the assignment is confirmed; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>When an assignment is created, Project Server sets the <b>IsConfirmed</b> value to <b>False</b>. When the project manager sends an assignment update to a resource, Project Server sets the <b>IsResponsePending</b> value to <b>True</b>. If the resource accepts the assignment, the <b>IsResponsePending</b> value is set to <b>False</b> and the <b>IsConfirmed</b> value is set to <b>True</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsOverAllocated">
@@ -592,9 +632,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether the resource is overallocated during the time of the assignment.</summary>
+        <value>
+          <b>True</b> if the resource is overallocated; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>An overallocated resource is assigned to do more work than can be done within the normal working capacity. The work capacity of a resource is determined by the resource calendar and the resource availability during the assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsPublished">
@@ -618,8 +662,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the assignment is published.</summary>
+        <value>
+          <b>True</b> if the assignment is published; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -644,9 +689,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that shows whether the assignment update has been sent to the resource.</summary>
+        <value>
+          <b>True</b> if the assignment update is sent to the resource; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>When an assignment is created, Project Server sets the <b>IsConfirmed</b> value to <b>False</b>. When the project manager sends an assignment update to a resource, Project Server sets the <b>IsResponsePending</b> value to <b>True</b>. If the resource accepts the assignment, the <b>IsResponsePending</b> value is set to <b>False</b> and the <b>IsConfirmed</b> value is set to <b>True</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsUpdateNeeded">
@@ -670,9 +719,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether an assignment update should be sent to the resource.</summary>
+        <value>
+          <b>True</b> if the assignment needs an update; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>When a scheduled task changes start date, finish date, or duration, Project Server sets <b>IsUpdateNeeded</b> to <b>True</b> if the scheduling change affects the assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LevelingDelay">
@@ -696,8 +749,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the amount of time that resource leveling can delay the assignment from its early start date.</summary>
+        <value>The duration of the leveling delay. For example, 2d (two days) or 3w (three weeks).To get the <b>TimeSpan</b> value for the leveling delay, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.LevelingDelayTimeSpan" /> property.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -722,8 +775,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of time that resource leveling can delay the assignment from its early start date.</summary>
+        <value>The duration of the leveling delay.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -748,8 +801,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when the assignment was modified.</summary>
+        <value>The date of modification.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -774,9 +827,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total overtime cost of the assignment.</summary>
+        <value>The value of the overtime cost.</value>
+        <remarks>
+          <para>Overtime Cost = Actual Overtime Cost + Remaining Overtime Cost</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingCost">
@@ -800,9 +856,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total remaining cost of the assignment, as scheduled.</summary>
+        <value>The value of the remaining cost.</value>
+        <remarks>
+          <para>Remaining Cost = (Remaining Work * Standard Rate) + Remaining Overtime Cost</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingOvertimeCost">
@@ -826,9 +885,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the scheduled remaining overtime cost of the assignment.</summary>
+        <value>The value of the remaining overtime cost.</value>
+        <remarks>
+          <para>Remaining Overtime Cost = Overtime Cost - Actual Overtime Cost</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Resume">
@@ -852,8 +914,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time when a resource resumes work on the assignment.</summary>
+        <value>The date when the resource resumes work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -878,8 +940,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schedule cost variance (CV), which is the difference between the baseline cost and the scheduled cost of the assignment.</summary>
+        <value>The value of the schedule cost variance.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -904,9 +966,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the date and time that a resource is scheduled to start the assignment.</summary>
+        <value>The assignment start date.</value>
+        <remarks>
+          <para>Project calculates the assignment start date based on the resource calendar and task dependencies. It also considers the task start date and any assignment delay, as follows:</para>
+          <para>Assignment Start = Task Start + Assignment Delay</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartVariance">
@@ -930,9 +996,14 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the variance of the assignment start date.</summary>
+        <value>The duration of the start variance. For example, 2d (two days) or 3w (three weeks).</value>
+        <remarks>
+          <para>The start variance is the difference between the baseline start date of the assignment and the currently scheduled start date, as in the following formula:</para>
+          <para>Start Variance = Start – Baseline Start</para>
+          <para>To get the <b>TimeSpan</b> value for the start variance, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.StartVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartVarianceTimeSpan">
@@ -956,9 +1027,13 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the variance of the assignment start date.</summary>
+        <value>The duration of the start variance.</value>
+        <remarks>
+          <para>The start variance is the difference between the baseline start date of the assignment and the currently scheduled start date, as in the following formula:</para>
+          <para>Start Variance = Start – Baseline Start</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Stop">
@@ -982,8 +1057,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time when a resource stops work on the assignment.</summary>
+        <value>The stop date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1008,9 +1083,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the difference between baseline work and currently scheduled work on the assignment.</summary>
+        <value>The value of the work variance.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para>To get the <b>TimeSpan</b> value for the work variance, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.WorkVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkVarianceTimeSpan">
@@ -1034,9 +1113,12 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the difference between baseline work and currently scheduled work on the assignment.</summary>
+        <value>The duration of the work variance.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

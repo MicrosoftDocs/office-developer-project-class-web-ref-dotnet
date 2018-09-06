@@ -19,8 +19,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Used internally by client-side code. To initialize the client context for development with the Project Server CSOM, use <see cref="T:Microsoft.ProjectServer.Client.ProjectContext" />.</summary>
+    <remarks>
+      <para>You should use the <see cref="T:Microsoft.ProjectServer.Client.ProjectContext" /> class for development with the CSOM in Microsoft Project Server 2013. Because the  object inherits from the SharePoint <b>ClientContext</b> object, it maintains the context for development with both the Project Server CSOM and the SharePoint CSOM.</para>
+      <para>
+        <b>Note</b>: An advantage of the <b>ProjectContext</b> class is that it includes the <see cref="M:Microsoft.ProjectServer.Client.ProjectContext.WaitForQueue(Microsoft.ProjectServer.Client.QueueJob,System.Int32)" /> method. If you used the <b>ProjectServer</b> class, you would have to develop your own routines to wait for a queue job to complete.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -39,8 +44,8 @@
         <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The SharePoint client run-time context.</param>
+        <summary>Initializes a ProjectServer object by using the SharePoint client run-time context.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -65,9 +70,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The SharePoint client run-time context.</param>
+        <param name="objectPath">The path of the Project Web App instance.</param>
+        <summary>Initializes a <b>ProjectServer</b> object by using the SharePoint client run-time context and the Project Web App path.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -92,8 +97,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Get the collection of calendars for the project server instance.</summary>
+        <value>A collection of calendars.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -118,9 +123,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise custom field definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
+        <remarks>
+          <para>Values for custom fields can be set on many entity types, including projects, tasks, resources, and assignments. A project can also include definitions for local custom fields that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EnterpriseProjectTypes">
@@ -144,9 +152,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise project types (EPTs) in the Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseProjectType</b> objects.</value>
+        <remarks>
+          <para>An EPT can include a workflow association, and templates for the initial project plan and the project site.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EnterpriseResources">
@@ -170,9 +181,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResourceCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise resources in a Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseResource</b> objects.</value>
+        <remarks>
+          <para>A project can also include local resources that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EntityTypes">
@@ -196,9 +210,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EntityTypes</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the types of Project Server entities that are exposed through the CSOM.</summary>
+        <value>An <b>EntityTypes</b> object.</value>
+        <remarks>
+          <para>Project Server entity types include, for example, projects, enterprise resources, tasks, assignments, and custom fields.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EventHandlers">
@@ -222,8 +239,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EventHandlerCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of event handlers that are defined in a Project Web App instance.</summary>
+        <value>A collection of <b>EventHandler</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -248,8 +265,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EventCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of event objects in a Project Web App instance.</summary>
+        <value>A collection of <b>Event</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -273,10 +290,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property was initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -301,8 +319,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the current user has started a delegation session in PWA.</summary>
+        <value>
+          <b>True</b> if the current user has started a delegate session; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -327,8 +346,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the Project Server database is in read-only mode.</summary>
+        <value>
+          <b>True</b> if the Project Server database is in read-only mode; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -353,9 +373,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.LookupTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of lookup table definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>LookupTable</b> objects.</value>
+        <remarks>
+          <para>Custom field values can reference the values for entries in a lookup table. A project can also include definitions for local lookup tables that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Phases">
@@ -379,9 +402,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.PhaseCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of Project Server workflow phases in the Project Web App instance.</summary>
+        <value>A collection of <b>Phase</b> objects.</value>
+        <remarks>
+          <para>A workflow phase is a major part of a workflow. A phase can contain one or more stages in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectDetailPages">
@@ -405,8 +431,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of project detail pages.</summary>
+        <value>A collection of <b>ProjectDetailPage</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -431,9 +457,54 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of projects in the Project Web App instance.</summary>
+        <value>A collection of <b>Project</b> objects.</value>
+        <remarks>
+          <para>A project entity contains additional entity types, such as tasks, resources, and assignments.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>
+            <b>Note</b>: We recommend that you use the <b>ProjectContext</b> object instead of <b>ProjectServer</b>.</para>
+          <para>The following example uses the <b>ProjectServer</b> object to list the published projects in Project Web App. For the same application that uses the <b>ProjectContext</b> object, see <see cref="P:Microsoft.ProjectServer.Client.ProjectContext.Projects" />. For information about creating a simple CSOM application in Microsoft Visual Studio, see <see cref="N:Microsoft.ProjectServer.Client" />.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.SharePoint.Client;
+using Microsoft.ProjectServer.Client;
+
+namespace ReadProjectList
+{
+    class Program
+    {
+        private const string pwaPath = "http://&lt;i&gt;ServerName&lt;/i&gt;/PwaName/";    // Change the path for Project Web App.
+        private static &lt;span class="label"&gt;ProjectServer&lt;/span&gt; projSvr;
+        private static ClientRuntimeContext context;
+
+        static void Main(string[] args)
+        {
+            context = new ClientContext(pwaPath);
+            projSvr = new ProjectServer(context);
+
+            // Get the list of published projects in Project Web App.
+            context.Load(projSvr.Projects);
+            context.ExecuteQuery();
+
+            Console.WriteLine("\nProject ID : Project name : Created date");
+
+            foreach (PublishedProject pubProj in projSvr.Projects)
+            {
+                Console.WriteLine("\n\t{0}\n\t{1} : {2}", pubProj.Id.ToString(), pubProj.Name, 
+                    pubProj.CreatedDate.ToString());
+            }
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Stages">
@@ -457,9 +528,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.StageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of Project Server workflow stages in a Project Web App instance.</summary>
+        <value>A collection of <b>Stage</b> objects.</value>
+        <remarks>
+          <para>A workflow stage is a specific subsection of a workflow phase.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StopDelegation">
@@ -484,7 +558,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Stops the current delegation session.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -509,8 +583,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetPeriodCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time sheets in a Project Server instance.</summary>
+        <value>A collection of <b>TimeSheetPeriod</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -535,8 +609,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkflowActivities</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the methods that Project Server workflows can call at run time.</summary>
+        <value>A <b>WorkflowActivities</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -561,8 +635,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkflowDesigner</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a workflow designer that developers can call at design time.</summary>
+        <value>A <b>WorkflowDesigner</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

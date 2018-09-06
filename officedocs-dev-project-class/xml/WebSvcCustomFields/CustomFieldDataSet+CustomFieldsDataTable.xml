@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents enterprise custom fields that are defined in one or more <see cref="T:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow" /> rows.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CustomFieldsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>CustomFieldsDataTable</b> class, using  parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">The custom field row to add.</param>
+        <summary>Adds a <b>CustomFieldsRow</b> object to the <b>CustomFieldsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddCustomFieldsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow" /> parameter. For example, AddCustomFieldsRow(CustomFieldDataSet.CustomFieldsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload, which uses individual parameters for all fields in <b>CustomFieldsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="APP_ENTITY_UIDColumn">
@@ -127,8 +141,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.APP_ENTITY_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -183,8 +197,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of rows in the <b>CustomFieldDataTable</b>.</summary>
+        <value>The number of rows.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -231,7 +245,7 @@
         <ReturnType>WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a <b>CustomFieldsRow</b> object is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -251,7 +265,7 @@
         <ReturnType>WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a <b>CustomFieldsRow</b> object is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -271,7 +285,7 @@
         <ReturnType>WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a <b>CustomFieldsRow</b> object is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -291,7 +305,7 @@
         <ReturnType>WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The Ppre-event that occurs before a <b>CustomFieldsRow</b> object is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -319,9 +333,9 @@
         <Parameter Name="MD_PROP_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="MD_PROP_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="MD_PROP_UID">Contains the custom field GUID.</param>
+        <summary>Retrieves a <b>CustomFieldRow</b> object by using the specified custom field GUID.</summary>
+        <returns>A row from a dataset.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -350,8 +364,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>CustomFieldsDataTable</b>.</summary>
+        <returns>An interator for the <b>CustomFieldsDataTable</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -407,7 +421,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -436,9 +450,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>CustomFieldsDataTable</b>, where the row is specified by an index.</summary>
+        <value>A row in the data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -463,8 +477,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_AGGREGATION_TYPE_ENUM" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -489,8 +503,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_ENT_TYPE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -515,8 +529,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_LOOKUP_TABLE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -541,8 +555,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_CHECKOUTBY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -567,8 +581,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_CHECKOUTDATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -593,8 +607,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_COPY_ON_REASSIGNMENT" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -619,8 +633,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_DEFAULT_VALUE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -645,8 +659,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_DEPARTMENT_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -671,8 +685,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_DESCRIPTION" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -697,8 +711,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_FORMULA" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -723,8 +737,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -749,8 +763,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_GRAPHICAL_INDICATOR" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -775,8 +789,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_ID_SECONDARY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -801,8 +815,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_ID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -827,8 +841,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_IS_EDITABLE_IN_VISIBILITY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -853,8 +867,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_IS_LEAF_NODE_ONLY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -879,8 +893,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines a column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_IS_MULTILINE_TEXT" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -905,8 +919,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_IS_REQUIRED" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -931,8 +945,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_IS_WORKFLOW_CONTROLLED" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -957,8 +971,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_MAX_VALUES" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -983,8 +997,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1009,8 +1023,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1035,8 +1049,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_ROLLDOWN_TO_ASSN" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1061,8 +1075,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_SUMM_GRAPHICAL_INDICATOR" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1087,8 +1101,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_TYPE_ENUM" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1113,8 +1127,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_UID_SECONDARY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1139,8 +1153,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1165,8 +1179,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_USE_FOR_MATCHING" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1191,8 +1205,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MOD_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1218,8 +1232,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a <b>CustomFieldsRow</b> object in the <b>CustomFieldsDataTable</b>.</summary>
+        <returns>A row from a dataset.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1393,8 +1407,8 @@
         <Parameter Name="row" Type="WebSvcCustomFields.CustomFieldDataSet+CustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified <b>CustomFieldsRow</b> object from the <b>CustomFieldDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

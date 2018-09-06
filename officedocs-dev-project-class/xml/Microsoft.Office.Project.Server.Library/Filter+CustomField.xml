@@ -17,9 +17,12 @@
     <Attribute>
       <AttributeName>System.Diagnostics.DebuggerDisplay("{FormattedFieldName}")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents an instance of a custom field when constructing a filter.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -40,9 +43,9 @@
         <Parameter Name="propertyType" Type="Microsoft.Office.Project.Server.Library.Filter+PropertyTypeEnum" />
       </Parameters>
       <Docs>
-        <param name="customFieldUid">To be added.</param>
-        <param name="propertyType">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="customFieldUid">The GUID of the custom field.</param>
+        <param name="propertyType">The type of the custom field property.</param>
+        <summary>Instantiates a <b>Filter.CustomField</b> object with the specified custom field GUID and property type.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -64,10 +67,10 @@
         <Parameter Name="propertyType" Type="Microsoft.Office.Project.Server.Library.Filter+PropertyTypeEnum" />
       </Parameters>
       <Docs>
-        <param name="tableName">To be added.</param>
-        <param name="customFieldUid">To be added.</param>
-        <param name="propertyType">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tableName">The name of the <b>DataTable</b>; for example, the <b>ResourceDataSet.ResourceCustomFields</b> table.</param>
+        <param name="customFieldUid">The GUID of the custom field.</param>
+        <param name="propertyType">The type of the custom field property.</param>
+        <summary>Instantiates a <b>Filter.CustomField</b> object with the specified <b>DataTable</b> name, custom field GUID, and property type.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -90,11 +93,11 @@
         <Parameter Name="sortOrder" Type="Microsoft.Office.Project.Server.Library.Filter+SortOrderTypeEnum" />
       </Parameters>
       <Docs>
-        <param name="tableName">To be added.</param>
-        <param name="customFieldUid">To be added.</param>
-        <param name="propertyType">To be added.</param>
-        <param name="sortOrder">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tableName">The name of the <b>DataTable</b>; for example, the <b>ResourceDataSet.ResourceCustomFields</b> table.</param>
+        <param name="customFieldUid">The GUID of the custom field.</param>
+        <param name="propertyType">The type of the custom field property.</param>
+        <param name="sortOrder">The sort order of the custom field.</param>
+        <summary>Instantiates a <b>Filter.CustomField</b> object with the specified <b>DataTable</b> name, custom field GUID, property type, and sort order.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -115,7 +118,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a base custom field object for a filter.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -136,9 +139,49 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the custom field property type.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The custom field property type name can be one of the following:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <b>FLAG_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>TEXT_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>DATE_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>CODE_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>DUR_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>NUM_VALUE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>DUR_FMT</b>
+              </description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyType">
@@ -157,9 +200,13 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+PropertyTypeEnum</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the property type of the custom field.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>PropertyType</b> can be one of the <see cref="T:Microsoft.Office.Project.Server.Library.Filter.PropertyTypeEnum" /> constants.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -22,7 +22,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a collection of <see cref="T:Microsoft.ProjectServer.Client.StatusAssignment" /> objects, which are assignments in a status update.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -47,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>StatusAssignmentCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,10 +77,13 @@
         <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.StatusAssignmentCreationInformation" />
       </Parameters>
       <Docs>
-        <param name="parameters">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="parameters">The properties of the status assignment to create.</param>
+        <summary>Adds the assignment that is specified by the <see cref="T:Microsoft.ProjectServer.Client.StatusAssignmentCreationInformation" /> object to the collection.</summary>
+        <returns>The assignment for the status update.</returns>
+        <remarks>
+          <para>If the assignment is for the application user, it can be added to the <b>StatusAssignmentCollection</b> object without permissions other than "log on to Project Server." If the assignment is for another resource, the application user must have the status broker permission (<see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.StatusBrokerPermission" />). Otherwise, the call to the <b>Add</b> method can fail with the permission denied exception.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetByGuid">
@@ -107,9 +110,9 @@
         <Parameter Name="uid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="uid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="uid">A GUID value.</param>
+        <summary>Gets a status assignment object from the collection with the specified GUID.</summary>
+        <returns>A <b>StatusAssignment</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,9 +140,9 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="objectId">The string representation of the GUID for the status assignment.</param>
+        <summary>Gets a status assignment object from the collection with the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.Id" /> value.</summary>
+        <returns>A <b>StatusAssignment</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -168,11 +171,14 @@
         <Parameter Name="end" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="start">To be added.</param>
-        <param name="end">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="start">The start date.</param>
+        <param name="end">The end date.</param>
+        <summary>Reads the timephased data for assignments that are within the specified start date and end date.</summary>
+        <returns>The timephased data.</returns>
+        <remarks>
+          <para>The end date is calculated to the last minute of the specified date; that is, the end date goes to one minute before midnight.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Remove">
@@ -199,10 +205,14 @@
         <Parameter Name="assignment" Type="Microsoft.ProjectServer.Client.StatusAssignment" />
       </Parameters>
       <Docs>
-        <param name="assignment">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="assignment">The assignment to remove.</param>
+        <summary>Removes the specified assignment from the collection.</summary>
+        <returns>
+          <b>True</b> if the object is removed from the collection; otherwise, <b>False</b>.</returns>
+        <remarks>
+          <para>The <b>Remove</b> method sets the remaining work on the assignment to 0. The status manager still needs to approve the update.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SubmitAllStatusUpdates">
@@ -229,9 +239,12 @@
         <Parameter Name="comment" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="comment">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="comment">The text comment for the status submission.</param>
+        <summary>Submit all updates to assignments in the <b>StatusAssignmentCollection</b> for approval.</summary>
+        <remarks>
+          <para>If an assignment is for the application user, it can be submitted without permissions other than "log on to Project Server." If the assignment is for another resource, the application user must have the status broker permission (<see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.StatusBrokerPermission" />). Otherwise, the call to the <b>SubmitAllStatusUpdates</b> method will fail with the permission denied exception.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
@@ -256,7 +269,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Updates the status assignment collection and saves changes in the collection to Project Server.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

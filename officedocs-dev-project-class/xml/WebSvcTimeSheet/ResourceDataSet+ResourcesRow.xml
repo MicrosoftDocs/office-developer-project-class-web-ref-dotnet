@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents an enterprise resource.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,13 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default calendar to use when scheduling this resource.</summary>
+        <value>The GUID of a default calendar.</value>
+        <remarks>
+          <para>
+            <b>BaseCalendarUniqueId</b> is a foreign key into <see cref="P:WebSvcCalendar.CalendarDataSet.CalendarsRow.CAL_UID" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CREATED_DATE">
@@ -65,9 +69,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the date when this row was first created.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetCalendarExceptionsRows">
@@ -92,9 +99,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Gets an array of calendar exceptions for a resource.</summary>
+        <returns>An array of calendar exception row objects.</returns>
+        <remarks>
+          <para>An array of <see cref="T:WebSvcTimeSheet.ResourceDataSet.CalendarExceptionsRow" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetResourceAvailabilitiesRows">
@@ -119,8 +129,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an array of availability data for the resource.</summary>
+        <returns>An array of resource availability rows.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -146,9 +156,12 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Gets an array of custom fields for this resource.</summary>
+        <returns>An array of resource custom fields rows.</returns>
+        <remarks>
+          <para>An array of <see cref="T:WebSvcTimeSheet.ResourceDataSet.ResourceCustomFieldsRow" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetResourceRatesRows">
@@ -173,8 +186,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an array of rate (cost) data for the resource.</summary>
+        <returns>An array of resource rates rows.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -200,8 +213,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +241,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +269,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -281,8 +297,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -308,8 +325,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -335,8 +353,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -362,8 +381,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -389,8 +409,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -416,8 +437,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -443,8 +465,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -470,8 +493,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -497,8 +521,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -524,8 +549,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -551,8 +577,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -578,8 +605,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -605,8 +633,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -632,8 +661,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -659,8 +689,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -686,8 +717,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -713,8 +745,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -740,8 +773,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -767,8 +801,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -794,8 +829,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -821,8 +857,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -848,8 +885,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -875,8 +913,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -902,8 +941,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -929,8 +969,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -956,8 +997,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -983,8 +1025,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1010,8 +1053,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1037,8 +1081,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1064,8 +1109,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1090,9 +1136,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the last date when updated information about this row was saved to the server.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_ACCRUE_AT">
@@ -1116,9 +1165,12 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates how and when resource standard costs and overtime costs should accrue to the cost of a task.</summary>
+        <value>A number that represents when and how costs accrue.</value>
+        <remarks>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.AccrueAt" /> type to a <b>short</b> to use with this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_BOOKING_TYPE">
@@ -1142,9 +1194,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates the default booking type for the resource on this project.</summary>
+        <value>An integer that represents the booking type.</value>
+        <remarks>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.BookingType" /> type to an <b>int</b> to use with this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_CAL_OOF_EXCHANGE_SYNC">
@@ -1168,8 +1223,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the out-of-office resource calendar has been synchronized with Microsoft Exchange.</summary>
+        <value>
+          <b>True</b> if synchronization with Microsoft Exchange has occurred; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1194,9 +1250,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether resource leveling can be performed on a resource.</summary>
+        <value>
+          <b>True</b> if leveling can be performed; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>Leveling resolves resource conflicts or over-allocations by delaying or splitting certain tasks. When Project levels a resource, its selected assignments are distributed and rescheduled.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_CHECKOUTBY">
@@ -1220,9 +1280,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique ID of the user who has this resource checked out for modification.</summary>
+        <value>A resource GUID.</value>
+        <remarks>
+          <para>Read-only. Changes cannot be made when the resource is checked out to another user.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_CHECKOUTDATE">
@@ -1246,9 +1309,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the date when the resource was checked out.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_CODE">
@@ -1272,8 +1338,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains a code.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1298,8 +1364,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains resource information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1324,9 +1390,13 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique ID of the resource who is the default owner of assignments to which this resource is assigned.</summary>
+        <value>The GUID of a default owner of assignments.</value>
+        <remarks>
+          <para>
+            <b>RES_DEF_ASSN_OWNER</b> is a foreign key to another resource in the <see cref="T:WebSvcProject.ProjectDataSet.ProjectResourceRow" /> object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_EXCHANGE_EWS_URL">
@@ -1350,8 +1420,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the URL of the Microsoft Exchange web service for the resource.</summary>
+        <value>The URL of a Microsoft Exchange web service.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1376,8 +1446,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether to synchronize resource information with Microsoft Exchange.</summary>
+        <value>
+          <b>True</b> if to synchronize with Microsoft Exchange; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1402,8 +1473,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains a code.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1428,8 +1499,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains resource information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1454,8 +1525,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Indicates whether any notes are stored in the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property.</summary>
+        <value>
+          <b>True</b> if notes are stored in the <b>RES_NOTES</b> property; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1480,8 +1552,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the date and time when a resource was hired.</summary>
+        <value>A date and time object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1506,9 +1578,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the URI for the hyperlink that is associated with this resource. </summary>
+        <value>A string that contains a URI.</value>
+        <remarks>
+          <para>
+            <b>RES_HYPERLINK_ADDRESS</b> does not include any anchor. The anchor portion of the URI is specified by the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_HYPERLINK_FRIENDLY_NAME">
@@ -1532,8 +1608,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the display text for the hyperlink that is associated with this resource.</summary>
+        <value>A string that contains the friendly name of a hyperlink.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1558,8 +1634,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the anchor portion of the URI of the hyperlink that is associated with this resource.</summary>
+        <value>A string that contains the anchor portion of a URI.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1584,9 +1660,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies an ordinal identifier of the resource.</summary>
+        <value>An integer identifier.</value>
+        <remarks>
+          <para>As you create or add resources to the project, Microsoft Project automatically assigns the next number in the sequence of resources that are listed. This value becomes the <b>RES_ID</b>. </para>
+          <para>
+            <b>RES_ID</b> is not a unique identifier for the resource. It changes whenever the order of resources changes. The persistent unique identifier is the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_UID" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_INITIALS">
@@ -1610,9 +1691,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies a short name for the resource, such as the initials of a person.</summary>
+        <value>A string that contains a set of initials.</value>
+        <remarks>
+          <para>
+            <b>RES_INITIALS</b> is usually two or three characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_IS_TEAM">
@@ -1636,8 +1721,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Indicates whether a resource is designated as a member of a team assignment pool.</summary>
+        <value>
+          <b>True</b> if the resource is designated as a team assignment pool; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1662,8 +1748,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Indicates whether this resource is a Windows user.</summary>
+        <value>
+          <b>True</b> if resource is a Windows user; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1688,9 +1775,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies text that indicates units for this material resource.</summary>
+        <value>A string that names material resource units.</value>
+        <remarks>
+          <para>This field applies only if the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TYPE" /> property is of type <see cref="F:Microsoft.Office.Project.Server.Library.Resource.Type.MaterialResource" />. The <b>Material Label</b> field contains the unit of measurement that you enter for supplies or other consumable items that are used to complete tasks in a project; for example, tons, boxes, or cubic yards. This label is then used in conjunction with the material resource's assignment units; for example, eight tons or 22 boxes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_NAME">
@@ -1714,9 +1804,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the full name of the resource.</summary>
+        <value>A string that contains a resource name.</value>
+        <remarks>
+          <para>
+            <b>RES_NAME</b> cannot be a duplicate of another enterprise resource.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_NOTES">
@@ -1740,8 +1834,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies comments that are entered about a resource.</summary>
+        <value>This field contains only text; it does not contain formatting or graphics. To enter comments with formatting or graphics, use the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1766,9 +1860,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies phonetic information in either hiragana or katakana for resource names.</summary>
+        <value>A string that contains phonetic information.</value>
+        <remarks>
+          <para>
+            <b>RES_PHONETICS</b> is used only in the Japanese version of Microsoft Project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_RTF_NOTES">
@@ -1792,9 +1890,13 @@
         <ReturnType>System.Byte[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies comments that are entered about a resource.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>RES_RTF_NOTES</b> contains formatted text and graphics.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_TERMINATION_DATE">
@@ -1818,7 +1920,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time after which the resource can no longer be used.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1844,9 +1946,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique ID of the timesheet manager for this resource.</summary>
+        <value>The GUID of a timesheet manager.</value>
+        <remarks>
+          <para>If <b>RES_TIMESHEET_MGR_UID</b> is a null value, this resource is an optional timesheet user. This means that timesheets are not required for this user, and timesheets for this user will not appear on late timesheet reports.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_TYPE">
@@ -1870,9 +1975,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether this resource is a work, material, or cost resource and whether it is a budget resource or a generic resource.</summary>
+        <value>An integer that represents the resource type.</value>
+        <remarks>
+          <para>Cast from the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.Type" /> type to an <b>int</b> to use with this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_UID">
@@ -1896,8 +2004,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the unique identifier for this resource.</summary>
+        <value>The GUID of the resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1923,7 +2031,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1949,7 +2057,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1975,7 +2083,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2001,7 +2109,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2027,7 +2135,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2053,7 +2161,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2079,7 +2187,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2105,7 +2213,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2131,7 +2239,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2157,7 +2265,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2183,7 +2291,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2209,7 +2317,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2235,7 +2343,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2261,7 +2369,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2287,7 +2395,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2313,7 +2421,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2339,7 +2447,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2365,7 +2473,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2391,7 +2499,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2417,7 +2525,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2443,7 +2551,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2469,7 +2577,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2495,7 +2603,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2521,7 +2629,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2547,7 +2655,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2573,7 +2681,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2599,7 +2707,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2625,7 +2733,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2651,7 +2759,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2677,7 +2785,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2703,7 +2811,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2729,7 +2837,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2755,7 +2863,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2780,8 +2888,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies Windows account information for a work resource.</summary>
+        <value>A string that contains Windows account information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2806,9 +2914,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the resource's e-mail address.</summary>
+        <value>A string that contains the email address of the resource.</value>
+        <remarks>
+          <para>
+            <b>WRES_EMAIL</b> is the e-mail address for this resource.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WRES_EMAIL_LANGUAGE">
@@ -2832,8 +2944,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the language for e-mail messages to this resource.</summary>
+        <value>An integer that represents a language.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

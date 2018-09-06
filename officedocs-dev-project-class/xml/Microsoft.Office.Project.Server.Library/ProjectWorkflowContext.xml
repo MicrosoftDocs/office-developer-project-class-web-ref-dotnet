@@ -24,9 +24,12 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(false)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Interface to provide information that is related to the current instance of the workflow.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -43,7 +46,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates an empty <b>ProjectWorkflowContext</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -64,9 +67,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains serialized data about the workflow context.</param>
+        <param name="context">Contains contextual information about the serialization source or destination.</param>
+        <summary>Creates an instance of the <b>ProjectWorkflowContext</b> class for serialization purposes.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -95,17 +98,19 @@
         <Parameter Name="eptName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projUid">To be added.</param>
-        <param name="proxyUid">To be added.</param>
-        <param name="proxyAcct">To be added.</param>
-        <param name="isWindows">To be added.</param>
-        <param name="languageCultureNm">To be added.</param>
-        <param name="localeCultureNm">To be added.</param>
-        <param name="skip">To be added.</param>
-        <param name="stageuid">To be added.</param>
-        <param name="eptUid">To be added.</param>
-        <param name="eptName">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projUid">The GUID of the project that is associated with the workflow.</param>
+        <param name="proxyUid">The GUID of the workflow proxy user.</param>
+        <param name="proxyAcct">The account name of the workflow proxy user.</param>
+        <param name="isWindows">
+          <b>True</b> if the workflow proxy user is using Windows authentication; otherwise, <b>false</b>.</param>
+        <param name="languageCultureNm">The name of the language culture that is used by the workflow.</param>
+        <param name="localeCultureNm">The name of the locale culture that is used by the workflow.</param>
+        <param name="skip">
+          <b>True</b> if the workflow will skip to a specific stage; otherwise, <b>false</b>.</param>
+        <param name="stageuid">The GUID of the current stage of the workflow, or of the next stage when <paramref name="skip" /> is <b>true</b>.</param>
+        <param name="eptUid">The GUID of the enterprise project type.</param>
+        <param name="eptName">The name of the enterprise project type.</param>
+        <summary>Instantiates a <b>ProjectWorkflowContext</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -125,7 +130,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the enterprise project type that is associated with the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -146,7 +151,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the enterprise project type that is associated with the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -174,9 +179,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains serialized data about the workflow context.</param>
+        <param name="context">Contains contextual information about the serialization source or destination.</param>
+        <summary>Populates the specified <b>SerializationInfo</b> object with the data that is needed to serialize the <b>ProjectWorkflowContext</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -199,7 +204,7 @@
         <ReturnType>System.Globalization.CultureInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the language culture that is used by the workflow.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -223,7 +228,7 @@
         <ReturnType>System.Globalization.CultureInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the locale culture that is used by the workflow.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -247,10 +252,13 @@
         <Parameter Name="xmlInput" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="xmlInput">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xmlInput">Contains the serialized XML data.</param>
+        <summary>Creates an instance of <b>ProjectWorkflowContext</b>, based on the specified XML data.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If any part of the serialized XML is not valid, the <b>ParseXml</b> method throws an <b>InvalidOperationException</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectUid">
@@ -269,7 +277,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project that is associated with the workflow.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -290,7 +298,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the account name of the workflow proxy user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -311,7 +319,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the workflow proxy user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -332,8 +340,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the workflow proxy user is using Windows authentication.</summary>
+        <value>
+          <b>True</b> if the user is using Windows authentication; otherwise, <b>false</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -354,8 +363,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Serializes the project workflow context to XML.</summary>
+        <returns>The serialized XML data represents the project workflow context.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -375,9 +384,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that indicates whether the workflow will skip to a specific stage.</summary>
+        <value>
+          <b>True</b> if the workflow will skip to another stage; otherwise, <b>false</b>.</value>
+        <remarks>
+          <para>When <b>SkipToStage</b> is <b>True</b>, the <b>StageUid</b> field contains the GUID of the next stage.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StageUid">
@@ -396,9 +409,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the current stage or the next stage of the workflow.</summary>
+        <value>The GUID of the current stage or the next stage.</value>
+        <remarks>
+          <para>When <b>SkipToStage</b> is <b>True</b>, <b>StageUid</b> specifies the next stage.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides overrides of feature event handlers in the <b>SPFeatureReceiver</b> base class. Legacy Project Server workflows do not add functionality to the SharePoint event handlers.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>WorkflowFeatureReceiver</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,9 +59,12 @@
         <Parameter Name="properties" Type="Microsoft.SharePoint.SPFeatureReceiverProperties" />
       </Parameters>
       <Docs>
-        <param name="properties">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="properties">The properties of the event.</param>
+        <summary>The handler for the <b>FeatureActivated</b> event; it is called after a feature is activated.</summary>
+        <remarks>
+          <para>The <b>FeatureActivated</b> event handler for Project Server workflows does not add any functionality to the SharePoint event handler.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FeatureDeactivating">
@@ -83,9 +86,12 @@
         <Parameter Name="properties" Type="Microsoft.SharePoint.SPFeatureReceiverProperties" />
       </Parameters>
       <Docs>
-        <param name="properties">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="properties">The properties of the event.</param>
+        <summary>The handler for the <b>FeatureDeactivating</b> event; it is called before a feature is deactivated.</summary>
+        <remarks>
+          <para>The <b>FeatureDeactivating</b> event handler for Project Server workflows does not add any functionality to the SharePoint event handler.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FeatureInstalled">
@@ -107,9 +113,12 @@
         <Parameter Name="properties" Type="Microsoft.SharePoint.SPFeatureReceiverProperties" />
       </Parameters>
       <Docs>
-        <param name="properties">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="properties">The properties of the event.</param>
+        <summary>The handler for the <b>FeatureInstalled</b> event; it is called after a feature is installed.</summary>
+        <remarks>
+          <para>The <b>FeatureInstalled</b> event handler for Project Server workflows does not add any functionality to the SharePoint event handler.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FeatureUninstalling">
@@ -131,9 +140,12 @@
         <Parameter Name="properties" Type="Microsoft.SharePoint.SPFeatureReceiverProperties" />
       </Parameters>
       <Docs>
-        <param name="properties">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="properties">The properties of the event.</param>
+        <summary>The handler for the <b>FeatureUninstalling</b> event; it is called before a feature is uninstalled.</summary>
+        <remarks>
+          <para>The <b>FeatureUninstalling</b> event handler for Project Server workflows does not add any functionality to the SharePoint event handler.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

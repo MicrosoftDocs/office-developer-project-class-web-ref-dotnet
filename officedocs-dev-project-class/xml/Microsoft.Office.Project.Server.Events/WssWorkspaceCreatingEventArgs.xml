@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.WssInteropEventReceiver.OnWssWorkspaceCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.WssWorkspaceCreatingEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -55,12 +60,12 @@
         <Parameter Name="webTemplateName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="wssServerUid">To be added.</param>
-        <param name="wssWebAbsoluteUrl">To be added.</param>
-        <param name="webTemplateLcid">To be added.</param>
-        <param name="webTemplateName">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">The GUID of the project.</param>
+        <param name="wssServerUid">The GUID of a server running Sharepoint Server or SharePoint Foundation.</param>
+        <param name="wssWebAbsoluteUrl">The absolute URL of a Sharepoint project site.</param>
+        <param name="webTemplateLcid">The locale identifier of a Sharepoint project site.</param>
+        <param name="webTemplateName">The name of a Sharepoint project site.</param>
+        <summary>Creates an instance of the <see cref="T:Microsoft.Office.Project.Server.Events.WssWorkspaceCreatingEventArgs" /> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -80,7 +85,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -101,7 +106,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the locale identifier of a Sharepoint project site.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -122,7 +127,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of a Sharepoint project site.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,7 +148,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of a server running Sharepoint Server or SharePoint Foundation.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -164,7 +169,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the absolute URL of a Sharepoint project site.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

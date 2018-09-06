@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a project detail page (PDP) for a workflow stage.</summary>
+    <remarks>
+      <para>For a list of workflow stages in Project Web App, see http://ServerName/ProjectServerName/Admin/WorkflowStages.aspx. When you create a workflow stage in Project Web App, some fields in the stage creation page represent members of the <b>StageDetailPage</b> class. Other fields on the page represent members of the <see cref="T:Microsoft.ProjectServer.Client.StageCustomField" /> class and the <see cref="T:Microsoft.ProjectServer.Client.StageDetailPageCreationInformation" /> class.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>StageDetailPage</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +75,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the PDP for the workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the description of the PDP. Read-write <b>String</b>.</summary>
+        <value>The description of the PDP.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the PDP. Read-only <b>Guid</b>.</summary>
+        <value>The PDP GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -148,10 +151,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +180,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPage</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the PDP in a workflow stage. Read/write <b>ProjectDetailPage</b>.</summary>
+        <value>The PDP.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,8 +206,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the position of the PDP relative to the other PDPs that are displayed in the workflow stage.</summary>
+        <value>A number that represents a position.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,8 +232,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the PDP requires attention.</summary>
+        <value>
+          <b>True</b> if the PDP requires attention; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +259,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Stage</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a link to the related workflow stage for the PDP. Read-only Stage. Read-only <b>Stage</b>.</summary>
+        <value>The workflow stage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

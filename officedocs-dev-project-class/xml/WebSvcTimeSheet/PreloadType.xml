@@ -16,10 +16,19 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlType(Namespace="http://schemas.microsoft.com/office/project/server/webservices/TimeSheet/")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Indicates which lines to preload into a timesheet.</summary>
+    <remarks>
+      <para>These values can be tested with a binary <b>and</b>.</para>
+      <para>For more information, see the <see cref="M:WebSvcTimeSheet.TimeSheet.CreateTimesheet(WebSvcTimeSheet.TimesheetDataSet,WebSvcTimeSheet.PreloadType)" /> PSI method.</para>
+      <para>
+        <b>Note</b>: The <see cref="N:Microsoft.Office.Project.Server.Library" /> namespace also includes the <see cref="T:Microsoft.Office.Project.Server.Library.TimesheetEnum.PreloadType" /> type.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="AdminTimes">
@@ -39,7 +48,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Populate only with admin times.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminTimesAndAssignments">
@@ -59,7 +68,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. Populate with admin times and assignments.</summary>
       </Docs>
     </Member>
     <Member MemberName="AdminTimesAndProjects">
@@ -79,7 +88,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Populate with admin times and projects.</summary>
       </Docs>
     </Member>
     <Member MemberName="All">
@@ -99,7 +108,7 @@
       </ReturnValue>
       <MemberValue>7</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=7. Populate all possible settings.</summary>
       </Docs>
     </Member>
     <Member MemberName="Assignments">
@@ -119,7 +128,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Populate only with assignments.</summary>
       </Docs>
     </Member>
     <Member MemberName="Default">
@@ -139,7 +148,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Use the server settings.</summary>
       </Docs>
     </Member>
     <Member MemberName="None">
@@ -159,7 +168,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. No lines are populated.</summary>
       </Docs>
     </Member>
     <Member MemberName="Projects">
@@ -179,7 +188,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Populate only with projects.</summary>
       </Docs>
     </Member>
     <Member MemberName="ProjectsAndAssignments">
@@ -199,7 +208,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. Populate with projects and assignments.</summary>
       </Docs>
     </Member>
   </Members>

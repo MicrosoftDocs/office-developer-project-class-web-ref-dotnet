@@ -18,8 +18,12 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes event handlers for the Cube Build Service (CBS) and methods in the <see cref="T:WebSvcCubeAdmin.CubeAdmin" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For more information about using events in the CBS, see Other Downstream Events in <a href="2c7e204a-a1b1-41b2-a540-a8bc2cff0441.htm">Events for the RDB</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of the <b>CubeAdminEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,10 +63,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CubeAdminPreCubeBuildEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler from the Cube Build Service that occurs when an OLAP cube starts to build.</summary>
+        <remarks>
+          <para>Use the <b>CubeAdminCubeBuilding</b> event to refresh any custom data.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For more information about the Cube Build Service (CBS) events, see Other Downstream Events in <a href="2c7e204a-a1b1-41b2-a540-a8bc2cff0441.htm">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCubeBuildingRemote">
@@ -117,10 +126,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CubeAdminPostCubeBuildEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler from the Cube Build Service that occurs when the cube metadata has been assembled but the cube is not yet populated with data.</summary>
+        <remarks>
+          <para>Use the <b>CubeAdminCubeBuilt</b> event to make metadata changes, such as permissions changes and to add additional measures and dimensions from custom tables.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For more information about the Cube Build Service (CBS) events, see Other Downstream Events in <a href="2c7e204a-a1b1-41b2-a540-a8bc2cff0441.htm">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCubeBuiltRemote">
@@ -174,10 +188,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CubeAdminPostCubeProcessEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeCalculatedMemberDefintion(WebSvcCubeAdmin.CubeCalculatedMemberDataSet)" /> method, the <see cref="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeFieldSettingForDimension(System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[])" /> method, and the <see cref="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeFieldSettingForMeasure(System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[])" /> method. </summary>
+        <remarks>
+          <para>Use the <b>CubeAdminCubeProcessed</b> event to do any post-processing cleanup and for triggering report suites to run against the newly processed cube.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For more information about the Cube Build Service (CBS) events, see Other Downstream Events in <a href="2c7e204a-a1b1-41b2-a540-a8bc2cff0441.htm">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCubeProcessedRemote">

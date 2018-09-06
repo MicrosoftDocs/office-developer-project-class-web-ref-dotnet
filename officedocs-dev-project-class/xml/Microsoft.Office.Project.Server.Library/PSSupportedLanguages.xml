@@ -14,8 +14,183 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains utility methods for language support in Project Server.</summary>
+    <remarks>
+      <para>Project Server supports the languages that are shown in Table 1. The Project Server databases use an integer to identify a language, which is the same as the language code identifier (LCID) for a specific language culture. Table 1 shows each LCID as an integer and in hexadecimal format. The two-letter ISO name is the language ID, which is the language component of the LCID. The culture name consists of the language ID and the country/region code.</para>
+      <para>For more information and to download the [MS-LCID].pdf file with a list of LCIDs, see <a href="http://msdn.microsoft.com/en-us/library/cc233965.aspx">[MS-LCID]: Windows Language Code Identifier (LCID) Reference</a></para>
+      <para>Table 1. Languages that are supported by Project Server</para>
+      <list type="table">
+        <item>
+          <term>Arabic</term>
+          <description>ar-SA</description>
+          <description>ar</description>
+          <description>10250x0401</description>
+        </item>
+        <item>
+          <term>Czech</term>
+          <description>cs-CZ</description>
+          <description>cs</description>
+          <description>10290x0405</description>
+        </item>
+        <item>
+          <term>Danish</term>
+          <description>da-DK</description>
+          <description>da</description>
+          <description>10300x0406</description>
+        </item>
+        <item>
+          <term>German</term>
+          <description>de-DE</description>
+          <description>de</description>
+          <description>10310x0407</description>
+        </item>
+        <item>
+          <term>Greek</term>
+          <description>el-GR</description>
+          <description>el</description>
+          <description>10320x0408</description>
+        </item>
+        <item>
+          <term>English</term>
+          <description>en-US</description>
+          <description>en</description>
+          <description>10330x0409</description>
+        </item>
+        <item>
+          <term>Spanish</term>
+          <description>es-ES</description>
+          <description>es</description>
+          <description>30820x0coa</description>
+        </item>
+        <item>
+          <term>Finnish</term>
+          <description>fi-FI</description>
+          <description>fi</description>
+          <description>10350x040b</description>
+        </item>
+        <item>
+          <term>French</term>
+          <description>fr-FR</description>
+          <description>fr</description>
+          <description>10360x040c</description>
+        </item>
+        <item>
+          <term>Hebrew</term>
+          <description>he-IL</description>
+          <description>he</description>
+          <description>10370x040d</description>
+        </item>
+        <item>
+          <term>Hungarian</term>
+          <description>hu-HU</description>
+          <description>hu</description>
+          <description>10380x040e</description>
+        </item>
+        <item>
+          <term>Italian</term>
+          <description>it-IT</description>
+          <description>it</description>
+          <description>10400x0410</description>
+        </item>
+        <item>
+          <term>Japanese</term>
+          <description>ja-JP</description>
+          <description>ja</description>
+          <description>10410x0411</description>
+        </item>
+        <item>
+          <term>Korean</term>
+          <description>ko-KR</description>
+          <description>ko</description>
+          <description>10420x0412</description>
+        </item>
+        <item>
+          <term>Dutch</term>
+          <description>nl-NL</description>
+          <description>nl</description>
+          <description>10430x0413</description>
+        </item>
+        <item>
+          <term>Norwegian (Bokmål)</term>
+          <description>nb-NO</description>
+          <description>nb</description>
+          <description>10440x0414</description>
+        </item>
+        <item>
+          <term>Polish</term>
+          <description>pl-PL</description>
+          <description>pl</description>
+          <description>10450x0415</description>
+        </item>
+        <item>
+          <term>Portuguese, Brazil</term>
+          <description>pt-BR</description>
+          <description>pt</description>
+          <description>10460x0416</description>
+        </item>
+        <item>
+          <term>Portuguese, Portugal</term>
+          <description>pt-PT</description>
+          <description>pt</description>
+          <description>20700x0816</description>
+        </item>
+        <item>
+          <term>Romanian</term>
+          <description>ro-RO</description>
+          <description>ro</description>
+          <description>10480x0418</description>
+        </item>
+        <item>
+          <term>Russian</term>
+          <description>ru-RU</description>
+          <description>ru</description>
+          <description>10490x0419</description>
+        </item>
+        <item>
+          <term>Slovak</term>
+          <description>sk-SK</description>
+          <description>sk</description>
+          <description>10510x041b</description>
+        </item>
+        <item>
+          <term>Swedish</term>
+          <description>sv-SE</description>
+          <description>sv</description>
+          <description>10530x041d</description>
+        </item>
+        <item>
+          <term>Turkish</term>
+          <description>tr-TR</description>
+          <description>tr</description>
+          <description>10550x041f</description>
+        </item>
+        <item>
+          <term>Ukrainian</term>
+          <description>uk-UA</description>
+          <description>uk</description>
+          <description>10580x0422</description>
+        </item>
+        <item>
+          <term>Slovenian</term>
+          <description>sl-SI</description>
+          <description>sl</description>
+          <description>10600x0424</description>
+        </item>
+        <item>
+          <term>Chinese (Simplified)</term>
+          <description>zh-CN</description>
+          <description>zh</description>
+          <description>20520x0804</description>
+        </item>
+        <item>
+          <term>Chinese (Traditional)</term>
+          <description>zh-TW</description>
+          <description>zh</description>
+          <description>10280x0404</description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,7 +206,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>PSSupportedLanguages</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -54,10 +229,14 @@
         <Parameter Name="cultureName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="cultureName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="cultureName">The culture name. For the supported culture names, see <see cref="T:Microsoft.Office.Project.Server.Library.PSSupportedLanguages" />.</param>
+        <summary>Determines the supported LCID that is nearest to the specified culture name.</summary>
+        <returns>The LCID number that is closest to the specified culture name.</returns>
+        <remarks>
+          <para>For example, the LCID of French–Canada (fr-CA) is 3084. The value that is returned from GetSupportedLcidFromCulture("fr-ca") is 1036, which is French–France (fr-FR).</para>
+          <para>If the specified culture name is not supported by the .NET Framework 4, <b>GetSupportedLcidFromCulture</b> returns <b>-1</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSupportedLcidFromLcid">
@@ -79,10 +258,15 @@
         <Parameter Name="lcid" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="lcid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="lcid">The specified LCID value.</param>
+        <summary>Determines the LCID that Project Server supports, that is nearest to the specified LCID.</summary>
+        <returns>The supported LCID that most closely corresponds to the specified <paramref name="lcid" /> value.</returns>
+        <remarks>
+          <para>For example, the LCID of French–Canada (fr-CA) is 3084. The value returned from GetSupportedLcidFromLcid(3084) is 1036, which is French–France (fr-FR).</para>
+          <para>If the language of the two-letter ISO name that corresponds to the specified LCID is not supported, or if the <paramref name="lcid" /> parameter is less than <b>0</b>, <b>GetSupportedLcidFromLcid</b> returns <b>-1</b>.</para>
+          <para>For supported LCIDs, see <see cref="T:Microsoft.Office.Project.Server.Library.PSSupportedLanguages" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsSupportedLcid">
@@ -104,10 +288,14 @@
         <Parameter Name="lcid" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="lcid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="lcid">The specified LCID value.</param>
+        <summary>Indicates whether a specific LCID is supported by Project Server.</summary>
+        <returns>
+          <b>True</b> if the specific <paramref name="lcid" /> value is a supported LCID; otherwise, <b>false</b>.</returns>
+        <remarks>
+          <para>For supported LCIDs, see <see cref="T:Microsoft.Office.Project.Server.Library.PSSupportedLanguages" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

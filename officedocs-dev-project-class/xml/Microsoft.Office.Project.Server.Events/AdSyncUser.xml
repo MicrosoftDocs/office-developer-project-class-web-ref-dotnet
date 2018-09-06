@@ -13,8 +13,13 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the information that is used to select an Active Directory group.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,10 +41,10 @@
         <Parameter Name="email" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="resourceGuid">To be added.</param>
-        <param name="displayName">To be added.</param>
-        <param name="email">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="resourceGuid">The resource GUID of the user in the Active Directory synchronization.</param>
+        <param name="displayName">The display name of the user in the Active Directory synchronization.</param>
+        <param name="email">The email address of the user in the Active Directory synchronization.</param>
+        <summary>Creates an instance of the <see cref="T:Microsoft.Office.Project.Server.Events.AdSyncUser" /> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,7 +64,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the display name of the user in the Active Directory synchronization.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -80,7 +85,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the email address of the user in the Active Directory synchronization.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -101,7 +106,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the resource GUID of the user in the Active Directory synchronization.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

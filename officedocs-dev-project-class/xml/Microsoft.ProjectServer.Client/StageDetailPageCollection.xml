@@ -22,8 +22,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a collection of project detail pages (PDPs) that are visible in a workflow stage.</summary>
+    <remarks>
+      <para>For a list of workflow stages in Project Web App, see http://ServerName/ProjectServerName/Admin/WorkflowStages.aspx. When you create a workflow stage in Project Web App, you can add one or more PDPs that are visible in the stage. At least one PDP should be visible.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -47,9 +50,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>StageDetailPageCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,9 +80,9 @@
         <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.StageDetailPageCreationInformation" />
       </Parameters>
       <Docs>
-        <param name="parameters">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="parameters">A <b>StagePDPCreationInformation</b> object.</param>
+        <summary>Adds a project detail page to the collection of PDPs that are visible in a workflow stage.</summary>
+        <returns>The PDP that is added to the collection.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -107,9 +110,9 @@
         <Parameter Name="uid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="uid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="uid">The GUID of the PDP.</param>
+        <summary>Gets a PDP object from the collection of PDPs that are associated with a workflow stage, by using the PDP GUID.</summary>
+        <returns>A project detail page that is associated with the stage.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,8 +140,8 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="objectId">The string identifier of a stage PDP.</param>
+        <summary>Gets a PDP object from the collection of PDPs that are associated with a workflow stage, by using a string identifier.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -167,9 +170,10 @@
         <Parameter Name="pdp" Type="Microsoft.ProjectServer.Client.StageDetailPage" />
       </Parameters>
       <Docs>
-        <param name="pdp">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="pdp">The project detail page to remove.</param>
+        <summary>Removes the specified project detail page from the collection of PDPs that are visible in a workflow stage.</summary>
+        <returns>
+          <b>True</b> if the PDP was removed; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

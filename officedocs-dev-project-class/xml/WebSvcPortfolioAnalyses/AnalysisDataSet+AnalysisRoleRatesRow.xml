@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents role rates information as a row in the <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,8 +39,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the analysis the requirement is based on. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -65,8 +65,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the custom field that contains the list of roles used in the analysis. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,8 +91,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the lookup table value representing the role that the capacity information is based on. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -117,9 +117,12 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the value that specifies which rate table to use when calculating the cost of resources in the portfolio analysis resource planner solution. Read-only.</summary>
+        <value>Returns <see cref="T:System.Byte" />.</value>
+        <remarks>
+          <para>This must be between the values specified by the <see cref="F:Microsoft.Office.Project.Server.Library.Assignment.MIN_COST_RATETABLE" /> and <see cref="F:Microsoft.Office.Project.Server.Library.Assignment.MAX_COST_RATETABLE" />, inclusive.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="STANDARD_RATE">
@@ -143,9 +146,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the standard rate for the specified rate table for the specified role in the analysis.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>This is derived by calculating the average of the standard rates of all resources in the role assigned to projects in the analysis.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

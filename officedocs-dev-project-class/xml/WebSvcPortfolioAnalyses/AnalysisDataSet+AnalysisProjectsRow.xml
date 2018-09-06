@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents analysis projects information as a row in the <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the non-normalized priority for the project within the Portfolio Analysis.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>This is a number between 0.0 (representing 0%) and 1.0 (representing 100%). This value is based purely on evaluating the project against the prioritization for the analysis, and will not be normalized across projects.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_UID">
@@ -65,8 +68,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the Portfolio Analysis that the project will be included in.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,8 +94,8 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the analysis information.</summary>
+        <value>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -117,9 +120,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the duration of the project in the same time scale as the analysis.</summary>
+        <value>Returns <see cref="T:System.Int32" />.</value>
+        <remarks>
+          <para>For example, if the analysis is based on Quarters, then a duration of 3 would mean 3 quarters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FNLT">
@@ -143,8 +149,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Obsolete.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -170,8 +176,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the project impact information.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -197,8 +203,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ABSOLUTE_PRIORITY" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -224,8 +230,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.FNLT" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -251,8 +257,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_END_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -278,8 +284,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_START_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +311,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PRIORITY" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -332,8 +338,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PROJ_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -359,8 +365,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.SNET" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -386,8 +392,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.START_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -412,9 +418,12 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that specifies whether or not the project is locked.</summary>
+        <value>Returns <see cref="T:System.Byte" />.</value>
+        <remarks>
+          <para>If it is locked, its start date cannot be moved during resource planning.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ORIGINAL_END_DATE">
@@ -438,8 +447,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the original finish date of the project as specified in the project itself.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -464,8 +473,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the original start date of the project as specified in the project itself.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -490,9 +499,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the normalized priority for the project within the portfolio analysis.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>This is a number between 0.0 (representing 0%) and 1.0 (representing 100%). Unless all the priorities are 0, this value is normalized across all projects in the analysis, such that the sum of priorities for all projects is 1.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_NAME">
@@ -516,8 +528,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the project that is included in the portfolio analysis. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -542,8 +554,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the project that is included in the portfolio analysis.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -569,7 +581,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ABSOLUTE_PRIORITY" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -595,7 +607,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.FNLT" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -621,7 +633,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_END_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -647,7 +659,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_START_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -673,7 +685,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PRIORITY" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -699,7 +711,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PROJ_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -725,7 +737,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.SNET" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -751,7 +763,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.START_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -776,8 +788,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Obsolete.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -802,8 +814,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the start date of the project, modified to fit the time scale specified for the analysis.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

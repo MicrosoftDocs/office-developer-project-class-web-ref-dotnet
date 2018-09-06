@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -53,10 +58,10 @@
         <Parameter Name="isrejected" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projectguid">To be added.</param>
-        <param name="assnguid">To be added.</param>
-        <param name="isrejected">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectguid">The GUID of the project.</param>
+        <param name="assnguid">The GUID of the assignment of a resource to a task.</param>
+        <param name="isrejected">A Boolean value that indicates whether approval of a task is to be rejected.</param>
+        <summary>Creates an instance of the <b>StatusDeleteTaskPreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,7 +81,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the assignment of a resource to a task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,7 +102,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether approval of a task is to be rejected.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,7 +123,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

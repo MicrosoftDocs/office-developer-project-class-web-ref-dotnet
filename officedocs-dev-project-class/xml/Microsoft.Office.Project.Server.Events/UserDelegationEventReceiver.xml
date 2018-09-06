@@ -14,8 +14,13 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes event handlers for methods that manage user delegations in the <see cref="T:WebSvcResource.Resource" /> class.</summary>
+    <remarks>
+      <para>
+        <b>Important</b>: Methods in the <b>UserDelegationEventReceiver</b> class are not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+      <para>For an example that uses events for user delegation, see <a href="http://blogs.msdn.com/b/chrisfie/archive/2010/06/03/project-server-2010-delegation-audit-event-handler.aspx">Project Server 2010 Delegation Audit Event Handler</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>UserDelegationEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,10 +60,17 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationActivatePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for delegate activation.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnActivated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>
+            <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> or <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> methods can set a time to start or stop a user delegation, in the <b>UserDelegationDataSet</b>. The activation or deactivation of a delegation occurs by an internal process at those times.</para>
+          <para>For an example that uses the <b>OnActivated</b> event handler, see <a href="http://blogs.msdn.com/b/chrisfie/archive/2010/06/03/project-server-2010-delegation-audit-event-handler.aspx">Project Server 2010 Delegation Audit Event Handler</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnActivating">
@@ -81,10 +93,16 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationActivatePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for delegate activation.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnActivating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>
+            <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> or <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> methods can set a time to start or stop a user delegation, in the <b>UserDelegationDataSet</b>. The activation or deactivation of a delegation occurs by an internal process at those times.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnChanged">
@@ -107,10 +125,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationUpdatePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnChanged</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnChanging">
@@ -133,10 +155,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationUpdatePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnChanging</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCreated">
@@ -159,10 +185,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationCreatePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCreated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCreating">
@@ -185,10 +215,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationCreatePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCreating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeactivated">
@@ -211,10 +245,17 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationDeactivatePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for delegate deactivation.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnDeactivated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>
+            <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> or <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> methods can set a time to start or stop a user delegation, in the <b>UserDelegationDataSet</b>. The activation or deactivation of a delegation occurs by an internal process at those times.</para>
+          <para>For an example that uses the <b>OnDeactivated</b> event handler, see <a href="http://blogs.msdn.com/b/chrisfie/archive/2010/06/03/project-server-2010-delegation-audit-event-handler.aspx">Project Server 2010 Delegation Audit Event Handler</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeactivating">
@@ -237,10 +278,16 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationDeactivatePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for delegate deactivation.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnDeactivating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>
+            <see cref="M:WebSvcResource.Resource.CreateDelegations(WebSvcResource.UserDelegationDataSet)" /> or <see cref="M:WebSvcResource.Resource.UpdateDelegations(WebSvcResource.UserDelegationDataSet)" /> methods can set a time to start or stop a user delegation, in the <b>UserDelegationDataSet</b>. The activation or deactivation of a delegation occurs by an internal process at those times.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeleted">
@@ -263,10 +310,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationDeletePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.DeleteDelegations(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnDeleted</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeleting">
@@ -289,10 +340,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.UserDelegationDeletePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.DeleteDelegations(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnDeleting</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

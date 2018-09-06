@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents analysis priority information as a row in the <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,8 +39,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of portfolio analysis whose projects are prioritized by the custom field.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -65,8 +65,8 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the analysis information.</summary>
+        <value>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -92,8 +92,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MAX_VALUE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -119,8 +119,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MD_PROP_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -146,8 +146,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MIN_VALUE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -172,9 +172,13 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the maximum value for the custom field.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: Any values larger than this will be decreased to this value instead, and the values for projects in the analysis will be evaluated as a percentage of the range formed by <b>MIN_VALUE</b> and <b>MAX_VALUE</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MD_PROP_NAME">
@@ -198,8 +202,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the custom field used for prioritizing projects in the analysis. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -224,8 +228,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the custom field used for prioritizing projects in the analysis.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -250,9 +254,12 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the minimum value for the custom field.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
+        <remarks>
+          <para>Any values lower than this will be increased to this value instead, and the values for projects in the analysis will be evaluated as a percentage of the range formed by <b>MIN_VALUE</b> and <b>MAX_VALUE</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetMAX_VALUENull">
@@ -277,7 +284,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MAX_VALUE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,7 +310,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MD_PROP_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,7 +336,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisPriorityDataRow.MIN_VALUE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -354,9 +361,14 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the weight assigned to the custom field when prioritizing projects in the analysis.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: This value must be between 0 and 100, and must add up to 100 across all custom fields used for prioritization in the analysis.</para>
+          <para />
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

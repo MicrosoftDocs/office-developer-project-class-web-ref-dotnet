@@ -14,8 +14,13 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents the dependency relationship between one task and another.</summary>
+    <remarks>
+      <para>
+        <b>DependencyRow</b> is an associative object that is generated from the dependency of one task to another. One task is the predecessor (<see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_PRED_UID" />) and one task is the successor (<see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_SUCC_UID" />). </para>
+      <para>There are different types of dependencies (<see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_TYPE" />), and there can be a specific time lag between the tasks (<see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_LAG" />).</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsLINK_LAG_FMTNull">
@@ -40,7 +45,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_LAG_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +72,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_LAG" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +99,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,9 +125,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the amount of time to wait between the tasks in this dependency.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Duration is indicated in tenths of a minute. For example, a value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LINK_LAG_FMT">
@@ -146,9 +154,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the display format for the dependency lag duration.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Task.DurationFormat" /> type to an <b>int</b> for this value.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LINK_PRED_UID">
@@ -172,9 +183,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the predecessor task in this dependency.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>LINK_PRED_UID</b> property is a foreign key to the <see cref="P:WebSvcStatusing.ProjectDataSet.TaskRow.TASK_UID" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LINK_SUCC_UID">
@@ -198,9 +212,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the successor task in this dependency.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>LINK_SUCC_UID</b> property is a foreign key to the <see cref="P:WebSvcStatusing.ProjectDataSet.TaskRow.TASK_UID" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LINK_TYPE">
@@ -224,9 +241,40 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the type of dependency to establish between two tasks.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>LINK_TYPE</b>
+          </para>
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>FinishFinish</description>
+              <description>FF</description>
+              <description>The task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_SUCC_UID" /> cannot finish until the task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_PRED_UID" /> finishes.</description>
+            </item>
+            <item>
+              <term>1 (Default)</term>
+              <description>FinishStart</description>
+              <description>FS</description>
+              <description>The task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_PRED_UID" /> must finish before the task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_SUCC_UID" /> can start. This is the default dependency type.</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>StartFinish</description>
+              <description>SF</description>
+              <description>The task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_PRED_UID" /> must start before the task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_SUCC_UID" /> finishes. This is the least common of the four dependency types. For example, in a scenario where you are setting a fence post, the successor is <b>Pour Cement</b> and the predecessor is <b>Set Post</b>.The successor (<b>Pour Cement</b>) must start first, however, the predecessor (<b>Set Post</b>) must finish before the successor (<b>Pour Cement</b>) finishes.</description>
+            </item>
+            <item>
+              <term>3</term>
+              <description>StartStart</description>
+              <description>SS</description>
+              <description>The task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_SUCC_UID" /> cannot start until the task that is identified by <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_PRED_UID" /> starts.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LINK_UID">
@@ -250,7 +298,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of this dependency.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -276,9 +324,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the project to which this dependency belongs.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>PROJ_UID</b> property is a foreign key to the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_UID" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetLINK_LAG_FMTNull">
@@ -303,7 +354,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_LAG_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,7 +380,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_LAG" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -355,7 +406,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.DependencyRow.LINK_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents project schedule status information as a row in the <see cref="T:WebSvcStatusing.ScheduleDataSet.ScheduleDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the value that identifies the type of object that is being listed. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>It takes the following values:</para>
+          <para />
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>Assignment</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>Project</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Finish">
@@ -65,9 +79,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the finish date of the assignment or project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 0, it denotes the finish date of the assignment.</para>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 1, it denotes the finish date of the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsCategoryNull">
@@ -92,7 +110,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -119,7 +137,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Finish" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -146,7 +164,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Start" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -173,7 +191,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Title" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -199,9 +217,13 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the assignment or project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 0, it denotes the GUID of the assignment.</para>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 1, it denotes the GUID of the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SecondaryID">
@@ -225,7 +247,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the project of the object that is being listed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -252,7 +274,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -278,7 +300,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Finish" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -304,7 +326,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Start" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -330,7 +352,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Title" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -355,9 +377,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the finish date of the assignment or project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 0, it denotes the finish date of the assignment.</para>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 1, it denotes the finish date of the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Title">
@@ -381,9 +407,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the task or project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 0, it denotes the name of the task that the assignment belongs to.</para>
+          <para>If <see cref="P:WebSvcStatusing.ScheduleDataSet.ScheduleRow.Category" /> is 1, it denotes the name of the project that the assignment belongs to..</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

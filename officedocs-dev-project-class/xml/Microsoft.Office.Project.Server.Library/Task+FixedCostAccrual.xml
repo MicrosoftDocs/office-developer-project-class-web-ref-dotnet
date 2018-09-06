@@ -13,8 +13,28 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies how and when fixed costs are to be charged to the cost of a task.</summary>
+    <remarks>
+      <para>Use the <see cref="T:Microsoft.Office.Project.Server.Library.Task.FixedCostAccrual" /> type to set the <b>TASK_FIXED_COST_ACCRUAL</b> property in the following objects:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="T:WebSvcProject.ProjectDataSet.TaskRow" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:WebSvcStatusing.ProjectDataSet.TaskRow" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:WebSvcStatusing.StatusingDataSet.TasksRow" />
+          </description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="End">
@@ -34,7 +54,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Costs are not accrued until the remaining work is zero.</summary>
       </Docs>
     </Member>
     <Member MemberName="Prorated">
@@ -54,7 +74,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Costs accrue as work is scheduled to occur and as actual work is reported. This is the default value.</summary>
       </Docs>
     </Member>
     <Member MemberName="Start">
@@ -74,7 +94,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Costs are accrued as soon as the task starts. A task begins when a date is entered in the <b>ActualStart</b> field.</summary>
       </Docs>
     </Member>
   </Members>

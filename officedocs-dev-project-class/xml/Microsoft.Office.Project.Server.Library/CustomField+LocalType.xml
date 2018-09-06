@@ -13,8 +13,34 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the type for a Project local custom field.</summary>
+    <remarks>
+      <para>Used for local custom fields only. For enterprise custom fields, use <see cref="T:Microsoft.Office.Project.Server.Library.CustomField.Type" />.</para>
+      <para>Use the <see cref="T:Microsoft.Office.Project.Server.Library.CustomField.LocalType" /> type to set the <b>MD_PROP_TYPE_ENUM</b> property in the following objects:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="T:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:WebSvcStatusing.StatusingDataSet.EnterpriseCustomFieldMetadataRow" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:WebSvcStatusing.StatusingDataSet.LocalCustomFieldMetadataRow" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:WebSvcStatusing.AssnHistoryDataSet.CustomFieldsRow" />
+          </description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Cost">
@@ -34,7 +60,7 @@
       </ReturnValue>
       <MemberValue>9</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=9. Value in 1/100 dollars.</summary>
       </Docs>
     </Member>
     <Member MemberName="Date">
@@ -54,7 +80,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. A date value. HIWORD contains days offset from 1/1/84. LOWORD contains minute offset, ranging from 0 to 1440, from 12:00 A.M. (midnight).</summary>
       </Docs>
     </Member>
     <Member MemberName="Duration">
@@ -74,7 +100,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. Value in 1/10 minutes.</summary>
       </Docs>
     </Member>
     <Member MemberName="FinishDate">
@@ -94,7 +120,7 @@
       </ReturnValue>
       <MemberValue>27</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=27. A date value; if no time is included the default finish time is used. HIWORD contains days offset from 1/1/84. LOWORD contains minute offset, ranging from 0 to 1440, from 12:00 A.M. (midnight).</summary>
       </Docs>
     </Member>
     <Member MemberName="Flag">
@@ -114,7 +140,7 @@
       </ReturnValue>
       <MemberValue>17</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=17. Index into yes/no string table.</summary>
       </Docs>
     </Member>
     <Member MemberName="Number">
@@ -134,7 +160,7 @@
       </ReturnValue>
       <MemberValue>15</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=15. A number value.</summary>
       </Docs>
     </Member>
     <Member MemberName="StartDate">
@@ -154,7 +180,7 @@
       </ReturnValue>
       <MemberValue>57</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=57. A date value; if no time is included, the default start time is used. HIWORD contains days offset from 1/1/84. LOWORD contains minute offset, ranging from 0 to 1440, from 12:00 A.M. (midnight).</summary>
       </Docs>
     </Member>
     <Member MemberName="Text">
@@ -174,7 +200,7 @@
       </ReturnValue>
       <MemberValue>21</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=21. A string value.</summary>
       </Docs>
     </Member>
   </Members>

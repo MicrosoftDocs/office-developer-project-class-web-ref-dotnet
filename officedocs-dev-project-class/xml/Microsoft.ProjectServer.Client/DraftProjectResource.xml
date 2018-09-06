@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents an enterprise resource in a checked-out project.</summary>
+    <remarks>
+      <para>A resource can be a work resource, a material resource, or a cost resource.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates a new instance of the <b>DraftProjectResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftAssignmentCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the assignments that are associated with the resource.</summary>
+        <value>A collection of assignments.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether resource leveling can be performed on the resource.</summary>
+        <value>
+          <b>True</b> if resource leveling can be performed on the resource; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +127,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that is entered as part of the information about the resource.</summary>
+        <value>A string object that contains the code.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +153,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.AccrueAt</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that represents how and when to charge resource costs to the cost of a task.</summary>
+        <value>An enumerated value that represents a particular procedure for charging resource costs.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +179,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that has been entered as part of the information about the resource.</summary>
+        <value>A code, abbreviation, or number.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +205,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the cost per use of the resource.</summary>
+        <value>A numerical value that represents the cost per use of the resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +231,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the default assignment owner.</summary>
+        <value>The default assignment owner.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,8 +257,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.BookingType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the default booking type for the resource.</summary>
+        <value>A numerical value that represents how the resource is booked for assignments.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,7 +284,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>DraftProjectResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +309,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the email address of the resource.</summary>
+        <value>An object that contains the resource email address.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -326,9 +330,12 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of custom fields that have values set for the project resource.</summary>
+        <value>A set of custom field values.</value>
+        <remarks>
+          <para>For code examples that use <b>FieldValues</b>, see <see cref="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" /> and <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.FieldValues" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Group">
@@ -352,8 +359,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of a group to which a project resource belongs.</summary>
+        <value>A string that contains the group name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -378,8 +385,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the short name for the resource.</summary>
+        <value>The short name for the resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -403,9 +410,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -429,10 +436,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -463,9 +471,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of a project item.</param>
+        <summary>Gets or sets an item in the project.</summary>
+        <value>A <b>DraftProjectResource</b> item.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -486,7 +494,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use.  Initializes the extended properties that are associated with the <b>DraftProjectResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -511,8 +519,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the unit of measure for supplies or other consumable items that are used in a project.</summary>
+        <value>A unit of measure for supplies or other consumable items.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -537,8 +545,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the percentage, or the number of units, that represent the maximum capacity for which the resource is available during the current time period.</summary>
+        <value>A number that represents the maximum percentage or the maximum number of units.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -563,8 +571,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the project resource.</summary>
+        <value>The name of the draft project resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -589,8 +597,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the hourly rate of pay for overtime for the resource.</summary>
+        <value>The hourly rate of pay for overtime.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -615,8 +623,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.OvertimeRateFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the rate description format in which the overtime rate is displayed.</summary>
+        <value>The rate description format.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -641,8 +649,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets phonetic information in either the Japanese Hiragana writing system or the Katakana writing system for resource names.</summary>
+        <value>An object that contains phonetic information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -663,7 +671,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>DraftProjectResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -688,8 +696,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the rate of pay per hour for regular, non-overtime work that is performed by the resource.</summary>
+        <value>A numerical value that represents the rate of pay.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -714,8 +722,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StandardRateFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the rate description format in which the standard rate is displayed.</summary>
+        <value>A numerical value that represents the rate description format.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

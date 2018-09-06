@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>This class includes methods for managing enterprise custom fields in Project Server.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,8 +36,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a <b>CustomFields</b> object from the ASMX-based <b>CustomFields</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>CustomFields</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>CustomFieldsClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>CustomFieldsWebSvc</b> is an arbitrary namespace for the ASMX-based <b>CustomFields</b> web service.</para>
+          <code>private static CustomFieldsWebSvc.CustomFields customFields = new CustomFieldsWebSvc.CustomFields();</code>
+          <para>In the following statement, <b>SvcCustomFields</b> is an arbitrary namespace for the WCF-based <b>CustomFields</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcCustomFields.CustomFieldsClient customFieldsClient = new SvcCustomFields.CustomFieldsClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CheckInCustomFields">
@@ -65,10 +74,23 @@
         <Parameter Name="force" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="array">To be added.</param>
-        <param name="force">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="array">An array of custom field GUIDs.</param>
+        <param name="force">If <b>true</b>, force check in.</param>
+        <summary>Checks in the specified enterprise custom fields.</summary>
+        <remarks>
+          <para>For a code sample, see <see cref="M:WebSvcCustomFields.CustomFields.UpdateCustomFields2(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para>If the user did not check out the custom fields, the CheckInCustomFields method also requires administrative permissions to force check in.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CheckOutCustomFields">
@@ -95,9 +117,21 @@
         <Parameter Name="array" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="array">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="array">An array of custom field GUIDs.</param>
+        <summary>Checks out the specified enterprise custom fields for editing.</summary>
+        <remarks>
+          <para>For a code sample, see <see cref="M:WebSvcCustomFields.CustomFields.UpdateCustomFields2(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateCustomFields">
@@ -126,11 +160,106 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="cfds">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cfds">The <b>CustomFieldDataSet</b> contains the custom field definitions.</param>
+        <param name="validateOnly">If <b>true</b>, validate the <b>CustomFieldDataSet</b> without creating the custom fields.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the custom fields after they are created.</param>
+        <summary>Creates enterprise custom fields.</summary>
+        <remarks>
+          <para>For descriptions of the properties that are used to create a custom field, see <see cref="T:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow" />.</para>
+          <para>
+            <b>Caution</b>: The <b>CreateCustomFields</b> method and the <b>CreateCustomFields2</b> method, as well as Project Web App, all allow you to create an enterprise project custom field of type Flag, and set the custom field to be workflow controlled. However, Project Server workflows cannot control Flag custom fields. You should not set project custom fields of type Flag for workflow control.</para>
+          <para />
+          <para>
+            <b>Tip</b>: The <b>CreateCustomFields</b> method ignores the locale setting of the computer running Project Server. The <see cref="M:WebSvcCustomFields.CustomFields.CreateCustomFields2(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method can use locale-dependent values for formulas that calculate custom fields and graphical indicators.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses <b>CustomFieldWS</b> as the name of a web reference to the <b>Custom Fields</b> web service (http://ServerName/ProjectServerName/_vti_bin/psi/CustomFields.asmx). The <b>btnCustomField_Click</b> event handler is for a button on a Windows Form application, such as <b>LoginDemo</b> in the Project SDK download.</para>
+          <code>
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private Guid customFieldUid;
+. . .
+private void btnCustomField_Click(object sender, EventArgs e)
+{
+    string cfName = "Test Task Cost";
+    Guid entityTypeUid = new Guid(PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId);
+    lookupTableUid = Guid.Empty;
+    ltRowDefaultUid = Guid.Empty;
+    byte cfType = (byte)PSLibrary.CustomField.Type.COST;
+    byte rollup = (byte)PSLibrary.CustomField.SummaryRollup.Sum;
+
+    customFieldUid = CreateCustomField(
+        customFields, cfName,
+        entityTypeUid, lookupTableUid, ltRowDefaultUid,
+        cfType, rollup);
+}
+
+// Test method for creating a custom field.
+public Guid CreateCustomField(
+    CustomFieldsWS.CustomFields customFields,
+    string cfName,
+    Guid entityTypeUid,
+    Guid lookupTableUid,
+    Guid ltRowDefaultUid,
+    byte cfType,
+    byte rollup
+    )
+{
+    CustomFieldsWS.CustomFieldDataSet customFieldDataSet =
+        new CustomFieldsWS.CustomFieldDataSet();
+    CustomFieldsWS.CustomFieldDataSet.CustomFieldsRow cfRow =
+        customFieldDataSet.CustomFields.NewCustomFieldsRow();
+    Guid cfUid = Guid.NewGuid();
+
+    cfRow.MD_PROP_UID = cfUid;
+    cfRow.MD_AGGREGATION_TYPE_ENUM = rollup;
+    cfRow.MD_ENT_TYPE_UID = entityTypeUid;
+    cfRow.MD_PROP_NAME = cfName;
+    cfRow.MD_PROP_IS_REQUIRED = false;
+    cfRow.MD_PROP_IS_LEAF_NODE_ONLY = false;
+    cfRow.MD_PROP_TYPE_ENUM = cfType;
+
+    if (lookupTableUid == Guid.Empty)
+        cfRow.SetMD_LOOKUP_TABLE_UIDNull();
+    else
+        cfRow.MD_LOOKUP_TABLE_UID = lookupTableUid;
+
+    if (ltRowDefaultUid == Guid.Empty)
+        cfRow.SetMD_PROP_DEFAULT_VALUENull();
+    else
+        cfRow.MD_PROP_DEFAULT_VALUE = ltRowDefaultUid;
+
+    customFieldDataSet.CustomFields.Rows.Add(cfRow);
+
+    try
+    {
+        bool validateOnly = false;
+        bool autoCheckIn = true;
+        customFields.CreateCustomFields(customFieldDataSet, validateOnly, autoCheckIn);
+    }
+    catch (SoapException ex)
+    {
+        // Add exception handler for ex.
+        cfUid = Guid.Empty;
+    }
+tch (Exception ex)
+    {
+        // Add exception handler for ex.
+        cfUid = Guid.Empty;
+    }
+    return cfUid;
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CreateCustomFields2">
@@ -159,11 +288,27 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="cfds">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cfds">The <b>CustomFieldDataSet</b> contains the custom field definitions.</param>
+        <param name="validateOnly">If <b>true</b>, validate the <b>CustomFieldDataSet</b> without creating the custom fields.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the custom fields after they are created.</param>
+        <summary>Creates enterprise custom fields, where formulas are in a language-dependent format.</summary>
+        <remarks>
+          <para />
+          <para>Formulas in the <b>CustomFieldDataSet</b> that are used to calculate custom fields or graphical indicators can be written in the locale format that is specified in the Regional and Language Options control panel of the computer running Project Server. The <b>CreateCustomFields2</b> method saves the formulas in a language-independent format. By comparison, the <b>CreateCustomFields</b> method saves formulas without regard to the locale format.</para>
+          <para>
+            <b>Caution</b>: The <b>CreateCustomFields</b> method and the <b>CreateCustomFields2</b> method, as well as Project Web App, all allow you to create an enterprise project custom field of type Flag, and set the custom field to be workflow controlled. However, Project Server workflows cannot control Flag custom fields. You should not set project custom fields of type Flag for workflow control.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para>If the user did not check out the custom fields, also requires administrative permissions to force check in.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteCustomFields">
@@ -190,9 +335,20 @@
         <Parameter Name="CustomFieldIDs" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="CustomFieldIDs">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="CustomFieldIDs">An array of custom field GUIDs.</param>
+        <summary>Deletes the specified enterprise custom fields.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFields">
@@ -220,11 +376,52 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="xmlFilter">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="xmlFilter">Limits the amount of data returned.</param>
+        <param name="autoCheckOut">If <b>true</b>, check out the custom fields for modification.</param>
+        <summary>Gets enterprise custom field definitions.</summary>
+        <returns>The <b>CustomFieldDataSet</b> contains information specified by the <paramref name="xmlFilter" /> parameter.</returns>
+        <remarks>
+          <para>The primary <b>DataTable</b> in the <b>CustomFieldDataSet</b> is the <b>CustomFieldsDataTable</b>. There are no secondary datatables. The <paramref name="xmlFilter" /> parameter works with the <b>Criteria</b> operators to filter rows in the <b>CustomFieldsDataTable</b>. You can use the <b>Fields.Add</b> method to filter columns in the primary <b>CustomFieldsDataTable</b>.</para>
+          <para>
+            <b>Note</b>: For Project Server 2010, the returned <b>CustomFieldDataSet</b> can include the <b>Relative Importance</b> custom field and the <b>Project Impact</b> custom fields. Project Web App does not show these custom fields in the Enterprise Custom Fields and Lookup Tables page, because they are built-in for portfolio analyses and cannot be modified or deleted.</para>
+          <para>
+            <b>Tip</b>: The <b>ReadCustomFields</b> method ignores the locale setting of the computer running Project Server. The <b>ReadCustomFields2</b> method returns locale-dependent values for formulas that calculate custom fields and graphical indicators.</para>
+          <para>For a code example that uses the <b>ReadCustomFields2</b> method, see <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFields2(System.String,System.Boolean)" />. For more information, see How to: Use a Filter Parameter with PSI Methods</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to view resource allocation data. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFields2">
@@ -252,11 +449,264 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="xmlFilter">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xmlFilter">Limits the amount of data returned.</param>
+        <param name="autoCheckOut">If <b>true</b>, check out the custom fields for modification.</param>
+        <summary>Gets enterprise custom field definitions, where formulas are in a language-dependent format.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A new method in Project Server 2010. If a custom field or graphical indicator is calculated by a formula, the <b>ReadCustomFields2</b> method converts formulas in the returned <b>CustomFieldDataSet</b> to a format that depends on the locale specified in the Regional and Language Options control panel of the computer running Project Server. By comparison, the <b>ReadCustomFields</b> method returns a <b>CustomFieldDataSet</b> where formulas are independent of locale.</para>
+          <para>
+            <b>Note</b>: For Project Server 2010, the returned <b>CustomFieldDataSet</b> can include the <b>Relative Importance</b> custom field and the <b>Project Impact</b> custom field. Project Web App does not show these custom fields in the Enterprise Custom Fields and Lookup Tables page, because they are built-in for portfolio analyses and cannot be modified or deleted.</para>
+          <para>. For more information, see How to: Use a Filter Parameter with PSI Methods</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to view resource allocation data. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>ReadCustomFieldsTest</b> sample does the following:</para>
+          <list type="bullet">
+            <item>
+              <description>Reads all custom fields in the Project Web App installation that is specified by the endpoint address in the app.config file, and then writes an XML file of the <b>CustomFieldDataSet</b>.</description>
+            </item>
+            <item>
+              <description>Reads lookup table data for the specified language LCID, and then writes an XML file of the <b>LookupTableDataSet</b>. The lookup table XML data includes collections of the following tables: <b>LookupTables</b>, <b>LookupTableMasks</b>, and <b>LookupTableTrees</b>.</description>
+            </item>
+          </list>
+          <para>For information about using the code sample in a Microsoft Visual Studio 2010 project and creating an app.config file for configuration of the WCF endpoints, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using System.ServiceModel;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadCustomFieldsTest
+{
+    class Program
+    {
+        private const string ENDPOINT_CUSTOMFIELDS = "basicHttp_CustomFields";
+        private const string ENDPOINT_LOOKUPTABLE = "basicHttp_LookupTable";
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+
+        private static SvcCustomFields.CustomFieldsClient customFieldsClient;
+        private static SvcLookupTable.LookupTable lookupTableClient;
+
+        private static string outFileCustomFieldsDs;
+        private static string outFileLookupTableDs;
+        private static int language = 1033;         // Use the English LCID by default.
+
+        static void Main(string[] args)
+        {
+            if (args.Length &amp;gt; 0 &amp;amp;&amp;amp; args.Length &amp;lt; 3)
+            {
+                if (args[0].ToLower() == "-lcid")
+                {
+                    language = Convert.ToInt32(args[1]);
+                }
+            }
+
+            outFileCustomFieldsDs = OUTPUT_FILES + "CustomFieldDataSet.xml";
+            outFileLookupTableDs = OUTPUT_FILES + "LookupTableDataSet.xml";
+            ConfigClientEndpoints(ENDPOINT_CUSTOMFIELDS);
+            ConfigClientEndpoints(ENDPOINT_LOOKUPTABLE);
+
+            try
+            {
+                Console.WriteLine("Reading custom fields...");
+                SvcCustomFields.CustomFieldDataSet customFieldDs = 
+                    customFieldsClient.ReadCustomFields2(string.Empty, false);
+
+                Console.WriteLine(
+                    "\nXML output of the CustomFieldDataSet:\n\t{0}",
+                    outFileCustomFieldsDs);
+                customFieldDs.WriteXml(outFileCustomFieldsDs);
+
+                Console.WriteLine("Reading lookup tables...");
+                SvcLookupTable.LookupTableDataSet lookupTableDs =
+                    lookupTableClient.ReadLookupTables(string.Empty, false, language);
+
+                Console.WriteLine(
+                    "\nXML output of the LookupTableDataSet:\n\t{0}",
+                    outFileCustomFieldsDs);
+                lookupTableDs.WriteXml(outFileLookupTableDs);
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+            catch (EndpointNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("\nInnerException: \n" + ex.InnerException.Message);
+            }
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Use the endpoints defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            if (endpt == ENDPOINT_CUSTOMFIELDS)
+                customFieldsClient = new SvcCustomFields.CustomFieldsClient(endpt);
+            else if (endpt == ENDPOINT_LOOKUPTABLE)
+                lookupTableClient = new SvcLookupTable.LookupTableClient(endpt);
+        }
+    }
+
+    // Helper methods
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFieldsByEntity">
@@ -283,10 +733,67 @@
         <Parameter Name="entityUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="entityUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="entityUid">The GUID of the custom field project, resource, or task entity.</param>
+        <summary>Gets all of the enterprise custom fields for the specified entity (project, resource, or task).</summary>
+        <returns>The <b>CustomFieldDataSet</b> contains all custom field data for the project, resource, or task that is specified by the <paramref name="entityUid" /> parameter.</returns>
+        <remarks>
+          <para>To get all of the resource custom fields, for example, use the resource entity GUID from the <b>EntityCollection.Entities</b> property in the <b>Microsoft.Office.Project.Server.Library</b> assembly. </para>
+          <para>
+            <b>Tip</b>: The <b>ReadCustomFieldsByEntity</b> method ignores the locale setting of the computer running Project Server. The <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity2(System.Guid)" /> method returns locale-dependent values for formulas that calculate custom fields and graphical indicators.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to view resource allocation data. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment returns a <b>CustomFieldDataSet</b> with all of the <see cref="T:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow" /> objects for resource custom fields. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string resourceEntity = PSLibrary.EntityCollection.Entities.ResourceEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(resourceEntity));
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFieldsByEntity2">
@@ -313,10 +820,76 @@
         <Parameter Name="entityUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="entityUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="entityUid">The GUID of the custom field project, resource, or task entity.</param>
+        <summary>Gets all of the enterprise custom fields for the specified entity (project, resource, or task), where formulas are in language-dependent format.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A new method in Project Server 2010. If a custom field or graphical indicator is calculated by a formula, the <b>ReadCustomFieldsByEntity2</b> method converts formulas in the returned <b>CustomFieldDataSet</b> to a format that depends on the locale specified in the Regional and Language Options control panel of the computer running Project Server. By comparison, the <b>ReadCustomFieldsByEntity</b> method returns a <b>CustomFieldDataSet</b> where formulas are independent of locale.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term />
+            </item>
+            <item>
+              <term />
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to view resource allocation data. Global permission.</description>
+            </item>
+            <item>
+              <term />
+              <description />
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+            <item>
+              <term />
+              <description />
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFieldsByMdPropUids">
@@ -344,11 +917,267 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="md_prop_uids">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="md_prop_uids">An array of custom field GUIDs</param>
+        <param name="autoCheckOut">If <b>true</b>, check out the custom fields for modification.</param>
+        <summary>Gets the custom field definitions for the specified custom field unique identifiers.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>Tip</b>: The <b>ReadCustomFieldsByMdPropUids</b> method ignores the locale setting of the computer running Project Server. The <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByMdPropUids2(System.Guid[],System.Boolean)" /> method returns a <b>CustomFieldDataSet</b> that includes locale-dependent values for formulas that calculate custom fields and graphical indicators.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to view resource allocation data. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourcePlan" />
+              </term>
+              <description>Allows a user to view the resource plan. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePrioritizations" />
+              </term>
+              <description>Allows a user to create or edit prioritizations for project portfolio analyses. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses <b>ReadCustomFieldsByMdPropUids</b> and <b>ReadCustomFieldsByMdPropUids2</b> to read a custom field, and then writes the <b>customFieldDS</b> contents to <b>CustomFieldDataSet.xml</b> and <b>CustomFieldDataSet2.xml</b>, respectively. Except for <b>MD_PROP_FORMULA</b>, the two methods return the same data.</para>
+          <para>For more information, including a procedure that shows how to use Project Web App and Project Professional 2010 with the same formula, see Using Formulas and Graphical Indicators with Custom Fields.</para>
+          <para>The formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids</b> depends on the locale (the language of the server and the Project installation). Following is the formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids</b>.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([MSPJ188743724] &amp;amp;gt;= #01/01/1984# And [MSPJ188743724] &amp;amp;lt; #01/01/2050#), 
+"No Baseline", ([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>The formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids2</b> (as shown in the following code) is independent of locale. It works the same way on different language installations. For this reason, the <b>ReadCustomFieldsByMdPropUids2</b> method is preferred over the <b>ReadCustomFieldsByMdPropUids</b> method.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>Furthermore, the example modifies the formula and calls the <b>UpdateCustomFields2</b> method to update the custom field, and then writes the updated dataset to <b>UpdatedCustomFieldData.xml</b></para>
+          <para>It calls the <b>CheckInCustomFields</b> to check in the custom field after modification, and calls the <b>CheckOutCustomFields</b> to check out the custom fields before modifying them.</para>
+          <para>The example uses the <b>SvcCustomFields</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method and the <b>SetClientEndpoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.TestCustomFields
+{
+    class CustomFields
+    {
+        private static SvcCustomFields.CustomFieldsClient customFieldClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private const string RES_ENDPOINT = "basicHttp_Resource";
+        private const string CUST_ENDPOINT = "basicHttp_CustomFields";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathCustomFields;
+        private static string outFilePathCustomFields2;
+        private static string outFilePathCustomFields3;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                Guid[] customFieldID = new Guid[1];
+                customFieldID[0] = new Guid("4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29");
+
+                ConfigClientEndpoints(CUST_ENDPOINT);
+                SetClientEndpoints(RES_ENDPOINT);
+
+                // If directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Assign the path where the output XML file will be saved.
+                outFilePathCustomFields = OUTPUT_FILES + "CustomFieldData.xml";
+                outFilePathCustomFields2 = OUTPUT_FILES + "CustomFieldData2.xml";
+                outFilePathCustomFields3 = OUTPUT_FILES + "UpdatedCustomFieldData.xml";
+
+                // Create a custom fields dataset. 
+                SvcCustomFields.CustomFieldDataSet customFieldDS =
+                    new SvcCustomFields.CustomFieldDataSet();
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file
+                customFieldDS.WriteXml(outFilePathCustomFields);
+                Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                    outFilePathCustomFields);
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids2.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids2(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file.
+                customFieldDS.WriteXml(outFilePathCustomFields2);
+
+                bool checkedOut = false;
+
+                // Get the ID of the user.
+                Guid me = resourceClient.GetCurrentUserUid();
+
+                // Check whether the custom field to be updated is checked out.
+                foreach (SvcCustomFields.CustomFieldDataSet.CustomFieldsRow custRow in customFieldDS.CustomFields)
+                {
+                    if (custRow.MD_PROP_UID.ToString() == customFieldID[0].ToString())
+                    {
+                        if (custRow.IsNull("MD_PROP_CHECKOUTBY"))    // If the custom field is not checked out.
+                        {
+                            // Check out the custom field.
+                            customFieldClient.CheckOutCustomFields(new Guid[] { custRow.MD_PROP_UID });
+                            checkedOut = true;
+                            Console.WriteLine("Custom field checked out.....");
+                            break;
+                        }
+                        else
+                        {
+                            // Check whether the custom field is checked out by you.
+                            if (custRow.MD_PROP_CHECKOUTBY == me)
+                            {
+                                checkedOut = true;
+                                Console.WriteLine("The custom field is already checked out by you");
+                                break;
+                            }
+                            else
+                            {
+                                // The custom field is checked out by some other user.
+                                checkedOut = false;
+                                Console.WriteLine("This custom field has already been checked out");
+                                Console.ReadLine();
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (checkedOut)
+                {
+                    // Modify the formula field of the custom field.
+                    // Type the following statement in a single line.
+                    customFieldDS.CustomFields[0].MD_PROP_FORMULA =
+                        "Switch(Not ([Baseline Estimated Finish] &amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;lt; #1/1/2050#), 
+                        \"No Baseline\", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1.5, \"Overbudget by 50% or more\", 
+                            ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1, \"Overbudget\", True, \"Under budget\")";
+
+                    // Update the dataset.
+                    customFieldClient.UpdateCustomFields2(customFieldDS, false, false);
+                    customFieldDS.WriteXml(outFilePathCustomFields3);
+
+                    // Write the custom field data to an XML file.
+                    Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                        outFilePathCustomFields3);
+
+                    // Check in the custom field.
+                    customFieldClient.CheckInCustomFields(new Guid[] { customFieldID[0] }, false);
+                }
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            finally
+            {
+                Console.Write("\r\n\r\nPress any key....");
+                Console.ReadKey();
+            }
+        }
+        
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            customFieldClient = new SvcCustomFields.CustomFieldsClient(endpt);
+        }
+        // Configure the resource client endpoints.
+        public static void SetClientEndpoints(string ept)
+        {
+            resourceClient = new SvcResource.ResourceClient(ept);
+        }
+
+    }
+}
+</code>
+          <para>The updated dataset, with the modified formula field <b>MD_PROP_FORMULA</b>, is written to <b>UpdatedCustomFieldData.xml</b> and is shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;CustomFieldDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/CustomFieldDataSet/"&amp;gt;
+&amp;lt;CustomFields&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ID&amp;gt;&lt;/span&gt;188776464&amp;lt;/MD_PROP_ID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID_SECONDARY&amp;gt;&lt;/span&gt;64546b89-9a2a-49d8-b3ce-190119a3c562&amp;lt;/MD_PROP_UID_SECONDARY&amp;gt; &lt;span class="label"&gt;&amp;lt;MD_PROP_ID_SECONDARY&amp;gt;&lt;/span&gt;255885317&amp;lt;/MD_PROP_ID_SECONDARY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_ENT_TYPE_UID&amp;gt;&lt;/span&gt;ebad93e7-2149-410d-9a39-a8680738329d&amp;lt;/MD_ENT_TYPE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_NAME&amp;gt;&lt;/span&gt;Budget Indicator&amp;lt;/MD_PROP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_REQUIRED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_AGGREGATION_TYPE_ENUM&amp;gt;&lt;/span&gt;9&amp;lt;/MD_AGGREGATION_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_TYPE_ENUM&amp;gt;&lt;/span&gt;21&amp;lt;/MD_PROP_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_MULTILINE_TEXT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_MULTILINE_TEXT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_DESCRIPTION&amp;gt;&lt;/span&gt;Test for graphical indicator example in SDK&amp;lt;/MD_PROP_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_MAX_VALUES&amp;gt;&lt;/span&gt;1&amp;lt;/MD_PROP_MAX_VALUES&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.5, "Overbudget by 50% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_CHECKOUTDATE&amp;gt;&lt;/span&gt;2010-02-08T10:57:21.21-08:00&amp;lt;/MD_PROP_CHECKOUTDATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-02-08T11:12:40.78-08:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/CustomFields&amp;gt;
+&amp;lt;/CustomFieldDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadCustomFieldsByMdPropUids2">
@@ -376,11 +1205,258 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="md_prop_uids">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="md_prop_uids">An array of custom field GUIDs</param>
+        <param name="autoCheckOut">If <b>true</b>, check out the custom fields for modification.</param>
+        <summary>Gets the custom field definitions based on global permissions for the specified custom field unique identifiers, where formulas are in a language-dependent format.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A new method in Project Server 2010. If a custom field or graphical indicator is calculated by a formula, the <b>ReadCustomFieldsByMdPropUids2</b> method converts formulas in the returned <b>CustomFieldDataSet</b> to a format that depends on the locale specified in the Regional and Language Options control panel of the computer running Project Server. By comparison, the <b>ReadCustomFieldsByMdPropUids</b> method returns a <b>CustomFieldDataSet</b> where formulas are independent of locale.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to load the enterprise global template. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to add a new project to the Project Server database. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to access the Resource Center and view resource allocation data. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourcePlan" />
+              </term>
+              <description>Allows a user to access the Resource Plan page. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+            <item>
+              <term />
+              <description />
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses <b>ReadCustomFieldsByMdPropUids</b> and <b>ReadCustomFieldsByMdPropUids2</b> to read a custom field, and then writes the <b>customFieldDS</b> contents to <b>CustomFieldDataSet.xml</b> and <b>CustomFieldDataSet2.xml</b>, respectively. Except for <b>MD_PROP_FORMULA</b>, the two methods return the same data.</para>
+          <para>For more information, including a procedure that shows how to use Project Web App and Project Professional 2010 with the same formula, see Using Formulas and Graphical Indicators with Custom Fields.</para>
+          <para>The formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids</b> depends on the locale (the language of the server and the Project installation).and is as shown in the following code.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([MSPJ188743724] &amp;amp;gt;= #01/01/1984# And [MSPJ188743724] &amp;amp;lt; #01/01/2050#), 
+"No Baseline", ([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>The formula field <b>MD_PROP_FORMULA</b> returned by <b>ReadCustomFieldsByMdPropUids2</b> (as shown in the following code) is independent of locale. It works the same way on different language installations. For this reason, the <b>ReadCustomFieldsByMdPropUids2</b> method is preferred over the <b>ReadCustomFieldsByMdPropUids</b> method.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>Furthermore, the example modifies the formula and calls the <b>UpdateCustomFields2</b> method to update the custom field, and then writes the updated dataset to <b>UpdatedCustomFieldData.xml</b></para>
+          <para>It calls the <b>CheckInCustomFields</b> to check in the custom field after modification, and calls the <b>CheckOutCustomFields</b> to check out the custom fields before modifying them.</para>
+          <para>The example uses the <b>SvcCustomFields</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method and the <b>SetClientEndpoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.TestCustomFields
+{
+    class CustomFields
+    {
+        private static SvcCustomFields.CustomFieldsClient customFieldClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private const string RES_ENDPOINT = "basicHttp_Resource";
+        private const string CUST_ENDPOINT = "basicHttp_CustomFields";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathCustomFields;
+        private static string outFilePathCustomFields2;
+        private static string outFilePathCustomFields3;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                Guid[] customFieldID = new Guid[1];
+                customFieldID[0] = new Guid("4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29");
+
+                ConfigClientEndpoints(CUST_ENDPOINT);
+                SetClientEndpoints(RES_ENDPOINT);
+
+                // If directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Assign the path where the output XML file will be saved.
+                outFilePathCustomFields = OUTPUT_FILES + "CustomFieldData.xml";
+                outFilePathCustomFields2 = OUTPUT_FILES + "CustomFieldData2.xml";
+                outFilePathCustomFields3 = OUTPUT_FILES + "UpdatedCustomFieldData.xml";
+
+                // Create a custom fields dataset. 
+                SvcCustomFields.CustomFieldDataSet customFieldDS =
+                    new SvcCustomFields.CustomFieldDataSet();
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file
+                customFieldDS.WriteXml(outFilePathCustomFields);
+                Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                    outFilePathCustomFields);
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids2.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids2(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file.
+                customFieldDS.WriteXml(outFilePathCustomFields2);
+
+                bool checkedOut = false;
+
+                // Get the ID of the user.
+                Guid me = resourceClient.GetCurrentUserUid();
+
+                // Check whether the custom field to be updated is checked out.
+                foreach (SvcCustomFields.CustomFieldDataSet.CustomFieldsRow custRow in customFieldDS.CustomFields)
+                {
+                    if (custRow.MD_PROP_UID.ToString() == customFieldID[0].ToString())
+                    {
+                        if (custRow.IsNull("MD_PROP_CHECKOUTBY"))    // If the custom field is not checked out.
+                        {
+                            // Check out the custom field.
+                            customFieldClient.CheckOutCustomFields(new Guid[] { custRow.MD_PROP_UID });
+                            checkedOut = true;
+                            Console.WriteLine("Custom field checked out.....");
+                            break;
+                        }
+                        else
+                        {
+                            // Check whether the custom field is checked out by you.
+                            if (custRow.MD_PROP_CHECKOUTBY == me)
+                            {
+                                checkedOut = true;
+                                Console.WriteLine("The custom field is already checked out by you");
+                                break;
+                            }
+                            else
+                            {
+                                // The custom field is checked out by some other user.
+                                checkedOut = false;
+                                Console.WriteLine("This custom field has already been checked out");
+                                Console.ReadLine();
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (checkedOut)
+                {
+                    // Modify the formula field of the custom field.
+                    // Type the following statement in a single line.
+                    customFieldDS.CustomFields[0].MD_PROP_FORMULA =
+                        "Switch(Not ([Baseline Estimated Finish] &amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;lt; #1/1/2050#), 
+                        \"No Baseline\", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1.5, \"Overbudget by 50% or more\", 
+                            ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1, \"Overbudget\", True, \"Under budget\")";
+
+                    // Update the dataset.
+                    customFieldClient.UpdateCustomFields2(customFieldDS, false, false);
+                    customFieldDS.WriteXml(outFilePathCustomFields3);
+
+                    // Write the custom field data to an XML file.
+                    Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                        outFilePathCustomFields3);
+
+                    // Check in the custom field.
+                    customFieldClient.CheckInCustomFields(new Guid[] { customFieldID[0] }, false);
+                }
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            finally
+            {
+                Console.Write("\r\n\r\nPress any key....");
+                Console.ReadKey();
+            }
+        }
+        
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            customFieldClient = new SvcCustomFields.CustomFieldsClient(endpt);
+        }
+        // Configure the resource client endpoints.
+        public static void SetClientEndpoints(string ept)
+        {
+            resourceClient = new SvcResource.ResourceClient(ept);
+        }
+
+    }
+}
+</code>
+          <para>The updated dataset, with the modified formula field <b>MD_PROP_FORMULA</b>, is written to <b>UpdatedCustomFieldData.xml</b> and is as shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;CustomFieldDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/CustomFieldDataSet/"&amp;gt;
+&amp;lt;CustomFields&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ID&amp;gt;&lt;/span&gt;188776464&amp;lt;/MD_PROP_ID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID_SECONDARY&amp;gt;&lt;/span&gt;64546b89-9a2a-49d8-b3ce-190119a3c562&amp;lt;/MD_PROP_UID_SECONDARY&amp;gt; &lt;span class="label"&gt;&amp;lt;MD_PROP_ID_SECONDARY&amp;gt;&lt;/span&gt;255885317&amp;lt;/MD_PROP_ID_SECONDARY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_ENT_TYPE_UID&amp;gt;&lt;/span&gt;ebad93e7-2149-410d-9a39-a8680738329d&amp;lt;/MD_ENT_TYPE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_NAME&amp;gt;&lt;/span&gt;Budget Indicator&amp;lt;/MD_PROP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_REQUIRED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_AGGREGATION_TYPE_ENUM&amp;gt;&lt;/span&gt;9&amp;lt;/MD_AGGREGATION_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_TYPE_ENUM&amp;gt;&lt;/span&gt;21&amp;lt;/MD_PROP_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_MULTILINE_TEXT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_MULTILINE_TEXT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_DESCRIPTION&amp;gt;&lt;/span&gt;Test for graphical indicator example in SDK&amp;lt;/MD_PROP_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_MAX_VALUES&amp;gt;&lt;/span&gt;1&amp;lt;/MD_PROP_MAX_VALUES&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.5, "Overbudget by 50% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_CHECKOUTDATE&amp;gt;&lt;/span&gt;2010-02-08T10:57:21.21-08:00&amp;lt;/MD_PROP_CHECKOUTDATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-02-08T11:12:40.78-08:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/CustomFields&amp;gt;
+&amp;lt;/CustomFieldDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="UpdateCustomFields">
@@ -409,11 +1485,30 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="cfds">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cfds">
+          <b>CustomFieldDataSet</b> contains the updated custom field definitions.</param>
+        <param name="validateOnly">If <b>true</b>, validate only the <b>CustomFieldDataSet</b>.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the custom fields after they are updated.</param>
+        <summary>Creates, modifies, or deletes enterprise custom fields.</summary>
+        <remarks>
+          <para>
+            <b>UpdateCustomFields</b> creates custom fields if the <b>CustomFieldDataSet</b> includes new custom fields, modifies existing custom fields, and deletes custom fields that are not in the <b>CustomFieldDataSet</b>.</para>
+          <para>
+            <b>Caution</b>: The <b>UpdateCustomFields</b> method and the <b>UpdateCustomFields2</b> method, as well as Project Web App, all allow you to create an enterprise project custom field of type Flag, and set the custom field to be workflow controlled. However, Project Server workflows cannot control Flag custom fields. You should not set project custom fields of type Flag for workflow control.</para>
+          <para>
+            <b>Tip</b>: The <b>UpdateCustomFields</b> method ignores the locale setting of the computer running Project Server. The <see cref="M:WebSvcCustomFields.CustomFields.UpdateCustomFields2(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method can use locale-dependent values for formulas that calculate custom fields and graphical indicators.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para>If the user did not check out the custom fields, <b>UpdateCustomFields</b> also requires administrative permissions to force check in.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateCustomFields2">
@@ -442,11 +1537,223 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="cfds">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="cfds">
+          <b>CustomFieldDataSet</b> contains the updated custom field definitions.</param>
+        <param name="validateOnly">If <b>true</b>, validate only the <b>CustomFieldDataSet</b>.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the custom fields after they are updated.</param>
+        <summary>Creates, modifies, or deletes enterprise custom fields, where formulas are in a language-dependent format. </summary>
+        <remarks>
+          <para>New method in Project Server 2010. <b>UpdateCustomFields2</b> creates custom fields if the <b>CustomFieldDataSet</b> includes new custom fields, modifies existing custom fields, and deletes custom fields that are not in the <b>CustomFieldDataSet</b>.</para>
+          <para>Formulas in the <b>CustomFieldDataSet</b> that are used to calculate custom fields or graphical indicators can be written in the locale format specified in the Regional and Language Options control panel of the computer running Project Server. The <b>UpdateCustomFields2</b> method saves the formulas in a language-independent format. By comparison, the <b>UpdateCustomFields</b> method saves the formulas without regard to the locale format.</para>
+          <para>
+            <b>Caution</b>: The <b>UpdateCustomFields</b> method and the <b>UpdateCustomFields2</b> method, as well as Project Web App, all allow you to create an enterprise project custom field of type Flag, and set the custom field to be workflow controlled. However, Project Server workflows cannot control Flag custom fields. You should not set project custom fields of type Flag for workflow control.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para>If the user did not check out the custom fields, <b>UpdateCustomFields2</b> also requires administrative permissions to force check in.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses <b>ReadCustomFieldsByMdPropUids</b> and <b>ReadCustomFieldsByMdPropUids2</b> to read a custom field, and then writes the <b>customFieldDS</b> contents to <b>CustomFieldDataSet.xml</b> and <b>CustomFieldDataSet2.xml</b>, respectively. Except for <b>MD_PROP_FORMULA</b>, the two methods return the same data.</para>
+          <para>For more information, including a procedure that shows how to use Project Web App and Project Professional 2010 with the same formula, see Using Formulas and Graphical Indicators with Custom Fields.</para>
+          <para>The formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids</b> depends on the locale (the language of the server and the Project installation).and is shown in the following code.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([MSPJ188743724] &amp;amp;gt;= #01/01/1984# And [MSPJ188743724] &amp;amp;lt; #01/01/2050#), 
+"No Baseline", ([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([MSPJ188743685] + 1) / ([MSPJ188743686] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>The formula field <b>MD_PROP_FORMULA</b> that is returned by <b>ReadCustomFieldsByMdPropUids2</b> (as shown in the following code) is independent of locale. It works the same way on different language installations. For this reason, the <b>ReadCustomFieldsByMdPropUids2</b> method is preferred over the <b>ReadCustomFieldsByMdPropUids</b> method.</para>
+          <code>&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.2, "Overbudget by 20% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;</code>
+          <para>Furthermore, the example modifies the formula and calls the <b>UpdateCustomFields2</b> method to update the custom field, and then writes the updated dataset to <b>UpdatedCustomFieldData.xml</b></para>
+          <para>It calls the <b>CheckInCustomFields</b> to check in the custom field after modification, and calls the <b>CheckOutCustomFields</b> to check out the custom fields before modifying them.</para>
+          <para>The example uses the <b>SvcCustomFields</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method and the <b>SetClientEndpoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.TestCustomFields
+{
+    class CustomFields
+    {
+        private static SvcCustomFields.CustomFieldsClient customFieldClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private const string RES_ENDPOINT = "basicHttp_Resource";
+        private const string CUST_ENDPOINT = "basicHttp_CustomFields";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathCustomFields;
+        private static string outFilePathCustomFields2;
+        private static string outFilePathCustomFields3;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                Guid[] customFieldID = new Guid[1];
+                customFieldID[0] = new Guid("4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29");
+
+                ConfigClientEndpoints(CUST_ENDPOINT);
+                SetClientEndpoints(RES_ENDPOINT);
+
+                // If directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Assign the path where the output XML file will be saved.
+                outFilePathCustomFields = OUTPUT_FILES + "CustomFieldData.xml";
+                outFilePathCustomFields2 = OUTPUT_FILES + "CustomFieldData2.xml";
+                outFilePathCustomFields3 = OUTPUT_FILES + "UpdatedCustomFieldData.xml";
+
+                // Create a custom fields dataset. 
+                SvcCustomFields.CustomFieldDataSet customFieldDS =
+                    new SvcCustomFields.CustomFieldDataSet();
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file.
+                customFieldDS.WriteXml(outFilePathCustomFields);
+                Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                    outFilePathCustomFields);
+
+                // Read the custom fields data by using ReadCustomFieldsByMdPropUids2.
+                customFieldDS = customFieldClient.ReadCustomFieldsByMdPropUids2(
+                    new Guid[] { customFieldID[0] }, false);
+
+                // Write the dataset to an XML file.
+                customFieldDS.WriteXml(outFilePathCustomFields2);
+
+                bool checkedOut = false;
+
+                // Get the ID of the user.
+                Guid me = resourceClient.GetCurrentUserUid();
+
+                // Check whether the custom field to be updated is checked out.
+                foreach (SvcCustomFields.CustomFieldDataSet.CustomFieldsRow custRow in customFieldDS.CustomFields)
+                {
+                    if (custRow.MD_PROP_UID.ToString() == customFieldID[0].ToString())
+                    {
+                        if (custRow.IsNull("MD_PROP_CHECKOUTBY"))    // If the custom field is not checked out.
+                        {
+                            // Check out the custom field.
+                            customFieldClient.CheckOutCustomFields(new Guid[] { custRow.MD_PROP_UID });
+                            checkedOut = true;
+                            Console.WriteLine("Custom field checked out.....");
+                            break;
+                        }
+                        else
+                        {
+                            // Check whether the custom field is checked out by you.
+                            if (custRow.MD_PROP_CHECKOUTBY == me)
+                            {
+                                checkedOut = true;
+                                Console.WriteLine("The custom field is already checked out by you");
+                                break;
+                            }
+                            else
+                            {
+                                // The custom field is checked out by some other user.
+                                checkedOut = false;
+                                Console.WriteLine("This custom field has already been checked out");
+                                Console.ReadLine();
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (checkedOut)
+                {
+                    // Modify the formula field of the custom field.
+                    // Type the following statement in a single line.
+                    customFieldDS.CustomFields[0].MD_PROP_FORMULA =
+                        "Switch(Not ([Baseline Estimated Finish] &amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;lt; #1/1/2050#), 
+                        \"No Baseline\", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1.5, \"Overbudget by 50% or more\", 
+                            ([Cost] + 1) / ([Baseline Cost] + 1) &amp;gt; 1, \"Overbudget\", True, \"Under budget\")";
+
+                    // Update the dataset.
+                    customFieldClient.UpdateCustomFields2(customFieldDS, false, false);
+                    customFieldDS.WriteXml(outFilePathCustomFields3);
+
+                    // Write the custom field data to an XML file.
+                    Console.WriteLine("\nSee XML output of the CustomFieldDataSet at {0}",
+                        outFilePathCustomFields3);
+
+                    // Check in the custom field.
+                    customFieldClient.CheckInCustomFields(new Guid[] { customFieldID[0] }, false);
+                }
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            finally
+            {
+                Console.Write("\r\n\r\nPress any key....");
+                Console.ReadKey();
+            }
+        }
+        
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            customFieldClient = new SvcCustomFields.CustomFieldsClient(endpt);
+        }
+        // Configure the resource client endpoints.
+        public static void SetClientEndpoints(string ept)
+        {
+            resourceClient = new SvcResource.ResourceClient(ept);
+        }
+
+    }
+}
+</code>
+          <para>The updated dataset, with the modified formula field <b>MD_PROP_FORMULA</b>, is written to <b>UpdatedCustomFieldData.xml</b> and is shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;CustomFieldDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/CustomFieldDataSet/"&amp;gt;
+&amp;lt;CustomFields&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;4bfa524a-ce48-4a31-a2d6-5e8baa6c9d29&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ID&amp;gt;&lt;/span&gt;188776464&amp;lt;/MD_PROP_ID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID_SECONDARY&amp;gt;&lt;/span&gt;64546b89-9a2a-49d8-b3ce-190119a3c562&amp;lt;/MD_PROP_UID_SECONDARY&amp;gt; &lt;span class="label"&gt;&amp;lt;MD_PROP_ID_SECONDARY&amp;gt;&lt;/span&gt;255885317&amp;lt;/MD_PROP_ID_SECONDARY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_ENT_TYPE_UID&amp;gt;&lt;/span&gt;ebad93e7-2149-410d-9a39-a8680738329d&amp;lt;/MD_ENT_TYPE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_NAME&amp;gt;&lt;/span&gt;Budget Indicator&amp;lt;/MD_PROP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_WORKFLOW_CONTROLLED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_REQUIRED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_AGGREGATION_TYPE_ENUM&amp;gt;&lt;/span&gt;9&amp;lt;/MD_AGGREGATION_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_TYPE_ENUM&amp;gt;&lt;/span&gt;21&amp;lt;/MD_PROP_TYPE_ENUM&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_IS_MULTILINE_TEXT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_IS_MULTILINE_TEXT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_DESCRIPTION&amp;gt;&lt;/span&gt;Test for graphical indicator example in SDK&amp;lt;/MD_PROP_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_MAX_VALUES&amp;gt;&lt;/span&gt;1&amp;lt;/MD_PROP_MAX_VALUES&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_FORMULA&amp;gt;&lt;/span&gt;Switch(Not ([Baseline Estimated Finish] &amp;amp;gt;= #1/1/1984# And [Baseline Estimated Finish] &amp;amp;lt; #1/1/2050#), 
+"No Baseline", ([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1.5, "Overbudget by 50% or more", 
+([Cost] + 1) / ([Baseline Cost] + 1) &amp;amp;gt; 1, "Overbudget", True, "Under budget")&amp;lt;/MD_PROP_FORMULA&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;&lt;/span&gt;[[==No baseline][5]][[==Overbudget by 50% or more][3]]
+[[==Overbudget][2]][[==Under budget][1]]&amp;lt;/MD_PROP_PROJ_SUMM_GRAPHICAL_INDICATOR&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_GRAPHICAL_INDICATOR_TOOLTIP&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_ROLLDOWN_TO_ASSN&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;&lt;/span&gt;false&amp;lt;/MD_PROP_COPY_ON_REASSIGNMENT&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_CHECKOUTDATE&amp;gt;&lt;/span&gt;2010-02-08T10:57:21.21-08:00&amp;lt;/MD_PROP_CHECKOUTDATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-02-08T11:12:40.78-08:00&amp;lt;/MOD_DATE&amp;gt;
+&amp;lt;/CustomFields&amp;gt;
+&amp;lt;/CustomFieldDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
   </Members>

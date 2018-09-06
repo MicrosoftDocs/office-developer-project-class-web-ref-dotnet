@@ -18,8 +18,12 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcTimeSheet.TimeSheet" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>TimesheetEventReceiver</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,10 +63,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.CreateTimesheet(WebSvcTimeSheet.TimesheetDataSet,WebSvcTimeSheet.PreloadType)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCreatedRemote">
@@ -116,10 +124,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreCreateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.CreateTimesheet(WebSvcTimeSheet.TimesheetDataSet,WebSvcTimeSheet.PreloadType)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCreatingRemote">
@@ -174,10 +186,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueDeleteTimesheet(System.Guid,System.Guid)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeletedRemote">
@@ -231,10 +247,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreDeleteEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueDeleteTimesheet(System.Guid,System.Guid)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeletingRemote">
@@ -289,10 +309,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetLinePostApproveEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.ApproveNonProjectTime(System.Guid[],System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>Event handlers that override the <b>OnLineApproved</b> method apply only to non-project (administrative) timesheet lines in Microsoft Project Server 2010.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLineApprovedRemote">
@@ -346,10 +371,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.ApproveNonProjectTime(System.Guid[],System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>Event handlers that override the <b>OnLineApproving</b> method apply only to non-project (administrative) timesheet lines in Microsoft Project Server 2010.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLineApprovingRemote">
@@ -404,10 +434,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueRecallTimesheet(System.Guid,System.Guid)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnRecalledRemote">
@@ -461,10 +495,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreRecallEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueRecallTimesheet(System.Guid,System.Guid)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnRecallingRemote">
@@ -519,10 +557,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueReviewTimesheet(System.Guid,System.Guid,System.Guid,System.String,WebSvcTimeSheet.Action)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReviewedRemote">
@@ -576,10 +618,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreReviewEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueReviewTimesheet(System.Guid,System.Guid,System.Guid,System.String,WebSvcTimeSheet.Action)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReviewingRemote">
@@ -634,10 +680,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueSubmitTimesheet(System.Guid,System.Guid,System.Guid,System.String)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSubmittedRemote">
@@ -691,10 +741,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueSubmitTimesheet(System.Guid,System.Guid,System.Guid,System.String)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSubmittingRemote">
@@ -749,10 +803,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueUpdateTimesheet(System.Guid,System.Guid,WebSvcTimeSheet.TimesheetDataSet)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnUpdatedRemote">
@@ -806,10 +864,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueUpdateTimesheet(System.Guid,System.Guid,WebSvcTimeSheet.TimesheetDataSet)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing timesheet data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnUpdatingRemote">

@@ -13,9 +13,17 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSending(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs)" /> method for notifications events.</summary>
+    <remarks>
+      <para>Event arguments for an <b>OnSending</b> pre-event handler expose the subject line and body of the notification. For more information, see  <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -52,9 +60,9 @@
         <Parameter Name="subjLine" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="xmlBody">To be added.</param>
-        <param name="subjLine">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xmlBody">Notification data for an <b>OnSending</b> event handler.</param>
+        <param name="subjLine">The subject for an <b>OnSending</b> event handler.</param>
+        <summary>Creates an instance of the <b>NotificationsPreSendEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -74,9 +82,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the subject for an <b>OnSending</b> event handler.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>You can use data in the <b>SubjectLine</b> property and the <b>xmlBody</b> property to help design an <b>OnSending</b> event handler. If you create a notifications pre-event handler that does nothing, you can install the event handler, set a breakpoint, and then debug the event handler to examine <b>e.SubjectLine</b> and <b>e.xmlBody</b>.</para>
+          <para>For more information, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="xmlBody">
@@ -95,9 +107,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets notification data for an <b>OnSending</b> event handler.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>You can use data in the <b>SubjectLine</b> property and the <b>xmlBody</b> property to help design an <b>OnSending</b> event handler. If you create a notifications pre-event handler that does nothing, you can install the event handler, set a breakpoint, and then debug the event handler to examine <b>e.SubjectLine</b> and <b>e.xmlBody</b>.</para>
+          <para>For more information, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

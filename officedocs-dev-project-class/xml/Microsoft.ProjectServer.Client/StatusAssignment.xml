@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides an object that is an assignment in a status update.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>StatusAssignment</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time when an assignment was completed.</summary>
+        <value>The assignment completion date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,9 +97,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the actual amount of overtime work already performed by resources that are assigned to tasks.</summary>
+        <value>The actual overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.ActualOvertimeTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualOvertimeTimeSpan">
@@ -123,8 +126,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the actual amount of overtime work already performed by resources that are assigned to tasks.</summary>
+        <value>The duration of the actual overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +152,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time that an assignment actually began, based on progress information that was entered.</summary>
+        <value>The actual start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,9 +178,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of work that has already been performed by resources that are assigned to tasks.</summary>
+        <value>The actual amount of work performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualWorkTimeSpan">
@@ -201,8 +207,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of work that has already been performed by resources that are assigned to tasks.</summary>
+        <value>The duration of the actual amount of work performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +233,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the comments for the status assignment.</summary>
+        <value>An object that contains comments.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,8 +259,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of custom fields that have values set for the status assignment.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,7 +286,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>StatusAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +311,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date when an assignment is scheduled to be completed.</summary>
+        <value>The assignment completion date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,8 +337,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID for the status assignment.</summary>
+        <value>A status assignment GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -356,10 +362,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -384,8 +391,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets whether the status assignment has been confirmed.</summary>
+        <value>
+          <b>True</b> if the assignment has been confirmed; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -410,8 +418,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the status assignment.</summary>
+        <value>The task name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -436,9 +444,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of overtime work.</summary>
+        <value>The amount of overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.OvertimeTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeTimeSpan">
@@ -462,8 +473,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of overtime work.</summary>
+        <value>The duration of the overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -488,8 +499,8 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the current status of a task, resource, or assignment, expressed as the percentage of work that has been completed.</summary>
+        <value>The current status of an assignment, expressed as a percentage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -514,8 +525,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedProject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project that contains the status assignment.</summary>
+        <value>A <b>PublishedProject</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -540,9 +551,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the total amount of nonovertime work that is scheduled to be performed by resources.</summary>
+        <value>The total amount of scheduled nonovertime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the regular work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.RegularWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegularWorkTimeSpan">
@@ -566,8 +580,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the total amount of nonovertime work that is scheduled to be performed by resources.</summary>
+        <value>The duration of the total amount of scheduled nonovertime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -592,9 +606,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of remaining scheduled overtime work.</summary>
+        <value>The remaining scheduled overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.RemainingOvertimeTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingOvertimeTimeSpan">
@@ -618,8 +635,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of remaining scheduled overtime work.</summary>
+        <value>The duration of the remaining scheduled overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -644,9 +661,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the time, such as person-hours or days, that are still required to complete a task or set of tasks.</summary>
+        <value>The time that is still required to complete a task or set of tasks.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.RemainingWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingWorkTimeSpan">
@@ -670,8 +690,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the time, such as person-hours or days, that are still required to complete a task or set of tasks.</summary>
+        <value>The duration of the time that is still required to complete a task or set of tasks.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -696,8 +716,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the resource that is associated with the status assignment.</summary>
+        <value>An <b>EnterpriseResource</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -722,8 +742,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date when an assigned resource is scheduled to begin working on an assignment.</summary>
+        <value>The assignment start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -751,8 +771,8 @@
         <Parameter Name="comment" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="comment">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="comment">A comment about the submission.</param>
+        <summary>Submits all updates to this assignment for approval.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -777,8 +797,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StatusTask</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the task that is associated with the status assignment.</summary>
+        <value>A <b>StatusTask</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -803,9 +823,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the total time scheduled on a task for all assigned resources.</summary>
+        <value>The total scheduled time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusAssignment.WorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkTimeSpan">
@@ -829,8 +852,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the total time scheduled on a task for all assigned resources.</summary>
+        <value>The duration of the total scheduled time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

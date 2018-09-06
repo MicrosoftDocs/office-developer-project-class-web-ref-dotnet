@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about solution projects that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>SolutionProjectsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>SolutionProjectsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,7 +101,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.ABSOLUTE_PRIORITY" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -127,9 +130,20 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">Contains the solution projects row that is to be added.</param>
+        <summary>Adds a <b>SolutionProjectsRow</b> object to the <b>SolutionProjectsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddSolutionProjectsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow" /> parameter, for example, AddSolutionProjectsRow(PlannerSolutionDataSet.SolutionProjectsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload which uses individual parameters for all fields in <b>SolutionProjectsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -183,7 +197,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>SolutionProjectsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -236,7 +250,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.DURATION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -266,9 +280,9 @@
         <Parameter Name="PROJ_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="SOLUTION_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="SOLUTION_UID">Contains the solution GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <summary>Retrieves a <b>SolutionProjectsRow</b> object by using the specified solution GUID and project GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -294,7 +308,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.FNLT" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -320,7 +334,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.FORCE_ALIAS_LT_STRUCT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -346,7 +360,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.FORCE_ALIAS_LT_VALUE_FULL" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -372,7 +386,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.FORCE_STATUS" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -402,7 +416,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>SolutionProjectsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -458,8 +472,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -488,8 +502,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifes the row.</param>
+        <summary>Gets a row in the <b>SolutionProjectsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -515,7 +529,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.LOCKED" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -541,7 +555,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.NEW_START_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -598,7 +612,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>SolutionProjectsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -740,7 +754,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.PRIORITY" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -766,7 +780,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.PROJ_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -792,7 +806,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -821,8 +835,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row object from the <b>SolutionProjectsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -847,7 +861,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.RESOURCE_COST" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -873,7 +887,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.RESOURCE_WORK" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -899,7 +913,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.SNET" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -925,7 +939,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.SOLUTION_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -946,7 +960,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -966,7 +980,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -986,7 +1000,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1006,7 +1020,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.PlannerSolutionDataSet+SolutionProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1031,7 +1045,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The column for the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow.STATUS" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

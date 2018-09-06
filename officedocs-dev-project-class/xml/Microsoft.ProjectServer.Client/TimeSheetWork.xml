@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the different types of work on a timesheet.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>TimeSheetWork</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +71,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of actual work that is on a timesheet.</summary>
+        <value>The amount of actual work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheetWork.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualWorkTimeSpan">
@@ -97,8 +100,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of actual work that is on a timesheet.</summary>
+        <value>The duration of the actual work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the timesheet work comment.</summary>
+        <value>A comment about the timesheet work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -150,7 +153,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>TimeSheetWork</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +178,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the end time of the actual work that is on a timesheet.</summary>
+        <value>A <b>DateTime</b> object that contains the end time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +204,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the timesheet line that is associated with the work.</summary>
+        <value>The GUID for the timesheet line.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -226,10 +229,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,9 +258,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of nonbillable overtime work that is on a timesheet.</summary>
+        <value>The amount of nonbillable overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the nonbillable overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheetWork.NonBillableOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NonBillableOvertimeWorkTimeSpan">
@@ -280,8 +287,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of nonbillable overtime work that is on a timesheet.</summary>
+        <value>The duration of the nonbillable overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,9 +313,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of nonbillable work that is on a timesheet.</summary>
+        <value>The amount of nonbillable work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the nonbillable work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheetWork.NonBillableWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NonBillableWorkTimeSpan">
@@ -332,8 +342,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of nonbillable work that is on a timesheet.</summary>
+        <value>The duration of the nonbillable work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,9 +368,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of overtime work that is on a timesheet.</summary>
+        <value>The amount of overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheetWork.OvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeWorkTimeSpan">
@@ -384,8 +397,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of overtime work that is on a timesheet.</summary>
+        <value>The duration of the overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -410,9 +423,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of planned work that is on a timesheet.</summary>
+        <value>The amount of planned work.</value>
+        <remarks>
+          <para>Planned work is baseline work that can be compared against current progress.</para>
+          <para>To get the <b>TimeSpan</b> value for the planned work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheetWork.PlannedWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PlannedWorkTimeSpan">
@@ -436,8 +453,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of planned work that is on a timesheet.</summary>
+        <value>The duration of the planned work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,8 +479,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the start time of the actual work that is on a timesheet.</summary>
+        <value>A <b>DateTime</b> object that contains the start time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

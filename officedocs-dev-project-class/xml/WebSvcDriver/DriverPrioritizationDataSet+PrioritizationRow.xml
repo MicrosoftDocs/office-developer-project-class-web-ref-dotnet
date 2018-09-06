@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains information for one prioritization in a portfolio analysis.</summary>
+    <remarks>
+      <para>Represents one row from the <see cref="T:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationDataTable" /> table.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="CONSISTENCY_RATIO">
@@ -39,9 +42,14 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value between 0 and 1 that indicates how logically consistent all of the comparisons in a prioritization are with respect to each other.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>Values close to 1 are more logically consistent than values much smaller than 1. A prioritization defines the value 0.75 as the threshold for a low-consistency warning.</para>
+          <para>
+            <b>Note</b>: Values less than 1 can be reasonable for a specific set of drivers.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CREATED_BY_RES_NAME">
@@ -65,8 +73,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the resource or user that created the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,8 +99,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the resource or user that created the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -117,8 +125,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time that the prioritization was created. Read-only.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -143,8 +151,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the department name associated with the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -169,8 +177,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID for the department associated with the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -196,8 +204,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the related set of prioritization entry objects.</summary>
+        <returns>Returns <see cref="T:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationEntriesRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -223,8 +231,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_BY_RES_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -250,8 +258,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_BY_RES_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,8 +285,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -304,8 +312,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.DEPARTMENT_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,8 +339,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.DEPARTMENT_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,8 +366,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.LAST_UPDATED_BY_RES_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -385,8 +393,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.LAST_UPDATED_BY_RES_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -412,8 +420,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.MOD_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -439,8 +447,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_DESCRIPTION" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -466,8 +474,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_IS_COMPLETE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -493,8 +501,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_IS_USED_IN_ANALYSIS" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -520,8 +528,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.RELATIVE_IMPORTANCE_CF_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -546,8 +554,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the resource or user that last modified the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -572,8 +580,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the resource or user that last modified the prioritization. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -598,8 +606,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time that the specified prioritization information was last updated. Read-only.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -624,8 +632,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the description of the prioritization.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -650,9 +658,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a flag that indicates whether the specified prioritization is complete. Read-only.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
+        <remarks>
+          <para>An automatically calculated prioritization is not complete until users have ranked all drivers in a prioritization against each other.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PRIORITIZATION_IS_MANUAL">
@@ -676,9 +687,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a flag that indicates whether updates to the prioritization are calculated manually.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
+        <remarks>
+          <para>The <b>PRIORITIZATION_IS_MANUAL</b> property is <b>True</b> if the information is updated manually, and <b>False</b> if the update occurs automatically.</para>
+          <para>After a prioritization is created, the <b>PRIORITIZATION_IS_MANUAL</b> value cannot be changed.  Manual prioritization permits users to specify their own priority values. Automatic prioritization means that Project Server assigns values based on priorities already assigned in Project Web App.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PRIORITIZATION_IS_USED_IN_ANALYSIS">
@@ -702,8 +717,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a flag that indicates whether the prioritization is currently being used by one or more analyses. Read-only.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -728,8 +743,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the prioritization.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -754,8 +769,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the prioritization.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -780,8 +795,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the custom field used for relative importance within the prioritization.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -806,8 +821,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the custom field used for relative importance within the prioritization.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -833,7 +848,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_BY_RES_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -859,7 +874,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_BY_RES_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -885,7 +900,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.CREATED_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -911,7 +926,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.DEPARTMENT_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -937,7 +952,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.DEPARTMENT_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -963,7 +978,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.LAST_UPDATED_BY_RES_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -989,7 +1004,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.LAST_UPDATED_BY_RES_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1015,7 +1030,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.MOD_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1041,7 +1056,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_DESCRIPTION" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1067,7 +1082,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_IS_COMPLETE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1093,7 +1108,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.PRIORITIZATION_IS_USED_IN_ANALYSIS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1119,7 +1134,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcDriver.DriverPrioritizationDataSet.PrioritizationRow.RELATIVE_IMPORTANCE_CF_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

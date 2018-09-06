@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about project role requirements that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AnalysisProjectRequirementsByRoleDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>AnalysisProjectRequirementsByRoleDataTable</b> class.by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the analysis project requirements by role information.</param>
+        <summary>Adds an <b>AnalysisProjectRequirementsByRoleRow</b> object to the <b>AnalysisProjectRequirementsByRoleDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -136,16 +139,19 @@
         <Parameter Name="REQUIREMENT_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="ANALYSIS_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <param name="LT_STRUCT_UID">To be added.</param>
-        <param name="START_DATE">To be added.</param>
-        <param name="PROJECT_REQUIREMENT">To be added.</param>
-        <param name="REQUIREMENT_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="ANALYSIS_UID">Contains the analysis GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <param name="LT_STRUCT_UID">Contains the lookup table GUID.</param>
+        <param name="START_DATE">Contains the beginning of the period of time the requirement information is based on</param>
+        <param name="PROJECT_REQUIREMENT">Contains the amount of resources needed for the specified role, for the specified project, time period, and analysis</param>
+        <param name="REQUIREMENT_UID">Contains the requirement GUID.</param>
+        <summary>Adds an <b>AnalysisProjectRequirementsByRoleRow</b> object to the <b>AnalysisProjectRequirementsByRoleDataTable</b> by using separate parameters.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow" />.</returns>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleDataTable.AddAnalysisProjectRequirementsByRoleRow(WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow)" /> overload. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_UIDColumn">
@@ -169,7 +175,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.ANALYSIS_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -190,7 +196,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -210,7 +216,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -230,7 +236,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -250,7 +256,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,7 +311,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of rows in the <b>AnalysisProjectRequirementsByRoleDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -333,7 +339,7 @@
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <returns>Returns <see cref="T:System.Data.DataTable" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,7 +364,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.CUSTOM_FIELD_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -387,8 +393,8 @@
         <Parameter Name="REQUIREMENT_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="REQUIREMENT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="REQUIREMENT_UID">Specifies the requirement GUID.</param>
+        <summary>Retrieves an <b>AnalysisProjectRequirementsByRoleRow</b> object by using the specified requirement GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -418,7 +424,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>AnalysisProjectRequirementsByRoleDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -474,8 +480,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -504,8 +510,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifes the row that is to be retrieved.</param>
+        <summary>Gets a row object in the <b>AnalysisProjectRequirementsByRoleDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -531,7 +537,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.LT_STRUCT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -558,7 +564,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>AnalysisProjectRequirementsByRoleDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -730,7 +736,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -756,7 +762,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.PROJECT_REQUIREMENT" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -785,8 +791,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectRequirementsByRoleRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>AnalysisProjectRequirementsByRoleDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -811,7 +817,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.REQUIREMENT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -837,7 +843,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectRequirementsByRoleRow.START_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

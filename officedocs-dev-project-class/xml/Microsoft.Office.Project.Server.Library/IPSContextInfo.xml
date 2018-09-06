@@ -15,8 +15,12 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>An interface that provides Project Server context information such as user, site, and preferred culture.</summary>
+    <remarks>
+      <para>
+        <b>IPSContextInfo</b> is the interface for the <see cref="T:Microsoft.Office.Project.Server.Library.PSContextInfo" /> class.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="DelegateGuid">
@@ -35,7 +39,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the user delegate, when delegation is active.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -56,7 +60,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the user delegate, when delegation is active.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -77,8 +81,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the current user is a Windows user (as opposed to a Forms user).</summary>
+        <value>
+          <b>True</b> if the current user is a Windows user; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -103,7 +108,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Use the <b>LanguageCulture</b> property or the <b>LocaleCulture</b> property instead of <b>Lcid</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -124,7 +129,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the SharePoint site for the Project Web App instance.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -145,9 +150,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the active job in the Project Server Queue Service.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>When Project Server is processing a queue job, the <b>TrackingGuid</b> property can be used to track the queue job.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UlsCorrelationUid">
@@ -166,7 +174,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the zone of the active SharePoint URL for the Project Web App instance.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -187,9 +195,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the zone of the active SharePoint URL for the Project Web App instance.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Zone values are defined in the <b>Microsoft.SharePoint.Administration.SPUrlZone</b> enumeration. URL zones can be <b>Default</b>, <b>Intranet</b>, <b>Internet</b>, <b>Custom</b>, or <b>Extranet</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserGuid">
@@ -208,7 +219,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the current Project Server user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -229,7 +240,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the current Project Server user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

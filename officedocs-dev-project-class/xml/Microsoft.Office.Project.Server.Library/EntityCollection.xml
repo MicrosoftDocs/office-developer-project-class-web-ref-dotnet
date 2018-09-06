@@ -14,8 +14,24 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Collection of entity metadata for assignment, calendar, constraint, outline code, project, resource, and task entities.</summary>
+    <remarks>
+      <para>Use <b>EntityCollection</b> to obtain the GUID of an entity type for use in PSI methods. </para>
+      <para />
+    </remarks>
+    <example>
+      <para>The following code fragment uses the resource entity GUID in order to get all of the resource custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+      <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string resourceEntity = PSLibrary.EntityCollection.Entities.ResourceEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(resourceEntity));
+. . .</code>
+    </example>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,7 +47,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>EntityCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -51,9 +67,25 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the assignment entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.AssignmentEntity.UniqueId</b> to obtain the GUID of the assignment entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the assignment entity GUID in order to get all of the assignment custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string assignmentEntity = PSLibrary.EntityCollection.Entities.AssignmentEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(assignmentEntity));
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CalendarEntity">
@@ -72,9 +104,19 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the calendar entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.CalendarEntity.UniqueId</b> to obtain the GUID of the calendar entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the calendar entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string calendarEntity = PSLibrary.EntityCollection.Entities.CalendarEntity.UniqueId;
+Guid calendarEntityUid = new Guid(calendarEntity);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ConstraintEntity">
@@ -93,9 +135,19 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the constraint entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ConstraintEntity.UniqueId</b> to obtain the GUID of the assignment entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the constraint entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string constraintEntity = PSLibrary.EntityCollection.Entities.ConstraintEntity.UniqueId;
+Guid constraintEntityUid = new Guid(constraintEntity);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Contains">
@@ -117,7 +169,7 @@
       </Parameters>
       <Docs>
         <param name="entity">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -144,7 +196,7 @@
       <Docs>
         <param name="array">To be added.</param>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -164,9 +216,19 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.EntityCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of <b>Entity</b> objects.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities</b> to access information for specific entity. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the task entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string taskEntity = PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+Guid taskEntityUid = new Guid(taskEntity);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="IndexOf">
@@ -187,8 +249,8 @@
         <Parameter Name="entity" Type="Microsoft.Office.Project.Server.Library.Entity" />
       </Parameters>
       <Docs>
-        <param name="entity">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="entity">Specified entity from <b>EntityCollection.Entities</b>.</param>
+        <summary>Gets the index of a specified entity.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -213,7 +275,7 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -234,9 +296,19 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the outline code entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.OutlineCodeEntity.UniqueId</b> to obtain the GUID of the outline code entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the outline code entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string outlineCodeEntity = PSLibrary.EntityCollection.Entities.OutlineCodeEntity.UniqueId;
+Guid outlineCodeEntityUid = new Guid(outlineCodeEntity);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ProjectEntity">
@@ -255,9 +327,25 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the project entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ProjectEntity.UniqueId</b> to obtain the GUID of the project entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the project entity GUID in order to get all of the project custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string projectEntity = PSLibrary.EntityCollection.Entities.ProjectEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(projectEntity));
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ResourceEntity">
@@ -276,9 +364,25 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the resource entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ResourceEntity.UniqueId</b> to obtain the GUID of the resource entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the resource entity GUID in order to get all of the resource custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string resourceEntity = PSLibrary.EntityCollection.Entities.ResourceEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(resourceEntity));
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="TaskEntity">
@@ -297,9 +401,25 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets metadata for the task entity type. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.TaskEntity.UniqueId</b> to obtain the GUID of the task entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the task entity GUID in order to get all of the task custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string taskEntity = PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(taskEntity));
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="WinProjIdMask">
@@ -319,7 +439,7 @@
       </ReturnValue>
       <MemberValue>2147418112</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

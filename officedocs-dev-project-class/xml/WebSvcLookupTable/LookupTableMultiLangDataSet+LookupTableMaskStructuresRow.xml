@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one code mask structure in a multilanguage lookup table.</summary>
+    <remarks>
+      <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="GetLookupTableMaskValuesRows">
@@ -40,7 +43,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the code mask values for the multilanguage lookup table.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +70,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow.LT_MASK_STRUCT_LENGTH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +97,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow.LT_MASK_STRUCT_TYPE_ENUM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,9 +123,12 @@
         <ReturnType>WebSvcLookupTable.LookupTableMultiLangDataSet+LookupTablesRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the multilanguage lookup table which contains the code mask structure.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_LENGTH">
@@ -146,9 +152,28 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the number of characters, numerals, or letters in the code mask.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the full value of a lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^"). The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>If <b>LT_MASK_STRUCT_LENGTH</b> = 0, Project Web App shows the length is Any in the Code mask grid on the Edit Lookup Table page.</para>
+          <para>To help understand the <b>LT_MASK_STRUCT_LENGTH</b> property, suppose <b>mlut</b> is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object that contains two lookup table mask structures (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the <b>LookupTableMultiLangDataSet</b> element includes the following child elements.</para>
+          <code>&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;
+&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;</code>
+          <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_LEVEL">
@@ -172,9 +197,27 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the outline level of the code mask structure.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the full value of a lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^"). The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>To help understand the <b>LT_MASK_STRUCT_LEVEL</b> property, suppose <b>mlut</b> is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object that contains lookup table mask structures for level 1 and level 2 (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the <b>LookupTableMultiLangDataSet</b> element includes the following child elements.</para>
+          <code>&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;
+&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;</code>
+          <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_TYPE_ENUM">
@@ -198,9 +241,27 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the type of data contained in a lookup table mask structure, specified by the <see cref="T:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence" /> enumeration.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the full value of a lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^"). The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>To help understand the <b>LT_MASK_STRUCT_TYPE_ENUM</b> property, suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object that contains two lookup table mask structures of type <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence.CHARACTERS" /> (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the <b>LookupTableMultiLangDataSet</b> element includes the following child elements.</para>
+          <code>&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;
+&amp;lt;LookupTableMaskStructures&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+&amp;lt;/LookupTableMaskStructures&amp;gt;</code>
+          <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_UID">
@@ -224,9 +285,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the GUID of the multilanguage lookup table that uses the code mask structure.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For a description of how to create a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetLT_MASK_STRUCT_LENGTHNull">
@@ -251,7 +315,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow.LT_MASK_STRUCT_LENGTH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +341,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow.LT_MASK_STRUCT_TYPE_ENUM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

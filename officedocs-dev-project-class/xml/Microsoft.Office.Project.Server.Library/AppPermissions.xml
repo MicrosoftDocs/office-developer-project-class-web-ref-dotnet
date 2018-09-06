@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Facilitates the use of allowed types and correct values for app permissions.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,10 +36,13 @@
         <Parameter Name="right" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="right">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="right">The string form of an app permission right.</param>
+        <summary>Gets the enumerated value equivalent of the specified app permission right.</summary>
+        <returns>The enumerated value that represents the specified right.</returns>
+        <remarks>
+          <para>App permissions rights include Elevate, Manage, Read, Write, SubmitStatus, AllRights, and None.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SPProjectServerAppPermissionProviderTypeId">
@@ -58,8 +61,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the GUID for the provider type in app permissions.</summary>
+        <remarks>
+          <para>The provider type GUID is "99dce5f7-7743-4b6d-89d4-5bfbbbc2ef63”.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SPProjectSiteFeatureId">
@@ -78,8 +84,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the GUID of a dependent feature.</summary>
+        <remarks>
+          <para>The feature GUID is "697C64B9-3DFF-4981-9394-0A62632120EC”.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ValidatePermForScope">
@@ -102,9 +111,9 @@
         <Parameter Name="permKind" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="appPermissionType">To be added.</param>
-        <param name="permKind">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="appPermissionType">The set of app permissions associated with a scope or category of content.</param>
+        <param name="permKind">An integer that represents a type of permission.</param>
+        <summary>Verifies that the specified type of app permission is valid for the specified type of scope.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

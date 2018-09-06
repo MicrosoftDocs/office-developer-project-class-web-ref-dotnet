@@ -17,10 +17,16 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(true)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Creates an object that contains input parameters for a Cube Building Service (CBS) request message that is going into the Project Server queue system.</summary>
+    <remarks>
+      <para>Examples of input parameters for a CBS request include a date range that identifies the data to be included in the cube build and the names of the Analysis Services server and database that are involved in the build.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +42,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CBSRequestMessage</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -56,7 +62,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a string that contains extra information about the cube database.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -77,7 +83,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the Microsoft SQL Server Analysis Services database that handles the building of a cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -98,7 +104,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the URL of the server running Microsoft SQL Server Analysis Services for users who access the OLAP cube and Portfolio Analysis views from outside the intranet.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -119,7 +125,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the the name of the server on which Microsoft SQL Server Analysis Services is running.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -140,7 +146,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a Boolean value that indicates whether the cube build is high priority.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -161,7 +167,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the OLAP cube database.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -182,7 +188,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the fixed start date in the range of data that is included in the building of an OLAP cube database.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -203,7 +209,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the fixed end date in the range of data that is included in the building of an OLAP cube database.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -224,9 +230,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the specified number of time units that occur after the build date of an OLAP cube and that are used in the calculation of a rolling end date for a cube data range.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Possible time units include Days, Weeks, and Months.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="iNextUnit">
@@ -245,9 +254,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the type of time unit that is used in the calculation of the end date for a cube build date range.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Possible time unit types include Days, Weeks, and Months.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="iPastNum">
@@ -266,7 +278,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the specified number of time units that occur prior to the build date of an OLAP cube and that are used in the calculation of a rolling start date for a cube data range.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -287,9 +299,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the type of time unit that is used in the calculation of the end date for a cube build date range.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Possible time unit types include Days, Weeks, and Months.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="iRangeChoice">
@@ -308,9 +323,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets an integer that indicates the type of database date range to use in the cube build process.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The following is a list of the date range settings and what they signify about the date range:</para>
+          <list type="bullet">
+            <item>
+              <description>0 = default range: the earliest project start date and the latest project finish date</description>
+            </item>
+            <item>
+              <description>1 = relative range: start and end dates are forward and backward from the current date by specified time periods</description>
+            </item>
+            <item>
+              <description>2 = absolute range: dates that are specified</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ToString">
@@ -330,7 +359,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a string that contains all the <b>CBSRequestMessage</b> properties and their values.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -352,7 +381,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Verifies that the date range for a cube database is valid.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

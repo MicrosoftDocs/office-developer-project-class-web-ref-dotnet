@@ -22,8 +22,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a filtered collection of enterprise project custom fields that can be used in a workflow designer.</summary>
+    <remarks>
+      <para>The custom field types are represented as SharePoint <b>SPFieldType</b> values, rather than Project Server custom field types. The workflow designer field collection includes only enterprise custom fields for project entities.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -47,9 +50,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>WorkflowDesignerFieldCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,9 +80,9 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="objectId">The string representation of the GUID for the workflow designer field.</param>
+        <summary>Gets a workflow designer field from the collection with the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> value.</summary>
+        <returns>The workflow designer field.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

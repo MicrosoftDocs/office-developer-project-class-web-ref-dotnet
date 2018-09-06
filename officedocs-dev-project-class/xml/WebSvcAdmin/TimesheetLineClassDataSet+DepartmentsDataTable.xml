@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains timesheet line class department information.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.TimesheetLineDataSet.DepartmentsRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>DepartmentsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>DepartmentsDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>DepartmentsRow</b> to add.</param>
+        <summary>Adds a <b>DepartmentsRow</b> to the <b>DepartmentsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -133,9 +139,12 @@
       <Docs>
         <param name="TS_LINE_CLASS_UID">To be added.</param>
         <param name="TS_LINE_CLASS_DEPARTMENT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcAdmin.TimesheetLineClassDataSet.DepartmentsDataTable.AddDepartmentsRow(WebSvcAdmin.TimesheetLineClassDataSet.DepartmentsRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -189,8 +198,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total number of row objects in the <b>DepartmentsDataTable</b>.</summary>
+        <value>The number of row objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -237,7 +246,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>DepartmentsDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -257,7 +266,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>DepartmentsDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +286,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>DepartmentsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -297,7 +306,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>DepartmentsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -326,8 +335,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that is used to iterate through the rows of the <b>DepartmentsDataTable</b>.</summary>
+        <returns>An iterator for the departments data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -353,8 +362,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the type of the <b>DepartmentsRow</b>.</summary>
+        <returns>The row type.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -383,7 +392,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -412,8 +421,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">An integer that represents the index into the <b>DepartmentsDataTable.</b></param>
+        <summary>Gets a row of department information at the specified index location in the <b>DepartmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -440,8 +449,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a <b>DepartmentsRow</b> object that represents a row of settings information in the <b>DepartmentsDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -470,8 +479,8 @@
       </Parameters>
       <Docs>
         <param name="builder">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a new <b>DepartmentsRow</b> object that represents a new row of timesheet line class department information in the <b>DepartmentsDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -499,8 +508,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -528,8 +537,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -557,8 +566,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -586,8 +595,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -615,8 +624,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetLineClassDataSet+DepartmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">A row of department information.</param>
+        <summary>Removes a row of department information in the <b>DepartmentsDataTable</b>, by using the specified <b>DepartmentsRow</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -641,8 +650,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcAdmin.TimesheetLineClassDataSet.DepartmentsRow.TS_LINE_CLASS_DEPARTMENT_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -667,8 +676,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcAdmin.TimesheetLineClassDataSet.DepartmentsRow.TS_LINE_CLASS_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

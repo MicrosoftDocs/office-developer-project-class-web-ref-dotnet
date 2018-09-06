@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,8 +56,8 @@
         <Parameter Name="catInfo" Type="Microsoft.Office.Project.Server.Schema.SecurityCategoriesDataSet" />
       </Parameters>
       <Docs>
-        <param name="catInfo">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="catInfo">A dataset that represents information about project security categories.</param>
+        <summary>Creates an instance of the <b>CategoryCreatePreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +77,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Schema.SecurityCategoriesDataSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a dataset that represents information about project security categories.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

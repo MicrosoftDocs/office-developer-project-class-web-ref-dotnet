@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains information for auditing and exporting timesheets.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.TimesheetAuditExportDataSet.AuditExportsDataTableRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AuditExportsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>AuditExportsDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +107,20 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">The <b>AuditExportsRow</b> to add.</param>
+        <summary>Adds an <b>AuditExportsRow</b> to the <b>AuditExportsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddAuditExportsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcAdmin.TimesheetAuditExportDataSet.AuditExportsRow" /> parameter. For example, AddAssignmentRow(TimesheetAuditExportDataSet.AuditExportsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload that uses individual parameters for all fields in <b>AuditExportsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_UIDColumn">
@@ -127,7 +144,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>ASSN_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -148,7 +165,7 @@
         <ReturnType>WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>AuditExportsDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -168,7 +185,7 @@
         <ReturnType>WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>AuditExportsDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -188,7 +205,7 @@
         <ReturnType>WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>AuditExportsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -208,7 +225,7 @@
         <ReturnType>WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>AuditExportsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -263,7 +280,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of rows in the data table.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -320,7 +337,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that is used to iterate through the rows of the <b>AuditExportsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -376,8 +393,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">A specified XML schema definition.</param>
+        <summary>Returns the <b>complexType</b> XML schema for the <b>AuditExportsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -406,8 +423,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">An integer offset into the <b>AuditExportsDataTable</b>.</param>
+        <summary>Gets a row of timesheet auditing information, at the specified index location in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -434,7 +451,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an <b>AuditExportsRow</b> object that represents a new row of timesheet auditing information in the <b>AuditExportsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -606,7 +623,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>PROJ_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -635,8 +652,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetAuditExportDataSet+AuditExportsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">A row of timesheet auditing information.</param>
+        <summary>Removes a row of timesheet auditing information in the <b>AuditExportsDataTable</b> by using the specified <b>AuditExportsRow</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -661,7 +678,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>RES_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -687,7 +704,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TASK_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -713,7 +730,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_CACHED_RES_NAMEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -739,7 +756,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_DELTA_VALUEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -765,7 +782,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_NONBILL_DELTA_VALUEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -791,7 +808,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_NONBILL_OVT_DELTA_VALUEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -817,7 +834,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_OPERATION_ENUMColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -843,7 +860,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_OVT_DELTA_VALUEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -895,7 +912,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_RES_ROLEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -921,7 +938,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_SEQUENCEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -947,7 +964,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_AUD_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -973,7 +990,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_FINISH_DATEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -999,7 +1016,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_ACT_START_DATEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1025,7 +1042,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_LINE_CACHED_ASSIGN_NAMEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1051,7 +1068,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_LINE_CACHED_PROJ_NAMEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1077,7 +1094,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1103,7 +1120,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_LINE_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1129,7 +1146,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_LINE_VALIDATION_TYPEColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1155,7 +1172,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_UIDColumn</b> in the <b>AuditExportsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides property settings and methods that are used to create a project detail page (PDP) for a workflow stage.</summary>
+    <remarks>
+      <para>For a list of workflow stages in Project Web App, see http://ServerName/ProjectServerName/Admin/WorkflowStages.aspx. When you create a workflow stage in Project Web App, some fields in the stage creation page represent properties of the <b>StageDetailPageCreationInformation</b> class. Other fields on the page represent members of the <see cref="T:Microsoft.ProjectServer.Client.StageCustomField" /> class and the <see cref="T:Microsoft.ProjectServer.Client.StageCustomFieldCreationInformation" /> class.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>StageDetailPageCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,8 +64,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the description of the stage PDP.</summary>
+        <value>The PDP description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -87,8 +90,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the PDP for the stage.</summary>
+        <value>The PDP GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -112,10 +115,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -140,8 +144,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the position of a PDP relative to the other PDPs that are displayed in the stage.</summary>
+        <value>The number that represents the position.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,8 +170,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the stage PDP requires attention.</summary>
+        <value>
+          <b>True</b> if the PDP requires attention; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,9 +226,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

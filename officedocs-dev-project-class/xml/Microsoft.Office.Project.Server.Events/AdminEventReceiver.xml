@@ -18,8 +18,13 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes local event handlers for methods in the <see cref="T:WebSvcAdmin.Admin" /> class, and remote event receivers for <b>Admin</b> (administrative) events in Project Web App.</summary>
+    <remarks>
+      <para>Local event handlers can run only with an on-premises Project Server installation. Remote event receivers are designed to be used with Project Server apps, and can run with Project Online or with an on-premises installation.</para>
+      <para>For a list of the <b>Admin</b> events in Project Web App, see the Server Side Event Handlers page in SharePoint Central Administration (open General Application Settings, choose Manage under PWA Settings, and then choose Server Side Event Handlers under Operational Policies).</para>
+      <para>For information about creating a local event handler or a remote event receiver, see the Project Server event receivers section in What's new and what's out for developers in Project. See also How to: Create a Project Server Event Handler and Log an Event in the Project 2010 SDK.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +40,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AdminEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,10 +64,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncERPSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>AdSyncERPSynchronized</b> event, which occurs after the enterprise resource pool is synchronized with Active Directory services data.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncEnterpriseResourcePoolSettings2(WebSvcAdmin.ADSyncERPSettings2)" /> method triggers the <b>AdSyncERPSynchronized</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncERPSynchronizedRemote">
@@ -89,11 +97,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncERPSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>AdSyncERPSynchronized</b> event, which occurs after the enterprise resource pool is synchronized with Active Directory services data.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncEnterpriseResourcePoolSettings2(WebSvcAdmin.ADSyncERPSettings2)" /> method triggers the <b>AdSyncERPSynchronized</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncERPSynchronizing">
@@ -116,10 +127,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncERPSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>AdSyncERPSynchronizing</b> event, which occurs before the enterprise resource pool is synchronized with Active Directory services data.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncEnterpriseResourcePoolSettings(WebSvcAdmin.ADSyncERPSettings)" /> method triggers the <b>AdSyncERPSynchronizing</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncERPSynchronizingRemote">
@@ -146,12 +160,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncERPSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote pre-event receiver for the <b>Admin</b> – <b>AdSyncERPSynchronizing</b> event, which occurs before the enterprise resource pool is synchronized with Active Directory services data.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncEnterpriseResourcePoolSettings2(WebSvcAdmin.ADSyncERPSettings2)" /> method triggers the <b>AdSyncERPSynchronized</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupsSynchronized">
@@ -174,10 +191,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupsSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>AdSyncGroupsSynchronized</b> event, which occurs after Project Server synchronizes the Active Directory groups in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupsSynchronized</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupsSynchronizedRemote">
@@ -204,11 +224,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupsSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>AdSyncGroupsSynchronized</b> event, which occurs after Project Server synchronizes the Active Directory groups in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupsSynchronized</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupsSynchronizing">
@@ -231,10 +254,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupsSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>AdSyncGroupsSynchronizing</b> event, which occurs before Project Server synchronizes the Active Directory groups in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupsSynchronizing</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupsSynchronizingRemote">
@@ -261,12 +287,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupsSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote pre-event receiver for the <b>Admin</b> – <b>AdSyncGroupsSynchronizing</b> event, which occurs before Project Server synchronizes the Active Directory groups in Project Web App.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupsSynchronizing</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupSynchronized">
@@ -289,10 +318,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>AdSyncGroupSynchronized</b> event, which occurs after Project Server synchronizes a specified Active Directory group in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupSynchronized</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupSynchronizedRemote">
@@ -319,11 +351,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>AdSyncGroupSynchronized</b> event, which occurs after Project Server synchronizes a specified Active Directory group in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupSynchronized</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupSynchronizing">
@@ -346,10 +381,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>AdSyncGroupSynchronizing</b> event, which occurs before Project Server synchronizes a specified Active Directory group in Project Web App.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupSynchronizing</b> event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnAdSyncGroupSynchronizingRemote">
@@ -376,11 +414,11 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizingEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote pre-event receiver for the <b>Admin</b> – <b>AdSyncGroupSynchronized</b> event, which occurs before Project Server synchronizes a specified Active Directory group in Project Web App.</summary>
+        <returns>The <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method triggers the <b>AdSyncGroupSynchronizing</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -404,10 +442,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LineClassPostUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>LineClassUpdated</b> event, which occurs after Project Server updates a timesheet line classification.</summary>
+        <remarks>
+          <para>The <b>LineClassUpdated</b> event occurs when a timesheet line is created, updated, or deleted. For example, when you change a timesheet line classification from Active to Inactive on the Line Classifications page in Project Web App, and then save the page, the <b>LineClassUpdating</b> and <b>LineClassUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateLineClasses(WebSvcAdmin.TimesheetLineClassDataSet)" /> method triggers the <b>LineClassUpdated</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLineClassUpdatedRemote">
@@ -434,11 +476,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LineClassPostUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>LineClassUpdated</b> event, which occurs after Project Server updates a timesheet line classification.</summary>
+        <remarks>
+          <para>The <b>LineClassUpdated</b> event occurs when a timesheet line is created, updated, or deleted. For example, when you change a timesheet line classification from Active to Inactive on the Line Classifications page in Project Web App, and then save the page, the <b>LineClassUpdating</b> and <b>LineClassUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateLineClasses(WebSvcAdmin.TimesheetLineClassDataSet)" /> method triggers the <b>LineClassUpdated</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLineClassUpdating">
@@ -461,10 +507,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LineClassPreUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>LineClassUpdating</b> event, which occurs before Project Server updates a timesheet line classification.</summary>
+        <remarks>
+          <para>The <b>LineClassUpdating</b> event occurs before a timesheet line is created, updated, or deleted. For example, when you change a timesheet line classification from Active to Inactive on the Line Classifications page in Project Web App, and then save the page, the <b>LineClassUpdating</b> and <b>LineClassUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateLineClasses(WebSvcAdmin.TimesheetLineClassDataSet)" /> method triggers the <b>LineClassUpdating</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLineClassUpdatingRemote">
@@ -491,12 +541,16 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LineClassPreUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote pre-event receiver for the <b>Admin</b> – <b>LineClassUpdating</b> event, which occurs before Project Server updates a timesheet line classification.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>LineClassUpdating</b> event occurs before a timesheet line is created, updated, or deleted. For example, when you change a timesheet line classification from Active to Inactive on the Line Classifications page in Project Web App, and then save the page, the <b>LineClassUpdating</b> and <b>LineClassUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateLineClasses(WebSvcAdmin.TimesheetLineClassDataSet)" /> method triggers the <b>LineClassUpdating</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReportingPeriodUpdated">
@@ -519,10 +573,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPeriodPostUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>ReportingPeriodUpdated</b> event, which occurs after Project Server updates a time reporting period.</summary>
+        <remarks>
+          <para>The <b>ReportingPeriodUpdated</b> event occurs when a time reporting period is created, updated, or deleted. For example, when you change a reporting period from Open to Closed on the Time Reporting Periods page in Project Web App, and then save the page, the <b>ReportingPeriodUpdating</b> and <b>ReportingPeriodUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateReportingPeriods(WebSvcAdmin.TimePeriodDataSet,System.Boolean)" /> method triggers the <b>ReportingPeriodUpdated</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReportingPeriodUpdatedRemote">
@@ -549,11 +607,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPeriodPostUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>ReportingPeriodUpdated</b> event, which occurs after Project Server updates a time reporting period.</summary>
+        <remarks>
+          <para>The <b>ReportingPeriodUpdated</b> event occurs when a time reporting period is created, updated, or deleted. For example, when you change a reporting period from Open to Closed on the Time Reporting Periods page in Project Web App, and then save the page, the <b>ReportingPeriodUpdating</b> and <b>ReportingPeriodUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateReportingPeriods(WebSvcAdmin.TimePeriodDataSet,System.Boolean)" /> method triggers the <b>ReportingPeriodUpdated</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReportingPeriodUpdating">
@@ -576,10 +638,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPeriodPreUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>ReportingPeriodUpdating</b> event, which occurs before Project Server updates a time reporting period.</summary>
+        <remarks>
+          <para>The <b>ReportingPeriodUpdating</b> event occurs before a time reporting period is created, updated, or deleted. For example, when you change a reporting period from Open to Closed on the Time Reporting Periods page in Project Web App, and then save the page, the <b>ReportingPeriodUpdating</b> and <b>ReportingPeriodUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateReportingPeriods(WebSvcAdmin.TimePeriodDataSet,System.Boolean)" /> method triggers the <b>ReportingPeriodUpdating</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnReportingPeriodUpdatingRemote">
@@ -606,12 +672,16 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPeriodPreUpdateEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>ReportingPeriodUpdating</b> event, which occurs before Project Server updates a time reporting period.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>ReportingPeriodUpdating</b> event occurs before a time reporting period is created, updated, or deleted. For example, when you change a reporting period from Open to Closed on the Time Reporting Periods page in Project Web App, and then save the page, the <b>ReportingPeriodUpdating</b> and <b>ReportingPeriodUpdated</b> events are triggered.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateReportingPeriods(WebSvcAdmin.TimePeriodDataSet,System.Boolean)" /> method triggers the <b>ReportingPeriodUpdating</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnStatusReportsDeleted">
@@ -634,10 +704,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusReportPostDeleteEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local post-event handler for the <b>Admin</b> – <b>StatusReportsDeleted</b> event, which occurs after a timesheet is deleted.</summary>
+        <remarks>
+          <para>The <b>StatusReportsDeleted</b> event occurs when you delete a timesheet on the Manage Timesheets page in Project Web App (in the Time and Task Management section of the PWA Settings page).</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateStatusingSettings(WebSvcAdmin.StatusingSettingsDataSet)" /> method triggers the <b>StatusReportsDeleted</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnStatusReportsDeletedRemote">
@@ -664,11 +738,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusReportPostDeleteEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote post-event receiver for the <b>Admin</b> – <b>StatusReportsDeleted</b> event, which occurs after a timesheet is deleted.</summary>
+        <remarks>
+          <para>The <b>StatusReportsDeleted</b> event occurs when you delete a timesheet on the Manage Timesheets page in Project Web App (in the Time and Task Management section of the PWA Settings page).</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateStatusingSettings(WebSvcAdmin.StatusingSettingsDataSet)" /> method triggers the <b>StatusReportsDeleted</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnStatusReportsDeleting">
@@ -691,10 +769,15 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusReportPreDeleteEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A local pre-event handler for the <b>Admin</b> – <b>StatusReportsDeleting</b> event, which occurs before a timesheet is deleted.</summary>
+        <remarks>
+          <para>The <b>StatusReportsDeleting</b> event occurs when you delete a timesheet on the Manage Timesheets page in Project Web App (in the Time and Task Management section of the PWA Settings page).</para>
+          <para>A pre-event handler for  the <see cref="M:WebSvcAdmin.Admin.UpdateStatusingSettings(WebSvcAdmin.StatusingSettingsDataSet)" /> method.</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateStatusingSettings(WebSvcAdmin.StatusingSettingsDataSet)" /> method triggers the <b>StatusReportsDeleting</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnStatusReportsDeletingRemote">
@@ -721,12 +804,16 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.StatusReportPreDeleteEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="eventHandlerUid">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="eventHandlerUid">The GUID of the remote event receiver.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A remote pre-event receiver for the <b>Admin</b> – <b>StatusReportsDeleting</b> event, which occurs before a timesheet is deleted.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>StatusReportsDeleting</b> event occurs when you delete a timesheet on the Manage Timesheets page in Project Web App (in the Time and Task Management section of the PWA Settings page).</para>
+          <para>The <see cref="M:WebSvcAdmin.Admin.UpdateStatusingSettings(WebSvcAdmin.StatusingSettingsDataSet)" /> method triggers the <b>StatusReportsDeleting</b> event. The CSOM in Project Server 2013 does not include an equivalent <b>Admin</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -21,10 +21,17 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(false)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The operator for a field, as defined by the operation type, match type, and field definition.</summary>
+    <remarks>
+      <para>The nominal values in this class are unsigned types, which make them unavailable for CLS use.</para>
+      <para>The <b>FieldOperator</b> class implements the <see cref="T:Microsoft.Office.Project.Server.Library.Filter.IOperator" /> interface. For an example of the use of the <b>FieldOperator</b> class, see the <b>EnsureEnterpriseResource</b> method in <see cref="M:WebSvcResource.Resource.ReadResource(System.Guid)" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -51,10 +58,10 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="operation">To be added.</param>
-        <param name="fieldName">To be added.</param>
-        <param name="operands">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="operation">An operation type for the field operator.</param>
+        <param name="fieldName">The name of a field.</param>
+        <param name="operands">A collection of operands for the field operator.</param>
+        <summary>Instantiates a <b>FieldOperator</b> object for a general field, with the field operation type, field name, and collection of operands.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -83,12 +90,12 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="operation">To be added.</param>
-        <param name="matchType">To be added.</param>
-        <param name="customFieldGuid">To be added.</param>
-        <param name="propertyType">To be added.</param>
-        <param name="operands">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="operation">The operation type for the field operator.</param>
+        <param name="matchType">The match type for the field operator.</param>
+        <param name="customFieldGuid">The GUID for the custom field.</param>
+        <param name="propertyType">An enumeration that specifies a type.</param>
+        <param name="operands">A collection of operands for the field operator.</param>
+        <summary>Instantiates a <b>FieldOperator</b> object for a custom field, with the field operation type, match type, custom field GUID, property type, and collection of operands.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -108,7 +115,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldBase</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the field for the field operator.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -129,7 +136,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+MatchType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the match type for the field operator.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -150,7 +157,7 @@
         <ReturnType>System.Collections.Generic.List&lt;System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of operands for the field operator.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,7 +178,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldOperationType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the operation type for the field operator.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

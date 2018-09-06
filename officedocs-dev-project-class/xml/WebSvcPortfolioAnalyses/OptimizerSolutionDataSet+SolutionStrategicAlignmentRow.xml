@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the strategic alignment of a solution as a row in the <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionStrategicAlignmentDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,8 +39,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the driver the strategic alignment calculations are for. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -65,9 +65,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the stated priority of the driver relative to the other drivers included in the analysis. Read-only.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>This value is between 0.0 (representing 0%) and 1.0 (representing 100%), and will sum to 1.0 across all drivers in the analysis.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DRIVER_UID">
@@ -91,8 +94,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the driver the strategic alignment calculations are for. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -118,8 +121,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionStrategicAlignmentRow.DRIVER_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -144,9 +147,12 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the value that specifies how much of the total primary constraint value for the selected projects is devoted to the driver in the optimizer solution. Read-only.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
+        <remarks>
+          <para>This number will sum to the total primary constraint value for selected projects when totaled for all drivers in the solution.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetDRIVER_NAMENull">
@@ -171,7 +177,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionStrategicAlignmentRow.DRIVER_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -196,8 +202,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the optimizer solution the strategic alignment calculations are based on. Read-only.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -222,8 +228,8 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the optimizer solutions information.</summary>
+        <value>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

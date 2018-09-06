@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Supplies table management methods and class information including methods, extensions, properties, and fields that are associated with indexing; provides row and column operations for <see cref="T:WebSvcArchive.ArchiveScheduleDataSet.ArchiveScheduleRow" /> data.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcArchive.ArchiveScheduleDataSet.ArchiveScheduleRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ArchiveScheduleDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>ArchiveScheduleDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds an <b>ArchiveScheduleRow</b> to the <see cref="T:WebSvcArchive.ArchiveScheduleDataSet.ArchiveScheduleDataTable" />.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -145,9 +151,12 @@
         <param name="WADMIN_CATEGORY_GROUP">To be added.</param>
         <param name="WADMIN_VIEW_DEFINITIONS">To be added.</param>
         <param name="WADMIN_ARCHIVE_RETENTION">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This <b>AddArchiveScheduleRow</b> overload is generally used internally, to directly set the <b>ArchiveScheduleRow</b> properties.  We recommend that you use the <b>AddArchiveScheduleRow</b> overload that takes an <b>ArchiveScheduleRow</b> parameter.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ArchiveScheduleRowChanged">
@@ -166,7 +175,7 @@
         <ReturnType>WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -186,7 +195,7 @@
         <ReturnType>WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -206,7 +215,7 @@
         <ReturnType>WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -226,7 +235,7 @@
         <ReturnType>WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -281,7 +290,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the total number of row objects in the <b>ArchiveScheduleDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -338,7 +347,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <see cref="T:WebSvcArchive.ArchiveScheduleDataSet.ArchiveScheduleDataTable" />.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -395,7 +404,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -424,8 +433,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Represents a row in the <see cref="T:WebSvcArchive.ArchiveScheduleDataSet.ArchiveScheduleDataTable" />, specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -452,7 +461,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new row in the <b>ArchiveScheduleDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -627,8 +636,8 @@
         <Parameter Name="row" Type="WebSvcArchive.ArchiveScheduleDataSet+ArchiveScheduleRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row in the <b>ArchiveScheduleDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -653,7 +662,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of project plans to retain in the archive database.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -679,7 +688,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the security categories and groups are backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -705,7 +714,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the enterprise custom fields are backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -731,7 +740,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the enterprise global project data is backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -757,7 +766,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the enterprise resource pool and resource calendar data is backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -783,7 +792,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the projects are backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -809,7 +818,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which the system settings are backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -835,7 +844,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the scheduled time, in ticks, after which Project Web App view definitions are backed up.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

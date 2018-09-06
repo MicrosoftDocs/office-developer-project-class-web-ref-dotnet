@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains the common properties for draft projects and published projects.</summary>
+    <remarks>
+      <para>The <b>DraftProject</b> class and the <b>PublishedProject</b> class are derived from the <b>Project</b> class. All of the properties in the <b>Project</b> class are read-only. To set the value of properties in an existing project, use the <see cref="M:Microsoft.ProjectServer.Client.PublishedProject.CheckOut" /> method, edit the <b>DraftProject</b> object, and then use the <see cref="M:Microsoft.ProjectServer.Client.DraftProject.CheckIn(System.Boolean)" /> method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>Project</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the approved end date in the project portfolio planner.</summary>
+        <value>The approved end date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the approved start date in the project portfolio planner.</summary>
+        <value>The approved start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the enterprise resource who has the project checked out.</summary>
+        <value>The enterprise resource who has the project checked out.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +152,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when project was checked out.</summary>
+        <value>The check-out date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +178,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the description of the current checkout action for the project.</summary>
+        <value>The current action description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +204,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the session GUID that is associated with the current check out.</summary>
+        <value>The session GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +230,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when the project was created.</summary>
+        <value>The project creation date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,9 +256,147 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of project custom fields that have values set for the project.</summary>
+        <value>The collection of <b>CustomField</b> objects.</value>
+        <remarks>
+          <para>The <b>CustomFields</b> property does not include project custom fields that do not have a value set in the project. For example, if a project does not contain a value for a project text custom field named SomeText, that custom field is not included in the <b>CustomFields</b> collection for that project.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code example queries each published enterprise project for its collection of custom fields. It lists the GUID and name of the project, the name and value of each custom field, and the internal name of each custom field in the project as the key in a key-value pair. If the custom field uses a lookup table, the <b>FieldValues</b> item contains the internal name of the lookup table entry. If the custom field is a multivalue text field, the example lists the value and internal name of each lookup table entry for that custom field in the project. If the custom field does not use a lookup table, the value is simply the custom field value.</para>
+          <para>The internal name of a custom field is a string with the value "Custom_[GUID]", for example, Custom_9d77d62aa92e4d40adc8446c90eb7456. The internal name of a lookup table entry is a string with the value "Entry_[GUID]", for example, Entry_4a2750309d91e21193f90021704e28a0.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace GetProjectFieldValues
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa";    // Change the path for Project Web App.
+
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath);
+
+            // Get the list of published projects in Project Web App.
+            projContext.Load(projContext.Projects);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("\t\tProject ID\t     :\tProject name");
+
+            if (projContext.Projects.Count &amp;gt; 0)
+            {
+                for (int i = 0; i &amp;lt; projContext.Projects.Count; i++)
+                {
+                    var pubProj = projContext.Projects[i].IncludeCustomFields;
+                    projContext.Load(pubProj);
+                    projContext.Load(pubProj.CustomFields);
+                    projContext.ExecuteQuery();
+
+                    Console.WriteLine("\n{0} :\t{1}", pubProj.Id.ToString(), pubProj.Name);
+                    int numCFs = pubProj.CustomFields.Count;
+                    Console.WriteLine("Number of custom fields: {0}", numCFs.ToString());
+
+                    Dictionary&amp;lt;string, object&amp;gt; projDict = pubProj.FieldValues;
+
+                    // Variables to compare with custom field types:
+                    string textValue = "";                  // TEXT - no lookup table
+                    String[] lutTextValues = { "" };        // TEXT - lookup table
+                    DateTime dateValue = DateTime.MinValue; // DATE - no lookup table
+
+                    foreach (KeyValuePair&amp;lt;string, object&amp;gt; kvp in projDict)
+                    {
+                        object oVal = kvp.Value;
+                        string keyStr = kvp.Key;
+
+                        var projCFs = projContext.LoadQuery(pubProj.CustomFields
+                            .Where(cf =&amp;gt; cf.InternalName == keyStr));
+                        projContext.ExecuteQuery();
+
+                        Console.WriteLine("\n    Custom field: '{0}'; FieldType = {1};\n\tInternalName = {2}",
+                            projCFs.First().Name, projCFs.First().FieldType.ToString(), keyStr);
+
+                        // Check whether the custom field is a simple text field.
+                        if (object.ReferenceEquals(oVal.GetType(), textValue.GetType()))
+                        {
+                            textValue = (string)oVal;
+                            Console.WriteLine("\tSingle-line string value = {0}", textValue.ToString());
+                        }
+                        // Check whether the custom field is a text (or multivalue text) field from a lookup table.
+                        else if (object.ReferenceEquals(oVal.GetType(), lutTextValues.GetType()))
+                        {
+                            projContext.Load(projCFs.First().LookupTable);
+                            projContext.ExecuteQuery();
+                            string lutName = projCFs.First().LookupTable.Name;
+
+                            Console.WriteLine("\tLookup table: {0}", lutName);
+
+                            var luts = projContext.LoadQuery(projContext.LookupTables
+                                .Where(lut =&amp;gt; lut.Name == lutName));
+                            projContext.ExecuteQuery();
+
+                            lutTextValues = (string[])oVal;
+
+                            for (var j = 0; j &amp;lt; lutTextValues.Count(); j++)
+                            {
+                                var entries = projContext.LoadQuery(luts.First().Entries
+                                    .Where(e =&amp;gt; e.InternalName == lutTextValues[j]));
+                                projContext.ExecuteQuery();
+                                Console.WriteLine("\t    Entry({0}): String value = {1};\n\t\t  InternalName = {2}",
+                                    j, entries.First().FullValue, lutTextValues[j]);
+                            }
+                        }
+                        // Check whether the custom field is a date.
+                        else if (object.ReferenceEquals(oVal.GetType(), dateValue.GetType()))
+                        {
+                            dateValue = (DateTime)oVal;
+
+                            Console.WriteLine("\tDate value = {0}", dateValue.ToString());
+                        }
+                        // Add other cases for cost, duration, flag, and number custom fields,
+                        // with and without lookup tables.
+                    }
+                }
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+          <para>For example, a project named TestProject9 has a Project Departments custom field value, a multivalue text custom field with three lookup table entry values, a simple text custom field, and a date custom field. Because Project Departments is a built-in custom field, the GUID for the Project Departments custom field in default Project Web App instances is 9d77d62a-a92e-4d40-adc8-446c90eb7456. Following is the output of the <b>GetProjectFieldValues</b> sample app:</para>
+          <code>b846e947-29e0-43eb-b5c6-5ddeaf08d5c0 :  TestProject9
+Number of custom fields: 4
+
+    Custom field: 'Project Departments'; FieldType = TEXT;
+        InternalName = Custom_9d77d62aa92e4d40adc8446c90eb7456
+        Lookup table: Department
+            Entry(0): String value = Test Dept 1;
+                  InternalName = Entry_bbc07ff5b06de21193f40021704e28a0
+
+    Custom field: 'ProjectMVText'; FieldType = TEXT;
+        InternalName = Custom_9295a8759d91e21193f90021704e28a0
+        Lookup table: TestTextMV
+            Entry(0): String value = First.001;
+                  InternalName = Entry_4a2750309d91e21193f90021704e28a0
+            Entry(1): String value = Second.002;
+                  InternalName = Entry_4d2750309d91e21193f90021704e28a0
+            Entry(2): String value = Third;
+                  InternalName = Entry_4f2750309d91e21193f90021704e28a0
+
+    Custom field: 'Test Project Date'; FieldType = DATE;
+        InternalName = Custom_37f61601a991e21193f90021704e28a0
+        Date value = 3/29/2013 8:00:00 AM
+
+    Custom field: 'Test project simple text'; FieldType = TEXT;
+        InternalName = Custom_8bf7eed5cc94e21193f90021704e28a0
+        Single-line string value = This is a line of text</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="DefaultOvertimeRateUnits">
@@ -279,8 +420,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.OvertimeRateFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time unit for the default overtime rate that is stored by the <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.DefaultOvertimeRate" /> property.</summary>
+        <value>The time unit for the default overtime rate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +446,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StandardRateFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time unit for the default standard rate that is stored by the <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.DefaultStandardRate" /> property.</summary>
+        <value>The time unit for the default standard rate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,8 +472,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseProjectType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the enterprise project type (EPT) for the project.</summary>
+        <value>The enterprise project type.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -359,8 +500,8 @@
         <Parameter Name="stage" Type="Microsoft.ProjectServer.Client.Stage" />
       </Parameters>
       <Docs>
-        <param name="stage">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="stage">The workflow stage.</param>
+        <summary>Switches the project to the specified stage in a Project Server workflow.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -389,12 +530,15 @@
         <Parameter Name="timeScale" Type="Microsoft.ProjectServer.Client.TimeScale" />
       </Parameters>
       <Docs>
-        <param name="start">To be added.</param>
-        <param name="end">To be added.</param>
-        <param name="timeScale">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="start">The start date for the resource plan data.</param>
+        <param name="end">The end date for the resource plan data.</param>
+        <param name="timeScale">An enumeration that represents a time scale (for example, days or weeks).</param>
+        <summary>Gets resource plan data for a project by filtering project data with date range and timescale parameters.</summary>
+        <returns>A resource plan.</returns>
+        <remarks>
+          <para>A resource plan provides a way to estimate corporate resource capacity when some projects are in full execution and others are still in the proposal phase or planning phase.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="HasMppPendingImport">
@@ -418,8 +562,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether there is an mpp file waiting to be imported.</summary>
+        <value>
+          <b>True</b> if there is an mpp file waiting to be imported; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -444,8 +589,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the project.</summary>
+        <value>The GUID for the project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -469,10 +614,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise <b>False.</b></returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -497,8 +643,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project is checked out.</summary>
+        <value>
+          <b>True</b> if the project is checked out; otherwise, <b>false</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -523,8 +670,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the most recent date when the project was published.</summary>
+        <value>The most recent date when the project was published.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -549,8 +696,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the most recent date when the project was saved.</summary>
+        <value>The most recent date when the project was saved.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -576,7 +723,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the project complete and leaves the current workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -601,8 +748,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CommittedDecisionResult</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the result of the Optimizer in a project portfolio analysis.</summary>
+        <value>The result of the Optimizer.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -627,8 +774,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the percentage complete of the project summary task.</summary>
+        <value>The percentage that is complete.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -653,8 +800,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Phase</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current workflow phase of the project.</summary>
+        <value>The current workflow phase.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -679,8 +826,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CommittedDecisionResult</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the result of the Planner in a project portfolio analysis.</summary>
+        <value>The result of the Planner.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -705,8 +852,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the URL of the project site.</summary>
+        <value>A string that contains the URL.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -731,8 +878,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the type of project (standard project, template, master project, or subproject).</summary>
+        <value>The type of the project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -757,8 +904,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.QueueJobCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of Project Server Queue Service jobs that are associated with the project.</summary>
+        <value>The collection of Project Server Queue Service jobs.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -784,8 +931,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Checks whether the current workflow stage requirements are met and the project is ready to move to the next stage.</summary>
+        <returns>A collection of enumeration constants that describe which of the requirements are not met.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -814,9 +961,9 @@
         <Parameter Name="value" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="fieldName">The name of the custom field.</param>
+        <param name="value">The value to be set for the custom field.</param>
+        <summary>Sets a custom field on the project.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -841,8 +988,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Stage</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current workflow stage of the project.</summary>
+        <value>The current workflow stage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -867,9 +1014,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the GUID for the hidden project summary task.</summary>
+        <value>A GUID value.</value>
+        <remarks>
+          <para>This can be used to insert a task at the beginning of the list with &lt;see cref="TaskCreationInformation.AddAfterId"/&gt;.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TaskListId">
@@ -893,9 +1043,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the GUID of the project's task list.</summary>
+        <value>A GUID.</value>
+        <remarks>
+          <para>The GUID is empty if the project has not task list.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateIdeaListItemStatus">
@@ -922,8 +1075,8 @@
         <Parameter Name="status" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">The project status message.</param>
+        <summary>Updates the Project Server Status column in the idea list with a status message.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -953,11 +1106,12 @@
         <Parameter Name="append" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="stage">To be added.</param>
-        <param name="statusInformation">To be added.</param>
-        <param name="stageStatusValue">To be added.</param>
-        <param name="append">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="stage">The workflow stage to be updated.</param>
+        <param name="statusInformation">The status message.</param>
+        <param name="stageStatusValue">An enumeration constant that indicates the stage status.</param>
+        <param name="append">
+          <b>True</b> if the status message is appended to the current stage status; <b>False</b> if the status message overwrites the current status.</param>
+        <summary>Updates the status of a workflow stage for the project.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

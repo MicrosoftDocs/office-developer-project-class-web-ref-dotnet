@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the action of a Project Server security feature, as a row in the <see cref="T:WebSvcSecurity.PermissionDataSet.ActionsDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,7 +39,7 @@
         <ReturnType>WebSvcSecurity.PermissionDataSet+FeaturesRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the security feature row for a security action.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +65,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the security action for the feature.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,9 +91,46 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the parent feature of the security action.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>WSEC_FEA_ACT_PARENT</b> property can have one of the following values:</para>
+          <list type="table">
+            <item>
+              <term>00007526-2310-466E-AD87-C2C36316F5C4</term>
+              <description>Time and task management</description>
+            </item>
+            <item>
+              <term>0000B708-D985-43B2-BDBF-E822EBB86C6A</term>
+              <description>Resource</description>
+            </item>
+            <item>
+              <term>0000B7E3-566E-49E7-B73D-E8623F41E6DA</term>
+              <description>Project</description>
+            </item>
+            <item>
+              <term>06B1877F-551A-4D6A-9B60-CB99B6F1C274</term>
+              <description>Portfolio strategy</description>
+            </item>
+            <item>
+              <term>3ABE6FFC-EADD-4AC4-8199-C9700D063D0A</term>
+              <description>Status reports</description>
+            </item>
+            <item>
+              <term>3AEB94A1-1F19-4440-B82D-EABD5B7CEDF6</term>
+              <description>General</description>
+            </item>
+            <item>
+              <term>6E0A750D-034D-40F3-AD17-3E92A316BCFC</term>
+              <description>Views</description>
+            </item>
+            <item>
+              <term>72E6A92E-4ED5-4106-9A6C-4C9AEAB02E8B</term>
+              <description>Administration</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WSEC_FEA_ACT_UID">
@@ -117,9 +154,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the security action for the feature.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The GUID value of <b>WSEC_FEA_ACT_UID</b> corresponds to one of the field values in the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure or the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

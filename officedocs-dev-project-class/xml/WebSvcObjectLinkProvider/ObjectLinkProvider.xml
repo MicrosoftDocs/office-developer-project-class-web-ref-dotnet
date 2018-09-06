@@ -19,8 +19,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Deprecated in Project Server 2013. Includes methods for managing web object links for on-premises installations of Project Web App and links to external objects such as list items in on-premises SharePoint sites.</summary>
+    <remarks>
+      <para>
+        <b>Note</b>: The <b>ObjectLinkProvider</b> service is deprecated in Project Server 2013 and is not usable with Project Online.We recommend that you use the <a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.client.relateditemmanager.aspx">RelatedItemManager</a> class in the SharePoint CSOM to create OLP-type apps for both on-premises installations of Project Server 2013 and for Project Online. The <a href="http://msdn.microsoft.com/en-us/library/microsoft.sharepoint.aspx">Microsoft.SharePoint</a><b>RelatedItemManager</b><b /> class.</para>
+      <para>You can use the <b>RelatedItemManager</b> class in the SharePoint CSOM to create, read, and delete web object links between items in the tasks list and the other lists in a project site. For example, to add a link from a task item to an issue, you can use the <a href="http://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.relateditemmanager.addsinglelink.aspx">AddSingleLink</a> method or either of two similar methods, <b>AddSingleLinkFromUrl</b> or <b>AddSingleLinkToUrl</b>. The <b>RelatedItemManager</b> class also includes methods for deleting a web object link and reading related items. For the equivalent class in the JSOM (the JavaScript object model), see <a href="http://msdn.microsoft.com/en-us/library/jj838582.aspx">SP.RelatedItemManager object (sp.js)</a></para>
+      <para>The <b>ObjectLinkProvider</b> class methods can create, delete, and read web objects and links between Project Server entities and external objects. By default, the methods can link projects and tasks with objects such as document, issue, risk, and deliverable list items in on-premises project sites. You can also link external objects to each other or link projects and tasks to other kinds of objects, such as file system objects.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +42,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an <b>ObjectLinkProvider</b> object from the ASMX-based <b>ObjectLinkProvider</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>ObjectLinkProvider</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>ObjectLinkProviderClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>ObjectLinkProviderWebSvc</b> is an arbitrary namespace for the ASMX-based <b>ObjectLinkProvider</b> web service.</para>
+          <code>private static ObjectLinkProviderWebSvc.ObjectLinkProvider objectLinkProvider = new ObjectLinkProviderWebSvc.ObjectLinkProvider();</code>
+          <para>In the following statement, <b>SvcObjectLinkProvider</b> is an arbitrary namespace for the WCF-based <b>ObjectLinkProvider</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcAdmin.ObjectLinkProvider objectLinkProviderClient = new SvcObjectLinkProvider.ObjectLinkProviderClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CreateWebObjectLinks">
@@ -66,12 +81,741 @@
         <Parameter Name="linkTypes" Type="WebSvcObjectLinkProvider.WebObjectLinkType[]" />
       </Parameters>
       <Docs>
-        <param name="primaryDataSet">To be added.</param>
-        <param name="linkDataSet">To be added.</param>
-        <param name="linkTypes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="primaryDataSet">Contains the details of the task that is to be linked.</param>
+        <param name="linkDataSet">Contains the details of the list items that the task is to be linked to.</param>
+        <param name="linkTypes">Contains an array of link types.</param>
+        <summary>Creates links between web objects, based on the object and link definitions.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcObjectLinkProvider</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example demonstrates the use of the <b>CreateWebObjectLinks</b> method; it is not a full solution.</para>
+          <para>Before you run the sample application, perform the following steps:</para>
+          <list type="number">
+            <item>
+              <description>Use Project Professional 2013 to create and publish a project with at least one task.</description>
+            </item>
+            <item>
+              <description>Use Project Web App to open the project site.</description>
+            </item>
+            <item>
+              <description>Create at least one issue or risk in the Issue or Risk SharePoint list of the project site.</description>
+            </item>
+            <item>
+              <description>Change the constructor values according to your example.</description>
+            </item>
+            <item>
+              <description>Add a web service reference to <a href="http://localhost/pwa/_vti_bin/Lists.asmx">http://localhost/pwa/_vti_bin/Lists.asmx</a></description>
+            </item>
+          </list>
+          <para>This example performs the following tasks: </para>
+          <list type="bullet">
+            <item>
+              <description>Verifies that the project, task, and project site exist and gets their corresponding GUIDs.</description>
+            </item>
+            <item>
+              <description>Links a task and a SharePoint list item (in this case, an Issue).</description>
+            </item>
+            <item>
+              <description>Links a task and a generic object.</description>
+            </item>
+            <item>
+              <description>Gets the list of SharePoint items that are linked to a task and writes the contents of the <b>ObjectLinkProvider</b> dataSet <b>dsLinkedObjects</b> to an XML file.</description>
+            </item>
+            <item>
+              <description>Gets a list of generic items that are linked to a task.</description>
+            </item>
+            <item>
+              <description>Deletes the links to web objects.</description>
+            </item>
+          </list>
+          <para>For more information about how the sample code works, see Procedures 1-6 in <a href="bb92848e-7348-4eb6-87cd-9238367b782b.htm">How to: Use the OLP to Link an Object to a Task</a></para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using System.Web.Services;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using WebSvcLists = Microsoft.SDK.Project.Samples.OLP.WebSvcLists;
+
+namespace Microsoft.SDK.Project.Samples.OLP
+{
+    class OLP
+    {
+        private static SvcProject.ProjectClient projectClient;
+        private static SvcWssInterop.WssInteropClient wssInteropClient;
+        private static SvcObjectLinkProvider.ObjectLinkProviderClient olpClient;
+        private static string outFilePathOLPDataSet;
+        private static string outFilePathListItemsDS;
+        private static string outFilePathGenericDS;
+        private static string projectName;   // Name of the project.
+        private static string taskName;      // Name of the task.
+        private static string listName;      // Name of the SharePoint list.
+        private static string listItemTitle; // Title of the SharePoint list item.
+        private static PSLibrary.WebObjectType webObjectType; // Type of web object (issue, risk, and so on.)
+        private static string linkedItems;   // List of linked items to be displayed.
+        private static bool deleteLinks = false;     // Delete links after they are created.
+
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string ENDPOINT_WSS = "basicHttp_WssInterop";
+        private const string ENDPOINT_OLP = "basicHttp_ObjectLinkProvider";
+
+        public OLP()
+        {
+            // Constructor to assign values to the variables. 
+            // Change these for your example.
+            projectName = "My Swell Project";
+            taskName = "T2";
+            listName = "Issues";
+            listItemTitle = "Issue1";
+        }
+
+        static void Main(string[] args)
+        {
+            if (args.Length &amp;gt; 0 &amp;amp;&amp;amp; args[0].ToLower() == "-delete")
+            {
+                    deleteLinks = true;
+            }
+
+            // Configure the end points.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+            configResult = ConfigClientEndpoints(ENDPOINT_WSS);
+            configResult = ConfigClientEndpoints(ENDPOINT_OLP);
+           
+            OLP param = new OLP();
+                     
+            if (!configResult) throw new ApplicationException();
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            // Set the output file path.
+            outFilePathOLPDataSet = OUTPUT_FILES + "OLPDataSet.xml";
+            outFilePathListItemsDS = OUTPUT_FILES + "OLPListItemsDS.xml";
+            outFilePathGenericDS = OUTPUT_FILES + "OLPGenericDS.xml";
+
+            // Lists is a SharePoint web service.
+            WebSvcLists.Lists wssLists = new WebSvcLists.Lists();
+            wssLists.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+            Guid taskUid = new Guid();
+            Guid projectUid = new Guid();
+            String worksiteUrl = String.Empty;
+            int itemTPID = -1;
+            Guid listUid = Guid.Empty;
+            
+            #region Verify input values.
+            try
+            {
+                Console.WriteLine("Reading the list of projects...");
+
+                // Check whether the project exists and get the project GUID.
+                SvcProject.ProjectDataSet projectList = projectClient.ReadProjectList();
+
+                foreach (DataRow projectRow in projectList.Project)
+                {
+                    if ((string)projectRow[projectList.Project.PROJ_NAMEColumn] == projectName)
+                    {
+                        projectUid = (Guid)projectRow[projectList.Project.PROJ_UIDColumn];
+                        break;
+                    }
+                }
+                if (projectUid == Guid.Empty)
+                {
+                    Console.WriteLine("Project not found: " + projectName + "\n");
+                    throw new ApplicationException();
+                }
+
+                // Get a task UID for the specified task.
+                Console.WriteLine("Reading the data for project: " + projectName);
+
+                SvcProject.ProjectDataSet dsProject =
+                    projectClient.ReadProject(projectUid, SvcProject.DataStoreEnum.PublishedStore);
+
+                foreach (DataRow objRow in dsProject.Task)
+                {
+                    if ((string)objRow[dsProject.Task.TASK_NAMEColumn] == taskName)
+                    {
+                        taskUid = (Guid)objRow[dsProject.Task.TASK_UIDColumn];
+                        break;
+                    }
+                }
+
+                if (taskUid == Guid.Empty)
+                {
+                    Console.WriteLine("Task not found: " + taskName + "\n");
+                    throw new ApplicationException();
+                }
+
+                // Set the worksite URL for the SharePoint Lists web service.
+                SvcWssInterop.ProjectWSSInfoDataSet dsProjectWssInfo = new SvcWssInterop.ProjectWSSInfoDataSet();
+                dsProjectWssInfo = wssInteropClient.ReadWssData(projectUid);
+
+                if (dsProjectWssInfo.ProjWssInfo.Count &amp;gt; 0)
+                {
+                    worksiteUrl = dsProjectWssInfo.ProjWssInfo[0].PROJECT_WORKSPACE_URL.ToString();
+                    wssLists.Url = worksiteUrl + "/_vti_bin/lists.asmx";
+                }
+                else
+                {
+                    Console.WriteLine("Worksite not found for project: " + projectName + "\n");
+                    throw new ApplicationException();
+                }
+
+                // Get the list GUID in the project worksite from the Lists web service.
+                Console.WriteLine("Reading the SharePoint list data...");
+                listUid = GetListUid(wssLists, listName);
+                if (listUid == Guid.Empty)
+                {
+                    Console.WriteLine("SharePoint list not found: " + listName);
+                    Console.Read();
+                }
+
+                // Get the TP_ID for the specified SharePoint list item.
+                itemTPID = GetItemTPID(wssLists, listItemTitle);
+                if (itemTPID &amp;lt; 0)
+                {
+                    Console.WriteLine(string.Format("List {0} does not contain item: {1}",
+                         listName, listItemTitle));
+                }
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            catch (ApplicationException)
+            {
+                ExitApp();
+            }
+            #endregion
+
+            try
+            {
+                #region Link task and SharePoint list item
+
+                // Get the task web object, if there are any existing links to the task.
+                Console.WriteLine("Finding linked objects for the task...");
+
+                Guid taskWebObjectUid = Guid.Empty;
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsLinkedObjects =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                dsLinkedObjects = olpClient.ReadTaskWebObject(taskUid);
+                int numTaskWebObjects = dsLinkedObjects.WebObjects.Count;
+
+                if (numTaskWebObjects &amp;gt; 0)
+                    taskWebObjectUid = dsLinkedObjects.WebObjects[0].WOBJ_UID;
+                else
+                {
+                    Console.WriteLine(
+                        "There are no linked web objects for task: " + taskName);
+                }
+
+                // Create a web object for the specified task.
+                Console.WriteLine("Creating a web object for the task...");
+
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsTask =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow taskRow =
+                    dsTask.WebObjects.NewWebObjectsRow();
+
+                // Provide information to the Web object row for the task.  
+                // If a task web object does not exist, AddWebObjects creates
+                // a new web object and updates WOBJ_UID in taskRow.  
+                taskRow.WOBJ_UID = taskWebObjectUid;
+                taskRow.WOBJ_TASK_UID = taskUid;
+                taskRow.WOBJ_PROJ_UID = projectUid;
+                taskRow.WOBJ_TYPE = (int)PSLibrary.WebObjectDatabaseType.Task;
+                dsTask.WebObjects.AddWebObjectsRow(taskRow);
+
+                // Create a web object for the list item, with the TP_ID of the list item.
+                Console.WriteLine("Creating a web object for the list item...");
+
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsListItems =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow listItemRow =
+                    dsListItems.WebObjects.NewWebObjectsRow();
+
+                // Provide information to the web object row for the list item.  
+                // If a list item web object does not exist, AddWebObjects creates
+                // a new web object and updates WOBJ_UID in listItemRow.  
+                listItemRow.WOBJ_UID = Guid.NewGuid();
+                listItemRow.WOBJ_TP_ID = itemTPID;
+                listItemRow.WOBJ_LIST_NAME = listUid;
+                listItemRow.WOBJ_PROJ_UID = projectUid;
+
+                switch (listName)
+                {
+                    case "Issues":
+                        listItemRow.WOBJ_TYPE =
+                            (int)PSLibrary.WebObjectDatabaseType.Issue;
+                        webObjectType = PSLibrary.WebObjectType.Issue;
+                        linkedItems = "\nIssues found for task: " + taskName;
+                        break;
+                    case "Risks":
+                        listItemRow.WOBJ_TYPE =
+                            (int)PSLibrary.WebObjectDatabaseType.Risk;
+                        webObjectType = PSLibrary.WebObjectType.Risk;
+                        linkedItems = "\nRisks found for task: " + taskName;
+                        break;
+                    case "Documents":
+                        listItemRow.WOBJ_TYPE =
+                            (int)PSLibrary.WebObjectDatabaseType.Document;
+                        webObjectType = PSLibrary.WebObjectType.Document;
+                        linkedItems = "\nDocuments found for task: " + taskName;
+                        break;
+                    case "Commitments":  // Commitments are now called Deliverables.
+                        listItemRow.WOBJ_TYPE =
+                            (int)PSLibrary.WebObjectDatabaseType.Commitment;
+                        webObjectType = PSLibrary.WebObjectType.Commitment;
+                        linkedItems = "\nDeliverables found for task: " + taskName;
+                        break;
+                    default:
+                        string errMess = "\n" + listName +
+                            " is not a default SharePoint list type for task links.";
+                        Console.WriteLine(errMess);
+                        break;
+                }
+                dsListItems.WebObjects.AddWebObjectsRow(listItemRow);
+
+                // You can link the task to multiple list items by adding multiple rows  
+                // to dsListItems and adding ObjectLinkType values to the array of link types. 
+                Console.WriteLine("Linking the web objects...");
+
+                SvcObjectLinkProvider.WebObjectLinkType generalLinkType =
+                    SvcObjectLinkProvider.WebObjectLinkType.General;
+                SvcObjectLinkProvider.WebObjectLinkType[] wssLinkTypeArray = { generalLinkType };
+
+                olpClient.CreateWebObjectLinks(dsTask, dsListItems, wssLinkTypeArray);
+
+                // Write the list items dataset to an XML file.
+                dsListItems.WriteXml(outFilePathListItemsDS);
+                Console.WriteLine("\nSee XML output of the list items Dataset at {0}",
+                    outFilePathListItemsDS);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+                #endregion
+
+                #region Link task and a generic object
+                // Link a generic external item to the task. 
+                // WOBJ_TP_ID is an arbitrary constant in this case, 
+                // because the GUID is the important part for the link.
+
+                Console.WriteLine("\nLinking a task and a generic object...");
+
+                int externalTPID = 1;
+
+                // The external item must have a GUID; folowing is a sample GUID.
+                Guid externalUid = Guid.NewGuid();  // new Guid("12345678-1234-1234-1234-123456789012");
+
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsGeneric =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow genericRow =
+                    dsGeneric.WebObjects.NewWebObjectsRow();
+
+                genericRow.WOBJ_UID = Guid.NewGuid();
+
+                // Instead of a SharePoint list GUID, you can substitute any GUID here.  
+                // If the object does not have a GUID, or if you need to use the GUID and  
+                // another ID, you can use the WOBJ_TP_ID field.
+                genericRow.WOBJ_LIST_NAME = externalUid;
+                genericRow.WOBJ_TP_ID = externalTPID;
+                genericRow.WOBJ_PROJ_UID = projectUid;
+                genericRow.WOBJ_TYPE =
+                    (int)PSLibrary.WebObjectDatabaseType.GenericSharePointListItem;
+                dsGeneric.WebObjects.AddWebObjectsRow(genericRow);
+
+                // Create a new link type array for the generic link.
+                SvcObjectLinkProvider.WebObjectLinkType[] genericLinkTypeArray = { generalLinkType };
+                olpClient.CreateWebObjectLinks(dsTask, dsGeneric, genericLinkTypeArray);
+                // Write the generic dataset to an XML file.
+                dsGeneric.WriteXml(outFilePathGenericDS);
+                Console.WriteLine("See XML output of the Generic Dataset at {0}",
+                    outFilePathGenericDS);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+                #endregion
+
+                #region Get the list of SharePoint items linked to the task
+                // Get the OLP DataSet for all SharePoint items of specified type 
+                // that are linked to the task.
+                Console.WriteLine("\nGetting the list of SharePoint items linked to the task...");
+
+                dsLinkedObjects = olpClient.ReadTaskLinkedWebObjects(taskUid,
+                    (int)webObjectType);
+
+                // Write the OLP DataSet to an XML file.
+                dsLinkedObjects.WriteXml(outFilePathOLPDataSet);
+                Console.WriteLine("See XML output of OLP Dataset at {0}",
+                    outFilePathOLPDataSet);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                int itemsFound = 0;
+                foreach (SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow objRow
+                    in dsLinkedObjects.WebObjects)
+                {
+                    if (objRow.WOBJ_TASK_UID != taskUid)
+                    {
+                        // Add the internal OLP GUID, List GUID, and TP_ID. 
+                        linkedItems += string.Format(
+                            "\n\n\tWebObjectUid:\t{0}\n\tList UID:\t{1}\n\tTP_ID:\t\t{2}",
+                            objRow.WOBJ_UID.ToString(),
+                            objRow.WOBJ_LIST_NAME,
+                            objRow.WOBJ_TP_ID.ToString());
+                        itemsFound++;
+                    }
+                }
+                if (itemsFound == 0)
+                {
+                    linkedItems = "No " + listName.ToLower() + " found, for task: " + taskName;
+                }
+                else
+                {
+                    Console.WriteLine(linkedItems, listName);
+                }
+                #endregion
+
+                #region Get list of generic items linked to the task
+                // Get the OLP DataSet for all generic items linked to the task.
+                Console.WriteLine("\nGetting the list of generic items linked to the task...");
+
+                dsLinkedObjects = olpClient.ReadTaskLinkedWebObjects(taskUid,
+                    (int)PSLibrary.WebObjectType.GenericSharePointListItem);
+
+                linkedItems = "Generic items found:";
+
+                itemsFound = 0;
+                foreach (SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow objRow in
+                    dsLinkedObjects.WebObjects)
+                {
+                    if (objRow.WOBJ_TASK_UID != taskUid)
+                    {
+                        linkedItems += string.Format(
+                           "\n\n\tWebObjectUid:\t{0}\n\tExternal UID:\t{1}\n\tFake TP_ID:\t{2}",
+                           objRow.WOBJ_UID.ToString(),
+                           objRow.WOBJ_LIST_NAME,
+                           objRow.WOBJ_TP_ID.ToString());
+                        itemsFound++;
+                    }
+                }
+                if (itemsFound == 0)
+                    linkedItems = "No generic items found for task: " + taskName;
+                Console.WriteLine(linkedItems, "Generic Linked Items");
+                #endregion
+
+                #region Delete the links
+                if (deleteLinks)
+                {
+                    Console.Write("\nPress any key to delete the links: ");
+                    Console.ReadKey(true);
+                    int[] deletedItems = { 0, 0 };
+
+                    // Delete the link from the task to the SharePoint list item.
+                    deletedItems[0] = DeleteTaskLinks(olpClient, taskUid, listUid, itemTPID);
+
+                    // Delete the link from the task to the generic item.
+                    deletedItems[1] = DeleteTaskLinks(olpClient, taskUid, externalUid, externalTPID);
+
+                    string deletedResults = "For task: " + taskName + "\n\n";
+                    deletedResults += "Deleted SharePoint list items: ";
+                    deletedResults +=
+                        string.Format("{0}\n\nDeleted generic items: {1}",
+                            deletedItems[0].ToString(), deletedItems[1].ToString());
+                    Console.WriteLine(deletedResults, "Deleted Links");
+                }
+                else
+                {
+                    Console.WriteLine("\nThe new links are not deleted.");
+                }
+                #endregion
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            catch (ApplicationException)
+            {
+            }
+            ExitApp();
+        }
+
+        #region Private methods
+        private static Guid GetListUid(WebSvcLists.Lists wssLists, string listName)
+        {
+            const string idAttribute = "ID";
+            const string defaultViewUrl = "DefaultViewUrl";
+            string listNodeName = "/" + listName + "/";
+            Guid listUid = Guid.Empty;
+
+            XmlNode ndLists = wssLists.GetListCollection();
+
+            // Get the GUID for the specified SharePoint list.  
+            foreach (XmlNode ndList in ndLists.ChildNodes)
+            {
+                if (ndList.Attributes[defaultViewUrl].Value.Contains(listNodeName))
+                {
+                    listUid = new Guid(ndList.Attributes[idAttribute].Value);
+                    break;
+                }
+            }
+            return listUid;
+        }
+
+        private static int GetItemTPID(WebSvcLists.Lists wssLists, string listItemTitle)
+        {
+
+            int itemTPID = -1;
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlNode ndQuery = xmlDoc.CreateNode(XmlNodeType.Element, "Query", "");
+            // Query for the list item title.
+            string queryFormat =
+                "&amp;lt;Where&amp;gt;&amp;lt;Eq&amp;gt;&amp;lt;FieldRef Name='Title'/&amp;gt;&amp;lt;Value Type='Text'&amp;gt;{0}&amp;lt;/Value&amp;gt;&amp;lt;/Eq&amp;gt;&amp;lt;/Where&amp;gt;";
+            ndQuery.InnerXml = string.Format(queryFormat, listItemTitle);
+
+            XmlNode ndQueryOptions = xmlDoc.CreateNode(XmlNodeType.Element, "QueryOptions", "");
+            ndQueryOptions.InnerXml = "&amp;lt;IncludeMandatoryColumns&amp;gt;FALSE&amp;lt;/IncludeMandatoryColumns&amp;gt;" +
+                "&amp;lt;DateInUtc&amp;gt;TRUE&amp;lt;/DateInUtc&amp;gt;";
+
+            // Get the Title and ID fields in the returned data.
+            XmlNode ndViewFields = xmlDoc.CreateNode(XmlNodeType.Element, "ViewFields", "");
+            ndViewFields.InnerXml = "&amp;lt;FieldRef Name='Title' /&amp;gt;&amp;lt;FieldRef Name='ID'/&amp;gt;";
+
+            string viewName = string.Empty;
+            string webId = string.Empty;
+            string rowLimit = string.Empty;
+
+            // GetListItems returns &amp;lt;listitems&amp;gt; element with the child &amp;lt;rs:data ItemCount="1"&amp;gt;,
+            // which contains the following &amp;lt;z:row&amp;gt; child element: 
+            //     &amp;lt;z:row ows_Title="Test Issue 1" ows_ID="1" ...[additional metadata] /&amp;gt; 
+            // The TP_ID is in the ows_ID attribute, so we can jump to that row. 
+            try
+            {
+                XmlNode ndListItems = wssLists.GetListItems(listName, viewName, ndQuery, ndViewFields,
+                                                         rowLimit, ndQueryOptions, webId);
+                if (ndListItems.ChildNodes.Count &amp;gt; 1
+                &amp;amp;&amp;amp; ndListItems.ChildNodes[1].ChildNodes.Count &amp;gt; 1)
+                {
+                    string tpidValue = "-1";
+                    tpidValue = ndListItems.ChildNodes[1].ChildNodes[1].Attributes["ows_ID"].Value;
+                    itemTPID = Convert.ToInt16(tpidValue);
+                }
+            }
+
+           catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            return itemTPID;
+        }
+
+        private static int DeleteTaskLinks(SvcObjectLinkProvider.ObjectLinkProvider olp,
+            Guid taskUid, Guid objectUid, int itemTPID)
+        {
+            int deleteResult;
+            SvcObjectLinkProvider.ObjectLinkProviderDataSet dsDeleteTask =
+                olp.ReadTaskWebObject(taskUid);
+            Guid delTaskUid = dsDeleteTask.WebObjects[0].WOBJ_UID;
+
+            SvcObjectLinkProvider.ObjectLinkProviderDataSet dsDeleteItem =
+                olp.ReadSharePointWebObject(itemTPID, objectUid);
+            Guid delItemUid = dsDeleteItem.WebObjects[0].WOBJ_UID;
+
+            deleteResult = olp.DeleteWebObjectLink(delTaskUid, delItemUid);
+            return deleteResult;
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+        #endregion
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_WSS:
+                    wssInteropClient = new SvcWssInterop.WssInteropClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_OLP:
+                    olpClient = new SvcObjectLinkProvider.ObjectLinkProviderClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+              
+    }
+
+    class Helpers
+    {
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CreateWebObjectLinksByGuid">
@@ -100,10 +844,10 @@
         <Parameter Name="linkTypes" Type="WebSvcObjectLinkProvider.WebObjectLinkType[]" />
       </Parameters>
       <Docs>
-        <param name="webObjectUid">To be added.</param>
-        <param name="webObjectUidsToLinkTo">To be added.</param>
-        <param name="linkTypes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="webObjectUid">Contains the web object GUID.</param>
+        <param name="webObjectUidsToLinkTo">Contains an array of web object GUIDs to link to.</param>
+        <param name="linkTypes">Contains an array of web object link types.</param>
+        <summary>Creates links between web objects based on the object GUIDs.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -132,8 +876,8 @@
         <Parameter Name="projectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">Contains the project GUID.</param>
+        <summary>Deletes all of the web objects that belong to a specified project and removes the links to those objects.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -161,8 +905,8 @@
         <Parameter Name="webObjectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="webObjectUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="webObjectUid">Contains the web object GUID.</param>
+        <summary>Deletes the specified web object and removes all links to that object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -191,11 +935,687 @@
         <Parameter Name="webObjectUid2" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="webObjectUid1">To be added.</param>
-        <param name="webObjectUid2">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="webObjectUid1">Contains the web object GUID.</param>
+        <param name="webObjectUid2">Contains the web object GUID.</param>
+        <summary>Deletes the link between two specified web objects.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcObjectLinkProvider</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example demonstrates the use of the <b>DeleteWebObjectLinks</b> method; it is not a full solution.</para>
+          <para>Before you run the sample application, perform the following steps:</para>
+          <list type="number">
+            <item>
+              <description>Use Project Professional 2013 to create and publish a project with at least one task.</description>
+            </item>
+            <item>
+              <description>Use Project Web App to open the project site.</description>
+            </item>
+            <item>
+              <description>Create at least one issue or risk in the Issue or Risk SharePoint list of the project site.</description>
+            </item>
+            <item>
+              <description>Change the constructor values according to your example.</description>
+            </item>
+            <item>
+              <description>Add a web service reference to <a href="http://localhost/pwa/_vti_bin/Lists.asmx">http://localhost/pwa/_vti_bin/Lists.asmx</a></description>
+            </item>
+          </list>
+          <para>This example performs the following tasks: </para>
+          <list type="bullet">
+            <item>
+              <description>Verifies that the project, task, and project site exist and gets their corresponding GUIDs. </description>
+            </item>
+            <item>
+              <description>Links a task and a SharePoint list item (in this case, an Issue).</description>
+            </item>
+            <item>
+              <description>Links a task and a generic object.</description>
+            </item>
+            <item>
+              <description>Gets the list of SharePoint items that are linked to a task and writes the contents of the <b>ObjectLinkProvider</b> dataSet <b>dsLinkedObjects</b> to an XML file.</description>
+            </item>
+            <item>
+              <description>Gets a list of generic items that are linked to a task.</description>
+            </item>
+            <item>
+              <description>Deletes the links to web objects.</description>
+            </item>
+          </list>
+          <para>For more information about how the sample code works, see Procedures 1-6 of <a href="bb92848e-7348-4eb6-87cd-9238367b782b.htm">How to: Use the OLP to Link an Object to a Task</a></para>
+          <para>The complete sample code is as follows.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using System.Web.Services;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using WebSvcLists = Microsoft.SDK.Project.Samples.OLP.WebSvcLists;
+
+namespace Microsoft.SDK.Project.Samples.OLP
+{
+    class OLP
+    {
+        private static SvcProject.ProjectClient projectClient;
+        private static SvcWssInterop.WssInteropClient wssInteropClient;
+        private static SvcObjectLinkProvider.ObjectLinkProviderClient olpClient;
+        private static string outFilePathOLPDataSet;
+        private static string outFilePathListItemsDS;
+        private static string outFilePathGenericDS;
+        private static string projectName;   // Name of the project.
+        private static string taskName;      // Name of the task.
+        private static string listName;      // Name of the SharePoint list.
+        private static string listItemTitle; // Title of the SharePoint list item.
+        private static PSLibrary.WebObjectType webObjectType; // Type of web object (issue, risk, and so on.)
+        private static string linkedItems;   // List of linked items to be displayed.
+        private static bool deleteLinks;     // Delete links after they are created.
+
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string ENDPOINT_WSS = "basicHttp_WssInterop";
+        private const string ENDPOINT_OLP = "basicHttp_ObjectLinkProvider";
+
+        public OLP()
+        {
+            // Constructor to assign values to the variables. 
+            // Change these for your example.
+            projectName = "My Swell Project2";
+            taskName = "T2";
+            listName = "Issues";
+            listItemTitle = "Issue1";
+            deleteLinks = false;
+        }
+
+        static void Main(string[] args)
+        {
+            // Configure the endpoints.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+            configResult = ConfigClientEndpoints(ENDPOINT_WSS);
+            configResult = ConfigClientEndpoints(ENDPOINT_OLP);
+           
+            OLP param = new OLP();
+                     
+            if (!configResult) throw new ApplicationException();
+
+            // If output directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            // Set the output file path.
+            outFilePathOLPDataSet = OUTPUT_FILES + "OLPDataSet.xml";
+            outFilePathListItemsDS = OUTPUT_FILES + "OLPListItemsDS.xml";
+            outFilePathGenericDS = OUTPUT_FILES + "OLPGenericDS.xml";
+
+            // Lists is a SharePoint web service.
+            WebSvcLists.Lists wssLists = new WebSvcLists.Lists();
+            wssLists.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+            Guid taskUid = new Guid();
+            Guid projectUid = new Guid();
+            String worksiteUrl = String.Empty;
+            int itemTPID = -1;
+            Guid listUid = Guid.Empty;
+            
+            #region Verify input values.
+            try
+            {
+                // Check whether the project exists and get the project GUID.
+                SvcProject.ProjectDataSet projectList = projectClient.ReadProjectList();
+                foreach (DataRow projectRow in projectList.Project)
+                {
+                    if ((string)projectRow[projectList.Project.PROJ_NAMEColumn] == projectName)
+                    {
+                        projectUid = (Guid)projectRow[projectList.Project.PROJ_UIDColumn];
+                        break;
+                    }
+                }
+                if (projectUid == Guid.Empty)
+                {
+                    Console.WriteLine("Project not found: " + projectName);
+                    Console.Read();
+                }
+
+                // Get a task UID for the specified task.
+                SvcProject.ProjectDataSet dsProject =
+                    projectClient.ReadProject(projectUid, SvcProject.DataStoreEnum.PublishedStore);
+
+                foreach (DataRow objRow in dsProject.Task)
+                {
+                    if ((string)objRow[dsProject.Task.TASK_NAMEColumn] == taskName)
+                    {
+                        taskUid = (Guid)objRow[dsProject.Task.TASK_UIDColumn];
+                        break;
+                    }
+                }
+
+                if (taskUid == Guid.Empty)
+                {
+                    Console.WriteLine("Task not found: " + taskName);
+                    Console.Read();
+                }
+
+                // Set the worksite URL for the SharePoint Lists Web service.
+                SvcWssInterop.ProjectWSSInfoDataSet dsProjectWssInfo = new SvcWssInterop.ProjectWSSInfoDataSet();
+                dsProjectWssInfo = wssInteropClient.ReadWssData(projectUid);
+
+                if (dsProjectWssInfo.ProjWssInfo.Count &amp;gt; 0)
+                {
+                    worksiteUrl = dsProjectWssInfo.ProjWssInfo[0].PROJECT_WORKSPACE_URL.ToString();
+                    wssLists.Url = worksiteUrl + "/_vti_bin/lists.asmx";
+                }
+                else
+                {
+                    Console.WriteLine("Worksite not found for project: " + projectName);
+                    Console.Read();
+                }
+
+                // Get the list GUID in the project worksite from the Lists Web service.
+                listUid = GetListUid(wssLists, listName);
+                if (listUid == Guid.Empty)
+                {
+                    Console.WriteLine("SharePoint list not found: " + listName);
+                    Console.Read();
+                }
+
+                // Get the TP_ID for the specified SharePoint list item.
+                itemTPID = GetItemTPID(wssLists, listItemTitle);
+                if (itemTPID &amp;lt; 0)
+                {
+                   Console.WriteLine(string.Format("List {0} does not contain item: {1}",
+                        listName, listItemTitle));
+                }
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            #endregion
+
+            try
+            {
+                #region Link task and SharePoint list item
+                // Get the task Web object, if there are any existing links to the task.
+                Guid taskWebObjectUid = Guid.Empty;
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsLinkedObjects = 
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                dsLinkedObjects = olpClient.ReadTaskWebObject(taskUid);
+                int numTaskWebObjects = dsLinkedObjects.WebObjects.Count;
+
+                if (numTaskWebObjects &amp;gt; 0)
+                    taskWebObjectUid = dsLinkedObjects.WebObjects[0].WOBJ_UID;
+                else
+                {
+                    Console.WriteLine(
+                        "There are no linked Web objects for task: " + taskName);
+                }
+
+                // Create a Web object for the specified task.
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsTask =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow taskRow =
+                    dsTask.WebObjects.NewWebObjectsRow();
+
+                // Provide all known information to the Web object row for the task.  
+                // If a task Web object does not exist, AddWebObjects creates
+                // a new Web object and updates WOBJ_UID in taskRow.  
+                taskRow.WOBJ_UID = taskWebObjectUid;
+                taskRow.WOBJ_TASK_UID = taskUid;
+                taskRow.WOBJ_PROJ_UID = projectUid;
+                taskRow.WOBJ_TYPE = (int)PSLibrary.WebObjectDatabaseType.Task;
+                dsTask.WebObjects.AddWebObjectsRow(taskRow);
+
+                // Create a Web object for the list item, with the TP_ID of the list item.
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsListItems =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow listItemRow =
+                    dsListItems.WebObjects.NewWebObjectsRow();
+
+                // Provide all known information to the Web object row for the list item.  
+                // If a list item Web object does not exist, AddWebObjects creates
+                // a new Web object and updates WOBJ_UID in listItemRow.  
+                listItemRow.WOBJ_UID = Guid.NewGuid();
+                listItemRow.WOBJ_TP_ID = itemTPID;
+                listItemRow.WOBJ_LIST_NAME = listUid;
+                listItemRow.WOBJ_PROJ_UID = projectUid;
+
+                switch (listName)
+                {
+                    case "Issues":
+                        listItemRow.WOBJ_TYPE = 
+                            (int)PSLibrary.WebObjectDatabaseType.Issue;
+                        webObjectType = PSLibrary.WebObjectType.Issue;
+                        linkedItems = "Issues found for task: " + taskName;
+                        break;
+                    case "Risks":
+                        listItemRow.WOBJ_TYPE = 
+                            (int)PSLibrary.WebObjectDatabaseType.Risk;
+                        webObjectType = PSLibrary.WebObjectType.Risk;
+                        linkedItems = "Risks found for task: " + taskName;
+                        break;
+                    case "Documents":
+                        listItemRow.WOBJ_TYPE = 
+                            (int)PSLibrary.WebObjectDatabaseType.Document;
+                        webObjectType = PSLibrary.WebObjectType.Document;
+                        linkedItems = "Documents found for task: " + taskName;
+                        break;
+                    case "Commitments":  // Commitments are now called Deliverables
+                        listItemRow.WOBJ_TYPE = 
+                            (int)PSLibrary.WebObjectDatabaseType.Commitment;
+                        webObjectType = PSLibrary.WebObjectType.Commitment;
+                        linkedItems = "Deliverables found for task: " + taskName;
+                        break;
+                    default:
+                        string errMess = listName +
+                            " is not a default SharePoint list type for task links.";
+                        Console.WriteLine(errMess);
+                        break;
+                }
+                dsListItems.WebObjects.AddWebObjectsRow(listItemRow);
+
+                // You can link the task to multiple list items by adding multiple rows  
+                // to dsListItems and adding ObjectLinkType values to the array of link types. 
+                SvcObjectLinkProvider.WebObjectLinkType generalLinkType =
+                    SvcObjectLinkProvider.WebObjectLinkType.General;
+                SvcObjectLinkProvider.WebObjectLinkType[] wssLinkTypeArray = 
+                { generalLinkType };
+
+                olpClient.CreateWebObjectLinks(dsTask, dsListItems, wssLinkTypeArray);
+
+                // Write the list items dataset to an XML file.
+                dsListItems.WriteXml(outFilePathListItemsDS);
+                Console.WriteLine("\nSee XML output of the list items Dataset at {0}",
+                    outFilePathListItemsDS);
+                Console.ReadKey();
+                #endregion
+
+                #region Link task and a generic object
+                // Link a generic external item to the task. 
+                // WOBJ_TP_ID is an arbitrary constant in this case, 
+                // because the GUID is the important part for the link.
+                int externalTPID = 1;
+
+                // The external item must have a GUID; folowing is a sample GUID.
+                Guid externalUid = new Guid("12345678-1234-1234-1234-123456789012");
+
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsGeneric =
+                    new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow genericRow =
+                    dsGeneric.WebObjects.NewWebObjectsRow();
+
+                genericRow.WOBJ_UID = Guid.NewGuid();
+
+                // Instead of a SharePoint list GUID, you can substitute any GUID here.  
+                // If the object doesn't have a GUID, or you need to use the GUID and  
+                // another ID, you can use the WOBJ_TP_ID field.
+                genericRow.WOBJ_LIST_NAME = externalUid;
+                genericRow.WOBJ_TP_ID = externalTPID;
+                genericRow.WOBJ_PROJ_UID = projectUid;
+                genericRow.WOBJ_TYPE =
+                    (int)PSLibrary.WebObjectDatabaseType.GenericSharePointListItem;
+                dsGeneric.WebObjects.AddWebObjectsRow(genericRow);
+
+                // Create a new link type array for the generic link.
+                SvcObjectLinkProvider.WebObjectLinkType[] genericLinkTypeArray = { generalLinkType };
+                olpClient.CreateWebObjectLinks(dsTask, dsGeneric, genericLinkTypeArray);
+                // Write the generic dataset to an XML file.
+                dsGeneric.WriteXml(outFilePathGenericDS);
+                Console.WriteLine("\nSee XML output of the Generic Dataset at {0}",
+                    outFilePathGenericDS);
+                Console.ReadKey();
+                #endregion
+
+                #region Get the list of SharePoint items linked to the task
+                // Get the OLP DataSet for all SharePoint items of specified type 
+                // that are linked to the task.
+                dsLinkedObjects = olpClient.ReadTaskLinkedWebObjects(taskUid,
+                    (int)webObjectType);
+
+                // Write the OLP DataSet to an XML file.
+                dsLinkedObjects.WriteXml(outFilePathOLPDataSet);
+                Console.WriteLine("\nSee XML output of OLP Dataset at {0}",
+               outFilePathOLPDataSet);
+                Console.ReadKey();
+
+                int itemsFound = 0;
+                foreach (SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow objRow
+                    in dsLinkedObjects.WebObjects)
+                {
+                    if (objRow.WOBJ_TASK_UID != taskUid)
+                    {
+                        // Add the internal OLP GUID, List GUID, and TP_ID. 
+                        linkedItems += string.Format(
+                            "\n\n\tWebObjectUid:\t{0}\n\tList UID:\t\t{1}\n\tTP_ID:\t\t{2}",
+                            objRow.WOBJ_UID.ToString(),
+                            objRow.WOBJ_LIST_NAME,
+                            objRow.WOBJ_TP_ID.ToString());
+                        itemsFound++;
+                    }
+                }
+                if (itemsFound == 0)
+                    linkedItems = "No " + listName.ToLower() + " found, for task: " + taskName;
+                Console.WriteLine(linkedItems, listName);
+                #endregion
+
+                #region Get list of generic items linked to the task
+                // Get the OLP DataSet for all generic items linked to the task.
+                dsLinkedObjects = olpClient.ReadTaskLinkedWebObjects(taskUid,
+                    (int)PSLibrary.WebObjectType.GenericSharePointListItem);
+
+                linkedItems = "Generic items found:";
+
+                itemsFound = 0;
+                foreach (SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow objRow in
+                    dsLinkedObjects.WebObjects)
+                {
+                    if (objRow.WOBJ_TASK_UID != taskUid)
+                    {
+                        linkedItems += string.Format(
+                           "\n\n\tWebObjectUid:\t{0}\n\tExternal UID:\t{1}\n\tFake TP_ID:\t{2}",
+                           objRow.WOBJ_UID.ToString(),
+                           objRow.WOBJ_LIST_NAME,
+                           objRow.WOBJ_TP_ID.ToString());
+                        itemsFound++;
+                    }
+                }
+                if (itemsFound == 0)
+                    linkedItems = "No generic items found for task: " + taskName;
+                Console.WriteLine(linkedItems, "Generic Linked Items");
+                Console.Read();
+                #endregion
+
+                #region Delete the links
+                if (deleteLinks)
+                {
+                    int[] deletedItems = { 0, 0 };
+
+                    // Delete the link from the task to the SharePoint list item.
+                    deletedItems[0] = DeleteTaskLinks(olpClient, taskUid, listUid, itemTPID);
+
+                    // Delete the link from the task to the generic item.
+                    deletedItems[1] = DeleteTaskLinks(olpClient, taskUid, externalUid, externalTPID);
+
+                    string deletedResults = "For task: " + taskName + "\n\n";
+                    deletedResults += "Deleted SharePoint list items: ";
+                    deletedResults +=
+                        string.Format("{0}\n\nDeleted generic items: {1}",
+                            deletedItems[0].ToString(), deletedItems[1].ToString());
+                    Console.WriteLine(deletedResults, "Deleted Links");
+                }
+                #endregion
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            
+        }
+
+        #region Private methods
+        private static Guid GetListUid(WebSvcLists.Lists wssLists, string listName)
+        {
+            const string idAttribute = "ID";
+            const string defaultViewUrl = "DefaultViewUrl";
+            string listNodeName = "/" + listName + "/";
+            Guid listUid = Guid.Empty;
+
+            XmlNode ndLists = wssLists.GetListCollection();
+
+            // Get the GUID for the specified SharePoint list.  
+            foreach (XmlNode ndList in ndLists.ChildNodes)
+            {
+                if (ndList.Attributes[defaultViewUrl].Value.Contains(listNodeName))
+                {
+                    listUid = new Guid(ndList.Attributes[idAttribute].Value);
+                    break;
+                }
+            }
+            return listUid;
+        }
+
+        private static int GetItemTPID(WebSvcLists.Lists wssLists, string listItemTitle)
+        {
+
+            int itemTPID = -1;
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlNode ndQuery = xmlDoc.CreateNode(XmlNodeType.Element, "Query", "");
+            // Query for the list item title.
+            string queryFormat =
+                "&amp;lt;Where&amp;gt;&amp;lt;Eq&amp;gt;&amp;lt;FieldRef Name='Title'/&amp;gt;&amp;lt;Value Type='Text'&amp;gt;{0}&amp;lt;/Value&amp;gt;&amp;lt;/Eq&amp;gt;&amp;lt;/Where&amp;gt;";
+            ndQuery.InnerXml = string.Format(queryFormat, listItemTitle);
+
+            XmlNode ndQueryOptions = xmlDoc.CreateNode(XmlNodeType.Element, "QueryOptions", "");
+            ndQueryOptions.InnerXml = "&amp;lt;IncludeMandatoryColumns&amp;gt;FALSE&amp;lt;/IncludeMandatoryColumns&amp;gt;" +
+                "&amp;lt;DateInUtc&amp;gt;TRUE&amp;lt;/DateInUtc&amp;gt;";
+
+            // Get the Title and ID fields in the returned data.
+            XmlNode ndViewFields = xmlDoc.CreateNode(XmlNodeType.Element, "ViewFields", "");
+            ndViewFields.InnerXml = "&amp;lt;FieldRef Name='Title' /&amp;gt;&amp;lt;FieldRef Name='ID'/&amp;gt;";
+
+            string viewName = string.Empty;
+            string webId = string.Empty;
+            string rowLimit = string.Empty;
+
+            // GetListItems returns &amp;lt;listitems&amp;gt; element with the child &amp;lt;rs:data ItemCount="1"&amp;gt;,
+            // which contains the following &amp;lt;z:row&amp;gt; child element: 
+            //     &amp;lt;z:row ows_Title="Test Issue 1" ows_ID="1" ...[additional metadata] /&amp;gt; 
+            // The TP_ID is in the ows_ID attribute, so we can jump to that row. 
+            try
+            {
+                XmlNode ndListItems = wssLists.GetListItems(listName, viewName, ndQuery, ndViewFields,
+                                                         rowLimit, ndQueryOptions, webId);
+                if (ndListItems.ChildNodes.Count &amp;gt; 1
+                &amp;amp;&amp;amp; ndListItems.ChildNodes[1].ChildNodes.Count &amp;gt; 1)
+                {
+                    string tpidValue = "-1";
+                    tpidValue = ndListItems.ChildNodes[1].ChildNodes[1].Attributes["ows_ID"].Value;
+                    itemTPID = Convert.ToInt16(tpidValue);
+                }
+            }
+
+           catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            return itemTPID;
+        }
+
+        private static int DeleteTaskLinks(SvcObjectLinkProvider.ObjectLinkProvider olp,
+            Guid taskUid, Guid objectUid, int itemTPID)
+        {
+            int deleteResult;
+            SvcObjectLinkProvider.ObjectLinkProviderDataSet dsDeleteTask =
+                olp.ReadTaskWebObject(taskUid);
+            Guid delTaskUid = dsDeleteTask.WebObjects[0].WOBJ_UID;
+
+            SvcObjectLinkProvider.ObjectLinkProviderDataSet dsDeleteItem =
+                olp.ReadSharePointWebObject(itemTPID, objectUid);
+            Guid delItemUid = dsDeleteItem.WebObjects[0].WOBJ_UID;
+
+            deleteResult = olp.DeleteWebObjectLink(delTaskUid, delItemUid);
+            return deleteResult;
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+        #endregion
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_WSS:
+                    wssInteropClient = new SvcWssInterop.WssInteropClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_OLP:
+                    olpClient = new SvcObjectLinkProvider.ObjectLinkProviderClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+              
+    }
+
+    class Helpers
+    {
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadLinkedWebObjects">
@@ -223,9 +1643,9 @@
         <Parameter Name="filterWebObjectTypes" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="objectUid">To be added.</param>
-        <param name="filterWebObjectTypes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="objectUid"> Contains the object GUID.</param>
+        <param name="filterWebObjectTypes">Contains the web object type. </param>
+        <summary>Gets the link information for a specified Web object.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -254,8 +1674,8 @@
         <Parameter Name="description" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="description">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="description">Contains the object description.</param>
+        <summary>Gets the Web object specified by the object description.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -285,9 +1705,9 @@
         <Parameter Name="object2" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="object1">To be added.</param>
-        <param name="object2">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="object1"> Contains the GUID of object1.</param>
+        <param name="object2">Contains the GUID of object2.</param>
+        <summary>Gets the link type between two specified Web objects.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -317,8 +1737,13 @@
       </Parameters>
       <Docs>
         <param name="lookupDataSet">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Reads or creates Web objects that correspond to each <b>WebObjectsRow</b> in the <b>ObjectLinkProviderDataSet</b>. </summary>
+        <remarks>
+          <para>The data in each <b>WebObjectRow</b> includes a GUID and enough information to either look up or create a Web object. The data must include WOBJ_UID for the <b>ReadOrCreateWebObjects</b> method to work. </para>
+          <para>If <b>ReadOrCreateWebObjects</b> finds a Web object that matches the WOBJ_UID, then the method updates the database for that Web object. If <b>ReadOrCreateWebObjects</b> finds a matching Web object using the extended data, then it updates the WOB_UID field in the <b>ObjectLinkProviderDataSet.WebObjectsRow</b> with the actual WOBJ_UID of the Web object that is in the database. </para>
+          <para>If a Web object does not exist that matches either the WOBJ_UID or the extended data, then <b>ReadOrCreateWebObjects</b> inserts a record with the WOBJ_UID value in the <b>ObjectLinkProviderDataSet.WebObjectsRow</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadProjectLinkedWebObjects">
@@ -347,10 +1772,10 @@
         <Parameter Name="includeTaskLinkedObjects" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="filterWebObjectTypes">To be added.</param>
-        <param name="includeTaskLinkedObjects">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid"> Contains the project GUID.</param>
+        <param name="filterWebObjectTypes"> Specifies the web object type.</param>
+        <param name="includeTaskLinkedObjects"> Specifies whether task linked objects are included.</param>
+        <summary>Gets a filtered list of linked Web objects for the specified project.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -380,9 +1805,9 @@
         <Parameter Name="includeTaskObjects" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="includeTaskObjects">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">Contains the project GUID.</param>
+        <param name="includeTaskObjects"> Specifies whether the task objects are included.</param>
+        <summary>Gets linked Web objects for the specified project.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -413,10 +1838,10 @@
         <Parameter Name="filterWebObjectTypes" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="tpId">To be added.</param>
-        <param name="sharePointListName">To be added.</param>
-        <param name="filterWebObjectTypes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tpId">Specifies the unique identifier for the SharePoint list for the Web object.</param>
+        <param name="sharePointListName">Contains the SharePoint list name.</param>
+        <param name="filterWebObjectTypes"> Specifies the web object type.</param>
+        <summary>Gets a filtered list of linked SharePoint Web objects. </summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -446,9 +1871,9 @@
         <Parameter Name="sharePointListName" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="tpId">To be added.</param>
-        <param name="sharePointListName">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tpId"> Specifies the unique identifier for the SharePoint list for the Web object.</param>
+        <param name="sharePointListName"> Contains the SharePoint list name.</param>
+        <summary>Gets the linked Web objects for a specified list in Microsoft® Windows SharePoint® Services.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -478,11 +1903,464 @@
         <Parameter Name="filterWebObjectTypes" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="taskUid">To be added.</param>
-        <param name="filterWebObjectTypes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="taskUid"> Contains the task GUID.</param>
+        <param name="filterWebObjectTypes"> Specifies the web object type.</param>
+        <summary>Gets a list of the linked Web objects for a specified task, filtered by object type.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcObjectLinkProvider</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example is designed to demonstrate the use of the <b>ReadTaskLinkedWebObjects</b> method; it is not a full solution.</para>
+          <para>Before you run the sample application, perform the following steps:</para>
+          <list type="number">
+            <item>
+              <description>Use Project Professional 2013 to create and publish a project with at least one task.</description>
+            </item>
+            <item>
+              <description>Use Project Web App to open the project site.</description>
+            </item>
+            <item>
+              <description>Create at least one issue or risk in the Issue or Risk SharePoint list of the project site.</description>
+            </item>
+            <item>
+              <description>Create web object links. For more information, see <see cref="M:WebSvcObjectLinkProvider.ObjectLinkProvider.CreateWebObjectLinks(WebSvcObjectLinkProvider.ObjectLinkProviderDataSet,WebSvcObjectLinkProvider.ObjectLinkProviderDataSet,WebSvcObjectLinkProvider.WebObjectLinkType[])" /></description>
+            </item>
+            <item>
+              <description>Change the constructor values according to your example.</description>
+            </item>
+            <item>
+              <description>Add a web service reference to <a href="http://localhost/pwa/_vti_bin/Lists.asmx">http://localhost/pwa/_vti_bin/Lists.asmx</a></description>
+            </item>
+          </list>
+          <para>Here’s what this example does: </para>
+          <list type="bullet">
+            <item>
+              <description>Verifies that the project and task exist and gets their corresponding GUIDs. </description>
+            </item>
+            <item>
+              <description>Get the SharePoint items linked to the specified task and writes the contents of the <b>dsLinkedObjects</b> DataSet, to the OLPDataset.xml file.</description>
+            </item>
+          </list>
+          <para>The sample XML file is as follows.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;ObjectLinkProviderDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/ObjectLinkProviderDataSet/"&amp;gt;
+  &amp;lt;WebObjectLinks&amp;gt;
+    &amp;lt;WOBJLINK_UID&amp;gt;a17480e7-0d2b-4480-a465-5fe7064eb0df&amp;lt;/WOBJLINK_UID&amp;gt;
+    &amp;lt;WOBJLINK_OBJECT1&amp;gt;7768c091-7956-4f3d-9c3f-078b9b038dda&amp;lt;/WOBJLINK_OBJECT1&amp;gt;
+    &amp;lt;WOBJLINK_OBJECT2&amp;gt;46cc14c8-8a3d-4421-873f-ea7bc9de353d&amp;lt;/WOBJLINK_OBJECT2&amp;gt;
+    &amp;lt;WOBJLINK_TYPE&amp;gt;1&amp;lt;/WOBJLINK_TYPE&amp;gt;
+    &amp;lt;CREATED_DATE&amp;gt;2010-10-20T10:13:44.66-07:00&amp;lt;/CREATED_DATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2010-10-20T10:13:44.66-07:00&amp;lt;/MOD_DATE&amp;gt;
+  &amp;lt;/WebObjectLinks&amp;gt;
+  &amp;lt;WebObjects&amp;gt;
+    &amp;lt;WOBJ_UID&amp;gt;46cc14c8-8a3d-4421-873f-ea7bc9de353d&amp;lt;/WOBJ_UID&amp;gt;
+    &amp;lt;WOBJ_TYPE&amp;gt;4&amp;lt;/WOBJ_TYPE&amp;gt;
+    &amp;lt;WOBJ_PROJ_UID&amp;gt;4f4b5ffb-e143-4c84-9cf4-299d316c7d8e&amp;lt;/WOBJ_PROJ_UID&amp;gt;
+    &amp;lt;WOBJ_TASK_UID&amp;gt;00000000-0000-0000-0000-000000000000&amp;lt;/WOBJ_TASK_UID&amp;gt;
+    &amp;lt;WOBJ_TP_ID&amp;gt;1&amp;lt;/WOBJ_TP_ID&amp;gt;
+    &amp;lt;WOBJ_LIST_NAME&amp;gt;8c6f74ee-3f64-4808-8e71-02d62c553374&amp;lt;/WOBJ_LIST_NAME&amp;gt;
+    &amp;lt;WOBJ_DESC /&amp;gt;
+    &amp;lt;WOBJ_DOC_REF_CNT&amp;gt;0&amp;lt;/WOBJ_DOC_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_ISSUE_REF_CNT&amp;gt;0&amp;lt;/WOBJ_ISSUE_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_OTHER_REF_CNT&amp;gt;2&amp;lt;/WOBJ_OTHER_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_RISK_REF_CNT&amp;gt;0&amp;lt;/WOBJ_RISK_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_SHARED_MILESTONE_REF_CNT&amp;gt;0&amp;lt;/WOBJ_SHARED_MILESTONE_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_COMMITMENT_REF_CNT&amp;gt;0&amp;lt;/WOBJ_COMMITMENT_REF_CNT&amp;gt;
+    &amp;lt;CREATED_DATE&amp;gt;2010-10-18T10:41:27.777-07:00&amp;lt;/CREATED_DATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2010-10-18T10:41:27.777-07:00&amp;lt;/MOD_DATE&amp;gt;
+  &amp;lt;/WebObjects&amp;gt;
+  &amp;lt;WebObjects&amp;gt;
+    &amp;lt;WOBJ_UID&amp;gt;7768c091-7956-4f3d-9c3f-078b9b038dda&amp;lt;/WOBJ_UID&amp;gt;
+    &amp;lt;WOBJ_TYPE&amp;gt;2&amp;lt;/WOBJ_TYPE&amp;gt;
+    &amp;lt;WOBJ_PROJ_UID&amp;gt;4f4b5ffb-e143-4c84-9cf4-299d316c7d8e&amp;lt;/WOBJ_PROJ_UID&amp;gt;
+    &amp;lt;WOBJ_TASK_UID&amp;gt;42b0aa16-4936-45f9-b094-2e4975d2b6fd&amp;lt;/WOBJ_TASK_UID&amp;gt;
+    &amp;lt;WOBJ_TP_ID&amp;gt;-1&amp;lt;/WOBJ_TP_ID&amp;gt;
+    &amp;lt;WOBJ_LIST_NAME&amp;gt;00000000-0000-0000-0000-000000000000&amp;lt;/WOBJ_LIST_NAME&amp;gt;
+    &amp;lt;WOBJ_DESC /&amp;gt;
+    &amp;lt;WOBJ_DOC_REF_CNT&amp;gt;0&amp;lt;/WOBJ_DOC_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_ISSUE_REF_CNT&amp;gt;1&amp;lt;/WOBJ_ISSUE_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_OTHER_REF_CNT&amp;gt;0&amp;lt;/WOBJ_OTHER_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_RISK_REF_CNT&amp;gt;0&amp;lt;/WOBJ_RISK_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_SHARED_MILESTONE_REF_CNT&amp;gt;1&amp;lt;/WOBJ_SHARED_MILESTONE_REF_CNT&amp;gt;
+    &amp;lt;WOBJ_COMMITMENT_REF_CNT&amp;gt;0&amp;lt;/WOBJ_COMMITMENT_REF_CNT&amp;gt;
+    &amp;lt;CREATED_DATE&amp;gt;2010-10-20T10:13:44.62-07:00&amp;lt;/CREATED_DATE&amp;gt;
+    &amp;lt;MOD_DATE&amp;gt;2010-10-20T10:13:44.62-07:00&amp;lt;/MOD_DATE&amp;gt;
+  &amp;lt;/WebObjects&amp;gt;
+&amp;lt;/ObjectLinkProviderDataSet&amp;gt;</code>
+          <para>The sample code is as follows.</para>
+          <code>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using System.Web.Services;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.OLPRead
+{
+    class OLPRead
+    {
+        private static SvcProject.ProjectClient projectClient;
+        private static SvcObjectLinkProvider.ObjectLinkProviderClient olpClient;
+        private static string outFilePathOLPDataSet;
+
+        private static string projectName;   // Name of the project.
+        private static string taskName;      // Name of the task.
+        private static string listName;      // Name of the SharePoint list.
+        private static string linkedItems;   // List of linked items to be displayed.
+
+        private static PSLibrary.WebObjectType webObjectType; // Type of web object (issue, risk, and so on.)
+
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private const string ENDPOINT_P = "basicHttp_Project";
+       // private const string ENDPOINT_WSS = "basicHttp_WssInterop";
+        private const string ENDPOINT_OLP = "basicHttp_ObjectLinkProvider";
+
+        public OLPRead()
+        {
+            // Constructor to assign values to the variables. 
+            // Change these for your example.
+            projectName = "My Swell Project2";
+            taskName = "T2";
+            listName = "Issues";
+        }
+
+        static void Main(string[] args)
+        {
+            // Configure the endpoints.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+           // configResult = ConfigClientEndpoints(ENDPOINT_WSS);
+            configResult = ConfigClientEndpoints(ENDPOINT_OLP);
+
+            OLPRead param = new OLPRead();
+
+            if (!configResult) throw new ApplicationException();
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            // Set the output file path.
+            outFilePathOLPDataSet = OUTPUT_FILES + "OLPDataSet.xml";
+
+            Guid taskUid = new Guid();
+            Guid projectUid = new Guid();
+            String workspaceUrl = String.Empty;
+           
+            #region Verify input values.
+            try
+            {
+                Console.WriteLine("Reading the list of projects...");
+
+                // Check whether the project exists and get the project GUID.
+                SvcProject.ProjectDataSet projectList = projectClient.ReadProjectList();
+                foreach (DataRow projectRow in projectList.Project)
+                {
+                    if ((string)projectRow[projectList.Project.PROJ_NAMEColumn] == projectName)
+                    {
+                        projectUid = (Guid)projectRow[projectList.Project.PROJ_UIDColumn];
+                        break;
+                    }
+                }
+                if (projectUid == Guid.Empty)
+                {
+                    Console.WriteLine("Project not found: " + projectName + "\n");
+                    throw new ApplicationException();
+                }
+
+                // Get the task UID for the specified task.
+                Console.WriteLine("Reading the data for project: " + projectName);
+
+                SvcProject.ProjectDataSet dsProject =
+                    projectClient.ReadProject(projectUid, SvcProject.DataStoreEnum.PublishedStore);
+
+                foreach (DataRow objRow in dsProject.Task)
+                {
+                    if ((string)objRow[dsProject.Task.TASK_NAMEColumn] == taskName)
+                    {
+                        taskUid = (Guid)objRow[dsProject.Task.TASK_UIDColumn];
+                        break;
+                    }
+                }
+
+                if (taskUid == Guid.Empty)
+                {
+                    Console.WriteLine("Task not found: " + taskName + "\n");
+                    throw new ApplicationException();
+                }
+
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            catch (ApplicationException)
+            {
+                ExitApp();
+            }
+            #endregion
+
+
+            #region Get the SharePoint items linked to the task
+            // Get the OLP DataSet for all SharePoint items of specified type 
+            // that are linked to the task.
+            try
+            {
+                Console.WriteLine("\nGetting the list of SharePoint items linked to the task...");
+
+                SvcObjectLinkProvider.ObjectLinkProviderDataSet dsLinkedObjects =
+             new SvcObjectLinkProvider.ObjectLinkProviderDataSet();
+
+                // Set the WebObjectType, based on the listName.
+                switch (listName)
+                {
+                    case "Issues":
+                        webObjectType = PSLibrary.WebObjectType.Issue;
+                        break;
+                    case "Risks":
+                        webObjectType = PSLibrary.WebObjectType.Risk;
+                        break;
+                    case "Documents":
+                        webObjectType = PSLibrary.WebObjectType.Document;
+                        break;
+                    case "Commitments":  // Commitments are now called Deliverables.
+                        webObjectType = PSLibrary.WebObjectType.Commitment;
+                        break;
+                    default:
+                        string errMess = listName +
+                            " is not a default SharePoint list type for task links.";
+                        throw new SystemException(errMess);
+                }
+                dsLinkedObjects = olpClient.ReadTaskLinkedWebObjects(taskUid,
+                    (int)webObjectType);
+
+                int itemsFound = 0;
+                foreach (SvcObjectLinkProvider.ObjectLinkProviderDataSet.WebObjectsRow objRow
+                    in dsLinkedObjects.WebObjects)
+                {
+                    if (objRow.WOBJ_TASK_UID != taskUid)
+                    {
+                        // Add the internal OLP GUID, List GUID, and TP_ID. 
+                        linkedItems += string.Format(
+                            "\n\n\tWebObjectUid:\t{0}\n\tList UID:\t{1}\n\tTP_ID:\t\t{2}",
+                            objRow.WOBJ_UID.ToString(),
+                            objRow.WOBJ_LIST_NAME,
+                            objRow.WOBJ_TP_ID.ToString());
+                        itemsFound++;
+                    }
+                }
+                if (itemsFound == 0)
+                {
+                    linkedItems = "No " + listName.ToLower() + " found, for task: " + taskName;
+                }
+                else
+                {
+                    Console.WriteLine(linkedItems, listName);
+                }
+                
+                
+                // Write the OLP DataSet to an XML file.
+                Console.WriteLine("\nWriting the OLP DataSet to an XML file...");
+                dsLinkedObjects.WriteXml(outFilePathOLPDataSet);
+                Console.WriteLine("\nSee XML output of OLP Dataset at {0}",
+               outFilePathOLPDataSet);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+               
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            #endregion
+        }
+
+        #region Private methods
+
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+        #endregion
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_OLP:
+                    olpClient = new SvcObjectLinkProvider.ObjectLinkProviderClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }
+
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+
+}
+
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadTaskWebObject">
@@ -509,8 +2387,8 @@
         <Parameter Name="taskUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="taskUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="taskUid">Contains the task GUID. </param>
+        <summary>Gets all of the linked Web objects for a specified task.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -539,8 +2417,8 @@
         <Parameter Name="webObjectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="webObjectUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="webObjectUid"> Contains the web object GUID.</param>
+        <summary>Gets the data for a specified Web object.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

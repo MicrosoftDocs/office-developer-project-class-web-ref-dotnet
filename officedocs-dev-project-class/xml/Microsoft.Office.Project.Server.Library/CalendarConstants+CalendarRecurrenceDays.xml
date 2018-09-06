@@ -18,8 +18,85 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents the days of the week for recurring calendar exceptions.</summary>
+    <remarks>
+      <para>This is a binary flag integer that represents the days of the week on which a calendar exception is effective.</para>
+      <list type="table">
+        <item>
+          <term>Binary Value</term>
+          <description>0000001</description>
+          <description>0000010</description>
+          <description>0000010</description>
+          <description>0000100</description>
+          <description>0010000</description>
+          <description>0100000</description>
+          <description>1000000</description>
+        </item>
+        <item>
+          <term>Decimal Value</term>
+          <description>1</description>
+          <description>2</description>
+          <description>4</description>
+          <description>8</description>
+          <description>16</description>
+          <description>32</description>
+          <description>64</description>
+        </item>
+      </list>
+      <para />
+    </remarks>
+    <example>
+      <para>The <see cref="T:Microsoft.Office.Project.Server.Library.CalendarConstants.CalendarRecurrenceDays" /> type is used in the <see cref="P:WebSvcResource.ResourceDataSet.CalendarExceptionsRow.RecurrenceDays" /> property.</para>
+      <para>Following is a brief example that demonstrates how to use these flag values.</para>
+      <para>Please see Prerequisites for Reference Code Samples for information about how to run this code sample.</para>
+      <code>using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace BitArrayTest
+{
+   class Program
+   {
+      static void Main(string[] args)
+      {
+
+         int myDays = (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Monday + 
+             (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Wednesday +
+             (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Friday
+            ;
+
+         Console.WriteLine("My exception days occur on: ");
+
+         if ((myDays &amp;amp;(int) PSLibrary.CalendarConstants.CalendarRecurrenceDays.Monday)&amp;gt;0)
+            Console.WriteLine("Monday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Monday);
+
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Tuesday) &amp;gt; 0)
+            Console.WriteLine("Tuesday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Tuesday);
+
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Wednesday) &amp;gt; 0)
+            Console.WriteLine("Wednesday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Wednesday);
+         
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Thursday) &amp;gt; 0)
+            Console.WriteLine("Thursday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Thursday);
+
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Friday) &amp;gt; 0)
+            Console.WriteLine("Friday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Friday);
+
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Saturday) &amp;gt; 0)
+            Console.WriteLine("Saturday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Saturday);
+        
+         if ((myDays &amp;amp; (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Sunday) &amp;gt; 0)
+            Console.WriteLine("Sunday ({0}) "  , (int)PSLibrary.CalendarConstants.CalendarRecurrenceDays.Sunday);
+         
+         Console.WriteLine("\r\n\r\nPress any key...");
+         Console.ReadKey();
+
+      }
+   }
+}</code>
+    </example>
   </Docs>
   <Members>
     <Member MemberName="Friday">
@@ -39,7 +116,7 @@
       </ReturnValue>
       <MemberValue>32</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=32. Friday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Monday">
@@ -59,7 +136,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Monday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Saturday">
@@ -79,7 +156,7 @@
       </ReturnValue>
       <MemberValue>64</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=64. Saturday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Sunday">
@@ -99,7 +176,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Sunday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Thursday">
@@ -119,7 +196,7 @@
       </ReturnValue>
       <MemberValue>16</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=16. Thursday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Tuesday">
@@ -139,7 +216,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Tuesday.</summary>
       </Docs>
     </Member>
     <Member MemberName="Wednesday">
@@ -159,7 +236,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. Wednesday.</summary>
       </Docs>
     </Member>
   </Members>

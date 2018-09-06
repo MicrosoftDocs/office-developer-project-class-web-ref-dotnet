@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides a common set of methods and properties in the post-event arguments in all events for the <see cref="T:WebSvcAdmin.Admin" /> class methods.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,8 +56,8 @@
         <Parameter Name="effectedItems" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="effectedItems">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="effectedItems">A collection of GUIDs that represent entities that are affected by the event.</param>
+        <summary>Creates an instance of the <b>AdminPostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +77,7 @@
         <ReturnType>System.Guid[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of GUIDs that represent entities that are affected by the event.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

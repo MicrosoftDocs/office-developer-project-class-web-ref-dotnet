@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents an instance of a resource that is assigned to a specific task on a project.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,7 +39,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the actual cost of work performed to date by a resource on a task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +65,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date and time when a task or assignment is actually completed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +91,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the actual cost incurred for overtime work performed by a resource on a task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +117,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the actual amount of overtime work done to date.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,7 +143,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date and time the resource actually began work on the task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -169,7 +169,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the total amount of work expected from the resource for the task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,7 +195,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the actual cost of work performed (ACWP) on a task to date. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -221,7 +221,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the total planned cost for work to be performed by a resource on a task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -247,7 +247,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets baseline cost-per-use. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -273,7 +273,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the planned finish date for assignments </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -299,7 +299,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the planned beginning date for an assignment at the time a baseline is saved.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -325,7 +325,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the work a resource is scheduled to perform on an assignment when the baseline is saved.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -351,9 +351,14 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the budgeted cost of work performed (BCWP) for an assignment. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_BCWP</b> is the assignment's percentage of work complete multiplied by the baseline costs.</para>
+          <para>This information is also known as earned value. When an assignment is first made, the BCWP for the assignment is 0.00. As soon as a baseline is saved and progress is reported for the assignment (by actual work, actual duration, or percentage of work complete), Project calculates <b>ASSN_BCWP</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_BCWS">
@@ -377,9 +382,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the budgeted cost of work scheduled (BCWS) for this assignment. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_BCWS</b> is the cumulative baseline costs to date.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_BOOKING_TYPE">
@@ -403,9 +412,12 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the booking type for an assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Cast from the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.BookingType" /> type to a <b>short</b> for use with this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_COST">
@@ -429,9 +441,15 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the cost for this assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_COST</b> is the total projected cost for this resource and this task based on costs already incurred for work already performed, in addition to the costs planned for the remaining work for the assignment. <b>ASSN_COST</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_COST</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_COST" /> + <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_COST" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_COST_RATE_TABLE">
@@ -455,9 +473,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a value that specifies which cost rate table to use on this task.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Resource rates are contained in the <see cref="T:WebSvcResource.ResourceDataSet.ResourceRatesDataTable" /> table.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_DELAY">
@@ -481,9 +502,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the amount of time the resource should wait after the task start date before starting work on the assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para>
+            <b>Note</b>: The <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY_FMT" /> property must be specified when using this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_DELAY_FMT">
@@ -507,9 +533,15 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the <see cref="T:Microsoft.Office.Project.Server.Library.Task.DurationFormat" /> type for the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY" /> property. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_DELAY_FMT</b> indicates the preferred display format for the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY" /> property and whether the duration is considered only an estimate instead of a firm value.</para>
+          <para>For more information, see the <see cref="P:WebSvcProject.ProjectDataSet.AssignmentRow.ASSN_DELAY_FMT" /> property.</para>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Task.DurationFormat" /> type to a <b>short</b> for use with this property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_DEMAND_REQ">
@@ -533,9 +565,28 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a value that specifies how to assign resources when using the resource substitution wizard.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>Not Specified</description>
+              <description>Assign any qualified resource to the task. This results in the shortest schedule across all projects.</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>Request</description>
+              <description>Use the specified resource unless the resource is overallocated.</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>Demand</description>
+              <description>Use the specified resource, not a substitution.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_ENTSUMPROJID">
@@ -559,9 +610,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project to which the summary assignment belongs. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Present only if this is a summary assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_FINISH_DATE">
@@ -585,7 +639,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date and time the resource is scheduled to finish the task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -611,9 +665,16 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a duration value that specifies the difference between the baseline finish date of an assignment and its current finish date.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_FINISH_VAR</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_FINISH_VAR</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_DATE" /> – <see cref="P:WebSvcProject.ProjectDataSet.AssignmentRow.AB_FINISH" /></para>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_HAS_LINKED_FIELDS">
@@ -637,8 +698,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the Boolean value that specifies whether there are OLE links to the assignment.</summary>
+        <value>
+          <b>true</b> when there is an OLE link to one of the fields in this row. <b>false</b> when there are no OLE links to any field in this row.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -663,9 +725,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the Boolean value that specifies whether the resource has accepted or rejected the task assignment. Read-only.</summary>
+        <value>If the resource accepts the assignment, <b>ASSN_IS_CONFIRMED</b> is set to <b>true</b>. If the resource rejects the assignment, this field remains set to <b>false</b>.</value>
+        <remarks>
+          <para>Read-only. <b>ASSN_IS_CONFIRMED</b> defaults to <b>false</b>. When an assignment update is sent to a resource, the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RESPONSE_PENDING" /> property is set to <b>true</b>. When a response is received, the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RESPONSE_PENDING" /> property is set to <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_IS_OVERALLOCATED">
@@ -689,7 +754,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the Boolean value that specifies whether the resource is assigned to more work on the assignment than can be done within the resource's normal working capacity.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -715,9 +780,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the duration to delay an assignment from the scheduled start date as a result of resource leveling.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_MATERIAL_RATE_FMT">
@@ -741,9 +809,43 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the units in which the material rate is displayed in Project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <list type="table">
+            <item>
+              <term>1</term>
+              <description>m</description>
+              <description>Minute</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>h</description>
+              <description>Hour</description>
+            </item>
+            <item>
+              <term>3</term>
+              <description>d</description>
+              <description>Day</description>
+            </item>
+            <item>
+              <term>4</term>
+              <description>w</description>
+              <description>Week</description>
+            </item>
+            <item>
+              <term>5</term>
+              <description>mo</description>
+              <description>Month</description>
+            </item>
+            <item>
+              <term>7</term>
+              <description>y</description>
+              <description>Year</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_OVT_COST">
@@ -767,9 +869,15 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the total overtime cost incurred for the assignment. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_OVT_COST</b> includes actual overtime costs already incurred by the resource in addition to any planned overtime costs on remaining work. <b>ASSN_OVT_COST</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_OVT_COST</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_COST" /> + <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_COST" /></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_OVT_WORK">
@@ -793,9 +901,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the actual overtime work incurred for the assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Work is stored as thousandths of a minute. For example, 10 minutes is represented as 10000.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_PARENT_UID">
@@ -819,7 +930,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the parent assignment. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -845,9 +956,16 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the current status of an assignment expressed as the percentage of the assignment work that is completed.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>You can enter the percentage of work complete, or you can have Project calculate it for you based on actual work on the assignment.</para>
+          <para>
+            <b>ASSN_PCT_WORK_COMPLETE</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_PCT_WORK_COMPLETE</b> = (<see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_WORK" /> / <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK" />) * 100</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_REG_WORK">
@@ -871,9 +989,16 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the amount of time scheduled for an assignment that is charged at the resource's standard rate.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_REG_WORK</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_REG_WORK</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK" /> – <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_WORK" /></para>
+          <para>Gets or sets the amount of overtime to be performed by a resource on a task; charged at the resource's overtime rate.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_REM_COST">
@@ -897,9 +1022,15 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the remaining scheduled expense that is incurred in completing the remaining scheduled work.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_REM_COST</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_REM_COST</b> = (<see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_WORK" /> * <see cref="P:WebSvcProject.ProjectDataSet.ProjectResourceRow.RES_STD_RATE" />) + <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_COST" /></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_REM_OVT_COST">
@@ -923,9 +1054,14 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the remaining scheduled overtime expense for this resource.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only. <b>ASSN_REM_OVT_COST</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_REM_OVT_COST</b> = <see cref="P:WebSvcProject.ProjectDataSet.AssignmentRow.ASSN_REM_OVT_WORK" /> * <see cref="P:WebSvcProject.ProjectDataSet.ProjectResourceRow.RES_OVT_RATE" /></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_REM_OVT_WORK">
@@ -949,9 +1085,16 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the amount of remaining scheduled overtime work.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_REM_OVT_WORK</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_REM_OVT_WORK</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_WORK" /> – <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_WORK" /></para>
+          <para>Work is stored as thousandths of a minute. For example, 10 minutes is represented as 10000.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_REM_WORK">
@@ -975,9 +1118,16 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the amount of time still required by a resource on an assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_REM_WORK</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_REM_WORK</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK" /> – <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_WORK" /></para>
+          <para>Work is stored as thousandths of a minute. For example, 10 minutes is represented as 10000.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_RES_TYPE">
@@ -1001,9 +1151,14 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the Boolean value that specified whether the resource is a material resource or a work resource.</summary>
+        <value>
+          <b>false</b> indicates a material resource type; <b>true</b> indicates a work resource.</value>
+        <remarks>
+          <para>
+            <b>ASSN_RES_TYPE</b> is not the same as other fields of this name that use the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.Type" /> type.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_RESPONSE_PENDING">
@@ -1027,9 +1182,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the Boolean value that specified whether an acknowledgment is received from the resource regarding a task.</summary>
+        <value>When you assign a team member to a task and send an update with Project Server, Project enters <b>true</b> in <b>ASSN_RESPONSE_PENDING</b>. As soon as you receive a response to this message, <b>true</b> changes to <b>false</b>.</value>
+        <remarks>
+          <para>Read-only </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_RESUME_DATE">
@@ -1053,9 +1211,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the date and time when a resource resumes work on this assignment. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_START_DATE">
@@ -1079,9 +1240,15 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date and time that an assigned resource is scheduled to begin working on a task.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only. <b>ASSN_START_DATE</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_START_DATE</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.TASK_START_DATE" /> + <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY" /></para>
+          <para> Project calculates the assignment start date based on the resource calendar and task dependencies.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_START_VAR">
@@ -1105,9 +1272,15 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the difference between the baseline start date of an assignment and its currently scheduled start date in duration units.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.<b> ASSN_START_VAR</b> is calculated as shown in the following formula.</para>
+          <para>
+            <b>ASSN_START_VAR</b> = <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_START_DATE" /> – <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.AB_START" /></para>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_STOP_DATE">
@@ -1131,9 +1304,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the date and time the assignment stops, even if the assignment is not finished. Read-only.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para />
+          <para>This is not the finish date of the assignment. For information about finish dates for assignments, see the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_DATE" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_UID">
@@ -1157,7 +1334,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the unique identifier for the assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1183,9 +1360,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a number that specifies how much work the resource performs on an assignment, expressed as a percentage of the resource's theoretical full capacity, or the number of items required when handling a material resource.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>This property can be limited by the resource's <see cref="P:WebSvcProject.ProjectDataSet.ProjectResourceRow.RES_MAX_UNITS" /> property value.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_UPDATE_NEEDED">
@@ -1209,7 +1389,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a Boolean value that specifies whether to send a Project Server update to the resource because of a change to the assignment. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1235,9 +1415,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the total work based on the assignment span and the assignment units for the assigned resource.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>ASSN_WORK</b> includes actual, remaining, and overtime work.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_WORK_CONTOUR">
@@ -1261,7 +1445,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the value that specifies how to distribute work for an assignment across the duration of the assignment. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1287,7 +1471,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the date and time this row was created. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1314,7 +1498,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_COST" /> property is set to a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1341,7 +1525,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_FINISH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1368,7 +1552,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1395,7 +1579,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1422,7 +1606,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_START" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1449,7 +1633,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1476,7 +1660,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACWP" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1503,7 +1687,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_COST_PER_USE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1530,7 +1714,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1557,7 +1741,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_FINISH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1584,7 +1768,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_START" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1611,7 +1795,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1638,7 +1822,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BCWP" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1665,7 +1849,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BCWS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1692,7 +1876,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BOOKING_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1719,7 +1903,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_COST_RATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1746,7 +1930,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1773,7 +1957,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1800,7 +1984,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1827,7 +2011,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DEMAND_REQ" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1854,7 +2038,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ENTSUMPROJID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1881,7 +2065,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1908,7 +2092,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_VAR" /> is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1935,7 +2119,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_HAS_LINKED_FIELDS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1962,7 +2146,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_IS_CONFIRMED" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1989,7 +2173,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_IS_OVERALLOCATED" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2016,7 +2200,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_LEVELING_DELAY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2043,7 +2227,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_MATERIAL_RATE_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2070,7 +2254,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2097,7 +2281,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2124,7 +2308,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_PARENT_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2151,7 +2335,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_PCT_WORK_COMPLETE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2178,7 +2362,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REG_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2205,7 +2389,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2232,7 +2416,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_COST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2259,7 +2443,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2286,7 +2470,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2313,7 +2497,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RES_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2340,7 +2524,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RESPONSE_PENDING" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2367,7 +2551,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RESUME_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2394,7 +2578,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_START_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2421,7 +2605,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_START_VAR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2448,7 +2632,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_STOP_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2475,7 +2659,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_UNITS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2502,7 +2686,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_UPDATE_NEEDED" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2529,7 +2713,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK_CONTOUR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2556,7 +2740,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2583,7 +2767,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.CREATED_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2610,7 +2794,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.PROJ_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2637,7 +2821,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.RES_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2664,8 +2848,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.TASK_IS_SUMMARY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2691,7 +2875,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.TASK_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2718,7 +2902,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_COMMENTS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2745,7 +2929,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_NOTE_STATUS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2772,7 +2956,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_SEND_UPDATE_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2798,9 +2982,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the project the assignment belongs to, identified by the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.PROJ_UID" /> property.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>PROJ_NAME</b> is copied from the <see cref="P:WebSvcProject.ProjectDataSet.ProjectRow.PROJ_NAME" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_UID">
@@ -2824,7 +3012,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the project that the assignment belongs to.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2850,9 +3038,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the resource that is assigned to the task.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>RES_NAME</b> is copied from the <see cref="P:WebSvcProject.ProjectDataSet.ProjectResourceRow.RES_NAME" /> property. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_UID">
@@ -2876,7 +3068,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the assigned resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2903,7 +3095,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2929,7 +3121,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_FINISH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2955,7 +3147,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2981,7 +3173,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_OVT_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3007,7 +3199,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_START" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3033,7 +3225,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACT_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3059,7 +3251,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ACWP" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3085,7 +3277,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_COST_PER_USE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3111,7 +3303,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3137,7 +3329,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_FINISH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3163,7 +3355,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_START" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3189,7 +3381,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BASE_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3215,7 +3407,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BCWP" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3241,7 +3433,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BCWS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3267,7 +3459,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_BOOKING_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3293,7 +3485,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_COST_RATE_TABLE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3319,7 +3511,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3345,7 +3537,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3371,7 +3563,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DELAY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3397,7 +3589,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_DEMAND_REQ" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3423,7 +3615,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_ENTSUMPROJID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3449,7 +3641,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3475,7 +3667,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_FINISH_VAR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3501,7 +3693,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_HAS_LINKED_FIELDS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3527,7 +3719,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_IS_CONFIRMED" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3553,7 +3745,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_IS_OVERALLOCATED" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3579,7 +3771,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_LEVELING_DELAY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3605,7 +3797,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_MATERIAL_RATE_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3631,7 +3823,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3657,7 +3849,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_OVT_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3683,7 +3875,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_PARENT_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3709,7 +3901,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_PCT_WORK_COMPLETE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3735,7 +3927,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REG_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3761,7 +3953,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3787,7 +3979,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_COST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3813,7 +4005,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_OVT_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3839,7 +4031,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_REM_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3865,7 +4057,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RES_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3891,7 +4083,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RES_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3917,7 +4109,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_RESUME_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3943,7 +4135,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_START_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3969,7 +4161,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_START_VAR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -3995,7 +4187,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_STOP_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4021,7 +4213,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_UNITS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4047,7 +4239,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_UPDATE_NEEDED" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4073,7 +4265,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK_CONTOUR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4099,7 +4291,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.ASSN_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4125,7 +4317,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.CREATED_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4151,7 +4343,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.PROJ_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4177,7 +4369,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.RES_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4203,7 +4395,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.TASK_IS_SUMMARY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4229,7 +4421,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.TASK_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4255,7 +4447,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_COMMENTS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4281,7 +4473,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_NOTE_STATUS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4307,7 +4499,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceAssignmentDataSet.ResourceAssignmentRow.WASSN_SEND_UPDATE_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4332,8 +4524,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the Boolean value that specifies whether the assignment belongs to a summary task. Read-only.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4358,9 +4550,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the task to which the resource is assigned.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The task name is copied from the <see cref="P:WebSvcProject.ProjectDataSet.TaskRow.TASK_NAME" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TASK_UID">
@@ -4384,9 +4579,13 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the task to which the resource is assigned.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>TASK_UID</b> is a key into the <see cref="T:WebSvcProject.ProjectDataSet.TaskRow" /> object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WASSN_COMMENTS">
@@ -4410,7 +4609,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4436,7 +4635,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -4462,7 +4661,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

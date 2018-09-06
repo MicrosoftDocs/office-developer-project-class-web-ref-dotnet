@@ -18,8 +18,12 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcLookupTable.LookupTable" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>LookupTableEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,10 +63,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckInLookupTables(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCheckedInRemote">
@@ -116,10 +123,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckOutLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCheckedOutRemote">
@@ -173,10 +183,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckInLookupTables(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCheckingInRemote">
@@ -231,10 +244,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckOutLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCheckingOutRemote">
@@ -289,10 +305,35 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" /> and <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Note</b>: The pre- and post-events for both the <b>CreateLookupTables</b> and <b>CreateLookupTablesMultiLang</b> methods expose <see cref="T:WebSvcLookupTable.LookupTableMultiLangDataSet" />, rather than a <b>LookupTableDataSet</b>, in the <paramref name="e" /> parameter of event handlers. </para>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code shows examples of how to get data from different tables such as <b>LookupTableLanguages</b>, <b>LookupTables</b>, and <b>LookupTableValues</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+    }</code>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="OnCreatedRemote">
@@ -346,10 +387,34 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" /> and <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Note</b>: The pre- and post-events for both the <b>CreateLookupTables</b> and <b>CreateLookupTablesMultiLang</b> methods expose <see cref="T:WebSvcLookupTable.LookupTableMultiLangDataSet" />, rather than a <b>LookupTableDataSet</b>, in the <paramref name="e" /> parameter of event handlers. </para>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment is a pre-event handler for <b>CreateLookupTables</b> that gets data from different tables in a <b>LookupTableMultiLanguageDataSet</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="OnCreatingRemote">
@@ -404,10 +469,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeletedRemote">
@@ -461,10 +530,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnDeletingRemote">
@@ -519,10 +592,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean,System.Int32)" /> and <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnUpdatedRemote">
@@ -576,10 +653,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean,System.Int32)" /> and <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnUpdatingRemote">

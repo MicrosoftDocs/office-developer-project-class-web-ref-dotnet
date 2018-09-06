@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides information for the creation of a calendar exception.</summary>
+    <remarks>
+      <para>A calendar exception is an instance in which a task or resource calendar differs from the project calendar.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CalendarExceptionCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,8 +64,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time that the calendar exception ends.</summary>
+        <value>A date and time object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -86,10 +89,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -114,8 +118,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name given for the calendar exception, such as Vacation.</summary>
+        <value>The name of the exception.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -140,8 +144,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceDays</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a mask that represents the days of the week on which the calendar exception is effective.</summary>
+        <value>A bitwise combination of day values.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,8 +170,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the interval at which the calendar exception occurs.</summary>
+        <value>A value that represents the frequency.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -192,8 +196,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the month when setting a yearly recurrence.</summary>
+        <value>A value that represents a month.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,8 +222,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the day of the month when setting a yearly recurrence.</summary>
+        <value>A value that represents a day.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -244,9 +248,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the recurrence type for the calendar exception.</summary>
+        <value>An enumerated value that represents the recurrence type for the calendar exception.</value>
+        <remarks>
+          <para>Value=0. Daily recurrence; Value=1. Daily, with recurrence defined by skipping a specified number of days; Value=2. Weekly recurrence; Value=3. Monthly recurrence; Value=4. Yearly recurrence.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RecurrenceWeek">
@@ -270,8 +277,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceWeek</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the week number of a monthly occurrence.</summary>
+        <value>An enumerated value that represents one of successive weeks in a month.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -296,8 +303,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the first shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -322,8 +329,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the first shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -348,8 +355,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the second shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -374,8 +381,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the second shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -400,8 +407,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the third shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -426,8 +433,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the third shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -452,8 +459,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the fourth shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -478,8 +485,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the fourth shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -504,8 +511,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the fifth shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -530,8 +537,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the minute of the day that the fifth shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -556,8 +563,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time that the calendar exception starts.</summary>
+        <value>A date and time object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -611,9 +618,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

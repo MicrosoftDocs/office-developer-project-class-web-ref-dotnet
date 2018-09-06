@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains a row of date-based event reminder information for a user of a project.</summary>
+    <remarks>
+      <para>Represents one data row from the <see cref="T:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoDataTable" /> table for one project.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="FrequencyPeriod">
@@ -39,9 +42,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates whether <b>P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue</b> specifies days, weeks, or months.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Cast <see cref="T:Microsoft.Office.Project.Server.Library.Notification.ReminderFrequencyType" /> to an <b>int</b> for use in this field. <b>FrequencyPeriod</b> and <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue" /> determine the interval between reminder notifications for this user.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FrequencyValue">
@@ -65,9 +71,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies a value that determines the frequency period.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The values 0, 1, 2, or 3 are used to mean Every, Every Other, Every Third, or Every Fourth <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" />, respectively.</para>
+          <para>
+            <b>FrequencyPeriod</b> and <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue" /> determine the interval between reminder notifications for this user.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsFrequencyPeriodNull">
@@ -92,8 +103,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>Returns <b>true</b> if the property is set to a a null reference (Nothing in Visual Basic) value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -119,8 +130,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>Returns <b>true</b> if the property is set to a a null reference (Nothing in Visual Basic) value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -146,8 +157,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.IsSubscribed" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>Returns <b>true</b> if the property is set to a a null reference (Nothing in Visual Basic) value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -173,7 +184,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.NextRun" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -200,7 +211,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.RecipientType" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -227,7 +238,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderCategory" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -254,7 +265,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderIsRepetitive" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -281,7 +292,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderName" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -307,9 +318,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates whether the current user receives this reminder notification.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If you change <b>IsSubscribed</b> to <b>true</b>, you must also set <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue" />, <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" />, and <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.RecipientType" /> or you will receive an error when updates are applied.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NextRun">
@@ -333,7 +347,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the next date and time this reminder will be checked.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -359,7 +373,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the type of recipient associated with the subscription reminder.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -385,7 +399,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the category of subscription reminder.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -411,7 +425,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the subscription reminder is a recurring reminder.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -437,7 +451,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the name of the subscription reminder.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -463,7 +477,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the subscription reminder.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -490,7 +504,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -516,7 +530,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -542,7 +556,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.IsSubscribed" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -568,7 +582,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.NextRun" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -594,7 +608,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.RecipientType" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -620,7 +634,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderCategory" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -646,7 +660,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderIsRepetitive" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -672,7 +686,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.ReminderName" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

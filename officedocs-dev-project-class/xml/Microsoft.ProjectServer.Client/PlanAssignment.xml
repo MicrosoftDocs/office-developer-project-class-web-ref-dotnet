@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides information about an assignment in a project plan.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>PlanAssignment</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +71,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.BookingType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the booking type for a plan assignment.</summary>
+        <value>A numerical value that represents the booking type.</value>
+        <remarks>
+          <para>Examples of booking types are proposed, committed, and not specified.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CanLevel">
@@ -97,8 +100,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether resource leveling can be performed on a plan assignment resource.</summary>
+        <value>
+          <b>True</b> if leveling can be performed; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +127,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets any code, abbreviation, or number that is entered as custom information for a plan assignment.</summary>
+        <value>A string that contains plan assignment information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +153,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets any code, abbreviation, or number that is entered as custom cost center information for a plan assignment.</summary>
+        <value>A string that contains cost center information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +179,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of custom fields that have values set for a plan assignment.</summary>
+        <value>The collection of <b>CustomField</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,7 +206,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>PlanAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +231,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the email address of the resource for a plan assignment.</summary>
+        <value>The resource email address.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -248,9 +252,12 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of custom fields that have values set for a plan assignment.</summary>
+        <value>A set of custom field key/value pairs.</value>
+        <remarks>
+          <para>For code examples that use <b>FieldValues</b>, see <see cref="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" /> and <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.FieldValues" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Group">
@@ -274,8 +281,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of a group to which a plan assignment resource belongs.</summary>
+        <value>A string that contains the group name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -300,8 +307,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time that a plan assignment resource was hired.</summary>
+        <value>The hire date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -326,8 +333,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of a plan assignment.</summary>
+        <value>A GUID value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -351,9 +358,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -377,10 +384,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -405,8 +413,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PlanAssignmentIntervalCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of plan assignment time intervals.</summary>
+        <value>A <b>PlanAssignmentIntervalCollection</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -431,8 +439,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether a plan assignment resource is in a team assignment pool.</summary>
+        <value>
+          <b>True</b> if the resource is in a pool; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -463,9 +472,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of a plan assignment item.</param>
+        <summary>Gets or sets an item in a plan assignment.</summary>
+        <value>A <b>PlanAssignment</b> item.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -486,7 +495,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Initializes the extended properties that are associated with the <b>PlanAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -511,8 +520,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the full name of a plan assignment resource.</summary>
+        <value>A resource's full name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -537,8 +546,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets phonetic information for resource names, in either the Japanese Hiragana writing system or the Katakana writing system.</summary>
+        <value>A text string that contains phonetic information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -559,7 +568,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>PlanAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -584,8 +593,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a resource that is part of an organization's entire list of resources and that can be shared across projects.</summary>
+        <value>An <b>EnterpriseResource</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -610,9 +619,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResourceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the type of a plan assignment resource.</summary>
+        <value>An enumerated value that represents the resource type.</value>
+        <remarks>
+          <para>Examples of resource types include BudgetWorkResource, WorkResource, and Cost Resources.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TerminationDate">
@@ -636,8 +648,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time after which a plan assignment resource can no longer be used.</summary>
+        <value>A time and date object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

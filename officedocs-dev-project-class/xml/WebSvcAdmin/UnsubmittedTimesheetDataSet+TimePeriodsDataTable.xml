@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains time period information.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.UnsubmittedTimesheetDataSet.TimePeriodsRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>TimePeriodsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>TimePeriodsDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>TimePeriodsRow</b> object to add.</param>
+        <summary>Adds the specified <b>TimePeriodsRow</b> object to the <b>TimePeriodsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -145,9 +151,12 @@
         <param name="RES_NAME">To be added.</param>
         <param name="TS_NAME">To be added.</param>
         <param name="TS_STATUS_ENUM">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcAdmin.UnsubmittedTimesheetDataSet.TimePeriodsDataTable.AddTimePeriodsRow(WebSvcAdmin.UnsubmittedTimesheetDataSet.TimePeriodsRow)" /> overload. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -201,7 +210,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of rows in the data table.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -258,9 +267,9 @@
         <Parameter Name="RES_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="WPRD_UID">To be added.</param>
-        <param name="RES_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="WPRD_UID">Indicates the unique identifier of the time period row.</param>
+        <param name="RES_UID">Indicates the unique identifier for the resource.</param>
+        <summary>Returns a row object that contains time period information from the <b>TimePeriodsDataTable</b>, by using the specified work period and resource GUIDs.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -290,7 +299,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>TimePeriodsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -346,8 +355,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">A specified XML schema definition.</param>
+        <summary>Returns the <b>complexType</b> XML schema for the <b>TimePeriodsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -376,8 +385,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">The integer offset into the <b>TimePeriodsDataTable</b>.</param>
+        <summary>Gets a <b>TimePeriodsRow</b> object that contains time period information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -434,7 +443,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a <b>TimePeriodsRow</b> object that represents a new row of time period information in the <b>TimePeriodsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -579,8 +588,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>TimePeriodsRow</b> object to be removed from the <b>TimePeriodsDataTable</b>.</param>
+        <summary>Removes a row of time period information in the <b>TimePeriodsDataTable</b>, by using the specified <b>TimePeriodsRow</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -605,7 +614,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>RES_NAMEColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -631,7 +640,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>RES_UIDColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -652,7 +661,7 @@
         <ReturnType>WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>TimePeriodsDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -672,7 +681,7 @@
         <ReturnType>WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>TimePeriodsDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -692,7 +701,7 @@
         <ReturnType>WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>TimePeriodsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -712,7 +721,7 @@
         <ReturnType>WebSvcAdmin.UnsubmittedTimesheetDataSet+TimePeriodsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>TimePeriodsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -737,7 +746,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_NAMEColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -763,7 +772,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>TS_STATUS_ENUMColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -789,7 +798,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WPRD_FINISH_DATEColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -815,7 +824,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WPRD_NAMEColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -841,7 +850,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WPRD_START_DATEColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -867,7 +876,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WPRD_UIDColumn</b> in the <b>TimePeriodsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

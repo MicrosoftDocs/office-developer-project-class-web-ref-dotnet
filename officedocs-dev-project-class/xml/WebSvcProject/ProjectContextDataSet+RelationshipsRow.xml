@@ -14,8 +14,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains information about a related project.</summary>
+    <remarks>
+      <para>
+        <b>RelationshipsRow</b> objects are contained in the <see cref="T:WebSvcProject.ProjectContextDataSet.RelationshipsDataTable" /> class</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="HasBuildTeamPermission">
@@ -39,7 +43,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the Boolean value that specifies whether the current user has the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.AssignResource" /> category permission and the  <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.BuildTeamOnProject" /> category permission.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +69,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the source project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +95,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a copy of the related project's <see cref="P:WebSvcProject.ProjectDataSet.ProjectRow.PROJ_NAME" /> property.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +121,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the related project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,9 +147,38 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents how the project is related.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>None</description>
+              <description>There is no relationship.</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>Direct</description>
+              <description>The project contains a specified resource.</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>Shared</description>
+              <description>The project shares a resource with a specified project.</description>
+            </item>
+            <item>
+              <term>3</term>
+              <description>Indirect</description>
+              <description>The project does not directly have a cross-project relationship with a specified project, and it does not directly contain a specified resource. The project does share resources or have a cross-project relationship with a project that does contain a specified resource.</description>
+            </item>
+            <item>
+              <term>4</term>
+              <description>CrossProject</description>
+              <description>The project has a cross-project link with a specified project.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a high-level look at what resources might be needed for a project. </summary>
+    <remarks>
+      <para>A resource plan is a way to estimate corporate resource capacity when some projects are in full execution and others are still in the proposal phase or planning phase. A resource plan is mostly for project initiation, so it is associated with proposals. After the project is approved and becomes a project, the planning process begins, and a team is built, by using the enterprise resource pool or the local resource pool.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>ResourcePlan</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PlanAssignmentCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of <b>PlanAssignment</b> objects that are associated with the resource plan.</summary>
+        <value>A <b>PlanAssignmentCollection</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,8 +101,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Deletes the <b>ResourcePlan</b> object.</summary>
+        <returns>A queue job.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -124,8 +127,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the end date of the resource plan.</summary>
+        <value>The end date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -151,8 +154,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Checks in the project resource plan in case it was left checked out in Project Server.</summary>
+        <returns>An object containing information about the last successfully queued job.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -177,8 +180,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the resource plan.</summary>
+        <value>A GUID value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,10 +205,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -231,8 +235,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Publishes the project resource plan and makes it visible to other users in Project Server.</summary>
+        <returns>An object containing information about the last successfully queued job.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -257,8 +261,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the start date of the resource plan.</summary>
+        <value>The start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -284,8 +288,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Saves changes from the project resource plan back to Project Server.</summary>
+        <returns>An object containing information about the last successfully queued job.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -310,8 +314,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time of resource utilization for the current resource plan.</summary>
+        <value>The utilization date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -336,8 +340,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.UtilizationType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the type of resource utilization for the current resource plan.</summary>
+        <value>An enumerated value that represents the resource utilization type.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

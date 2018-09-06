@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains the timesheet line classes information that is used to populate timesheets.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.TimesheetLineClassDataSet.LineClassesRow" /> object. You can create or edit these values in the Line Classifications page in Project Web App (http://ServerName/ProjectName/_layouts/pwa/Admin/LineClass.aspx).</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>LineClassesDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>LineClassesDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LineClassesRow</b> object to add.</param>
+        <summary>Adds the specified <b>LineClassesRow</b> object to the <b>LineClassesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -151,7 +157,7 @@
         <param name="TS_LINE_CLASS_ORGANIZATION">To be added.</param>
         <param name="MOD_DATE">To be added.</param>
         <param name="TS_LINE_CLASS_MULTILINE">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -207,8 +213,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of records in the data table.</summary>
+        <value>The number of records.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -263,9 +269,9 @@
         <Parameter Name="TS_LINE_CLASS_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="TS_LINE_CLASS_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="TS_LINE_CLASS_UID">Indicates the unique identifier of the specified timesheet line class.</param>
+        <summary>Returns the timesheet line class row that matches the specified <b>TS_LINE_CLASS_UID GUID</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -294,8 +300,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that is used to iterate through the rows of the <b>LineClassesDataTable</b>.</summary>
+        <returns>An iterator for the line classes data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -351,7 +357,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -380,9 +386,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">The integer offset into the <b>LineClassesDataTable</b>.</param>
+        <summary>Gets information that represents one timesheet line class, at the specified index location in the <b>LineClassesDataTable</b>.</summary>
+        <value>An integer that represents the index into the <b>LineClassesDataTable</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -402,7 +408,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>LineClassesDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -422,7 +428,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>LineClassesDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -442,7 +448,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>LineClassesDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,7 +468,7 @@
         <ReturnType>WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>LineClassesDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -487,8 +493,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the XML schema of the <b>MOD_DATEColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -514,8 +520,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a <b>LineClassesRow</b> object that represents a new row of timesheet line class information in the <b>LineClassesDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -689,8 +695,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.TimesheetLineClassDataSet+LineClassesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LineClassesRow</b> object to remove.</param>
+        <summary>Removes a row of timesheet line class information in the <b>LineClassesDataTable</b> by using the specified <b>LineClassesRow</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -715,8 +721,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_ALWAYS_DISPLAYColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -741,8 +747,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_DESCColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -767,8 +773,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_IS_DISABLEDColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -793,8 +799,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_IS_EDITABLEColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -819,8 +825,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_MULTILINEColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -845,8 +851,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_NAMEColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -871,8 +877,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_NEED_APPROVALColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -897,8 +903,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_ORGANIZATIONColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -923,8 +929,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_TYPEColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -949,8 +955,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the schema of the <b>TS_LINE_CLASS_UIDColumn</b> in the <b>LineClassesDataTable</b>.</summary>
+        <value>A <b>DataColumn</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

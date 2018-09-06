@@ -26,10 +26,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedDataSetSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary> Maintains collections of OLAP cube field settings for analyzing projects.</summary>
+    <remarks>
+      <para>This dataset stores <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.AssignmentDimensionDataTable" /> objects on the Project Server for all available projects </para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -50,7 +56,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CubeFieldSettingDataSet</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +82,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>CubeFieldSettingDataSet</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -109,7 +115,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+AssignmentDimensionDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of task assignment rows.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -141,7 +147,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+AssignmentMeasureDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of earned value information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -225,7 +231,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -283,7 +289,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+ProjectDimensionDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP-based project information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -315,7 +321,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+ProjectMeasureDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP cube field settings.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -373,7 +379,7 @@
         <ReturnType>System.Data.DataRelationCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of relations that link tables and enable navigation from parent tables to child tables in the <b>CubeFieldSettingDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -405,7 +411,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+ResourceDimensionDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP cube field setting rows.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -437,7 +443,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+ResourceMeasureDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP cube field information that is associated with resource values.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -552,7 +558,7 @@
         <ReturnType>System.Data.DataTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of tables in the <b>CubeFieldSettingDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -584,7 +590,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+TaskDimensionDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP cube field setting information that is associated with task information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -616,7 +622,7 @@
         <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet+TaskMeasureDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a collection of OLAP cube field settings that is associated with task completion.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

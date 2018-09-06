@@ -21,10 +21,17 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(false)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Logical operator for a field, as defined by the specified field operands and the operation (<b>AND</b> or <b>OR</b>). </summary>
+    <remarks>
+      <para>The nominal values in this class are unsigned types that make them unavailable for CLS use.</para>
+      <para>The <b>LogicalOperator</b> class implements the <see cref="T:Microsoft.Office.Project.Server.Library.Filter.IOperator" /> interface.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -50,9 +57,9 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="operation">To be added.</param>
-        <param name="operands">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="operation">The logical operation.</param>
+        <param name="operands">The objects on which the operation is made.</param>
+        <summary>Instantiates a <b>LogicalOperator</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,8 +79,8 @@
         <ReturnType>System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.Filter+IOperator&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the objects on which the operation is made.</summary>
+        <value>A list of type <b>Filter.IOperator</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -93,8 +100,8 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+LogicalOperationType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the logical operation (<b>AND</b> or <b>OR</b>).</summary>
+        <value>An enumerated value that represents the operation.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

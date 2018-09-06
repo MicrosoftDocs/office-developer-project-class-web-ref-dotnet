@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Specifies a single row of custom field data that relates to task status.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,7 +39,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.GUID" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +65,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier for the custom field value.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +91,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DATE" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,9 +117,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the desired display format for the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_VALUE" /> property if the custom field is of type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> must be specified if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />. Otherwise, later use of this project in Microsoft Project Professional can result in unpredictable behavior, including possible data loss.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DUR_VALUE">
@@ -143,9 +147,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> must be specified if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />. Otherwise, later use of this project in Microsoft Project Professional can result in unpredictable behavior, including possible data loss.</para>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FIELD_TYPE_ENUM">
@@ -169,7 +178,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the <see cref="T:Microsoft.Office.Project.Server.Library.PSDataType" /> for this custom field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,7 +204,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.YESNO" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -221,7 +230,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.INDICATOR" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -248,7 +257,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.CODE_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -275,7 +284,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DATE_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -302,7 +311,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -329,7 +338,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -356,7 +365,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -383,7 +392,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FLAG_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -410,7 +419,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.INDICATOR_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -437,7 +446,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.MD_PROP_ID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -464,7 +473,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.MD_PROP_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -491,7 +500,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.NUM_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -518,7 +527,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.TEXT_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -544,7 +553,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the integer-based identifier of the enterprise custom field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -570,7 +579,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the unique identifier of the custom field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -596,7 +605,7 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.NUMBER" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -622,7 +631,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the project to which the custom field belongs.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -649,7 +658,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.CODE_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -675,7 +684,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DATE_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -701,7 +710,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -727,7 +736,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.DUR_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -753,7 +762,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -779,7 +788,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FLAG_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -805,7 +814,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.INDICATOR_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -831,7 +840,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.MD_PROP_ID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -857,7 +866,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.MD_PROP_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -883,7 +892,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.NUM_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -909,7 +918,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.TEXT_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -934,7 +943,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the task to which the status applies.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -960,7 +969,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.StatusingDataSet.TaskCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.STRING" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -17,10 +17,16 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(true)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Manages settings for synchronizing Active Directory directory service groups with the Enterprise Resource Pool.</summary>
+    <remarks>
+      <para>Use the <see cref="M:WebSvcAdmin.Admin.GetActiveDirectorySyncGroupSettings" /> method and the <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncGroupSettings(WebSvcAdmin.ADSyncGroupSettings)" /> method to manage Active Directory group synchronization settings.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +42,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ADSyncGroupSettings</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -56,8 +62,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether to automatically reactivate inactive users that are found in the Active Directory group during synchronization.</summary>
+        <value>
+          <b>True</b> if inactive users in the Active Directory are automatically reactivated during synchronization; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,8 +84,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time of the most recent synchronization of Active Directory groups with the Enterprise Resource Pool.</summary>
+        <value>A <b>DateTime</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,8 +105,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the Active Directory node property name for user account information.</summary>
+        <value>An Active Directory node property name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -119,8 +126,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether group updates for Active Directory synchronization are scheduled.</summary>
+        <value>
+          <b>True</b> if group updates for Active Directory synchronization are scheduled; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -145,8 +153,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time to start Active Directory synchronization.</summary>
+        <value>A <b>DateTime</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,8 +174,8 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ADSyncStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets an <see cref="T:WebSvcAdmin.ADSyncStatus" /> value for synchronization of Active Directory groups.</summary>
+        <value>An <b>ADSyncStatus</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -192,8 +200,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets an integer that represents how many times that Active Directory groups are synchronized during the update period.</summary>
+        <value>An integer number.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,8 +226,8 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ADSyncFrequencyUnit</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the update frequency unit of time for synchronization of Active Directory groups.</summary>
+        <value>An <b>ADSyncFrequencyUnit</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

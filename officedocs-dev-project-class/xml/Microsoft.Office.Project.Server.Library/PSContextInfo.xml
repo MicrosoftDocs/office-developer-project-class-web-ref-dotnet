@@ -24,10 +24,17 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlRoot("psci")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains Project Server context information for user identity, Project Web App site, and preferred culture.</summary>
+    <remarks>
+      <para>The <b>PSContextInfo</b> class uses the <see cref="T:Microsoft.Office.Project.Server.Library.IPSContextInfo" /> interface.</para>
+      <para>For an example that uses the <b>PSContextInfo</b> class, see How to: Use Impersonation with WCF.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -43,8 +50,16 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an empty <b>PSContextInfo</b> object, for use with Microsoft Visual C# initialization syntax.</summary>
+        <remarks>
+          <para>You can construct a <b>PSContextInfo</b> object with various parameters, by using the Visual C# initialization syntax, as in the following example.</para>
+          <code>var x = new PSContextInfo() 
+    {IsWindowsUser = true, 
+     UserName = "Fred", 
+     LanguageCulture = CultureInfo.GetCultureInfo("en-US")
+    };</code>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -73,13 +88,13 @@
         <Parameter Name="lcid" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="isWindowsUser">To be added.</param>
-        <param name="userName">To be added.</param>
-        <param name="userGuid">To be added.</param>
-        <param name="trackingGuid">To be added.</param>
-        <param name="siteGuid">To be added.</param>
-        <param name="lcid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="isWindowsUser">Specifies whether to use Windows authentication.</param>
+        <param name="userName">The user name.</param>
+        <param name="userGuid">The GUID of the user.</param>
+        <param name="trackingGuid">The GUID for tracking the queue job.</param>
+        <param name="siteGuid">The GUID of the Project Web App site.</param>
+        <param name="lcid">The locale code ID. Use language and local culture instead.</param>
+        <summary>This constructor exists for Microsoft Office Project Server 2007 backward compatibility. Use a constructor that enables the language and locale culture to be specified.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -110,14 +125,14 @@
         <Parameter Name="localeCulture" Type="System.Globalization.CultureInfo" />
       </Parameters>
       <Docs>
-        <param name="isWindowsUser">To be added.</param>
-        <param name="userName">To be added.</param>
-        <param name="userGuid">To be added.</param>
-        <param name="trackingGuid">To be added.</param>
-        <param name="siteGuid">To be added.</param>
-        <param name="languageCulture">To be added.</param>
-        <param name="localeCulture">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="isWindowsUser">Specifies whether to use Windows authentication.</param>
+        <param name="userName">The user name.</param>
+        <param name="userGuid">The GUID of the user.</param>
+        <param name="trackingGuid">The GUID for tracking the queue job.</param>
+        <param name="siteGuid">The GUID of the Project Web App site.</param>
+        <param name="languageCulture">The language culture, which is used for localizing strings and the user interface.</param>
+        <param name="localeCulture">The locale culture, which is used for formatting numbers, dates, and currency values.</param>
+        <summary>This constructor exists for Project Server 2013 backward compatibility. Creates a <b>PSContextInfo</b> object that includes language and locale culture information.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -148,14 +163,14 @@
         <Parameter Name="lcid" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="isWindowsUser">To be added.</param>
-        <param name="userName">To be added.</param>
-        <param name="userGuid">To be added.</param>
-        <param name="trackingGuid">To be added.</param>
-        <param name="siteGuid">To be added.</param>
-        <param name="urlZone">To be added.</param>
-        <param name="lcid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="isWindowsUser">Specifies whether to use Windows authentication.</param>
+        <param name="userName">The user name.</param>
+        <param name="userGuid">The GUID of the user.</param>
+        <param name="trackingGuid">The GUID for tracking the queue job.</param>
+        <param name="siteGuid">The GUID of the Project Web App site.</param>
+        <param name="urlZone">The URL zone for authentication.</param>
+        <param name="lcid">The locale code ID. Use language and local culture instead.</param>
+        <summary>This constructor exists for Microsoft Office Project Server 2007 backward compatibility. Use a constructor that enables the language and locale culture to be specified.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -188,16 +203,16 @@
         <Parameter Name="delegateName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="isWindowsUser">To be added.</param>
-        <param name="userName">To be added.</param>
-        <param name="userGuid">To be added.</param>
-        <param name="trackingGuid">To be added.</param>
-        <param name="siteGuid">To be added.</param>
-        <param name="languageCulture">To be added.</param>
-        <param name="localeCulture">To be added.</param>
-        <param name="delegateGuid">To be added.</param>
-        <param name="delegateName">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="isWindowsUser">Specifies whether to use Windows authentication.</param>
+        <param name="userName">The user name.</param>
+        <param name="userGuid">The GUID of the user.</param>
+        <param name="trackingGuid">The GUID for tracking the queue job.</param>
+        <param name="siteGuid">The GUID of the Project Web App site.</param>
+        <param name="languageCulture">The language culture, which is used for localizing strings and the user interface.</param>
+        <param name="localeCulture">The locale culture, which is used for formatting numbers, dates, and currency values.</param>
+        <param name="delegateGuid">The GUID of the delegate for the user.</param>
+        <param name="delegateName">The name of the delegate for the user.</param>
+        <summary>This constructor exists for Project Server 2013 backward compatibility. Creates a <b>PSContextInfo</b> object that includes language and locale culture information, and specifies a user delegate.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -264,8 +279,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the user delegate, when delegation is active.</summary>
+        <value>GUID of the user delegate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -293,8 +308,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the user delegate, when delegation is active.</summary>
+        <value>Name of the user delegate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -317,8 +332,8 @@
         <Parameter Name="serialized" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="serialized">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="serialized">The serialized <b>PSContextInfo</b> string.</param>
+        <summary>Creates a <b>PSContextInfo</b> object from a string.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -347,8 +362,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the current user is a Windows user (as opposed to a Forms user).</summary>
+        <value>
+          <b>True</b> if the user has Windows authentication; otherwise, <b>false</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -373,9 +389,13 @@
         <ReturnType>System.Globalization.CultureInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets information about the language culture of the Project Web App instance.</summary>
+        <value>The language culture information.</value>
+        <remarks>
+          <para>
+            <b>LanguageCulture</b> is used for managed code development. Unmanaged code uses <see cref="P:Microsoft.Office.Project.Server.Library.PSContextInfo.LocaleCulture" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LanguageCultureName">
@@ -402,9 +422,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the name of the language culture.</summary>
+        <value>The language culture name.</value>
+        <remarks>
+          <para>
+            <b>LanguageCultureName</b> is used for managed code development. Unmanaged code uses <see cref="P:Microsoft.Office.Project.Server.Library.PSContextInfo.LocaleCultureName" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Lcid">
@@ -431,8 +455,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the language code ID. Use <b>LanguageCulture</b> or <b>LocaleCulture</b> instead.</summary>
+        <value>The language code ID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -457,9 +481,13 @@
         <ReturnType>System.Globalization.CultureInfo</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets information about the locale of the Project Web App instance.</summary>
+        <value>The locale information.</value>
+        <remarks>
+          <para>
+            <b>LocaleCulture</b> is used for unmanaged code development. Managed code uses <see cref="P:Microsoft.Office.Project.Server.Library.PSContextInfo.LanguageCulture" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LocaleCultureName">
@@ -486,9 +514,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the name of the locale culture.</summary>
+        <value>Name of the locale culture.</value>
+        <remarks>
+          <para>
+            <b>LocaleCultureName</b> is used for unmanaged code development. Managed code uses <see cref="P:Microsoft.Office.Project.Server.Library.PSContextInfo.LanguageCultureName" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SerializeToString">
@@ -510,8 +542,8 @@
         <Parameter Name="ci" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
       </Parameters>
       <Docs>
-        <param name="ci">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ci">The <b>PSContextInfo</b> object to serialize.</param>
+        <summary>Serializes a <b>PSContextInfo</b> object to a string.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -540,8 +572,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the Project Web App site.</summary>
+        <value>The Project Web App site GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -566,8 +598,8 @@
         <ReturnType>System.Int64</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the version of the Project Web App site.</summary>
+        <value>The site version.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -595,8 +627,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for tracking the Project Server queue job.</summary>
+        <value>The tracking GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -624,8 +656,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the ULS correlation GUID.</summary>
+        <value>The ULS correlation GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -653,9 +685,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the URL zone for authentication.</summary>
+        <value>The URL zone.</value>
+        <remarks>
+          <para>Zone values are defined in the <b>Microsoft.SharePoint.Administration.SPUrlZone</b> enumeration. URL zones can be <b>Default</b>, <b>Intranet</b>, <b>Internet</b>, <b>Custom</b>, or <b>Extranet</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserGuid">
@@ -682,8 +717,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the Project Server user.</summary>
+        <value>The GUID of the user.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -711,8 +746,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the Project Server user.</summary>
+        <value>The user name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

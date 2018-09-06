@@ -13,8 +13,13 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides storage for information that is used in various user delegation events.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -35,9 +40,9 @@
         <Parameter Name="resUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="delegateUid">To be added.</param>
-        <param name="resUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="delegateUid">The GUID of the user who delegates permissions to others.</param>
+        <param name="resUid">The GUID of the user to whom permission is delegated.</param>
+        <summary>Creates an instance of the <b>UserDelegationInfo</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -57,7 +62,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the user who delegates permissions to others.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -78,7 +83,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the user to whom permission is delegated.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

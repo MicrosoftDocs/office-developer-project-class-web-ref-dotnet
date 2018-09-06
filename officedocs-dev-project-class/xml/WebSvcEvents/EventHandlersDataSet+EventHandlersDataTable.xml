@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains information about one or more event handlers for Project Server events.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcEvents.EventHandlersDataSet.EventHandlersRow" /> object, which specifies one event handler.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>EventHandlersDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info"> Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context"> Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>EventHandlersDataTable</b> class, using parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcEvents.EventHandlersDataSet+EventHandlersRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds an <b>EventHandlersRow</b> object to the <b>EventHandlersDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,8 +153,8 @@
         <param name="Order">To be added.</param>
         <param name="EndpointUrl">To be added.</param>
         <param name="CancelOnError">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <returns>A row in an event handler table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -173,8 +179,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.AssemblyName" /> field.</summary>
+        <value>A <b>DataColumn</b> object for an assembly name field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -199,8 +205,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.CancelOnError" /> field.</summary>
+        <value>A <b>DataColumn</b> object for a <b>CancelOnError</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -225,8 +231,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.ClassName" /> field.</summary>
+        <value>A <b>DataColumn</b> object for a class name field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -281,8 +287,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of row objects in the <b>EventHandlersDataTable</b>.</summary>
+        <value>The number of rows.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -334,8 +340,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Description" /> field.</summary>
+        <value>A <b>DataColumn</b> object for a description field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -360,8 +366,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.EndpointUrl" /> field.</summary>
+        <value>A <b>DataColumn</b> object for an <b>EndpointUrl</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -381,7 +387,7 @@
         <ReturnType>WebSvcEvents.EventHandlersDataSet+EventHandlersRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -401,7 +407,7 @@
         <ReturnType>WebSvcEvents.EventHandlersDataSet+EventHandlersRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -421,7 +427,7 @@
         <ReturnType>WebSvcEvents.EventHandlersDataSet+EventHandlersRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -441,7 +447,7 @@
         <ReturnType>WebSvcEvents.EventHandlersDataSet+EventHandlersRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -466,8 +472,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.EventHandlerUid" /> field.</summary>
+        <value>A <b>DataColumn</b> object for an <b>EventHandlerUid</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -492,8 +498,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.EventId" /> field.</summary>
+        <value>A <b>DataColumn</b> object for an <b>EventId</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -521,9 +527,9 @@
         <Parameter Name="EventHandlerUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="EventHandlerUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="EventHandlerUid">Contains the event handler GUID.</param>
+        <summary>Retrieves an <b>EventHandlersRow</b> object by using the specified event handler GUID.</summary>
+        <returns>An <b>EventHandlersRow</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -552,8 +558,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>EventHandlersDataTable</b>.</summary>
+        <returns>An interator for the <b>EventHandlersDataTable</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -608,9 +614,9 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="xs">A specified XML schema definition.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <returns>A schema type.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -638,9 +644,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>EventHandlersDataTable</b>, where the row is specified by an index.</summary>
+        <value>A row in an event handler data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -665,8 +671,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Name" /> field.</summary>
+        <value>A <b>DataColumn</b> object for a <b>Name</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -692,8 +698,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a row object in the <b>EventHandlersDataTable</b>.</summary>
+        <returns>A row from an event handler table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -864,8 +870,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcEvents.EventHandlersDataSet.EventHandlersRow.Order" /> field.</summary>
+        <value>A <b>DataColumn</b> object for an <b>Order</b> field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -894,8 +900,11 @@
       </Parameters>
       <Docs>
         <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Deletes the specified row object from the <b>EventHandlersDataTable</b>.</summary>
+        <remarks>
+          <para>Contains the row that is to be deleted.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

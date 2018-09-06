@@ -19,8 +19,50 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes methods for managing administrative settings and operations in Project Server and related Microsoft SharePoint Server 2013 sites.</summary>
+    <remarks>
+      <para>The <b>Admin</b> class includes administrative methods to:</para>
+      <list type="bullet">
+        <item>
+          <description>Enable a user to manage server currency settings.</description>
+        </item>
+        <item>
+          <description>Enable a user to manage timesheet settings.</description>
+        </item>
+        <item>
+          <description>Enable a user to manage Active Directory settings and synchronization. </description>
+        </item>
+        <item>
+          <description>Update settings for reporting periods, status reports, timesheets, and user synchronization.</description>
+        </item>
+      </list>
+      <para>The Project Server Administration pages in Project Web App use many of the <b>Admin</b> class methods. If you have administrator permission, click Server Settings in Project Web App.</para>
+      <para>The following administration methods are located in other PSI Web services:</para>
+      <list type="bullet">
+        <item>
+          <description>For managing entities such as projects, resources, and views in the Archive database, see the <see cref="T:WebSvcArchive.Archive" /> class.</description>
+        </item>
+        <item>
+          <description>For managing the OLAP database, see the <see cref="T:WebSvcCubeAdmin.CubeAdmin" /> class.</description>
+        </item>
+        <item>
+          <description>For managing Project Server event handler associations, see the <see cref="T:WebSvcEvents.Events" /> class.</description>
+        </item>
+        <item>
+          <description>For managing Project Server queue jobs, see the <see cref="T:WebSvcQueueSystem.QueueSystem" /> class.</description>
+        </item>
+        <item>
+          <description>For managing permissions, see the <see cref="T:WebSvcSecurity.Security" /> class.</description>
+        </item>
+        <item>
+          <description>For managing workflows, phases, stages, and enterprise project types, see the <see cref="T:WebSvcWorkflow.Workflow" /> class.</description>
+        </item>
+        <item>
+          <description>For managing SharePoint sites for projects, see the <see cref="T:WebSvcWssInterop.WssInterop" /> class.</description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +78,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an <b>Admin</b> object from the ASMX-based <b>Admin</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Admin</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>AdminClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>AdminWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Admin</b> web service.</para>
+          <code>private static AdminWebSvc.Admin admin = new AdminWebSvc.Admin();</code>
+          <para>In the following statement, <b>SvcAdmin</b> is an arbitrary namespace for the WCF-based <b>Admin</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcAdmin.AdminClient adminClient = new SvcAdmin.AdminClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="EnableCaching">
@@ -64,9 +115,10 @@
         <Parameter Name="enable" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="cacheType">To be added.</param>
-        <param name="enable">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="cacheType">The only value available in Project Server is the <b>Database</b> constant (value = 0).</param>
+        <param name="enable">
+          <b>True</b> to enable caching; <b>false</b> to disable caching.</param>
+        <summary>Reserved for internal use. Activates or deactivates caching in the middle tier.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -92,9 +144,27 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the settings for synchronizing the Enterprise Resource Pool with Active Directory directory services.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The Active Directory Synchronization page in Project Web App (http://ServerName/ProjectServerName/layouts/pwa/admin/ADSyncERP.aspx) uses the <b>GetActiveDirectorySyncEnterpriseResourcePoolSettings</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetActiveDirectorySyncEnterpriseResourcePoolSettings2">
@@ -119,9 +189,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the settings for synchronizing the Enterprise Resource Pool with Active Directory directory services.</summary>
+        <returns>An <b>ADSyncERPSettings</b> object.</returns>
+        <remarks>
+          <para>
+            <b>ADSyncERPSettings</b> maintains settings for synchronizing the Enterprise Resource Pool with associated Active Directory services.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetActiveDirectorySyncGroupSettings">
@@ -146,9 +220,26 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the settings for synchronizing Project Server groups with Active Directory groups.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetADSyncReplacementCharacter">
@@ -178,9 +269,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the character that replaces commas in resource names during Active Directory synchronization.</summary>
+        <returns>Contains the current replacement character. The return value is null if the comma character is removed instead of replaced.</returns>
+        <remarks>
+          <para>The <b>GetADSyncReplacementCharacter</b> method requires a restart of the Project Server Queue Service to get a new replacement character set by the <see cref="M:WebSvcAdmin.Admin.SetADSyncReplacementCharacter(System.Nullable{System.Char})" /> method,</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetCompatibilityMode">
@@ -205,9 +308,22 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Obsolete in Project Server 2013.</summary>
+        <returns>In Project Server 2010, reads the Project Server compatibility mode for Project Professional. The compatibility mode can be one of the <see cref="T:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes" /> constants. The value is <b>0</b> if Project Server 2010 is running in native mode, which can connect only with Project Professional 2010.</returns>
+        <remarks>
+          <para>When Project Server 2007 is upgraded to Project Server 2010, the compatibility mode value is <see cref="F:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes.ProjectServer2007" /> by default. This enables Project Professional 2007 to connect to Project Server 2010. </para>
+          <para>For Project Server 2010, the Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) includes the compatibility mode setting. Project Server 2013 does not have a compatibility mode setting.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetDatabaseTimeout">
@@ -234,10 +350,49 @@
         <Parameter Name="timeoutType" Type="WebSvcAdmin.DatabaseTimeoutType" />
       </Parameters>
       <Docs>
-        <param name="timeoutType">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="timeoutType">The only value available in Project Server is the <b>Core</b> constant (value = 0), which specifies the core databases.</param>
+        <summary>Reads the SQL timeout setting for the Project Server core databases, in seconds.</summary>
+        <returns>The timeout value of the core databases.</returns>
+        <remarks>
+          <para>
+            <b>Tip</b>: In some Project Server deployments, the default database timeout is not enough. If a Project Server job fails due to a SQL timeout error, an administrator can increase the database timeout setting by using the <see cref="M:WebSvcAdmin.Admin.SetDatabaseTimeout(WebSvcAdmin.DatabaseTimeoutType,System.Int32)" /> method, and then retry the job.</para>
+          <para>The default value and the minimum value are 30 seconds. The maximum value is the <b>Int32</b> maximum, or 2147483647 seconds (over 15 years).</para>
+          <para>To read the SQL command timeout for the Project queue or the Timesheet queue, you can use the <see cref="M:WebSvcQueueSystem.QueueSystem.ReadQueueConfiguration(WebSvcQueueSystem.QueueID)" /> method, or use the Queue Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queuesettings.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>To use the following Windows PowerShell script, save the script in a file named, for example, <b>Get-DatabaseTimeout.ps1</b>. Run the SharePoint 2010 Management Shell as an administrator (in the Microsoft SharePoint 2010 Projects folder of the Start menu), navigate to the directory where you saved the Get-DatabaseTimeout.ps1 file, and then type the following command: .\Get-DatabaseTimeout</para>
+          <code>###############################################################################
+## Get-DatabaseTimeout
+##
+## Uses the Admin web service of the PSI to call the GetDatabaseTimeout method.
+##
+## The script user must have Project Server administrator permissions.
+## To run on your Project Server installation, change the $pwaUrl value.
+##
+################################################################################
+
+$pwaUrl = "http://ServerName/ProjectServerName"
+$svcAdminUrl = $pwaUrl + "/_vti_bin/PSI/Admin.asmx?wsdl"
+
+$c = get-credential
+
+# Create a proxy for the Admin web service.
+$svcAdminProxy = New-WebServiceProxy -uri $svcAdminUrl -credential $c
+
+$secTimeout = $svcAdminProxy.GetDatabaseTimeout(0) 
+
+Write-Host "Database timeout for Project Server: $secTimeout seconds"</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="GetProjectProfessionalMinimumBuildNumbers">
@@ -262,9 +417,23 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the minimum Project Professional version number that can connect to Project Server.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For example, if a Project Professional version is 14.0.3217.1000, the major release is 14, the minor release is 0, and the build number is 3217.1000.</para>
+          <para>The <b>VersionsDataTable</b> contains one row for each of the minimum accepted version numbers.</para>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) includes the Project Professional versions setting.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetServerCurrency">
@@ -289,9 +458,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the currency setting for Project Server.</summary>
+        <returns>The three-character code for the currency.</returns>
+        <remarks>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) uses the <b>GetServerCurrency</b> method. For example, the default United States currency is <b>USD</b>.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSingleCurrencyEnforced">
@@ -316,9 +497,34 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the value of the setting for enforcing a single currency.</summary>
+        <returns>
+          <b>True</b> if a single currency is enforced.</returns>
+        <remarks>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) uses the <b>GetSingleCurrencyEnforced</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a new project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsCachingEnabled">
@@ -344,8 +550,8 @@
         <Parameter Name="cacheType" Type="WebSvcAdmin.CacheType" />
       </Parameters>
       <Docs>
-        <param name="cacheType">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="cacheType">The only value available in Project Server 2010 is the <b>Database</b> constant (value = 0).</param>
+        <summary>Reserved for internal use. Gets the current status of caching in the middle tier.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -372,9 +578,20 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the list of installed languages.</summary>
+        <returns>An array of integers for the installed languages; for example, <b>1033</b> is U.S. English.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PurgeTimesheetAuditLog">
@@ -399,8 +616,19 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Purges the timesheet audit log.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimeTracking" />
+              </term>
+              <description>Allows the user to manage time sheets that are submitted by resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueADSyncJob">
@@ -429,11 +657,28 @@
         <Parameter Name="groupSync" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="jobUid">To be added.</param>
-        <param name="erpSync">To be added.</param>
-        <param name="groupSync">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUid">the queue job GUID.</param>
+        <param name="erpSync">Specifies whether to synchronize the enterprise resource pool.</param>
+        <param name="groupSync">Specifies whether to synchronize groups.</param>
+        <summary>Runs Active Directory synchronization with the Enterprise Resource Pool.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueApplyResourceCapacityTimeRange">
@@ -461,10 +706,24 @@
         <Parameter Name="forceFullSync" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="jobUid">To be added.</param>
-        <param name="forceFullSync">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUid">The GUID for the queue job ID.</param>
+        <param name="forceFullSync">If <b>true</b>, forces full synchronization of the Reporting database.</param>
+        <summary>Puts a message on the project queue to apply the resource capacity time range in the Reporting database.</summary>
+        <remarks>
+          <para>A SharePoint timer service calls <b>QueueApplyResourceCapacityTimeRange</b> every night to maintain resource capacity data. The Project Web App site administrator can set the time for resource capacity updates and the months back and months ahead time range for capacity data on the Additional Server Settings page (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx). </para>
+          <para>
+            <b>Note</b>: You should not call <b>QueueApplyResourceCapacityTimeRange</b> during peak hours, after a significant extension of the capacity window, or with the <paramref name="forceFullSync" /> parameter set to <b>true</b>. The process of loading all base calendars and resource calendars and calculating capacity is memory intensive and CPU intensive.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadAllDefinedFiscalYears">
@@ -489,9 +748,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the start dates and finish dates of the defined fiscal years.</summary>
+        <returns>Contains the fiscal year definitions.</returns>
+        <remarks>
+          <para>Fiscal years can be defined on the Fiscal Periods page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/FiscalPeriod.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadDepartments">
@@ -518,10 +789,256 @@
         <Parameter Name="language" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="language">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="language">Specifies the primary language identifier (LCID) that indicates the language of a country or region.</param>
+        <summary>Reads the list of departments that are defined in a Project Web App instance.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>You can define departments in the Department lookup table, on the Enterprise custom Fields and Lookup Tables page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/CustomizeFields.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to load the enterprise global template. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to add, modify, or delete users and manage Project Server security groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewProjectCenter" />
+              </term>
+              <description>Allows a user to access the Project Center. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ViewResourceCenter" />
+              </term>
+              <description>Allows a user to access the Resource Center. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to add a new project to the Project Server database. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows the use of the <b>ReadDepartments</b> method. The example uses the <b>SvcAdmin</b> namespace in the ProjectServerServices.dll proxy assembly. Code that uses <b>ReadDepartments</b> returns a <b>DepartmentsDataSet</b>; the application writes the results to an XML file.</para>
+          <para>
+            <b>Note</b>: The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using System.ServiceModel;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.TestAdmin
+{
+    class Program
+    {
+        private const string ENDPOINT_ADMIN = "basicHttp_Admin";
+        // Change the output directory to match the output directory of your computer.
+        private const string OUTPUT_FILES = @"E:\Project\Samples\Output\";
+
+        private static SvcAdmin.AdminClient adminClient;
+
+        private static string outFilePath;
+ 
+        static void Main(string[] args)
+        {
+
+            outFilePath = OUTPUT_FILES + "DepartmentsDataSet.xml";
+            ConfigClientEndpoints(ENDPOINT_ADMIN);
+
+            int lcid = 1033;  // The Department lookup table is in English.
+            
+            try
+            {
+                // Here is the thing that we are trying to do.
+                SvcAdmin.DepartmentsDataSet deptDS = adminClient.ReadDepartments(lcid);
+                deptDS.WriteXml(outFilePath);
+
+            }
+            catch(FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey();
+        }
+
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            if (endpt == ENDPOINT_ADMIN)
+                adminClient = new SvcAdmin.AdminClient(ENDPOINT_ADMIN);
+        }            
+    }
+
+
+    // Helper method: GetPSClientError.
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+</code>
+          <para>The following is an example of the DepartmentsDataSet.xml output file that the sample application saves.</para>
+          <para>
+            <b>Note</b>: The department names that are returned in the example are specific to departments that are defined in the Project Web App instance.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;DepartmentsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/DepartmentsDataSet/"&amp;gt;
+  &amp;lt;Departments&amp;gt;
+    &amp;lt;DEPARTMENT_UID&amp;gt;83125fbf-5c09-4b93-800a-09681bbf7612&amp;lt;/DEPARTMENT_UID&amp;gt;
+    &amp;lt;DEPARTMENT_NAME&amp;gt;Marketing&amp;lt;/DEPARTMENT_NAME&amp;gt;
+    &amp;lt;DEPARTMENT_FULLNAME&amp;gt;Marketing&amp;lt;/DEPARTMENT_FULLNAME&amp;gt;
+  &amp;lt;/Departments&amp;gt;
+  &amp;lt;Departments&amp;gt;
+    &amp;lt;DEPARTMENT_UID&amp;gt;a47930d6-b89d-4f3a-b4e3-522015fe82a1&amp;lt;/DEPARTMENT_UID&amp;gt;
+    &amp;lt;DEPARTMENT_NAME&amp;gt;Testing&amp;lt;/DEPARTMENT_NAME&amp;gt;
+    &amp;lt;DEPARTMENT_FULLNAME&amp;gt;Testing&amp;lt;/DEPARTMENT_FULLNAME&amp;gt;
+  &amp;lt;/Departments&amp;gt;
+  &amp;lt;Departments&amp;gt;
+    &amp;lt;DEPARTMENT_UID&amp;gt;cca85763-9376-4ef7-b4f2-a2b661b9846b&amp;lt;/DEPARTMENT_UID&amp;gt;
+    &amp;lt;DEPARTMENT_NAME&amp;gt;UA&amp;lt;/DEPARTMENT_NAME&amp;gt;
+    &amp;lt;DEPARTMENT_FULLNAME&amp;gt;UA&amp;lt;/DEPARTMENT_FULLNAME&amp;gt;
+  &amp;lt;/Departments&amp;gt;
+  &amp;lt;Departments&amp;gt;
+    &amp;lt;DEPARTMENT_UID&amp;gt;41d056ca-497f-4e4a-8855-e118b667fcc8&amp;lt;/DEPARTMENT_UID&amp;gt;
+    &amp;lt;DEPARTMENT_NAME&amp;gt;Planning&amp;lt;/DEPARTMENT_NAME&amp;gt;
+    &amp;lt;DEPARTMENT_FULLNAME&amp;gt;Planning&amp;lt;/DEPARTMENT_FULLNAME&amp;gt;
+  &amp;lt;/Departments&amp;gt;
+  &amp;lt;Departments&amp;gt;
+    &amp;lt;DEPARTMENT_UID&amp;gt;96e4522f-2d4e-4026-9ec0-ede9c182dda8&amp;lt;/DEPARTMENT_UID&amp;gt;
+    &amp;lt;DEPARTMENT_NAME&amp;gt;Development&amp;lt;/DEPARTMENT_NAME&amp;gt;
+    &amp;lt;DEPARTMENT_FULLNAME&amp;gt;Development&amp;lt;/DEPARTMENT_FULLNAME&amp;gt;
+  &amp;lt;/Departments&amp;gt;
+&amp;lt;/DepartmentsDataSet&amp;gt;
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadDepartmentsByEntity">
@@ -550,12 +1067,89 @@
         <Parameter Name="language" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="entityUid">To be added.</param>
-        <param name="entityTypeUid">To be added.</param>
-        <param name="language">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="entityUid">The GUID of the specified entity.</param>
+        <param name="entityTypeUid">The GUID of the entity type.</param>
+        <param name="language">Specifies the primary language identifier that indicates the language of a country or region.</param>
+        <summary>Reads the list of departments in Project Server for the specified entity.</summary>
+        <returns>Contains the list of departments for the specified entity.</returns>
+        <remarks>
+          <para>The entity type can be a project, resource, or enterprise project type, or an Optimizer analysis, driver, or prioritization. You can determine the entity type by using the following properties:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <see cref="P:Microsoft.Office.Project.Server.Library.EntityCollection.ProjectEntity" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="P:Microsoft.Office.Project.Server.Library.EntityCollection.ResourceEntity" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.Optimizer.ANALYSIS_ENTITY_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.Optimizer.DRIVER_ENTITY_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.Optimizer.PRIORITIZATION_ENTITY_UID" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="F:Microsoft.Office.Project.Server.Library.Workflow.EnterpriseProjectTypeEntityUid" />
+              </description>
+            </item>
+          </list>
+          <para>The <b>ReadDepartmentsByEntity</b> method should not be called for a resource that does not exist. When you create a resource by using the <b>CreateResources</b> method, the <paramref name="entityUid" /> value is temporary until the <b>CreateResource</b> method finishes. Then get the final <b>RES_UID</b> value by using the <b>ReadResources</b> method.</para>
+          <para>Project Server Permissions</para>
+          <para>Permissions are non-standard. Each row in the following table shows the permissions that are required for the specified type of entity.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" />
+              </term>
+              <description>Required for a project entity. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.ViewEnterpriseResourceData" />
+              </term>
+              <description>Required for a resource entity. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Required for an Optimizer analysis entity. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageDrivers" />
+              </term>
+              <description>Required for an Optimizer driver entity. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePrioritizations" />
+              </term>
+              <description>Required for an Optimizer prioritization entity. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Both permissions are required for an enterprise project type (EPT) entity. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadFiscalPeriods">
@@ -582,10 +1176,22 @@
         <Parameter Name="fiscalYear" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="fiscalYear">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="fiscalYear">The fiscal year in which periods are defined.</param>
+        <summary>Reads the fiscal period names, start dates, end dates, and quarters that are defined for the specified fiscal year.</summary>
+        <returns>Contains information for the fiscal periods.</returns>
+        <remarks>
+          <para>The fiscal periods can be set on the Fiscal Periods page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/FiscalPeriod.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadLineClasses">
@@ -613,11 +1219,22 @@
         <Parameter Name="classState" Type="WebSvcAdmin.LineClassState" />
       </Parameters>
       <Docs>
-        <param name="type">To be added.</param>
-        <param name="classState">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="type">The type of timesheet line (Regular, NonProject, NonWork, AllNonProject, or All).</param>
+        <param name="classState">The state of the timesheet line (Enabled, Disabled, or All).</param>
+        <summary>Reads all timesheet line class names, according to the specified type and state of the timesheet line.</summary>
+        <returns>Contains the timesheet line information.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadPeriods">
@@ -644,10 +1261,21 @@
         <Parameter Name="p0" Type="WebSvcAdmin.PeriodState" />
       </Parameters>
       <Docs>
-        <param name="p0">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="p0">Timesheet state enumeration: <b>All</b>, <b>Closed</b>, or <b>Open</b>.</param>
+        <summary>Reads information about timesheet periods of the specified state.</summary>
+        <returns>Contains information about the timesheet periods of the state that is specified by the <paramref name="p0" /> parameter.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadPeriodsWithUnsubmittedTimesheet">
@@ -674,10 +1302,21 @@
         <Parameter Name="periods" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="periods">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="periods">An array of GUIDs that specify the timesheet periods.</param>
+        <summary>Reads a list of all unsubmitted timesheets for the specified periods.</summary>
+        <returns>Contains information about the unsubmitted timesheets.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimesheetAndFinancialPeriods" />
+              </term>
+              <description>Allows a user to create and modify timesheet and fiscal period definitions. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadServerVersion">
@@ -702,9 +1341,52 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the Project Server version major, minor, build, and revision numbers.</summary>
+        <returns>The <b>DataSet</b> contains a single table named <paramref name="ServerVersion" /> and one row with the column names <paramref name="WADMIN_VERSION_MAJOR" />, <paramref name="WADMIN_VERSION_MINOR" />, <paramref name="WADMIN_VERSION_BUILD" />, and <paramref name="WADMIN_VERSION_REVISION" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>ProjectServerVersion</b> sample method returns a string that combines all four fields in the table. </para>
+          <code>using System;
+using System.Data;
+. . .
+public string ProjectServerVersion(SvcAdmin.Admin admin)
+{
+    string major, minor, build, revision;
+    string version = "";
+
+    DataSet dsInfo = admin.ReadServerVersion();
+
+    DataRow row = dsInfo.Tables["ServerVersion"].Rows[0];
+    major = row["WADMIN_VERSION_MAJOR"].ToString();
+    minor = row["WADMIN_VERSION_MINOR"].ToString();
+    build = row["WADMIN_VERSION_BUILD"].ToString();
+    revision = row["WADMIN_VERSION_REVISION"].ToString();
+
+    build = build.Insert(build.Length - 4, ".");
+
+    version = major + "." +
+        minor + "." +
+        build + ", rev. " +
+        revision;
+    return version;
+}</code>
+          <para>In the example, the PSI Admin Web service namespace is <b>AdminWebSvc</b>. The <paramref name="admin" /> parameter is a class variable that is defined in the calling class, as follows:</para>
+          <code>public static AdminWebSvc.Admin admin = new WebSvcAdmin.Admin();
+. . .
+    string ver = ProjectServerVersion(admin);</code>
+          <para>For example, <b>ProjectServerVersion</b> returns the following string for the released version of Microsoft Project Server 2010: 14.0.4750.1000, rev. 15</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadStatusingSettings">
@@ -729,9 +1411,20 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the administration settings that are used for statusing operations.</summary>
+        <returns>Contains the administrative statusing settings.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadTimesheetAuditLog">
@@ -761,14 +1454,299 @@
         <Parameter Name="auditType" Type="WebSvcAdmin.AuditType" />
       </Parameters>
       <Docs>
-        <param name="auditStart">To be added.</param>
-        <param name="auditFinish">To be added.</param>
-        <param name="periodStart">To be added.</param>
-        <param name="periodFinish">To be added.</param>
-        <param name="auditType">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="auditStart">The date for start of audit.</param>
+        <param name="auditFinish">The date for end of audit.</param>
+        <param name="periodStart">The date for start of period to audit.</param>
+        <param name="periodFinish">The date for end of period to audit.</param>
+        <param name="auditType">Audit by adjuster, resource, or both.</param>
+        <summary>Reads the timesheet audit log transactions that occur during the specified audit and timesheet period time spans.</summary>
+        <returns>Contains audit data for the specified dates.</returns>
+        <remarks>
+          <para>Previous versions of Project Server required that a SQL query be run on the Reporting database to collect audit log transactions. The use of <b>ReadTimesheetAuditLog</b> provides a method call to use in place of a query.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimesheetAndFinancialPeriods" />
+              </term>
+              <description>Allows a user to create and modify timesheet definitions and fiscal period definitions. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example reads the current timesheet audit log and writes the results to an XML file. The example uses the <b>SvcAdmin</b> namespace in the ProjectServerServices.dll proxy assembly.</para>
+          <para>
+            <b>Note</b>: The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using System.ServiceModel;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using SvcAdmin;
+
+
+namespace Microsoft.SDK.Project.Samples.TestAdmin
+{
+    class Program
+    {
+        private const string ENDPOINT = "basicHttp_Admin";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+
+        private static SvcAdmin.AdminClient adminClient;
+        private static string outFilePath;
+
+        static void Main(string[] args)
+        {
+            outFilePath = OUTPUT_FILES + "TimeSheetAuditLog.xml";
+            ConfigClientEndpoints(ENDPOINT);
+
+            Console.WriteLine("Retrieving the timesheet audit log...");
+
+            // Get the audit log transactions for the current instance of Project Web Access.  
+
+            try
+            {
+            // To set the parameters for reading the audit log, define
+            // the start date and end date for the audit and for the 
+            // associated timesheet period. This sample uses the same
+            // dates for both, so that for the specified timesheet period, 
+            // all of the log entries are read.
+            // The audit type indicates that both the resource and the adjuster are involved in the audit.
+
+                int startmonth = 2;
+                int startday = 1;
+                int startyear = 2011;
+                int finishmonth = 2;
+                int finishday = 28;
+                int finishyear = 2011;
+
+                DateTime auditStart = new DateTime(startyear, startmonth, startday);
+                DateTime auditFinish = new DateTime(finishyear, finishmonth, finishday);
+                DateTime periodStart = new DateTime(startyear, startmonth, startday);
+                DateTime periodFinish = new DateTime(finishyear, finishmonth, finishday);
+
+                SvcAdmin.TimesheetAuditExportDataSet timeSheetAuditLog = adminClient.ReadTimesheetAuditLog(auditStart, auditFinish, periodStart, periodFinish, AuditType.ByBoth);
+
+                // Write the audit log to an XML file.
+                timeSheetAuditLog.WriteXml(outFilePath);
+            }
+
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.Write("\nThe attempt to access the timesheet audit log has failed.");
+            }
+
+            Console.WriteLine("\nSee XML output of the timesheet audit log at:\n\t{0}",
+                outFilePath);
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadLine();
+
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            adminClient = new SvcAdmin.AdminClient(endpt);
+        }
+    }
+
+    // Helper method: GetPSClientError.
+    class Helpers
+    {
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+</code>
+          <para>Following is an example of part of the ReadTimesheetAuditLog.xml file that the application saves. </para>
+          <para>
+            <b>Note</b>: The audit log information returned in the example is specific to the project that was defined in a Project Web App instance.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;TimesheetAuditExportDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/TimesheetAuditExportDataSet/"&amp;gt;
+  &amp;lt;AuditExports&amp;gt;
+    &amp;lt;TS_LINE_UID&amp;gt;621da0b8-a428-4bb8-9eff-d4dc629a3e98&amp;lt;/TS_LINE_UID&amp;gt;
+    &amp;lt;TS_UID&amp;gt;4776d822-5982-4c45-b2be-7c22be69d336&amp;lt;/TS_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;TASK_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TASK_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;e38038fa-f8ca-47d1-bfd4-6b45b8462972&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;TS_LINE_CLASS_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TS_LINE_CLASS_UID&amp;gt;
+    &amp;lt;TS_LINE_VALIDATION_TYPE&amp;gt;0&amp;lt;/TS_LINE_VALIDATION_TYPE&amp;gt;
+    &amp;lt;TS_LINE_CACHED_ASSIGN_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_ASSIGN_NAME&amp;gt;
+    &amp;lt;TS_LINE_CACHED_PROJ_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_PROJ_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_UID&amp;gt;0b7fb2dc-171e-45ec-93d1-02ce767ae139&amp;lt;/TS_ACT_AUD_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_OPERATION_ENUM&amp;gt;1&amp;lt;/TS_ACT_AUD_OPERATION_ENUM&amp;gt;
+    &amp;lt;TS_ACT_START_DATE&amp;gt;2011-02-07T00:00:00-08:00&amp;lt;/TS_ACT_START_DATE&amp;gt;
+    &amp;lt;TS_ACT_FINISH_DATE&amp;gt;2011-02-07T23:59:59-08:00&amp;lt;/TS_ACT_FINISH_DATE&amp;gt;
+    &amp;lt;TS_ACT_AUD_SEQUENCE&amp;gt;1&amp;lt;/TS_ACT_AUD_SEQUENCE&amp;gt;
+    &amp;lt;RES_UID&amp;gt;2e0fdcc1-85fc-4bde-9593-78a2789c66af&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_DELTA_VALUE&amp;gt;480000.000000&amp;lt;/TS_ACT_AUD_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_CACHED_RES_NAME&amp;gt;Mina Edison&amp;lt;/TS_ACT_AUD_CACHED_RES_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_RES_ROLE&amp;gt;2&amp;lt;/TS_ACT_AUD_RES_ROLE&amp;gt;
+  &amp;lt;/AuditExports&amp;gt;
+  &amp;lt;AuditExports&amp;gt;
+    &amp;lt;TS_LINE_UID&amp;gt;621da0b8-a428-4bb8-9eff-d4dc629a3e98&amp;lt;/TS_LINE_UID&amp;gt;
+    &amp;lt;TS_UID&amp;gt;4776d822-5982-4c45-b2be-7c22be69d336&amp;lt;/TS_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;TASK_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TASK_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;e38038fa-f8ca-47d1-bfd4-6b45b8462972&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;TS_LINE_CLASS_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TS_LINE_CLASS_UID&amp;gt;
+    &amp;lt;TS_LINE_VALIDATION_TYPE&amp;gt;0&amp;lt;/TS_LINE_VALIDATION_TYPE&amp;gt;
+    &amp;lt;TS_LINE_CACHED_ASSIGN_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_ASSIGN_NAME&amp;gt;
+    &amp;lt;TS_LINE_CACHED_PROJ_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_PROJ_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_UID&amp;gt;0b7fb2dc-171e-45ec-93d1-02ce767ae139&amp;lt;/TS_ACT_AUD_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_OPERATION_ENUM&amp;gt;1&amp;lt;/TS_ACT_AUD_OPERATION_ENUM&amp;gt;
+    &amp;lt;TS_ACT_START_DATE&amp;gt;2011-02-08T00:00:00-08:00&amp;lt;/TS_ACT_START_DATE&amp;gt;
+    &amp;lt;TS_ACT_FINISH_DATE&amp;gt;2011-02-08T23:59:59-08:00&amp;lt;/TS_ACT_FINISH_DATE&amp;gt;
+    &amp;lt;TS_ACT_AUD_SEQUENCE&amp;gt;2&amp;lt;/TS_ACT_AUD_SEQUENCE&amp;gt;
+    &amp;lt;RES_UID&amp;gt;2e0fdcc1-85fc-4bde-9593-78a2789c66af&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_DELTA_VALUE&amp;gt;480000.000000&amp;lt;/TS_ACT_AUD_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_CACHED_RES_NAME&amp;gt;Mina Edison&amp;lt;/TS_ACT_AUD_CACHED_RES_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_RES_ROLE&amp;gt;2&amp;lt;/TS_ACT_AUD_RES_ROLE&amp;gt;
+  &amp;lt;/AuditExports&amp;gt;
+  &amp;lt;AuditExports&amp;gt;
+    &amp;lt;TS_LINE_UID&amp;gt;621da0b8-a428-4bb8-9eff-d4dc629a3e98&amp;lt;/TS_LINE_UID&amp;gt;
+    &amp;lt;TS_UID&amp;gt;4776d822-5982-4c45-b2be-7c22be69d336&amp;lt;/TS_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;TASK_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TASK_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;e38038fa-f8ca-47d1-bfd4-6b45b8462972&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;TS_LINE_CLASS_UID&amp;gt;20492c14-d411-4e3c-9c64-e17151104486&amp;lt;/TS_LINE_CLASS_UID&amp;gt;
+    &amp;lt;TS_LINE_VALIDATION_TYPE&amp;gt;0&amp;lt;/TS_LINE_VALIDATION_TYPE&amp;gt;
+    &amp;lt;TS_LINE_CACHED_ASSIGN_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_ASSIGN_NAME&amp;gt;
+    &amp;lt;TS_LINE_CACHED_PROJ_NAME&amp;gt;Administrative&amp;lt;/TS_LINE_CACHED_PROJ_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_UID&amp;gt;0b7fb2dc-171e-45ec-93d1-02ce767ae139&amp;lt;/TS_ACT_AUD_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_OPERATION_ENUM&amp;gt;1&amp;lt;/TS_ACT_AUD_OPERATION_ENUM&amp;gt;
+    &amp;lt;TS_ACT_START_DATE&amp;gt;2011-02-09T00:00:00-08:00&amp;lt;/TS_ACT_START_DATE&amp;gt;
+    &amp;lt;TS_ACT_FINISH_DATE&amp;gt;2011-02-09T23:59:59-08:00&amp;lt;/TS_ACT_FINISH_DATE&amp;gt;
+    &amp;lt;TS_ACT_AUD_SEQUENCE&amp;gt;3&amp;lt;/TS_ACT_AUD_SEQUENCE&amp;gt;
+    &amp;lt;RES_UID&amp;gt;2e0fdcc1-85fc-4bde-9593-78a2789c66af&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;TS_ACT_AUD_DELTA_VALUE&amp;gt;300000.000000&amp;lt;/TS_ACT_AUD_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;0.000000&amp;lt;/TS_ACT_AUD_NONBILL_OVT_DELTA_VALUE&amp;gt;
+    &amp;lt;TS_ACT_AUD_CACHED_RES_NAME&amp;gt;Mina Edison&amp;lt;/TS_ACT_AUD_CACHED_RES_NAME&amp;gt;
+    &amp;lt;TS_ACT_AUD_RES_ROLE&amp;gt;2&amp;lt;/TS_ACT_AUD_RES_ROLE&amp;gt;
+  &amp;lt;/AuditExports&amp;gt;
+&amp;lt;/TimesheetAuditExportDataSet&amp;gt;
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadTimesheetManagers">
@@ -793,8 +1771,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Reads the configured timesheet managers list.</summary>
+        <returns>A timesheet manager dataset.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -820,9 +1798,114 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the current settings for timesheets.</summary>
+        <returns>Contains the current timesheet settings.</returns>
+        <remarks>
+          <para>
+            <b>Note</b>: On a Project Web App site that is created from an upgrade of a site from Microsoft Office Project Server 2007, if you query for <see cref="P:WebSvcAdmin.TimeSheetSettingsDataSet.TimeSheetSettingsRow.WADMIN_TS_PROJECT_MANAGER_COORDINATION" /> in the returned <b>TimeSheetSettingsDataSet</b>, you get a <b>System.InvalidCastException</b>. The field value is <b>DBNull</b>, so the application cannot cast to a <b>Boolean</b> value.</para>
+          <para>Timesheet settings can be set on the Timesheet Settings and Defaults page in Project Web App (http:///ServerName/ProjectServerName/_layouts/pwa/Admin/TSSettings.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses the <b>SvcAdmin</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>If the <b>WADMIN_TS_PROJECT_MANAGER_COORDINATION</b> value is <b>DBNull</b>, applications should treat the value as <b>False</b>. In the example, the <b>GetPMCoordination</b> method uses <b>Convert.IsDBNull</b> to check the value of <b>WADMIN_TS_PROJECT_MANAGER_COORDINATION</b>.</para>
+          <code>using System;
+using System.Text;
+
+namespace Microsoft.SDK.Project.Samples.ReadTimeSheetSettings
+{
+    class Program
+    {
+        private const string ENDPOINT = "basicHttp_Admin";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+
+        private static SvcAdmin.AdminClient adminClient;
+        private static string outFilePath;
+ 
+        static void Main(string[] args)
+        {
+            outFilePath = OUTPUT_FILES + "TimesheetSettings.xml";
+            ConfigClientEndpoints(ENDPOINT);
+
+            Console.WriteLine("Retrieving the timesheet settings...");
+            SvcAdmin.TimeSheetSettingsDataSet timesheetSettingsDs =
+                new SvcAdmin.TimeSheetSettingsDataSet();
+
+            timesheetSettingsDs = adminClient.ReadTimeSheetSettings();
+
+            if (GetPMCoordination(timesheetSettingsDs))
+                Console.WriteLine(
+                    "\nProject managers can view timesheet line item approvals.");
+            else
+               Console.WriteLine(
+                   "\nProject managers cannot view timesheet line item approvals.");
+
+            timesheetSettingsDs.WriteXml(outFilePath);
+
+            Console.WriteLine("\nSee XML output of the TimeSheetSettingsDataSet at:\n\t{0}",
+                outFilePath);
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+        }
+
+        private static bool GetPMCoordination(SvcAdmin.TimeSheetSettingsDataSet tsSettings)
+        {
+            bool pmCoord = false;
+
+            // Check whether WADMIN_TS_PROJECT_MANAGER_COORDINATION is DBNull, which can occur
+            // in upgrades from Project Server 2007 to Project Server 2010.
+            // If so, treat the value as false.
+            if (!Convert.IsDBNull(
+                tsSettings.TimeSheetSettings[0].WADMIN_TS_PROJECT_MANAGER_COORDINATION))
+            {    
+                pmCoord = true;
+            }
+            return pmCoord;
+        }
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            adminClient = new SvcAdmin.AdminClient(endpt);
+        }
+    }
+}</code>
+          <para>Following is an example of the TimesheetSettings.xml file that the application saves. </para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;TimeSheetSettingsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/TimeSheetSettingsDataSet/"&amp;gt;
+  &amp;lt;TimeSheetSettings&amp;gt;
+    &amp;lt;WADMIN_UIDFAKE&amp;gt;446855fe-d085-4ba0-8006-9fce73e9c9fb&amp;lt;/WADMIN_UIDFAKE&amp;gt;
+    &amp;lt;WADMIN_TS_IS_UNVERS_TASK_ALLOWED&amp;gt;true&amp;lt;/WADMIN_TS_IS_UNVERS_TASK_ALLOWED&amp;gt;
+    &amp;lt;WADMIN_TS_PROJECT_MANAGER_COORDINATION&amp;gt;true&amp;lt;/WADMIN_TS_PROJECT_MANAGER_COORDINATION&amp;gt;
+    &amp;lt;WADMIN_TS_PROJECT_MANAGER_APPROVAL&amp;gt;false&amp;lt;/WADMIN_TS_PROJECT_MANAGER_APPROVAL&amp;gt;
+    &amp;lt;WADMIN_TS_IS_AUDIT_ENABLED&amp;gt;false&amp;lt;/WADMIN_TS_IS_AUDIT_ENABLED&amp;gt;
+    &amp;lt;WADMIN_TS_IS_FUTURE_REP_ALLOWED&amp;gt;true&amp;lt;/WADMIN_TS_IS_FUTURE_REP_ALLOWED&amp;gt;
+    &amp;lt;WADMIN_TS_FIXED_APPROVAL_ROUTING&amp;gt;false&amp;lt;/WADMIN_TS_FIXED_APPROVAL_ROUTING&amp;gt;
+    &amp;lt;WADMIN_TS_TIED_MODE&amp;gt;true&amp;lt;/WADMIN_TS_TIED_MODE&amp;gt;
+    &amp;lt;WADMIN_TS_MIN_HR_PER_TS&amp;gt;0.000000&amp;lt;/WADMIN_TS_MIN_HR_PER_TS&amp;gt;
+    &amp;lt;WADMIN_TS_MAX_HR_PER_TS&amp;gt;59940000.000000&amp;lt;/WADMIN_TS_MAX_HR_PER_TS&amp;gt;
+    &amp;lt;WADMIN_TS_MAX_HR_PER_DAY&amp;gt;59940000.000000&amp;lt;/WADMIN_TS_MAX_HR_PER_DAY&amp;gt;
+    &amp;lt;WADMIN_TS_HOURS_PER_DAY&amp;gt;480000.000000&amp;lt;/WADMIN_TS_HOURS_PER_DAY&amp;gt;
+    &amp;lt;WADMIN_TS_HOURS_PER_WEEK&amp;gt;2400000.000000&amp;lt;/WADMIN_TS_HOURS_PER_WEEK&amp;gt;
+    &amp;lt;WADMIN_TS_DEF_DISPLAY_ENUM&amp;gt;7&amp;lt;/WADMIN_TS_DEF_DISPLAY_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_CREATE_MODE_ENUM&amp;gt;1&amp;lt;/WADMIN_TS_CREATE_MODE_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_REPORT_UNIT_ENUM&amp;gt;0&amp;lt;/WADMIN_TS_REPORT_UNIT_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_DEF_ENTRY_MODE_ENUM&amp;gt;0&amp;lt;/WADMIN_TS_DEF_ENTRY_MODE_ENUM&amp;gt;
+    &amp;lt;WADMIN_DEFAULT_TRACKING_METHOD&amp;gt;1&amp;lt;/WADMIN_DEFAULT_TRACKING_METHOD&amp;gt;
+    &amp;lt;WADMIN_IS_TRACKING_METHOD_LOCKED&amp;gt;true&amp;lt;/WADMIN_IS_TRACKING_METHOD_LOCKED&amp;gt;
+    &amp;lt;WADMIN_TS_ALLOW_PROJECT_LEVEL&amp;gt;true&amp;lt;/WADMIN_TS_ALLOW_PROJECT_LEVEL&amp;gt;
+  &amp;lt;/TimeSheetSettings&amp;gt;
+&amp;lt;/TimeSheetSettingsDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="SetActiveDirectorySyncEnterpriseResourcePoolSettings">
@@ -849,9 +1932,27 @@
         <Parameter Name="settings" Type="WebSvcAdmin.ADSyncERPSettings" />
       </Parameters>
       <Docs>
-        <param name="settings">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="settings">Contains the Active Directory synchronization settings for the enterprise resource pool.</param>
+        <summary>Updates the Enterprise Resource Pool settings.</summary>
+        <remarks>
+          <para>The Active Directory Enterprise Resource Pool Synchronization page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/ADSyncERP.aspx) uses the <b>SetActiveDirectorySyncEnterpriseResourcePoolSettings</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetActiveDirectorySyncEnterpriseResourcePoolSettings2">
@@ -878,9 +1979,12 @@
         <Parameter Name="settings" Type="WebSvcAdmin.ADSyncERPSettings2" />
       </Parameters>
       <Docs>
-        <param name="settings">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="settings">The object that contains the settings to be changed.</param>
+        <summary>Updates the enterprise resource pool settings.</summary>
+        <remarks>
+          <para>The <b>ADSyncERPSettings</b> maintains settings for synchronizing the Enterprise Resource Pool with associated Active Directory services.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetActiveDirectorySyncGroupSettings">
@@ -907,9 +2011,27 @@
         <Parameter Name="settings" Type="WebSvcAdmin.ADSyncGroupSettings" />
       </Parameters>
       <Docs>
-        <param name="settings">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="settings">Contains the Active Directory group synchronization settings.</param>
+        <summary>Updates security group settings with Active Directory information.</summary>
+        <remarks>
+          <para>The Active Directory Enterprise Resource Pool Synchronization page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/ADSyncERP.aspx) uses the <b>SetActiveDirectorySyncGroupSettings</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetADSyncReplacementCharacter">
@@ -942,9 +2064,27 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="replacementCharacter">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="replacementCharacter">The new replacement character. Set to a null reference (Nothing in Visual Basic) to remove the comma upon import.</param>
+        <summary>Sets the character that replaces commas in resource names during Active Directory synchronization.</summary>
+        <remarks>
+          <para>The <see cref="M:WebSvcAdmin.Admin.GetADSyncReplacementCharacter" /> method requires a restart of the Project Server Queue Service to get a new replacement character set by using the <b>SetADSyncReplacementCharacter</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageActiveDirectorySettings" />
+              </term>
+              <description>Allows a user to manage Active Directory settings. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetCompatibilityMode">
@@ -971,9 +2111,23 @@
         <Parameter Name="mode" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="mode">Can be one of the <see cref="T:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes" /> constants.</param>
+        <summary>Obsolete in Project Server 2013.</summary>
+        <remarks>
+          <para>Project Server 2010 compares <paramref name="mode" /> with the <see cref="F:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes.ProjectServer2007" /> value. If <paramref name="mode" /> =  <see cref="F:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes.ProjectServer2010" />, the compatibility mode is turned off. A <paramref name="mode" /> value of <b>0</b> sets Project Server to run in native mode, which can connect only with Project Professional 2010.</para>
+          <para>When Project Server 2007 is upgraded to Project Server 2010, the compatibility mode value is <see cref="F:Microsoft.Office.Project.Server.Library.Admin.CompatibilityModes.ProjectServer2007" /> by default. This enables Project Professional 2007 to connect to Project Server 2010. When compatibility mode is turned off, Project Server 2010 cannot be downgraded at a later time.</para>
+          <para>For Project Server 2010, the Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) includes the compatibility mode setting. Project Server 2013 does not have a compatibility mode setting.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetDatabaseTimeout">
@@ -1001,10 +2155,110 @@
         <Parameter Name="timeout" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="timeoutType">To be added.</param>
-        <param name="timeout">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="timeoutType">The only value available in Project Server 2010 is the <b>Core</b> constant (value = 0), which specifies the core databases.</param>
+        <param name="timeout">Specifies the timeout (in seconds) for internal SQL calls to the core Project Server databases.</param>
+        <summary>Sets the SQL timeout for the Project Server core databases, in seconds.</summary>
+        <remarks>
+          <para>
+            <b>Tip</b>: In some Project Server deployments, the default database timeout is not enough. If a Project Server job fails due to a SQL timeout error, an administrator can increase the database timeout setting by using the <see cref="M:WebSvcAdmin.Admin.SetDatabaseTimeout(WebSvcAdmin.DatabaseTimeoutType,System.Int32)" /> method, and then retry the job.</para>
+          <para>The default value and the minimum value are 30 seconds. The maximum value is the <b>Int32</b> maximum, or 2147483647 seconds (over 15 years).</para>
+          <para>To set the SQL command timeout for the Project queue or the Timesheet queue, you can use the <see cref="M:WebSvcQueueSystem.QueueSystem.SetQueueConfiguration(WebSvcQueueSystem.QueueID,System.String,System.String)" /> method, or use the Queue Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queuesettings.aspx).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>To use the following Windows PowerShell script, save the script in a file named, for example, <b>Set-DatabaseTimeout.ps1</b>. Run the SharePoint 2010 Management Shell as an administrator (in the Microsoft SharePoint 2010 Projects folder of the Start menu), navigate to the directory where you saved the Set-DatabaseTimeout.ps1 file, and then type the following command, for example, to set the timeout value to 60 seconds: .\Set-DatabaseTimeout 60</para>
+          <code>###############################################################################
+## Set-DatabaseTimeout
+##
+## Uses the Admin web service of the PSI to call the SetDatabaseTimeout method.
+##
+## The script user must have Project Server administrator permissions.
+## To run on your Project Server installation, change the $pwaUrl value.
+##
+## Argument:
+##   Integer secTimeout    -- Timeout in seconds, 30 to 2147483647 (15+ years).
+## 
+## Example: 
+##   .\Set-DatabaseTimeout 1800
+##               -- Sets the database timeout to 1800 seconds (30 minutes).
+################################################################################
+
+param([int]$secTimeout)
+Set-StrictMode -version 2.0
+
+$pwaUrl = "http://jcorbin8/pwa"
+$svcAdminUrl = $pwaUrl + "/_vti_bin/PSI/Admin.asmx?wsdl"
+[int]$timeoutType = 0
+[bool]$runtimeErr = $false
+[bool]$argErr = $false
+
+if ($secTimeout -eq $null) 
+{ 
+    $argErr = $true 
+}
+else  # Validate the timeout value.
+{    
+    if ($secTimeout -lt 30 -or $secTimeout -gt 2147483647)
+    {
+        $argErr = $true
+    }
+}
+
+if ($argErr)
+{ 
+    Write-Host "Usage:`tSet-DatabaseTimeout timeoutSeconds"
+    Write-Host "`t`tTimeout minimum = 30; maximum = 2147483647 (over 15 years)"
+    Write-Host "Example, to set 30 minutes: `n`t`t.\Set-DatabaseTimeout 1800"
+    exit
+}
+
+$c = Get-Credential
+
+try
+{
+    # Create a proxy for the Admin web service.
+    $svcAdminProxy = New-WebServiceProxy -uri $svcAdminUrl # -credential $c
+
+    $svcAdminProxy.SetDatabaseTimeout($timeoutType, $secTimeout) 
+}
+catch [System.Web.Services.Protocols.SoapException]
+{
+    Write-Host "A SoapException occurred."
+    $runtimeErr = $true
+}
+catch [System.Net.WebException]
+{
+    Write-Host "A WebException occurred."
+    $runtimeErr = $true
+}
+catch 
+{
+    Write-Host "An error occurred."
+    $runtimeErr = $true
+}
+finally
+{
+    if (-not $runtimeErr)
+    {
+        Write-Host "Success! Set the core SQL database timeout value to $secTimeout seconds."
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="SetNotificationAdminInfoNoResult">
@@ -1036,15 +2290,27 @@
         <Parameter Name="WADMIN_EMAIL_CHARSET" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="WADMIN_ORG_EMAIL_ADDRESS">To be added.</param>
-        <param name="WADMIN_NTFY_FROM_EMAIL">To be added.</param>
-        <param name="WADMIN_NTFY_EMAIL_TRAILER">To be added.</param>
-        <param name="WADMIN_SMTP_SERVER_NAME">To be added.</param>
-        <param name="WADMIN_SMTP_SERVER_PORT">To be added.</param>
-        <param name="WADMIN_EMAIL_CHARSET">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="WADMIN_ORG_EMAIL_ADDRESS">Company domain (for example, microsoft.com).</param>
+        <param name="WADMIN_NTFY_FROM_EMAIL">Email address that a notification is sent from.</param>
+        <param name="WADMIN_NTFY_EMAIL_TRAILER">Email footer (default: Microsoft Office Project Server).</param>
+        <param name="WADMIN_SMTP_SERVER_NAME">SMTP mail server.</param>
+        <param name="WADMIN_SMTP_SERVER_PORT">Port of the SMTP mail server (default is <b>25</b>).</param>
+        <param name="WADMIN_EMAIL_CHARSET">Email character set.</param>
+        <summary>Sets the data that is necessary for notifications to be sent by email message.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The Alerts and Reminders page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/Notification.aspx) uses the <b>SetNotificationAdminInfoNoResult</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageNotificationAndReminders" />
+              </term>
+              <description>Allows a user to manage notifications operational policy settings. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetProjectProfessionalMinimumBuildNumbers">
@@ -1071,9 +2337,22 @@
         <Parameter Name="versions" Type="WebSvcAdmin.VersionsDataSet" />
       </Parameters>
       <Docs>
-        <param name="versions">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="versions">Specifies the list of Project Professional versions, separated by commas, that can connect with Project Server. The <b>VersionsDataSet.VersionsDataTable</b> contains one row for each version number.</param>
+        <summary>Sets the minimum Project Professional version number that can connect to Project Server.</summary>
+        <remarks>
+          <para>For example, if a Project Professional version is 14.0.3217.1000, the major release is 14, the minor release is 0, and the build number is 3217.1000.</para>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) includes the Project Professional versions setting.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetServerCurrency">
@@ -1100,9 +2379,21 @@
         <Parameter Name="sCurrency" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="sCurrency">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="sCurrency">The currency to use, for example <b>USD</b>.</param>
+        <summary>Sets the currency for Project Server.</summary>
+        <remarks>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) uses the <b>SetServerCurrency</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetSingleCurrencyEnforced">
@@ -1129,9 +2420,21 @@
         <Parameter Name="bEnforced" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="bEnforced">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="bEnforced">Specifies whether a single currency is enforced.</param>
+        <summary>Sets enforcement of a single currency for Project Server.</summary>
+        <remarks>
+          <para>The Additional Server Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/ServerConfig.aspx) uses the <b>SetSingleCurrencyEnforced</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateLineClasses">
@@ -1158,9 +2461,20 @@
         <Parameter Name="dsDelta" Type="WebSvcAdmin.TimesheetLineClassDataSet" />
       </Parameters>
       <Docs>
-        <param name="dsDelta">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="dsDelta">Contains changes in timesheet line classes.</param>
+        <summary>Updates classes for timesheet lines.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimeTracking" />
+              </term>
+              <description>Allows the user to manage timesheets that are submitted by resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateReportingPeriods">
@@ -1188,10 +2502,22 @@
         <Parameter Name="validationOnly" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="dsDelta">To be added.</param>
-        <param name="validationOnly">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="dsDelta">Data set that contains changed fiscal reporting period information.</param>
+        <param name="validationOnly">Specifies whether to validate without saving the changes.</param>
+        <summary>Updates the timesheet reporting periods.</summary>
+        <remarks>
+          <para>The Timesheet Periods page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/TimePeriod.aspx) uses the <b>UpdateReportingPeriods</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimesheetAndFinancialPeriods" />
+              </term>
+              <description>Allows a user to create and modify timesheet definitions and fiscal period definitions. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateStatusingSettings">
@@ -1218,9 +2544,21 @@
         <Parameter Name="dsDelta" Type="WebSvcAdmin.StatusingSettingsDataSet" />
       </Parameters>
       <Docs>
-        <param name="dsDelta">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="dsDelta">
+          <b>StatusingSettingsDataSet</b> contains changes in statusing settings.</param>
+        <summary>Updates administrative settings for statusing.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimeTracking" />
+              </term>
+              <description>Allows the user to manage timesheets that are submitted by resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateTimesheetManagers">
@@ -1247,8 +2585,8 @@
         <Parameter Name="managers" Type="WebSvcAdmin.TimesheetManagersDataSet" />
       </Parameters>
       <Docs>
-        <param name="managers">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="managers">A timesheet managers dataset.</param>
+        <summary>Updates the configured timesheet managers list.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1276,9 +2614,233 @@
         <Parameter Name="dsDelta" Type="WebSvcAdmin.TimeSheetSettingsDataSet" />
       </Parameters>
       <Docs>
-        <param name="dsDelta">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="dsDelta">Contains the new timesheet settings.</param>
+        <summary>Updates the timesheet settings.</summary>
+        <remarks>
+          <para>Timesheet settings can be set on the Timesheet Settings and Defaults page in Project Web App (http:///ServerName/ProjectServerName/_layouts/pwa/Admin/TSSettings.aspx).</para>
+          <para>Properties in the TimeSheetSettingsDataSet.TimeSheetSettings[0] row have constraints; they cannot be null. Use the <b>ReadTimeSheetSettings</b> method to get the current settings, and then make changes.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageTimeTracking" />
+              </term>
+              <description>Allows the user to manage timesheets that are submitted by resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example reads the current timesheet settings, changes the values of <b>WADMIN_TS_MAX_HR_PER_TS</b> and <b>WADMIN_TS_MIN_HR_PER_TS</b> in the <b>TimeSheetSettingsDataSet</b>, and then uses the <b>UpdateTimeSheetSettings</b> method to change the maximum hours and minimum hours per timesheet. The example uses the <b>SvcAdmin</b> namespace in the ProjectServerServices.dll proxy assembly. The example also writes the updates that are in the new <b>TimeSheetSettingsDataSet</b> to an XML file.</para>
+          <para>
+            <b>Note</b>: The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using System.ServiceModel;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.UpdateTimeSheetSettings
+{
+    class Program
+    {
+        private const string ENDPOINT = "basicHttp_Admin";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+
+        private static SvcAdmin.AdminClient adminClient;
+        private static string outFilePath;
+
+        static void Main(string[] args)
+        {
+            outFilePath = OUTPUT_FILES + "TimesheetSettings.xml";
+            ConfigClientEndpoints(ENDPOINT);
+
+            Console.WriteLine("Retrieving the timesheet settings...");
+            SvcAdmin.TimeSheetSettingsDataSet timesheetSettingsDS =
+                new SvcAdmin.TimeSheetSettingsDataSet();
+
+            // Get the current timesheet settings, and then make changes to 
+            // two settings: maximum and minimum hours per timesheet. 
+            try
+            {
+                timesheetSettingsDS = adminClient.ReadTimeSheetSettings();
+
+               // Changes the timesheet settings to be 50 hours per week maximum
+                // and 15 hours per week minimum.
+                timesheetSettingsDS.TimeSheetSettings[0].WADMIN_TS_MAX_HR_PER_TS = 3000000;
+                timesheetSettingsDS.TimeSheetSettings[0].WADMIN_TS_MIN_HR_PER_TS = 900000;
+
+
+                // Write the changed dataset to an output file, for debugging purposes.
+                timesheetSettingsDS.WriteXml(outFilePath);
+
+                // Update the timesheet settings with the changes.
+                adminClient.UpdateTimeSheetSettings(timesheetSettingsDS);
+            }
+
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.Write("\nThe attempt to update the timesheet settings has failed.");
+            }
+
+            Console.WriteLine("\nSee XML output of the updated TimeSheetSettingsDataSet at:\n\t{0}",
+                outFilePath);
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            adminClient = new SvcAdmin.AdminClient(endpt);
+        }
+    }
+
+    // Helper method: GetPSClientError.
+    class Helpers
+    {
+   
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+</code>
+          <para>Following is an example of the UpdateTimesheetSettings.xml file that the application saves. The <b>WADMIN_TS_MIN_HR_PER_TS</b> element and the <b>WADMIN_TS_MAX_HR_PER_TS</b> element are updated.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;TimeSheetSettingsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/TimeSheetSettingsDataSet/"&amp;gt;
+  &amp;lt;TimeSheetSettings&amp;gt;
+    &amp;lt;WADMIN_UIDFAKE&amp;gt;446855fe-d085-4ba0-8006-9fce73e9c9fb&amp;lt;/WADMIN_UIDFAKE&amp;gt;
+    &amp;lt;WADMIN_TS_IS_UNVERS_TASK_ALLOWED&amp;gt;true&amp;lt;/WADMIN_TS_IS_UNVERS_TASK_ALLOWED&amp;gt;
+    &amp;lt;WADMIN_TS_PROJECT_MANAGER_COORDINATION&amp;gt;true&amp;lt;/WADMIN_TS_PROJECT_MANAGER_COORDINATION&amp;gt;
+    &amp;lt;WADMIN_TS_PROJECT_MANAGER_APPROVAL&amp;gt;false&amp;lt;/WADMIN_TS_PROJECT_MANAGER_APPROVAL&amp;gt;
+    &amp;lt;WADMIN_TS_IS_AUDIT_ENABLED&amp;gt;true&amp;lt;/WADMIN_TS_IS_AUDIT_ENABLED&amp;gt;
+    &amp;lt;WADMIN_TS_IS_FUTURE_REP_ALLOWED&amp;gt;true&amp;lt;/WADMIN_TS_IS_FUTURE_REP_ALLOWED&amp;gt;
+    &amp;lt;WADMIN_TS_FIXED_APPROVAL_ROUTING&amp;gt;false&amp;lt;/WADMIN_TS_FIXED_APPROVAL_ROUTING&amp;gt;
+    &amp;lt;WADMIN_TS_TIED_MODE&amp;gt;true&amp;lt;/WADMIN_TS_TIED_MODE&amp;gt;
+    &lt;span class="label"&gt;&amp;lt;WADMIN_TS_MIN_HR_PER_TS&amp;gt;900000&amp;lt;/WADMIN_TS_MIN_HR_PER_TS&amp;gt;&lt;/span&gt;&lt;span class="label"&gt;&amp;lt;WADMIN_TS_MAX_HR_PER_TS&amp;gt;3000000&amp;lt;/WADMIN_TS_MAX_HR_PER_TS&amp;gt;&lt;/span&gt;
+    &amp;lt;WADMIN_TS_MAX_HR_PER_DAY&amp;gt;600000.000000&amp;lt;/WADMIN_TS_MAX_HR_PER_DAY&amp;gt;
+    &amp;lt;WADMIN_TS_HOURS_PER_DAY&amp;gt;480000.000000&amp;lt;/WADMIN_TS_HOURS_PER_DAY&amp;gt;
+    &amp;lt;WADMIN_TS_HOURS_PER_WEEK&amp;gt;2400000.000000&amp;lt;/WADMIN_TS_HOURS_PER_WEEK&amp;gt;
+    &amp;lt;WADMIN_TS_DEF_DISPLAY_ENUM&amp;gt;7&amp;lt;/WADMIN_TS_DEF_DISPLAY_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_CREATE_MODE_ENUM&amp;gt;1&amp;lt;/WADMIN_TS_CREATE_MODE_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_REPORT_UNIT_ENUM&amp;gt;0&amp;lt;/WADMIN_TS_REPORT_UNIT_ENUM&amp;gt;
+    &amp;lt;WADMIN_TS_DEF_ENTRY_MODE_ENUM&amp;gt;0&amp;lt;/WADMIN_TS_DEF_ENTRY_MODE_ENUM&amp;gt;
+    &amp;lt;WADMIN_DEFAULT_TRACKING_METHOD&amp;gt;1&amp;lt;/WADMIN_DEFAULT_TRACKING_METHOD&amp;gt;
+    &amp;lt;WADMIN_IS_TRACKING_METHOD_LOCKED&amp;gt;true&amp;lt;/WADMIN_IS_TRACKING_METHOD_LOCKED&amp;gt;
+    &amp;lt;WADMIN_TS_ALLOW_PROJECT_LEVEL&amp;gt;true&amp;lt;/WADMIN_TS_ALLOW_PROJECT_LEVEL&amp;gt;
+  &amp;lt;/TimeSheetSettings&amp;gt;
+&amp;lt;/TimeSheetSettingsDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="UpdateUserSyncSetting">
@@ -1305,9 +2867,58 @@
         <Parameter Name="userSyncSetting" Type="WebSvcAdmin.UserSyncSettings" />
       </Parameters>
       <Docs>
-        <param name="userSyncSetting">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="userSyncSetting">One or more enumerated user synchronization settings. NoteUse <see cref="T:Microsoft.Office.Project.Server.Library.Admin.UserSyncSettings" /> for the correct enumeration values.</param>
+        <summary>Updates the setting for user synchronization with Project Web App, project sites, and email.</summary>
+        <remarks>
+          <para />
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Enables a user to manage the project site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows the use of the <b>UpdateUserSyncSettings</b> method. It disables synchronization with project sites for the application user. <b>SvcAdmin</b> is the namespace of the <b>Admin</b> service in the ProjectServerServices.dll proxy assembly. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server Library;
+
+namespace Microsoft.SDK.Project.Samples.UpdateUserSyncSetting
+{
+    class Program
+    {
+        private const string ENDPOINT = "basicHttp_Admin";
+
+        private static SvcAdmin.AdminClient adminClient;
+
+        static void Main(string[] args)
+        {
+            ConfigClientEndpoints(ENDPOINT);
+
+            int syncSettings = (int)PSLibrary.Admin.UserSyncSettings.DisablePWS;
+
+            Console.WriteLine("SyncSettings value: {0}", syncSettings.ToString());
+
+            adminClient.UpdateUserSyncSetting((PSLibrary.Admin.UserSyncSettings)syncSettings);
+
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+        }
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            adminClient = new SvcAdmin.AdminClient(endpt);
+        }
+    }
+}</code>
+          <para>The console output is: SyncSettings = 12</para>
+        </example>
       </Docs>
     </Member>
   </Members>

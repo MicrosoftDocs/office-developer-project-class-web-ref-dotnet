@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains methods that help to extract values from a <b>DataRow</b> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -31,7 +31,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>PSDataTable</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,10 +55,10 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets a <b>DataRow</b> object that contains only the specified column.</summary>
+        <returns>A <b>DataRow</b> object that contains only the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -82,11 +82,14 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets the <b>Boolean</b> value of the specified column in a <b>DataRow</b> object.</summary>
+        <returns>Returns the <b>Boolean</b> value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns <b>false</b>.</returns>
+        <remarks>
+          <para>Internally, GetColumnAsBoolean(row, colName) calls GetColumnAsBoolean(row, colName, false).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetColumnAsBoolean">
@@ -110,11 +113,11 @@
         <Parameter Name="defaultValue" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <param name="defaultValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <param name="defaultValue">The default value to return, if either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic).</param>
+        <summary>Gets the <b>Boolean</b> value of the specified column in a <b>DataRow</b> object, or a default value.</summary>
+        <returns>Returns the <b>Boolean</b> value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns <b>false</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -138,11 +141,14 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets the <b>DateTime</b> value of the specified column in a <b>DataRow</b> object.</summary>
+        <returns>Returns the <b>DateTime</b> value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns new DateTime(0).</returns>
+        <remarks>
+          <para>Internally, GetColumnAsDateTime(row, colName) calls GetColumnAsBoolean(row, colName, new DateTime(0)).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetColumnAsDateTime">
@@ -166,11 +172,11 @@
         <Parameter Name="defaultValue" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <param name="defaultValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <param name="defaultValue">The default value to return, if either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic).</param>
+        <summary>Gets the <b>DateTime</b> value of the specified column in a <b>DataRow</b> object, or a default value.</summary>
+        <returns>Returns the <b>DateTime</b> value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns new DateTime(0).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -194,11 +200,14 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets the GUID value of the specified column in a <b>DataRow</b> object.</summary>
+        <returns>Returns the GUID value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns Guid.Empty.</returns>
+        <remarks>
+          <para>Internally, GetColumnAsGuid(row, colName) calls GetColumnAsGuid(row, colName, Guid.Empty)</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetColumnAsGuid">
@@ -222,11 +231,11 @@
         <Parameter Name="defaultValue" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <param name="defaultValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <param name="defaultValue">The default value to return, if either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic).</param>
+        <summary>Gets the GUID value of the specified column in a <b>DataRow</b> object, or a default value.</summary>
+        <returns>Returns the GUID value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns Guid.Empty.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -250,11 +259,14 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets the integer value of the specified column in a <b>DataRow</b> object.</summary>
+        <returns>Returns the integer value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns <b>0</b>.</returns>
+        <remarks>
+          <para>Internally, GetColumnAsInt32(row, colName) calls GetColumnAsInt32(row, colName, 0).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetColumnAsInt32">
@@ -278,11 +290,11 @@
         <Parameter Name="defaultValue" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <param name="defaultValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <param name="defaultValue">The default value to return, if either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic).</param>
+        <summary>Gets the integer value of the specified column in a <b>DataRow</b> object, or a default value.</summary>
+        <returns>Returns the integer value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), it returns <b>0</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,11 +318,14 @@
         <Parameter Name="colName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <summary>Gets the string value of the specified column in a <b>DataRow</b> object.</summary>
+        <returns>Returns the string value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), returns String.Empty.</returns>
+        <remarks>
+          <para>Internally, GetColumnAsString(row, colName) calls GetColumnAsString(row, colName, String.Empty).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetColumnAsString">
@@ -334,11 +349,11 @@
         <Parameter Name="defaultValue" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <param name="colName">To be added.</param>
-        <param name="defaultValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="row">The row to search for the specified column.</param>
+        <param name="colName">The name of the column.</param>
+        <param name="defaultValue">The default value to return, if either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic).</param>
+        <summary>Gets the string value of the specified column in a <b>DataRow</b> object, or a default value.</summary>
+        <returns>Returns the string value of the specified column. If either <paramref name="row" /> or <paramref name="colName" /> are a null reference (Nothing in Visual Basic), returns String.Empty.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

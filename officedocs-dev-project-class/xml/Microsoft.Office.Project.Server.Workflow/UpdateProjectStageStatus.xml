@@ -31,8 +31,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that updates the <b>status</b> field and the <b>status information</b> field in the specified project stage.</summary>
+    <remarks>
+      <para>The <b>UpdateProjectStageStatus</b> activity can set the <b>status</b> field to one of the constants in the <see cref="T:Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" /> enumeration.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -48,7 +51,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>UpdateProjectStageStatus</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +79,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a value that specifies whether to append the <b>StatusInformation</b> value to the stage <b>status information</b> field.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the <b>Append</b> property is <b>True</b>, the <b>UpdateProjectStageStatus</b> activity appends the <b>StatusInformation</b> text to existing text in the stage <b>status information</b> field. If <b>False</b>, the <b>UpdateProjectStageStatus</b> activity overwrites the stage <b>status information</b> field. The default value is <b>False</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AppendProperty">
@@ -97,8 +103,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>Append</b> property.</summary>
+        <remarks>
+          <para>The <b>Append</b> property specifies whether to append the <b>StatusInformation</b> value to the stage <b>status information</b> field.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Execute">
@@ -120,8 +129,8 @@
         <Parameter Name="executionContext" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="executionContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="executionContext">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>UpdateProjectStageStatus</b> workflow activity.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -150,9 +159,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the stage to update.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In the Properties pane, you can directly set the GUID value of the <b>StageUid</b> property. You can also set the value to the workflow and code path, for example, <b>Activity=MyWorkflow, Path=stage2Guid</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StageUidProperty">
@@ -171,8 +183,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>StageUid</b> property.</summary>
+        <remarks>
+          <para>The <b>StageUid</b> property is the GUID of the stage to update.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StatusInformation">
@@ -199,9 +214,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets text that can replace or be appended to text in the stage <b>status information</b> field.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In the Properties pane, you can directly enter text in the <b>StatusInformation</b> property. You can also set the workflow and code path, for example, <b>Activity=MyWorkflow, Path=StatusInfo</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StatusInformationProperty">
@@ -220,8 +238,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>StatusInformation</b> property.</summary>
+        <remarks>
+          <para>The <b>StatusInformation</b> property contains text that can replace or be appended to the stage status information.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateProjectStageStatusField">
@@ -254,9 +275,26 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the general stage status (waiting for input, waiting for approval, or workflow processing).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>UpdateProjectStageStatusField</b> property can be set to one of the constants in the <see cref="T:Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" /> enumeration. You can also select one of the following values in the drop-down list for the <b>UpdateProjectStageStatusField</b> property:</para>
+          <list type="bullet">
+            <item>
+              <description>None</description>
+            </item>
+            <item>
+              <description>Waiting for Input</description>
+            </item>
+            <item>
+              <description>Waiting for Approval</description>
+            </item>
+            <item>
+              <description>Workflow Processing</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateProjectStageStatusFieldProperty">
@@ -275,8 +313,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>UpdateProjectStageStatusField</b> property.</summary>
+        <remarks>
+          <para>The <b>UpdateProjectStageStatusField</b> property can be set to one of the constants in the <see cref="T:Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContext">
@@ -303,9 +344,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the context of the <b>UpdateProjectStageStatus</b> activity in the parent workflow activity.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>UpdateProjectStageStatus</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -324,8 +368,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>UpdateProjectStageStatus</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>UpdateProjectStageStatus</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

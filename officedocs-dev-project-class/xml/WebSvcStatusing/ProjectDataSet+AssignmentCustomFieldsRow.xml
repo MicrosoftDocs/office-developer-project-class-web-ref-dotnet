@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a custom field value for a specific <see cref="T:WebSvcStatusing.ProjectDataSet.AssignmentRow" /> row.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,7 +39,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the unique identifier of the assignment to which the custom field applies.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +65,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.GUID" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,7 +91,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier for the custom field value.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +117,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the value of the custom field if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DATE" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,9 +143,14 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the display format for the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_VALUE" /> property if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>DUR_FMT</b> must be specified if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />. Otherwise, later use of the project in Project Professional can result in unpredictable behavior, including possible loss of data.</para>
+          <para>For more information, see the <see cref="P:WebSvcProject.ProjectDataSet.TaskRow.TASK_DUR_FMT" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DUR_VALUE">
@@ -169,9 +174,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_FMT" /> property must be specified if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.DURATION" />. Otherwise, later use of the project in Project Professional can result in unpredictable behavior, including possible loss of data.</para>
+          <para>Duration is indicated in tenths of minutes. A value of 100 indicates 10 minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FIELD_TYPE_ENUM">
@@ -195,7 +204,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the <see cref="T:Microsoft.Office.Project.Server.Library.PSDataType" /> value for the custom field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -221,7 +230,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.YESNO" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -247,7 +256,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.INDICATOR" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -274,7 +283,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.CODE_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -301,7 +310,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DATE_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -328,7 +337,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -355,7 +364,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -382,7 +391,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -409,7 +418,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FLAG_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -436,7 +445,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.INDICATOR_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -463,7 +472,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.MD_PROP_ID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -490,7 +499,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.MD_PROP_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -517,7 +526,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.NUM_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -544,7 +553,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.TEXT_VALUE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -570,7 +579,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies an integer-formatted unique identifier for the custom field definition.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -596,9 +605,14 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies a unique identifier for the custom field definition.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Custom field definitions are found in the <see cref="N:WebSvcCustomFields" /> namespace.</para>
+          <para>
+            <b>Note</b>:    <b>MD_PROP_UID </b>corresponds to the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_ID_SECONDARY" /> property, not the <see cref="P:WebSvcCustomFields.CustomFieldDataSet.CustomFieldsRow.MD_PROP_ID" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NUM_VALUE">
@@ -622,7 +636,7 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.NUMBER" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -648,7 +662,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the project to which the assignment belongs.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -675,7 +689,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.CODE_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -701,7 +715,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DATE_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -727,7 +741,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -753,7 +767,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.DUR_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -779,7 +793,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -805,7 +819,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FLAG_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -831,7 +845,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.INDICATOR_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -857,7 +871,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.MD_PROP_ID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -883,7 +897,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.MD_PROP_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -909,7 +923,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.NUM_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -935,7 +949,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.TEXT_VALUE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -960,7 +974,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the custom field value if the <see cref="P:WebSvcStatusing.ProjectDataSet.AssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> property is set to type <see cref="F:Microsoft.Office.Project.Server.Library.PSDataType.STRING" />.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

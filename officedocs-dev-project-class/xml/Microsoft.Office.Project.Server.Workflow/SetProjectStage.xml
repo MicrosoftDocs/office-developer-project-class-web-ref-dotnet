@@ -38,8 +38,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that sets the current stage of a Project Server workflow.</summary>
+    <remarks>
+      <para>The <b>SetProjectStage</b> activity sets the stage specified by the <b>StageUid</b> property. You must also specify the numerical order of the stage in the workflow by using the <b>StageOrder</b> property.</para>
+      <para />
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -55,7 +59,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>SetProjectStage</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -83,9 +87,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that specifies whether the workflow always waits at the <b>SetProjectStage</b> activity, even when there are no required custom fields.</summary>
+        <value>
+          <b>True</b> if the workflow always waits; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>When the <b>AlwaysWait</b> property is <b>True</b>, the workflow always waits at the <b>SetProjectStage</b> activity. The default value is <b>False</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AlwaysWaitProperty">
@@ -104,8 +112,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>AlwaysWait</b> property.</summary>
+        <remarks>
+          <para>The <b>AlwaysWait</b> property specifies whether the workflow always waits at the <b>SetProjectStage</b> activity, even when there are no required custom fields in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Cancel">
@@ -127,9 +138,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>SetProjectStage</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -152,9 +163,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>SetProjectStage</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -182,9 +193,12 @@
         <ReturnType>System.UInt16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the order of the stage in the workflow.</summary>
+        <value>A number that represents the order of the stage.</value>
+        <remarks>
+          <para>For example, if the <b>StageOrder</b> value is <b>2</b>, the <b>SetProjectStage</b> activity sets the second stage in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StageOrderProperty">
@@ -203,8 +217,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>StageOrder</b> property.</summary>
+        <remarks>
+          <para>The <b>StageOrder</b> property specifies the order of the stage in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StageUid">
@@ -231,9 +248,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the GUID of the workflow stage.</summary>
+        <value>The GUID of the workflow stage.</value>
+        <remarks>
+          <para>In the <b>Properties</b> pane, you can directly set the GUID value for the <b>StageUid</b> property. You can also set the value to the workflow and path, for example, <b>Activity=MyWorkflow, Path=stage2Guid</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StageUidProperty">
@@ -252,8 +272,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>StageUid</b> property.</summary>
+        <remarks>
+          <para>The <b>StageUid</b> property is the GUID of the stage to set.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent">
@@ -308,9 +331,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the context of the <b>SetProjectStage</b> activity in the parent workflow activity.</summary>
+        <value>An object that contains information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>SetProjectStage</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -329,8 +355,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>SetProjectStage</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>SetProjectStage</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

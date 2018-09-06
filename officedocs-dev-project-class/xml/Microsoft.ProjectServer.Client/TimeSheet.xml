@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains the methods and properties for managing a timesheet.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>TimeSheet</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the timesheet comments.</summary>
+        <value>An object that contains a comment.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +97,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the timesheet creator.</summary>
+        <value>An <b>EnterpriseResource</b> object that represents the creator of the timesheet.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -124,7 +124,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the  <b>TimeSheet</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +149,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetEntryMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the timesheet entry mode.</summary>
+        <value>An enumerated value that represents the entry mode. Examples of entry mode include <b>Daily</b> and <b>Weekly</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +175,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the time sheet.</summary>
+        <value>The GUID of the timesheet.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -200,10 +200,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,8 +229,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the timesheet is controlled by the owner.</summary>
+        <value>
+          <b>True</b> if the timesheet is controlled by the owner; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +256,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the timesheet is finalized and should not be changed.</summary>
+        <value>
+          <b>True</b> if the timesheet is finalized and should not be changed; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,8 +283,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetLineCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of lines in the timesheet.</summary>
+        <value>A <b>TimeSheetLineCollection</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,8 +309,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the timesheet manager.</summary>
+        <value>An <b>EnterpriseResource</b> object that represents the manager.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -332,8 +335,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the timesheet name.</summary>
+        <value>An object that contains the name of the timesheet.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,8 +361,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetPeriod</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the timesheet period.</summary>
+        <value>A <b>TimeSheetPeriod</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -385,7 +388,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Recalls the timesheet.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -410,9 +413,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet line status.</summary>
+        <value>A <b>TimeSheetStatus</b> object.</value>
+        <remarks>
+          <para>Timesheet line status is used to report different types of time against the same task assignment in Project Web App. Examples of line status are Travel, Training, and Standard, which reflect different purposes of work time that is spent on the same task.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Submit">
@@ -439,8 +445,8 @@
         <Parameter Name="comment" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="comment">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="comment">A comment on the timesheet.</param>
+        <summary>Submits the timesheet.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -465,9 +471,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet total actual work.</summary>
+        <value>An object that contains the timesheet total actual work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for total actual work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheet.TotalActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalActualWorkTimeSpan">
@@ -491,8 +500,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the timesheet total actual work.</summary>
+        <value>The duration of the timesheet total actual work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -517,9 +526,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet total non-billable overtime work.</summary>
+        <value>An object that contains the timesheet total non-billable overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the total nonbillable overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheet.TotalNonBillableOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalNonBillableOvertimeWorkTimeSpan">
@@ -543,8 +555,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the timesheet total non-billable overtime work.</summary>
+        <value>The duration of the timesheet total non-billable overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -569,9 +581,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet total non-billable work.</summary>
+        <value>An object that contains the timesheet total non-billable work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the total nonbillable work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheet.TotalNonBillableWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalNonBillableWorkTimeSpan">
@@ -595,8 +610,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the timesheet total non-billable work.</summary>
+        <value>The duration of the timesheet total non-billable work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -621,9 +636,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet total overtime work.</summary>
+        <value>An object that contains the timesheet total overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the total overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheet.TotalOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalOvertimeWorkTimeSpan">
@@ -647,8 +665,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the timesheet total overtime work.</summary>
+        <value>The duration of the timesheet total overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -673,9 +691,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timesheet grand total of all work.</summary>
+        <value>An object that contains the timesheet grand total of all work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the total work, use the <see cref="P:Microsoft.ProjectServer.Client.TimeSheet.TotalWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalWorkTimeSpan">
@@ -699,8 +720,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the timesheet grand total of all work.</summary>
+        <value>The duration of the timesheet grand total of all work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -726,7 +747,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Saves changes in a new timesheet.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -751,8 +772,8 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the day of the week on which the timesheet starts.</summary>
+        <value>A number that represents a day of the week.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
