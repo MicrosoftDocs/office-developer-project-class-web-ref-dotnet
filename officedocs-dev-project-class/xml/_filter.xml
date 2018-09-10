@@ -1,110 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
 <filter>
-  <attributeFilter apply="true">
-    <!-- Most attributes in System.ComponentModel control designer behavior. Don't show them. -->
-    <!-- The exceptions are attributes relating to data binding. Do show them. -->
-    <namespaceFilter name="System.ComponentModel">
-      <typeFilter name="BindableAttribute" expose="true" />
-      <typeFilter name="BrowsableAttribute" expose="true" />
-      <typeFilter name="ComplexBindingPropertiesAttribute" expose="true" />
-      <typeFilter name="DataObjectAttribute" expose="true" />
-      <typeFilter name="DefaultBindingPropertyAttribute" expose="true" />
-      <typeFilter name="ListBindableAttribute" expose="true" />
-      <typeFilter name="LookupBindingPropertiesAttribute" expose="true" />
-      <typeFilter name="SettingsBindableAttribute" expose="true" />
-      <typeFilter name="TypeConverterAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <namespaceFilter name="System.ComponentModel.Design">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <namespaceFilter name="System.ComponentModel.Design.Serialization">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Most attributes in System.Diagnostics control debugger behavior. Don't show them. -->
-    <namespaceFilter name="System.Diagnostics">
-      <typeFilter name="ConditionalAttribute" expose="true" />
-      <typeFilter name="EventLogPermissionAttribute" expose="true" />
-      <typeFilter name="PerformanceCounterPermissionAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.Diagnostics.CodeAnalysis control interaction with FxCop. Don't show them. -->
-    <namespaceFilter name="System.Diagnostics.CodeAnalysis">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.EnterpriseServices control obscure details of COM+ interop. Don't show them. -->
-    <namespaceFilter name="System.EnterpriseServices">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- The DefaultMember attribute is usually compiler-generated. Users will see it from the member syntax. -->
-    <namespaceFilter name="System.Reflection">
-      <typeFilter name="DefaultMemberAttribute" expose="false" />
-      <typeFilter name="*" expose="true" />
-    </namespaceFilter>
-    <!-- Attributes in System.Runtime.CompilerServices control obscure details of compilation. Don't show them. -->
-    <namespaceFilter name="System.Runtime.CompilerServices">
-      <typeFilter name="ExtensionAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.Runtime.ConstrinedExecution control obscure details of compilation. Don't show them. -->
-    <namespaceFilter name="System.Runtime.ConstrainedExecution">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Most attributes in System.Runtime.InteropServices control obscure details of COM interop. Don't show them. -->
-    <namespaceFilter name="System.Runtime.InteropServices">
-      <typeFilter name="ComVisibleAttribute" expose="true" />
-      <typeFilter name="GuidAttribute" expose="true" />
-      <typeFilter name="ClassInterfaceAttribute" expose="true" />
-      <typeFilter name="InterfaceTypeAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.Runtime.Versioning control details of resource loading. Don't show them. -->
-    <namespaceFilter name="System.Runtime.Versioning">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.Security might hint as security implementation details. Don't show them. -->
-    <namespaceFilter name="System.Security">
-      <typeFilter name="SecurityCriticalAttribute" expose="true" />
-      <typeFilter name="SecurityTreatAsSafeAttribute" expose="true" />
-      <typeFilter name="AllowPartiallyTrustedCallersAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Attributes in System.Web.Compilation control interaction with the Expression designer. Don't show them. -->
-    <namespaceFilter name="System.Web.Compilation">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- The ASP.NET team only wants these attributes exposed from their namespace. Their logic ecscapes me, but here it is. -->
-    <namespaceFilter name="System.Web.UI">
-      <typeFilter name="ControlValuePropertyAttribute" expose="true" />
-      <typeFilter name="PersistenceModeAttribute" expose="true" />
-      <typeFilter name="ValidationPropertyAttribute" expose="true" />
-      <typeFilter name="WebResourceAttribute" expose="true" />
-      <typeFilter name="TemplateContainerAttribute" expose="true" />
-      <typeFilter name="ThemeableAttribute" expose="true" />
-      <typeFilter name="TemplateInstanceAttribute" expose="true" />
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- Don't show attributes related to XAML serialization details. -->
-    <namespaceFilter name="System.Windows.Markup">
-      <typeFilter name="ConstructorArgumentAttribute" expose="false" />
-      <typeFilter name="DesignerSerializationOptionsAttribute" expose="false" />
-      <typeFilter name="ValueSerializerAttribute" expose="false" />
-      <typeFilter name="XmlnsCompatibleWithAttribute" expose="false" />
-      <typeFilter name="XmlnsDefinitionAttribute" expose="false" />
-      <typeFilter name="XmlnsPrefixAttribute" expose="false" />
-      <typeFilter name="*" expose="true" />
-    </namespaceFilter>
-    <!-- Attributes in System.Xml.Serialization control obscure details of XML serialization. Don't show them.-->
-    <namespaceFilter name="System.Xml.Serialization">
-      <typeFilter name="*" expose="false" />
-    </namespaceFilter>
-    <!-- The GeneratedCodeAttribute is useful only to tools, and should be hidden from end users.-->
-    <namespaceFilter name="System.CodeDom.Compiler">
-      <typeFilter name="GeneratedCodeAttribute" expose="false" />
-      <typeFilter name="*" expose="true" />
-    </namespaceFilter>
-    <namespaceFilter name="*">
-      <typeFilter name="*" expose="true" />
-    </namespaceFilter>
-  </attributeFilter>
+    <apiFilter apply="true">
+        <namespaceFilter name="Microsoft.Office.Project.PWA" expose="false" />
+        <namespaceFilter name="Microsoft.Office.Project.Server.Base" expose="false" />
+        <namespaceFilter name="Microsoft.Office.Project.Server.DataServices" expose="false" />
+        <namespaceFilter name="Microsoft.Office.Project.Server.Library.FilterSchema" expose="false" />
+        <namespaceFilter name="Microsoft.Office.Project.Server.WebServiceProxy" expose="false" />
+        <namespaceFilter name="Microsoft.Office.Project.Server.Library" expose="true">
+            <typeFilter name="AssignmentProperties" expose="false" />
+            <typeFilter name="CalendarProperties" expose="false" />
+            <typeFilter name="ConstraintProperties" expose="false" />
+            <typeFilter name="LookupTableProperties" expose="false" />
+            <typeFilter name="ProjectProperties" expose="false" />
+            <typeFilter name="ResourceProperties" expose="false" />
+            <typeFilter name="TaskProperties" expose="false" />
+        </namespace>
+        <namespaceFilter name="Microsoft.ProjectServer.Client" expose="true">
+            <typeFilter name="AssignmentCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="AssignmentObjectPropertyNames" expose="false" />
+            <typeFilter name="AssignmentPropertyNames" expose="false" />
+            <typeFilter name="CalendarCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="CalendarExceptionCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="CalendarExceptionObjectPropertyNames" expose="false" />
+            <typeFilter name="CalendarExceptionPropertyNames" expose="false" />
+            <typeFilter name="CalendarObjectPropertyNames" expose="false" />
+            <typeFilter name="CalendarPropertyNames" expose="false" />
+            <typeFilter name="CustomFieldCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="CustomFieldObjectPropertyNames" expose="false" />
+            <typeFilter name="CustomFieldPropertyNames" expose="false" />
+            <typeFilter name="DraftAssignmentObjectPropertyNames" expose="false" />
+            <typeFilter name="DraftAssignmentPropertyNames" expose="false" />
+            <typeFilter name="DraftProjectObjectPropertyNames" expose="false" />
+            <typeFilter name="DraftProjectPropertyNames" expose="false" />
+            <typeFilter name="DraftProjectResourceObjectPropertyNames" expose="false" />
+            <typeFilter name="DraftProjectResourcePropertyNames" expose="false" />
+            <typeFilter name="DraftTaskLinkObjectPropertyNames" expose="false" />
+            <typeFilter name="DraftTaskLinkPropertyNames" expose="false" />
+            <typeFilter name="DraftTaskObjectPropertyNames" expose="false" />
+            <typeFilter name="DraftTaskPropertyNames" expose="false" />
+            <typeFilter name="EnterpriseProjectTypeObjectPropertyNames" expose="false" />
+            <typeFilter name="EnterpriseProjectTypePropertyNames" expose="false" />
+            <typeFilter name="EnterpriseResourceCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="EnterpriseResourceObjectPropertyNames" expose="false" />
+            <typeFilter name="EnterpriseResourcePropertyNames" expose="false" />
+            <typeFilter name="EntityTypePropertyNames" expose="false" />
+            <typeFilter name="EntityTypesObjectPropertyNames" expose="false" />
+            <typeFilter name="EnterpriseProjectTypeCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="EventHandlerCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="EventHandlerObjectPropertyNames" expose="false" />
+            <typeFilter name="EventHandlerPropertyNames" expose="false" />
+            <typeFilter name="EventPropertyNames" expose="false" />
+            <typeFilter name="LookupCostPropertyNames" expose="false" />
+            <typeFilter name="LookupDatePropertyNames" expose="false" />
+            <typeFilter name="LookupDurationPropertyNames" expose="false" />
+            <typeFilter name="LookupEntryCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="LookupEntryPropertyNames" expose="false" />
+            <typeFilter name="LookupEntryValue" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="LookupMask" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="LookupNumberPropertyNames" expose="false" />
+            <typeFilter name="LookupTableCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="LookupTableObjectPropertyNames" expose="false" />
+            <typeFilter name="LookupTablePropertyNames" expose="false" />
+            <typeFilter name="LookupTextObjectPropertyNames" expose="false" />
+            <typeFilter name="LookupTextPropertyNames" expose="false" />
+            <typeFilter name="PhaseCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="PhaseObjectPropertyNames" expose="false" />
+            <typeFilter name="PhasePropertyNames" expose="false" />
+            <typeFilter name="PJObjectBasePropertyNames" expose="false" />
+            <typeFilter name="PlanAssignmentCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="PlanAssignmentIntervalCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="PlanAssignmentIntervalPropertyNames" expose="false" />
+            <typeFilter name="PlanAssignmentObjectPropertyNames" expose="false" />
+            <typeFilter name="PlanAssignmentPropertyNames" expose="false" />
+            <typeFilter name="ProjectCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="ProjectDetailPageCollectionObjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectDetailPageObjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectDetailPagePropertyNames" expose="false" />
+            <typeFilter name="ProjectObjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectResourceCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="ProjectResourceObjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectResourcePropertyNames" expose="false" />
+            <typeFilter name="ProjectServerObjectPropertyNames" expose="false" />
+            <typeFilter name="ProjectServerPropertyNames" expose="false" />
+            <typeFilter name="PublishedAssignmentObjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedAssignmentPropertyNames" expose="false" />
+            <typeFilter name="PublishedProjectObjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedProjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedProjectResourceObjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedProjectResourcePropertyNames" expose="false" />
+            <typeFilter name="PublishedTaskLinkObjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedTaskLinkPropertyNames" expose="false" />
+            <typeFilter name="PublishedTaskObjectPropertyNames" expose="false" />
+            <typeFilter name="PublishedTaskPropertyNames" expose="false" />
+            <typeFilter name="QueueJobObjectPropertyNames" expose="false" />
+            <typeFilter name="QueueJobPropertyNames" expose="false" />
+            <typeFilter name="ResourcePlanObjectPropertyNames" expose="false" />
+            <typeFilter name="ResourcePlanPropertyNames" expose="false" />
+            <typeFilter name="ServiceStatusPropertyNames" expose="false" />
+            <typeFilter name="StageCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StageCustomFieldCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StageCustomFieldCollectionObjectPropertyNames" expose="false" />
+            <typeFilter name="StageCustomFieldObjectPropertyNames" expose="false" />
+            <typeFilter name="StageCustomFieldPropertyNames" expose="false" />
+            <typeFilter name="StageCustomFieldCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StageDetailPageObjectPropertyNames" expose="false" />
+            <typeFilter name="StageDetailPageCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StageDetailPageCollectionObjectPropertyNames" expose="false" />
+            <typeFilter name="StageDetailPageObjectPropertyNames" expose="false" />
+            <typeFilter name="StageDetailPagePropertyNames" expose="false" />
+            <typeFilter name="StageObjectPropertyNames" expose="false" />
+            <typeFilter name="StagePropertyNames" expose="false" />
+            <typeFilter name="StatusAssignmentCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StatusAssignmentObjectPropertyNames" expose="false" />
+            <typeFilter name="StatusAssignmentPropertyNames" expose="false" />
+            <typeFilter name="StatusTaskCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="StatusTaskPropertyNames" expose="false" />
+            <typeFilter name="TaskCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="TaskLinkCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="TaskLinkPropertyNames" expose="false" />
+            <typeFilter name="TaskObjectPropertyNames" expose="false" />
+            <typeFilter name="TaskPropertyNames" expose="false" />
+            <typeFilter name="TimePhaseObjectPropertyNames" expose="false" />
+            <typeFilter name="TimePhasePropertyNames" expose="false" />
+            <typeFilter name="TimeSheetLineCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="TimeSheetLineObjectPropertyNames" expose="false" />
+            <typeFilter name="TimeSheetLinePropertyNames" expose="false" />
+            <typeFilter name="TimeSheetObjectPropertyNames" expose="false" />
+            <typeFilter name="TimeSheetPropertyNames" expose="false" />
+            <typeFilter name="TimeSheetPeriodObjectPropertyNames" expose="false" />
+            <typeFilter name="TimeSheetPeriodPropertyNames" expose="false" />
+            <typeFilter name="TimeSheetWorkCreationInformation" expose="true">
+                <member name="TypeId" expose="false" />
+            </type>
+            <typeFilter name="TimeSheetWorkPropertyNames" expose="false" />
+            <typeFilter name="WorkflowDesignerFieldObjectPropertyNames" expose="false" />
+            <typeFilter name="WorkflowDesignerFieldPropertyNames" expose="false" />
+            <typeFilter name="WorkflowDesignerObjectPropertyNames" expose="false" />
+        </namespace>
+        <namespaceFilter name="WebSvcauthentication" expose="false" />
+        <namespaceFilter name="WebSvcExchangeSync" expose="false" />
+        <namespaceFilter name="WebSvcPWA" expose="false" />
+        <namespaceFilter name="WebSvcView" expose="false" />
+        <namespaceFilter name="WebSvcWinProj" expose="false" />
+    </apiFilter>
+    <protectedSealedFilter expose="true" />
+    <attributeFilter apply="true">
+        <!-- Most attributes in System.ComponentModel control designer behavior. Don't show them. -->
+        <!-- The exceptions are attributes relating to data binding. Do show them. -->
+        <namespaceFilter name="System.ComponentModel">
+            <typeFilter name="BindableAttribute" expose="true" />
+            <typeFilter name="BrowsableAttribute" expose="true" />
+            <typeFilter name="ComplexBindingPropertiesAttribute" expose="true" />
+            <typeFilter name="DataObjectAttribute" expose="true" />
+            <typeFilter name="DefaultBindingPropertyAttribute" expose="true" />
+            <typeFilter name="ListBindableAttribute" expose="true" />
+            <typeFilter name="LookupBindingPropertiesAttribute" expose="true" />
+            <typeFilter name="SettingsBindableAttribute" expose="true" />
+            <typeFilter name="TypeConverterAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <namespaceFilter name="System.ComponentModel.Design">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <namespaceFilter name="System.ComponentModel.Design.Serialization">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Most attributes in System.Diagnostics control debugger behavior. Don't show them. -->
+        <namespaceFilter name="System.Diagnostics">
+            <typeFilter name="ConditionalAttribute" expose="true" />
+            <typeFilter name="EventLogPermissionAttribute" expose="true" />
+            <typeFilter name="PerformanceCounterPermissionAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.Diagnostics.CodeAnalysis control interaction with FxCop. Don't show them. -->
+        <namespaceFilter name="System.Diagnostics.CodeAnalysis">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.EnterpriseServices control obscure details of COM+ interop. Don't show them. -->
+        <namespaceFilter name="System.EnterpriseServices">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- The DefaultMember attribute is usually compiler-generated. Users will see it from the member syntax. -->
+        <namespaceFilter name="System.Reflection">
+            <typeFilter name="DefaultMemberAttribute" expose="false" />
+            <typeFilter name="*" expose="true" />
+        </namespaceFilter>
+        <!-- Attributes in System.Runtime.CompilerServices control obscure details of compilation. Don't show them. -->
+        <namespaceFilter name="System.Runtime.CompilerServices">
+            <typeFilter name="ExtensionAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.Runtime.ConstrinedExecution control obscure details of compilation. Don't show them. -->
+        <namespaceFilter name="System.Runtime.ConstrainedExecution">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Most attributes in System.Runtime.InteropServices control obscure details of COM interop. Don't show them. -->
+        <namespaceFilter name="System.Runtime.InteropServices">
+            <typeFilter name="ComVisibleAttribute" expose="true" />
+            <typeFilter name="GuidAttribute" expose="true" />
+            <typeFilter name="ClassInterfaceAttribute" expose="true" />
+            <typeFilter name="InterfaceTypeAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.Runtime.Versioning control details of resource loading. Don't show them. -->
+        <namespaceFilter name="System.Runtime.Versioning">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.Security might hint as security implementation details. Don't show them. -->
+        <namespaceFilter name="System.Security">
+            <typeFilter name="SecurityCriticalAttribute" expose="true" />
+            <typeFilter name="SecurityTreatAsSafeAttribute" expose="true" />
+            <typeFilter name="AllowPartiallyTrustedCallersAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Attributes in System.Web.Compilation control interaction with the Expression designer. Don't show them. -->
+        <namespaceFilter name="System.Web.Compilation">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- The ASP.NET team only wants these attributes exposed from their namespace. Their logic ecscapes me, but here it is. -->
+        <namespaceFilter name="System.Web.UI">
+            <typeFilter name="ControlValuePropertyAttribute" expose="true" />
+            <typeFilter name="PersistenceModeAttribute" expose="true" />
+            <typeFilter name="ValidationPropertyAttribute" expose="true" />
+            <typeFilter name="WebResourceAttribute" expose="true" />
+            <typeFilter name="TemplateContainerAttribute" expose="true" />
+            <typeFilter name="ThemeableAttribute" expose="true" />
+            <typeFilter name="TemplateInstanceAttribute" expose="true" />
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- Don't show attributes related to XAML serialization details. -->
+        <namespaceFilter name="System.Windows.Markup">
+            <typeFilter name="ConstructorArgumentAttribute" expose="false" />
+            <typeFilter name="DesignerSerializationOptionsAttribute" expose="false" />
+            <typeFilter name="ValueSerializerAttribute" expose="false" />
+            <typeFilter name="XmlnsCompatibleWithAttribute" expose="false" />
+            <typeFilter name="XmlnsDefinitionAttribute" expose="false" />
+            <typeFilter name="XmlnsPrefixAttribute" expose="false" />
+            <typeFilter name="*" expose="true" />
+        </namespaceFilter>
+        <!-- Attributes in System.Xml.Serialization control obscure details of XML serialization. Don't show them.-->
+        <namespaceFilter name="System.Xml.Serialization">
+            <typeFilter name="*" expose="false" />
+        </namespaceFilter>
+        <!-- The GeneratedCodeAttribute is useful only to tools, and should be hidden from end users.-->
+        <namespaceFilter name="System.CodeDom.Compiler">
+            <typeFilter name="GeneratedCodeAttribute" expose="false" />
+            <typeFilter name="*" expose="true" />
+        </namespaceFilter>
+        <namespaceFilter name="*">
+            <typeFilter name="*" expose="true" />
+        </namespaceFilter>
+    </attributeFilter>
 </filter>
