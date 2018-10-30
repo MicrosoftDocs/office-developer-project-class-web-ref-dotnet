@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.TimesheetEventReceiver.OnLineApproving(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -54,11 +59,11 @@
         <Parameter Name="approved" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="tsUID">To be added.</param>
-        <param name="lineUID">To be added.</param>
-        <param name="approverUID">To be added.</param>
-        <param name="approved">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="tsUID">The GUID of the timesheet that is being approved.</param>
+        <param name="lineUID">The GUID of the timesheet line class.</param>
+        <param name="approverUID">The GUID of the user who approves the timesheet review.</param>
+        <param name="approved">Indicates whether the new line class status is approved.</param>
+        <summary>Creates an instance of the <b>TimesheetLinePreApproveEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,7 +83,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether the new line class status is approved.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -99,7 +104,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the user who approves the timesheet review.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,7 +125,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the timesheet line class.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -141,7 +146,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the timesheet that is being approved.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

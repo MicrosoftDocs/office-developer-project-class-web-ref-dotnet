@@ -17,9 +17,17 @@
       <InterfaceName>System.ICloneable</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>A helper class that is used to express and build a query that is sent to Project Server.</summary>
+    <remarks>
+      <para>For an example of using the <b>Filter</b> object, see the <b>GetResourceFilter</b> method in the code example for the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +43,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>Filter</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -56,7 +64,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new <b>Filter</b> from the existing <b>Filter</b> object.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -79,8 +87,8 @@
         <Parameter Name="filter" Type="Microsoft.Office.Project.Server.Library.Filter" />
       </Parameters>
       <Docs>
-        <param name="filter">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="filter">The <b>Filter</b> object to copy.</param>
+        <summary>Copies fields from an existing <b>Filter</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -105,7 +113,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+IOperator</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The nominal values in this class are unsigned types, which make them unavailable for CLS use.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -129,8 +137,8 @@
         <Parameter Name="row" Type="System.ComponentModel.ICustomTypeDescriptor" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The set of custom type descriptors.</param>
+        <summary>Evaluates the filter properties by means of the logical operators or field operators.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -156,9 +164,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The nominal values in this class are unsigned types that make them unavailable for CLS use.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>Fields</b> property is a collection of <see cref="T:Microsoft.Office.Project.Server.Library.Filter.Field" /> objects that are used when constructing a filter.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FilterTableName">
@@ -177,9 +188,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the <b>DataTable</b> to be filtered.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For an example of using the <b>FilterTableName</b> object, see the <b>GetResourceFilter</b> method in the code example for the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FilterViewUID">
@@ -198,7 +212,7 @@
         <ReturnType>System.Nullable&lt;System.Guid&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the filter view.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -220,7 +234,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the XML string that represents the <b>Filter</b> object.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -246,7 +260,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The nominal values in this class are unsigned types, which make them unavailable for CLS use.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -269,8 +283,8 @@
         <Parameter Name="xmlReader" Type="System.Xml.XmlReader" />
       </Parameters>
       <Docs>
-        <param name="xmlReader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xmlReader">The <b>XmlReader</b> object that reads the XML data.</param>
+        <summary>Deserializes XML data that represents a <b>Filter</b> object, and populates the current <b>Filter</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -293,7 +307,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The clone of the current <b>Filter</b> object.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

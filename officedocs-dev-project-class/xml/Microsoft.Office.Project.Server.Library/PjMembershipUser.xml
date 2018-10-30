@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Obsolete("in o15")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains information about a Project Server user, for serialization on the network.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -40,7 +43,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates an empty <b>PjMembershipUser</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -89,7 +92,7 @@
         <param name="CreationDate">To be added.</param>
         <param name="DelegateId">To be added.</param>
         <param name="DelegateName">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>PjMembershipUser</b> object, where the properties are specified.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -109,7 +112,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets text information about a user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -130,7 +133,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date that the Project Server user was created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -151,8 +154,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of a delegate for the user.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -172,8 +175,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of a delegate for the user.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -193,7 +196,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the email address of the user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -214,8 +217,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the user is approved for Project Server.</summary>
+        <value>
+          <b>True</b> if the user is approved for Project Server; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -235,8 +239,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the user is locked out.</summary>
+        <value>
+          <b>True</b> if the user is locked out; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -256,8 +261,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the user is online.</summary>
+        <value>
+          <b>True</b> if the user is online; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +283,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the date of the last user activity on Project Server.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -298,7 +304,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the most recent date the user was locked out.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -319,7 +325,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the most recent date the user logged on Project Server.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -340,7 +346,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the most recent date the user’s password was changed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -361,7 +367,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the password question for the user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -382,7 +388,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the identification number for the user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -403,7 +409,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the user.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

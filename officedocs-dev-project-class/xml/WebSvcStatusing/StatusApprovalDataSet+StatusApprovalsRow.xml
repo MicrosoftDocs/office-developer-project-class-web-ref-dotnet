@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Specifies a row of status approval information.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,7 +39,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the actual number of work hours for the specified project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,7 +65,7 @@
         <ReturnType>System.Byte[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the binary representation of changes (if any) that were made to the assignment fields.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -91,9 +91,12 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the error status for an assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>An <b>ASSN_ERROR_STATUS</b> value of 0 means no error. When the value is greater than 0, the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ERROR_TOOLTIP" /> value contains the error.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_ERROR_TOOLTIP">
@@ -117,7 +120,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the assignment error details, when the <b>ASSN_ERROR_STATUS</b> value is greater than 0.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,7 +146,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the projected finish date for the specified assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -169,7 +172,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the percentage of completed work for the specified assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,7 +198,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the budgeted amount of remaining work for the specified project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -221,7 +224,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the projected start date for the specified assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -247,7 +250,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates whether a resource assigned to the task has sent a status message in response to a team status message.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -273,9 +276,27 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets a value that specifies the decision that the project manager has taken for a transaction.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>It takes the following values:</para>
+          <para />
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>No decision</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>Accepted</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>Rejected</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_TRANS_COMMENT">
@@ -299,7 +320,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the comment that is made by the user for a transaction.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -325,7 +346,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the submission date for the transaction of the specified assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -351,9 +372,47 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the value that specifies the type of transaction.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>It takes the following values:</para>
+          <para />
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>Update</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>Decline</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>CreateTask</description>
+            </item>
+            <item>
+              <term>3</term>
+              <description>Delegate</description>
+            </item>
+            <item>
+              <term>4</term>
+              <description>CreateAssignment</description>
+            </item>
+            <item>
+              <term>5</term>
+              <description>TeamDelegate</description>
+            </item>
+            <item>
+              <term>6</term>
+              <description>DeleteTask</description>
+            </item>
+            <item>
+              <term>7 </term>
+              <description>DeleteAssignment</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ASSN_TRANS_UID">
@@ -377,7 +436,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the transaction GUID.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -403,7 +462,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -429,7 +488,7 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the total assignment work, based on the assignment span and the assignment units for the assigned resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -455,7 +514,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time when a project was created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -481,7 +540,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the status approvals row is an assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -507,7 +566,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the status approvals row is published.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -534,7 +593,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ACT_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -561,7 +620,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_CHANGE_DATA" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -588,7 +647,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ERROR_STATUS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -615,7 +674,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ERROR_TOOLTIP" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -642,7 +701,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_FINISH_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -669,7 +728,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_PCT_WORK_COMPLETE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -696,7 +755,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_REM_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -723,7 +782,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_START_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -750,7 +809,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TEAM_STATUS_PENDING" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -777,7 +836,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TRANS_COMMENT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -804,7 +863,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TRANS_SUBMIT_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -831,7 +890,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_WORK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -858,7 +917,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.CREATED_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -885,7 +944,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.PROJ_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -912,7 +971,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.PROJ_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -939,7 +998,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_DELEGATEE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -966,7 +1025,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_MANAGER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -993,7 +1052,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_OWNER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1020,7 +1079,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_SUBMITTER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1047,7 +1106,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1074,7 +1133,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1101,8 +1160,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_UID_OWNER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>Returns <see cref="" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1128,7 +1187,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1155,7 +1214,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_CHANGE_DATA" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1182,7 +1241,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1209,7 +1268,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_PARENT_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1236,7 +1295,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1263,7 +1322,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_DOC_REF_CNT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1290,7 +1349,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_ISSUE_REF_CNT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1317,7 +1376,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_OTHER_REF_CNT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1344,7 +1403,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_RISK_REF_CNT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1370,7 +1429,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time of the most recent modification.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1396,7 +1455,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the name of the project to which the status approval information belongs.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1422,7 +1481,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the project to which the status approval information belongs.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1448,7 +1507,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the user name of the resource who is associated with the status approval information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1474,7 +1533,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the resource to which the assignment is being delegated.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1500,7 +1559,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the user name of the manager for the specified resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1526,7 +1585,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the user name of the owner of the specified resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1552,7 +1611,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the user name of the submitter of the specified resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1578,9 +1637,13 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the resource type.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read/write in insert calls. Read-only in update calls. For more information, see the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.Type" /> type.</para>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.Type" /> type to an <b>int</b> to use with this property </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_UID">
@@ -1604,7 +1667,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the unique identifier of the resource that is associated with the status approval information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1630,7 +1693,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the GUID of the resource who is the owner of this assignment.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1657,7 +1720,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ACT_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1683,7 +1746,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_CHANGE_DATA" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1709,7 +1772,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ERROR_STATUS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1735,7 +1798,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_ERROR_TOOLTIP" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1761,7 +1824,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_FINISH_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1787,7 +1850,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_PCT_WORK_COMPLETE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1813,7 +1876,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_REM_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1839,7 +1902,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_START_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1865,7 +1928,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TEAM_STATUS_PENDING" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1891,7 +1954,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TRANS_COMMENT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1917,7 +1980,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_TRANS_SUBMIT_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1943,7 +2006,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.ASSN_WORK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1969,7 +2032,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.CREATED_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1995,7 +2058,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.PROJ_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2021,7 +2084,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.PROJ_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2047,7 +2110,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_DELEGATEE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2073,7 +2136,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_MANAGER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2099,7 +2162,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_OWNER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2125,7 +2188,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME_SUBMITTER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2151,7 +2214,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2177,7 +2240,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2203,7 +2266,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_UID_OWNER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2229,7 +2292,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.RES_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2255,7 +2318,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_CHANGE_DATA" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2281,7 +2344,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2307,7 +2370,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_PARENT_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2333,7 +2396,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.TASK_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2359,7 +2422,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_DOC_REF_CNT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2385,7 +2448,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_ISSUE_REF_CNT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2411,7 +2474,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_OTHER_REF_CNT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2437,7 +2500,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.StatusApprovalDataSet.StatusApprovalsRow.WOBJ_RISK_REF_CNT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2462,7 +2525,7 @@
         <ReturnType>System.Byte[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the binary representation of changes (if any) that were made to the task fields.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2488,7 +2551,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the integer-based identifier of the specified task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2514,7 +2577,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates whether a task is a summary task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2540,7 +2603,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the name of the specified task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2566,7 +2629,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the unique identifier of the task parent.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2592,7 +2655,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the unique identifier for the specified task.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2618,7 +2681,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the web administration field that indicates whether the assignment is newly created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2644,9 +2707,27 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates whether a note has been entered for the assignment.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>It takes the following values:</para>
+          <para />
+          <list type="table">
+            <item>
+              <term>0</term>
+              <description>The assignment has no notes.</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>The assignment has current notes.</description>
+            </item>
+            <item>
+              <term>2</term>
+              <description>The assignment has only history notes.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WASSN_REMOVED_BY_RES">
@@ -2670,7 +2751,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the web administration field that indicates whether the assignment was removed by a resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2696,7 +2777,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of documents linked to the web object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2722,7 +2803,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of issues that are linked to the web object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2748,7 +2829,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of generic SharePoint list items that are linked to the web object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2774,7 +2855,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of risks that are linked to the web object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

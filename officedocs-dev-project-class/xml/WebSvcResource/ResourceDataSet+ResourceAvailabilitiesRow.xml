@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents the availability of the resource identified with the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_UID" /> property.</summary>
+    <remarks>
+      <para>A work or cost type resource has a default availability row. If you do not specify <b>RES_AVAIL_FROM</b>, the default is the date the resource is created.  The default <b>RES_AVAIL_UNITS</b> is 100 (available 100% of the time specified by the resource calendar).</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsRES_AVAIL_FROMNull">
@@ -40,7 +43,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_FROM" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +70,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_TO" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +97,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_UNITS" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,9 +123,20 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the start date and time from which the resource is available.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project does not recognize time zones. To manage resources in different time zones requires creating resource calendars for the time zones.</para>
+          <para>You cannot add <b>RES_AVAIL_FROM</b> to a material resource. To add a work or cost resource availability date, specify a date only, not a time. For example, DateTime dt = DateTime(2011, 06, 26) or DateTime dt = DateTime(2011, 06, 26, 0, 0, 0) works because either value is the same date and time. DateTime dt = DateTime(2011, 06, 26, 9, 0, 0) causes a SOAP exception with the error <b>GeneralInvalidColumnValue</b> (error code 20000) when you try to create the resource.</para>
+          <para>
+            <b>Note</b>: Converting a local date to Coordinated Universal Time (UTC) usually causes an exception because the converted time is not midnight.</para>
+          <para>When you create a resource, the default <b>RES_AVAIL_FROM</b> value is the current date.</para>
+          <para>The <b>System.DBNull</b> value in <b>RES_AVAIL_FROM</b> implies <b>DateTime.MinValue</b>.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>For sample code that creates resources and sets <b>RES_AVAIL_FROM</b>, see the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="RES_AVAIL_TO">
@@ -146,9 +160,16 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the end date until which the resource is available.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project does not recognize time zones. To manage resources in different time zones requires creating resource calendars for the time zones.</para>
+          <para>You cannot add <b>RES_AVAIL_TO</b> to a material resource. To add a work or cost resource availability date, specify a date only, not a time. For example, DateTime dt = DateTime(2011, 06, 26) or DateTime dt = DateTime(2011, 06, 26, 0, 0, 0) works because either value is the same date and time. DateTime dt = DateTime(2011, 06, 26, 9, 0, 0) causes a SOAP exception with the error <b>GeneralInvalidColumnValue</b> (error code 20000) when you try to create the resource.</para>
+          <para>
+            <b>Note</b>: Converting a local date to Coordinated Universal Time (UTC) usually causes an exception because the converted time is not midnight.</para>
+          <para>The <b>System.DBNull</b> value in <b>RES_AVAIL_TO</b> implies <b>DateTime.MinValue</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RES_AVAIL_UNITS">
@@ -172,9 +193,15 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the resource availability; it is expressed as a percentage of calendar work time.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A value of 100 means that the resource is fully available. A value of 0 means that the resource is not available at all.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>For sample code that creates resources and sets <b>RES_AVAIL_UNITS</b>, see the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="RES_UID">
@@ -198,9 +225,16 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the resource GUID.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>RES_UID</b> is a foreign key to the <see cref="P:WebSvcResource.ResourceDataSet.ResourcesRow.RES_UID" /> property.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>For sample code that creates resources and sets <b>RES_UID</b>, see the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ResourcesRow">
@@ -224,9 +258,12 @@
         <ReturnType>WebSvcResource.ResourceDataSet+ResourcesRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the information for a specific resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+        <example>
+          <para>For sample code that creates resources and sets <b>ResourcesRow</b>, see the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="SetRES_AVAIL_FROMNull">
@@ -251,7 +288,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_FROM" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +314,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_TO" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,7 +340,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcResource.ResourceDataSet.ResourceAvailabilitiesRow.RES_AVAIL_UNITS" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

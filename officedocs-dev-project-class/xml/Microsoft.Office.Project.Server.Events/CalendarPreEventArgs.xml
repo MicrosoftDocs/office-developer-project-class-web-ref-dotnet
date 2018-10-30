@@ -17,8 +17,13 @@
       <InterfaceName>Microsoft.Office.Project.Server.Events.IPreEventArgs</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.CalendarEventReceiver.OnChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CalendarPostEventArgs)" /> event handler method and the  <see cref="M:Microsoft.Office.Project.Server.Events.CalendarEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CalendarPostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -55,8 +60,8 @@
         <Parameter Name="ds" Type="System.Data.DataSet" />
       </Parameters>
       <Docs>
-        <param name="ds">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ds">The <b>DataSet</b> that represents all the calendars in a specific enterprise project.</param>
+        <summary>Creates an instance of the <b>CalendarPreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -79,7 +84,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads or writes whether to cancel an event that is associated with a calendar.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -106,8 +111,8 @@
         <Parameter Name="reason" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="reason">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="reason">The text that explains why a calendar event is to be cancelled.</param>
+        <summary>Cancels an event that is associated with a calendar.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -130,7 +135,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads or writes text that explains why a calendar event is to be cancelled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

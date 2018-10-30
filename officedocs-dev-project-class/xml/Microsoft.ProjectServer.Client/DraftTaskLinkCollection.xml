@@ -22,7 +22,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a collection of <see cref="T:Microsoft.ProjectServer.Client.DraftTaskLink" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -47,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>DraftTaskLinkCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,9 +77,9 @@
         <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.TaskLinkCreationInformation" />
       </Parameters>
       <Docs>
-        <param name="parameters">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="parameters">The properties of the draft task link to create.</param>
+        <summary>Adds the draft task link that is specified by the <see cref="T:Microsoft.ProjectServer.Client.TaskLinkCreationInformation" /> object to the collection.</summary>
+        <returns>The draft task link.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -107,9 +107,9 @@
         <Parameter Name="uid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="uid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="uid">A GUID value.</param>
+        <summary>Gets a draft task link from the collection with the specified GUID.</summary>
+        <returns>A <b>DraftTaskLink</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,9 +137,9 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="objectId">The string representation of the task link GUID.</param>
+        <summary>Gets a draft task link from the collection with the <see cref="P:Microsoft.ProjectServer.Client.TaskLink.Id" /> value.</summary>
+        <returns>A <b>DraftTaskLink</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -167,9 +167,10 @@
         <Parameter Name="TaskLink" Type="Microsoft.ProjectServer.Client.DraftTaskLink" />
       </Parameters>
       <Docs>
-        <param name="TaskLink">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="TaskLink">The draft task link to remove.</param>
+        <summary>Removes the specified draft task link from the collection.</summary>
+        <returns>
+          <b>True</b> if the object is removed from the collection; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

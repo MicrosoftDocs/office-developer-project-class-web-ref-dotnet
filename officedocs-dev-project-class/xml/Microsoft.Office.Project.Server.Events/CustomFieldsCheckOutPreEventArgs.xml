@@ -17,8 +17,13 @@
       <InterfaceName>Microsoft.Office.Project.Server.Events.IPreEventArgs</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckingOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -55,8 +60,8 @@
         <Parameter Name="customFields" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="customFields">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="customFields">A collection of the GUIDs of the custom fields that are checked out.</param>
+        <summary>Creates an instance of the <b>CustomFieldsCheckOutPreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -79,7 +84,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads or writes a Boolean value that indicates whether to cancel the check out of a custom field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -106,8 +111,8 @@
         <Parameter Name="reason" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="reason">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="reason">The text that explains why check out of a custom field is to be canceled.</param>
+        <summary>Cancels the check out of a custom field.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -130,7 +135,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads or writes the text that explains why check out of a custom field is to be canceled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

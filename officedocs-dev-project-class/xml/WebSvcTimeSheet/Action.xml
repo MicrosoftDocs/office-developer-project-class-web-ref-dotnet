@@ -16,10 +16,18 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlType(Namespace="http://schemas.microsoft.com/office/project/server/webservices/TimeSheet/")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the action to take on a timesheet.</summary>
+    <remarks>
+      <para>For more information, see the <see cref="M:WebSvcTimeSheet.TimeSheet.QueueReviewTimesheet(System.Guid,System.Guid,System.Guid,System.String,WebSvcTimeSheet.Action)" /> PSI method.</para>
+      <para>
+        <b>Note</b>: The <see cref="N:Microsoft.Office.Project.Server.Library" /> namespace also includes the <see cref="T:Microsoft.Office.Project.Server.Library.TimesheetEnum.Action" /> type.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Approve">
@@ -39,7 +47,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Approve timesheet.</summary>
       </Docs>
     </Member>
     <Member MemberName="PendingApproval">
@@ -59,7 +67,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Pending approval. Do not use; this is reserved for use by Project Server.</summary>
       </Docs>
     </Member>
     <Member MemberName="Reject">
@@ -79,7 +87,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Reject timesheet.</summary>
       </Docs>
     </Member>
     <Member MemberName="Submit">
@@ -99,7 +107,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Submit timesheet.</summary>
       </Docs>
     </Member>
   </Members>

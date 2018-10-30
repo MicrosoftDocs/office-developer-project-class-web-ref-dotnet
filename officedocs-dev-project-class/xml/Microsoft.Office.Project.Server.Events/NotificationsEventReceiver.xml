@@ -18,8 +18,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes the <b>OnSending</b> and <b>OnSent</b> event handlers that occur when Project Server sends an alert or reminder.</summary>
+    <remarks>
+      <para>For information about creating, registering, and debugging an event handler, see How to: Create a Project Server Event Handler and Log an Event. For an example that changes e-mail using the <b>Notifications</b><b>Sending</b> event, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +38,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>NotificationsEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,10 +62,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">The Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler that occurs before Project Server sends an alert or reminder notification.</summary>
+        <remarks>
+          <para>Use the <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" /> and <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" /> properties to get the notification content. You can change the notification content in an <b>OnSending</b> event handler. The <see cref="T:Microsoft.Office.Project.Server.Library.Notification" /> class lists alerts and reminders.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event. For an example that changes e-mail using the <b>Notifications</b><b>Sending</b> event, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSendingRemote">
@@ -117,10 +124,14 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">The Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler that occurs after Project Server sends an alert or reminder notification.</summary>
+        <remarks>
+          <para>Use the <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" /> and <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" /> properties to get content of the notification sent. To change the notification content, create an <b>OnSending</b> pre-event handler. The <see cref="T:Microsoft.Office.Project.Server.Library.Notification" /> class lists alerts and reminders.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnSentRemote">

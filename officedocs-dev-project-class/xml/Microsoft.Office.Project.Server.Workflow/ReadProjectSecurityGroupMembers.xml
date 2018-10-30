@@ -34,8 +34,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that reads the members of the specified Project Server security group; optionally filtered by the department of the active project.</summary>
+    <remarks>
+      <para>The <b>ReadProjectSecurityGroupMembers</b> activity sets the <b>GroupMembersLoginNames</b> property, which is a string array of security group member login names. If the <b>DepartmentFilter</b> property is <b>true</b>, the result is filtered by the department of the active project.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -51,7 +54,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Created a new instance of the <b>ReadProjectSecurityGroupMembers</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -79,9 +82,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that indicates whether to filter the <b>GroupMembersLoginNames</b> property by department.</summary>
+        <value>
+          <b>True</b> if the array of group member login names is filtered by the active project department; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>A value of <b>True</b> specifies that the resulting <b>GroupMembersLoginNames</b> array is filtered by the department of the active project. In the Properties pane, the value of the <b>DepartmentFilter</b> property can be directly set to <b>True</b> or <b>False</b>. You can also set the value to a path in the workflow, such as <b>Activity=MyWorkflow, Path=SomeBooleanValue</b>.  </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DepartmentFilterProperty">
@@ -100,7 +107,7 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the <b>DepartmentFilter</b> property, which specifies whether to filter by department.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,9 +130,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>ReadProjectSecurityGroup</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -153,9 +160,12 @@
         <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the array of members of the security group.</summary>
+        <value>An array of member login names.</value>
+        <remarks>
+          <para>The <b>ReadProjectSecurityGroupMembers</b> activity sets the result in the <b>GroupMembersLoginNames</b> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GroupMembersLoginNamesProperty">
@@ -174,7 +184,7 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the <b>GroupMembersLoginNames</b> property, which is an array of the security group member login names.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,9 +212,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the GUID of the Project Server security group.</summary>
+        <value>The security group GUID.</value>
+        <remarks>
+          <para>In the Properties pane, you can directly set the value of <b>SecurityGroupUid</b> to a GUID. You can also set the value to a path in the workflow, such as <b>Activity=MyWorkflow, Path=SomeUidValue</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SecurityGroupUidProperty">
@@ -223,7 +236,7 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the <b>SecurityGroupUid</b> property, which is the GUID of a Project Server security group.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -251,9 +264,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the context of the <b>ReadProjectSecurityGroupMembers</b> activity in the parent workflow activity.</summary>
+        <value>An object that contains information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>ReadProjectSecurityGroupMembers</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -272,8 +288,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>ReadProjectSecurityGroup</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>ReadProjectSecurityGroup</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

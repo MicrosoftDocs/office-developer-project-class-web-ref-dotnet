@@ -22,7 +22,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a collection of plan assignment objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -47,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of a <b>PlanAssignmentCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,9 +77,9 @@
         <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.PlanAssignmentCreationInformation" />
       </Parameters>
       <Docs>
-        <param name="parameters">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="parameters">An object that contains information, for example name and GUID, about a new plan assignment.</param>
+        <summary>Adds a new plan assignment to the collection of plan assignments.</summary>
+        <returns>A plan assignment.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -107,9 +107,9 @@
         <Parameter Name="uid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="uid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="uid">A <b>GUID</b> value.</param>
+        <summary>Gets a plan assignment from the collection, by using the specified <b>GUID</b>.</summary>
+        <returns>A <b>PlanAssignment</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,9 +137,9 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="objectId">A string value that is the object identifier.</param>
+        <summary>Gets a plan assignment from the collection, by using the specified object identifier.</summary>
+        <returns>A plan assignment.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -167,9 +167,10 @@
         <Parameter Name="assignment" Type="Microsoft.ProjectServer.Client.PlanAssignment" />
       </Parameters>
       <Docs>
-        <param name="assignment">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="assignment">The <b>PlanAssignment</b> object to be removed.</param>
+        <summary>Removes the specified plan assignment from the collection of plan assignments.</summary>
+        <returns>
+          <b>True</b> if the plan assignment was removed; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -17,9 +17,61 @@
       <InterfaceName>System.Runtime.Serialization.ISerializable</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains information about a SOAP exception for a PSI method.</summary>
+    <remarks>
+      <para>To get a list of all errors that occur if you get an exception when you call a PSI method, pass the <b>SoapException</b> object to the <see cref="T:Microsoft.Office.Project.Server.Library.PSClientError" /> class constructor. You can then use <see cref="M:Microsoft.Office.Project.Server.Library.PSClientError.GetAllErrors" /> to store the error information in a <b>PSErrorInfo</b> array and enumerate the errors, as in the following example.</para>
+      <para>
+        <b>Note</b>: The <b>PSErrorInfo</b> object may not include all of the information you need. For example, if you use <b>Resource.CheckOutResources</b> where some of the resources are already checked out, <b>PSErrorInfo</b> shows the reason for failure for each resource that cannot be checked out, but does not include the resource name or GUID. For a way to get more information, see <see cref="M:WebSvcResource.Resource.CheckOutResources(System.Guid[])" />.</para>
+      <para />
+    </remarks>
+    <example>
+      <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Services.Protocols;
+using System.Windows.Forms;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+try
+{
+    /* call a PSI method */
+}
+catch (SoapException ex)
+{
+    string errAttributeName;
+    string errAttribute;
+    string errMess = "".PadRight(30, '=') + "\r\n" + "Error: " + "\r\n";
+
+    PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+    PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+    PSLibrary.PSErrorInfo thisError;
+
+    for (int i = 0; i &amp;lt; errors.Length; i++)
+    {
+        thisError = errors[i];
+        errMess += "\n" + ex.Message.ToString() + "\r\n";
+        errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+        errMess += thisError.ErrId.ToString() + "\n";
+
+        for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+        {
+            errAttributeName = thisError.ErrorAttributeNames()[j];
+            errAttribute = thisError.ErrorAttributes[j];
+            errMess += "\r\n\t" + errAttributeName +
+                       ": " + errAttribute;
+        }
+        errMess += "\r\n".PadRight(30, '=');
+    }
+    MessageBox.Show(errMess, "Error", MessageBoxButtons.OK,
+        MessageBoxIcon.Error);
+}</code>
+    </example>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -38,8 +90,8 @@
         <Parameter Name="xmlString" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="xmlString">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xmlString">A string that contains error information in XML format.</param>
+        <summary>Creates an instance of the <b>PSClientError</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,8 +111,8 @@
         <Parameter Name="e" Type="System.Web.Services.Protocols.SoapException" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">A Soap exception.</param>
+        <summary>Creates an instance of the <b>PSClientError</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -80,7 +132,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of errors reported by the <b>PSClientError</b> object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -101,7 +153,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Name of the column added to the error <b>DataSet</b> if a <b>List&lt;PSErrorInfo[]&gt;</b> of <b>PSErrorInfo</b> objects is requested.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -122,9 +174,56 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an array of <b>PSErrorInfo</b> objects describing all current errors.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To get a list of all errors that occur if you get an exception when you call a PSI method, pass the <b>SoapException</b> object to the <see cref="T:Microsoft.Office.Project.Server.Library.PSClientError" /> class constructor. You can then use <see cref="M:Microsoft.Office.Project.Server.Library.PSClientError.GetAllErrors" /> to store the error information in a <b>PSErrorInfo</b> array and enumerate the errors, as in the following example.</para>
+          <para>
+            <b>Note</b>: The <b>PSErrorInfo</b> object may not include all of the information you need. For example, if you use <b>Resource.CheckOutResources</b> where one of the resources is already checked out, <b>PSErrorInfo</b> shows the reason for failure for each resource that cannot be checked out, but does not include the resource name or GUID. For a way to get more information, see <see cref="M:WebSvcResource.Resource.CheckOutResources(System.Guid[])" />.</para>
+          <para />
+        </remarks>
+        <example>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Services.Protocols;
+using System.Windows.Forms;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+try
+{
+    /* call a PSI method */
+}
+catch (SoapException ex)
+{
+    string errAttributeName;
+    string errAttribute;
+    string errMess = "".PadRight(30, '=') + "\r\n" + "Error: " + "\r\n";
+
+    PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+    PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+    PSLibrary.PSErrorInfo thisError;
+
+    for (int i = 0; i &amp;lt; errors.Length; i++)
+    {
+        thisError = errors[i];
+        errMess += "\n" + ex.Message.ToString() + "\r\n";
+        errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+        errMess += thisError.ErrId.ToString() + "\n";
+
+        for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+        {
+            errAttributeName = thisError.ErrorAttributeNames()[j];
+            errAttribute = thisError.ErrorAttributes[j];
+            errMess += "\r\n\t" + errAttributeName +
+                       ": " + errAttribute;
+        }
+        errMess += "\r\n".PadRight(30, '=');
+    }
+    MessageBox.Show(errMess, "Error", MessageBoxButtons.OK,
+        MessageBoxIcon.Error);
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="GetAllGeneralErrors">
@@ -144,7 +243,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an array of <b>PSErrorInfo</b> objects describing all current general errors of all classes.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -169,10 +268,10 @@
         <Parameter Name="item" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="arrayName">To be added.</param>
-        <param name="item">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="arrayName">Name of the array, or a null reference (Nothing in Visual Basic) if the array has no name.</param>
+        <param name="item">Item in the array to get error information about.</param>
+        <summary>Gets an array of <b>PSErrorInfo</b> objects describing each error on the specified array item in a SOAP exception for a PSI method call.</summary>
+        <returns>Array of <b>PSErrorInfo</b> objects.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -193,7 +292,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the names of arrays the <b>PSClientError</b> object contains for a PSI method call.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -215,8 +314,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the names of datasets that contain errors for a PSI method call.</summary>
+        <returns>Array of <b>DataSet</b> names the error object contains.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -239,10 +338,13 @@
         <Parameter Name="arrayName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="arrayName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="arrayName">Name of the array, or a null reference (Nothing in Visual Basic) if the array has no name.</param>
+        <summary>Gets an array containing all the items which were set as error items in a SOAP exception for a PSI method call.</summary>
+        <returns>Array of error items.</returns>
+        <remarks>
+          <para>The type of the returned <b>object</b> array is the same as the type of the original array items.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetErrorArray">
@@ -265,11 +367,14 @@
         <Parameter Name="errorInfoList" Type="System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.PSErrorInfo[]&gt;" RefType="out" />
       </Parameters>
       <Docs>
-        <param name="arrayName">To be added.</param>
-        <param name="errorInfoList">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="arrayName">Name of the array, or a null reference (Nothing in Visual Basic) if the array has no name.</param>
+        <param name="errorInfoList">Returned <b>List&lt;PSErrorInfo[]&gt;</b> of <b>PSErrorInfo</b> objects.</param>
+        <summary>Gets an array containing all the items which were set as error items in a SOAP exception for a PSI method call.</summary>
+        <returns>Array of error items. Also returns a <b>List&lt;PSErrorInfo[]&gt;</b> of <b>PSErrorInfo</b> arrays which describe all errors for each item.</returns>
+        <remarks>
+          <para>The type of the returned <b>object</b> array is the same as the type of the original array items.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetErrorDataSet">
@@ -291,10 +396,13 @@
         <Parameter Name="dataSetName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="dataSetName">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="dataSetName">Name of the <b>DataSet</b>. Set to a null reference (Nothing in Visual Basic) if the DataSet has no name.</param>
+        <summary>Gets the specified <b>DataSet</b> that contains all tables and rows which have had errors previously set for a PSI method call.</summary>
+        <returns>The error <b>DataSet</b>.</returns>
+        <remarks>
+          <para>Modifying the returned <b>DataSet</b> has no effect on the <b>PSClientError</b> object.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetErrorDataSet">
@@ -317,11 +425,14 @@
         <Parameter Name="errInfoList" Type="System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.PSErrorInfo[]&gt;" RefType="out" />
       </Parameters>
       <Docs>
-        <param name="dataSetName">To be added.</param>
-        <param name="errInfoList">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="dataSetName">Name of the <b>DataSet</b>. Set to a null reference (Nothing in Visual Basic) if the DataSet has no name.</param>
+        <param name="errInfoList">Returned <b>List</b> containing <b>PSErrorInfo[]</b> arrays.</param>
+        <summary>Gets a <b>DataSet</b> that contains all tables and rows which have had errors previously set for a PSI method call.</summary>
+        <returns>The error <b>DataSet</b>. Also returns a List with <b>PSErrorInfo</b>[] arrays that describe the error.</returns>
+        <remarks>
+          <para>Each table in the returned <b>DataSet</b> has one additional column named <b>ErrorIndex</b>, of type <b>int</b>. The <b>ErrorIndex</b> column maps specific <b>DataRows</b> to entries in the returned <b>List&lt;PSErrorInfo[]&gt;</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetObjectData">
@@ -347,9 +458,9 @@
         <Parameter Name="c" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="s">To be added.</param>
-        <param name="c">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="s">A <b>SerializationInfo</b> object that contains information needed to serialize or deserialize another object.</param>
+        <param name="c">A <b>StreamingContext</b> object that contains contextual information about the source or destination of a given serialized stream.</param>
+        <summary>Stores the error message string for use during serialization.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -372,8 +483,8 @@
         <Parameter Name="dr" Type="System.Data.DataRow" />
       </Parameters>
       <Docs>
-        <param name="dr">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="dr">The <b>DataRow</b> on which to return errors.</param>
+        <summary>Gets an array of <b>PSErrorInfo</b> objects which contain all the error information about errors on the specified <b>DataRow</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -394,8 +505,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether any errors reported by the <b>PSClientError</b> object are array errors for the PSI method.</summary>
+        <value>
+          <b>True</b> if any errors reported by the PSClientError object are array errors for the PSI method; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -415,8 +527,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether any errors reported by the <b>PSClientError</b> object are <b>DataSet</b> errors for the PSI method.</summary>
+        <value>
+          <b>True</b> if any errors reported by the PSClientError object are <b>DataSet</b> errors for the PSI method; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -436,8 +549,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the <b>PSClientError</b> object contains any errors from a PSI call.</summary>
+        <value>
+          <b>True</b> if the <b>PSClientError</b> object contains any errors from a PSI call; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -457,8 +571,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the <b>PSClientError</b> object contains any general errors from a PSI call.</summary>
+        <value>
+          <b>True</b> if the <b>PSClientError</b> object contains any general errors from a PSI call; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -478,7 +593,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.PSErrorID</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the last error set in a SOAP exception for a PSI method call.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

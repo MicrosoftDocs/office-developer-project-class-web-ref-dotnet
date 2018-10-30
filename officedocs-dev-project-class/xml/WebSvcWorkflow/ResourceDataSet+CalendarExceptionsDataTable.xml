@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about resource calendar conflicts that is contained in one or more <see cref="T:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CalendarExceptionsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>CalendarExceptionsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">Contains the calendar exceptions row information.</param>
+        <summary>Adds a <b>CalendarExceptionsRow</b> object to the <b>CalendarExceptionsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>Add CalendarExceptionsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow" /> parameter, for example, AddCalendarExceptionsRow(ResourcesDataSet.CalendarExceptionsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload which uses individual parameters for all fields in <b>CalendarExceptionsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CalendarExceptionsRowChanged">
@@ -122,7 +136,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -142,7 +156,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -162,7 +176,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -182,7 +196,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -237,7 +251,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>CalendarExceptionsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -290,7 +304,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -320,7 +334,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>CalendarExceptionsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -376,8 +390,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -406,8 +420,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>CalendarExceptionsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -433,7 +447,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Name" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -460,7 +474,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>CalendarExceptionsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -632,7 +646,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrenceDays" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -658,7 +672,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrenceFrequency" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -684,7 +698,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrenceMonth" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -710,7 +724,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrenceMonthDay" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -736,7 +750,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrencePosition" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -762,7 +776,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RecurrenceType" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -791,8 +805,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+CalendarExceptionsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>CalendarExceptionsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -817,7 +831,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.RES_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -843,7 +857,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift1Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -869,7 +883,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift1Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -895,7 +909,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift2Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -921,7 +935,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift2Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -947,7 +961,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift3Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -973,7 +987,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift3Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -999,7 +1013,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift4Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1025,7 +1039,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift4Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1051,7 +1065,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift5Finish" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1077,7 +1091,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Shift5Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1103,7 +1117,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.CalendarExceptionsRow.Start" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

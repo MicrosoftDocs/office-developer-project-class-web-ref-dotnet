@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ReportingEventReceiver.OnTimesheetClassChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ReportingPostTimesheetClassChangedEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -54,11 +59,11 @@
         <Parameter Name="classDescription" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="classGuid">To be added.</param>
-        <param name="classType">To be added.</param>
-        <param name="className">To be added.</param>
-        <param name="classDescription">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="classGuid">The GUID of the changed timesheet line class.</param>
+        <param name="classType">The type of the changed timesheet line class.</param>
+        <param name="className">The name of the changed timesheet line class.</param>
+        <param name="classDescription">The description of the changed timesheet line class.</param>
+        <summary>Creates an instance of the <b>ReportingPostTimesheetClassChangedEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,7 +83,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the description of the changed timesheet line class.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -99,7 +104,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the changed timesheet line class.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,7 +125,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the changed timesheet line class.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -141,7 +146,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.TimesheetEnum+LineClassType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the type of the changed timesheet line class.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -163,7 +168,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a text string that contains the GUID, name, type, and description of the changed timesheet line class.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

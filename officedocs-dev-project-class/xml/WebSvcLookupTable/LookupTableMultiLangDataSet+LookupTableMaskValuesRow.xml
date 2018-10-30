@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one code mask value in a multilanguage lookup table.</summary>
+    <remarks>
+      <para>A code mask value relates the lookup table code mask to the value of a lookup table node for a specified language. To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see the ProjTool source code, or see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsLT_MASK_VALUE_SEPARATORNull">
@@ -40,7 +43,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" /> property is set to a null reference (Nothing in Visual Basic).</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -66,9 +69,51 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the locale identifier value for a code mask in a multilanguage lookup table.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a lookup table node for the specified language. There should be one <b>LookupTableMaskValues</b> row for each <b>LCID</b> value and for each mask outline level in a multilanguage lookup table. For example, if there are three languages and two code mask levels, there should be six <b>LookupTableMaskValues</b> rows in the <b>LookupTableMultiLangDataSet</b>.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object which contains one lookup table with French, German, and Spanish values (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the <b>LookupTableMultiLangDataSet</b> element includes the following child elements.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1034&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1036&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1034&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1036&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>For a list of LCIDs, see <a href="http://msdn2.microsoft.com/en-us/library/0h88fahh.aspx">Locale ID (LCID) Chart</a>Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LookupTableMaskStructuresRowParent">
@@ -92,7 +137,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableMultiLangDataSet+LookupTableMaskStructuresRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the GUID of the parent <b>LookupTableMaskStructures</b> row for the code mask value.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,9 +163,21 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the outline level of the lookup table mask structure for the code mask value.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a lookup table node for a specified language. If the full value of a German language lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^"). The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object which contains lookup table masks for level 1 and level 2 sequences of characters of any length (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the following is an example of a level 1 lookup table mask value for the German language.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_VALUE_SEPARATOR">
@@ -144,9 +201,21 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the Separator character to use for multilevel lookup table values.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a German language lookup table node for a specified language. If the full value of a lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^").The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object that contains lookup table masks for level 1 and level 2 sequences of characters of any length (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the following is an example of a level 1 lookup table mask value for the German language.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_UID">
@@ -170,7 +239,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the multilanguage lookup table that uses the code mask.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -197,7 +266,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" /> property to a null reference (Nothing in Visual Basic).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -19,8 +19,85 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a resource that is managed by Project Server in a project.</summary>
+    <remarks>
+      <para>You can get an <b>EnterpriseResource</b> object for editing by using the <b>GetByGuid</b>, <b>GetById</b>, or <b>GetByUser</b> method on the <see cref="T:Microsoft.ProjectServer.Client.EnterpriseResourceCollection" /> object. When you make a change to one of the editable properties, and then save the change, Project Server automatically checks out the resource, makes the change, and then checks the resource back in. This is similar to the process of opening an enterprise resource in Project Professional 2013, editing it, and then saving and closing the enterprise resource.</para>
+      <para />
+    </remarks>
+    <example>
+      <para>The following example uses the <b>EnterpriseResourceCollection.GetByGuid</b> method to get an <b>EnterpriseResource</b> object for editing. The example toggles the <b>CanLevel</b> property from <b>True</b> to <b>False</b>.</para>
+      <para>If the resource is already checked out, the example throws a <b>PJClientCallableException</b>, such as <b>CICOAlreadyCheckedOutToYou</b>. You can use <b>Try</b> –<b>Catch</b> statements to handle the exception, or use the <see cref="P:Microsoft.ProjectServer.Client.EnterpriseResource.IsCheckedOut" /> property to determine whether an edit can be done.</para>
+      <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace EditEntResource
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa/";    // Change the path for your Project Web App.
+        
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath); 
+
+            Guid entResUid = new Guid("9f164f32-d985-e211-93f8-0021704e28a0");
+
+            // Get the list of enterprise resources in Project Web App.
+            projContext.Load(projContext.EnterpriseResources);
+            projContext.ExecuteQuery();
+
+            int numResInCollection = projContext.EnterpriseResources.Count();
+
+            if (numResInCollection &amp;gt; 0)
+            {
+                projContext.Load(projContext.EnterpriseResources.&lt;span class="label"&gt;GetByGuid&lt;/span&gt;(entResUid));
+                projContext.ExecuteQuery();
+
+                var entRes2Edit = projContext.EnterpriseResources.&lt;span class="label"&gt;GetByGuid&lt;/span&gt;(entResUid);
+
+                Console.WriteLine("\nEditing resource : GUID : Can Level");
+                Console.WriteLine("\n{0} : {1} : {2}", entRes2Edit.Name, entRes2Edit.Id.ToString(),
+                    entRes2Edit.CanLevel.ToString());
+
+                // Toggle the CanLevel property.
+                entRes2Edit.&lt;span class="label"&gt;CanLevel&lt;/span&gt; = !entRes2Edit.&lt;span class="label"&gt;CanLevel&lt;/span&gt;;
+
+                // The entRes2Edit object is in the EnterpriseResources collection.
+                projContext.EnterpriseResources.Update();
+                
+                // Save the change.
+                projContext.ExecuteQuery();
+
+                // Check that the change was made.
+                projContext.Load(projContext.EnterpriseResources.GetByGuid(entResUid));
+                projContext.ExecuteQuery();
+
+                entRes2Edit = projContext.EnterpriseResources.GetByGuid(entResUid);
+
+                Console.WriteLine("\n\nChanged resource : GUID : Can Level");
+                Console.WriteLine("\n{0} : {1} : {2}", entRes2Edit.Name, entRes2Edit.Id.ToString(),
+                    entRes2Edit.CanLevel.ToString());
+            }
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+      <para>Following is sample output:</para>
+      <code>Editing resource : GUID : Can Level
+TestUser Name : 9f164f32-d985-e211-93f8-0021704e28a0 : True
+
+Changed resource : GUID : Can Level
+TestUser Name : 9f164f32-d985-e211-93f8-0021704e28a0 : False
+Press any key to exit:</code>
+    </example>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +121,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Initializes an instance of the <b>EnterpriseResource</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +148,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.StatusAssignmentCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a collection of status assignments for an enterprise resource.</summary>
+        <value>A collection of <b>StatusAssignment</b> objects.</value>
+        <remarks>
+          <para>Status assignment data reports on the status of assignments.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseCalendar">
@@ -97,8 +177,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Calendar</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a base calendar for an enterprise resource.</summary>
+        <value>A base calendar.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +203,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether resource leveling can be performed on an enterprise resource.</summary>
+        <value>
+          <b>True</b> if resource leveling can be performed on the resource; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +230,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that is entered as part of the information about an enterprise resource.</summary>
+        <value>A string that contains code information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +256,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.AccrueAt</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that represents how and when to charge enterprise resource costs to the cost of a task.</summary>
+        <value>An enumerated value that represents a particular procedure for charging enterprise resource costs.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +282,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that is entered as cost center information for an enterprise resource.</summary>
+        <value>A string that contains cost center information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +308,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time when an enterprise resource was added to the project.</summary>
+        <value>The date and time when the resource was added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,8 +334,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of custom fields that have values set for an enterprise resource.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,8 +360,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default name that is entered into the <b>Assignment Owner</b> field when an enterprise resource is assigned to a task.</summary>
+        <value>The default assignment owner name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,9 +386,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.BookingType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the default booking type for an enterprise resource.</summary>
+        <value>A numerical value that represents how the resource is booked for assignments.</value>
+        <remarks>
+          <para>Examples of booking types are proposed, committed, and not specified.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteObject">
@@ -332,7 +416,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>EnterpriseResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -357,8 +441,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the email address of an enterprise resource.</summary>
+        <value>An email address.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -383,8 +467,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any code, abbreviation, or number that is entered as an external identifier for an enterprise resource.</summary>
+        <value>A string that contains external identification information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -404,9 +488,12 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of custom fields that have values set for an enterprise resource.</summary>
+        <value>A set of custom field values.</value>
+        <remarks>
+          <para>For code examples that use <b>FieldValues</b>, see <see cref="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" /> and <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.FieldValues" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ForceCheckIn">
@@ -431,7 +518,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Forces a project to be checked in after it is left in a state of being checked out following the interruption or unexpected closing of Project Server.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -459,10 +546,42 @@
         <Parameter Name="Context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
       </Parameters>
       <Docs>
-        <param name="Context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="Context">A <b>ClientRuntimeContext</b> object.</param>
+        <summary>Gets the currently logged-on user.</summary>
+        <returns>The <b>EnterpriseResource</b> who is currently logged on.</returns>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The following example gets the name of the application user.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace WhoAmI
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa/"; // Change the path for your Project Web App.
+        private static ProjectContext projContext;
+       
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath);
+
+            // Load the application user, who must be an enterprise resource.
+            EnterpriseResource self = EnterpriseResource.GetSelf(projContext);
+            projContext.Load(self);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("I am: {0}", self.Name);
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Group">
@@ -486,8 +605,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of a group to which an enterprise resource belongs.</summary>
+        <value>A string that contains the group name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -512,8 +631,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time of hire for an enterprise resource.</summary>
+        <value>A hire date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -538,8 +657,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the object identifier as a <b>GUID</b>.</summary>
+        <value>A <b>GUID</b> value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -564,8 +683,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the abbreviation for the name of an enterprise resource.</summary>
+        <value>An object that contains a name abbreviation.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -589,9 +708,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -615,10 +734,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -643,8 +763,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether an enterprise resource has been made active or inactive.</summary>
+        <value>
+          <b>True</b> if the enterprise resource is currently active; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -669,8 +790,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a Boolean value that indicates whether an enterprise resource is a budget resource.</summary>
+        <value>
+          <b>True</b> if the resource is a budget resource; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -695,8 +817,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether enterprise resource assignment data is currently available for updating or modification, or whether the enterprise resource is checked out.</summary>
+        <value>
+          <b>True</b> if the enterprise resource is currently checked out; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -721,8 +844,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a Boolean value that indicates whether an enterprise resource is generic.</summary>
+        <value>
+          <b>True</b> if the resource is generic; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -747,8 +871,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a Boolean value that indicates whether a resource is in a team assignment pool.</summary>
+        <value>
+          <b>True</b> if the resource is in the team pool; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -779,9 +904,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of a project enterprise resource.</param>
+        <summary>Gets or sets an enterprise resource in a project.</summary>
+        <value>An <b>EnterpriseResource</b> item.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -802,7 +927,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use.  Initializes the extended properties that are associated with an <b>EnterpriseResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -827,8 +952,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the unit of measure that is entered for supplies or other consumable items that are used to complete tasks in a project.</summary>
+        <value>A unit of measure for supplies or other consumable items.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -853,8 +978,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the modified date and time.</summary>
+        <value>A date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -879,8 +1004,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of an enterprise resource.</summary>
+        <value>The enterprise resource name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -905,8 +1030,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets phonetic information for resource names in either the Japanese Hiragana writing system or the Katakana writing system.</summary>
+        <value>An object that contains phonetic information.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -927,7 +1052,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with an <b>EnterpriseResource</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -952,8 +1077,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarExceptionCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of exceptions to the base calendar that are specific to an enterprise resource.</summary>
+        <value>A collection of resource calendar exceptions.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -978,9 +1103,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResourceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets an enumerated value that represents the type of an enterprise resource.</summary>
+        <value>An enumerated value.</value>
+        <remarks>
+          <para>Examples of enterprise resource types include work and material.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TerminationDate">
@@ -1004,8 +1132,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date and time after which the resource can no longer be used.</summary>
+        <value>A date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1030,8 +1158,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the manager who reviews and approves the timesheet of an enterprise resource.</summary>
+        <value>An object that contains the manager.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1056,8 +1184,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the SharePoint user that is linked to the Enterprise Resource.</summary>
+        <value>A <b>User</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

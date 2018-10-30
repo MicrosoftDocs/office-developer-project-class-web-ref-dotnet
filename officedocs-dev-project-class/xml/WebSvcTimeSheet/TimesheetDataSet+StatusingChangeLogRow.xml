@@ -14,8 +14,14 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one record of the <b>Statusing</b> data change log for the timesheet single entry mode.</summary>
+    <remarks>
+      <para>New in Project Server 2010.</para>
+      <para>
+        <b>Note</b>: The <b>StatusingChangeLogDataTable</b> is not designed for timephased data changes, such as provided by the <b>PeriodChange</b> element in the <paramref name="ChangeXML" /> parameter for <b>Statusing</b> methods, because Project Server generates timephased data changes from the core timesheet tables.
+</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="ENTITY_TYPE">
@@ -39,9 +45,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies an assignment or task entity.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>ENTITY_TYPE</b> values can be the following enumeration constants: <see cref="F:Microsoft.Office.Project.Server.Library.ProjectDataType.Assignment" /> and <see cref="F:Microsoft.Office.Project.Server.Library.ProjectDataType.Task" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ENTITY_UID">
@@ -65,7 +74,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The GUID of the assignment or task entity.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -92,7 +101,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.ENTITY_TYPE" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -119,7 +128,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.PID" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -146,7 +155,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.VALUE" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -172,9 +181,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The Project Identifier (PID) of the assignment or task field.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For more information about the PID, see Supported Project Fields and Field Information for Statusing ChangeXML.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_UID">
@@ -198,7 +210,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the project GUID.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -225,7 +237,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.ENTITY_TYPE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -251,7 +263,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.PID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -277,7 +289,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.TimesheetDataSet.StatusingChangeLogRow.VALUE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -302,9 +314,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The value of the field that is specified by the Project Identifier (PID).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For more information about the PID, see Supported Project Fields and Field Information for Statusing ChangeXML.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

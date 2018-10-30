@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Web methods for managing Project Server workflows for demand management.</summary>
+    <remarks>
+      <para>For more information, see Workflow and Demand Management.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +39,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a <b>Workflow</b> object from the ASMX-based <b>Workflow</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Workflow</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>WorkflowClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>WorkflowWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Workflow</b> web service.</para>
+          <code>private static WorkflowWebSvc.Workflow workflow = new WorkflowWebSvc.Workflow();</code>
+          <para>In the following statement, <b>SvcWorkflow</b> is an arbitrary namespace for the WCF-based <b>Workflow</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcWorkflow.WorkflowClient workflowClient = new SvcWorkflow.WorkflowClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CreateEnterpriseProjectType">
@@ -64,9 +76,21 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowDS">Contains the EPT information. </param>
+        <summary>Creates a template for an enterprise project type (EPT).</summary>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.EnterpriseProjectTypeRow" /> in the <b>WorkflowDataSet.EnterpriseProjectTypeDataTable</b> contains the EPT information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateWorkflowPhase">
@@ -93,9 +117,21 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowDS">Contains the workflow phase information.</param>
+        <summary>Creates a workflow phase.</summary>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowPhaseRow" /> in the <b>WorkflowDataSet.WorkflowPhaseDataTable</b> contains the phase information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateWorkflowStage">
@@ -122,9 +158,194 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowDS">Contains the workflow stage information.</param>
+        <summary>Creates a workflow stage.</summary>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStageRow" /> in the <b>WorkflowDataSet.WorkflowStageDataTable</b> contains the phase information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcWorkflow</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>The <b>CreateWorkflowStage</b> method is used to create a new stage, <b>Test Stage 5</b>, in the <b>Create</b> phase. After the stage is created, the dataset <b>workflowDS</b> is again written to <b>NewWorkflowStageInfo.xml</b>. Following is a snapshot of the xml file.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;WorkflowDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/WorkflowDataSet/"&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;Project information is captured in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowStage&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;460f6b0c-1216-46b7-a119-053c32b10d38&amp;lt;/STAGE_UID&amp;gt;
+&amp;lt;STAGE_NAME&amp;gt;Test Stage 5&amp;lt;/STAGE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_DESCRIPTION&amp;gt;&lt;/span&gt;Adding a test stage row&amp;lt;/STAGE_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CHECKIN_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/CHECKIN_REQUIRED&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS_PDP_UID&amp;gt;&lt;/span&gt;a7aa1c62-9577-447c-823e-bdb161f9000d&amp;lt;/STATUS_PDP_UID&amp;gt;
+&amp;lt;/WorkflowStage&amp;gt;</code>
+          <para>Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.WorkFlowTest
+{
+    class WorkFlowProject
+    {
+        private static SvcWorkflow.WorkflowClient workFlowClient;
+        private const string WORK_ENDPOINT = "basicHttp_Workflow";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathWorkFlowStageList;
+        private static string outFilePathNewWorkFlowStage;
+        private static string outFilePathStageInfo;
+        private static string outFilePathUpdatedStage;
+
+        static void Main(string[] args)
+        {
+            // Configure client endpoints.
+            ConfigClientEndpoints(WORK_ENDPOINT);
+
+            Guid[] workFlowID = new Guid[1];
+            workFlowID[0] = new Guid("e663d9dc-f78d-4a4e-ac21-b28d22865f58");
+
+            // If output directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            outFilePathWorkFlowStageList = OUTPUT_FILES + "WorkFlowStageList.xml";
+            outFilePathNewWorkFlowStage = OUTPUT_FILES + "NewWorkflowStageInfo.xml";
+            outFilePathStageInfo = OUTPUT_FILES + "StageInfo.xml";
+            outFilePathUpdatedStage = OUTPUT_FILES + "UpdatedStage.xml";
+
+            // Create a workflow dataset.
+            SvcWorkflow.WorkflowDataSet workFlowDS = new SvcWorkflow.WorkflowDataSet();
+
+            // List the workflow stages.
+            workFlowDS = ListWorkflowStages(workFlowDS);
+
+            // Create a new workflow stage.
+            CreateWorkflowStageTest(workFlowDS);
+
+            // Get workflow stage properties for a given stage.
+            GetStageInfo();
+        }
+                
+        // Read and display the properties of a stage, given the stage GUID.
+        private static void GetStageInfo()
+        {
+            SvcWorkflow.WorkflowDataSet stageInfoDS = new SvcWorkflow.WorkflowDataSet();
+            string stageName = "TestStage10";
+            
+            Guid stageGuid1 = new Guid("a8a158d1-a9b9-41d7-a676-d199118221c7");
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathStageInfo);
+
+            // Update the stage name.
+            UpdateStage(stageInfoDS, stageName, stageGuid1);
+
+            // Get the updated stage info.
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+            stageInfoDS.WriteXml(outFilePathStageInfo);
+            Console.ReadKey();
+        }
+               
+        // Update the stage name.
+        private static void UpdateStage(SvcWorkflow.WorkflowDataSet stageInfoDS, string stageName, Guid stageGuid1)
+        {
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow sRow;
+            sRow = stageInfoDS.WorkflowStage.FindBySTAGE_UID(stageGuid1);
+            sRow.STAGE_NAME = stageName;
+            Console.WriteLine("Updating the stage name........");
+
+            workFlowClient.UpdateWorkflowStage(stageInfoDS);
+
+            // Write the updated stage info to an xml file.
+            stageInfoDS.WriteXml(outFilePathUpdatedStage);
+            Console.WriteLine("Stage name updated!");
+            Console.WriteLine("\nSee XML output of the Updated WorkFlowDataSet at {0}",
+            outFilePathUpdatedStage);
+        }
+
+        // Create a workflow stage.
+        private static void CreateWorkflowStageTest(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            // GUID of the Create phase.
+            Guid phaseGuid = new Guid("d8bc257b-c2ec-4186-8a5b-44b5b7f21d82 ");  
+
+            Guid statusPDPId = new Guid("A7AA1C62-9577-447C-823E-BDB161F9000D");
+            Guid pdp_uid = new Guid("659FF164-1297-4B64-B813-489566774E27");
+            Guid stageUid = Guid.NewGuid();
+                       
+            // Create a workflow stage row.
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow workflowstageRow = 
+                workFlowDS.WorkflowStage.NewWorkflowStageRow();
+            workflowstageRow.STAGE_NAME = "Test Stage 5";
+            workflowstageRow.STAGE_DESCRIPTION = "Adding a test stage row";
+            workflowstageRow.PHASE_NAME = "Create";
+            workflowstageRow.PHASE_UID = phaseGuid;
+            workflowstageRow.CHECKIN_REQUIRED = false;
+            workflowstageRow.STAGE_UID = stageUid;
+            workflowstageRow.STATUS_PDP_UID = statusPDPId;
+            workFlowDS.WorkflowStage.AddWorkflowStageRow(workflowstageRow);
+
+            // Add a project details page for the stage that was created previously.
+            SvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow pdpRow = 
+                workFlowDS.WorkflowStagePDPs.NewWorkflowStagePDPsRow();
+            pdpRow.STAGE_UID = stageUid;
+            pdpRow.PDP_UID = pdp_uid;
+            pdpRow.PDP_NAME = "Project Information";
+            pdpRow.PDP_POSITION = 0;
+            pdpRow.PDP_ID = 4;
+            pdpRow.PDP_REQUIRES_ATTENTION = false;
+            workFlowDS.WorkflowStagePDPs.AddWorkflowStagePDPsRow(pdpRow);
+        
+            // Create the stage.
+            workFlowClient.CreateWorkflowStage(workFlowDS);
+            
+            // Write the dataset with the new stage to an xml file.
+            workFlowDS.WriteXml(outFilePathNewWorkFlowStage);
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathNewWorkFlowStage);
+        }
+
+        // List the workflow stages in the dataset.
+        private static SvcWorkflow.WorkflowDataSet ListWorkflowStages(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            workFlowDS = workFlowClient.ReadWorkflowStageList();
+            workFlowDS.WriteXml(outFilePathWorkFlowStageList);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathWorkFlowStageList);
+            return workFlowDS;
+        }
+
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+             workFlowClient = new SvcWorkflow.WorkflowClient(endpt);
+           
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="DeleteEnterpriseProjectTypes">
@@ -151,9 +372,20 @@
         <Parameter Name="enterpriseProjectTypeUid" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="enterpriseProjectTypeUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="enterpriseProjectTypeUid">An array of GUIDs, of the EPTs to delete.</param>
+        <summary>Deletes the specified enterprise project types (EPTs).</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteWorkflowPhases">
@@ -180,9 +412,20 @@
         <Parameter Name="workflowPhaseUid" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="workflowPhaseUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowPhaseUid">An array of GUIDs of the workflow phases to delete.</param>
+        <summary>Deletes the specified workflow phases.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteWorkflowStages">
@@ -209,9 +452,20 @@
         <Parameter Name="workflowStageUid" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="workflowStageUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowStageUid">An array of GUIDs, of the workflow stages to delete.</param>
+        <summary>Deletes the specified workflow stages.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueUpdateProjectWorkflows">
@@ -238,9 +492,19 @@
         <Parameter Name="dsWorkflow" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="dsWorkflow">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="dsWorkflow">Contains the update data for the Project Server workflows.</param>
+        <summary>Updates project workflow data.</summary>
+        <remarks>
+          <para>Each <see cref="T:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow" /> in <b>WorkflowDataSet.UpdateProjectWorkflowsDataTable</b> specifies a workflow to update.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-Standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have <b>ChangeWorkflow</b> permission, you must also have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadAvailableEnterpriseProjectTypes">
@@ -265,9 +529,33 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the enterprise project types (EPTs) that are available to the user for creating a project.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The departments assigned to the user and the departments assigned to EPTs affect what EPTs are available.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" />
+              </term>
+              <description>Allows a user to change workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows a user to manage workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to add a new project to the Project Server database. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadEnterpriseProjectType">
@@ -294,10 +582,28 @@
         <Parameter Name="enterpriseProjectTypeUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="enterpriseProjectTypeUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="enterpriseProjectTypeUid">The GUID of the EPT.</param>
+        <summary>Gets information about the specified enterprise project type (EPT).</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.EnterpriseProjectTypeRow" /> in <b>WorkflowDataSet.EnterpriseProjectTypeDataTable</b> contains the EPT information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows the user to create and publish new projects. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadEnterpriseProjectTypeList">
@@ -322,9 +628,27 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the list of enterprise project types (EPTs) that are defined in Project Server.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Each <see cref="T:WebSvcWorkflow.WorkflowDataSet.EnterpriseProjectTypeRow" /> in <b>WorkflowDataSet.EnterpriseProjectTypeDataTable</b> contains the information for one EPT.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" />
+              </term>
+              <description>Allows a user to change workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadEnterpriseProjectTypeListByDepartment">
@@ -357,10 +681,28 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="departmentUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="departmentUid">The GUID of the department.</param>
+        <summary>Allows the user to read the list of enterprise project types (EPTs) that are defined for the specified department.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Each <see cref="T:WebSvcWorkflow.WorkflowDataSet.EnterpriseProjectTypeRow" /> in <b>WorkflowDataSet.EnterpriseProjectTypeDataTable</b> contains the information for one EPT.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" />
+              </term>
+              <description>Allows a user to change workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadStrategicImpactBehaviorForCurrentWorkflowStage">
@@ -387,10 +729,19 @@
         <Parameter Name="projectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">The GUID of the project.</param>
+        <summary>Gets a value that represents the strategic effect of the current workflow stage of the specified project.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-Standard</term>
+              <description>The user must have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission for the specified project.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowPhase">
@@ -417,10 +768,22 @@
         <Parameter Name="workflowPhaseUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowPhaseUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowPhaseUid">The GUID of the workflow phase.</param>
+        <summary>Gets information about the specified workflow phase.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowPhaseRow" /> in the <b>WorkflowDataSet.WorkflowPhaseDataTable</b> contains the information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowPhaseList">
@@ -445,9 +808,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the list of workflow phases.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Each <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowPhaseRow" /> in the <b>WorkflowDataSet.WorkflowPhaseDataTable</b> contains the information for one workflow phase.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowProxyUser">
@@ -472,9 +847,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets detailed information about the proxy user for Project Server workflows.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The workflow proxy user is a Project Server account that has elevated permissions to run workflows on behalf of the user. The proxy user can call PSI methods, which are available to Project Server workflows, in the <see cref="N:Microsoft.Office.Project.Server.WebServiceProxy" /> namespace.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows a user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflows">
@@ -499,9 +886,20 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets information about the workflows that are defined in Project Server.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to connect to Project Server from Project Professional, or to log on to Project Web App. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowStage">
@@ -528,10 +926,229 @@
         <Parameter Name="workflowStageUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowStageUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowStageUid">The GUID of the workflow stage.</param>
+        <summary>Gets information about the specified workflow stage.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStageRow" /> in the <b>WorkflowDataSet.WorkflowStageDataTable</b> contains the information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcWorkflow</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>The <b>ReadWorkflowStage</b> method reads the properties of the workflow stage <b>TestStage2</b> and writes it to <b>StageInfo.xml</b>. Following is the complete xml file.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;WorkflowDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/WorkflowDataSet/"&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;Project information is captured in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;e4df25db-9587-4308-b504-48f985698074&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Select&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;A subset of projects are selected in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;4c997519-d9ca-468d-a609-b0015f0d7345&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Plan&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;For the selected projects, an execution plan will be detailed out in this workflow phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d22d56e5-b4ad-4a59-b1d2-cc1fd9945e64&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Finished&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;The workflow is finished&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;8c1b13e8-e4d6-4b62-8663-ffb1c22d7653&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Manage&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;Projects in execution are monitored in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowStage&amp;gt;
+&amp;lt;STAGE_UID&amp;gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_NAME&amp;gt;&lt;/span&gt;TestStage2&amp;lt;/STAGE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_DESCRIPTION&amp;gt;&lt;/span&gt;a test stage&amp;lt;/STAGE_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CHECKIN_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/CHECKIN_REQUIRED&amp;gt;
+&amp;lt;STAGE_SUBMIT_DESCRIPTION /&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS_PDP_UID&amp;gt;&lt;/span&gt;a7aa1c62-9577-447c-823e-bdb161f9000d&amp;lt;/STATUS_PDP_UID&amp;gt;
+&amp;lt;/WorkflowStage&amp;gt;
+&amp;lt;WorkflowStageStrategicImpact&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;BEHAVIOR&amp;gt;&lt;/span&gt;1&amp;lt;/BEHAVIOR&amp;gt;
+&amp;lt;/WorkflowStageStrategicImpact&amp;gt;
+&amp;lt;WorkflowStagePDPs&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_UID&amp;gt;&lt;/span&gt;659ff164-1297-4b64-b813-489566774e27&amp;lt;/PDP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_ID&amp;gt;&lt;/span&gt;4&amp;lt;/PDP_ID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_NAME&amp;gt;&lt;/span&gt;Project Information&amp;lt;/PDP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_POSITION&amp;gt;&lt;/span&gt;0&amp;lt;/PDP_POSITION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_REQUIRES_ATTENTION&amp;gt;&lt;/span&gt;false&amp;lt;/PDP_REQUIRES_ATTENTION&amp;gt;
+&amp;lt;/WorkflowStagePDPs&amp;gt;
+&amp;lt;/WorkflowDataSet&amp;gt;</code>
+          <para>Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.WorkFlowTest
+{
+    class WorkFlowProject
+    {
+        private static SvcWorkflow.WorkflowClient workFlowClient;
+        private const string WORK_ENDPOINT = "basicHttp_Workflow";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathWorkFlowStageList;
+        private static string outFilePathNewWorkFlowStage;
+        private static string outFilePathStageInfo;
+        private static string outFilePathUpdatedStage;
+
+        static void Main(string[] args)
+        {
+            // Configure client endpoints.
+            ConfigClientEndpoints(WORK_ENDPOINT);
+
+            Guid[] workFlowID = new Guid[1];
+            workFlowID[0] = new Guid("e663d9dc-f78d-4a4e-ac21-b28d22865f58");
+
+            // If output directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            outFilePathWorkFlowStageList = OUTPUT_FILES + "WorkFlowStageList.xml";
+            outFilePathNewWorkFlowStage = OUTPUT_FILES + "NewWorkflowStageInfo.xml";
+            outFilePathStageInfo = OUTPUT_FILES + "StageInfo.xml";
+            outFilePathUpdatedStage = OUTPUT_FILES + "UpdatedStage.xml";
+
+            // Create the workflow dataset.
+            SvcWorkflow.WorkflowDataSet workFlowDS = new SvcWorkflow.WorkflowDataSet();
+
+            // List the workflow stages.
+            workFlowDS = ListWorkflowStages(workFlowDS);
+
+            // Create a new workflow stage.
+            CreateWorkflowStageTest(workFlowDS);
+
+            // Get workflow stage properties for a given stage.
+            GetStageInfo();
+        }
+                
+        // Read and display the properties of a stage, given the stage GUID.
+        private static void GetStageInfo()
+        {
+            SvcWorkflow.WorkflowDataSet stageInfoDS = new SvcWorkflow.WorkflowDataSet();
+            string stageName = "TestStage10";
+            
+            Guid stageGuid1 = new Guid("a8a158d1-a9b9-41d7-a676-d199118221c7");
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathStageInfo);
+
+            // Update the stage name.
+            UpdateStage(stageInfoDS, stageName, stageGuid1);
+
+            // Get the updated stage info.
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+            stageInfoDS.WriteXml(outFilePathStageInfo);
+            Console.ReadKey();
+        }
+               
+        // Update the stage name.
+        private static void UpdateStage(SvcWorkflow.WorkflowDataSet stageInfoDS, string stageName, Guid stageGuid1)
+        {
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow sRow;
+            sRow = stageInfoDS.WorkflowStage.FindBySTAGE_UID(stageGuid1);
+            sRow.STAGE_NAME = stageName;
+            Console.WriteLine("Updating the stage name........");
+
+            workFlowClient.UpdateWorkflowStage(stageInfoDS);
+
+            // Write the updated stage info to an xml file.
+            stageInfoDS.WriteXml(outFilePathUpdatedStage);
+            Console.WriteLine("Stage name updated!");
+            Console.WriteLine("\nSee XML output of the Updated WorkFlowDataSet at {0}",
+            outFilePathUpdatedStage);
+        }
+
+        // Create a workflow stage.
+        private static void CreateWorkflowStageTest(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            // The GUID of the Create phase.
+            Guid phaseGuid = new Guid("d8bc257b-c2ec-4186-8a5b-44b5b7f21d82 ");  
+
+            Guid statusPDPId = new Guid("A7AA1C62-9577-447C-823E-BDB161F9000D");
+            Guid pdp_uid = new Guid("659FF164-1297-4B64-B813-489566774E27");
+            Guid stageUid = Guid.NewGuid();
+                       
+            // Create a workflow stage row.
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow workflowstageRow = 
+                workFlowDS.WorkflowStage.NewWorkflowStageRow();
+            workflowstageRow.STAGE_NAME = "Test Stage 5";
+            workflowstageRow.STAGE_DESCRIPTION = "Adding a test stage row";
+            workflowstageRow.PHASE_NAME = "Create";
+            workflowstageRow.PHASE_UID = phaseGuid;
+            workflowstageRow.CHECKIN_REQUIRED = false;
+            workflowstageRow.STAGE_UID = stageUid;
+            workflowstageRow.STATUS_PDP_UID = statusPDPId;
+            workFlowDS.WorkflowStage.AddWorkflowStageRow(workflowstageRow);
+
+            // Add a project details page for the stage that was created previously.
+            SvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow pdpRow = 
+                workFlowDS.WorkflowStagePDPs.NewWorkflowStagePDPsRow();
+            pdpRow.STAGE_UID = stageUid;
+            pdpRow.PDP_UID = pdp_uid;
+            pdpRow.PDP_NAME = "Project Information";
+            pdpRow.PDP_POSITION = 0;
+            pdpRow.PDP_ID = 4;
+            pdpRow.PDP_REQUIRES_ATTENTION = false;
+            workFlowDS.WorkflowStagePDPs.AddWorkflowStagePDPsRow(pdpRow);
+        
+            // Create the stage.
+            workFlowClient.CreateWorkflowStage(workFlowDS);
+            
+            // Write the dataset with the new stage to an xml file.
+            workFlowDS.WriteXml(outFilePathNewWorkFlowStage);
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathNewWorkFlowStage);
+        }
+
+        // List the workflow stages in the dataset.
+        private static SvcWorkflow.WorkflowDataSet ListWorkflowStages(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            workFlowDS = workFlowClient.ReadWorkflowStageList();
+            workFlowDS.WriteXml(outFilePathWorkFlowStageList);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathWorkFlowStageList);
+            return workFlowDS;
+        }
+
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+             workFlowClient = new SvcWorkflow.WorkflowClient(endpt);
+           
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowStageList">
@@ -556,9 +1173,195 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reads the list of workflow stages.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Each <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStageRow" /> in the <b>WorkflowDataSet.WorkflowStageDataTable</b> contains the information for one stage.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcWorkflow</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>The following example uses <b>ReadWorkflowStageList</b> to read the existing stages of a workflow. The resulting dataset, <b>workflowDS</b>, contains all the phases and stages in a workflow, and is written to the WorkflowStageList.xml file. Following is part of the WorkflowStageList.xml file.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;WorkflowDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/WorkflowDataSet/"&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;Project information is captured in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt; 
+&amp;lt;WorkflowStage&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_NAME&amp;gt;&lt;/span&gt;TestStage&amp;lt;/STAGE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_DESCRIPTION&amp;gt;&lt;/span&gt;a test stage&amp;lt;/STAGE_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CHECKIN_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/CHECKIN_REQUIRED&amp;gt;
+&amp;lt;STAGE_SUBMIT_DESCRIPTION /&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS_PDP_UID&amp;gt;&lt;/span&gt;a7aa1c62-9577-447c-823e-bdb161f9000d&amp;lt;/STATUS_PDP_UID&amp;gt;
+&amp;lt;/WorkflowStage&amp;gt;</code>
+          <para>Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.WorkFlowTest
+{
+    class WorkFlowProject
+    {
+        private static SvcWorkflow.WorkflowClient workFlowClient;
+        private const string WORK_ENDPOINT = "basicHttp_Workflow";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathWorkFlowStageList;
+        private static string outFilePathNewWorkFlowStage;
+        private static string outFilePathStageInfo;
+        private static string outFilePathUpdatedStage;
+
+        static void Main(string[] args)
+        {
+            // Configure client endpoints.
+            ConfigClientEndpoints(WORK_ENDPOINT);
+
+            Guid[] workFlowID = new Guid[1];
+            workFlowID[0] = new Guid("e663d9dc-f78d-4a4e-ac21-b28d22865f58");
+
+            // If output directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            outFilePathWorkFlowStageList = OUTPUT_FILES + "WorkFlowStageList.xml";
+            outFilePathNewWorkFlowStage = OUTPUT_FILES + "NewWorkflowStageInfo.xml";
+            outFilePathStageInfo = OUTPUT_FILES + "StageInfo.xml";
+            outFilePathUpdatedStage = OUTPUT_FILES + "UpdatedStage.xml";
+
+            // Create a workflow dataset.
+            SvcWorkflow.WorkflowDataSet workFlowDS = new SvcWorkflow.WorkflowDataSet();
+
+            // List the workflow stages.
+            workFlowDS = ListWorkflowStages(workFlowDS);
+
+            // Create a new workflow stage.
+            CreateWorkflowStageTest(workFlowDS);
+
+            // Get workflow stage properties for a given stage.
+            GetStageInfo();
+        }
+                
+        // Read and display the properties of a stage, given the stage GUID.
+        private static void GetStageInfo()
+        {
+            SvcWorkflow.WorkflowDataSet stageInfoDS = new SvcWorkflow.WorkflowDataSet();
+            string stageName = "TestStage10";
+            
+            Guid stageGuid1 = new Guid("a8a158d1-a9b9-41d7-a676-d199118221c7");
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathStageInfo);
+
+            // Update the stage  name.
+            UpdateStage(stageInfoDS, stageName, stageGuid1);
+
+            // Get the updated stage info.
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+            stageInfoDS.WriteXml(outFilePathStageInfo);
+            Console.ReadKey();
+        }
+               
+        // Update the stage name.
+        private static void UpdateStage(SvcWorkflow.WorkflowDataSet stageInfoDS, string stageName, Guid stageGuid1)
+        {
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow sRow;
+            sRow = stageInfoDS.WorkflowStage.FindBySTAGE_UID(stageGuid1);
+            sRow.STAGE_NAME = stageName;
+            Console.WriteLine("Updating the stage name........");
+
+            workFlowClient.UpdateWorkflowStage(stageInfoDS);
+
+            // Write the updated stage info to an xml file.
+            stageInfoDS.WriteXml(outFilePathUpdatedStage);
+            Console.WriteLine("Stage name updated!");
+            Console.WriteLine("\nSee XML output of the Updated WorkFlowDataSet at {0}",
+            outFilePathUpdatedStage);
+        }
+
+        // Create a workflow stage.
+        private static void CreateWorkflowStageTest(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            // The GUID of the Create phase.
+            Guid phaseGuid = new Guid("d8bc257b-c2ec-4186-8a5b-44b5b7f21d82 ");  
+
+            Guid statusPDPId = new Guid("A7AA1C62-9577-447C-823E-BDB161F9000D");
+            Guid pdp_uid = new Guid("659FF164-1297-4B64-B813-489566774E27");
+            Guid stageUid = Guid.NewGuid();
+                       
+            // Create a workflow stage row.
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow workflowstageRow = 
+                workFlowDS.WorkflowStage.NewWorkflowStageRow();
+            workflowstageRow.STAGE_NAME = "Test Stage 5";
+            workflowstageRow.STAGE_DESCRIPTION = "Adding a test stage row";
+            workflowstageRow.PHASE_NAME = "Create";
+            workflowstageRow.PHASE_UID = phaseGuid;
+            workflowstageRow.CHECKIN_REQUIRED = false;
+            workflowstageRow.STAGE_UID = stageUid;
+            workflowstageRow.STATUS_PDP_UID = statusPDPId;
+            workFlowDS.WorkflowStage.AddWorkflowStageRow(workflowstageRow);
+
+            // Add a project details page for the Stage created above.
+            SvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow pdpRow = 
+                workFlowDS.WorkflowStagePDPs.NewWorkflowStagePDPsRow();
+            pdpRow.STAGE_UID = stageUid;
+            pdpRow.PDP_UID = pdp_uid;
+            pdpRow.PDP_NAME = "Project Information";
+            pdpRow.PDP_POSITION = 0;
+            pdpRow.PDP_ID = 4;
+            pdpRow.PDP_REQUIRES_ATTENTION = false;
+            workFlowDS.WorkflowStagePDPs.AddWorkflowStagePDPsRow(pdpRow);
+        
+            // Create the stage.
+            workFlowClient.CreateWorkflowStage(workFlowDS);
+            
+            // Write the dataset with the new Stage to an xml file.
+            workFlowDS.WriteXml(outFilePathNewWorkFlowStage);
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathNewWorkFlowStage);
+        }
+
+        // List the workflow stages in the dataset.
+        private static SvcWorkflow.WorkflowDataSet ListWorkflowStages(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            workFlowDS = workFlowClient.ReadWorkflowStageList();
+            workFlowDS.WriteXml(outFilePathWorkFlowStageList);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathWorkFlowStageList);
+            return workFlowDS;
+        }
+
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+             workFlowClient = new SvcWorkflow.WorkflowClient(endpt);
+           
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadWorkflowStatus">
@@ -586,11 +1389,21 @@
         <Parameter Name="readAllStagesAndPhases" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projUid">To be added.</param>
-        <param name="readAllStagesAndPhases">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projUid">The GUID of the project.</param>
+        <param name="readAllStagesAndPhases">If <b>True</b>, read the status and additional information of the workflow stage and phase. If <b>False</b>, read only the current status and the active workflow for the project.</param>
+        <summary>Reads the workflow status of the specified project.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <paramref name="readAllStagesAndPhases" /> = <b>True</b>, the <b>WorkflowDataSet</b> includes information about the following: workflow status, workflow instance, phase, stage, stage custom fields, project detail pages (PDPs) for the stage, and the strategic effect of the stage.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-Standard</term>
+              <description>The user must have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission for the specified project.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RunProjectWorkflow">
@@ -617,9 +1430,18 @@
         <Parameter Name="projectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUid">The GUID of the project.</param>
+        <summary>Runs the specified Project Server workflow instance.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-Standard</term>
+              <description>The user must have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission for the specified project.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetWorkflowStageStatusInformation">
@@ -650,13 +1472,22 @@
         <Parameter Name="append" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projUid">To be added.</param>
-        <param name="workflowStageUid">To be added.</param>
-        <param name="statusInformation">To be added.</param>
-        <param name="stageStatusValue">To be added.</param>
-        <param name="append">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projUid">The GUID of the project.</param>
+        <param name="workflowStageUid">The GUID of the stage.</param>
+        <param name="statusInformation">A <b>String</b> for a comment about the stage status.</param>
+        <param name="stageStatusValue">Specifies the workflow stage status. Can be one of the constants in the <see cref="T:Microsoft.Office.Project.Server.Library.Workflow.StageStatus" /> enumeration.</param>
+        <param name="append">Specifies whether to append the status information to previous data in the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_INFO" /> field. If <b>False</b>, deletes any previous information.</param>
+        <summary>Sets the status information for a workflow stage.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-Standard</term>
+              <description>The user must have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission for the specified project.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateEnterpriseProjectType">
@@ -683,10 +1514,22 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowDS">Contains the update information for the EPT.</param>
+        <summary>Updates an enterprise project type (EPT).</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.EnterpriseProjectTypeRow" /> in <b>WorkflowDataSet.EnterpriseProjectTypeDataTable</b> contains the EPT information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateProjectWorkflow">
@@ -714,10 +1557,34 @@
         <Parameter Name="enterpriseProjectTypeUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="enterpriseProjectTypeUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUid">The GUID of the project.</param>
+        <param name="enterpriseProjectTypeUid">The GUID of the new EPT.</param>
+        <summary>Changes the enterprise project type (EPT) for the specified project.</summary>
+        <remarks>
+          <para> The <b>UpdateProjectWorkflow</b> operation is synchronous.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" />
+              </term>
+              <description>Allows a user to change workflows. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" />
+              </term>
+              <description>Allows a user to open a project from Project Server. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" />
+              </term>
+              <description>Allows a user to save a project to Project Server. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateWorkflowPhase">
@@ -744,10 +1611,22 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowDS">Contains information for updating the workflow phase.</param>
+        <summary>Updates the phase of a workflow.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowPhaseRow" /> in the <b>WorkflowDataSet.WorkflowPhaseDataTable</b> contains the updated information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateWorkflowProxyUser">
@@ -774,9 +1653,21 @@
         <Parameter Name="resUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="resUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="resUid">The GUID of the resource to use as the workflow proxy user.</param>
+        <summary>Updates information about the proxy user for Project Server workflows.</summary>
+        <remarks>
+          <para>The workflow proxy user is a Project Server account that has elevated permissions to run workflows on behalf of the user. The proxy user can call PSI methods, which are available to Project Server workflows, in the <see cref="N:Microsoft.Office.Project.Server.WebServiceProxy" /> namespace.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows a user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateWorkflowStage">
@@ -803,10 +1694,229 @@
         <Parameter Name="workflowDS" Type="WebSvcWorkflow.WorkflowDataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowDS">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowDS">Contains information for updating the workflow stage.</param>
+        <summary>Updates the stage of a workflow.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStageRow" /> in the <b>WorkflowDataSet.WorkflowStageDataTable</b> contains the updated information.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" />
+              </term>
+              <description>Allows the user to manage workflows. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcWorkflow</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>In this example, the stage name <b>TestStage2</b> is modified to be <b>TestStage10</b>, and the workflow is updated by calling the <b>UpdateWorkflowStage</b> method. The updated dataset, <b>stageInfoDS</b>, is written to <b>UpdatedStage.xml</b> and is shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;WorkflowDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/WorkflowDataSet/"&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;Project information is captured in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;e4df25db-9587-4308-b504-48f985698074&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Select&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;A subset of projects are selected in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;4c997519-d9ca-468d-a609-b0015f0d7345&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Plan&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt; For the selected projects, an execution plan will be detailed out in this workflow phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d22d56e5-b4ad-4a59-b1d2-cc1fd9945e64&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Finished&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&amp;gt;&lt;/span&gt;The workflow is finished&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowPhase&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;8c1b13e8-e4d6-4b62-8663-ffb1c22d7653&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Manage&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_DESCRIPTION&lt;/span&gt;&amp;gt;Projects in execution are monitored in this phase&amp;lt;/PHASE_DESCRIPTION&amp;gt;
+&amp;lt;/WorkflowPhase&amp;gt;
+&amp;lt;WorkflowStage&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_NAME&amp;gt;&lt;/span&gt;TestStage10&amp;lt;/STAGE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_UID&amp;gt;&lt;/span&gt;d8bc257b-c2ec-4186-8a5b-44b5b7f21d82&amp;lt;/PHASE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PHASE_NAME&amp;gt;&lt;/span&gt;Create&amp;lt;/PHASE_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_DESCRIPTION&amp;gt;&lt;/span&gt;a test stage&amp;lt;/STAGE_DESCRIPTION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CHECKIN_REQUIRED&amp;gt;&lt;/span&gt;false&amp;lt;/CHECKIN_REQUIRED&amp;gt;
+&amp;lt;STAGE_SUBMIT_DESCRIPTION /&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS_PDP_UID&amp;gt;&lt;/span&gt;a7aa1c62-9577-447c-823e-bdb161f9000d&amp;lt;/STATUS_PDP_UID&amp;gt;
+&amp;lt;/WorkflowStage&amp;gt;
+&amp;lt;WorkflowStageStrategicImpact&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;BEHAVIOR&amp;gt;&lt;/span&gt;1&amp;lt;/BEHAVIOR&amp;gt;
+&amp;lt;/WorkflowStageStrategicImpact&amp;gt;
+&amp;lt;WorkflowStagePDPs&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STAGE_UID&amp;gt;&lt;/span&gt;a8a158d1-a9b9-41d7-a676-d199118221c7&amp;lt;/STAGE_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_UID&amp;gt;&lt;/span&gt;659ff164-1297-4b64-b813-489566774e27&amp;lt;/PDP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_ID&amp;gt;&lt;/span&gt;4&amp;lt;/PDP_ID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_NAME&amp;gt;&lt;/span&gt;Project Information&amp;lt;/PDP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_POSITION&amp;gt;&lt;/span&gt;0&amp;lt;/PDP_POSITION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PDP_REQUIRES_ATTENTION&amp;gt;&lt;/span&gt;false&amp;lt;/PDP_REQUIRES_ATTENTION&amp;gt;
+&amp;lt;/WorkflowStagePDPs&amp;gt;
+&amp;lt;/WorkflowDataSet&amp;gt;</code>
+          <para>Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.WorkFlowTest
+{
+    class WorkFlowProject
+    {
+        private static SvcWorkflow.WorkflowClient workFlowClient;
+        private const string WORK_ENDPOINT = "basicHttp_Workflow";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathWorkFlowStageList;
+        private static string outFilePathNewWorkFlowStage;
+        private static string outFilePathStageInfo;
+        private static string outFilePathUpdatedStage;
+
+        static void Main(string[] args)
+        {
+            // Configure client endpoints.
+            ConfigClientEndpoints(WORK_ENDPOINT);
+
+            Guid[] workFlowID = new Guid[1];
+            workFlowID[0] = new Guid("e663d9dc-f78d-4a4e-ac21-b28d22865f58");
+
+            // If output directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+
+            outFilePathWorkFlowStageList = OUTPUT_FILES + "WorkFlowStageList.xml";
+            outFilePathNewWorkFlowStage = OUTPUT_FILES + "NewWorkflowStageInfo.xml";
+            outFilePathStageInfo = OUTPUT_FILES + "StageInfo.xml";
+            outFilePathUpdatedStage = OUTPUT_FILES + "UpdatedStage.xml";
+
+            // Create workflow dataset.
+            SvcWorkflow.WorkflowDataSet workFlowDS = new SvcWorkflow.WorkflowDataSet();
+
+            // List the Workflow stages.
+            workFlowDS = ListWorkflowStages(workFlowDS);
+
+            // Create a new workflow stage.
+            CreateWorkflowStageTest(workFlowDS);
+
+            // Get workflow stage properties for a given stage.
+            GetStageInfo();
+        }
+                
+        // Read and display the properties of a stage, given the stage GUID.
+        private static void GetStageInfo()
+        {
+            SvcWorkflow.WorkflowDataSet stageInfoDS = new SvcWorkflow.WorkflowDataSet();
+            string stageName = "TestStage10";
+            
+            Guid stageGuid1 = new Guid("a8a158d1-a9b9-41d7-a676-d199118221c7");
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathStageInfo);
+
+            // Update the stage name.
+            UpdateStage(stageInfoDS, stageName, stageGuid1);
+
+            // Get the updated stage info.
+            stageInfoDS = workFlowClient.ReadWorkflowStage(stageGuid1);
+            stageInfoDS.WriteXml(outFilePathStageInfo);
+            Console.ReadKey();
+        }
+               
+        // Update the stage name.
+        private static void UpdateStage(SvcWorkflow.WorkflowDataSet stageInfoDS, string stageName, Guid stageGuid1)
+        {
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow sRow;
+            sRow = stageInfoDS.WorkflowStage.FindBySTAGE_UID(stageGuid1);
+            sRow.STAGE_NAME = stageName;
+            Console.WriteLine("Updating the stage name........");
+
+            workFlowClient.UpdateWorkflowStage(stageInfoDS);
+
+            // Write the updated stage info to an xml file.
+            stageInfoDS.WriteXml(outFilePathUpdatedStage);
+            Console.WriteLine("Stage name updated!");
+            Console.WriteLine("\nSee XML output of the Updated WorkFlowDataSet at {0}",
+            outFilePathUpdatedStage);
+        }
+
+        // Create a workflow stage.
+        private static void CreateWorkflowStageTest(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            // The GUID of the Create phase.
+            Guid phaseGuid = new Guid("d8bc257b-c2ec-4186-8a5b-44b5b7f21d82 ");  
+
+            Guid statusPDPId = new Guid("A7AA1C62-9577-447C-823E-BDB161F9000D");
+            Guid pdp_uid = new Guid("659FF164-1297-4B64-B813-489566774E27");
+            Guid stageUid = Guid.NewGuid();
+                       
+            // Create a workflow stage row.
+            SvcWorkflow.WorkflowDataSet.WorkflowStageRow workflowstageRow = 
+                workFlowDS.WorkflowStage.NewWorkflowStageRow();
+            workflowstageRow.STAGE_NAME = "Test Stage 5";
+            workflowstageRow.STAGE_DESCRIPTION = "Adding a test stage row";
+            workflowstageRow.PHASE_NAME = "Create";
+            workflowstageRow.PHASE_UID = phaseGuid;
+            workflowstageRow.CHECKIN_REQUIRED = false;
+            workflowstageRow.STAGE_UID = stageUid;
+            workflowstageRow.STATUS_PDP_UID = statusPDPId;
+            workFlowDS.WorkflowStage.AddWorkflowStageRow(workflowstageRow);
+
+            // Add a project details page for the stage that was created previously.
+            SvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow pdpRow = 
+                workFlowDS.WorkflowStagePDPs.NewWorkflowStagePDPsRow();
+            pdpRow.STAGE_UID = stageUid;
+            pdpRow.PDP_UID = pdp_uid;
+            pdpRow.PDP_NAME = "Project Information";
+            pdpRow.PDP_POSITION = 0;
+            pdpRow.PDP_ID = 4;
+            pdpRow.PDP_REQUIRES_ATTENTION = false;
+            workFlowDS.WorkflowStagePDPs.AddWorkflowStagePDPsRow(pdpRow);
+        
+            // Create the stage.
+            workFlowClient.CreateWorkflowStage(workFlowDS);
+            
+            // Write the dataset with the new stage to an xml file.
+            workFlowDS.WriteXml(outFilePathNewWorkFlowStage);
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathNewWorkFlowStage);
+        }
+
+        // List the workflow stages in the dataset.
+        private static SvcWorkflow.WorkflowDataSet ListWorkflowStages(SvcWorkflow.WorkflowDataSet workFlowDS)
+        {
+            workFlowDS = workFlowClient.ReadWorkflowStageList();
+            workFlowDS.WriteXml(outFilePathWorkFlowStageList);
+
+            Console.WriteLine("\nSee XML output of the WorkFlowDataSet at {0}",
+               outFilePathWorkFlowStageList);
+            return workFlowDS;
+        }
+
+        // Configure the custom field client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+             workFlowClient = new SvcWorkflow.WorkflowClient(endpt);
+           
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
   </Members>

@@ -38,8 +38,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that reads the specified property of a project. The property can be an intrinsic property, such as the start date, or a project custom field.</summary>
+    <remarks>
+      <para>The <b>ReadProjectProperty</b> activity sets the <b>PropertyValues</b> property, which is a <b>string</b> array of the localized property values. If the <b>MdPropUid</b> property GUID is specified, the <b>PropertyName</b> value is ignored.</para>
+      <para>The Workflow Designer pane and the Properties pane in Microsoft Visual Studio 2010 enable you to get and set properties in fields for the <b>ReadProjectProperty</b> activity.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -55,7 +59,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of the <b>ReadProjectProperty</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,9 +82,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>ReadProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -103,9 +107,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>ReadProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -133,9 +137,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the GUID of the project property.</summary>
+        <value>The GUID of the project property.</value>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the GUID property for comparison. If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MdPropUidProperty">
@@ -154,8 +161,13 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>MdPropUid</b> property, which is the GUID of the project property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUid" /> property can be the GUID of an intrinsic project property, such as the start date, or the GUID of a project custom field.</para>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the property for comparison.</para>
+          <para>If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyName">
@@ -185,9 +197,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the name of the project property.</summary>
+        <value>The project property name.</value>
+        <remarks>
+          <para>If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyNameProperty">
@@ -206,8 +221,62 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>PropertyName</b> property, which is the name of the project property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyName" /> specifies the name of the project property. The property can be one of the following properties in the drop-down list in the Properties pane:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <b>PROJ_NAME</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>CREATED_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_TYPE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>WPROJ_LAST_PUB</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_START_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_FINISH_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>ProjectOwnerID</description>
+            </item>
+            <item>
+              <description>% Complete</description>
+            </item>
+            <item>
+              <description>Optimizer Decision</description>
+            </item>
+            <item>
+              <description>Planner Decision</description>
+            </item>
+            <item>
+              <description>Approved Start Date</description>
+            </item>
+            <item>
+              <description>Approved End Date</description>
+            </item>
+          </list>
+          <para>In the Properties pane of a workflow activity, the <b>PropertyName</b> property can also be the name of the workflow and the path name of the property for comparison. If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyValues">
@@ -234,9 +303,12 @@
         <ReturnType>System.String[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets property values, in a localized string array.</summary>
+        <value>A string array of property values.</value>
+        <remarks>
+          <para>The <b>ReadProjectProperty</b> activity sets the result in the <b>PropertyValues</b> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyValuesProperty">
@@ -255,7 +327,7 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Contains the <b>PropertyValues</b> property, which is a localized string array of the values of the specified property.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -311,9 +383,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the context of the <b>ReadProjectProperty</b> activity in the parent workflow activity.</summary>
+        <value>An object that contains the information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>ReadProjectProperty</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -332,8 +407,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>ReadProjectProperty</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>ReadProjectProperty</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

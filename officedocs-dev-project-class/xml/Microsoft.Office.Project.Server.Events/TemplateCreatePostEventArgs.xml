@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.AdminPostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -51,8 +56,8 @@
         <Parameter Name="createdItems" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="createdItems">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="createdItems">A collection of GUIDs that represent all of the items that are associated with the creation of a template.</param>
+        <summary>Creates an instance of the <b>TemplateCreatePostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

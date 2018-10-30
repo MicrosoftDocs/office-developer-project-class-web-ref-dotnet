@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about analysis projects that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AnalysisProjectsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>AnalysisProjectsDataTable</b> class by using separate parameters</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,7 +101,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ABSOLUTE_PRIORITY" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -127,8 +130,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Adds an <b>AnalysisProjectsRow</b> object to the <b>AnalysisProjectsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -168,20 +171,23 @@
       </Parameters>
       <Docs>
         <param name="parentAnalysisRowByFK_Analysis_AnalysisProjects">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="PROJ_NAME">To be added.</param>
-        <param name="PRIORITY">To be added.</param>
-        <param name="ABSOLUTE_PRIORITY">To be added.</param>
-        <param name="ORIGINAL_START_DATE">To be added.</param>
-        <param name="ORIGINAL_END_DATE">To be added.</param>
-        <param name="START_DATE">To be added.</param>
-        <param name="DURATION">To be added.</param>
-        <param name="SNET">To be added.</param>
-        <param name="FNLT">To be added.</param>
-        <param name="LOCKED">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="PROJ_NAME">Contains the project name</param>
+        <param name="PRIORITY">Contains the priority info.</param>
+        <param name="ABSOLUTE_PRIORITY">Contains the non-normalized priority for the project within the Portfolio Analysis.</param>
+        <param name="ORIGINAL_START_DATE">Contains the original start date of the project.</param>
+        <param name="ORIGINAL_END_DATE">Contains the original end date of the project.</param>
+        <param name="START_DATE">Contains the start date of the project, modified to fit the time scale specified for the analysis.</param>
+        <param name="DURATION">Contains the project in the same time scale as the analysis.</param>
+        <param name="SNET">Obsolete.</param>
+        <param name="FNLT">Obsolete.</param>
+        <param name="LOCKED">Specifies whether or not the project is locked.</param>
+        <summary>Adds an <b>AnalysisProjectsRow</b> object to the <b>AnalysisProjectsDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsDataTable.AddAnalysisProjectsRow(WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_UIDColumn">
@@ -205,7 +211,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ANALYSIS_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -226,7 +232,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -246,7 +252,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -266,7 +272,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -286,7 +292,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -341,7 +347,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>AnalysisProjectsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -394,7 +400,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.DURATION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -424,9 +430,9 @@
         <Parameter Name="PROJ_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="ANALYSIS_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ANALYSIS_UID">Contains the analysis GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <summary>Retrieves an <b>AnalysisProjectsRow</b> object by using the specified analysis GUID and project GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -452,7 +458,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.FNLT" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -482,7 +488,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>AnalysisProjectsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -539,7 +545,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -569,7 +575,7 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Gets a row object in the <b>AnalysisProjectsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -595,7 +601,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.LOCKED" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -622,7 +628,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>AnalysisProjectsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -794,7 +800,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_END_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -820,7 +826,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.ORIGINAL_START_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -846,7 +852,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PRIORITY" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -872,7 +878,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PROJ_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -898,7 +904,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -927,8 +933,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisProjectsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row object from the <b>AnalysisProjectsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -953,7 +959,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.SNET" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -979,7 +985,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow.START_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one lookup table code mask value.</summary>
+    <remarks>
+      <para>For an example that creates lookup table code masks, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsLT_MASK_STRUCT_LENGTHNull">
@@ -40,7 +43,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_STRUCT_LENGTH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +70,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_STRUCT_TYPE_ENUM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +97,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_VALUE_SEPARATOR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -120,9 +123,24 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTablesRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the specific lookup table where the code mask is used.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+        <example>
+          <para>In the following code example, if the <b>lutUid</b> value is the GUID of a lookup table, then <b>lutUidFromMask</b> gets the same value. <b>LookupTableWS</b> is an arbitrary name for a reference to the <b>LookupTable</b> Web service.</para>
+          <code>. . .
+Guid lutUid = new Guid("23bdb945-eacc-4390-af70-f8644683c5bb");
+Guid[] lutUids = { lutUid };
+
+LookupTableWS.LookupTableDataSet lut = 
+    lookupTable.ReadLookupTablesByUids(lutUids, false, 1033);
+LookupTableWS.LookupTableDataSet.LookupTableMasksRow lutMaskRow = 
+    lut.LookupTableMasks[0];
+LookupTableWS.LookupTableDataSet.LookupTablesRow lutRow = 
+    lutMaskRow.LookupTablesRow;
+Guid lutUidFromMask = lutRow.LT_UID;
+. . .</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_LENGTH">
@@ -146,9 +164,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of characters, numbers, or letters in the code mask.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If <b>LT_MASK_STRUCT_LENGTH</b> = 0, Project Web App shows the length as Any in the Code mask grid on the Edit Lookup Table page.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_LEVEL">
@@ -172,9 +193,46 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the outline level of the code mask.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To help understand the <b>LT_MASK_STRUCT_LEVEL</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object which contains three lookup table mask rows (<b>LookupTableWS</b> is the name for a reference to the LookupTable Web service). If the full value of a lookup table entry is WA.King.Redmond, for example, and the code mask preview in the Edit Lookup Table page of Project Web App is AA.*.*, then </para>
+          <list type="bullet">
+            <item>
+              <description>lut.LookupTableMasks[0].LT_MASK_STRUCT_LEVEL = 1, </description>
+            </item>
+            <item>
+              <description>lut.LookupTableMasks[1].LT_MASK_STRUCT_LEVEL = 2, and </description>
+            </item>
+            <item>
+              <description>lut.LookupTableMasks[2].LT_MASK_STRUCT_LEVEL = 3.</description>
+            </item>
+          </list>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTableMasks</b> elements have the following values.</para>
+          <code>&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;
+&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;
+&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;3&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;</code>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_STRUCT_TYPE_ENUM">
@@ -198,9 +256,43 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the type of data for a lookup table mask structure, specified by the <see cref="T:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence" /> enumeration.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To help understand the <b>LT_MASK_STRUCT_TYPE_ENUM</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object which contains three lookup table mask rows (<b>LookupTableWS</b> is the name for a reference to the LookupTable Web service). If the full value of a lookup table entry is WA.King.Redmond, for example, and the code mask preview in the Edit Lookup Table page of Project Web App is AA.*.*, then </para>
+          <list type="bullet">
+            <item>
+              <description>lut.LookupTableMasks[0].LT_MASK_STRUCT_TYPE_ENUM = <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence.UPPERCASE" />, and both</description>
+            </item>
+            <item>
+              <description>lut.LookupTableMasks[1].LT_MASK_STRUCT_TYPE_ENUM and lut.LookupTableMasks[2].LT_MASK_STRUCT_TYPE_ENUM have the value of <see cref="F:Microsoft.Office.Project.Server.Library.LookupTables.MaskSequence.CHARACTERS" />.</description>
+            </item>
+          </list>
+          <para>If you serialize <b>lut</b> to an XML file, the <b>LookupTableMasks</b> elements have the following values.</para>
+          <code>&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;
+&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;
+&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;3&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;3&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;0&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;</code>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_MASK_VALUE_SEPARATOR">
@@ -224,9 +316,21 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the separator character used in a lookup table mask for lookup table values.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>To help understand the <b>LT_MASK_VALUE_SEPARATOR</b> property, suppose <b>lut</b> is a <b>LookupTableWS.LookupTableDataSet</b> object which contains three lookup table mask rows (<b>LookupTableWS</b> is the name for a reference to the LookupTable Web service). If the full value of a lookup table entry is WA.King.Redmond, for example, and the code mask preview in the Edit Lookup Table page of Project Web App is AA.*.*, then the value of lut.LookupTableMasks[0].LT_MASK_VALUE_SEPARATOR = ".". </para>
+          <para>If you serialize <b>lut</b> to an XML file, the first <b>LookupTableMasks</b> element has the following values.</para>
+          <code>&amp;lt;LookupTableMasks&amp;gt;
+    &amp;lt;LT_UID&amp;gt;5ee9b465-489c-4083-bb26-0694918103f6&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_TYPE_ENUM&amp;gt;1&amp;lt;/LT_MASK_STRUCT_TYPE_ENUM&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LENGTH&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LENGTH&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;.&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+&amp;lt;/LookupTableMasks&amp;gt;</code>
+          <para>For more information and examples, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LT_UID">
@@ -250,9 +354,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the lookup table that uses the code mask.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For an example that uses <b>LT_UID</b>, see Walkthrough: Creating a Hierarchical Lookup Table. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetLT_MASK_STRUCT_LENGTHNull">
@@ -277,7 +384,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_STRUCT_LENGTH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,7 +410,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_STRUCT_TYPE_ENUM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,7 +436,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksRow.LT_MASK_VALUE_SEPARATOR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides information that is used for the creation of <b>PlanAssignmentInterval</b> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>PlanAssignmentIntervalCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,7 +61,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the timespan of the plan assignment interval, expressed in a text string.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -86,10 +86,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -114,9 +115,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the timescale division that is used to measure the amount of work that is being done.</summary>
+        <value>The time interval for the plan assignment.</value>
+        <remarks>
+          <para>Examples of intervals are hours, days, weeks, and months.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeId">
@@ -169,9 +173,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about resource custom fields that is contained in one or more <see cref="T:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>ResourceCustomFieldsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the resource custom fields row to add.</param>
+        <summary>Adds a <b>ResourceCustomFieldssRow</b> object to the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -143,23 +146,26 @@
         <Parameter Name="INDICATOR_VALUE" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <param name="parentResourcesRowByResourcesResourceCustomFields">To be added.</param>
-        <param name="MD_PROP_UID">To be added.</param>
-        <param name="FLAG_VALUE">To be added.</param>
-        <param name="MD_PROP_ID">To be added.</param>
-        <param name="MD_PROP_NAME">To be added.</param>
-        <param name="TEXT_VALUE">To be added.</param>
-        <param name="FIELD_TYPE_ENUM">To be added.</param>
-        <param name="DATE_VALUE">To be added.</param>
-        <param name="CODE_VALUE">To be added.</param>
-        <param name="DUR_VALUE">To be added.</param>
-        <param name="NUM_VALUE">To be added.</param>
-        <param name="DUR_FMT">To be added.</param>
-        <param name="INDICATOR_VALUE">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <param name="parentResourcesRowByResourcesResourceCustomFields">Contains the row information.</param>
+        <param name="MD_PROP_UID">Contains the GUID of the custom field.</param>
+        <param name="FLAG_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>YESNO</b>.</param>
+        <param name="MD_PROP_ID">Contains the custom field ID.</param>
+        <param name="MD_PROP_NAME">Contains the custom field name.</param>
+        <param name="TEXT_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>STRING</b>.</param>
+        <param name="FIELD_TYPE_ENUM">Contains the <b>PSDataType</b> value for this custom field.</param>
+        <param name="DATE_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>DATE</b>.</param>
+        <param name="CODE_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>GUID</b>.</param>
+        <param name="DUR_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>DURATION</b>.</param>
+        <param name="NUM_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>NUMBER</b>.</param>
+        <param name="DUR_FMT">The display format that you want for the <b>DUR_VALUE</b> property if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>DURATION</b>.</param>
+        <param name="INDICATOR_VALUE">Contains the value of the custom field if the <b>FIELD_TYPE_ENUM</b> property is set to type <b>INDICATOR</b>.</param>
+        <summary>Adds a <b>ResourceCustomFieldssRow</b> object to the <b>ResourceCustomFieldsDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcResource.ResourceDataSet.ResourceCustomFieldsDataTable.AddResourceCustomFieldsRow(WebSvcResource.ResourceDataSet.ResourceCustomFieldsRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -210,7 +216,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.CODE_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -239,7 +245,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -292,7 +298,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.CUSTOM_FIELD_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -318,7 +324,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.DATE_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -344,7 +350,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.DUR_FMT" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -370,7 +376,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.DUR_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -396,7 +402,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.FIELD_TYPE_ENUM" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -425,8 +431,8 @@
         <Parameter Name="CUSTOM_FIELD_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <summary>Retrieves a <b>ResourceCustomFieldsRow</b> object by using the specified custom field GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -452,7 +458,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.FLAG_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -482,7 +488,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -539,7 +545,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -565,7 +571,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.INDICATOR_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -594,8 +600,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>ResourceCustomFieldsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -621,7 +627,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.MD_PROP_ID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -647,7 +653,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.MD_PROP_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -673,7 +679,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.MD_PROP_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -700,7 +706,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -756,7 +762,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.NUM_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -901,8 +907,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row object from the <b>ResourceCustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -927,7 +933,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.RES_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -948,7 +954,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -968,7 +974,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -988,7 +994,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1008,7 +1014,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourceCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1033,7 +1039,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourceCustomFieldsRow.TEXT_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

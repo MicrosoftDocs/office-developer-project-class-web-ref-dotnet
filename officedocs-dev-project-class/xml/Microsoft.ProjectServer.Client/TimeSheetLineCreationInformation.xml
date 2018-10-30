@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides property settings and methods that are used to create a timesheet line.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>TimeSheetLineCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,8 +61,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the assignment that is associated with the timesheet line.</summary>
+        <value>The GUID of the assignment that is associated with the timesheet line.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -87,8 +87,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the comment for the timesheet line.</summary>
+        <value>An object that contains the comment.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -113,8 +113,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for the timesheet line.</summary>
+        <value>The GUID of the timesheet line.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -138,10 +138,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,9 +167,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetLineClass</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the line class type of the timesheet line.</summary>
+        <value>A <b>TimeSheetLineClass</b> object.</value>
+        <remarks>
+          <para>The line class is an enumerated value that refers to the purpose of the line; for example, to record vacation time or to record sick time.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectId">
@@ -192,8 +196,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the project that is associated with the timesheet line.</summary>
+        <value>The GUID for the project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,8 +222,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time sheet line task name.</summary>
+        <value>The task name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -273,9 +277,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

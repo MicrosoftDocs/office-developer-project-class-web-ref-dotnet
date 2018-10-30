@@ -13,8 +13,36 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the Project Server database: Draft, Published, Archive, or Reporting.</summary>
+    <remarks>
+      <para>The <see cref="T:Microsoft.Office.Project.Server.Library.DataStoreEnum" /> type is used in the following <b>Project</b> methods:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="M:WebSvcProject.Project.GetProjectNameFromProjectUid(System.Guid,WebSvcProject.DataStoreEnum)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcProject.Project.ReadProject(System.Guid,WebSvcProject.DataStoreEnum)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcProject.Project.ReadProjectEntities(System.Guid,System.Int32,WebSvcProject.DataStoreEnum)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcProject.Project.ReadProjectStatus(System.Guid,WebSvcProject.DataStoreEnum,System.String,System.Int32)" />
+          </description>
+        </item>
+      </list>
+      <para>For more information, see <see cref="M:WebSvcStatusing.Statusing.UpdateStatusApprovals(WebSvcStatusing.StatusApprovalDataSet)" />.</para>
+      <para>
+        <b>Note</b>: The <see cref="N:WebSvcProject" /> namespace also includes the <see cref="T:WebSvcProject.DataStoreEnum" /> type.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="PublishedStore">
@@ -34,7 +62,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Published database.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReportingStore">
@@ -54,7 +82,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Reporting database.</summary>
       </Docs>
     </Member>
     <Member MemberName="VersionsStore">
@@ -74,7 +102,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Archive database.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkingStore">
@@ -94,7 +122,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Draft database.</summary>
       </Docs>
     </Member>
   </Members>

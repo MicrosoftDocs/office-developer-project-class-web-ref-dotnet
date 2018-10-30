@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides methods to create project solutions that manage relationships between plans, resources, tasks, and projects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,8 +36,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a <b>PortfolioAnalyses</b> object from the ASMX-based <b>PortfolioAnalyses</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>PortfolioAnalyses</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>PortfolioAnalysesClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>PortfolioAnalysesWebSvc</b> is an arbitrary namespace for the ASMX-based <b>PortfolioAnalyses</b> web service.</para>
+          <code>private static PortfolioAnalysesWebSvc.PortfolioAnalyses portfolioAnalyses = new PortfolioAnalysesWebSvc.PortfolioAnalysis();</code>
+          <para>In the following statement, <b>SvcPortfolioAnalyses</b> is an arbitrary namespace for the WCF-based <b>PortfolioAnalyses</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcPortfolioAnalyses.PortfolioAnalysesClient portfolioAnalysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CommitOptimizerSolution">
@@ -65,8 +74,443 @@
       </Parameters>
       <Docs>
         <param name="solutionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Commits the solution (and the associated projects) to the workflow step, using the unique identifier for the solution.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndPoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2013</para>
+          <para>The complete sample code is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                new Guid(PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID.ToString());
+            Guid RoleCFGuid = 
+                new Guid(PSLibrary.CustomField.COST_TYPE_MD_PROP_UID.ToString());
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    Console.WriteLine("Job status is unknown, may be the job was never placed on the Queue? - returning from WaitForQueue");
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CommitPlannerSolution">
@@ -94,8 +538,19 @@
       </Parameters>
       <Docs>
         <param name="solutionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Commits the solution (and the associated projects) to the workflow step, using the unique identifier for the solution.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateDependency">
@@ -123,9 +578,20 @@
       </Parameters>
       <Docs>
         <param name="dependencyDataSet">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Creates a dependency relationship between tasks.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteDependencies">
@@ -153,8 +619,19 @@
       </Parameters>
       <Docs>
         <param name="dependencyUids">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Deletes a previously created dependency relationship between tasks.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueCreateAnalysis">
@@ -183,8 +660,450 @@
       <Docs>
         <param name="analysisDataSet">To be added.</param>
         <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Enqueues a request to create an analysis entry for a solution using the unique identifier of the solution and the dataset which contains analysis constraints.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para> The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndpoints</b> methods use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2010</para>
+          <para>The <b>CreateAnalysis</b> method adds an <b>AnalysisRow</b> object and an <b>AnalysisProjectsRow</b> object to the <b>AnalysisDataSet</b>.</para>
+          <para>Following is the complete sample code:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID;
+                
+            Guid RoleCFGuid = 
+                PSLibrary.CustomField.COST_TYPE_MD_PROP_UID;
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+
+            // If the prioritization is not a driver prioritization, then impactGuid should be null.
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueCreateOptimizerSolution">
@@ -216,8 +1135,635 @@
         <param name="analysisUid">To be added.</param>
         <param name="solutionDS">To be added.</param>
         <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Enqueues a request to create a solution using the unique identifier of the specified analysis result, the dataset which contains analysis constraints, and the unique identifier for the solution.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndPoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2010</para>
+          <para>The <b>CreateOptimizerSolution</b> method adds a <b>SolutionRow</b> object, a <b>SolutionProjectsRow</b> object, a <b>SolutionConstraintsRow</b> object and a <b>SolutionConstraintValuesRow</b> object to the <b>SolutionDataSet</b>; the application writes the XML contents to the <b>OptimizerSolutionDataSet.xml</b> file, as follows:</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;OptimizerSolutionDataSet xmlns="http://schemas.microsoft.com/office/project
+/server/webservices/OptimizerSolutionDataSet/"&amp;gt;
+&amp;lt;Solution&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_NAME&amp;gt;&lt;/span&gt;Baseline&amp;lt;/SOLUTION_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/HARD_CONSTRAINT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost
+&amp;lt;/HARD_CONSTRAINT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;OPT_USE_DEPENDENCIES&amp;gt;&lt;/span&gt;true&amp;lt;/OPT_USE_DEPENDENCIES&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:09.007-07:00&amp;lt;/CREATED_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:09.007-07:00&amp;lt;/MOD_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/LAST_UPDATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana&amp;lt;/LAST_UPDATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/CREATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana&amp;lt;/CREATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_NAME&amp;gt;&lt;/span&gt;Analysis8e805fcc-385e-4f9c-92e7-68ca1cdd9a2b
+&amp;lt;/ANALYSIS_NAME&amp;gt;
+&amp;lt;/Solution&amp;gt;
+&amp;lt;SolutionConstraints&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost&amp;lt;/MD_PROP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_POS&amp;gt;&lt;/span&gt;0&amp;lt;/MD_PROP_POS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MAX_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/MAX_VALUE&amp;gt;
+&amp;lt;/SolutionConstraints&amp;gt;
+&amp;lt;SolutionConstraintValues&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;NUM_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/NUM_VALUE&amp;gt;
+&amp;lt;/SolutionConstraintValues&amp;gt;
+&amp;lt;SolutionProjects&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_NAME&amp;gt;&lt;/span&gt;Project1&amp;lt;/PROJ_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITY&amp;gt;&lt;/span&gt;1&amp;lt;/PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ABSOLUTE_PRIORITY&amp;gt;&lt;/span&gt;4.75&amp;lt;/ABSOLUTE_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS&amp;gt;&lt;/span&gt;1&amp;lt;/STATUS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FORCE_STATUS&amp;gt;&lt;/span&gt;2&amp;lt;/FORCE_STATUS&amp;gt;
+&amp;lt;/SolutionProjects&amp;gt;
+&amp;lt;SolutionStrategicAlignment&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;cb75b3e4-4f7a-44a3-bae1-59061b44b156
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_NAME&amp;gt;&lt;/span&gt;Driver1&amp;lt;/DRIVER_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_PRIORITY&amp;gt;&lt;/span&gt;0.75&amp;lt;/DRIVER_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;REVERSE_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/REVERSE_VALUE&amp;gt;
+&amp;lt;/SolutionStrategicAlignment&amp;gt;
+&amp;lt;SolutionStrategicAlignment&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;bc858049-d638-480b-8071-e5eabe995fe8
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_NAME&amp;gt;&lt;/span&gt;Driver2&amp;lt;/DRIVER_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_PRIORITY&amp;gt;&lt;/span&gt;0.25&amp;lt;/DRIVER_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;REVERSE_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/REVERSE_VALUE&amp;gt;
+&amp;lt;/SolutionStrategicAlignment&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;c443d627-2259-4ba6-acf0-b8139e8d5713
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;6e3d8a42-cbaf-4e97-833a-2bcdb367cd94
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;fd13f215-7436-4622-a0c6-54fdbda45f76
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;40333069-0d35-4044-a813-7d76304320cd
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;9018ffe8-8673-4d1e-b6d1-cba387116290
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;11f01cd7-9c14-47b7-a62f-825d7f05b7a2
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&amp;lt;Y_VALUE&amp;gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;afbe69c7-a142-4e25-8983-5bf8250b1342
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;5d583716-bb47-46ee-ac8e-3d342bc38d46
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;68c55a6e-2c46-470e-83d9-a57ccce35185
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;288f4466-663c-45c0-94ed-666d91cc86f2
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;ac25e7c9-95f7-4385-a739-60c2badb1064
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;/OptimizerSolutionDataSet&amp;gt;</code>
+          <para>The complete sample code is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID;
+                
+            Guid RoleCFGuid = 
+                PSLibrary.CustomField.COST_TYPE_MD_PROP_UID;
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+
+            // If the prioritization is not a driver prioritization, then impactGuid should be null.
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueCreatePlannerSolution">
@@ -246,8 +1792,19 @@
       <Docs>
         <param name="plannerSolutionDataSet">To be added.</param>
         <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Enqueues a request to create a solution using the dataset which contains resource planning constraints, and the unique identifier for the solution.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueDeleteAnalyses">
@@ -277,8 +1834,19 @@
       <Docs>
         <param name="analysesUIDs">To be added.</param>
         <param name="jobUids">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Deletes an analysis entry for a solution using the unique identifier of the analysis, and the unique identifier of the queued job.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueDeleteOptimizerSolutions">
@@ -308,8 +1876,19 @@
       <Docs>
         <param name="solutionUids">To be added.</param>
         <param name="jobUids">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Removes the solution (and the associated projects) from the workflow step.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueDeletePlannerSolutions">
@@ -339,8 +1918,19 @@
       <Docs>
         <param name="solutionUIDs">To be added.</param>
         <param name="jobUids">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Removes the solution from the workflow step.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueUpdateAnalysis">
@@ -371,8 +1961,531 @@
         <param name="analysisDataSet">To be added.</param>
         <param name="forceRefreshPlannerData">To be added.</param>
         <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Updates an existing analysis entry using modified constraints.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndPoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2010</para>
+          <para>The <b>UpdateAnalysis</b> method adds an <b>AnalysisProjectImpactRow</b> object to the <b>AnalysisDataSet</b>; the application writes the XML contents to the <b>UpdatedAnalysisInfo.xml</b>, as follows:</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;AnalysisDataSet xmlns="http://schemas.microsoft.com/office/project
+/server/webservices/AnalysisDataSet/"&amp;gt;
+&amp;lt;Analysis&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_NAME&amp;gt;&lt;/span&gt;Analysis8e805fcc-385e-4f9c-92e7-68ca1cdd9a2b
+&amp;lt;/ANALYSIS_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_TYPE&amp;gt;&lt;/span&gt;2&amp;lt;/ANALYSIS_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITIZATION_TYPE&amp;gt;&lt;/span&gt;0&amp;lt;/PRIORITIZATION_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITIZATION_UID&amp;gt;&lt;/span&gt;9adf2c29-d409-41eb-bc6c-6b7bfcdc0caa
+&amp;lt;/PRIORITIZATION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJECT_IMPACT_CF_UID&amp;gt;&lt;/span&gt;1728d080-ba74-4d86-a29a-27e4318001c4
+&amp;lt;/PROJECT_IMPACT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJECT_IMPACT_CF_NAME&amp;gt;&lt;/span&gt;Project Impact
+&amp;lt;/PROJECT_IMPACT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/HARD_CONSTRAINT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost
+&amp;lt;/HARD_CONSTRAINT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HORIZON_START_DATE&amp;gt;&lt;/span&gt;2010-01-01T00:00:00-08:00
+&amp;lt;/HORIZON_START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HORIZON_END_DATE&amp;gt;&lt;/span&gt;2011-01-31T00:00:00-08:00
+&amp;lt;/HORIZON_END_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ROLE_CUSTOM_FIELD_UID&amp;gt;&lt;/span&gt;0000783f-de84-434b-9564-284e5b7b3f49
+&amp;lt;/ROLE_CUSTOM_FIELD_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;TIME_SCALE&amp;gt;&lt;/span&gt;5&amp;lt;/TIME_SCALE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FILTER_RESOURCES_BY_DEP&amp;gt;&lt;/span&gt;false
+&amp;lt;/FILTER_RESOURCES_BY_DEP&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FILTER_RESOURCES_BY_RBS&amp;gt;&lt;/span&gt;false
+&amp;lt;/FILTER_RESOURCES_BY_RBS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;USE_ALT_PROJ_DATES_FOR_RES_PLAN&amp;gt;&lt;/span&gt;false
+&amp;lt;/USE_ALT_PROJ_DATES_FOR_RES_PLAN&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ALT_PROJ_START_DATE_CF_UID&amp;gt;&lt;/span&gt;5b21e11d-0b2f-4d93-8995-f4a6625eb3eb
+&amp;lt;/ALT_PROJ_START_DATE_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ALT_PROJ_END_DATE_CF_UID&amp;gt;&lt;/span&gt;5b21e11d-0b2f-4d93-8995-f4a6625eb3eb
+&amp;lt;/ALT_PROJ_END_DATE_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;BOOKING_TYPE&amp;gt;&lt;/span&gt;0&amp;lt;/BOOKING_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:00.257-07:00
+&amp;lt;/CREATED_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:04.443-07:00&amp;lt;/MOD_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/LAST_UPDATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana Ramamoorthy
+&amp;lt;/LAST_UPDATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/CREATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana Ramamoorthy
+&amp;lt;/CREATED_BY_RES_NAME&amp;gt;
+&amp;lt;/Analysis&amp;gt;
+&amp;lt;AnalysisProjects&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_NAME&amp;gt;&lt;/span&gt;Project1&amp;lt;/PROJ_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITY&amp;gt;&lt;/span&gt;1&amp;lt;/PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ABSOLUTE_PRIORITY&amp;gt;&lt;/span&gt;4.75&amp;lt;/ABSOLUTE_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ORIGINAL_START_DATE&amp;gt;&lt;/span&gt;2010-03-31T08:00:00-07:00
+&amp;lt;/ORIGINAL_START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ORIGINAL_END_DATE&amp;gt;&lt;/span&gt;2010-04-01T17:00:00-07:00
+&amp;lt;/ORIGINAL_END_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;START_DATE&amp;gt;&lt;/span&gt;2010-03-01T00:00:00-08:00&amp;lt;/START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DURATION&amp;gt;&lt;/span&gt;2&amp;lt;/DURATION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LOCKED&amp;gt;&lt;/span&gt;0&amp;lt;/LOCKED&amp;gt;
+&amp;lt;/AnalysisProjects&amp;gt;
+&amp;lt;AnalysisProjectImpact&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;cb75b3e4-4f7a-44a3-bae1-59061b44b156
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LT_STRUCT_UID&amp;gt;&lt;/span&gt;426f8d32-6961-4b4b-91ab-705f0200f45e
+&amp;lt;/LT_STRUCT_UID&amp;gt;
+&amp;lt;/AnalysisProjectImpact&amp;gt;
+&amp;lt;AnalysisProjectImpact&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;bc858049-d638-480b-8071-e5eabe995fe8
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LT_STRUCT_UID&amp;gt;&lt;/span&gt;779271c4-894d-4385-9e33-1251a9e80541
+&amp;lt;/LT_STRUCT_UID&amp;gt;
+&amp;lt;/AnalysisProjectImpact&amp;gt;
+&amp;lt;/AnalysisDataSet&amp;gt;</code>
+          <para>The complete code sample is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                new Guid(PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID.ToString());
+            Guid RoleCFGuid = 
+                new Guid(PSLibrary.CustomField.COST_TYPE_MD_PROP_UID.ToString());
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    Console.WriteLine("Job status is unknown, may be the job was never placed on the Queue? - returning from WaitForQueue");
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadAnalysis">
@@ -400,9 +2513,516 @@
       </Parameters>
       <Docs>
         <param name="analysisUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads an existing analysis entry for a solution.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to read portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndPoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2010</para>
+          <para>The <b>ReadAnalysis</b> method returns an <b>AnalysisDataSet</b> object; the application writes the XML contents to the <b>AnalysisDataSet.xml</b> file, as follows:</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;AnalysisDataSet xmlns="http://schemas.microsoft.com/office/project/
+server/webservices/AnalysisDataSet/"&amp;gt;
+&amp;lt;Analysis&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_NAME&amp;gt;&lt;/span&gt;Analysis8e805fcc-385e-4f9c-92e7-68ca1cdd9a2b
+&amp;lt;/ANALYSIS_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_TYPE&amp;gt;&lt;/span&gt;2&amp;lt;/ANALYSIS_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITIZATION_TYPE&amp;gt;&lt;/span&gt;0&amp;lt;/PRIORITIZATION_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITIZATION_UID&amp;gt;&lt;/span&gt;9adf2c29-d409-41eb-bc6c-6b7bfcdc0caa
+&amp;lt;/PRIORITIZATION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJECT_IMPACT_CF_UID&amp;gt;&lt;/span&gt;1728d080-ba74-4d86-a29a-27e4318001c4
+&amp;lt;/PROJECT_IMPACT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJECT_IMPACT_CF_NAME&amp;gt;&lt;/span&gt;Project Impact
+&amp;lt;/PROJECT_IMPACT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/HARD_CONSTRAINT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost
+&amp;lt;/HARD_CONSTRAINT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HORIZON_START_DATE&amp;gt;&lt;/span&gt;2010-01-01T00:00:00-08:00
+&amp;lt;/HORIZON_START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HORIZON_END_DATE&amp;gt;&lt;/span&gt;2011-01-31T00:00:00-08:00
+&amp;lt;/HORIZON_END_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ROLE_CUSTOM_FIELD_UID&amp;gt;&lt;/span&gt;0000783f-de84-434b-9564-284e5b7b3f49
+&amp;lt;/ROLE_CUSTOM_FIELD_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;TIME_SCALE&amp;gt;&lt;/span&gt;5&amp;lt;/TIME_SCALE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FILTER_RESOURCES_BY_DEP&amp;gt;&lt;/span&gt;false&amp;lt;/FILTER_RESOURCES_BY_DEP&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FILTER_RESOURCES_BY_RBS&amp;gt;&lt;/span&gt;false&amp;lt;/FILTER_RESOURCES_BY_RBS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;USE_ALT_PROJ_DATES_FOR_RES_PLAN&amp;gt;&lt;/span&gt;false
+&amp;lt;/USE_ALT_PROJ_DATES_FOR_RES_PLAN&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ALT_PROJ_START_DATE_CF_UID&amp;gt;&lt;/span&gt;5b21e11d-0b2f-4d93-8995-f4a6625eb3eb
+&amp;lt;/ALT_PROJ_START_DATE_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ALT_PROJ_END_DATE_CF_UID&amp;gt;&lt;/span&gt;5b21e11d-0b2f-4d93-8995-f4a6625eb3eb
+&amp;lt;/ALT_PROJ_END_DATE_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;BOOKING_TYPE&amp;gt;&lt;/span&gt;0&amp;lt;/BOOKING_TYPE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:00.257-07:00&amp;lt;/CREATED_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:00.257-07:00&amp;lt;/MOD_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/LAST_UPDATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana Ramamoorthy
+&amp;lt;/LAST_UPDATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/CREATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana Ramamoorthy
+&amp;lt;/CREATED_BY_RES_NAME&amp;gt;
+&amp;lt;/Analysis&amp;gt;
+&amp;lt;AnalysisProjects&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_NAME&amp;gt;&lt;/span&gt;Project1&amp;lt;/PROJ_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITY&amp;gt;&lt;/span&gt;0&amp;lt;/PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ABSOLUTE_PRIORITY&amp;gt;&lt;/span&gt;0&amp;lt;/ABSOLUTE_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ORIGINAL_START_DATE&amp;gt;&lt;/span&gt;2010-03-31T08:00:00-07:00
+&amp;lt;/ORIGINAL_START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ORIGINAL_END_DATE&amp;gt;&lt;/span&gt;2010-04-01T17:00:00-07:00
+&amp;lt;/ORIGINAL_END_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;START_DATE&amp;gt;&lt;/span&gt;2010-03-01T00:00:00-08:00
+&amp;lt;/START_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DURATION&amp;gt;&lt;/span&gt;2&amp;lt;/DURATION&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LOCKED&amp;gt;&lt;/span&gt;0&amp;lt;/LOCKED&amp;gt;
+&amp;lt;/AnalysisProjects&amp;gt;
+&amp;lt;/AnalysisDataSet&amp;gt;</code>
+          <para>The complete code sample is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID;
+                
+            Guid RoleCFGuid = 
+                PSLibrary.CustomField.COST_TYPE_MD_PROP_UID;
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+
+            // If the prioritization is not a driver prioritization, then impactGuid should be null.
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadAnalysisList">
@@ -427,9 +3047,26 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Retrieves the list of existing analysis entries for a solution.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePrioritizations" />
+              </term>
+              <description>Allows a user to create or edit prioritizations for project portfolio analyses. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadDependency">
@@ -457,9 +3094,20 @@
       </Parameters>
       <Docs>
         <param name="dependencyUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads an existing dependency relationship between tasks.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses.  Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadDependencyList">
@@ -484,9 +3132,20 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Retrieves the list of existing task dependency relationships that are associated with a solution. </summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadOptimizerSolution">
@@ -514,9 +3173,636 @@
       </Parameters>
       <Docs>
         <param name="solutionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Retrieves the solution (and the associated projects), using the unique identifier for the solution.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcPortfolioAnalyses</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> and the <b>SetClientEndPoints</b> method use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example is designed to illustrate the use of various <b>PortfolioAnalyses</b> methods; it is not a full solution The GUIDs are hardcoded for the necessary local project, drivers, driver prioritization, and so forth. To use the example, change the GUID values to match those in you test installation of Project Server 2010</para>
+          <para>The <b>ReadOptimizerSolution</b> method returns an <b>OptimizerSolutionDataSet</b>; the application writes the XML contents to the <b>OptimizerSolutionDataSet.xml</b> file, as follows:</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;OptimizerSolutionDataSet xmlns="http://schemas.microsoft.com/office/project
+/server/webservices/OptimizerSolutionDataSet/"&amp;gt;
+&amp;lt;Solution&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_NAME&amp;gt;&lt;/span&gt;Baseline&amp;lt;/SOLUTION_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/HARD_CONSTRAINT_CF_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;HARD_CONSTRAINT_CF_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost
+&amp;lt;/HARD_CONSTRAINT_CF_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;OPT_USE_DEPENDENCIES&amp;gt;&lt;/span&gt;true&amp;lt;/OPT_USE_DEPENDENCIES&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:09.007-07:00&amp;lt;/CREATED_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MOD_DATE&amp;gt;&lt;/span&gt;2010-04-07T10:28:09.007-07:00&amp;lt;/MOD_DATE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/LAST_UPDATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;LAST_UPDATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana&amp;lt;/LAST_UPDATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_UID&amp;gt;&lt;/span&gt;4cde51d4-d636-4c54-94c3-0b55b00aa111
+&amp;lt;/CREATED_BY_RES_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;CREATED_BY_RES_NAME&amp;gt;&lt;/span&gt;Shana&amp;lt;/CREATED_BY_RES_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_NAME&amp;gt;&lt;/span&gt;Analysis8e805fcc-385e-4f9c-92e7-68ca1cdd9a2b
+&amp;lt;/ANALYSIS_NAME&amp;gt;
+&amp;lt;/Solution&amp;gt;
+&amp;lt;SolutionConstraints&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_NAME&amp;gt;&lt;/span&gt;Sample Proposal Cost&amp;lt;/MD_PROP_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_POS&amp;gt;&lt;/span&gt;0&amp;lt;/MD_PROP_POS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MAX_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/MAX_VALUE&amp;gt;
+&amp;lt;/SolutionConstraints&amp;gt;
+&amp;lt;SolutionConstraintValues&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;MD_PROP_UID&amp;gt;&lt;/span&gt;dc68b96a-965e-4b25-ac8a-15a5df729831
+&amp;lt;/MD_PROP_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;NUM_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/NUM_VALUE&amp;gt;
+&amp;lt;/SolutionConstraintValues&amp;gt;
+&amp;lt;SolutionProjects&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_UID&amp;gt;&lt;/span&gt;c13feaeb-8a19-4f43-becd-44f43b1a82d9
+&amp;lt;/PROJ_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PROJ_NAME&amp;gt;&lt;/span&gt;Project1&amp;lt;/PROJ_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;PRIORITY&amp;gt;&lt;/span&gt;1&amp;lt;/PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ABSOLUTE_PRIORITY&amp;gt;&lt;/span&gt;4.75&amp;lt;/ABSOLUTE_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;STATUS&amp;gt;&lt;/span&gt;1&amp;lt;/STATUS&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FORCE_STATUS&amp;gt;&lt;/span&gt;2&amp;lt;/FORCE_STATUS&amp;gt;
+&amp;lt;/SolutionProjects&amp;gt;
+&amp;lt;SolutionStrategicAlignment&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;cb75b3e4-4f7a-44a3-bae1-59061b44b156
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_NAME&amp;gt;&lt;/span&gt;Driver1&amp;lt;/DRIVER_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_PRIORITY&amp;gt;&lt;/span&gt;0.75&amp;lt;/DRIVER_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;REVERSE_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/REVERSE_VALUE&amp;gt;
+&amp;lt;/SolutionStrategicAlignment&amp;gt;
+&amp;lt;SolutionStrategicAlignment&amp;gt;
+&lt;span class="label"&gt;&amp;lt;SOLUTION_UID&amp;gt;&lt;/span&gt;df499264-3640-44fd-b8a1-92b3e74a4bb5
+&amp;lt;/SOLUTION_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_UID&amp;gt;&lt;/span&gt;bc858049-d638-480b-8071-e5eabe995fe8
+&amp;lt;/DRIVER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_NAME&amp;gt;&lt;/span&gt;Driver2&amp;lt;/DRIVER_NAME&amp;gt;
+&lt;span class="label"&gt;&amp;lt;DRIVER_PRIORITY&amp;gt;&lt;/span&gt;0.25&amp;lt;/DRIVER_PRIORITY&amp;gt;
+&lt;span class="label"&gt;&amp;lt;REVERSE_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/REVERSE_VALUE&amp;gt;
+&amp;lt;/SolutionStrategicAlignment&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;c443d627-2259-4ba6-acf0-b8139e8d5713
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;6e3d8a42-cbaf-4e97-833a-2bcdb367cd94
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;fd13f215-7436-4622-a0c6-54fdbda45f76
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;40333069-0d35-4044-a813-7d76304320cd
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;9018ffe8-8673-4d1e-b6d1-cba387116290
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;11f01cd7-9c14-47b7-a62f-825d7f05b7a2
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&amp;lt;Y_VALUE&amp;gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;afbe69c7-a142-4e25-8983-5bf8250b1342
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;5d583716-bb47-46ee-ac8e-3d342bc38d46
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;68c55a6e-2c46-470e-83d9-a57ccce35185
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;288f4466-663c-45c0-94ed-666d91cc86f2
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;SolutionEfficientFrontier&amp;gt;
+&lt;span class="label"&gt;&amp;lt;FRONTIER_UID&amp;gt;&lt;/span&gt;11c19e14-fa13-49a6-932c-2a9e222ef64a
+&amp;lt;/FRONTIER_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;ANALYSIS_UID&amp;gt;&lt;/span&gt;37b6529a-75d8-4ab8-a597-d2c07256f7be
+&amp;lt;/ANALYSIS_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;POINT_UID&amp;gt;&lt;/span&gt;ac25e7c9-95f7-4385-a739-60c2badb1064
+&amp;lt;/POINT_UID&amp;gt;
+&lt;span class="label"&gt;&amp;lt;X_VALUE&amp;gt;&lt;/span&gt;0.000000&amp;lt;/X_VALUE&amp;gt;
+&lt;span class="label"&gt;&amp;lt;Y_VALUE&amp;gt;&lt;/span&gt;1.000000&amp;lt;/Y_VALUE&amp;gt;
+&amp;lt;/SolutionEfficientFrontier&amp;gt;
+&amp;lt;/OptimizerSolutionDataSet&amp;gt;</code>
+          <para>The complete sample code is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+// The following code requires one project, two drivers and a driver 
+// prioritization to exist in the database. Change the values of all hard-coded
+// GUIDs to match values in your instance.
+// You can make the same logic work for more than one project by 
+// adding a FOR -EACH loop.
+namespace Microsoft.SDK.Project.Samples.Portfolio
+{
+    class PortFolio
+    {
+        private const string PROJECT_GUID = 
+            "C13FEAEB-8A19-4F43-BECD-44F43B1A82D9";
+        private const string DRIVER0_GUID = 
+            "CB75B3E4-4F7A-44A3-BAE1-59061B44B156";
+        private const string DRIVER1_GUID = 
+            "BC858049-D638-480B-8071-E5EABE995FE8";
+        private const string DRIVER_PRIORITIZATION_GUID =
+            "9ADF2C29-D409-41EB-BC6C-6B7BFCDC0CAA";
+        private const string ALT_PROJECT_STARTDATE_CF_GUID =
+             "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string ALT_PROJECT_ENDDATE_CF_GUID =
+            "5B21E11D-0B2F-4D93-8995-F4A6625EB3EB";
+        private const string HARD_CONSTRAINT_CF_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string MD_PROP_GUID = 
+            "DC68B96A-965E-4B25-AC8A-15A5DF729831";
+        private const string BINARY_USING_CF_PRIORITY_GUID =
+             "C834DF36-6712-4891-92B0-FA6BFB5775FD";
+        private const string GREATER_THAN_LOOKUPTABLE_VALUE =
+            "426F8D32-6961-4B4B-91AB-705F0200F45E";
+        private const string LESS_THAN_LOOKUPTABLE_VALUE =
+            "779271C4-894D-4385-9E33-1251A9E80541";
+
+        private const string ENDPOINT_PA = "basicHttp_PortfolioAnalyses";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+        private static string outFilePathAnalysisDS;
+        private static string outFilePathUpdatedAnalysisInfo;
+        private static string outFilePathOptimizerDS;
+
+        private static SvcPortfolioAnalyses.PortfolioAnalysesClient analysesClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        
+        static void Main(string[] args)
+        {
+            DateTime startTime = DateTime.Now;
+
+            // Configure the end points.
+            ConfigClientEndpoints(ENDPOINT_PA);
+            SetClientEndpoints(ENDPOINT_Q);
+
+            // If output directory does not exist,create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            outFilePathAnalysisDS = OUTPUT_FILES + "AnalysisDataSet.xml";
+            outFilePathUpdatedAnalysisInfo = OUTPUT_FILES + "UpdatedAnalysisInfo.xml";
+            outFilePathOptimizerDS = OUTPUT_FILES + "OptimizerSolutionDS.xml";
+
+            // Create the Portfolio Analysis DataSet.
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS =
+                new SvcPortfolioAnalyses.AnalysisDataSet();
+            Guid analysis_uid;
+            Guid[] numDrivers;
+            Guid jobGuid;
+
+            // Create analysis.
+            CreateAnalysis(portfolioAnalysisDS,
+                out analysis_uid,
+                out numDrivers,
+                out jobGuid);
+
+            // Read analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd =
+                analysesClient.ReadAnalysis(analysis_uid);
+
+            // Write the DataSet contents to an XML file.
+            analysisDSAfterAdd.WriteXml(outFilePathAnalysisDS);
+
+            // Update the Portfolio Analysis.
+            analysisDSAfterAdd = UpdateAnalysis(analysis_uid,
+                numDrivers, jobGuid, analysisDSAfterAdd);
+
+            // Create the Optimizer Solution.
+            CreateOptimizerSolution(analysis_uid,
+                analysisDSAfterAdd);
+
+        }
+
+        // Creates the Optimizer Solution.
+        private static void CreateOptimizerSolution(Guid analysis_uid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Create the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet solutionDS =
+                new SvcPortfolioAnalyses.OptimizerSolutionDataSet();
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow
+                solutionRow =
+                solutionDS.Solution.NewSolutionRow();
+            Guid solutionGuid = Guid.NewGuid();
+            string solutionName = "Baseline";
+            solutionRow.ANALYSIS_UID = analysis_uid;
+            solutionRow.SOLUTION_UID = solutionGuid;
+            solutionRow.SOLUTION_NAME = solutionName;
+            solutionRow.OPT_USE_DEPENDENCIES = true;  // The default is true.
+            solutionDS.Solution.AddSolutionRow(solutionRow);
+
+            // Populate DecisionsTable with projects and force-in/force-out status
+            // and PrioritiesTable with projects and project priority.
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionProjectsRow
+                     solutionsProjectsRow =
+                     solutionDS.SolutionProjects.NewSolutionProjectsRow();
+
+                solutionsProjectsRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionsProjectsRow.PROJ_UID = projRow.PROJ_UID;
+
+                // Leave decision to the optimization (Auto = 2).
+                solutionsProjectsRow.FORCE_STATUS = (byte)PSLibrary.Optimizer.ForceStatus.Auto;
+                solutionDS.SolutionProjects.AddSolutionProjectsRow(
+                    solutionsProjectsRow);
+            }
+
+            // Populate SolutionConstraintValuesDataTable with custom field 
+            // Guid/Value pairs for each project.
+            Decimal constraintTotal = 0;
+            int num_value = 0;
+                        
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow
+                solutionConstraintsRow =
+                solutionDS.SolutionConstraints.NewSolutionConstraintsRow();
+            solutionConstraintsRow.SOLUTION_UID =
+                solutionDS.Solution[0].SOLUTION_UID;
+            solutionConstraintsRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+            solutionConstraintsRow.MD_PROP_POS = 0;
+            solutionConstraintsRow.MAX_VALUE = constraintTotal;
+            solutionDS.SolutionConstraints.AddSolutionConstraintsRow(
+                solutionConstraintsRow);
+
+            foreach (SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projRow in
+                analysisDSAfterAdd.AnalysisProjects.Rows)
+            {
+                SvcPortfolioAnalyses.OptimizerSolutionDataSet.
+                    SolutionConstraintValuesRow
+                    solutionConstraintValuesRow =
+                    solutionDS.SolutionConstraintValues.
+                    NewSolutionConstraintValuesRow();
+                solutionConstraintValuesRow.SOLUTION_UID =
+                    solutionDS.Solution[0].SOLUTION_UID;
+                solutionConstraintValuesRow.MD_PROP_UID = new Guid(MD_PROP_GUID);
+                solutionConstraintValuesRow.PROJ_UID = projRow.PROJ_UID;
+
+                constraintTotal += solutionConstraintValuesRow.NUM_VALUE =
+                    Convert.ToDecimal(num_value);
+                solutionDS.SolutionConstraintValues.
+                    AddSolutionConstraintValuesRow(
+                    solutionConstraintValuesRow);
+            }
+            Guid jobUid = Guid.NewGuid();
+            try
+            {
+                // Create the Optimizer Solution.
+                analysesClient.QueueCreateOptimizerSolution(
+                    analysis_uid, solutionDS, jobUid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.
+                    OptimizerSolutionCreate,
+                    1, queueSystemClient, jobUid);
+                Console.WriteLine("Optimizer solution created successfully.");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+
+            // Read the contents of the Optimizer Solution DataSet.
+            SvcPortfolioAnalyses.OptimizerSolutionDataSet
+                optimizerSolutionDS =
+                analysesClient.ReadOptimizerSolution(solutionGuid);
+            optimizerSolutionDS.WriteXml(outFilePathOptimizerDS);
+
+            // Commit Optimizer Solution.
+            analysesClient.CommitOptimizerSolution(solutionGuid);
+            Console.WriteLine("Optimizer solution committed.");
+            Console.Read();
+        }
+
+        // Create the Portfolio Analysis.
+        private static void CreateAnalysis(
+            SvcPortfolioAnalyses.AnalysisDataSet portfolioAnalysisDS,
+            out Guid analysis_uid,
+            out Guid[] numDrivers,
+            out Guid jobGuid)
+        {
+            string analysisName = "Analysis" + Guid.NewGuid();
+            analysis_uid = Guid.NewGuid();
+            Guid PROJECT_IMPACT_MD_PROP_UID = 
+                PSLibrary.CustomField.PROJECT_IMPACT_MD_PROP_UID;
+                
+            Guid RoleCFGuid = 
+                PSLibrary.CustomField.COST_TYPE_MD_PROP_UID;
+            numDrivers = new Guid[2];
+            numDrivers[0] = new Guid(DRIVER0_GUID);
+            numDrivers[1] = new Guid(DRIVER1_GUID);
+
+            int prioritizationType = (int)PSLibrary.Optimizer.PrioritizationType.BinaryUsingPrioritization;
+            int analysisType = (int)PSLibrary.Optimizer.AnalysisType.Cost_and_Schedule;
+
+            int binaryUsingPrioritizationPrioType =
+                (int)PSLibrary.Optimizer.AnalysisType.Cost;
+
+            // If the prioritization is not a driver prioritization, then impactGuid should be null.
+            object impactGuid = null;
+
+            if (prioritizationType == binaryUsingPrioritizationPrioType)
+                impactGuid = PROJECT_IMPACT_MD_PROP_UID;
+
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisRow analysisRow =
+                portfolioAnalysisDS.Analysis.NewAnalysisRow();
+            analysisRow.ANALYSIS_NAME = analysisName;
+            analysisRow.ANALYSIS_UID = analysis_uid;
+            analysisRow.ANALYSIS_TYPE = analysisType;
+            analysisRow.PRIORITIZATION_TYPE = prioritizationType;
+            analysisRow.PRIORITIZATION_UID = new Guid(DRIVER_PRIORITIZATION_GUID);
+            analysisRow.ROLE_CUSTOM_FIELD_UID = RoleCFGuid;
+            analysisRow.PROJECT_IMPACT_CF_UID = new Guid(impactGuid.ToString());
+            analysisRow.ALT_PROJ_START_DATE_CF_UID = new Guid(ALT_PROJECT_STARTDATE_CF_GUID);
+            analysisRow.ALT_PROJ_END_DATE_CF_UID = new Guid(ALT_PROJECT_ENDDATE_CF_GUID);
+            analysisRow.HORIZON_START_DATE = new DateTime(2010, 1, 1);
+            analysisRow.HORIZON_END_DATE = new DateTime(2011, 1, 31);
+            analysisRow.TIME_SCALE = (int)PSLibrary.TimeScaleClass.TimeScale.Months;
+            analysisRow.BOOKING_TYPE = (int)PSLibrary.Resource.BookingType.Committed;
+            analysisRow.HARD_CONSTRAINT_CF_UID = new Guid(HARD_CONSTRAINT_CF_GUID);
+
+            portfolioAnalysisDS.Analysis.AddAnalysisRow(analysisRow);
+
+            // Add a project to the Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectsRow
+                projectsRow =
+                portfolioAnalysisDS.AnalysisProjects.NewAnalysisProjectsRow();
+
+            projectsRow.ANALYSIS_UID = analysis_uid;
+            projectsRow.PROJ_UID = new Guid(PROJECT_GUID);
+            portfolioAnalysisDS.AnalysisProjects.AddAnalysisProjectsRow(
+                projectsRow);
+
+            Console.WriteLine("Creating analysis.....");
+            jobGuid = Guid.NewGuid();
+
+            try
+            {
+                analysesClient.QueueCreateAnalysis(portfolioAnalysisDS,
+                    jobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisCreate,
+                    1, queueSystemClient, jobGuid);
+                Console.WriteLine("Analysis created successfully");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+        }
+
+        // Update the strategic impact data of a Portfolio Analysis.
+        private static SvcPortfolioAnalyses.AnalysisDataSet UpdateAnalysis(
+            Guid analysis_uid,
+            Guid[] numDrivers,
+            Guid jobGuid,
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterAdd)
+        {
+            // Update the impact values and update the analysis.
+
+            // Look-up-table values for comparison (hard coded here).
+            Guid[] lookUpTableValues = new Guid[2];
+            Guid updateJobGuid = Guid.NewGuid();
+
+            // Represents the "greater than" relationship.
+            lookUpTableValues[0] =
+                new Guid(GREATER_THAN_LOOKUPTABLE_VALUE);
+            // Represents the "less than" relationship.
+            lookUpTableValues[1] =
+                new Guid(LESS_THAN_LOOKUPTABLE_VALUE);  // is &amp;lt;
+            SvcPortfolioAnalyses.AnalysisDataSet.AnalysisProjectImpactRow
+                relationRow = null;
+
+            // If there is more than one project, do the following for all the projects.
+            for (int j = 0; j &amp;lt; numDrivers.Count(); j++)
+            {
+                relationRow =
+                    analysisDSAfterAdd.AnalysisProjectImpact.
+                    NewAnalysisProjectImpactRow();
+                relationRow.ANALYSIS_UID = analysis_uid;
+                relationRow.LT_STRUCT_UID = lookUpTableValues[j];
+                relationRow.PROJ_UID = new Guid(PROJECT_GUID);
+                relationRow.DRIVER_UID = numDrivers[j];
+                analysisDSAfterAdd.AnalysisProjectImpact.
+                    AddAnalysisProjectImpactRow(
+                    relationRow);
+            }
+            try
+            {
+                Console.WriteLine("Updating the analysis....");
+                analysesClient.QueueUpdateAnalysis(analysisDSAfterAdd,
+                    false, updateJobGuid);
+                Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.AnalysisUpdate,
+                    1, queueSystemClient, updateJobGuid);
+                Console.WriteLine("Analysis updated successfully...");
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            // Read the updated Portfolio Analysis.
+            SvcPortfolioAnalyses.AnalysisDataSet analysisDSAfterUpdate =
+                analysesClient.ReadAnalysis(analysis_uid);
+            analysisDSAfterUpdate.WriteXml(outFilePathUpdatedAnalysisInfo);
+            return analysisDSAfterUpdate;
+        }
+
+        // Configure the custom field client end points.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            analysesClient = new SvcPortfolioAnalyses.PortfolioAnalysesClient(endpt);
+        }
+        // Configure the client end points.
+        public static void SetClientEndpoints(string qendpt)
+        {
+            queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+        }
+    }
+
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets/sets the timeout for WaitForQueue calls&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default time out is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("Waiting for job" + jobType.ToString());
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("Job completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+
+        }
+
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadOptimizerSolutionList">
@@ -544,9 +3830,20 @@
       </Parameters>
       <Docs>
         <param name="analysisUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Retrieves the list of solutions.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadPlannerSolution">
@@ -574,9 +3871,20 @@
       </Parameters>
       <Docs>
         <param name="solutionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the resource plan using the unique identifier for the solution.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadPlannerSolutionList">
@@ -604,9 +3912,20 @@
       </Parameters>
       <Docs>
         <param name="parentSolutionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Retrieves the list of resource plans associated with the solution.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateDependency">
@@ -634,9 +3953,20 @@
       </Parameters>
       <Docs>
         <param name="dependencyDataSet">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Updates the dependency relationship between tasks using modified constraints.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePortfolioAnalyses" />
+              </term>
+              <description>Allows a user to create portfolio analyses. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

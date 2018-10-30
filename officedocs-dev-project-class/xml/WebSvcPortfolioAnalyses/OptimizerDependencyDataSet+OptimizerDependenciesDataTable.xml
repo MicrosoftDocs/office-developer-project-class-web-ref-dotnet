@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about project dependencies that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>OptimizerDependenciesDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>OptimizerDependenciesDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -102,7 +105,7 @@
       </Parameters>
       <Docs>
         <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Adds an <b>OptimizerDependenciesRow</b> object to the <b>OptimizerDependenciesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -139,19 +142,22 @@
         <Parameter Name="CREATED_BY_RES_NAME" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="DEPENDENCY_UID">To be added.</param>
-        <param name="DEPENDENCY_NAME">To be added.</param>
-        <param name="DEPENDENCY_TYPE">To be added.</param>
-        <param name="DEPENDENCY_DESCRIPTION">To be added.</param>
-        <param name="LAST_UPDATED_BY_RES_UID">To be added.</param>
-        <param name="CREATED_BY_RES_UID">To be added.</param>
-        <param name="CREATED_DATE">To be added.</param>
-        <param name="MOD_DATE">To be added.</param>
-        <param name="LAST_UPDATED_BY_RES_NAME">To be added.</param>
-        <param name="CREATED_BY_RES_NAME">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="DEPENDENCY_UID">Contains the dependency GUID.</param>
+        <param name="DEPENDENCY_NAME">Contains the dependency name.</param>
+        <param name="DEPENDENCY_TYPE">Contains the dependency type.</param>
+        <param name="DEPENDENCY_DESCRIPTION">Contains the dependency description.</param>
+        <param name="LAST_UPDATED_BY_RES_UID">Contains the GUID of the resource that last modified the dependency.</param>
+        <param name="CREATED_BY_RES_UID">Contains the GUID of the resource that created the dependency.</param>
+        <param name="CREATED_DATE">Contains the date when the dependency was created.</param>
+        <param name="MOD_DATE">Contains the date when the dependency was modified.</param>
+        <param name="LAST_UPDATED_BY_RES_NAME">Contains the name of the resource that last modified the dependency.</param>
+        <param name="CREATED_BY_RES_NAME">Contains the name of the resource that created the dependency.</param>
+        <summary>Adds an <b>OptimizerDependenciesRow</b> object to the <b>OptimizerDependenciesDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesDataTable.AddOptimizerDependenciesRow(WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -205,7 +211,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of rows in the <b>OptimizerDependenciesDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -231,7 +237,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.CREATED_BY_RES_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -257,7 +263,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.CREATED_BY_RES_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -283,7 +289,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.CREATED_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -336,7 +342,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.DEPENDENCY_DESCRIPTION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -362,7 +368,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.DEPENDENCY_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -388,7 +394,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.DEPENDENCY_TYPE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -414,7 +420,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.DEPENDENCY_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -443,8 +449,8 @@
         <Parameter Name="DEPENDENCY_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="DEPENDENCY_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="DEPENDENCY_UID">Contains the dependency GUID.</param>
+        <summary>Retrieves an <b>OptimizerDependenciesRow</b> object by using the specified dependency GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -474,7 +480,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>OptimizerDependenciesDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -530,8 +536,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -561,7 +567,7 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Gets a row in the <b>OptimizerDependenciesDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -587,7 +593,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.LAST_UPDATED_BY_RES_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -613,7 +619,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.LAST_UPDATED_BY_RES_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -639,7 +645,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerDependencyDataSet.OptimizerDependenciesRow.MOD_DATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -666,7 +672,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row in the <b>OptimizerDependenciesDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -833,7 +839,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerDependencyDataSet+OptimizerDependenciesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -853,7 +859,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerDependencyDataSet+OptimizerDependenciesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -873,7 +879,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerDependencyDataSet+OptimizerDependenciesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -893,7 +899,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerDependencyDataSet+OptimizerDependenciesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -921,8 +927,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.OptimizerDependencyDataSet+OptimizerDependenciesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row from the <b>OptimizerDependenciesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

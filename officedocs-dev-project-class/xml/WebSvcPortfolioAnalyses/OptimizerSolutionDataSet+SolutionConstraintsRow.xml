@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents solution constraints information as a row in the <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -40,8 +40,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the solution constraints information.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintValuesRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -67,8 +67,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow.MD_PROP_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -93,9 +93,13 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the maximum value allowed for the constraint.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: The total value of the constraint across all selected projects optimizer solution cannot exceed this value.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MD_PROP_NAME">
@@ -119,8 +123,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the custom field that the constraint is based on.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -145,9 +149,13 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the order of the constraint in the optimizer solution.</summary>
+        <value>Returns <see cref="T:System.Int32" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: If a solution has N constraints, they must be ordered from 0 to N-1.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MD_PROP_UID">
@@ -171,8 +179,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the custom field that the constraint is based on.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -198,7 +206,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionConstraintsRow.MD_PROP_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -223,8 +231,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the optimizer solution that the constraint corresponds to.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -249,8 +257,8 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionRow</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the optimizer solution information.</summary>
+        <value>Returns <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionRow" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

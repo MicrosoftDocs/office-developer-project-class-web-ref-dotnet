@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains a row of OLAP cube field information.</summary>
+    <remarks>
+      <para>Represents one OLAP cube dimension from the <see cref="T:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsDataTable" /> table.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="ENT_NAME">
@@ -39,7 +42,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the entity name of the data cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,9 +68,50 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the cube type (Project, Resource, Task, or Assignment).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In Project Web App, you can set the <b>ENT_TYPE_UID</b> property by editing the configuration of an OLAP database. For example, on the OLAP Database Management page (http://ServerName/ProjectServerName/_layouts/PWA/CubeAdmin/CubeAnalysisAdmin.aspx), select a database, and then click <b>Configuration</b>. On the Database Configuration page, in the <b>Cube Dimensions</b> section, in the <b>Cube</b> drop-down list, select the <b>Assignment</b> type of cube. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code shows how to programmatically set <b>ENT_TYPE_UID</b>:</para>
+          <code>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.CubeAdmin
+{
+    class Cube
+    {
+        private static SvcCubeAdmin.CubeAdminClient cubeAdminClient;
+        // The name of a WCF endpoint in the app.config file.
+        private const string ENDPOINT = "basicHttp_CubeAdmin";
+        public static void Main(string[] args)
+        {
+            ConfigClientEndpoints(ENDPOINT);
+            string taskEntity =
+                     PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+            SvcCubeAdmin.CubeFieldSettingDataSet cubeFieldSettings = 
+                new SvcCubeAdmin.CubeFieldSettingDataSet();
+            SvcCubeAdmin.CubeFieldSettingDataSet.AssignmentDimensionRow assignmentDimRow =
+                cubeFieldSettings.AssignmentDimension.NewAssignmentDimensionRow();
+            assignmentDimRow.ENT_TYPE_UID = 
+                new Guid(PSLibrary.EntityCollection.Entities.AssignmentEntity.UniqueId);
+        }
+        // Configure the client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            cubeAdminClient = new SvcCubeAdmin.CubeAdminClient(endpt);
+        }
+    }
+}
+</code>
+          <para>For information about the primary cube type when you use an assignment custom field for a cube dimension, see <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.AssignmentDimensionRow.PRIMARY_ENT_TYPE_UID" />.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="EntityType">
@@ -91,7 +135,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the type of entity for the cube (Project, Resource, Task or Assignment), where the value can be specified with the <see cref="T:Microsoft.Office.Project.Server.Library.EpmCubeEntityType" /> enumeration.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -117,7 +161,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the row member is stored in the data cube, or whether it is calculated and not stored.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -144,7 +188,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.ENT_NAME" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,7 +215,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.EntityType" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -198,7 +242,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.InCube" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -224,7 +268,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the row member is supported by Microsoft SQL Server Analysis Reporting Services.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -251,7 +295,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.IsIntrinsic" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -278,7 +322,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.IsLookUp" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -304,7 +348,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the row member is associated with a lookup table.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -331,7 +375,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.OlapRole" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -358,7 +402,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.PROP_ID" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -385,7 +429,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.PROP_TYPE" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -411,9 +455,12 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the role of an attribute in an online analytical processing schema.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>It gets its values from the <see cref="T:Microsoft.Office.Project.Server.Library.AttributeOlapRole" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PRIMARY_ENT_TYPE_UID">
@@ -437,9 +484,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the primary cube type (Project, Resource, Task, or Assignment), which can be different from the <b>ENT_TYPE_UID</b> when an assignment custom field is a dimension in an assignment cube.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Both the <b>ENT_TYPE_UID</b> value and the <b>PRIMARY_ENT_TYPE_UID</b> value are required in tables of the <b>CubeSettingsDataSet</b>. If the <b>ENT_TYPE_UID</b> is for a Project, Resource, or Task custom field dimension, the <b>PRIMARY_ENT_TYPE_UID</b> value is the same as <b>ENT_TYPE_UID</b>. If the <b>ENT_TYPE_UID</b> is for an Assignment custom field dimension, the <b>PRIMARY_ENT_TYPE_UID</b> specifies the primary custom field type (Task or Resource). For example, if you select an Assignment cube, and select the <b>Flag Status_T_Assignment</b> custom field dimension, the <b>ENT_TYPE_UID</b> value is Guid(Microsoft.Office.Project.Server.Library.EntityCollection.Entities.AssignmentEntity.UniqueId) and the <b>PRIMARY_ENT_TYPE_UID</b> value is Guid(Microsoft.Office.Project.Server.Library.EntityCollection.Entities.TaskEntity.UniqueId).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROP_ID">
@@ -463,7 +513,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the identifier of the custom field that is associated with the data cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -489,7 +539,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the name of the custom field that is associated with the data cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -515,7 +565,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the type of the custom field that is associated with the data cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -541,7 +591,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the custom field that is associated with the data cube.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -568,7 +618,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.ENT_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -594,7 +644,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.EntityType" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -620,7 +670,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.InCube" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -646,7 +696,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.IsIntrinsic" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -672,7 +722,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.IsLookUp" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -698,7 +748,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.OlapRole" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -724,7 +774,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.PROP_ID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -750,7 +800,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeSettingsDataSet.CubeFieldSettingsRow.PROP_TYPE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains information about related projects.</summary>
+    <remarks>
+      <para>The <b>RelationshipsDataTable</b> is composed of <see cref="T:WebSvcProject.ProjectContextDataSet.RelationshipsRow" /> rows. The <b>RelationshipsDataTable</b> object is contained in the <see cref="T:WebSvcProject.ProjectContextDataSet" /> object. The <see cref="T:WebSvcProject.ProjectContextDataSet" /> object is returned by using the <see cref="M:WebSvcProject.Project.ReadSchedulingContext(System.Guid[],System.Guid[])" /> method. </para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>RelationshipsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object. </param>
+        <param name="context"> Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>RelationshipsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,7 +107,7 @@
         <Parameter Name="row" Type="WebSvcProject.ProjectContextDataSet+RelationshipsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
+        <param name="row"> Contains the relationships row to add.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -134,11 +140,11 @@
         <Parameter Name="HasBuildTeamPermission" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="RelatedTo_UID">To be added.</param>
-        <param name="RelatedTo_NAME">To be added.</param>
-        <param name="Relationship">To be added.</param>
-        <param name="HasBuildTeamPermission">To be added.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="RelatedTo_UID">  Contains the GUID of the related project.</param>
+        <param name="RelatedTo_NAME">  Contains the name of the related project.</param>
+        <param name="Relationship"> Specifies how the project is related.</param>
+        <param name="HasBuildTeamPermission">Specifies whether the current user has the <b>AssignResource</b> and <b>BuildTeamOnProject</b> category permissions</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -195,7 +201,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>RelationshipsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -252,7 +258,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>RelationshipsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -308,8 +314,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs"> Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -335,7 +341,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectContextDataSet.RelationshipsRow.HasBuildTeamPermission" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -364,8 +370,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>RelationshipsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -392,7 +398,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>RelationshipsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -564,7 +570,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectContextDataSet.RelationshipsRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -590,7 +596,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectContextDataSet.RelationshipsRow.RelatedTO_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -616,7 +622,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectContextDataSet.RelationshipsRow.RelatedTo_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -642,7 +648,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectContextDataSet.RelationshipsRow.Relationship" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -663,7 +669,7 @@
         <ReturnType>WebSvcProject.ProjectContextDataSet+RelationshipsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -683,7 +689,7 @@
         <ReturnType>WebSvcProject.ProjectContextDataSet+RelationshipsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -703,7 +709,7 @@
         <ReturnType>WebSvcProject.ProjectContextDataSet+RelationshipsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -723,7 +729,7 @@
         <ReturnType>WebSvcProject.ProjectContextDataSet+RelationshipsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -751,8 +757,8 @@
         <Parameter Name="row" Type="WebSvcProject.ProjectContextDataSet+RelationshipsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row to delete.</param>
+        <summary>Deletes the specified row object from the <b>RelationshipsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

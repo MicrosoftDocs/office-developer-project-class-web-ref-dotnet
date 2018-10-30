@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Creates an object that can be used to design a workflow.</summary>
+    <remarks>
+      <para>A workflow designer is a designer canvas that renders the visual representation of a workflow model as it is being pieced together.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>WorkflowDesigner</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkflowDesignerFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets custom field definitions that apply to project entities.</summary>
+        <value>A collection of workflow designer fields.</value>
+        <remarks>
+          <para>This collection contains a filtered version of the custom fields collection, suitable for use in a workflow designer. Types are represented as SharePoint <b>SPFieldType</b> values rather than Project Server field types, and only enterprise custom fields for project entities are included.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InitOnePropertyFromJson">
@@ -96,10 +102,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property was initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

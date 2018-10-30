@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Information about workflow updates contained in one or more <see cref="T:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>UpdateProjectWorkflowsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds a <b>UpdateProjectWorkflowsRow</b> object to the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -134,11 +137,11 @@
         <Parameter Name="STAGE_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="JOB_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="ENTERPRISE_PROJECT_TYPE_UID">To be added.</param>
-        <param name="SKIP_TO_CURRENT_STAGE">To be added.</param>
-        <param name="STAGE_UID">To be added.</param>
+        <param name="JOB_UID">Contains the job GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="ENTERPRISE_PROJECT_TYPE_UID">Contains the enterprise project type GUID.</param>
+        <param name="SKIP_TO_CURRENT_STAGE">Specifies whether to skip to current page.</param>
+        <param name="STAGE_UID">Contains the stage GUID.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
@@ -195,7 +198,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of rows in the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -248,7 +251,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow.ENTERPRISE_PROJECT_TYPE_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -277,8 +280,8 @@
         <Parameter Name="PROJ_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="PROJ_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <summary>Retrieves a <b>UpdateProjectWorkflowsRow</b> object by using the specified project GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -308,7 +311,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -364,8 +367,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -394,8 +397,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>UpdateProjectWorkflowsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -421,7 +424,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow.JOB_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -478,7 +481,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -620,7 +623,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -649,8 +652,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row from the <b>UpdateProjectWorkflowsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -675,7 +678,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow.SKIP_TO_CURRENT_STAGE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -701,7 +704,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.UpdateProjectWorkflowsRow.STAGE_UID" /> field</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -722,7 +725,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -742,7 +745,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -762,7 +765,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -782,7 +785,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+UpdateProjectWorkflowsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about workflow status that is contained in one or more <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>WorkflowStatusDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>WorkflowStatusDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds a <b>WorkflowStatusRow</b> object to the <b>WorkflowStatusDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddWorkflowStatusRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow" /> parameter, for example, AddWorkflowStatusRow(WorkflowStatusDataSet.WorkflowStatusRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload which uses individual parameters for all fields in <b>WorkflowStatusRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -157,8 +171,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of rows in the <b>WorkflowStatusDataTable</b>.</summary>
+        <value>The number of rows.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -183,8 +197,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.CREATED_DATE" /> field.</summary>
+        <value>A DataColumn object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -241,11 +255,11 @@
         <Parameter Name="STAGE_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="WORKFLOW_INSTANCE_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="STAGE_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="WORKFLOW_INSTANCE_UID">Contains the workflow instance GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="STAGE_UID">Contains the stage GUID.</param>
+        <summary>Retrieves a <b>WorkflowStatusRow</b> object by using the specified workflow instance GUID, the project GUID, and the stage GUID.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -274,8 +288,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>WorkflowStatusDataTable</b>.</summary>
+        <returns>An interator for a workflow status data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -330,8 +344,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -360,9 +374,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>WorkflowStatusDataTable</b>, where the row is specified by an index.</summary>
+        <value>A row object in the workflow status data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -387,8 +401,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.MOD_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -444,8 +458,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a row object in the <b>WorkflowStatusDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -470,8 +484,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.NEXT_STAGE1" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -496,8 +510,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.NEXT_STAGE2" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -638,8 +652,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.PHASE_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -664,8 +678,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.PHASE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -690,8 +704,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.PROJ_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -719,8 +733,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>WorkflowStatusDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -745,8 +759,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_COMPLETION_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -771,8 +785,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_ENTRY_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -797,8 +811,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_INFO" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -823,8 +837,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -849,8 +863,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_ORDER" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -875,8 +889,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_STATUS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -901,8 +915,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.STAGE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -927,9 +941,13 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.SUBMITTED_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
+        <remarks>
+          <para>When compared with <b>WORKFLOW_MOD_DATE</b>, we can determine whether the project is currently being processed by the workflow, or if it is still being queued.</para>
+          <para>Unlike with most columns names, in the case of SUBMITTED_DATE, the column name is the same as the property name.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WORKFLOW_INSTANCE_UIDColumn">
@@ -953,8 +971,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStatusRow.WORKFLOW_INSTANCE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -979,9 +997,12 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>DateTime</b> value when the engine modifies the workflow.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>When compared with <b>SUBMITTED_DATE</b>, we can determine whether the project is currently being processed by the workflow, or if it is still being queued.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowStatusRowChanged">
@@ -1000,7 +1021,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1020,7 +1041,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1040,7 +1061,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1060,7 +1081,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStatusRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

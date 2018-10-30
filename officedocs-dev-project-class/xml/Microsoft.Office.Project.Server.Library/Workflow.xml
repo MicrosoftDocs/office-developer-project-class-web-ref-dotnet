@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides constants and methods that can be used to monitor and manage a workflow process.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -31,7 +31,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>Workflow</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -51,7 +51,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the GUID for the end of a workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the GUID of a workflow entity of the enterprise project type.</summary>
+        <remarks>
+          <para>The value of EnterpriseProjectTypeEntityUid is "ECB51A78-71C9-4271-B296-FD6166C5402C".</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InStageOrWithErrorRowFilterString">
@@ -91,8 +94,25 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Represents a formatted string that contains settings for workflow stage status, including the status of having completed with errors.</summary>
+        <remarks>
+          <para>Following are the workflow stage status settings, including error conditions:</para>
+          <list type="bullet">
+            <item>
+              <description>Waiting for input.</description>
+            </item>
+            <item>
+              <description>Waiting for approval.</description>
+            </item>
+            <item>
+              <description>Workflow processing.</description>
+            </item>
+            <item>
+              <description>Completed with errors.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InStageOrWorkflowCompletedOrWithErrorRowFilterString">
@@ -111,8 +131,28 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Represents a formatted string that contains settings for workflow stage status, including the status of having completed processing.</summary>
+        <remarks>
+          <para>Following are the workflow stage status settings, including error conditions:</para>
+          <list type="bullet">
+            <item>
+              <description>Waiting for input.</description>
+            </item>
+            <item>
+              <description>Waiting for approval.</description>
+            </item>
+            <item>
+              <description>Workflow processing.</description>
+            </item>
+            <item>
+              <description>Processing completed.</description>
+            </item>
+            <item>
+              <description>Completed with errors.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InStageRowFilterString">
@@ -131,8 +171,22 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Represents a formatted string that contains settings for workflow stage status.</summary>
+        <remarks>
+          <para>Following are workflow stage status settings:</para>
+          <list type="bullet">
+            <item>
+              <description>Waiting for input.</description>
+            </item>
+            <item>
+              <description>Waiting for approval.</description>
+            </item>
+            <item>
+              <description>Workflow processing.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsInStage">
@@ -154,8 +208,8 @@
         <Parameter Name="status" Type="Microsoft.Office.Project.Server.Library.Workflow+StageStatus" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">An object that contains information about the status of a workflow stage.</param>
+        <summary>Returns a Boolean value that indicates whether the project is in the specified stage.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -179,8 +233,8 @@
         <Parameter Name="status" Type="Microsoft.Office.Project.Server.Library.Workflow+StageStatus" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">An object that contains information about the status of a workflow stage.</param>
+        <summary>Returns a Boolean value that indicates whether the specified stage status signifies that a workflow stage is waiting for input or waiting for approval.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -204,8 +258,8 @@
         <Parameter Name="status" Type="Microsoft.Office.Project.Server.Library.Workflow+StageStatus" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">An object that contains information about the status of a workflow stage.</param>
+        <summary>Returns a Boolean value that indicates whether the specified stage status signifies that a workflow stage has completed, either with or without errors.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -229,8 +283,8 @@
         <Parameter Name="status" Type="Microsoft.Office.Project.Server.Library.Workflow+StageStatus" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">An object that contains information about the status of a workflow stage.</param>
+        <summary>Returns a Boolean value that indicates whether the specified stage status signifies that a workflow stage has not started.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -254,8 +308,8 @@
         <Parameter Name="status" Type="Microsoft.Office.Project.Server.Library.Workflow+StageStatus" />
       </Parameters>
       <Docs>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="status">An object that contains information about the status of a workflow stage.</param>
+        <summary>Returns a Boolean value that indicates whether the specified stage status signifies that a workflow has completed, either with or without errors.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -276,8 +330,11 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>A GUID that represents the timer job that regulates workflow instance table cleanup.</summary>
+        <remarks>
+          <para>The value of  WorkflowCleanupTimerJobUid is "f6f64e76-d768-4126-9e8c-84133635c41b".</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowHistoryListUrl">
@@ -296,8 +353,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies a name for the root site of a workflow.</summary>
+        <remarks>
+          <para>The value of WorkflowHistoryListUrl is "Project Server Workflow History".</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowTaskListUrl">
@@ -316,8 +376,11 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Specifies a name for the root site of the workflow task list.</summary>
+        <remarks>
+          <para>The value of WorkflowTaskListUrl is "Project Server Workflow Tasks".</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

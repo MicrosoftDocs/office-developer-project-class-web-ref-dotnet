@@ -14,8 +14,15 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Maintains the client-side context for development with a Project Web App instance, and contains the enterprise-wide collections of Project Server objects that exist in Project Web App.</summary>
+    <remarks>
+      <para>Because the <b>ProjectContext</b> object inherits from <b>ClientContext</b> in SharePoint, you can also access the SharePoint CSOM through the <b>ProjectContext</b> object. It is not necessary to instantiate a <b>ProjectServer</b> object, which the client-side code uses internally.</para>
+      <para>
+        <b>Note</b>: An advantage of the <b>ProjectContext</b> class is that it includes the <b>WaitForQueue</b> method. If you used the <b>ProjectServer</b> class, you would have to develop your own routines to wait for a queue job to complete.</para>
+      <para />
+      <para>For more information about the <b>ProjectContext</b> class, see Getting started with the Project Server CSOM and .NET. For code examples, see <see cref="M:Microsoft.ProjectServer.Client.ProjectContext.WaitForQueue(Microsoft.ProjectServer.Client.QueueJob,System.Int32)" /> and <see cref="P:Microsoft.ProjectServer.Client.ProjectContext.Projects" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -34,8 +41,8 @@
         <Parameter Name="url" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="url">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="url">The path of the Project Web App instance.</param>
+        <summary>Creates an instance and initializes a <b>ProjectContext</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,8 +62,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of calendars for the Project Server instance.</summary>
+        <value>A Project Server calendar collection.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +83,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise custom field definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>CustomFields</b> objects.</value>
+        <remarks>
+          <para>Values for custom fields can be set on many entity types, including projects, tasks, resources, and assignments. A project can also include definitions for local custom fields that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EnterpriseProjectTypes">
@@ -97,9 +107,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise project types (EPTs) in the Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseProjectType</b> objects.</value>
+        <remarks>
+          <para>An EPT can include a workflow association and templates for the initial project plan and the project site.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EnterpriseResources">
@@ -118,9 +131,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResourceCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of enterprise resources in a Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseResource</b> objects.</value>
+        <remarks>
+          <para>A project can also include local resources that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EntityTypes">
@@ -139,9 +155,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.EntityTypes</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the types of Project Server entities that are exposed through the CSOM.</summary>
+        <value>An <b>EntityType</b> object.</value>
+        <remarks>
+          <para>Project Server entity types include projects, enterprise resources, tasks, assignments, custom fields, and so on.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EventHandlers">
@@ -160,8 +179,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EventHandlerCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of event handlers that are defined in a Project Web App instance.</summary>
+        <value>A collection of <b>EventHandler</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -181,8 +200,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EventCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of event objects in a Project Web App instance.</summary>
+        <value>A collection of <b>Event</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,9 +221,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.LookupTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of lookup table definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>LookupTable</b> objects.</value>
+        <remarks>
+          <para>Custom field values can reference the values for entries in a lookup table. A project can also include definitions for local lookup tables that are specific to each project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Phases">
@@ -223,9 +245,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.PhaseCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of Project Server workflow phases in the Project Web App instance.</summary>
+        <value>A collection of <b>Phase</b> objects.</value>
+        <remarks>
+          <para>A workflow phase is a major part of a workflow. A phase can contain one or more stages in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectDetailPages">
@@ -244,8 +269,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of project detail pages in the Project Server instance.</summary>
+        <value>A collection of <b>ProjectDetailPage</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -265,9 +290,50 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of projects in the Project Web App instance.</summary>
+        <value>A collection of projects.</value>
+        <remarks>
+          <para>A project entity contains additional entity types, such as tasks, resources, and assignments.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses the <b>ProjectContext</b> object to list the published projects in Project Web App. To see the same application using the <b>ProjectServer</b> object, see <see cref="P:Microsoft.ProjectServer.Client.ProjectContext.Projects" />. For information about creating a simple CSOM application in Microsoft Visual Studio, see <see cref="N:Microsoft.ProjectServer.Client" />.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace ReadProjectList
+{
+    class Program
+    {
+        private const string pwaPath = "http://&lt;i&gt;ServerName&lt;/i&gt;/&lt;i&gt;PwaName&lt;/i&gt;/";    // Change the path for Project Web App.
+        
+        private static &lt;span class="label"&gt;ProjectContext&lt;/span&gt; projContext;
+
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath); 
+
+            // Get the list of published projects in Project Web App.
+            projContext.Load(projContext.Projects);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("\nProject ID : Project name : Created date");
+
+            foreach (PublishedProject pubProj in projContext.Projects)
+            {
+                Console.WriteLine("\n\t{0}\n\t{1} : {2}", pubProj.Id.ToString(), pubProj.Name, 
+                    pubProj.CreatedDate.ToString());
+            }
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ServiceStatus">
@@ -286,8 +352,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ServiceStatus</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets information about the status of the Project Server service.</summary>
+        <value>A <b>ServiceStatus</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -307,9 +373,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.StageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of Project Server workflow stages in a Project Web App instance.</summary>
+        <value>A collection of <b>Stage</b> objects.</value>
+        <remarks>
+          <para>A workflow stage is a specific subsection of a workflow phase.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TimeSheetPeriods">
@@ -328,9 +397,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.TimeSheetPeriodCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a collection of time sheet periods.</summary>
+        <value>A collection of <b>TimeSheetPeriod</b> objects.</value>
+        <remarks>
+          <para>Timesheet periods represent a defined period of time on a timesheet.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WaitForQueue">
@@ -353,11 +425,236 @@
         <Parameter Name="timeoutSeconds" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="job">To be added.</param>
-        <param name="timeoutSeconds">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="job">An object that represents the queued job.</param>
+        <param name="timeoutSeconds">The maximum number of seconds to wait for the queue job to complete.</param>
+        <summary>Waits for the specified queue job to complete, or for a maximum number of seconds.</summary>
+        <returns>The state of the queue job. If the job completes successfully, returns <see cref="F:Microsoft.ProjectServer.Client.JobState.Success" />.</returns>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The Console example named <b>QueueCreateProject</b> does the following jobs: </para>
+          <list type="bullet">
+            <item>
+              <description>Parses the command line to get the name of a new project, and an optional queue job wait time. The default wait time is 10 seconds. For example, if a project named Test proj 1 does not exist in Project Web App, you can run the application with the QueueCreateProject -projName "Test proj 1" command.</description>
+            </item>
+            <item>
+              <description>Creates a <b>ProjectContext</b> object for the specified Project Web App instance.</description>
+            </item>
+            <item>
+              <description>Gets the GUID of the enterprise project type (EPT) named "Basic Project Plan".</description>
+            </item>
+            <item>
+              <description>Creates a project by using the <b>CreateTestProject</b> method, which sets the properties of a <b>ProjectCreationInformation</b> object.</description>
+            </item>
+            <item>
+              <description>Waits for the Project Server Queue Service to publish the new project, by using the <b>ProjectContext.WaitForQueue</b> method.</description>
+            </item>
+            <item>
+              <description>Lists the published projects. If the <b>QueueCreateProject</b> application does not call the <b>WaitForQueue</b> method, the published projects may not yet include the new project.</description>
+            </item>
+          </list>
+          <para>For more information about this example, see Getting started with the Project Server CSOM and .NET.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace QueueCreateProject
+{
+    class Program
+    {
+        private const string pwaPath = "http://&lt;i&gt;ServerName&lt;/i&gt;/pwa/"; // Change the path to Project Web App.
+        private static string basicEpt = "Basic Project Plan";   // Basic enterprise project type.
+        private static string projName = string.Empty;
+        private static int timeoutSeconds = 10;  // The maximum wait time for a queue job, in seconds.
+
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp();
+            }
+
+            projContext = new ProjectContext(pwaPath);
+
+            if (CreateTestProject())
+                ListPublishedProjects();
+            else
+                Console.WriteLine("\nProject creation failed: {0}", projName);
+
+            ExitApp();
+        }
+
+        // Create a project.
+        private static bool CreateTestProject()
+        {
+            bool projCreated = false;
+
+            try
+            {
+                Console.Write("\nCreating project: {0} ...", projName);
+                ProjectCreationInformation newProj = new ProjectCreationInformation();
+
+                newProj.Id = Guid.NewGuid();
+                newProj.Name = projName;
+                newProj.Description = "Test creating a project with CSOM";
+                newProj.Start = DateTime.Today.Date;
+
+                // Setting the EPT GUID is optional. If no EPT is specified, Project Server uses 
+                // the default EPT. 
+                newProj.EnterpriseProjectTypeId = GetEptUid(basicEpt);
+
+                PublishedProject newPublishedProj = projContext.Projects.Add(newProj);
+                QueueJob qJob = projContext.Projects.Update();
+
+                // Calling Load and ExecuteQuery for the queue job is optional. If qJob is 
+                // not initialized when you call WaitForQueue, Project Server initializes it.
+                // projContext.Load(qJob);
+                // projContext.ExecuteQuery();
+
+                JobState jobState = projContext.WaitForQueue(qJob, timeoutSeconds);
+
+                if (jobState == JobState.Success)
+                {
+                    projCreated = true;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nThere is a problem in the queue. Timeout is {0} seconds.", 
+                        timeoutSeconds);
+                    Console.WriteLine("\tQueue JobState: {0}", jobState.ToString());
+                    Console.ResetColor();
+                }
+
+                Console.WriteLine();
+            }
+            catch(Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nError: {0}", ex.Message);
+                Console.ResetColor();
+            }
+            return projCreated;
+        }
+
+        // Get the GUID of the specified enterprise project type.
+        private static Guid GetEptUid(string eptName)
+        {
+            Guid eptUid = Guid.Empty;
+
+            try
+            {
+                // Get the list of EPTs that have the specified name. 
+                // If the EPT name exists, the list will contain only one EPT.
+                var eptList = projContext.LoadQuery(
+                    projContext.EnterpriseProjectTypes.Where(
+                        ept =&amp;gt; ept.Name == eptName));
+                projContext.ExecuteQuery();
+
+                eptUid = eptList.First().Id;
+
+                // Alternate routines to find the EPT GUID. Both (a) and (b) download the entire list of EPTs.
+                // (a) Using a foreach block:
+                //foreach (EnterpriseProjectType ept in projSvr.EnterpriseProjectTypes)
+                //{
+                //    if (ept.Name == eptName)
+                //    {
+                //        eptUid = ept.Id;
+                //        break;
+                //    }
+                //}
+                // (b) Querying for the EPT list, and then using a lambda expression to select the EPT:
+                //var eptList = projContext.LoadQuery(projContext.EnterpriseProjectTypes);
+                //projContext.ExecuteQuery();
+                //eptUid = eptList.First(ept =&amp;gt; ept.Name == eptName).Id;
+            }
+            catch (Exception ex)
+            {
+                string msg = string.Format("GetEptUid: eptName = \"{0}\"\n\n{1}",
+                    eptName, ex.GetBaseException().ToString());
+                throw new ArgumentException(msg);
+            }
+            return eptUid;
+        }
+
+        // List the published projects.
+        private static void ListPublishedProjects()
+        {
+            // Get the list of projects on the server.
+            projContext.Load(projContext.Projects);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("\nProject ID : Project name : Created date");
+
+            foreach (PublishedProject pubProj in projContext.Projects)
+            {
+                Console.WriteLine("\n\t{0} :\n\t{1} : {2}", pubProj.Id.ToString(), pubProj.Name,
+                    pubProj.CreatedDate.ToString());
+            }
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*projname":
+                        case "*n":
+                            if (++i &amp;gt;= argsLen) return false;
+                            projName = args[i];
+                            break;
+                        case "*timeout":
+                        case "*t":
+                            if (++i &amp;gt;= argsLen) return false;
+                            timeoutSeconds = Convert.ToInt32(args[i]);
+                            break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+            if (string.IsNullOrEmpty(projName)) error = true;
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: QueueCreateProject -projName | -n \"New project name\" [-timeout | -t sec]";
+            example += "\nExample: QueueCreateProject -n \"My new project\"";
+            example += "\nDefault timeout seconds = " + timeoutSeconds.ToString();
+            Console.WriteLine(example);
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="WorkflowActivities">
@@ -376,8 +673,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkflowActivities</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the methods that Project Server workflows can call at run time.</summary>
+        <value>A <b>WorkflowActivities</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -397,8 +694,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkflowDesigner</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a workflow designer that developers can call at design time.</summary>
+        <value>A workflow designer.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

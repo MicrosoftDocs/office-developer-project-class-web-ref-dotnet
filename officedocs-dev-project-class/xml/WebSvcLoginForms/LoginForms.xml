@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes the <b>Login</b> and <b>Logoff</b> methods for Forms authentication by Project Server.</summary>
+    <remarks>
+      <para>For information about developing ASMX-based applications in a multi-authentication (claims- and Forms-based) environment, see Prerequisites for ASMX-Based Code Samples.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +39,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an <b>LoginForms</b> object from the ASMX-based <b>LoginForms</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>LoginForms</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>LoginFormsClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>LoginFormsWebSvc</b> is an arbitrary namespace for the ASMX-based <b>LoginForms</b> web service.</para>
+          <code>private static LoginFormsWebSvc.LoginForms loginForms = new LoginFormsWebSvc.LoginForms();</code>
+          <para>In the following statement, <b>SvcLoginForms</b> is an arbitrary namespace for the WCF-based <b>LoginForms</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcLoginForms.LoginFormsClient loginFormsClient = new SvcLoginForms.LoginFormsClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Login">
@@ -65,11 +77,124 @@
         <Parameter Name="password" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="username">To be added.</param>
-        <param name="password">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="username">Project Server user name.</param>
+        <param name="password">Password for the Project Server user.</param>
+        <summary>Log on the specified user with Forms authentication by Project Server.</summary>
+        <returns>Returns true for a successful logon to Project Server.</returns>
+        <remarks>
+          <para>After a successful logon, set the <paramref name="CookieContainer" /> property to the user's Project Server credentials for other PSI Web service objects in the same application.</para>
+          <para>For information about developing ASMX-based applications in a multi-authentication (claims- and Forms-based) environment, see Prerequisites for ASMX-Based Code Samples.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>LogonPS</b> method in the following example handles logon and the <b>LogoffPS</b> method handles logoff for Project Server authentication.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Net;
+
+namespace LoginDemo
+{
+    class LoginUtils
+    {
+        const string LOGINWINDOWS = "_vti_bin/PSI/LoginWindows.asmx";
+        const string LOGINFORMS = "_vti_bin/PSI/LoginForms.asmx";
+
+        private static SvcLoginWindows.LoginWindows loginWindows =
+            new SvcLoginWindows.LoginWindows();
+        private static SvcLoginForms.LoginForms loginForms =
+            new SvcLoginForms.LoginForms();
+        private CookieContainer cookies = new CookieContainer();
+
+        private string baseUrl; // Example: http://ServerName/ProjectServer/
+
+        public LoginUtils()
+        {
+        }
+
+        public string BaseUrl
+        {
+            get
+            {
+                return baseUrl;
+            }
+        }
+
+        public CookieContainer Cookies
+        {
+            get
+            {
+                return loginForms.CookieContainer;
+            }
+        }
+
+        // Log on Project Server.
+        // Returns true for successful logon.
+        public bool LogonPS(bool useWinLogon, string bUrl,
+            string userName, string password)
+        {
+            bool logonSucceeded = false;
+            baseUrl = bUrl;
+
+            if (useWinLogon)
+            {
+                loginWindows.Url = baseUrl + LOGINWINDOWS;
+                loginWindows.Credentials = CredentialCache.DefaultCredentials;
+
+                if (loginWindows.Login()) logonSucceeded = true;
+            }
+            else  // Use LoginForms
+            {
+                loginForms.Url = baseUrl + LOGINFORMS;
+                loginForms.CookieContainer = cookies;
+
+                if (loginForms.Login(userName, password)) logonSucceeded = true;
+            }
+            return logonSucceeded;
+        }
+
+        // Log off Project Server.
+        // Returns true for successful logoff.
+        public bool LogoffPS(bool useWinLogon)
+        {
+            bool loggedOff = true;
+            if (useWinLogon)
+            {
+                loginWindows.Logoff();
+            }
+            else
+            {
+                loginForms.Logoff();
+            }
+            return loggedOff;
+        }
+    }
+}</code>
+          <para>The following code instantiates and uses the <b>LoginUtils</b> class. The <paramref name="project" /> object is an example that shows how to add the user context for a PSI Web service.</para>
+          <code>private bool windowsAuth = false;  // Use Project Server authentication
+private string baseUrl; // Example: http://ServerName/ProjectServerName/ 
+private const string PROJECTWEBSERVICE = "_vti_bin/PSI/Project.asmx";
+
+private static LoginUtils loginUtils = new LoginUtils();
+public static SvcProject.Project project = 
+    new SvcProject.Project();
+. . .
+// Add the URL, and the user credentials or logon cookie to each PSI Web service object.
+public void AddContextInfo(string baseUrl)
+{
+    // Add the Url property first.
+    project.Url = baseUrl + PROJECTWEBSERVICE;
+
+    if (windowsAuth)   // Add Windows credentials
+    {
+        project.Credentials = CredentialCache.DefaultCredentials;
+    }
+    else            // Add Project Server logon cookie
+    {
+        project.CookieContainer = loginUtils.Cookies;
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Logoff">
@@ -94,8 +219,143 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Log off the current Project Server user who logged on with Forms authentication.</summary>
+        <remarks>
+          <para>After a successful log off, set the <paramref name="CookieContainer" /> property to a null reference (Nothing in Visual Basic) for other PSI Web service objects in the same application.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>LogonPS</b> method in the following example handles logon and the <b>LogoffPS</b> method handles logoff for Forms authentication.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Net;
+
+namespace LoginDemo
+{
+    class LoginUtils
+    {
+        const string LOGINWINDOWS = "_vti_bin/PSI/LoginWindows.asmx";
+        const string LOGINFORMS = "_vti_bin/PSI/LoginForms.asmx";
+
+        private static SvcLoginWindows.LoginWindows loginWindows =
+            new SvcLoginWindows.LoginWindows();
+        private static SvcLoginForms.LoginForms loginForms =
+            new SvcLoginForms.LoginForms();
+        private CookieContainer cookies = new CookieContainer();
+
+        private string baseUrl; // Example: http://ServerName/ProjectServer/
+
+        public LoginUtils()
+        {
+        }
+
+        public string BaseUrl
+        {
+            get
+            {
+                return baseUrl;
+            }
+        }
+
+        public CookieContainer Cookies
+        {
+            get
+            {
+                return loginForms.CookieContainer;
+            }
+        }
+
+        // Log on Project Server.
+        // Returns true for successful logon.
+        public bool LogonPS(bool useWinLogon, string bUrl,
+            string userName, string password)
+        {
+            bool logonSucceeded = false;
+            baseUrl = bUrl;
+
+            if (useWinLogon)
+            {
+                loginWindows.Url = baseUrl + LOGINWINDOWS;
+                loginWindows.Credentials = CredentialCache.DefaultCredentials;
+
+                if (loginWindows.Login()) logonSucceeded = true;
+            }
+            else  // Use LoginForms
+            {
+                loginForms.Url = baseUrl + LOGINFORMS;
+                loginForms.CookieContainer = cookies;
+
+                if (loginForms.Login(userName, password)) logonSucceeded = true;
+            }
+            return logonSucceeded;
+        }
+
+        // Log off Project Server.
+        // Returns true for successful logoff.
+        public bool LogoffPS(bool useWinLogon)
+        {
+            bool loggedOff = true;
+            if (useWinLogon)
+            {
+                loginWindows.Logoff();
+            }
+            else
+            {
+                loginForms.Logoff();
+            }
+            return loggedOff;
+        }
+    }
+}</code>
+          <para>The following code instantiates and uses the <b>LoginUtils</b> class for Forms authentication. The <paramref name="project" /> object is an example that shows how to remove the user context for a PSI Web service.</para>
+          <code>private bool windowsAuth = false;  // Use Project Server authentication
+private static LoginUtils loginUtils = new LoginUtils();
+public static SvcProject.Project project = 
+    new SvcProject.Project();
+. . .
+private void LogOff()
+{
+    bool loggedOff = false;
+    string errMess = "";
+    try
+    {
+        loggedOff = loginUtils.LogoffPS(windowsAuth);
+    }
+    catch (SoapException ex)
+    {
+        errMess = ex.Message.ToString();
+    }
+    catch (WebException ex)
+    {
+        errMess = ex.Message.ToString();
+    }
+    if (loggedOff)
+    {
+        RemoveContextInfo();
+    }
+    else
+    {
+        MessageBox.Show(errMess, "Logoff Error", MessageBoxButtons.OK, 
+            MessageBoxIcon.Error);
+    }
+}
+
+/// &amp;lt;summary&amp;gt;
+/// Remove the user credentials or logon cookie from each PSI Web service object.
+/// &amp;lt;/summary&amp;gt;
+public void RemoveContextInfo()
+{
+    if (windowsAuth)
+    {
+        project.Credentials = null;
+    }
+    else
+    {
+        project.CookieContainer = null;
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
   </Members>

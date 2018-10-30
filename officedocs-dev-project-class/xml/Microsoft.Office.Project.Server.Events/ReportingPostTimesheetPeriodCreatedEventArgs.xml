@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ReportingEventReceiver.OnTimesheetPeriodCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ReportingPostTimesheetPeriodCreatedEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -55,12 +60,12 @@
         <Parameter Name="periodStatus" Type="Microsoft.Office.Project.Server.Library.TimesheetEnum+PeriodState" />
       </Parameters>
       <Docs>
-        <param name="periodGuid">To be added.</param>
-        <param name="periodStartDate">To be added.</param>
-        <param name="periodEndDate">To be added.</param>
-        <param name="periodName">To be added.</param>
-        <param name="periodStatus">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="periodGuid">The GUID of the timesheet period that has been created.</param>
+        <param name="periodStartDate">The start date of the timesheet period that has been created.</param>
+        <param name="periodEndDate">The end date of the timesheet period that has been created.</param>
+        <param name="periodName">The name of the timesheet period that has been created.</param>
+        <param name="periodStatus">An enumerated value that represents the status of the timesheet period that has been created.</param>
+        <summary>Creates an instance of the <b>ReportingPostTimesheetPeriodCreatedEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -80,7 +85,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the end date of the timesheet period that has been created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -101,7 +106,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the timesheet period that has been created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -122,7 +127,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the timesheet period that has been created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -143,7 +148,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the start date of the timesheet period that has been created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -164,7 +169,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.TimesheetEnum+PeriodState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerated value that represents the status of the timesheet period that has been created.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -186,7 +191,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a text string that contains the GUID, start date, end date, name, and status of the timesheet period that has been created.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

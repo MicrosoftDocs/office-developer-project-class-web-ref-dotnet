@@ -26,10 +26,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedDataSetSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents the collection of departments that are used for project entities and for resource entities.</summary>
+    <remarks>
+      <para>Projects and resources are the Project Server entities that can be associated with a department, by using the Project Departments custom field and the Resource Departments custom field. For a code example that includes a <b>DepartmentsDataSet</b> object, see <see cref="M:WebSvcAdmin.Admin.ReadDepartments(System.Int32)" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -50,7 +56,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>DepartmentsDataSet</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +82,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>DepartmentsDataSet</b> class by using parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -104,7 +110,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Used to preserve stored department information during an update.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -136,7 +142,7 @@
         <ReturnType>WebSvcAdmin.DepartmentsDataSet+DepartmentsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a list of departments that can be used for project entities and for resource entities.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -193,7 +199,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Retrieves the <b>complexType</b> XML schema for the <b>DepartmentsDataSet</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -277,9 +283,12 @@
         <ReturnType>System.Data.DataRelationCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of relations that link tables and allow navigation from parent tables to child tables in the <b>DepartmentsDataSet</b>.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Information that is stored in the <b>Relations</b> table includes primary keys, foreign keys, types of relationships, and constraints.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SchemaSerializationMode">
@@ -392,7 +401,7 @@
         <ReturnType>System.Data.DataTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of data tables in the <b>DepartmentsDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

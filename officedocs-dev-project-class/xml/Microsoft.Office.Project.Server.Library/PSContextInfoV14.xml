@@ -17,10 +17,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlRoot("psci")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains Project Server context information for user identity, Project Web App site, and preferred culture.</summary>
+    <remarks>
+      <para>The <b>PSContextInfoV14</b> class is used with legacy PSI impersonation applications. For information about using Project Server context information, see How to: Use Impersonation with WCF.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +42,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>PSContextInfoV14</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,8 +67,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the user delegate, when delegation is active.</summary>
+        <value>The GUID of the user delegate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -87,8 +93,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the user delegate, when delegation is active.</summary>
+        <value>The name of the user delegate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -113,8 +119,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the current user is a Windows user (rather than a Forms user).</summary>
+        <value>
+          <b>True</b> if the current user is a Windows user; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -139,8 +146,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the language culture.</summary>
+        <value>The name of the language culture.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -165,8 +172,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the locale culture.</summary>
+        <value>The name of the locale culture.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -191,8 +198,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the Project Web App site.</summary>
+        <value>The GUID of the Project Web App site.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -217,8 +224,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for tracking the Project Server queue job.</summary>
+        <value>The queue job tracking GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -243,9 +250,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the URL zone for authentication.</summary>
+        <value>The URL zone for authentication.</value>
+        <remarks>
+          <para>Zone values are defined in the <b>Microsoft.SharePoint.Administration.SPUrlZone</b> enumeration. URL zones can be <b>Default</b>, <b>Intranet</b>, <b>Internet</b>, <b>Custom</b>, or <b>Extranet</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UserGuid">
@@ -269,8 +279,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the Project Server user.</summary>
+        <value>The GUID of the user.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -295,8 +305,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the Project Server user.</summary>
+        <value>The name of the user.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

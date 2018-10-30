@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents the assignment that is in a published project.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>PublishedAssignment</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the costs incurred for work already performed on the assignment, together with any other recorded costs that are associated with the assignment.</summary>
+        <value>The costs for work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +97,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time when the assignment is complete.</summary>
+        <value>The actual finish date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,9 +123,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the actual amount of overtime work that has already been performed on the assignment.</summary>
+        <value>The actual amount of overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.ActualOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualOvertimeWorkTimeSpan">
@@ -149,8 +152,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the actual amount of overtime work that has already been performed on the assignment.</summary>
+        <value>The duration of the actual amount of overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +178,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time that the assignment actually began, based on progress information that was entered.</summary>
+        <value>The actual start date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,9 +204,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary> Gets the amount of work that has already been performed on the assignment.</summary>
+        <value>The actual amount of work already performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualWorkTimeSpan">
@@ -227,8 +233,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of work that has already been performed on the assignment.</summary>
+        <value>The duration of the actual amount of work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,8 +259,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the budgeted cost for the assignment.</summary>
+        <value>The budgeted cost.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,9 +285,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the budgeted work for the assignment.</summary>
+        <value>The amount of budgeted work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the budgeted work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.BudgetedWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BudgetedWorkTimeSpan">
@@ -305,8 +314,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the budgeted work for the assignment.</summary>
+        <value>The duration of the amount of budgeted work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,9 +340,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total scheduled or projected cost for the assignment. </summary>
+        <value>The total cost.</value>
+        <remarks>
+          <para>The cost is based on costs already incurred for work performed on the assignment, in addition to the costs planned for the remaining work.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultBookingType">
@@ -357,9 +369,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.BookingType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the default booking type for the assignment.</summary>
+        <value>A value that represents the default booking type.</value>
+        <remarks>
+          <para>Examples of booking types are proposed, committed, and not specified.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Delay">
@@ -383,9 +398,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of time that passes after the start date, before work on the assignment starts.</summary>
+        <value>The amount of time to delay starting work on the assignment.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the delay, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.DelayTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DelayTimeSpan">
@@ -409,8 +427,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of time that passes after the start date, before work on the assignment starts.</summary>
+        <value>The duration of the amount of time to delay starting work on the assignment.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -430,9 +448,12 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of custom fields that have values set for the assignment.</summary>
+        <value>A set of custom field values.</value>
+        <remarks>
+          <para>For code examples that use <b>FieldValues</b>, see <see cref="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" /> and <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.FieldValues" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Finish">
@@ -456,8 +477,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when the assignment is scheduled to be completed.</summary>
+        <value>The date of completion.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -481,9 +502,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -507,9 +528,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -535,8 +556,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the assignment has been locked for changes by a manager.</summary>
+        <value>
+          <b>True</b> if the assignment has been locked for changes by a manager; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -561,8 +583,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether an assignment resource is a work resource or a material resource.</summary>
+        <value>
+          <b>True</b> if the resource is a work resource; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -590,9 +613,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of the project item.</param>
+        <summary>Gets an item in the project.</summary>
+        <value>A <b>PublishedAssignment</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -613,7 +636,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Initializes the extended properties that are associated with the <b>PublishedAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -638,8 +661,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets comments that were entered about the assignment.</summary>
+        <value>An object that contains comments.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -664,9 +687,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of overtime that is scheduled to be performed on the assignment.</summary>
+        <value>The amount of scheduled overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.OvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeWorkTimeSpan">
@@ -690,8 +716,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of overtime that is scheduled to be performed on the assignment.</summary>
+        <value>The duration of the amount of scheduled overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -716,8 +742,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the user who is responsible for entering status for the current assignment.</summary>
+        <value>An enterprise resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -742,8 +768,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedAssignment</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the parent assignment link.</summary>
+        <value>A <b>PublishedAssignment</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -768,8 +794,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current status of the assignment, expressed as the percentage of the total work that has been completed.</summary>
+        <value>The current status of a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -790,7 +816,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>PublishedAssignment</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -815,9 +841,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total amount of nonovertime work that is scheduled to be performed on the assignment.</summary>
+        <value>The total amount of scheduled, nonovertime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the regular work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.RegularWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegularWorkTimeSpan">
@@ -841,8 +870,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total amount of nonovertime work that is scheduled to be performed on the assignment.</summary>
+        <value>The duration of the total amount of scheduled, nonovertime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -867,9 +896,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of remaining scheduled overtime work on the assignment.</summary>
+        <value>The remaining scheduled overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.RemainingOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingOvertimeWorkTimeSpan">
@@ -893,8 +925,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of remaining scheduled overtime work on the assignment.</summary>
+        <value>The duration of the remaining scheduled overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -919,9 +951,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time, such as person-hours or days, that is still required to complete the assignment.</summary>
+        <value>The amount of time that is still required to complete the assignment.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.RemainingWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingWorkTimeSpan">
@@ -945,8 +980,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the time, such as person-hours or days, that is still required to complete the assignment.</summary>
+        <value>The duration of the amount of time that is still required to complete the assignment.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -971,8 +1006,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedProjectResource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the resource that is associated with the assignment.</summary>
+        <value>A <b>PublishedProjectResource</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -997,8 +1032,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets how much work the resource performs on the assignment, expressed as a percentage of the resource's theoretical full capacity.</summary>
+        <value>The amount of work performed by the resource, expressed as a percentage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1023,8 +1058,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedTask</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the task to which the assignment belongs.</summary>
+        <value>A <b>PublishedTask</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1049,9 +1084,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total amount of time that is scheduled for the assignment. </summary>
+        <value>The total time that is scheduled for the assignment.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the work, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.WorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkTimeSpan">
@@ -1075,8 +1113,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total amount of time that is scheduled for the assignment.</summary>
+        <value>The duration of the total time that is scheduled for the assignment.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

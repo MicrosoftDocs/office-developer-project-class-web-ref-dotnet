@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains a row for each enterprise team member on the specified project.</summary>
+    <remarks>
+      <para>For detailed column information, see <see cref="T:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow" />.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ProjectTeamDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>ProjectTeamDataTable</b> by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcProject.ProjectTeamDataSet+ProjectTeamRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the project team row that is to be added.</param>
+        <summary>Adds a <b>ProjectTeamRow</b> object to the <b>ProjectTeamDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,7 +153,7 @@
         <param name="RES_TYPE">To be added.</param>
         <param name="RES_IS_ENTERPRISE_RESOURCE">To be added.</param>
         <param name="WRES_EMAIL">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -203,8 +209,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of row objects in the <b>ProjectTeamDataTable</b>.</summary>
+        <value>The number of row objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -260,10 +266,10 @@
         <Parameter Name="PROJ_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="RES_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="RES_UID">Contains the resource GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <summary>Retrieves a <b>ProjectTeamRow</b> object by using the specified resource GUID and the project GUID.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -292,8 +298,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>ProjectTeamDataTable</b>.</summary>
+        <returns>An iterator for the project team data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -348,8 +354,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs"> Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -378,8 +384,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index"> Specifies the row.</param>
+        <summary>Gets a row object in the <b>ProjectTeamDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -405,8 +411,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.NEW_RES_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -432,8 +438,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a row object in the <b>ProjectTeamDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -604,8 +610,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.PROJ_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -625,7 +631,7 @@
         <ReturnType>WebSvcProject.ProjectTeamDataSet+ProjectTeamRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -645,7 +651,7 @@
         <ReturnType>WebSvcProject.ProjectTeamDataSet+ProjectTeamRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -665,7 +671,7 @@
         <ReturnType>WebSvcProject.ProjectTeamDataSet+ProjectTeamRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -685,7 +691,7 @@
         <ReturnType>WebSvcProject.ProjectTeamDataSet+ProjectTeamRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -713,8 +719,8 @@
         <Parameter Name="row" Type="WebSvcProject.ProjectTeamDataSet+ProjectTeamRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted. </param>
+        <summary>Deletes the specified row object from the <b>ProjecTeamDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -739,8 +745,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_BOOKING_TYPE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -765,8 +771,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_HAS_ACTUALS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -791,8 +797,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_IS_ENTERPRISE_RESOURCE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -817,8 +823,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -843,8 +849,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_TYPE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -869,8 +875,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcProject.ProjectTeamDataSet.ProjectTeamRow.RES_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

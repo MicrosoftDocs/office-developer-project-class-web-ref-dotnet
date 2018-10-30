@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a project detail page (PDP), which is a Web Part page for creating, viewing, or managing the properties of projects in Project Web App.</summary>
+    <remarks>
+      <para>PDPs are typically used to view or set project properties within a workflow stage in demand management.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>ProjectDetailPage</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the project detail page.</summary>
+        <value>The PDP GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -96,10 +99,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -124,8 +128,8 @@
         <ReturnType>Microsoft.SharePoint.Client.ListItem</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets an item from the list of items on the project detail page.</summary>
+        <value>A <b>ListItem</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -150,8 +154,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the title or name of the project detail page.</summary>
+        <value>The project detail page name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,7 +180,7 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPageType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the type of the project detail page.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

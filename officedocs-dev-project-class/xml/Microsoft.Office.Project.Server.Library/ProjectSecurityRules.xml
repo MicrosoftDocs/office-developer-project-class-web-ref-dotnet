@@ -13,8 +13,12 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the dynamic rules for projects in security categories.</summary>
+    <remarks>
+      <para>The <see cref="T:Microsoft.Office.Project.Server.Library.ProjectSecurityRules" /> type is used to set or compare dynamic rules for projects in security categories. For the project settings options in a security category, see the Add or Edit Category page in Project Web App</para>
+      <para>For an example of how to set dynamic rules when creating a security category, see the <see cref="M:WebSvcSecurity.Security.CreateCategories(WebSvcSecurity.SecurityCategoriesDataSet)" /> PSI method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="AllCurrentAndFuture">
@@ -34,7 +38,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. The category applies to all current and future projects.</summary>
       </Docs>
     </Member>
     <Member MemberName="AssignedToResourcesManagedByUser">
@@ -54,7 +58,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. A resource on the project team is a descendant of the user via the resource breakdown structure (RBS).</summary>
       </Docs>
     </Member>
     <Member MemberName="Listed">
@@ -74,7 +78,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. The category applies only to the projects listed.</summary>
       </Docs>
     </Member>
     <Member MemberName="ManagedByResourcesManagedByUser">
@@ -94,7 +98,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. The project owner is a descendant of the user via the RBS.</summary>
       </Docs>
     </Member>
     <Member MemberName="ManagedByUser">
@@ -114,7 +118,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. The user is the project owner or the status manager on assignments within that project.</summary>
       </Docs>
     </Member>
     <Member MemberName="OwnerAtSameRbsNode">
@@ -134,7 +138,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. The project owner has the same RBS value as the user.</summary>
       </Docs>
     </Member>
     <Member MemberName="UserAssignedAsTeamMember">
@@ -154,7 +158,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. The user is on the project team.</summary>
       </Docs>
     </Member>
   </Members>

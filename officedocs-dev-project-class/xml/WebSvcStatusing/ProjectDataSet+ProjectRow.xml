@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains the properties of one project in a <b>ProjectDataTable</b> row.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the name of the default enterprise base calendar for the project.</summary>
+        <value>Calendar name.</value>
+        <remarks>
+          <para>Read-only. Project Server Interface (PSI) methods that read a <see cref="T:WebSvcStatusing.ProjectDataSet" /> object return <b>CAL_NAME</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CAL_UID">
@@ -65,9 +68,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the GUID of the default enterprise base calendar for the project.</summary>
+        <value>Calendar GUID.</value>
+        <remarks>
+          <para>Read-only for the <b>Statusing</b> methods. Only <b>Project</b> methods that create a project, such as <see cref="M:WebSvcProject.Project.QueueCreateProject(System.Guid,WebSvcProject.ProjectDataSet,System.Boolean)" />, can set the <b>CAL_UID</b> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CREATED_DATE">
@@ -91,9 +97,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the date and time when a project was created.</summary>
+        <value>Created date.</value>
+        <remarks>
+          <para>Read-only. Project Server sets <b>CREATED_DATE</b> when you create a project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ENTERPRISE_PROJECT_TYPE_NAME">
@@ -117,9 +126,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the Project enterprise type name.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ENTERPRISE_PROJECT_TYPE_UID">
@@ -143,7 +155,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the enterprise project type (EPT) that is used to create the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -169,8 +181,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets an identifier for an item on an idea list.</summary>
+        <value>An integer identifer.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -195,8 +207,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of an idea list.</summary>
+        <value>A list GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,8 +233,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the location of an idea list.</summary>
+        <value>A location GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -248,8 +260,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOwnerID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -275,8 +288,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.CAL_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -302,8 +316,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.CREATED_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,8 +344,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ENTERPRISE_PROJECT_TYPE_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -356,8 +372,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ENTERPRISE_PROJECT_TYPE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -383,8 +400,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_ITEM_ID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if <b>IDEA_ITEM_ID</b> is a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -410,8 +428,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_LIST_UID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if <b>IDEA_LIST_UID</b> is a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -437,8 +456,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_WEB_UID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if <b>IDEA_WEB_UID</b> is a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -464,8 +484,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_DECISION" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -491,8 +512,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -518,8 +540,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_SOLUTION_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -545,8 +568,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PHASE_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -572,7 +596,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PHASE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -599,8 +623,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_DECISION" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -626,7 +651,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_END_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -653,8 +678,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_FORCE_ALIAS_LT_VALUE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -680,8 +706,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_SOLUTION_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -707,8 +734,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_START_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -734,8 +762,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_CHECKOUTBY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -761,8 +790,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_CHECKOUTDATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -788,8 +818,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_CURRENT_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -815,8 +846,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_FINISH_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -842,8 +874,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_SCHED_FROM" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -869,8 +902,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_START_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -896,8 +930,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_STATUS_DATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -950,8 +985,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_LAST_SAVED" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -977,8 +1013,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1004,8 +1041,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_NEW_TASKS_ARE_MANUAL" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1031,8 +1069,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CALC_ACT_COSTS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1058,8 +1097,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CRITICAL_SLACK_LIMIT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1085,8 +1125,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_CODE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1112,8 +1153,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_DIGITS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1139,8 +1181,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_POSITION" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1166,8 +1209,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_SYMBOL" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1193,8 +1237,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DAYS_PER_MONTH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1220,8 +1265,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_FINISH_TIME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1247,8 +1293,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_FIX_COST_ACCRUAL" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1274,8 +1321,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_OVT_RATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1301,8 +1349,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_START_TIME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1328,8 +1377,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_STD_RATE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1355,8 +1405,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_TASK_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1382,8 +1433,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DUR_ENTRY_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1409,8 +1461,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_FY_START_MONTH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1436,8 +1489,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_FY_USE_START_YR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1463,8 +1517,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_HONOR_CONSTRAINTS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1490,8 +1545,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MINUTES_PER_DAY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1517,8 +1573,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MINUTES_PER_WEEK" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1544,8 +1601,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_ACTUAL_IF_LATER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1571,8 +1629,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_ACTUAL_TO_STATUS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1598,8 +1657,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_REMAINING_IF_EARLIER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1625,8 +1685,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_REMAINING_TO_STATUS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1652,8 +1713,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MULT_CRITICAL_PATHS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1679,8 +1741,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_NEW_TASK_EST" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1706,8 +1769,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_NEW_TASKS_ARE_EFFORT_DRIVEN" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1733,8 +1797,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SHOW_EST_DUR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1760,8 +1825,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPLIT_IN_PROGRESS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1787,8 +1853,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPREAD_ACT_COSTS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1814,8 +1881,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPREAD_PCT_COMP" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1841,8 +1909,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_TASK_UPDATES_RES" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1868,8 +1937,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_WEEK_START_DAY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1895,8 +1965,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_WORK_ENTRY_FMT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1922,8 +1993,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_AUTHOR" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1949,8 +2021,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_CATEGORY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1976,8 +2049,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_COMPANY" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2003,8 +2077,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_KEYWORDS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2030,8 +2105,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_MANAGER" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2057,8 +2133,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_SUBJECT" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2084,8 +2161,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_TITLE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2111,8 +2189,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROTECTED_ACTUALS_SYNCH" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2138,8 +2217,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SESSION_DESCRIPTION" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2165,8 +2245,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SESSION_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2192,8 +2273,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_STALE_FLAGS" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2219,8 +2301,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SUMMARY_TASK_UID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if <b>PROJ_SUMMARY_TASK_UID</b> is a null reference (Nothing in Visual Basic).</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2246,8 +2329,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_TYPE" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2273,8 +2357,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets a value that indicates whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_WINPROJ_VERSION_NUMBER" /> is a null reference (Nothing in Visual Basic).</summary>
+        <returns>
+          <b>True</b> if <b>PROJ_WINPROJ_VERSION_NUMBER</b> is null.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2300,8 +2385,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOptionDefaultOvertimeRateFormat" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2327,8 +2413,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOptionDefaultStandardRateFormat" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2354,8 +2441,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOwnerID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2381,8 +2469,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.SKIP_TO_STAGE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2408,8 +2497,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.STAGE_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2435,8 +2525,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.STAGE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2462,8 +2553,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WORKFLOW_INSTANCE_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2489,8 +2581,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_DESCRIPTION" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2516,8 +2609,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_ISSUE_LIST_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2543,8 +2637,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_LAST_PUB" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2570,8 +2665,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_RISK_LIST_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2597,8 +2693,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_STS_SUBWEB_NAME" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2624,8 +2721,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_TRACKING_METHOD" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2651,8 +2749,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WSTS_SERVER_UID" /> property is set to a a null reference (Nothing in Visual Basic) value.</summary>
+        <returns>
+          <b>True</b> if the property has a null value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2677,9 +2776,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the value that specifies the decision for a project in the Portfolio Analysis Cost Optimizer.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only. The <b>OPTIMIZER_DECISION</b> value corresponds to the <see cref="T:Microsoft.Office.Project.Server.Library.Optimizer.CommittedDecisionResult" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID">
@@ -2703,9 +2805,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the lookup table value GUID that specifies why the project was forced in or out of its Portfolio Analysis Cost Optimizer solution.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OPTIMIZER_SOLUTION_UID">
@@ -2729,9 +2834,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the Portfolio Analysis Cost Optimizer solution that the project belongs to.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PHASE_NAME">
@@ -2755,9 +2863,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the phase name of the current workflow.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PHASE_UID">
@@ -2781,9 +2892,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the current workflow.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PLANNER_DECISION">
@@ -2807,9 +2921,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the value that specifies the decision that was taken for a project in the Portfolio Analysis Resource Planner.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PLANNER_END_DATE">
@@ -2833,9 +2950,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the finish date of a project that was determined in the Portfolio Analysis Resource Planner solution.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PLANNER_FORCE_ALIAS_LT_VALUE_UID">
@@ -2859,9 +2979,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the lookup table value GUID that specifies why a project was forced in or out of its Portfolio Analysis Resource Planner solution.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PLANNER_SOLUTION_UID">
@@ -2885,9 +3008,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the Portfolio Analysis Resources Planner solution that a project belongs to.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PLANNER_START_DATE">
@@ -2911,9 +3037,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the start date of a project that was determined in the Portfolio Analysis Resource Planner solution.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_CHECKOUTBY">
@@ -2937,9 +3066,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier of the user who last checked out the project.</summary>
+        <value>User GUID.</value>
+        <remarks>
+          <para>Read-only.  <b>Null</b> if the project has not been checked out.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_CHECKOUTDATE">
@@ -2963,9 +3095,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the date and time when the project was last checked out.</summary>
+        <value>Date and time the project was last checked out.</value>
+        <remarks>
+          <para>Read-only. a null reference (Nothing in Visual Basic) if the project has not been checked out.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_INFO_CURRENT_DATE">
@@ -2989,9 +3124,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the current date for a project.</summary>
+        <value>The current date.</value>
+        <remarks>
+          <para>The default value for new projects is the server current date. Project Professional shows the current project date in the Project Information dialog box.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_INFO_FINISH_DATE">
@@ -3015,9 +3153,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the project finish date for schedule-from-finish projects. </summary>
+        <value>The finish date.</value>
+        <remarks>
+          <para>
+            <b>PROJ_INFO_FINISH_DATE</b> is ignored for schedule-from-start (SFS) projects. The default value is the current server date.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_INFO_SCHED_FROM">
@@ -3041,9 +3183,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether the project is scheduled from the project start date or from the project finish date.</summary>
+        <value>
+          <b>True</b> if the project is set to schedule-from-start (SFS).</value>
+        <remarks>
+          <para>
+            <b>True</b> if the project is set to schedule-from-start (SFS); otherwise, <b>false</b>.Valid values are those values that are available in Project Professional. You can use the Project Server Interface (PSI) to set <b>PROJ_INFO_SCHED_FROM</b> when creating a project, but not when updating existing projects. To change an existing project, use the Project Information dialog box in Project Professional.</para>
+          <para>The default for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is the same as the default SFS value in Project Professional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_INFO_START_DATE">
@@ -3067,9 +3215,13 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the project start date for schedule-from-start (SFS) projects.</summary>
+        <value>The start date.</value>
+        <remarks>
+          <para>
+            <b>PROJ_INFO_START_DATE</b> is ignored for schedule-from-finish (SFF) projects. The default for new projects is the current server date.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_INFO_STATUS_DATE">
@@ -3093,9 +3245,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the project status date.</summary>
+        <value>The status date.</value>
+        <remarks>
+          <para>If a status date is not set, the default value is <b>NA</b>. The value is the same as the status date in the Project Information dialog box in Project Professional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_IS_TASK_LIST">
@@ -3145,9 +3300,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time that the project was last saved.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only. Project Server updates <b>PROJ_LAST_SAVED</b> whenever you update anything on the project (that is, when Project Professional saves the project or another application uses the PSI to update the project).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_NAME">
@@ -3171,9 +3329,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the name of the project. </summary>
+        <value>The project name.</value>
+        <remarks>
+          <para>Read-only. <b>PROJ_NAME</b> must be unique within the <see cref="T:WebSvcStatusing.ProjectDataSet.ProjectDataTable" /> object. Together with the data source name, it cannot exceed 255 characters. In addition to the TAB character, the following characters are not valid in a project name: \ / " : ; &lt; &gt; | , . ' ? * # </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_NEW_TASKS_ARE_MANUAL">
@@ -3197,7 +3358,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the <b>Boolean</b> value that specifies whether new tasks are manually scheduled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3223,9 +3384,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether Project (client or server) calculates actual costs.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>False</b> if Project calculates actual costs; <b>true</b> if the user enters actual costs. The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para>
+            <b>Note</b>: This is the inverse of what you might expect. A checked value in the Project client application results in a <b>false</b> value here.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_CRITICAL_SLACK_LIMIT">
@@ -3249,9 +3416,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the number of days that a task can go past its end date before Project marks that task as critical.</summary>
+        <value>Number of days for critical slack limit.</value>
+        <remarks>
+          <para>The default value of <b>PROJ_OPT_CRITICAL_SLACK_LIMIT</b> for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is zero days, which is the default slack value in Project Professional (on the Calculation tab in the Options dialog box).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_CURRENCY_CODE">
@@ -3275,9 +3445,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the three-character code that defines the currency that is used in the project. </summary>
+        <value>Code for the country currency.</value>
+        <remarks>
+          <para>The currency character codes are defined in ISO 4217; for example, the United States Dollar is USD, the Japanese Yen is JPY, and the European Euro is EUR. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is taken from the Windows operating system where Project Server is running.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_CURRENCY_DIGITS">
@@ -3301,9 +3475,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of digits that appear after the decimal in currency values.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>2</b>, the same as the default in  Project Professional.</para>
+          <list type="bullet">
+            <item>
+              <description>0 = No digits after the decimal ($0)</description>
+            </item>
+            <item>
+              <description>1 = One digit after the decimal ($0.0)</description>
+            </item>
+            <item>
+              <description>2 = Two digits after the decimal ($0.00)</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_CURRENCY_POSITION">
@@ -3327,9 +3515,26 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the placement of the currency symbol in relation to the currency value.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is zero (0).</para>
+          <list type="bullet">
+            <item>
+              <description>0 = Before, no space ($0)</description>
+            </item>
+            <item>
+              <description>1 = After, no space (0$)</description>
+            </item>
+            <item>
+              <description>2 = Before, with space ($ 0)</description>
+            </item>
+            <item>
+              <description>3 = After, with space (0 $)</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_CURRENCY_SYMBOL">
@@ -3353,9 +3558,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the symbol that is used to represent the type of currency used in the project.</summary>
+        <value>Symbol for the currency.</value>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is the same as the default in  Project Professional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DAYS_PER_MONTH">
@@ -3379,9 +3587,14 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default number of working days per month.</summary>
+        <value>Number of working days per month.</value>
+        <remarks>
+          <para>
+            <b>PROJ_OPT_DAYS_PER_MONTH</b> maps to the Days per month option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is 20.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_FINISH_TIME">
@@ -3405,9 +3618,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the finish time that Project Server uses when task start dates or task finish dates omit the time component.</summary>
+        <value>Default finish time.</value>
+        <remarks>
+          <para>Read-only. The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>17:00</b>, the same as the default in Project Professional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_FIX_COST_ACCRUAL">
@@ -3431,9 +3647,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the default fixed cost accrual method to use on new tasks.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If you create a task that does not specify the accrual method, the task uses the default accrual method. The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>3</b> (prorated).</para>
+          <list type="bullet">
+            <item>
+              <description>1 = Start</description>
+            </item>
+            <item>
+              <description>2 = End</description>
+            </item>
+            <item>
+              <description>3 = Prorated</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_OVT_RATE">
@@ -3457,9 +3687,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default overtime rate for local resources.</summary>
+        <value>Local resource overtime rate.</value>
+        <remarks>
+          <para>An overtime rate is, for example, the number of dollars per hour. The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is zero.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_START_TIME">
@@ -3483,9 +3716,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default start time for tasks.</summary>
+        <value>Default task start time.</value>
+        <remarks>
+          <para>Read-only. If you create a task where the start date omits the time component, the task starts at the default start time. The default for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>08:00</b>, the same as in  Project Professional.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_STD_RATE">
@@ -3509,9 +3745,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the local resource standard rate. </summary>
+        <value>Standard rate for local working resources.</value>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is zero.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DEF_TASK_TYPE">
@@ -3535,9 +3774,23 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the default type for tasks in the project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>0</b> (fixed units).</para>
+          <list type="bullet">
+            <item>
+              <description>0 = Fixed units</description>
+            </item>
+            <item>
+              <description>1 = Fixed duration</description>
+            </item>
+            <item>
+              <description>2 = Fixed work</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_DUR_ENTRY_FMT">
@@ -3561,9 +3814,29 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the default unit for time durations in the project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>5</b> (hours).</para>
+          <list type="bullet">
+            <item>
+              <description>3 = Minute</description>
+            </item>
+            <item>
+              <description>5 = Hour</description>
+            </item>
+            <item>
+              <description>7 = Day</description>
+            </item>
+            <item>
+              <description>9 = Week</description>
+            </item>
+            <item>
+              <description>11 = Month</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_FY_START_MONTH">
@@ -3587,9 +3860,52 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of the first month in the fiscal year.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>PROJ_OPT_FY_START_MONTH</b> maps to the Fiscal year starts in option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>1</b> (January).</para>
+          <list type="bullet">
+            <item>
+              <description>1 = January</description>
+            </item>
+            <item>
+              <description>2 = February</description>
+            </item>
+            <item>
+              <description>3 = March</description>
+            </item>
+            <item>
+              <description>4 = April</description>
+            </item>
+            <item>
+              <description>5 = May</description>
+            </item>
+            <item>
+              <description>6 = June</description>
+            </item>
+            <item>
+              <description>7 = July</description>
+            </item>
+            <item>
+              <description>8 = August</description>
+            </item>
+            <item>
+              <description>9 = September</description>
+            </item>
+            <item>
+              <description>10 = October</description>
+            </item>
+            <item>
+              <description>11 = November</description>
+            </item>
+            <item>
+              <description>12 = December</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_FY_USE_START_YR">
@@ -3613,9 +3929,14 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether to use the project start year for fiscal year numbering.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>True</b> if the fiscal year numbering starts with the project start year; otherwise, <b>false</b>.<b>PROJ_OPT_FY_START_MONTH</b> maps to the Use starting year for FY numbering option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_HONOR_CONSTRAINTS">
@@ -3639,9 +3960,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies whether scheduling constraints take precedence over dependencies.</summary>
+        <value>
+          <b>True</b> if constraints take precedence over dependencies. <b>false</b> if dependencies take precedence over constraints.</value>
+        <remarks>
+          <para>
+            <b>true</b> if constraints take precedence over dependencies; <b>false</b> if dependencies take precedence over constraints. <b>PROJ_OPT_HONOR_CONSTRAINTS </b>maps to the Tasks will always honor their constraint dates option on the Schedule tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MINUTES_PER_DAY">
@@ -3665,9 +3992,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default number of minutes per day.</summary>
+        <value>480 minutes per day, which is equal to eight hours.</value>
+        <remarks>
+          <para>
+            <b>PROJ_OPT_MINUTES_PER_DAY</b> maps to 60 * the Hours per day option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>480</b> (eight hours).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MINUTES_PER_WEEK">
@@ -3691,9 +4023,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the default number of minutes per week.</summary>
+        <value>2400 minutes per week, which is equal to 40 hours.</value>
+        <remarks>
+          <para>
+            <b>PROJ_OPT_MINUTES_PER_WEEK</b> maps to 60 * the Hours per week option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>2400</b> (40 hours).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MOVE_ACTUAL_IF_LATER">
@@ -3717,9 +4054,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to move the end date of completed parts forward to the status date, if the actual end date falls before the status date.</summary>
+        <value>
+          <b>True</b> if Project Server moves the end date of completed parts forward to the status date.</value>
+        <remarks>
+          <para>
+            <b>True</b> if Project Server moves the end date of completed parts forward to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_MOVE_ACTUAL_IF_LATER</b> maps to the And move end of completed parts forward to status date option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MOVE_ACTUAL_TO_STATUS">
@@ -3743,9 +4086,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to move the end date of completed parts back to the status date, if the actual end data falls after the status date.</summary>
+        <value>
+          <b>True</b> if Project Server moves the end date of completed parts back to the status date.</value>
+        <remarks>
+          <para>
+            <b>True</b> if Project Server moves the end date of completed parts back to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_MOVE_ACTUAL_TO_STATUS</b> maps to the Move end of completed parts after status date back to status date option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MOVE_REMAINING_IF_EARLIER">
@@ -3769,9 +4118,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to move the start date of remaining parts forward to the status date, if the actual start date falls before the status date.</summary>
+        <value>
+          <b>True</b> if Project Server moves the start date of remaining parts forward to the status date.</value>
+        <remarks>
+          <para>
+            <b>true</b> if Project Server moves the start date of remaining parts forward to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_MOVE_REMAINING_IF_EARLIER</b> maps to the Move start of remaining parts before status date forward to status date option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MOVE_REMAINING_TO_STATUS">
@@ -3795,9 +4150,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to move the start date of the remaining parts back to the status date, if the actual start date falls after the status date.</summary>
+        <value>
+          <b>true</b> if Project Server moves the start date of the remaining parts back to the status date.</value>
+        <remarks>
+          <para>
+            <b>True</b> if Project Server moves the start date of the remaining parts back to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_MOVE_REMAINING_TO_STATUS </b>maps to the And move start of remaining parts back to status date option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_MULT_CRITICAL_PATHS">
@@ -3821,9 +4182,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to calculate multiple critical paths.</summary>
+        <value>
+          <b>True</b> if Project Server calculates multiple critical paths.</value>
+        <remarks>
+          <para>
+            <b>True</b> if Project Server calculates multiple critical paths; otherwise, <b>false</b>. <b>PROJ_OPT_MULT_CRITICAL_PATHS </b>maps to the Calculate multiple critical paths option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_NEW_TASK_EST">
@@ -3847,9 +4214,16 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether new tasks have estimated durations.</summary>
+        <value>
+          <b>True</b> if new tasks have estimated durations.</value>
+        <remarks>
+          <para>
+            <b>True</b> if new tasks have estimated durations; otherwise, <b>false</b>. <b>PROJ_OPT_NEW_TASK_EST </b>maps to the New tasks have estimated durations option on the Schedule tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para>Estimated durations appear in Project Professional with a question mark (for example, 1 day?) if <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SHOW_EST_DUR" /> is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_NEW_TASKS_ARE_EFFORT_DRIVEN">
@@ -3873,9 +4247,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether new tasks are effort-driven. </summary>
+        <value>
+          <b>True</b> if new tasks are effort-driven.</value>
+        <remarks>
+          <para>
+            <b>True</b> if new tasks are effort-driven; otherwise, <b>false</b>. <b>PROJ_OPT_NEW_TASKS_ARE_EFFORT_DRIVEN</b> maps to the New tasks are effort driven option on the Schedule tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_SHOW_EST_DUR">
@@ -3899,9 +4279,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether Project displays a question mark after an estimated duration for a task.</summary>
+        <value>
+          <b>True</b> if estimated duration shows a question mark.</value>
+        <remarks>
+          <para>
+            <b>True</b> if estimated duration shows a question mark; otherwise, <b>false</b>. <b>ROJ_OPT_SHOW_EST_DUR </b>maps to the Show that tasks have estimated durations option on the Schedule tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_SPLIT_IN_PROGRESS">
@@ -3925,9 +4311,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether to split tasks that are in progress.</summary>
+        <value>
+          <b>True</b> if in-progress tasks can be split.</value>
+        <remarks>
+          <para>
+            <b>True</b> if in-progress tasks can be split; otherwise, <b>false</b>. <b>PROJ_OPT_SPLIT_IN_PROGRESS </b>maps to the Split in-progress option on the Schedule tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_SPREAD_ACT_COSTS">
@@ -3951,9 +4343,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether actual costs are spread to the status date or to the stop date.</summary>
+        <value>
+          <b>True</b> if actual costs are spread to the status date.</value>
+        <remarks>
+          <para>
+            <b>True</b> if actual costs are spread to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_SPREAD_ACT_COSTS </b>maps to the Edits to total actual cost will be spread to the status date option on the Calculation tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_SPREAD_PCT_COMP">
@@ -3977,9 +4375,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether percent complete is spread to the status date or to the task finish date.</summary>
+        <value>
+          <b>True</b> if percent complete is spread to the status date.</value>
+        <remarks>
+          <para>
+            <b>True</b> if percent complete is spread to the status date; otherwise, <b>false</b>. <b>PROJ_OPT_SPREAD_PCT_COMP </b>maps to the Edits to total task % complete will be spread to the status date option on the Calculation tab of the Options dialog box in  Project Professional. </para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_TASK_UPDATES_RES">
@@ -4003,9 +4407,15 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether Project Server automatically calculates actual and remaining work and costs.</summary>
+        <value>
+          <b>True</b> if Project Server automatically calculates actual and remaining work and costs.</value>
+        <remarks>
+          <para>
+            <b>True</b> if Project Server automatically calculates actual and remaining work and costs; otherwise, <b>false</b>. Project Server can automatically calculate actual and remaining work and costs when you enter task percent complete information in the project schedule. <b>PROJ_OPT_TASK_UPDATES_RES </b>maps to the Actual costs are always calculated by Microsoft Office Project option on the Calculation tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>true</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_WEEK_START_DAY">
@@ -4029,9 +4439,21 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the day of the week on which a work week starts.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>0 = Sunday</para>
+          <para>1 = Monday</para>
+          <para>2 = Tuesday</para>
+          <para>3 = Wednesday</para>
+          <para>4 = Thursday</para>
+          <para>5 = Friday</para>
+          <para>6 = Saturday</para>
+          <para>
+            <b>PROJ_OPT_WEEK_START_DAY </b>maps to the Week starts on option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is 0 (Sunday).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_OPT_WORK_ENTRY_FMT">
@@ -4055,9 +4477,14 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the default format for work duration.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>PROJ_OPT_WORK_ENTRY_FMT</b> maps to the Work is entered in option on the Calendar tab of the Options dialog box in  Project Professional.</para>
+          <para>The default value for new projects is determined by the enterprise global template. If there is no enterprise global template value, the default value is <b>5</b> (hours).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_AUTHOR">
@@ -4081,9 +4508,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies optional text for reporting purposes.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_AUTHOR</b> maps to the Author text field in  Project Professional. To access the Author text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_CATEGORY">
@@ -4107,9 +4538,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_CATEGORY</b> maps to the Category text field in  Project Professional. To access the Category text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_COMPANY">
@@ -4133,9 +4568,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_COMPANY</b> maps to the Company text field in  Project Professional. To access the Company text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_KEYWORDS">
@@ -4159,9 +4598,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_KEYWORDS</b> maps to the Keywords text field in  Project Professional. To access the Keywords text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The keywords are optional, and the total field is limited to 255 characters. You can delimit keywords by using a space, comma, semicolon, period, or other character; you cannot delimit keywords by using a tab or newline.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_MANAGER">
@@ -4185,9 +4628,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_MANAGER</b> maps to the Manager text field in  Project Professional. To access the Manager text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_SUBJECT">
@@ -4211,9 +4658,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>
+            <b>PROJ_PROP_SUBJECT</b> maps to the Subject text field in  Project Professional. To access the Subject text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROP_TITLE">
@@ -4237,9 +4688,14 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies optional text for reporting purposes.</summary>
+        <value>Text value.</value>
+        <remarks>
+          <para>By default, Project Server sets <b>PROJ_PROP_TITLE</b> to the project name.</para>
+          <para>
+            <b>PROJ_PROP_TITLE</b> maps to the Title text field in  Project Professional. To access the Title text field, click Properties on the File menu, and then click the Summary tab in the Properties dialog box. The text is optional, and is limited to 255 characters. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_PROTECTED_ACTUALS_SYNCH">
@@ -4263,9 +4719,14 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Indicates whether the project actuals are synchronized with the protected actuals.</summary>
+        <value>
+          <b>True</b> if actuals are synchronized.</value>
+        <remarks>
+          <para>
+            <b>True</b> if actuals are synchronized; otherwise, <b>false</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_SESSION_DESCRIPTION">
@@ -4289,9 +4750,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the session description that was provided when the project was checked out. </summary>
+        <value>Description of the Project Server queue session. </value>
+        <remarks>
+          <para>Read-only. Updated by the <see cref="M:WebSvcProject.Project.CheckOutProject(System.Guid,System.Guid,System.String)" /> method and the <see cref="M:WebSvcProject.Project.QueueCheckInProject(System.Guid,System.Guid,System.Boolean,System.Guid,System.String)" /> method. <b>PROJ_SESSION_DESCRIPTION</b> is a null reference (Nothing in Visual Basic) if the project is not checked out or if <b>CheckOutProject</b> did not provide a session GUID.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_SESSION_UID">
@@ -4315,9 +4779,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier of the queue session for the project.</summary>
+        <value>GUID of the queue session.</value>
+        <remarks>
+          <para>Read-only. Updated by the <see cref="M:WebSvcProject.Project.CheckOutProject(System.Guid,System.Guid,System.String)" /> method and the <see cref="M:WebSvcProject.Project.QueueCheckInProject(System.Guid,System.Guid,System.Boolean,System.Guid,System.String)" /> method. <b>PROJ_SESSION_UID</b> is a null reference (Nothing in Visual Basic) if the project is not checked out or if <b>CheckOutProject</b> did not provide a session GUID.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_STALE_FLAGS">
@@ -4341,9 +4808,32 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates which fields are not updated by Project Server scheduling.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only. Used to calculate the flags that indicate stale data in the MSP_EpmProject table in the Reporting database. The bitwise <b>OR</b> operator combines the values. For example, a value of <b>5</b> means that the project rollup and the WBS data are stale; a value of <b>63</b> means that all six values are stale (1 | 2 | 4 | 8 | 16 | 32 = 63).</para>
+          <list type="bullet">
+            <item>
+              <description>1 = ProjectWbsIsStale</description>
+            </item>
+            <item>
+              <description>2 = ProjectEarnedValueIsStale</description>
+            </item>
+            <item>
+              <description>4 = ProjectRollupsAreStale</description>
+            </item>
+            <item>
+              <description>8 = ProjectHierarchyNotSynchronized</description>
+            </item>
+            <item>
+              <description>16 = ProjectCalculationsAreStale</description>
+            </item>
+            <item>
+              <description>32 = ProjectGhostTaskAreStale</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_SUMMARY_TASK_UID">
@@ -4367,8 +4857,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for the project summary task.</summary>
+        <value>A summary task GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4393,9 +4883,16 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the project type: regular, template, or proposal.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>0 = Regular project (default)</para>
+          <para>1 = Template</para>
+          <para>4 = Proposal</para>
+          <para>The project type can be set only when creating a project or upgrading from a project proposal to a regular project. You cannot change the project type by using methods such as <see cref="M:WebSvcProject.Project.QueueUpdateProject(System.Guid,System.Guid,WebSvcProject.ProjectDataSet,System.Boolean)" />.</para>
+          <para>The Draft database or the Published database can contain projects with other <b>PROJ_TYPE</b> values, but they are for Project Server internal use. Projects of other types are not available to PSI calls.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_UID">
@@ -4419,9 +4916,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier that is associated with the project.</summary>
+        <value>GUID of the project.</value>
+        <remarks>
+          <para>Project identifiers are unique throughout all Project Server systems.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PROJ_WINPROJ_VERSION_NUMBER">
@@ -4445,8 +4945,8 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the version number of Project Professional that last saved the project.</summary>
+        <value>A decimal number that represents the version.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4471,9 +4971,18 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the time unit for the default overtime rate that is stored by the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_OVT_RATE" /> property.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>1 = Minute</para>
+          <para>2 = Hour</para>
+          <para>3 = Day</para>
+          <para>4 = Week</para>
+          <para>5 = Month</para>
+          <para>7 = Year</para>
+          <para>Read-only. The enterprise global template determines the default overtime rate unit for new projects. If there is no enterprise global template, the default is <b>2</b> (hour); for example, $50/hour.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectOptionDefaultStandardRateFormat">
@@ -4497,9 +5006,18 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the time unit for the standard rate that is stored by the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_STD_RATE" /> property.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>1 = Minute</para>
+          <para>2 = Hour</para>
+          <para>3 = Day</para>
+          <para>4 = Week</para>
+          <para>5 = Month</para>
+          <para>7 = Year</para>
+          <para>Read-only. The enterprise global template determines the standard rate unit for new projects. If there is no enterprise global template, the default is <b>2</b> (hour); for example, $40/hour.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ProjectOwnerID">
@@ -4523,8 +5041,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the unique identifier of the Project Server user who created the project.</summary>
+        <value>Project owner GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4550,7 +5068,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.CAL_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4576,7 +5094,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.CAL_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4602,7 +5120,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.CREATED_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4628,7 +5146,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ENTERPRISE_PROJECT_TYPE_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4654,7 +5172,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ENTERPRISE_PROJECT_TYPE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4680,7 +5198,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_ITEM_ID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4706,7 +5224,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_LIST_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4732,7 +5250,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.IDEA_WEB_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4758,7 +5276,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_DECISION" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4784,7 +5302,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_FORCE_ALIAS_LT_VALUE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4810,7 +5328,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.OPTIMIZER_SOLUTION_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4836,7 +5354,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PHASE_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4862,7 +5380,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PHASE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4888,7 +5406,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_DECISION" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4914,7 +5432,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_END_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4940,7 +5458,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_FORCE_ALIAS_LT_VALUE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4966,7 +5484,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_SOLUTION_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -4992,7 +5510,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PLANNER_START_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5018,7 +5536,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_CHECKOUTBY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5044,7 +5562,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_CHECKOUTDATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5070,7 +5588,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_CURRENT_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5096,7 +5614,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_FINISH_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5122,7 +5640,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_SCHED_FROM" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5148,7 +5666,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_START_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5174,7 +5692,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_INFO_STATUS_DATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5226,7 +5744,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_LAST_SAVED" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5252,7 +5770,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5278,7 +5796,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_NEW_TASKS_ARE_MANUAL" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5304,7 +5822,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CALC_ACT_COSTS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5330,7 +5848,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CRITICAL_SLACK_LIMIT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5356,7 +5874,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_CODE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5382,7 +5900,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_DIGITS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5408,7 +5926,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_POSITION" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5434,7 +5952,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_CURRENCY_SYMBOL" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5460,7 +5978,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DAYS_PER_MONTH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5486,7 +6004,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_FINISH_TIME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5512,7 +6030,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_FIX_COST_ACCRUAL" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5538,7 +6056,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOwnerID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5564,7 +6082,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_START_TIME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5590,7 +6108,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_STD_RATE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5616,7 +6134,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DEF_TASK_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5642,7 +6160,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_DUR_ENTRY_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5668,7 +6186,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_FY_START_MONTH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5694,7 +6212,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_FY_USE_START_YR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5720,7 +6238,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_HONOR_CONSTRAINTS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5746,7 +6264,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MINUTES_PER_DAY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5772,7 +6290,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MINUTES_PER_WEEK" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5798,7 +6316,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_ACTUAL_IF_LATER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5824,7 +6342,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_ACTUAL_TO_STATUS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5850,7 +6368,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_REMAINING_IF_EARLIER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5876,7 +6394,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MOVE_REMAINING_TO_STATUS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5902,7 +6420,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_MULT_CRITICAL_PATHS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5928,7 +6446,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_NEW_TASK_EST" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5954,7 +6472,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_NEW_TASKS_ARE_EFFORT_DRIVEN" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -5980,7 +6498,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SHOW_EST_DUR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6006,7 +6524,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPLIT_IN_PROGRESS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6032,7 +6550,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPREAD_ACT_COSTS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6058,7 +6576,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_SPREAD_PCT_COMP" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6084,7 +6602,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_TASK_UPDATES_RES" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6110,7 +6628,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_WEEK_START_DAY" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6136,7 +6654,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_OPT_WORK_ENTRY_FMT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6162,7 +6680,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_AUTHOR" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6188,7 +6706,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_CATEGORY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6214,7 +6732,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_COMPANY" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6240,7 +6758,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_KEYWORDS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6266,7 +6784,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_MANAGER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6292,7 +6810,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_SUBJECT" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6318,7 +6836,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROP_TITLE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6344,7 +6862,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_PROTECTED_ACTUALS_SYNCH" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6370,7 +6888,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SESSION_DESCRIPTION" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6396,7 +6914,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SESSION_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6422,7 +6940,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_STALE_FLAGS" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6448,7 +6966,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="M:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_SUMMARY_TASK_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6474,7 +6992,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_TYPE" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6500,7 +7018,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_WINPROJ_VERSION_NUMBER" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6526,7 +7044,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOptionDefaultOvertimeRateFormat" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6552,7 +7070,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOptionDefaultStandardRateFormat" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6578,7 +7096,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.ProjectOwnerID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6604,7 +7122,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.SKIP_TO_STAGE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6630,7 +7148,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.STAGE_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6656,7 +7174,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.STAGE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6682,7 +7200,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WORKFLOW_INSTANCE_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6708,7 +7226,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_DESCRIPTION" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6734,7 +7252,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_ISSUE_LIST_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6760,7 +7278,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_LAST_PUB" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6786,7 +7304,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.PROJ_RISK_LIST_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6812,7 +7330,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_STS_SUBWEB_NAME" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6838,7 +7356,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WPROJ_TRACKING_METHOD" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6864,7 +7382,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcStatusing.ProjectDataSet.ProjectRow.WSTS_SERVER_UID" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -6889,7 +7407,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the workflow stage to skip to.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -6915,9 +7433,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the current workflow stage.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="STAGE_UID">
@@ -6941,9 +7462,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the current workflow stage.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WORKFLOW_INSTANCE_UID">
@@ -6967,9 +7491,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the workflow instance that the current project is running on.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WPROJ_DESCRIPTION">
@@ -6993,8 +7520,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the project description.</summary>
+        <value>Description of the project. </value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -7019,9 +7546,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier of the SharePoint issues list for this project.</summary>
+        <value>Issues list GUID.</value>
+        <remarks>
+          <para>Read-only. The process that creates the project populates <b>WPROJ_ISSUE_LIST_NAME</b> in the database.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WPROJ_LAST_PUB">
@@ -7045,9 +7575,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the date and time of the most recent project publish operation. </summary>
+        <value>Date and time the project was last published.</value>
+        <remarks>
+          <para>Read-only. The Project Server publishing service updates <b>WPROJ_LAST_PUB</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WPROJ_RISK_LIST_NAME">
@@ -7071,9 +7604,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier of the SharePoint risks list for the project.</summary>
+        <value>Risks list GUID.</value>
+        <remarks>
+          <para>Read-only. The process that creates the project populates <b>WPROJ_RISK_LIST_NAME</b> in the database.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WPROJ_STS_SUBWEB_NAME">
@@ -7097,9 +7633,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the SharePoint subsite name of the project site associated with the project. </summary>
+        <value>Name of the subsite.</value>
+        <remarks>
+          <para>Read-only. The process that creates the project site populates <b>WPROJ_STS_SUBWEB_NAME</b> in the database.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WPROJ_TRACKING_METHOD">
@@ -7123,9 +7662,26 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the default tracking method for all assignments in the project.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The enterprise global template determines the default tracking method for new projects. If there is no enterprise global template, the default value is <b>2</b> (percent complete).</para>
+          <list type="bullet">
+            <item>
+              <description>0 = None</description>
+            </item>
+            <item>
+              <description>1 = Hours per day</description>
+            </item>
+            <item>
+              <description>2 = Percent complete</description>
+            </item>
+            <item>
+              <description>3 =Total hours</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WSTS_SERVER_UID">
@@ -7149,9 +7705,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Specifies the unique identifier of the SharePoint server that hosts the project site that is associated with the project. </summary>
+        <value>SharePoint server GUID.</value>
+        <remarks>
+          <para>Read-only. The process that creates the project site populates <b>WSTS_SERVER_UID</b> in the database.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

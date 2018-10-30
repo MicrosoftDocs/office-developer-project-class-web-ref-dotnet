@@ -38,8 +38,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that updates the specified project property.</summary>
+    <remarks>
+      <para>The property can be an intrinsic property, such as project start date, or it can be a project custom field.</para>
+      <para>The property update is made based on the type of the specified property. The property type can be text, numeric, date-time, duration, or flag (a <b>Boolean</b> value). If the <b>MdPropUid</b> property GUID is specified, the <b>PropertyName</b> value is ignored.</para>
+      <para>The Workflow Designer pane and the Properties pane in Microsoft Visual Studio 2010 enable you to get and set properties in fields for the <b>UpdateProjectProperty</b> activity.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -55,7 +60,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>UpdateProjectProperty</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,9 +83,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>UpdateProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -108,9 +113,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the GUID of the code property, such as a selection in a lookup table.</summary>
+        <value>The GUID for a code property value.</value>
+        <remarks>
+          <para>If the project property that is specified is a code value, <b>CodePropertyValue</b> is the value that is used for the update. If the specified property is not a code value, <b>CodePropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CodePropertyValueProperty">
@@ -129,8 +137,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>CodePropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.CodePropertyValue" /> property is the GUID of a code value, such as a selection in a lookup table.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DateTimePropertyValue">
@@ -157,9 +168,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the <b>DateTime</b> value that is used for the property update.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>If the project property that is specified by <b>PropertyName</b> or <b>MdPropUid</b> is a <b>DateTime</b> value, <b>DateTimePropertyValue</b> is the value that is used in the update. If the specified property is not a <b>DateTime</b> value, <b>DateTimePropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DateTimePropertyValueProperty">
@@ -178,8 +192,12 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>DateTimePropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.DateTimePropertyValue" /> specifies the <b>DateTime</b> value that is used in the property update.</para>
+          <para>In the Properties pane of a workflow activity, the <b>DateTimePropertyValue</b> property can be the name of the workflow and the path name of the property. The property value can also be a date that is selected in the date picker control or that is typed by the user, such as <b>5/11/2012</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteValue">
@@ -206,9 +224,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that specifies whether to delete the custom field value.</summary>
+        <value>
+          <b>True</b> if custom field value is to be deleted; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>If the <b>DeleteValue</b> is <b>True</b>, the <b>UpdateProjectProperty</b> activity deletes the specified custom field value.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteValueProperty">
@@ -227,8 +249,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>DeleteValue</b> property.</summary>
+        <remarks>
+          <para>The <b>DeleteValue</b> property specifies whether to delete the custom field value.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DurationPropertyValue">
@@ -255,9 +280,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the <b>String</b> value of the duration that is used in the property update.</summary>
+        <value>A string that contains the duration.</value>
+        <remarks>
+          <para>For example, the duration for three days is "3d".</para>
+          <para>If the project property that is specified by <b>PropertyName</b> or <b>MdPropUid</b> is a duration value, <b>DurationPropertyValue</b> is the value that is used for the update. If the specified property is not a duration value, <b>DurationPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DurationPropertyValueProperty">
@@ -276,8 +305,12 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>DurationPropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.DurationPropertyValue" /> specifies the duration value for the property update, for example, "3d" for three days.</para>
+          <para>In the Properties pane of a workflow activity, the <b>DurationPropertyValue</b> property can be the name of the workflow and the path name of the property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Execute">
@@ -299,9 +332,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>UpdateProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -329,9 +362,12 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the value of the <b>Flag</b> property that is used for the update.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>If the project property that is specified is a <b>Boolean</b> value, <b>FlagPropertyValue</b> is the value that is used in the update. If the specified property is not a <b>Boolean</b> value, <b>FlagPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FlagPropertyValueProperty">
@@ -350,8 +386,12 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>FlagPropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.FlagPropertyValue" /> specifies the flag value (<b>True</b> or <b>False</b>) that is used in the property update.</para>
+          <para>In the Properties pane of a workflow activity, the <b>FlagPropertyValue</b> property can be the name of the workflow and the path name of the property for update.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxRetries">
@@ -378,9 +418,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the maximum number of retries for the property update.</summary>
+        <value>The number of retries.</value>
+        <remarks>
+          <para>If the number of retries exceeds the <b>MaxRetries</b> value, the property is not updated.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxRetriesProperty">
@@ -399,8 +442,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>MaxRetries</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.MaxRetries" /> property specifies the maximum number of retries to update the specified property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MdPropUid">
@@ -427,9 +473,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the GUID of the project property to update. Not required if <b>PropertyName</b> is specified.</summary>
+        <value>The GUID of a project property.</value>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the GUID property for update. If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MdPropUidProperty">
@@ -448,8 +497,13 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>MdPropUid</b> property, which is the GUID of the project property to update.</summary>
+        <remarks>
+          <para>For example, the <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.MdPropUid" /> property can be the GUID of a custom field.</para>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the property for update.</para>
+          <para>If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumericPropertyValue">
@@ -476,9 +530,12 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the value of the <b>Number</b> property that is used for the update.</summary>
+        <value>The decimal number that is used for the update.</value>
+        <remarks>
+          <para>If the project property that is specified by <b>PropertyName</b> or <b>MdPropUid</b> is a numeric value, <b>NumericPropertyValue</b> is the value that is used for the update. If the specified property is not a numeric value, <b>NumericPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="NumericPropertyValueProperty">
@@ -497,8 +554,12 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>NumericPropertyValue</b> property, which is the numeric value of the property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.NumericPropertyValue" /> specifies the numeric value of the property to update.</para>
+          <para>In the Properties pane of a workflow activity, the <b>NumericPropertyValue</b> property can be the name of the workflow and the path name of the property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyName">
@@ -528,9 +589,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the name of the property that is used for the update.</summary>
+        <value>The name of the property.</value>
+        <remarks>
+          <para>If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PropertyNameProperty">
@@ -549,8 +613,62 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>PropertyName</b> property, which is the name of the project property to update.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.PropertyName" /> specifies the name of the project property to update. The property can be one of the following properties in the drop-down list in the Properties pane:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <b>PROJ_NAME</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>CREATED_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_TYPE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>WPROJ_LAST_PUB</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_START_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_FINISH_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>ProjectOwnerID</description>
+            </item>
+            <item>
+              <description>% Complete</description>
+            </item>
+            <item>
+              <description>Optimizer Decision</description>
+            </item>
+            <item>
+              <description>Planner Decision</description>
+            </item>
+            <item>
+              <description>Approved Start Date</description>
+            </item>
+            <item>
+              <description>Approved End Date</description>
+            </item>
+          </list>
+          <para>In the Properties pane of a workflow activity, the <b>PropertyName</b> property can also be the name of the workflow and the path name of the property. If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent">
@@ -605,9 +723,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the value of the <b>Text</b> property for the update.</summary>
+        <value>A string that contains the text property value.</value>
+        <remarks>
+          <para>If the project property that is specified by <b>PropertyName</b> or <b>MdPropUid</b> is a text value, <b>TextPropertyValue</b> is the text that is used for the update. If the specified property is not a text value, <b>TextPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TextPropertyValueProperty">
@@ -626,8 +747,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>TextPropertyValue</b> property.</summary>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <see cref="P:Microsoft.Office.Project.Server.Workflow.UpdateProjectProperty.TextPropertyValue" /> property can be the name of the workflow and the path name of the property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContext">
@@ -654,9 +778,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the context of the <b>UpdateProjectProperty</b> activity in the parent workflow activity.</summary>
+        <value>A project workflow context object.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if an <b>UpdateProjectProperty</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -675,8 +802,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>UpdateProjectProperty</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>UpdateProjectProperty</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

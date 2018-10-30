@@ -13,8 +13,12 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Filter timesheets returned by the <see cref="M:WebSvcTimeSheet.TimeSheet.ReadTimesheetList(System.Guid,System.DateTime,System.DateTime,System.Int32)" /> method.</summary>
+    <remarks>
+      <para>Use a <see cref="T:Microsoft.Office.Project.Server.Library.TimesheetEnum.ListSelect" /> value for the <paramref name="select" /> parameter in <see cref="M:WebSvcTimeSheet.TimeSheet.ReadTimesheetList(System.Guid,System.DateTime,System.DateTime,System.Int32)" />.You can combine the <b>ListSelect</b> values with the <b>OR</b> operation to filter for a combination of properties. For example, the <see cref="F:Microsoft.Office.Project.Server.Library.TimesheetEnum.ListSelect.AllExisting" /> member value of 31 is the value of InProgress | Submitted | Acceptable | Approved | Rejected.</para>
+      <para>The <see cref="F:Microsoft.Office.Project.Server.Library.TimesheetEnum.ListSelect.CreatedByMe" /> filter can select timesheets that you created for someone else, for example, where you are the surrogate user. For example, to select all timesheets you created that are in progress, set the <paramref name="select" /> parameter to CreatedByMe | InProgress.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Acceptable">
@@ -34,7 +38,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Select timesheets with Acceptable status.</summary>
       </Docs>
     </Member>
     <Member MemberName="AllExisting">
@@ -54,7 +58,7 @@
       </ReturnValue>
       <MemberValue>31</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=31. Select all timesheets.</summary>
       </Docs>
     </Member>
     <Member MemberName="AllPeriods">
@@ -74,7 +78,7 @@
       </ReturnValue>
       <MemberValue>32</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=32. Select all timesheets plus an empty record for each period with no timesheet.</summary>
       </Docs>
     </Member>
     <Member MemberName="Approved">
@@ -94,7 +98,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. Select timesheets with Approved status.</summary>
       </Docs>
     </Member>
     <Member MemberName="CreatedByMe">
@@ -114,7 +118,7 @@
       </ReturnValue>
       <MemberValue>64</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=64. Select timesheets you created.</summary>
       </Docs>
     </Member>
     <Member MemberName="InProgress">
@@ -134,7 +138,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Select timesheets with InProgress status.</summary>
       </Docs>
     </Member>
     <Member MemberName="PendingSubmit">
@@ -154,7 +158,7 @@
       </ReturnValue>
       <MemberValue>128</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=128. Select timesheets that are pending submission.</summary>
       </Docs>
     </Member>
     <Member MemberName="Rejected">
@@ -174,7 +178,7 @@
       </ReturnValue>
       <MemberValue>16</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=16. Select timesheets with Rejected status.</summary>
       </Docs>
     </Member>
     <Member MemberName="Submitted">
@@ -194,7 +198,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Select timesheets with Submitted status.</summary>
       </Docs>
     </Member>
   </Members>

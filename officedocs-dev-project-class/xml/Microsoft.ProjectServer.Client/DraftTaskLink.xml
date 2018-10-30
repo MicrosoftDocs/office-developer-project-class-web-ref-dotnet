@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Creates an object to access the task links in a draft project.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>DraftTaskLink</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +72,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>DraftTaskLink</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,9 +97,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.DependencyType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the type of link relationship between two tasks.</summary>
+        <value>An object that represents one of several different dependency types.</value>
+        <remarks>
+          <para>An example of a dependency link type is <b>FinishStart</b>. The predecessor, task A, must finish before the successor, task B, can start.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="End">
@@ -123,8 +126,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftTask</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the task at the end of the link.</summary>
+        <value>A <b>DraftTask</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -148,10 +151,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +180,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftTask</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the task at the start of the link.</summary>
+        <value>A <b>DraftTask</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

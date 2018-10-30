@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>An interface that enables workflow activities to integrate with Project Server functionality.</summary>
+    <remarks>
+      <para>The methods defined in <b>IPSWorkflowService</b> are implemented in the <see cref="T:Microsoft.Office.Project.Server.Workflow.PSWorkflowService" /> class.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="CheckQueueProcessed">
@@ -43,11 +46,14 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="jobUid">The GUID of the queue job.</param>
+        <summary>Returns the current queue completion state of the specified queue job.</summary>
+        <returns>The job completion state for the specified job.</returns>
+        <remarks>
+          <para>The job completion state can be used to determine whether the queue job has completed processing.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CheckRequiredFields">
@@ -71,11 +77,13 @@
         <Parameter Name="alwaysWait" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="stageUid">To be added.</param>
-        <param name="alwaysWait">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the workflow stage to check.</param>
+        <param name="alwaysWait">
+          <b>True</b> if the current stage is set to wait always, even if there are no required fields; otherwise, <b>false</b>.</param>
+        <summary>Checks whether there are required custom fields or business drivers.</summary>
+        <returns>
+          <b>True</b> if there are required custom fields; otherwise, <b>false</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -99,10 +107,14 @@
         <Parameter Name="error" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="error">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="error">
+          <b>True</b> if there is an error in the workflow; otherwise, <b>false</b>.</param>
+        <summary>Marks a workflow stage as completed, or completed with errors.</summary>
+        <remarks>
+          <para>The <b>CleanupAfterWF</b> method is used when the workflow completes a stage or when it encounters an error.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CompareProjectProperty">
@@ -133,19 +145,22 @@
         <Parameter Name="codePropertyValue" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="propertyName">To be added.</param>
-        <param name="mdPropUid">To be added.</param>
-        <param name="compareOperator">To be added.</param>
-        <param name="textPropertyValue">To be added.</param>
-        <param name="numericPropertyValue">To be added.</param>
-        <param name="dateTimePropertyValue">To be added.</param>
-        <param name="durationPropertyValue">To be added.</param>
-        <param name="flagPropertyValue">To be added.</param>
-        <param name="codePropertyValue">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and is not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">The GUID of the custom field to be compared.</param>
+        <param name="compareOperator">The comparison operation to be performed, specified by a <see cref="T:Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" /> constant.</param>
+        <param name="textPropertyValue">The text value that is used in the comparison. If the property is not a text value, <paramref name="textPropertyValue" /> is ignored.</param>
+        <param name="numericPropertyValue">The numeric value that is used in the comparison. If the property is not a numeric value, <paramref name="numericPropertyValue" /> is ignored.</param>
+        <param name="dateTimePropertyValue">The <b>DateTime</b> value that is used in the comparison. If the property is not a <b>DateTime</b> value, <paramref name="dateTimePropertyValue" /> is ignored.</param>
+        <param name="durationPropertyValue">The duration value that is used in the comparison. If the property is not a duration value, <paramref name="durationPropertyValue" /> is ignored.</param>
+        <param name="flagPropertyValue">A <b>Boolean</b> value that is used in the comparison. If the property is not a <b>Boolean</b> value, <paramref name="flagPropertyValue" /> is ignored.</param>
+        <param name="codePropertyValue">A code value (such as the GUID of a selection in a lookup table) that is used in the comparison. If the property is not a code value, <paramref name="codePropertyValue" /> is ignored.</param>
+        <summary>Compares the value of the specified project property with the supplied value.</summary>
+        <returns>The result of the comparison operation.</returns>
+        <remarks>
+          <para>The comparison is based on the type of the specified project property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetEventSubscriptionCount">
@@ -170,13 +185,16 @@
         <Parameter Name="correlationId" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="instanceUid">To be added.</param>
-        <param name="eventName">To be added.</param>
-        <param name="correlationId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="instanceUid">The GUID of the workflow instance.</param>
+        <param name="eventName">The name of the event.</param>
+        <param name="correlationId">The GUID of the correlation identifier of the event. The correlation identifier can be used to uniquely identify an event within a workflow instance.</param>
+        <summary>Gets the total number of subscriptions for the specified workflow instance, event name, and correlation identifier combination.</summary>
+        <returns>The number of subscriptions to the event.</returns>
+        <remarks>
+          <para>Activities that provide a workflow consumable event should use the <b>GetEventSubscriptionCount</b> method to determine whether there are any active subscribers for the event. If there are no subscriptions for the event, the activity can choose to not raise the event.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadProjectProperty">
@@ -200,11 +218,11 @@
         <Parameter Name="mdPropUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="propertyName">To be added.</param>
-        <param name="mdPropUid">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">The GUID of the custom field to be read.</param>
+        <summary>Returns the value of the specified property in a localized string format.</summary>
+        <returns>An array containing the localized string representation of the values.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -229,11 +247,12 @@
         <Parameter Name="filterByDepartment" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="securityGroupUid">To be added.</param>
-        <param name="filterByDepartment">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="securityGroupUid">The GUID of the security group.</param>
+        <param name="filterByDepartment">
+          <b>True</b> if group members are filtered by the department of the active project; otherwise, <b>false</b>.</param>
+        <summary>Returns a list of the user account names that are associated with the specified security group.</summary>
+        <returns>An array of user names for members of the specified group.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -260,13 +279,17 @@
         <Parameter Name="subscriptionUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="instanceUid">To be added.</param>
-        <param name="eventName">To be added.</param>
-        <param name="correlationId">To be added.</param>
-        <param name="subscriptionUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="instanceUid">The GUID of the workflow activity instance.</param>
+        <param name="eventName">The name of the event that is being registered.</param>
+        <param name="correlationId">The GUID of the correlation identifier of the event. The correlation identifier can be used to uniquely identify an event within a workflow instance.</param>
+        <param name="subscriptionUid">The GUID that is supplied by the caller to register for the event. The registration is defined by the specified instance, event name, and correlation identifier.</param>
+        <summary>Registers a workflow activity for an event that is raised for the workflow.</summary>
+        <remarks>
+          <para>Project Server workflows integrate with the <b>SPWorkflowExternalDataExchangeService</b> to support raising events within the workflow.</para>
+          <para>Events that do not need to be uniquely identified within the workflow can use the workflow instance identifier for the correlation identifier. For example, the <b>OnProjectSubmit</b> event uses the workflow instance identifier as the correlation identifier.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SetInitialStages">
@@ -289,9 +312,9 @@
         <Parameter Name="stageInfo" Type="System.Data.DataSet" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="stageInfo">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageInfo">Contains the workflow status information to be updated.</param>
+        <summary>Updates the status information for the specified workflow stages.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -324,18 +347,18 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="propertyName">To be added.</param>
-        <param name="mdPropUid">To be added.</param>
-        <param name="textPropertyValue">To be added.</param>
-        <param name="numericPropertyValue">To be added.</param>
-        <param name="dateTimePropertyValue">To be added.</param>
-        <param name="durationPropertyValue">To be added.</param>
-        <param name="flagPropertyValue">To be added.</param>
-        <param name="codePropertyValue">To be added.</param>
-        <param name="deleteValue">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property to be set. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and is not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">GUID of the custom field.</param>
+        <param name="textPropertyValue">The text value to be set. If the property is not a text value, <paramref name="textPropertyValue" /> is ignored.</param>
+        <param name="numericPropertyValue">The numeric value to be set. If the property is not a numeric value, <paramref name="numericPropertyValue" /> is ignored.</param>
+        <param name="dateTimePropertyValue">The <b>DateTime</b> value to be set. If the property is not a <b>DateTime</b> value, <paramref name="dateTimePropertyValue" /> is ignored.</param>
+        <param name="durationPropertyValue">The duration value to be set. If the property is not a duration value, <paramref name="durationPropertyValue" /> is ignored.</param>
+        <param name="flagPropertyValue">A <b>Boolean</b> value to be set. If the property is not a <b>Boolean</b> value, <paramref name="flagPropertyValue" /> is ignored.</param>
+        <param name="codePropertyValue">A code value (such as the GUID of a selection in a lookup table) to be set. If the property is not a code value, <paramref name="codePropertyValue" /> is ignored.</param>
+        <param name="deleteValue">Specifies whether to delete the custom field value (<b>true</b> to delete; otherwise, <b>false</b>).</param>
+        <param name="jobUid">The GUID of the queue job.</param>
+        <summary>Updates the specified custom field property of the Project Server workflow.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -360,10 +383,11 @@
         <Parameter Name="leavingStage" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="stageUid">To be added.</param>
-        <param name="leavingStage">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the workflow stage.</param>
+        <param name="leavingStage">
+          <b>False</b> if the workflow is entering the stage; <b>true</b> if the workflow is leaving the stage.</param>
+        <summary>Updates the current stage of the Project Server workflow.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -387,9 +411,9 @@
         <Parameter Name="subscriptionUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="subscriptionUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="subscriptionUid">The GUID for the subscription that was specified in the <see cref="M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.RegisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid,System.Guid)" /> method.</param>
+        <summary>Unregisters the specified event subscription.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -415,11 +439,12 @@
         <Parameter Name="append" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="statusInformation">To be added.</param>
-        <param name="stageStatusValue">To be added.</param>
-        <param name="append">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="statusInformation">Information about the stage status.</param>
+        <param name="stageStatusValue">The stage status value to set. It uses one of the <see cref="T:Microsoft.Office.Project.Server.Library.Workflow.StageStatus" /> constants.</param>
+        <param name="append">
+          <b>True</b> if the <paramref name="statusInformation" /> value is to be appended; <b>false</b> if the <paramref name="statusInformation" /> value is to be replaced.</param>
+        <summary>Sets a stage status value and information for the current stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -446,12 +471,13 @@
         <Parameter Name="append" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="workflowContext">To be added.</param>
-        <param name="stageUid">To be added.</param>
-        <param name="statusInformation">To be added.</param>
-        <param name="stageStatusValue">To be added.</param>
-        <param name="append">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the stage.</param>
+        <param name="statusInformation">Information about the stage status.</param>
+        <param name="stageStatusValue">The stage status value to set. It uses one of the <see cref="T:Microsoft.Office.Project.Server.Library.Workflow.StageStatus" /> constants.</param>
+        <param name="append">
+          <b>True</b> if the <paramref name="statusInformation" /> is to be appended; <b>false</b> if the <paramref name="statusInformation" /> is to be replaced.</param>
+        <summary>Sets the status information and value for the specified stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

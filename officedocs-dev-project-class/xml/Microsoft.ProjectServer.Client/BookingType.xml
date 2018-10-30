@@ -13,8 +13,33 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies how resources are booked for assignments.</summary>
+    <remarks>
+      <para>The <b>BookingType</b> enumeration in the CSOM is equivalent to <see cref="T:Microsoft.Office.Project.Server.Library.Resource.BookingType" /> in the <b>Microsoft.Office.Project.Server.Library</b>. The <b>BookingType</b> constants can be used with the following properties:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="P:Microsoft.ProjectServer.Client.DraftProjectResource.DefaultBookingType" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="P:Microsoft.ProjectServer.Client.PublishedProjectResource.DefaultBookingType" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="P:Microsoft.ProjectServer.Client.DraftAssignment.DefaultBookingType" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="P:Microsoft.ProjectServer.Client.PublishedAssignment.DefaultBookingType" />
+          </description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Committed">
@@ -34,7 +59,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Resources are booked as "Committed."</summary>
       </Docs>
     </Member>
     <Member MemberName="NotSpecified">
@@ -54,7 +79,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=-1. The resource booking type is not specified. This is the default value. This constant is used in place of a <b>DBNull</b> value.</summary>
       </Docs>
     </Member>
     <Member MemberName="Proposed">
@@ -74,7 +99,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Resources are booked as "Proposed."</summary>
       </Docs>
     </Member>
   </Members>

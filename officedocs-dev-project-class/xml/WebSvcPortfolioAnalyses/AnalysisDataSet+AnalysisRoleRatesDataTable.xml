@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about role rates that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AnalysisRoleRatesDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>AnalysisRoleRatesDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRoleRatesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Adds a <b>AnalysisRoleRatesRow</b> object to the <b>AnalysisRoleRatessDataTable</b></summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -134,14 +137,17 @@
         <Parameter Name="RATE_TABLE" Type="System.Byte" />
       </Parameters>
       <Docs>
-        <param name="ANALYSIS_UID">To be added.</param>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <param name="LT_STRUCT_UID">To be added.</param>
-        <param name="STANDARD_RATE">To be added.</param>
-        <param name="RATE_TABLE">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ANALYSIS_UID">Contains the analysis GUID.</param>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <param name="LT_STRUCT_UID">Contains the lookup table GUID.</param>
+        <param name="STANDARD_RATE">Contains the standard rate for the specified rate table for the specified role in the analysis.</param>
+        <param name="RATE_TABLE">Contains the value that specifies which rate table to use.</param>
+        <summary>Adds a <b>AnalysisRoleRatesRow</b> object to the <b>AnalysisRoleRatessDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesDataTable.AddAnalysisRoleRatesRow(WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_UIDColumn">
@@ -165,7 +171,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow.ANALYSIS_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -186,7 +192,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRoleRatesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -206,7 +212,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRoleRatesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -226,7 +232,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRoleRatesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -246,7 +252,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.AnalysisDataSet+AnalysisRoleRatesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -301,7 +307,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>AnalysisRoleRatesDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -354,8 +360,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow.CUSTOM_FIELD_UID" /> field.</summary>
+        <value>Returns <see cref="T:System.Data.DataColumn" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -386,11 +392,11 @@
         <Parameter Name="RATE_TABLE" Type="System.Byte" />
       </Parameters>
       <Docs>
-        <param name="ANALYSIS_UID">To be added.</param>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <param name="LT_STRUCT_UID">To be added.</param>
-        <param name="RATE_TABLE">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ANALYSIS_UID">Contains the analysis GUID.</param>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <param name="LT_STRUCT_UID">Contains the lookup table GUID.</param>
+        <param name="RATE_TABLE">Contains the value that specifies which rate table to use.</param>
+        <summary>Retrieves an <b>AnalysisRoleRatesRow</b> object by using the specified analysis GUID, the custom field GUID, the lookup table GUID, and the rate table value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -420,7 +426,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>AnalysisRoleRatesDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -477,7 +483,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -506,8 +512,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>AnalysisRoleRateDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -533,7 +539,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow.LT_STRUCT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -560,7 +566,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>AnalysisRoleRatesDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -732,7 +738,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow.RATE_TABLE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -762,7 +768,7 @@
       </Parameters>
       <Docs>
         <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Deletes the specified row object from the <b>AnalysisRoleRatesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -787,7 +793,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.AnalysisDataSet.AnalysisRoleRatesRow.STANDARD_RATE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

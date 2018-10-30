@@ -35,8 +35,12 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Initializes a Project Server workflow and contains all other activities that are part of the Project Server workflow.</summary>
+    <remarks>
+      <para>The Workflow Designer pane and the Properties pane in Microsoft Visual Studio 2010 enable you to get and set properties in fields for the <b>ProjectSequence</b> activity.</para>
+      <para>For an example that uses the <b>ProjectSequence</b> activity, see How to: Create a Branching Workflow.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -52,7 +56,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ProjectSequence</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -75,9 +79,9 @@
         <Parameter Name="executionContext" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="executionContext">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="executionContext">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the workflow.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -100,9 +104,9 @@
         <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="context">The execution environment of a Project Server workflow.</param>
+        <summary>Executes the Project Server workflow.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -125,10 +129,10 @@
         <Parameter Name="exception" Type="System.Exception" />
       </Parameters>
       <Docs>
-        <param name="executionContext">To be added.</param>
-        <param name="exception">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="executionContext">The execution environment of a Project Server workflow.</param>
+        <param name="exception">The specific exception type.</param>
+        <summary>Handles the specified exception in a Project Server workflow.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -156,9 +160,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the Project Server workflow initiation data from the SharePoint <b>OnWorkflowActivated</b> activity.</summary>
+        <value>A string that contains workflow initiation data.</value>
+        <remarks>
+          <para>For example, if you add a <b>ProjectSequence</b> activity to an <b>OnWorkflowActivated</b> activity named <b>onWorkflowActivated1</b>, set the <b>InitiationData</b> property in the Properties pane to <b>Activity=onWorkflowActivated1, Path=WorkflowProperties.InitiationData</b>. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="InitiationDataProperty">
@@ -177,8 +184,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>InitiationData</b> property.</summary>
+        <remarks>
+          <para>Initiation data for the Project Server workflow is used to create the <b>WorkflowContext</b> property. Initiation data for a Project Server workflow includes the enterprise project type (EPT) name, the EPT GUID, the language and locale, the associated project GUID, and the workflow proxy user information, and specifies whether to moveto a particular stage in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs&gt;.OnEvent">
@@ -233,9 +243,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the context of the Project Server workflow. Read-only.</summary>
+        <value>An object that contains the information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property of the <b>ProjectSequence</b> activity provides context information for all other activities in the Project Server workflow instance.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -254,8 +267,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property.</summary>
+        <remarks>
+          <para>Context information for a Project Server workflow includes the enterprise project type (EPT) name, the EPT GUID, the language and locale, the associated project GUID, and the workflow proxy user information, and specifies whether to moveto a particular stage in the workflow.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

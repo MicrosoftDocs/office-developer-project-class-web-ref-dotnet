@@ -18,8 +18,11 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes post-event handlers for the Report Data Service (RDS).</summary>
+    <remarks>
+      <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -35,7 +38,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ReportingEventReceiver</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -59,9 +62,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostCommittedSolutionDecisionChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for committing a solution decision.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -116,10 +119,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostCustomFieldChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a custom field.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCustomFieldChangedRemote">
@@ -173,10 +179,94 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostCustomFieldCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for creating a custom field.</summary>
+        <remarks>
+          <para>The Report Data Service raises the Reporting custom field created event when the Reporting database is updated with the custom field information. The PSI methods <b>CreateCustomFields</b> and <b>CreateCustomFields2</b> raise a custom field created event before the Reporting event. These events can be very close in time.</para>
+          <para>ReportingCustomFieldMetadataDataSet provides metadata needed by the reporting system when transferring custom field information to the RDS. The value of the CustomFieldTypeUID dataset member can also be found in the event argument property e.CustomFieldTypeGUID.  </para>
+          <para>The names of these two entities include the word “Type” however these values are not associated with the type of the custom field (Cost, Date, Duration, Flag, Number, or Text), rather to the type of the GUID (custom field).</para>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+          <para />
+        </remarks>
+        <example>
+          <para>The following is an example of a custom field created post-event handler. The example <b>OnCustomFieldCreated</b> method retrieves information from the event parameters and writes it to an XML file.</para>
+          <code>using System;
+using System.Data;
+using System.IO;
+using System.Text;
+using Microsoft.Office.Project.Server.Events;
+using PSLib = Microsoft.Office.Project.Server.Library;
+using PSSchema = Microsoft.Office.Project.Server.Schema;
+
+namespace Microsoft.SDK.Project.Samples.ReportingEvents
+{
+    public class TestCustomFieldCreated : ReportingEventReceiver
+    {
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private static string outFilePath;
+        
+        public override void OnCustomFieldCreated(PSLib.PSContextInfo 
+            contextInfo, ReportingPostCustomFieldCreatedEventArgs e)
+        {
+            // Record the time of the event.
+
+
+            DateTime eventRaised = DateTime.Now;
+            
+            // Create the location for the output file.
+
+            outFilePath = OUTPUT_FILES + "ReportingCustomFieldCreatedTestOutput.txt";
+            
+            // Write event argument information to the output file.
+
+            string eventData = "\r\n\r\nCustom Field Created post-event handler: " + eventRaised.ToString();
+            eventData += "\r\nPWA site Guid: " + contextInfo.SiteGuid.ToString();
+            eventData += "\r\nUser name: " + contextInfo.UserName;
+            eventData += "\r\nUser Guid: " + contextInfo.UserGuid;
+            eventData += "\r\nCustom field type GUID: " + e.CustomFieldTypeGuid.ToString();
+
+            // Include the reporting metadata for the custom field.
+            PSSchema.ReportingCustomFieldMetadataDataSet projectDs = e.CustomFieldMetadataDataSet;
+            projectDs.WriteXml(outFilePath);
+
+            using (StreamWriter outputData = new StreamWriter(outFilePath, true))
+            {
+                outputData.WriteLine();
+                outputData.WriteLine(eventData);
+                outputData.Close();
+            }
+        }
+    }
+}
+</code>
+          <para>The following example lists the contents of the ReportingCustomFieldCreatedTestOutput.txt file that is written by the application.</para>
+          <para>
+            <b>Note</b>: The custom field information in the example is specific to the custom field that is defined in a Project Web App instance.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;ReportingCustomFieldMetadataDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/ReportingCustomFieldMetadataDataSet/"&amp;gt;
+  &amp;lt;CustomFieldMetadata&amp;gt;
+    &amp;lt;CustomFieldTypeUID&amp;gt;1e1dfb97-b4fc-4d8a-aaa8-b1ad079a2013&amp;lt;/CustomFieldTypeUID&amp;gt;
+    &amp;lt;ParentEntityTypeGuid&amp;gt;cecfe271-6660-4abe-97ed-208d3c71fc18&amp;lt;/ParentEntityTypeGuid&amp;gt;
+    &amp;lt;CustomFieldName&amp;gt;Test Project Text CF - has LUT&amp;lt;/CustomFieldName&amp;gt;
+    &amp;lt;CustomFieldType&amp;gt;21&amp;lt;/CustomFieldType&amp;gt;
+    &amp;lt;LookupTableUID&amp;gt;cdff825e-8951-4ac7-ad0e-ba28a009dd1d&amp;lt;/LookupTableUID&amp;gt;
+    &amp;lt;IsMultiValueEnabled&amp;gt;false&amp;lt;/IsMultiValueEnabled&amp;gt;
+    &amp;lt;HasWeights&amp;gt;false&amp;lt;/HasWeights&amp;gt;
+    &amp;lt;AssignmentRollDown&amp;gt;false&amp;lt;/AssignmentRollDown&amp;gt;
+    &amp;lt;CreatedDate&amp;gt;2011-03-28T18:45:31.827-07:00&amp;lt;/CreatedDate&amp;gt;
+    &amp;lt;ModificationDate&amp;gt;2011-03-28T18:45:31.827-07:00&amp;lt;/ModificationDate&amp;gt;
+  &amp;lt;/CustomFieldMetadata&amp;gt;
+&amp;lt;/ReportingCustomFieldMetadataDataSet&amp;gt;
+
+Custom Field Created post-event handler: 3/28/2011 6:45:40 PM
+PWA site GUID: 9f110f4a-3632-42d3-a1e5-21f9c43360c3
+User name: DOMAIN\UserName
+User GUID: 2e0fdcc1-85fc-4bde-9593-78a2789c66af
+Custom field type GUID: 1e1dfb97-b4fc-4d8a-aaa8-b1ad079a2013</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="OnCustomFieldCreatedRemote">
@@ -230,10 +320,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostCustomFieldDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a custom field.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnCustomFieldDeletedRemote">
@@ -287,9 +380,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostEnterpriseProjectTypeChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting an Enterprise Project type.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -344,9 +437,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostEnterpriseProjectTypeChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for updating an Enterprise Project type.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -401,10 +494,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostFiscalPeriodChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a fiscal period.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnFiscalPeriodChangedRemote">
@@ -458,10 +554,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostFiscalPeriodDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a fiscal period.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnFiscalPeriodDeletedRemote">
@@ -515,10 +614,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostLookupTableChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a lookup table.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLookupTableChangedRemote">
@@ -572,10 +674,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostLookupTableCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for creating a lookup table.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLookupTableCreatedRemote">
@@ -629,10 +734,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostLookupTableDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a lookup table.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnLookupTableDeletedRemote">
@@ -686,10 +794,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a project.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectChangedRemote">
@@ -743,10 +854,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for publishing a new project.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectCreatedRemote">
@@ -800,10 +914,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a project.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectDeletedRemote">
@@ -857,9 +974,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a project summary.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -914,9 +1031,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectWorkflowInformationChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing project workflow information.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -971,10 +1088,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectWorkspaceChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a project site.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectWorkspaceChangedRemote">
@@ -1028,10 +1148,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectWorkspaceCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for creating a project site.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectWorkspaceCreatedRemote">
@@ -1085,10 +1208,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostProjectWorkspaceDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a project site.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnProjectWorkspaceDeletedRemote">
@@ -1142,10 +1268,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostResourceCapacitiesChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a resource calendar which affects resource capacity.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResourceCapacitiesChangedRemote">
@@ -1199,10 +1328,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostResourceCapacityTimeRangeChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a resource calendar time range which affects resource capacity.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResourceCapacityTimeRangeChangedRemote">
@@ -1256,10 +1388,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostResourceChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing resource core data or custom field data.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResourceChangedRemote">
@@ -1313,10 +1448,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostResourceCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for creating a resource.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResourceCreatedRemote">
@@ -1370,10 +1508,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostResourceDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a resource.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnResourceDeletedRemote">
@@ -1427,10 +1568,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetAdjustedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for adjusting a timesheet.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetAdjustedRemote">
@@ -1484,10 +1628,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetClassChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a timesheet line class.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetClassChangedRemote">
@@ -1541,10 +1688,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a timesheet.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetDeletedRemote">
@@ -1598,10 +1748,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetPeriodChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a timesheet period.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetPeriodChangedRemote">
@@ -1655,10 +1808,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetPeriodCreatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for creating a timesheet period.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetPeriodCreatedRemote">
@@ -1712,10 +1868,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetPeriodDeletedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a timesheet period.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetPeriodDeletedRemote">
@@ -1769,9 +1928,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetProjectAggregatedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for timesheet project aggregation.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1826,10 +1985,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetSavedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for saving a timesheet.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetSavedRemote">
@@ -1883,10 +2045,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostTimesheetStatusChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing timesheet status.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnTimesheetStatusChangedRemote">
@@ -1940,10 +2105,13 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostUserViewChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for changing a <b>UserView</b> table in the Reporting database.</summary>
+        <remarks>
+          <para>For more information about RDS events for the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OnUserViewChangedRemote">
@@ -1997,9 +2165,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostWorkflowPhaseChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a workflow phase.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2054,9 +2222,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostWorkflowPhaseChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for updating a workflow phase.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2111,9 +2279,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostWorkflowStageChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for deleting a workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2168,9 +2336,9 @@
         <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ReportingPostWorkflowStageChangedEventArgs" />
       </Parameters>
       <Docs>
-        <param name="contextInfo">To be added.</param>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler in the Report Data Service for updating a workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

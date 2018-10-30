@@ -19,8 +19,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains methods that encapsulate Project Server workflow activities and methods, for use with version 4 of Windows Workflow Foundation (WF4).</summary>
+    <remarks>
+      <para>
+        <b>Note</b>: When you develop new Microsoft Project Server 2013 workflows, you can use Microsoft SharePoint Designer 2013, which internally accesses methods in the <b>WorkflowActivities</b> class of the CSOM.</para>
+      <para>The CSOM supports both online applications and on-premises applications for Project Server 2013. If you use Microsoft Visual Studio 2012 to develop workflows, when you drag a Project Server workflow activity to the design pane, the code directly uses the <see cref="T:Microsoft.ProjectServer.Client.WorkflowActivities" /> class in the CSOM. The CSOM then internally calls the <see cref="T:WebSvcWorkflowActivities.WorkflowActivities" /> class in the PSI <b>WorkflowActivities</b> service.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +49,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>WorkflowActivities</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,13 +82,16 @@
         <Parameter Name="eptId" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="webId">To be added.</param>
-        <param name="listId">To be added.</param>
-        <param name="itemId">To be added.</param>
-        <param name="eptId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="webId">The GUID of the SharePoint site (SPWeb) that contains the list.</param>
+        <param name="listId">The GUID of the list (SPList) that contains the project item.</param>
+        <param name="itemId">The GUID of the project item (SPListItem) within the list.</param>
+        <param name="eptId">The GUID of the EPT.</param>
+        <summary>Creates a project from a SharePoint list item, where the project uses the specified enterprise project type (EPT).</summary>
+        <returns>The GUID of the newly created project.</returns>
+        <remarks>
+          <para>The <b>CreateProjectFromListItem</b> method internally calls the <see cref="M:WebSvcWorkflowActivities.WorkflowActivities.CreateProjectFromListItem(System.Guid,System.Guid,System.Int32,System.Guid)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="EnterProjectStage">
@@ -111,10 +119,13 @@
         <Parameter Name="stageId" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="stageId">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="stageId">The GUID of the workflow stage.</param>
+        <summary>Attempts to enter the specified workflow stage for the project.</summary>
+        <remarks>
+          <para>The <b>EnterProjectStage</b> method internally calls the <see cref="M:WebSvcWorkflowActivities.WorkflowActivities.EnterProjectStage(System.Guid,System.Guid)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LeaveProjectStage">
@@ -141,8 +152,8 @@
         <Parameter Name="projectId" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectId">The GUID of the project.</param>
+        <summary>Sets the project complete and leaves the current workflow stage.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -171,11 +182,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of the specified project property by using the SharePoint <b>SPFieldType.Boolean</b> type.</summary>
+        <returns>The <b>Boolean</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadBooleanProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadBooleanProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Boolean</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadCurrencyProperty">
@@ -203,11 +217,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.Currency</b> type.</summary>
+        <returns>The <b>Currency</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadCurrencyProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadCurrencyProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Currency</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadDateTimeProperty">
@@ -235,11 +252,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.DateTime</b> type.</summary>
+        <returns>The <b>DateTime</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadDateTimeProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadDateTimeProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.DateTime</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadGuidProperty">
@@ -267,11 +287,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.Guid</b> type.</summary>
+        <returns>The <b>Guid</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadGuidProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadGuidProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Guid</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadIntegerProperty">
@@ -299,11 +322,23 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.Integer</b> type.</summary>
+        <returns>The <b>Integer</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadIntegerProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadIntegerProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Integer</b>.</para>
+          <para>
+            <b>Note</b>: Reading an Optimizer Decision field fails if the Portfolio Analyzer has not finished with the project. To ensure that the project is committed before reading the value, you can set a Wait for Commit activity in the workflow.</para>
+          <para>For example, use the following REST query on a project that is not committed in Portfolio Analyzer (all on one line):</para>
+          <code>http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/pwa/_api/ProjectServer/WorkflowActivities/
+    ReadIntegerProperty(projectId='&lt;span class="placeholder"&gt;&amp;lt;YOUR-PROJID&amp;gt;&lt;/span&gt;',propertyId='Optimizer%20Decision')</code>
+          <para>If the Optimizer Decision field is a null reference (Nothing in Visual Basic), the query gives the following result:</para>
+          <code>PJClientCallableException: WorkflowActivityInvalidArgument WorkflowActivityInvalidArgument 
+Error = Project property not found: propertyName = Optimizer Decision, 
+mdPropUid = 00000000-0000-0000-0000-000000000000</code>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadNumberProperty">
@@ -331,11 +366,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.Number</b> type.</summary>
+        <returns>The <b>Number</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadNumberProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadNumberProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Number</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadProjectProperty">
@@ -363,11 +401,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the <b>String</b> value of of the specified project property.</summary>
+        <returns>The <b>String</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadProjectProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadProjectProperty</b> method works with any field type for project properties.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadTextProperty">
@@ -395,11 +436,14 @@
         <Parameter Name="propertyId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <summary>Reads the value of of the specified project property by using the SharePoint <b>SPFieldType.Text</b> type.</summary>
+        <returns>The <b>Text</b> value of the property.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadTextProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>ReadTextProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Text</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadyToLeaveProjectStage">
@@ -426,10 +470,13 @@
         <Parameter Name="projectId" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <summary>Checks whether the current workflow stage requirements are satisfied.</summary>
+        <returns>A <b>ReadyToLeaveProjectStageValue</b> enumeration constant that indicates which (if any) stage requirements are not satisfied.</returns>
+        <remarks>
+          <para>A Project Server workflow can call the <b>ReadyToLeaveProjectStage</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateBooleanProperty">
@@ -458,11 +505,14 @@
         <Parameter Name="value" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Boolean</b> value to update.</param>
+        <summary>Updates the value of the specified project property by using the SharePoint <b>SPFieldType.Boolean</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateBooleanProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateBooleanProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Boolean</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateCurrencyProperty">
@@ -491,11 +541,14 @@
         <Parameter Name="value" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Currency</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.Currency</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateCurrencyProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateCurrencyProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Currency</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateDateTimeProperty">
@@ -524,11 +577,14 @@
         <Parameter Name="value" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>DateTime</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.DateTime</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateDateTimeProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateDateTimeProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.DateTime</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateGuidProperty">
@@ -557,11 +613,14 @@
         <Parameter Name="value" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Guid</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.Guid</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateGuidProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateGuidProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Guid</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateIdeaListItemStatus">
@@ -589,10 +648,13 @@
         <Parameter Name="status" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="status">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="status">The status message to write to the idea status column.</param>
+        <summary>Updates the Status column in the SharePoint project idea list with a status string.</summary>
+        <remarks>
+          <para>The <b>UpdateIdeaListItemStatus</b> method updates the original item in the SharePoint list for project ideas that the <see cref="M:Microsoft.ProjectServer.Client.WorkflowActivities.CreateProjectFromListItem(System.Guid,System.Guid,System.Int32,System.Guid)" /> method used to create the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateIntegerProperty">
@@ -621,11 +683,14 @@
         <Parameter Name="value" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Integer</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.Integer</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateIntegerProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateIntegerProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Integer</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateNumberProperty">
@@ -654,11 +719,14 @@
         <Parameter Name="value" Type="System.Double" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Number</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.Number</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateNumberProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateNumberProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Number</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateProjectStageStatus">
@@ -689,13 +757,17 @@
         <Parameter Name="append" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="stageId">To be added.</param>
-        <param name="statusInformation">To be added.</param>
-        <param name="stageStatusValue">To be added.</param>
-        <param name="append">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="stageId">The GUID of the workflow stage.</param>
+        <param name="statusInformation">The status information value to update.</param>
+        <param name="stageStatusValue">The stage status value to set; can be one of the constants in the <see cref="T:Microsoft.ProjectServer.Client.UpdateProjectStageStatusFieldValue" /> enumeration.</param>
+        <param name="append">
+          <b>True</b> if the information text is appended; <b>false</b> if the information text is replaced.</param>
+        <summary>Updates the status value and the status information for a Project Server workflow stage.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateProjectStageStatus</b> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateTextProperty">
@@ -724,11 +796,14 @@
         <Parameter Name="value" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectId">To be added.</param>
-        <param name="propertyId">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectId">The GUID of the project.</param>
+        <param name="propertyId">The GUID of the property to read.</param>
+        <param name="value">The <b>Text</b> value to update.</param>
+        <summary>Updates the value of of the specified project property by using the SharePoint <b>SPFieldType.Text</b> type.</summary>
+        <remarks>
+          <para>A Project Server workflow can call the <b>UpdateTextProperty</b> method. Valid <paramref name="propertyId" /> values can be retrieved from the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesigner.Fields" /> collection by using the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.Id" /> property. The <b>UpdateTextProperty</b> method works only with fields where the <see cref="P:Microsoft.ProjectServer.Client.WorkflowDesignerField.SPFieldType" /> property is <b>SPFieldType.Text</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

@@ -14,8 +14,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains methods that get the source name of an event and the event name.</summary>
+    <remarks>
+      <para>The source of an event can be the name of a primary class in the PSI, such as <b>Project</b>, <b>Statusing</b>, or <b>LookupTable</b>. The event name can be a pre-event such as <b>Creating</b> or a post-event such as <b>Created</b>.</para>
+      <para>For a list of events in Project Server, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSEventID" /> enumeration.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,7 +35,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>PSEventNameMap</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -54,10 +58,13 @@
         <Parameter Name="id" Type="Microsoft.Office.Project.Server.Library.PSEventID" />
       </Parameters>
       <Docs>
-        <param name="id">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="id">The identification number of the event.</param>
+        <summary>Gets the name of the specified event.</summary>
+        <returns>The name of the event.</returns>
+        <remarks>
+          <para>For example, the PSEventNameMap.GetEventName(PSEventId.ProjectDeleted) statement returns the value <b>"Deleted"</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetSourceName">
@@ -79,10 +86,13 @@
         <Parameter Name="id" Type="Microsoft.Office.Project.Server.Library.PSEventID" />
       </Parameters>
       <Docs>
-        <param name="id">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="id">The identification number of the event.</param>
+        <summary>Gets the source name of the specified event.</summary>
+        <returns>The source name of the event.</returns>
+        <remarks>
+          <para>For example, the PSEventNameMap.GetSourceName(PSEventId.ProjectDeleted) statement returns the value <b>"Project"</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

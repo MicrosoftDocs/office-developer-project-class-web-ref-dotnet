@@ -18,8 +18,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the type of project.</summary>
+    <remarks>
+      <para>The only valid project types the PSI can create are <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.Project" />, <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.Template" />, <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.LightWeightProject" />, <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.MasterProject" />, and <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.InsertedProject" />. The other project types are for internal use and are not described. </para>
+      <para>The <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.Global" /> and <see cref="F:Microsoft.Office.Project.Server.Library.Project.ProjectType.ResGlobal" /> values correspond to the enterprise global template and the enterprise resource pool in versions of Microsoft Office Project Server prior to 2007. In Project Server, the enterprise global and enterprise resource pool are not projects.</para>
+      <para>For more information, see the <see cref="M:WebSvcProject.Project.ReadProjectStatus(System.Guid,WebSvcProject.DataStoreEnum,System.String,System.Int32)" /> PSI method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Global">
@@ -39,7 +44,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Enterprise global template.</summary>
       </Docs>
     </Member>
     <Member MemberName="InactiveGlobal">
@@ -59,7 +64,7 @@
       </ReturnValue>
       <MemberValue>1002</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1002. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="InactiveOffset">
@@ -79,7 +84,7 @@
       </ReturnValue>
       <MemberValue>1000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1000. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="InactiveProject">
@@ -99,7 +104,7 @@
       </ReturnValue>
       <MemberValue>1000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1000. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="InactiveTemplate">
@@ -119,7 +124,7 @@
       </ReturnValue>
       <MemberValue>1001</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1001. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="InsertedProject">
@@ -139,7 +144,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. A subproject.</summary>
       </Docs>
     </Member>
     <Member MemberName="LightWeightProject">
@@ -159,7 +164,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. A project proposal.</summary>
       </Docs>
     </Member>
     <Member MemberName="MasterProject">
@@ -179,7 +184,7 @@
       </ReturnValue>
       <MemberValue>6</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=6. Master project.</summary>
       </Docs>
     </Member>
     <Member MemberName="MaxRequestValue">
@@ -199,7 +204,7 @@
       </ReturnValue>
       <MemberValue>101</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=101. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="MinRequestValue">
@@ -219,7 +224,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="NewGlobal">
@@ -239,7 +244,7 @@
       </ReturnValue>
       <MemberValue>102</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=102. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="NewOffset">
@@ -259,7 +264,7 @@
       </ReturnValue>
       <MemberValue>100</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=100. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="NewProject">
@@ -279,7 +284,7 @@
       </ReturnValue>
       <MemberValue>100</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=100. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="NewResGlobal">
@@ -299,7 +304,7 @@
       </ReturnValue>
       <MemberValue>103</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=103. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="NewTemplate">
@@ -319,7 +324,7 @@
       </ReturnValue>
       <MemberValue>101</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=101. Internal only; do not use.</summary>
       </Docs>
     </Member>
     <Member MemberName="Project">
@@ -339,7 +344,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. A standard project.</summary>
       </Docs>
     </Member>
     <Member MemberName="ResGlobal">
@@ -359,7 +364,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Enterprise resource pool.</summary>
       </Docs>
     </Member>
     <Member MemberName="Template">
@@ -379,7 +384,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. A project template.</summary>
       </Docs>
     </Member>
     <Member MemberName="TimesheetAdminProject">
@@ -399,7 +404,7 @@
       </ReturnValue>
       <MemberValue>7</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=7. Timesheet administrative project, used in upgrades from Microsoft Office Project Server 2007. For more information, see the Reporting database schema reference.</summary>
       </Docs>
     </Member>
     <Member MemberName="Void">
@@ -424,7 +429,7 @@
       </ReturnValue>
       <MemberValue>-1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=-1. Internal only; do not use.</summary>
       </Docs>
     </Member>
   </Members>

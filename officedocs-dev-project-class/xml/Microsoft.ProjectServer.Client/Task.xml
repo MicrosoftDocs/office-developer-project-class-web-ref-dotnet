@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains methods and properties that can be used to access the details of the task.</summary>
+    <remarks>
+      <para>A task is an activity that has a beginning and an end. Project plans are made up of tasks.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>Task</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the span of active working time that is required to complete a task.</summary>
+        <value>The span of actual working time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the span of active working time that is required to complete a task.</summary>
+        <value>The duration of the span of actual working time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total planned cost for the task.</summary>
+        <value>The total planned cost.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,9 +152,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the original span of time that is planned to complete the task, established at the time of the project baseline.</summary>
+        <value>The span of time that is planned to complete the task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for baseline duration, use the <see cref="P:Microsoft.ProjectServer.Client.Task.BaselineDurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineDurationTimeSpan">
@@ -175,8 +181,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the original span of time that is planned to complete the task, established at the time of the project baseline.</summary>
+        <value>The duration of the span of time that is planned to complete the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +207,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the planned task completion date that was set at the time that the baseline was saved.</summary>
+        <value>The planned completion date for the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +233,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the planned task start date that was set at the time that the baseline was saved.</summary>
+        <value>The planned start date for the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,9 +259,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total planned person-hours that are scheduled for a task, as established at the time of the project baseline.</summary>
+        <value>The total planned person-hours.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for baseline work, use the <see cref="P:Microsoft.ProjectServer.Client.Task.BaselineWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineWorkTimeSpan">
@@ -279,8 +288,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the total planned person-hours that are scheduled for the task, as established at the time of the project baseline.</summary>
+        <value>The duration of the total planned person-hours.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +314,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the budget costs for budget cost resources.</summary>
+        <value>The budget costs.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,8 +340,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the ratio of the baseline costs of work that has been performed on the task to the actual costs of work that has been performed, calculated up to the project status date or today's date.</summary>
+        <value>The ratio of baseline costs to actual costs.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -357,9 +366,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the difference between the baseline cost and the total cost for the task.</summary>
+        <value>The cost variance.</value>
+        <remarks>
+          <para>CV = BCWP - ACWP</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CostVarianceAtCompletion">
@@ -383,8 +395,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the difference between the baseline cost and the total cost at the completion of the task.</summary>
+        <value>The cost variance at the completion of the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -409,8 +421,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the ratio of cost variance (CV) to the budgeted cost of work that has been performed on the task (BCWP), expressed as a percentage.</summary>
+        <value>The ratio of CV to BCWP expressed as a percentage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -435,8 +447,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and the time when the task was added to the project.</summary>
+        <value>The date and the time when the task was added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,8 +473,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of custom fields for the task.</summary>
+        <value>A <b>CustomFieldCollection</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -487,9 +499,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the difference between the baseline duration of the task and the total duration, or current estimated duration, of the task.</summary>
+        <value>An amount of time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for duration variance, use the <see cref="P:Microsoft.ProjectServer.Client.Task.DurationVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DurationVarianceTimeSpan">
@@ -513,8 +528,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the difference between the baseline duration of the task and the total duration, or current estimated duration, of the task.</summary>
+        <value>The time duration.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -539,8 +554,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the earliest date that the task could possibly finish, based on the early finish dates of predecessor and successor tasks, other constraints, and any leveling delay.</summary>
+        <value>A <b>DateTime</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -565,8 +580,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the earliest date that the task could possibly begin, based on the early start dates of predecessor and successor tasks and other constraints.</summary>
+        <value>A <b>DateTime</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -591,8 +606,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the estimate at completion (EAC) for the task.</summary>
+        <value>The estimated cost at completion.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -617,9 +632,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the duration between the <b>EarlyFinish</b> date and the <b>LateFinish</b> date.</summary>
+        <value>The amount of time between early and late finish.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the finish slack, use the <see cref="P:Microsoft.ProjectServer.Client.Task.FinishSlackTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FinishSlackTimeSpan">
@@ -643,8 +661,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval of planned person-hours scheduled for an assignment, at the time of the project baseline.</summary>
+        <value>The duration of the amount of time between early and late finish.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -669,9 +687,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time that represents the difference between the baseline finish date of the task and the current finish date.</summary>
+        <value>The finish variance amount of time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the finish variance, use the <see cref="P:Microsoft.ProjectServer.Client.Task.FinishVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FinishVarianceTimeSpan">
@@ -695,9 +716,12 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the variance of the finish date of the task.</summary>
+        <value>The duration of the finish variance.</value>
+        <remarks>
+          <para>The finish variance is the difference between the baseline finish date and the current finish date of the task, as in the following formula:</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FreeSlack">
@@ -721,9 +745,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of time that the task can be delayed without delaying successor tasks.</summary>
+        <value>The time that the task can be delayed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the free slack, use the <see cref="P:Microsoft.ProjectServer.Client.Task.FreeSlackTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FreeSlackTimeSpan">
@@ -747,8 +774,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the amount of time that the task can be delayed without delaying successor tasks.</summary>
+        <value>The duration of the time that the task can be delayed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -773,8 +800,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the task.</summary>
+        <value>The task GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -798,10 +825,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -826,8 +854,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the timing for the task is critical or whether there can be any slack in the timing.</summary>
+        <value>
+          <b>True</b> if the task is critical; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -852,8 +881,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether this is a ghost task from another project created by Project Professional.</summary>
+        <value>
+          <b>True</b> if the task is a ghost task; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -878,8 +908,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the task is overallocated.</summary>
+        <value>
+          <b>True</b> if the task is overallocated; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -904,8 +935,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the task is part of a recurring series.</summary>
+        <value>
+          <b>True</b> if the task is part of a recurring series; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -930,8 +962,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the task is the parent of a recurring series.</summary>
+        <value>
+          <b>True</b> if the task is the parent of a recurring series; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -956,8 +989,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether information on the subtask Gantt bars is rolled up to the summary task bar.</summary>
+        <value>
+          <b>True</b> if information on the subtask Gantt bars is rolled up; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -982,8 +1016,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the task represents a subproject.</summary>
+        <value>
+          <b>True</b> if the task represents a subproject; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1008,8 +1043,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether a subproject for this task is read-only.</summary>
+        <value>
+          <b>True</b> if a subproject for the task is read-only; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1034,8 +1070,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether a subproject for this task is set to schedule from finish.</summary>
+        <value>
+          <b>True</b> if the subproject is set to schedule from finish; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1060,9 +1097,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether the task is a summary task.</summary>
+        <value>
+          <b>True</b> if the task is a summary task; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>A summary task is the task that is made up of subtasks and summarizes those subtasks.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LatestFinish">
@@ -1086,8 +1127,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the latest date that the task can finish without delaying the finish of the project.</summary>
+        <value>The latest date that the task can finish.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1112,8 +1153,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the latest date that the task can start without delaying the finish of the project.</summary>
+        <value>The latest date that the task can start.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1138,8 +1179,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the modified date.</summary>
+        <value>A <b>DateTime</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1164,8 +1205,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the notes about the task.</summary>
+        <value>An object that contains the notes.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1190,8 +1231,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the position of the task in the project outline hierarchy.</summary>
+        <value>The string representation of the hierarchical position for this task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1216,8 +1257,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total overtime cost for the task.</summary>
+        <value>The total overtime.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1242,9 +1283,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of overtime scheduled to be performed on the task.</summary>
+        <value>The overtime work that is scheduled to be performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.Task.OvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeWorkTimeSpan">
@@ -1268,8 +1312,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the amount of overtime scheduled to be performed on the task.</summary>
+        <value>The duration of the overtime work for a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1294,8 +1338,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current status of the task, expressed as the percentage of work that has been completed.</summary>
+        <value>The percentage of work completed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1320,8 +1364,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the finish date of the task as it was before resource leveling was performed.</summary>
+        <value>The finish date of the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1346,8 +1390,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the start date of the task as it was before resource leveling was performed.</summary>
+        <value>The start date of the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1372,9 +1416,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total amount of non-overtime work that is scheduled to be performed on the task.</summary>
+        <value>The total amount of non-overtime work that is scheduled.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the regular work, use the <see cref="P:Microsoft.ProjectServer.Client.Task.RegularWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegularWorkTimeSpan">
@@ -1398,8 +1445,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the total amount of non-overtime work that is scheduled to be performed on the task.</summary>
+        <value>The duration of the regular, nonovertime overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1424,8 +1471,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the remaining scheduled expense that will be incurred during completion of the remaining scheduled work on the task.</summary>
+        <value>The remaining scheduled expense.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1450,8 +1497,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the remaining scheduled overtime expense for the task.</summary>
+        <value>The overtime expense.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1476,9 +1523,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of time, such as person-hours or days, that is required to complete the remaining overtime work for a task.</summary>
+        <value>The time that is required to complete the overtime work on the task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.Task.RemainingOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingOvertimeWorkTimeSpan">
@@ -1502,8 +1552,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the amount of time, such as person-hours or days, that is required to complete the remaining overtime work for a task.</summary>
+        <value>The duration of the remaining overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1528,9 +1578,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time, such as person-hours or days, that is required to complete the task or set of tasks.</summary>
+        <value>The time that is still required to complete the task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining work, use the <see cref="P:Microsoft.ProjectServer.Client.Task.RemainingWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingWorkTimeSpan">
@@ -1554,8 +1607,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the time, such as person-hours or days, that is required to complete the task or set of tasks.</summary>
+        <value>The duration of the remaining regular and overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1580,9 +1633,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the date that the remaining part of the task is scheduled to resume after progress is entered.</summary>
+        <value>The date that the task will resume.</value>
+        <remarks>
+          <para>Examples of types of progress entered are <b>% Complete</b>, <b>% Work Complete</b>, <b>Actual Work</b>, <b>Actual Duration</b>, or <b>Actual Start</b>.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScheduleCostVariance">
@@ -1606,8 +1662,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the difference in cost terms between the current progress and the baseline planned progress for a resource on the task.</summary>
+        <value>The difference in cost terms.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1632,9 +1688,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total span of active working time for the task as entered or as calculated based on the start date, the finish date, calendars, and other scheduling factors.</summary>
+        <value>The total span of active working time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the scheduled duration, use the <see cref="P:Microsoft.ProjectServer.Client.Task.ScheduledDurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ScheduledDurationTimeSpan">
@@ -1658,8 +1717,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total span of active working time for the task as entered or as calculated based on the start date, the finish date, calendars, and other scheduling factors.</summary>
+        <value>The scheduled duration of the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1684,8 +1743,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when work on the task is scheduled to be complete as it was calculated based on the start date, the duration, dependencies, calendars, and other scheduling factors.</summary>
+        <value>The date when work is scheduled to be complete.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1710,8 +1769,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when work on the task is scheduled to begin as it was calculated based on dependencies, constraints, calendars, and other scheduling factors.</summary>
+        <value>The date when work is scheduled to begin.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1736,8 +1795,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the ratio of the budgeted cost of work performed to the budgeted cost of work scheduled.</summary>
+        <value>The ratio of the budgeted costs of work performed on a task to work scheduled.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1762,8 +1821,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the ratio of schedule variance (SV) to budgeted cost of work scheduled (BCWS), expressed as a percentage.</summary>
+        <value>The ratio of SV to BCWS expressed as a percentage number. </value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1788,9 +1847,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the duration between the <b>EarlyStart</b> date and the <b>LateStart</b> date.</summary>
+        <value>The duration between early and late start dates.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the start slack, use the <see cref="P:Microsoft.ProjectServer.Client.Task.StartSlackTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartSlackTimeSpan">
@@ -1814,8 +1876,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the duration between the <b>EarlyStart</b> date and the <b>LateStart</b> date.</summary>
+        <value>The duration of the start date slack time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1840,9 +1902,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time that represents the difference between a baseline start date of the task and its currently scheduled start date.</summary>
+        <value>The time difference between the baseline and scheduled start dates.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the start variance, use the <see cref="P:Microsoft.ProjectServer.Client.Task.StartVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="StartVarianceTimeSpan">
@@ -1866,9 +1931,13 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the variance of the task start date.</summary>
+        <value>The duration of the start variance.</value>
+        <remarks>
+          <para>The start variance is the difference between the baseline start date of the task and the currently scheduled start date, as in the following formula:</para>
+          <para>Start Variance = Start – Baseline Start</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Stop">
@@ -1892,8 +1961,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date that represents the end of the actual portion of the task.</summary>
+        <value>The end date for the actual portion of the task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1918,8 +1987,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedProject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a project that has been inserted into the master project.</summary>
+        <value>A published project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1944,9 +2013,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the To Complete Performance Index for the task.</summary>
+        <value>A numerical value that represents the performance index.</value>
+        <remarks>
+          <para>The To Complete Performance Index (TCPI) enables the project manager to determine the level of performance that is needed to achieve the cost objectives and time objectives.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalSlack">
@@ -1970,9 +2042,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time that the task's finish date can be delayed without delaying the project's finish date.</summary>
+        <value>The slack time presented in a format such as person-hours or days.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the total slack, use the <see cref="P:Microsoft.ProjectServer.Client.Task.TotalSlackTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TotalSlackTimeSpan">
@@ -1996,8 +2071,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total time interval for the amount of time that the task finish date can be delayed without delaying the project's finish date.</summary>
+        <value>The duration of the total slack time for a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -2022,9 +2097,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a code that identifies a location in a hierarchical structure that is used to organize tasks for reporting schedules and tracking costs.</summary>
+        <value>An alphanumeric code.</value>
+        <remarks>
+          <para>Work breakdown structure (WBS) codes are alphanumeric codes that you can use to represent the associated task's position within the hierarchical structure of the project.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkVariance">
@@ -2048,9 +2126,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the difference between baseline work and currently scheduled work on a task, expressed as, for example, the number of person-hours or days.</summary>
+        <value>A value that represents the work variance time.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para>To get the <b>TimeSpan</b> value for the work variance, use the <see cref="P:Microsoft.ProjectServer.Client.Task.WorkVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkVarianceTimeSpan">
@@ -2074,9 +2156,12 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total time interval for the difference between baseline work and currently scheduled work on the task.</summary>
+        <value>The duration of the work variance.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

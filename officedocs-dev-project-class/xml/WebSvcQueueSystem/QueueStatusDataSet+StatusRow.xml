@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents the status of one queue job in the <b>QueueStatusDataSet</b> object.</summary>
+    <remarks>
+      <para>For <b>QueueStatusDataSet</b> example results, see the <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="CorrelationGUID">
@@ -39,7 +42,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the queue job correlation.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -65,9 +68,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the priority of the queue job correlation.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Integer values for the <b>CorrelationPriority</b> property are defined in the <see cref="T:Microsoft.Office.Project.Server.Library.QueueConstants.CorrelationPriority" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ErrorInfo">
@@ -91,9 +97,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents error information in the queue job status.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For a code sample that uses the <b>ErrorInfo</b> property, see the <see cref="M:WebSvcProject.Project.QueueUpdateProject(System.Guid,System.Guid,WebSvcProject.ProjectDataSet,System.Boolean)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GroupPriority">
@@ -117,9 +126,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the priority of the job group in the queue.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For integer values of the <b>GroupPriority</b> property, see the <see cref="T:Microsoft.Office.Project.Server.Library.QueueConstants.QueueMsgPriority" /> type.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsErrorInfoNull">
@@ -144,7 +156,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.ErrorInfo" /> property is set to a a null reference (Nothing in Visual Basic)value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,7 +183,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.MachineName" /> property is set to a a null reference (Nothing in Visual Basic)value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -252,7 +264,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.ServiceName" /> property is set to a a null reference (Nothing in Visual Basic)value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -278,9 +290,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the queue job completion state.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Integer values for the <b>JobCompletionState</b> property are defined in the <see cref="T:WebSvcQueueSystem.JobState" /> enumeration. For queue status results that show <b>JobCompletionState</b>, see the <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="JobGroupGUID">
@@ -304,9 +319,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier used to track a group of queue jobs.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For queue status results that show the <b>JobGroupGUID</b> property, see the <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="JobGUID">
@@ -330,7 +348,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of a queue job.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -356,7 +374,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier of the correlated job information.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -382,8 +400,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Specifies the unique identifier of the most recent administrator action in managing the queue.</summary>
+        <value>Integer values for the <b>LastAdminAction</b> property are defined in the <see cref="T:Microsoft.Office.Project.Server.Library.QueueConstants.AdminAction" /> enumeration.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -408,9 +426,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the name of the computer that processed the Queue job. </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>There can be more than one computer that is running the Queue Service. If the job has not been processed, the <b>MachineName</b> property is a null reference (Nothing in Visual Basic).</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MessageType">
@@ -434,9 +455,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the type of message in a queue job status request.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Integer values for the <b>MessageType</b> property are defined in the <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration. For queue status results that show <b>MessageType</b>, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PercentComplete">
@@ -460,9 +484,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicates the percentage complete of the queue job.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>For queue status results that show the <b>PercentComplete</b> property, see the <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> method.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueCompletedTime">
@@ -486,7 +513,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the completion date and time of queue job processing.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -512,7 +539,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the date and time that the job entered the queue.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -538,9 +565,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the queue identifier (1 is the Project queue; 2 is the Timesheet queue).</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Integer values of the   <b>QueueID</b> property are defined in the <see cref="T:WebSvcQueueSystem.QueueID" /> enumeration. </para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueLocalStorage">
@@ -590,9 +620,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the position of the job in the queue.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Completed jobs have a <b>QueuePosition</b> of -1.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueProcessingTime">
@@ -616,7 +649,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>If the queue job was processing, specifies the date and time that the status was read.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -642,7 +675,7 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Date and time the queue last started processing jobs.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -668,7 +701,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier associated with the Project Server resource who submitted the job to the queue.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -720,7 +753,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the unique identifier associated with the queue service.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -747,7 +780,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.ErrorInfo" /> property to a a null reference (Nothing in Visual Basic)value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -773,7 +806,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.MachineName" /> property to a a null reference (Nothing in Visual Basic) value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -851,7 +884,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcQueueSystem.QueueStatusDataSet.StatusRow.ServiceName" /> property to a a null reference (Nothing in Visual Basic)value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -876,7 +909,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Represents the expected wait time in seconds for the queue job to complete.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about assignment history custom fields that is contained in one or more <see cref="T:WebSvcStatusing.AssnHistoryDataSet.CustomFieldsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CustomFieldsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>CustomFieldsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the <b>CustomFieldsRow</b> that is to be added.</param>
+        <summary>Adds a <b>CustomFieldsRow</b> object to the <b>CustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -132,12 +135,16 @@
         <Parameter Name="MD_PROP_TYPE_ENUM" Type="System.Byte" />
       </Parameters>
       <Docs>
-        <param name="MD_PROP_UID">To be added.</param>
-        <param name="MD_PROP_NAME">To be added.</param>
-        <param name="MD_PROP_TYPE_ENUM">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="MD_PROP_UID">Contains the custom field GUID.</param>
+        <param name="MD_PROP_NAME">Contains the custom field name.</param>
+        <param name="MD_PROP_TYPE_ENUM">Contains the type of the custom field.</param>
+        <summary>Adds a <b>CustomFieldsRow</b> object to the <b>CustomFieldsDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <see cref="MD_PROP_TYPE_ENUM" /> can be one of the following custom field types: COST, DATE, DURATION, FLAG, NUMBER, or TEXT. Only a custom field of type TEXT can have a hierarchical lookup table. A custom field of type FLAG cannot use a lookup table. Set <see cref="MD_PROP_TYPE_ENUM" /> with the <see cref="T:Microsoft.Office.Project.Server.Library.CustomField.Type" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -191,7 +198,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>CustomFieldsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -239,7 +246,7 @@
         <ReturnType>WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -259,7 +266,7 @@
         <ReturnType>WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,7 +286,7 @@
         <ReturnType>WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -299,7 +306,7 @@
         <ReturnType>WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -327,8 +334,8 @@
         <Parameter Name="MD_PROP_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="MD_PROP_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="MD_PROP_UID">Contains the custom field GUID.</param>
+        <summary>Retrieves a <b>CustomFieldsRow</b> object by using the specified custom field GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -358,7 +365,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>CustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -415,7 +422,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -444,8 +451,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>CustomFieldsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -471,7 +478,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.AssnHistoryDataSet.CustomFieldsRow.MD_PROP_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -497,7 +504,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.AssnHistoryDataSet.CustomFieldsRow.MD_PROP_TYPE_ENUM" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -523,7 +530,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.AssnHistoryDataSet.CustomFieldsRow.MD_PROP_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -550,7 +557,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>CustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -725,8 +732,8 @@
         <Parameter Name="row" Type="WebSvcStatusing.AssnHistoryDataSet+CustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>CustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

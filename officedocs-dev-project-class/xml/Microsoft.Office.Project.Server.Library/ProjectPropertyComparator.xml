@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides the <b>Compare</b> method to compare project properties of various types with and without specifying a comparison operator.</summary>
+    <remarks>
+      <para>The <b>ProjectPropertyComparator.Compare</b> method is used in the <see cref="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CompareProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid)" /> method.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,7 +34,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>ProjectPropertyComparator</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,10 +58,10 @@
         <Parameter Name="prop2" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>Boolean</b> value to be compared.</param>
+        <param name="prop2">The second <b>Boolean</b> value to be compared.</param>
+        <summary>Compares two <b>Boolean</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first parameter value is <b>False</b> and the second is <b>True</b>, returns "1" if the first parameter value is <b>True</b> and the second is <b>False</b>, or returns "0" if both are <b>True</b> or both are <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -82,10 +85,10 @@
         <Parameter Name="prop2" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>DateTime</b> value to be compared.</param>
+        <param name="prop2">The second <b>DateTime</b> value to be compared.</param>
+        <summary>Compares two <b>DateTime</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first date is earlier than the second, returns "1" if the first date is later than the second , or returns "0" if they are the same date.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -109,10 +112,10 @@
         <Parameter Name="prop2" Type="System.Decimal" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>Decimal</b> value to be compared.</param>
+        <param name="prop2">The second <b>Decimal</b> value to be compared.</param>
+        <summary>Compares two <b>Decimal</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns the positive difference between the parameter values if the first is a higher number than the second, returns the negative difference between the two parameter values if the first is a lower number than the second, or returns 0 if the two values are equal. The difference is expressed as an integer.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -136,10 +139,10 @@
         <Parameter Name="prop2" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first integer value to be compared.</param>
+        <param name="prop2">The second integer value to be compared.</param>
+        <summary>Compares two integer values to identify their relative positions in the sort order.</summary>
+        <returns>Returns the positive difference between the parameter values if the first is a higher number than the second, returns the negative difference between the two parameter values if the first is a lower number than the second, or returns 0 if the two values are equal.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -163,10 +166,10 @@
         <Parameter Name="prop2" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first string value to be compared.</param>
+        <param name="prop2">The second string value to be compared.</param>
+        <summary>Compares two string values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first parameter is lower in ascending sort order than the second, returns "1" if the first parameter is higher in ascending sort order than the second, or returns "0" if they are the same string value.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -191,11 +194,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>Boolean</b> value to be compared.</param>
+        <param name="prop2">The second <b>Boolean</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>Boolean</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>Boolean</b> values are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -220,11 +224,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>DateTime</b> value to be compared.</param>
+        <param name="prop2">The second <b>DateTime</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>DateTime</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>DateTime</b> values are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -249,11 +254,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first <b>Decimal</b> value to be compared.</param>
+        <param name="prop2">The second <b>Decimal</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>Decimal</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>Decimal</b> values are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -278,11 +284,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first array of GUID values to be compared.</param>
+        <param name="prop2">The second array of GUID values to be compared.</param>
+        <param name="op">The comparison operator. This <b>Compare</b> overload supports only the <b>Contains</b>, <b>DoesNotContain</b>, and <b>Equal</b> operations.</param>
+        <summary>Compares two arrays of GUID values.</summary>
+        <returns>
+          <b>True</b> if the GUID arrays are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -307,11 +314,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first integer value to be compared.</param>
+        <param name="prop2">The second integer value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two integer values.</summary>
+        <returns>
+          <b>True</b> if the integers are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -336,11 +344,12 @@
         <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <param name="op">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first string value to be compared.</param>
+        <param name="prop2">The second string value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two string values.</summary>
+        <returns>
+          <b>True</b> if the strings are equal; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -364,10 +373,10 @@
         <Parameter Name="prop2" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">An array of GUID values.</param>
+        <param name="prop2">A GUID value.</param>
+        <summary>Searches for the specified GUID value in an array of GUIDs.</summary>
+        <returns>Returns <b>True</b> if the GUID array contains the specified GUID value; otherwise <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -391,10 +400,11 @@
         <Parameter Name="prop2" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="prop1">To be added.</param>
-        <param name="prop2">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="prop1">The first string to be compared.</param>
+        <param name="prop2">The second string to be compared.</param>
+        <summary>Compares two string values to determine whether the second is contained in the first.</summary>
+        <returns>
+          <b>True</b> if the second parameter string occurs within the first parameter string; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

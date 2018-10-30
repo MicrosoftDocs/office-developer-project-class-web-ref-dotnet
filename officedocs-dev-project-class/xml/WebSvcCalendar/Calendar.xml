@@ -19,8 +19,13 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes methods for managing calendar exceptions in Project Server.</summary>
+    <remarks>
+      <para>The <b>Calendar</b> class methods support only calendar exceptions for enterprise resources, not all enterprise calendar functionality in Project Server. You can add and update time off for Project Server resources as calendar exceptions. </para>
+      <para>Work weeks in enterprise calendars are not normalized in the Published database. Work week information is stored as binary data, so there are no direct queries available to load all calendar information to a <b>CalendarDataSet</b> object.</para>
+      <para>To manage other features of enterprise calendars, use Microsoft Project Professional.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +41,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a <b>Calendar</b> object from the ASMX-based <b>Calendar</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Calendar</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>CalendarClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>CalendarWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Calendar</b> web service.</para>
+          <code>private static CalendarWebSvc.Calendar calendar = new CalendarWebSvc.Calendar();</code>
+          <para>In the following statement, <b>SvcCalendar</b> is an arbitrary namespace for the WCF-based <b>Calendar</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcCalendar.CalendarClient calendarClient = new SvcCalendar.CalendarClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CheckInCalendars">
@@ -65,10 +79,13 @@
         <Parameter Name="force" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="array">To be added.</param>
-        <param name="force">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="array">Indicates an array of unique identifiers that specify enterprise calendars.</param>
+        <param name="force">If <b>True</b>, ignores any errors that occur during the checkin process and completes the checkin.</param>
+        <summary>Checks in the specified enterprise calendars that were previously checked out for editing exceptions.</summary>
+        <remarks>
+          <para>For sample code, see <see cref="M:WebSvcCalendar.Calendar.UpdateCalendars(WebSvcCalendar.CalendarDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CheckOutCalendars">
@@ -95,9 +112,21 @@
         <Parameter Name="array" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="array">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="array">Indicates an array of unique identifiers that specify enterprise calendars.</param>
+        <summary>Checks out the specified enterprise calendars to allow for the editing of exceptions.</summary>
+        <remarks>
+          <para>For sample code, see <see cref="M:WebSvcCalendar.Calendar.UpdateCalendars(WebSvcCalendar.CalendarDataSet,System.Boolean,System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CreateCalendars">
@@ -125,11 +154,23 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="calendarDataSet">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="calendarDataSet">A <see cref="T:WebSvcCalendar.CalendarDataSet" /> that specifies the calendars and exceptions that are being created.</param>
+        <param name="validateOnly">Acts as a test to check that the data is valid, but does not complete the checkin.</param>
+        <param name="autoCheckIn">If <b>True</b>, the newly created calendar is automatically checked in.</param>
+        <summary>Creates enterprise calendars that can include exceptions.</summary>
+        <remarks>
+          <para>The <b>CreateCalendars</b> method can create one or more enterprise calendars. The calendar can include exceptions, as specified in the <b>CalendarDataSet</b> object.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteCalendars">
@@ -156,9 +197,21 @@
         <Parameter Name="calendarGuids" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="calendarGuids">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="calendarGuids">The GUIDs of the calendars to delete.</param>
+        <summary>Deletes the specified enterprise calendars.</summary>
+        <remarks>
+          <para>The <b>DeleteCalendars</b> method can delete one or more enterprise calendars. The calendars can include exceptions.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ListCalendars">
@@ -183,9 +236,284 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a list of all enterprise calendars.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewResource" />
+              </term>
+              <description>Allows a user to create a new resource. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.EditEnterpriseResourceData" />
+              </term>
+              <description>Allows a user to edit or delete the specified resource. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code lists the calendars, reads the existing calendar exceptions, checks out a calendar to update, adds a new exception to the calendar, and checks the calendar back in.</para>
+          <para>For information about running this code, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.TestCalendars
+{
+
+  class Calendar
+  {
+    private static SvcCalendar.CalendarClient calendarClient;
+    private static SvcResource.ResourceClient resourceClient;
+    private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+    private const string ENDPOINT = "basicHttp_Calendar";
+    private const string RES_ENDPOINT = "basicHttp_Resource";
+    private static string outFilePath;
+    private static string outExceptionsPath;
+
+    static void Main(string[] args)
+    {
+      Guid[] calendarID = new Guid[3];
+      calendarID[0] = new Guid("B6635B2E-E747-4771-A78B-24F7509629D0");
+      calendarID[1] = new Guid("27FB4A18-00C4-491F-9C68-5C68C2B231F2");
+      calendarID[2] = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+
+      try
+      {
+        // Use the endpoints that are defined in app.config to configure the client.
+        ConfigClientEndpoints(ENDPOINT);
+        SetClientEndpoints(RES_ENDPOINT);
+
+        // If directory does not exist, create it.
+        if (!Directory.Exists(OUTPUT_FILES))
+        {
+          Directory.CreateDirectory(OUTPUT_FILES);
+        }
+        
+        // Assign the path where the output XML file will be saved.
+        outFilePath = OUTPUT_FILES + "CalendarList.xml";
+        outExceptionsPath = OUTPUT_FILES + "ExceptionsList.xml";
+
+        // Create a dataset.
+        SvcCalendar.CalendarDataSet calendarDS =
+          new SvcCalendar.CalendarDataSet();
+        
+        // Get the list of calendars.
+        calendarDS = ListOfCalendars(calendarDS);
+        
+        // Read calendar exceptions.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+        
+        // Get the ID of the user.
+        Guid me = resourceClient.GetCurrentUserUid();
+        
+        // Read the calendar rows.
+        calendarDS = ReadCalendarRows(calendarDS);
+
+        bool checkedOut = false;  
+
+        // Check whether the calendar to be updated is checked out.
+        foreach (SvcCalendar.CalendarDataSet.CalendarsRow calRow in calendarDS.Calendars)
+        {
+          if (calRow.CAL_UID == new Guid("8283C310-0877-49A2-9264-29A9EDA84CED"))
+          {
+            if (calRow.IsNull("CAL_CHECKOUTBY"))
+            {
+              // Check out the calendar.
+              calendarClient.CheckOutCalendars(new Guid[] { calRow.CAL_UID });
+              checkedOut = true;
+              Console.WriteLine("Calendar checked out.....");
+              break;
+            }
+            else
+            {
+              // Check whether the calendar is checked out by you.
+              if (calRow.CAL_CHECKOUTBY == me)
+              {
+                checkedOut = true;
+                Console.WriteLine("The calendar is already checked out by you");
+                break;
+              }
+              else
+              {
+                checkedOut = false;
+                Console.WriteLine("This calendar has already been checked out");
+                Console.ReadLine();
+                break;
+              }
+            }
+          }
+        }
+
+        if (checkedOut)
+        {
+          // Copy the calendar to a new dataset for editing.
+          string tableName = calendarDS.Calendars.TableName;
+          string uidColumn = calendarDS.Calendars.CAL_UIDColumn.ColumnName;
+          string nameColumn = calendarDS.Calendars.CAL_NAMEColumn.ColumnName;
+
+          PSLibrary.Filter calFilter = new PSLibrary.Filter();
+          
+          calFilter.FilterTableName = tableName;
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(
+            tableName, 
+            nameColumn, 
+            PSLibrary.Filter.SortOrderTypeEnum.None));
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(uidColumn));
+          PSLibrary.Filter.FieldOperator foCalendar = new PSLibrary.Filter.FieldOperator(
+            PSLibrary.Filter.FieldOperationType.Equal, 
+            uidColumn, 
+            "8283C310-0877-49A2-9264-29A9EDA84CED");
+          calFilter.Criteria = foCalendar;
+          
+          SvcCalendar.CalendarDataSet returnedCalendarDataSet = 
+            calendarClient.ReadCalendars(calFilter.GetXml(), false);
+          
+          // Update the calendar.
+          Guid calID = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+          UpdateCalendarException(calID, returnedCalendarDataSet);
+          Console.WriteLine("Calendar updated successfully...");
+        }
+        
+        // Check in calendars.
+        calendarClient.CheckInCalendars(new Guid[] { calendarID[2] }, true);
+        Console.WriteLine("Calendar has been checked in.....");
+        
+        // To see the updated calendar, call the read calendar exceptions method again.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+      }
+
+      catch (CommunicationException e)
+      {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+        Console.WriteLine(e.ToString());
+        Console.ResetColor();
+      }
+      finally
+      {
+        Console.Write("\r\n\r\nPress any key....");
+        Console.ReadKey();
+      }
+    }
+    
+    // Read the calendar rows into a dataset.
+    private static SvcCalendar.CalendarDataSet ReadCalendarRows(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter cfilter = new PSLibrary.Filter();
+
+      cfilter.FilterTableName = calendarDS.Calendars.TableName;
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_CHECKOUTBYColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+
+      calendarDS = calendarClient.ReadCalendars(cfilter.GetXml(), false);
+      return calendarDS;
+    }
+        
+    // Add a new exception to the exceptions table and update the calendar.
+    private static void UpdateCalendarException(Guid cID, SvcCalendar.CalendarDataSet calDS)
+    {
+      SvcCalendar.CalendarDataSet.CalendarExceptionsRow calendarExceptionsRow = 
+        calDS.CalendarExceptions.NewCalendarExceptionsRow();
+
+      calendarExceptionsRow.CAL_UID = cID;
+      calendarExceptionsRow.Name = "Stand Up Meeting";
+      calendarExceptionsRow.Start = new DateTime(2010, 2, 2);
+      calendarExceptionsRow.Finish = new DateTime(2010, 2, 4);
+      calendarExceptionsRow.RecurrenceFrequency = 1;
+      calendarExceptionsRow.RecurrenceType = 0; // 0 implies daily recurrence.
+      try
+      {
+        calDS.CalendarExceptions.AddCalendarExceptionsRow(calendarExceptionsRow);
+        calendarClient.UpdateCalendars(calDS, false, false);
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e.ToString());
+      }
+    }
+
+    // Read the calendar exceptions.
+    private static SvcCalendar.CalendarDataSet ReadCalendarExceptions(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter filter = new PSLibrary.Filter();
+
+      filter.FilterTableName = calendarDS.CalendarExceptions.TableName;
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.NameColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      
+      calendarDS = calendarClient.ReadCalendars(filter.GetXml(), false);
+      calendarDS.WriteXml(outExceptionsPath);
+      Console.WriteLine("\nSee XML output of calendar exceptions at {0}",
+        outExceptionsPath);
+
+      return calendarDS;
+    }
+
+    // Get the list of calendars.
+    private static SvcCalendar.CalendarDataSet ListOfCalendars(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      // Get the list of calendars.
+      calendarDS = calendarClient.ListCalendars();
+      calendarDS.WriteXml(outFilePath);
+      
+      // Write the list of calendars to an XML file.
+      Console.WriteLine("\nSee XML output of the CalendarDataSet at {0}",
+          outFilePath);
+
+      return calendarDS;
+    }
+    
+    // Configure the client endpoints.
+    public static void ConfigClientEndpoints(string endpt)
+    {
+      calendarClient = new SvcCalendar.CalendarClient(endpt);
+    }
+    
+    // Configure the client endpoints.
+    public static void SetClientEndpoints(string ept)
+    {
+      resourceClient = new SvcResource.ResourceClient(ept);
+    }
+  }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadCalendars">
@@ -213,11 +541,266 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="filter">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="filter">A filtering XML string, as returned by <see cref="T:Microsoft.Office.Project.Server.Library.Filter" />. </param>
+        <param name="autoCheckOut">If <b>True</b>, checks out the calendar or calendars for editing.</param>
+        <summary>Gets the calendar exceptions that match the filter set.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>Caution</b>: If the <paramref name="filter" /> parameter is <b>String.Empty</b>, <b>ReadCalendars</b> returns a <b>CalendarFilterInvalid</b> eror in <b>System.ServiceModel.CommunicationException</b>.To get a list of all enterprise calendars, use the <see cref="M:WebSvcCalendar.Calendar.ListCalendars" /> method.</para>
+          <para>The <b>ReadCalendars</b> method supports only calendar exceptions for enterprise calendars, not all enterprise calendar functionality in Project Server. You can get the time off for Project Server resources as calendar exceptions by using the <see cref="N:WebSvcResource" /> namespace. </para>
+          <para>Work weeks in enterprise calendars are not normalized in the Published database. Work week information is stored as binary data, so there are no direct queries available to load all calendar information to a <b>CalendarDataSet</b>.</para>
+          <para>
+            <b>Note</b>: The <paramref name="filter" /> parameter works with the <b>Criteria</b> operators to filter rows only in the primary <b>CalendarsDataTable</b>. For example, you cannot use <paramref name="filter" /> with the <b>ReadCalendars</b> method to filter rows in the <b>CalendarExceptionsDataTable</b>. If you try to filter rows in a secondary <b>DataTable</b>, the PSI returns a <b>FilterInvalid</b> exception.</para>
+          <para>However, you can use the <b>Fields.Add</b> method to filter columns in the primary <b>CalendarsDataTable</b> and in the secondary <b>CalendarExceptionsDataTable</b>. For more information, see How to: Use a Filter Parameter with PSI Methods.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code lists the calendars, reads the existing calendar exceptions, checks out a calendar to update, adds a new exception to the calendar, and checks the calendar back in.</para>
+          <para>For information about running this code, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.TestCalendars
+{
+  class Calendar
+  {
+    private static SvcCalendar.CalendarClient calendarClient;
+    private static SvcResource.ResourceClient resourceClient;
+    private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+    private const string ENDPOINT = "basicHttp_Calendar";
+    private const string RES_ENDPOINT = "basicHttp_Resource";
+    private static string outFilePath;
+    private static string outExceptionsPath;
+
+    static void Main(string[] args)
+    {
+      Guid[] calendarID = new Guid[3];
+      calendarID[0] = new Guid("B6635B2E-E747-4771-A78B-24F7509629D0");
+      calendarID[1] = new Guid("27FB4A18-00C4-491F-9C68-5C68C2B231F2");
+      calendarID[2] = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+
+      try
+      {
+        // Use the endpoints that are defined in app.config to configure the client.
+        ConfigClientEndpoints(ENDPOINT);
+        SetClientEndpoints(RES_ENDPOINT);
+
+        // If directory does not exist, create it.
+        if (!Directory.Exists(OUTPUT_FILES))
+        {
+          Directory.CreateDirectory(OUTPUT_FILES);
+        }
+        
+        // Assign the path where the output XML file will be saved.
+        outFilePath = OUTPUT_FILES + "CalendarList.xml";
+        outExceptionsPath = OUTPUT_FILES + "ExceptionsList.xml";
+
+        // Create a dataset.
+        SvcCalendar.CalendarDataSet calendarDS =
+          new SvcCalendar.CalendarDataSet();
+        
+        // Get the list of calendars.
+        calendarDS = ListOfCalendars(calendarDS);
+        
+        // Read calendar exceptions.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+        
+        // Get the ID of the user.
+        Guid me = resourceClient.GetCurrentUserUid();
+        
+        // Read the calendar rows.
+        calendarDS = ReadCalendarRows(calendarDS);
+
+        bool checkedOut = false;  
+
+        // Check whether the calendar to be updated is checked out.
+        foreach (SvcCalendar.CalendarDataSet.CalendarsRow calRow in calendarDS.Calendars)
+        {
+          if (calRow.CAL_UID == new Guid("8283C310-0877-49A2-9264-29A9EDA84CED"))
+          {
+            if (calRow.IsNull("CAL_CHECKOUTBY"))
+            {
+              // Check out the calendar.
+              calendarClient.CheckOutCalendars(new Guid[] { calRow.CAL_UID });
+              checkedOut = true;
+              Console.WriteLine("Calendar checked out.....");
+              break;
+            }
+            else
+            {
+              // Check whether the calendar is checked out by you.
+              if (calRow.CAL_CHECKOUTBY == me)
+              {
+                checkedOut = true;
+                Console.WriteLine("The calendar is already checked out by you");
+                break;
+              }
+              else
+              {
+                checkedOut = false;
+                Console.WriteLine("This calendar has already been checked out");
+                Console.ReadLine();
+                break;
+              }
+            }
+          }
+        }
+
+        if (checkedOut)
+        {
+          // Copy the calendar to a new dataset for editing.
+          string tableName = calendarDS.Calendars.TableName;
+          string uidColumn = calendarDS.Calendars.CAL_UIDColumn.ColumnName;
+          string nameColumn = calendarDS.Calendars.CAL_NAMEColumn.ColumnName;
+
+          PSLibrary.Filter calFilter = new PSLibrary.Filter();
+          
+          calFilter.FilterTableName = tableName;
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(
+            tableName, 
+            nameColumn, 
+            PSLibrary.Filter.SortOrderTypeEnum.None));
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(uidColumn));
+          PSLibrary.Filter.FieldOperator foCalendar = new PSLibrary.Filter.FieldOperator(
+            PSLibrary.Filter.FieldOperationType.Equal, 
+            uidColumn, 
+            "8283C310-0877-49A2-9264-29A9EDA84CED");
+          calFilter.Criteria = foCalendar;
+          
+          SvcCalendar.CalendarDataSet returnedCalendarDataSet = 
+            calendarClient.ReadCalendars(calFilter.GetXml(), false);
+          
+          // Update the calendar.
+          Guid calID = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+          UpdateCalendarException(calID, returnedCalendarDataSet);
+          Console.WriteLine("Calendar updated successfully...");
+        }
+        
+        // Check in calendars.
+        calendarClient.CheckInCalendars(new Guid[] { calendarID[2] }, true);
+        Console.WriteLine("Calendar has been checked in.....");
+        
+        // To see the updated calendar, call the read calendar exceptions method again.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+      }
+      catch (CommunicationException e)
+      {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+        Console.WriteLine(e.ToString());
+        Console.ResetColor();
+      }
+      finally
+      {
+        Console.Write("\r\n\r\nPress any key....");
+        Console.ReadKey();
+      }
+    }
+    
+    // Read the calendar rows into a dataset.
+    private static SvcCalendar.CalendarDataSet ReadCalendarRows(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter cfilter = new PSLibrary.Filter();
+
+      cfilter.FilterTableName = calendarDS.Calendars.TableName;
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_CHECKOUTBYColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+
+      calendarDS = calendarClient.ReadCalendars(cfilter.GetXml(), false);
+      return calendarDS;
+    }
+        
+    // Add a new exception to the exceptions table and update the calendar.
+    private static void UpdateCalendarException(Guid cID, SvcCalendar.CalendarDataSet calDS)
+    {
+      SvcCalendar.CalendarDataSet.CalendarExceptionsRow calendarExceptionsRow = 
+        calDS.CalendarExceptions.NewCalendarExceptionsRow();
+
+      calendarExceptionsRow.CAL_UID = cID;
+      calendarExceptionsRow.Name = "Stand Up Meeting";
+      calendarExceptionsRow.Start = new DateTime(2010, 2, 2);
+      calendarExceptionsRow.Finish = new DateTime(2010, 2, 4);
+      calendarExceptionsRow.RecurrenceFrequency = 1;
+      calendarExceptionsRow.RecurrenceType = 0; // 0 implies daily recurrence.
+      try
+      {
+        calDS.CalendarExceptions.AddCalendarExceptionsRow(calendarExceptionsRow);
+        calendarClient.UpdateCalendars(calDS, false, false);
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e.ToString());
+      }
+    }
+
+    // Read the calendar exceptions.
+    private static SvcCalendar.CalendarDataSet ReadCalendarExceptions(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter filter = new PSLibrary.Filter();
+
+      filter.FilterTableName = calendarDS.CalendarExceptions.TableName;
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.NameColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      
+      calendarDS = calendarClient.ReadCalendars(filter.GetXml(), false);
+      calendarDS.WriteXml(outExceptionsPath);
+      Console.WriteLine("\nSee XML output of calendar exceptions at {0}",
+        outExceptionsPath);
+
+      return calendarDS;
+    }
+
+    // Get the list of Calendars.
+    private static SvcCalendar.CalendarDataSet ListOfCalendars(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      // Get the list of calendars.
+      calendarDS = calendarClient.ListCalendars();
+      calendarDS.WriteXml(outFilePath);
+      
+      // Write the list of calendars to an XML file.
+      Console.WriteLine("\nSee XML output of the CalendarDataSet at {0}",
+          outFilePath);
+
+      return calendarDS;
+    }
+    
+    // Configure the client endpoints.
+    public static void ConfigClientEndpoints(string endpt)
+    {
+      calendarClient = new SvcCalendar.CalendarClient(endpt);
+    }
+    
+    // Configure the client endpoints.
+    public static void SetClientEndpoints(string ept)
+    {
+      resourceClient = new SvcResource.ResourceClient(ept);
+    }
+  }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="UpdateCalendars">
@@ -245,11 +828,264 @@
         <Parameter Name="autoCheckIn" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="calendarDataSet">To be added.</param>
-        <param name="validateOnly">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="calendarDataSet">The <b>calendarDataSet</b> to be created or deleted.</param>
+        <param name="validateOnly">If <b>True</b>, performs a test to ensure that the data being checked in is valid, but does not complete the checkin.</param>
+        <param name="autoCheckIn">If <b>True</b>, the newly created calendar exceptions are checked in automatically.</param>
+        <summary>Adds, modifies, or deletes enterprise calendar exceptions.</summary>
+        <remarks>
+          <para>The <b>UpdateCalendars</b> method adds new exceptions, deletes exceptions that are absent, and modifies exceptions as specified in the <b>CalendarDataSet</b> object.</para>
+          <para>The <b>UpdateCalendars</b> method supports only calendar exceptions for enterprise calendars, not all enterprise calendar functionality in Project Server. You can add or delete time off for Project Server resources as calendar exceptions by using the <see cref="N:WebSvcResource" /> namespace. </para>
+          <para>This method does not modify enterprise calendar exceptions. If updates are required, you must delete and recreate the calendar exceptions.</para>
+          <para>Work weeks in enterprise calendars are not normalized in the Published database. Work week information is stored as binary data, so there are no direct queries available to load all calendar information to a <b>CalendarDataSet</b>.</para>
+          <para>To view the updated exception, click  <b>Edit Calendar</b> in Project Web App.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCalendars" />
+              </term>
+              <description>Allows a user to manage enterprise calendars. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code lists the calendars, reads the existing calendar exceptions, checks out a calendar to update, adds a new exception to the calendar, and checks the calendar back in.</para>
+          <para>For more information about running this code sample, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.TestCalendars
+{
+  class Calendar
+  {
+    private static SvcCalendar.CalendarClient calendarClient;
+    private static SvcResource.ResourceClient resourceClient;
+    private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+    private const string ENDPOINT = "basicHttp_Calendar";
+    private const string RES_ENDPOINT = "basicHttp_Resource";
+    private static string outFilePath;
+    private static string outExceptionsPath;
+
+    static void Main(string[] args)
+    {
+      Guid[] calendarID = new Guid[3];
+      calendarID[0] = new Guid("B6635B2E-E747-4771-A78B-24F7509629D0");
+      calendarID[1] = new Guid("27FB4A18-00C4-491F-9C68-5C68C2B231F2");
+      calendarID[2] = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+
+      try
+      {
+        // Use the endpoints that are defined in app.config to configure the client.
+        ConfigClientEndpoints(ENDPOINT);
+        SetClientEndpoints(RES_ENDPOINT);
+
+        // If directory does not exist, create it.
+        if (!Directory.Exists(OUTPUT_FILES))
+        {
+          Directory.CreateDirectory(OUTPUT_FILES);
+        }
+        
+        // Assign the path where the output XML file will be saved.
+        outFilePath = OUTPUT_FILES + "CalendarList.xml";
+        outExceptionsPath = OUTPUT_FILES + "ExceptionsList.xml";
+
+        // Create a dataset.
+        SvcCalendar.CalendarDataSet calendarDS =
+          new SvcCalendar.CalendarDataSet();
+        
+        // Get the list of calendars.
+        calendarDS = ListOfCalendars(calendarDS);
+        
+        // Read calendar exceptions.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+        
+        // Get the ID of the user.
+        Guid me = resourceClient.GetCurrentUserUid();
+        
+        // Read the calendar rows.
+        calendarDS = ReadCalendarRows(calendarDS);
+
+        bool checkedOut = false;  
+
+        // Check whether the calendar to be updated is checked out.
+        foreach (SvcCalendar.CalendarDataSet.CalendarsRow calRow in calendarDS.Calendars)
+        {
+          if (calRow.CAL_UID == new Guid("8283C310-0877-49A2-9264-29A9EDA84CED"))
+          {
+            if (calRow.IsNull("CAL_CHECKOUTBY"))
+            {
+              // Check out the calendar.
+              calendarClient.CheckOutCalendars(new Guid[] { calRow.CAL_UID });
+              checkedOut = true;
+              Console.WriteLine("Calendar checked out.....");
+              break;
+            }
+            else
+            {
+              // Check whether the calendar is checked out by you.
+              if (calRow.CAL_CHECKOUTBY == me)
+              {
+                checkedOut = true;
+                Console.WriteLine("The calendar is already checked out by you");
+                break;
+              }
+              else
+              {
+                checkedOut = false;
+                Console.WriteLine("This calendar has already been checked out");
+                Console.ReadLine();
+                break;
+              }
+            }
+          }
+        }
+
+        if (checkedOut)
+        {
+          // Copy the calendar to a new dataset for editing.
+          string tableName = calendarDS.Calendars.TableName;
+          string uidColumn = calendarDS.Calendars.CAL_UIDColumn.ColumnName;
+          string nameColumn = calendarDS.Calendars.CAL_NAMEColumn.ColumnName;
+
+          PSLibrary.Filter calFilter = new PSLibrary.Filter();
+          
+          calFilter.FilterTableName = tableName;
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(
+            tableName, 
+            nameColumn, 
+            PSLibrary.Filter.SortOrderTypeEnum.None));
+          calFilter.Fields.Add(new PSLibrary.Filter.Field(uidColumn));
+          PSLibrary.Filter.FieldOperator foCalendar = new PSLibrary.Filter.FieldOperator(
+            PSLibrary.Filter.FieldOperationType.Equal, 
+            uidColumn, 
+            "8283C310-0877-49A2-9264-29A9EDA84CED");
+          calFilter.Criteria = foCalendar;
+          
+          SvcCalendar.CalendarDataSet returnedCalendarDataSet = 
+            calendarClient.ReadCalendars(calFilter.GetXml(), false);
+          
+          // Update the calendar.
+          Guid calID = new Guid("8283C310-0877-49A2-9264-29A9EDA84CED");
+          UpdateCalendarException(calID, returnedCalendarDataSet);
+          Console.WriteLine("Calendar updated successfully...");
+        }
+        
+        // Check in calendars.
+        calendarClient.CheckInCalendars(new Guid[] { calendarID[2] }, true);
+        Console.WriteLine("Calendar has been checked in.....");
+        
+        // To see the updated calendar, call the read calendar exceptions method again.
+        calendarDS = ReadCalendarExceptions(calendarDS);
+      }
+
+      catch (CommunicationException e)
+      {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+        Console.WriteLine(e.ToString());
+        Console.ResetColor();
+      }
+      finally
+      {
+        Console.Write("\r\n\r\nPress any key....");
+        Console.ReadKey();
+      }
+    }
+    // Read the calendar rows into a dataset.
+    private static SvcCalendar.CalendarDataSet ReadCalendarRows(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter cfilter = new PSLibrary.Filter();
+
+      cfilter.FilterTableName = calendarDS.Calendars.TableName;
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      cfilter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.Calendars.TableName,
+        calendarDS.Calendars.CAL_CHECKOUTBYColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+
+      calendarDS = calendarClient.ReadCalendars(cfilter.GetXml(), false);
+      return calendarDS;
+    }
+        
+    // Add a new exception to the exceptions table and update the calendar.
+    private static void UpdateCalendarException(Guid cID, SvcCalendar.CalendarDataSet calDS)
+    {
+      SvcCalendar.CalendarDataSet.CalendarExceptionsRow calendarExceptionsRow = 
+        calDS.CalendarExceptions.NewCalendarExceptionsRow();
+
+      calendarExceptionsRow.CAL_UID = cID;
+      calendarExceptionsRow.Name = "Stand Up Meeting";
+      calendarExceptionsRow.Start = new DateTime(2010, 2, 2);
+      calendarExceptionsRow.Finish = new DateTime(2010, 2, 4);
+      calendarExceptionsRow.RecurrenceFrequency = 1;
+      calendarExceptionsRow.RecurrenceType = 0; // 0 implies daily recurrence
+      try
+      {
+        calDS.CalendarExceptions.AddCalendarExceptionsRow(calendarExceptionsRow);
+        calendarClient.UpdateCalendars(calDS, false, false);
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e.ToString());
+      }
+    }
+
+    // Read the calendar exceptions.
+    private static SvcCalendar.CalendarDataSet ReadCalendarExceptions(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      PSLibrary.Filter filter = new PSLibrary.Filter();
+
+      filter.FilterTableName = calendarDS.CalendarExceptions.TableName;
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.CAL_UIDColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      filter.Fields.Add(new PSLibrary.Filter.Field(calendarDS.CalendarExceptions.TableName,
+        calendarDS.CalendarExceptions.NameColumn.ColumnName,
+        PSLibrary.Filter.SortOrderTypeEnum.None));
+      
+      calendarDS = calendarClient.ReadCalendars(filter.GetXml(), false);
+      calendarDS.WriteXml(outExceptionsPath);
+      Console.WriteLine("\nSee XML output of calendar exceptions at {0}",
+        outExceptionsPath);
+
+      return calendarDS;
+    }
+
+    // Get the list of calendars.
+    private static SvcCalendar.CalendarDataSet ListOfCalendars(SvcCalendar.CalendarDataSet calendarDS)
+    {
+      // Get the list of calendars.
+      calendarDS = calendarClient.ListCalendars();
+      calendarDS.WriteXml(outFilePath);
+      
+      // Write the list of calendars to an XML file.
+      Console.WriteLine("\nSee XML output of the CalendarDataSet at {0}",
+          outFilePath);
+
+      return calendarDS;
+    }
+    
+    // Configure the client endpoints.
+    public static void ConfigClientEndpoints(string endpt)
+    {
+      calendarClient = new SvcCalendar.CalendarClient(endpt);
+    }
+    
+    // Configure the client endpoints.
+    public static void SetClientEndpoints(string ept)
+    {
+      resourceClient = new SvcResource.ResourceClient(ept);
+    }
+  }
+}</code>
+        </example>
       </Docs>
     </Member>
   </Members>

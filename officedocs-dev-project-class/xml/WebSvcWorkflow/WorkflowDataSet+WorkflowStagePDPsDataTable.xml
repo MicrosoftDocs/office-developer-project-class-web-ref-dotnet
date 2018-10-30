@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about the project detail pages of a workflow stage, contained in one or more <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsDataTable" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>WorkflowStagePDPsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds a <b>WorkflowStagePDPsRow</b> object to the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,15 +140,18 @@
       </Parameters>
       <Docs>
         <param name="parentWorkflowStageRowByFK_WorkflowStage_WorkflowStageEDPs">To be added.</param>
-        <param name="PDP_UID">To be added.</param>
-        <param name="PDP_ID">To be added.</param>
-        <param name="PDP_NAME">To be added.</param>
-        <param name="PDP_POSITION">To be added.</param>
-        <param name="PDP_STAGE_DESCRIPTION">To be added.</param>
-        <param name="PDP_REQUIRES_ATTENTION">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="PDP_UID">Contains the project details page GUID.</param>
+        <param name="PDP_ID">Contains the project details page ID.</param>
+        <param name="PDP_NAME">Contains the project details page name.</param>
+        <param name="PDP_POSITION">Contains the project details page position.</param>
+        <param name="PDP_STAGE_DESCRIPTION">Contains the project details page stage description.</param>
+        <param name="PDP_REQUIRES_ATTENTION">Specifies if the project details page requires attention.</param>
+        <summary>Adds a <b>WorkflowStagePDPsRow</b> object to the <b>WorkflowStagePDPsDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsDataTable.AddWorkflowStagePDPsRow(WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -199,7 +205,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -256,9 +262,9 @@
         <Parameter Name="PDP_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="STAGE_UID">To be added.</param>
-        <param name="PDP_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="STAGE_UID">Contains the stage GUID.</param>
+        <param name="PDP_UID">Contains the project details page GUID.</param>
+        <summary>Retrieves a <b>WorkflowStagePDPsRow</b> object by using the specified stage GUID and the project details page GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -288,7 +294,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -344,8 +350,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -374,8 +380,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>WorkflowStagePDPsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -432,7 +438,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -574,7 +580,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.PDP_ID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -600,7 +606,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.PDP_NAME" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -626,7 +632,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.PDP_POSITION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -652,7 +658,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.PDP_REQUIRES_ATTENTION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -678,7 +684,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.STAGE_DESCRIPTION" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -704,7 +710,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.PDP_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -733,8 +739,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>WorkflowStagePDPsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -759,7 +765,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowStagePDPsRow.STAGE_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -780,7 +786,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -800,7 +806,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -820,7 +826,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -840,7 +846,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowStagePDPsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

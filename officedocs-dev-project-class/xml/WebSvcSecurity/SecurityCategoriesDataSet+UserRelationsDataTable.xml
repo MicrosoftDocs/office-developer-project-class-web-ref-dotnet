@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about user relations that is contained in one or more <see cref="T:WebSvcSecurity.SecurityCategoriesDataSet.UserRelationsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>UserRelationsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>UserRelationsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds a <b>UserRelationsRow</b> object to the <b>UserRelationsRow</b> table.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -133,7 +136,7 @@
       <Docs>
         <param name="WSEC_CAT_UID">To be added.</param>
         <param name="RES_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -189,7 +192,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>UserRelationsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -246,9 +249,9 @@
         <Parameter Name="RES_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="WSEC_CAT_UID">To be added.</param>
-        <param name="RES_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="WSEC_CAT_UID">Contains the web security category GUID.</param>
+        <param name="RES_UID">Contains the resource GUID.</param>
+        <summary>Gets the <b>UserRelationsRow</b> object specified by the security category and the resource.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -278,7 +281,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>UserRelationsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -335,7 +338,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -364,8 +367,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>UserRelationsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -422,7 +425,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>UserRelationsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -567,8 +570,8 @@
         <Parameter Name="row" Type="WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>UserRelationsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -593,7 +596,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcSecurity.SecurityCategoriesDataSet.UserRelationsRow.RES_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -614,7 +617,7 @@
         <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -634,7 +637,7 @@
         <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -654,7 +657,7 @@
         <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -674,7 +677,7 @@
         <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet+UserRelationsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -699,7 +702,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcSecurity.SecurityCategoriesDataSet.UserRelationsRow.WSEC_CAT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -21,10 +21,17 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains the collection of departments that are used for project entities and resource entities.</summary>
+    <remarks>
+      <para> Project entities and resource entities are the Project Server entities that are associated with a department by using the <b>Project Departments</b> custom field and the <b>Resource Departments</b> custom field. For a code example that includes a <b>DepartmentsDataSet</b> object, see <see cref="M:WebSvcAdmin.Admin.ReadDepartments(System.Int32)" />.</para>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.DepartmentsDataSet.DepartmentsRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +52,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>DepartmentsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +78,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>DepartmentsDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +108,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.DepartmentsDataSet+DepartmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds a row in the <b>DepartmentsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,9 +144,12 @@
         <param name="DEPARTMENT_NAME">To be added.</param>
         <param name="DEPARTMENT_FULLNAME">To be added.</param>
         <param name="DEPARTMENT_PARENT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcAdmin.DepartmentsDataSet.DepartmentsDataTable.AddDepartmentsRow(WebSvcAdmin.DepartmentsDataSet.DepartmentsRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -193,7 +203,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of elements in the <b>DataTable</b> collection.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -246,7 +256,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>DEPARTMENT_FULLNAMEColumn</b> in the <b>DepartmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -272,7 +282,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>DEPARTMENT_NAMEColumn</b> in the <b>DepartmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -298,7 +308,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>DEPARTMENT_PARENT_UIDColumn</b> in the <b>DepartmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -324,7 +334,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>DEPARTMENT_UIDColumn</b> in the <b>DepartmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -345,7 +355,7 @@
         <ReturnType>WebSvcAdmin.DepartmentsDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>DepartmentsDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -365,7 +375,7 @@
         <ReturnType>WebSvcAdmin.DepartmentsDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>DepartmentsDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -385,7 +395,7 @@
         <ReturnType>WebSvcAdmin.DepartmentsDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>DepartmentsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -405,7 +415,7 @@
         <ReturnType>WebSvcAdmin.DepartmentsDataSet+DepartmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>DepartmentsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -433,8 +443,8 @@
         <Parameter Name="DEPARTMENT_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="DEPARTMENT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="DEPARTMENT_UID">The GUID of the department.</param>
+        <summary>Returns a <b>DepartmentsRow</b> object that represents the project department that has the specified department GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -464,7 +474,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>DepartmentsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -520,8 +530,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">A specified XML schema definition.</param>
+        <summary>Returns the <b>complexType</b> XML schema for the <b>DepartmentsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -550,8 +560,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">The integer offset into the <b>DepartmentsDataTable</b>.</param>
+        <summary>Gets the row that is specified by a zero-based index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -578,7 +588,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a <b>DepartmentsRow</b> object that represents one department in the <b>DepartmentsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -753,8 +763,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.DepartmentsDataSet+DepartmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>DepartmentsRow</b> object to remove.</param>
+        <summary>Removes the specified row in the <b>DepartmentsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

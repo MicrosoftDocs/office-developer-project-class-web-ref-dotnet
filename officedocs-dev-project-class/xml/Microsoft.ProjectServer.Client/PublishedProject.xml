@@ -19,8 +19,27 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a project that is published on Project Server.</summary>
+    <remarks>
+      <para>To check out a project for editing, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.CheckOut" /> method.</para>
+      <para>Project Server creates a virtual <b>PublishedProject</b> object for each draft project that has not yet been published. A virtual published project ensures that a draft project can be retrieved through the <b>ProjectCollection</b> object, whether it has been published or not. A retrieved project gets properties from the draft tables in the Project database.</para>
+      <para>For example, if you create a draft project with the PSI, and then read all projects with the CSOM, the <b>ProjectCollection</b> object contains the unpublished draft project. You can determine whether a project has been published by the value of the <b>PublishedProject.LastPublishedDate</b> property, which is inherited from <see cref="P:Microsoft.ProjectServer.Client.Project.LastPublishedDate" />. For an unpublished project, the <b>LastPublishedDate</b> property value is <b>DateTime.Min</b> (1/1/0001). The following CSOM code fragment creates a draft project but does not persist or publish it.</para>
+      <code>ProjectContext projContext = new ProjectContext("http://ServerName/pwa");
+ProjectCreationInformation newProj = new ProjectCreationInformation();
+
+newProj.Id = Guid.NewGuid();
+newProj.Name = "Test project not published";
+newProj.Start = DateTime.Today.Date;
+
+&lt;span class="label"&gt;PublishedProject&lt;/span&gt; newPublishedProj = projContext.Projects.Add(newProj);
+
+projContext.Load(newPublishedProj);
+projContext.ExecuteQuery();
+
+DateTime pubDate = newPublishedProj.LastPublishedDate;
+Console.Write("\n\tLastPublishedDate before publishing: {0}", pubDate.ToString());</code>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +63,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>PublishedProject</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +90,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedAssignmentCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of assignments in the project.</summary>
+        <value>A collection of <b>Assignment</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +116,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project automatically calculates actual and remaining work and costs.</summary>
+        <value>
+          <b>True</b> if the project automatically calculates actual and remaining work and costs; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +143,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project always calculates actual costs.</summary>
+        <value>
+          <b>True</b> if the project always calculates actual costs; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +170,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Calendar</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project calendar.</summary>
+        <value>A calendar.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +197,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Checks out the draft version of the project.</summary>
+        <returns>The draft version of the project.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,8 +223,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of days that a task can go past its end date before the project marks that task as critical.</summary>
+        <value>The number of days.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,9 +249,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the currency code of the project, as defined in ISO 4217.</summary>
+        <value>The currency code.</value>
+        <remarks>
+          <para>For example, USD represents United States Dollars.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CurrencyDigits">
@@ -254,8 +278,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of decimal digits in currency values.</summary>
+        <value>The number of decimal digits.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,8 +304,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CurrencySymbolPosition</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the placement of the currency symbol in relation to the currency value.</summary>
+        <value>A numerical value that represents the placement of the currency symbol.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,8 +330,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the currency symbol that represents the type of currency that is used in the project.</summary>
+        <value>A character that represents the type of currency.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -332,8 +356,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current date for the project.</summary>
+        <value>The current date for the project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,8 +382,8 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default number of working days per month.</summary>
+        <value>The number of working days per month.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -384,9 +408,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a value that indicates whether the scheduling of new tasks is effort-driven.</summary>
+        <value>
+          <b>True</b> if the scheduling of new tasks is effort-driven; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>Effort-driven scheduling occurs when the duration of tasks is affected by the assigning or removing of resources for the task.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultEstimatedDuration">
@@ -410,8 +438,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether new tasks have estimated durations.</summary>
+        <value>
+          <b>True</b> if new tasks have estimated durations; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -436,8 +465,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default end time of a working day.</summary>
+        <value>The default end time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,8 +491,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.FixedCostAccrual</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates which default fixed-cost accrual method to use on new tasks.</summary>
+        <value>A numerical value that represents the default fixed-cost accrual method to use.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -488,8 +517,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default overtime rate for local resources.</summary>
+        <value>The default overtime rate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -514,8 +543,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default standard rate for local resources.</summary>
+        <value>The default standard rate.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -540,8 +569,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default start time of a working day.</summary>
+        <value>The default start time of a working day.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -566,8 +595,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TaskType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default type for tasks in the project.</summary>
+        <value>A numerical value that indicates the default task type.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -592,9 +621,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.WorkFormat</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the default format for work duration.</summary>
+        <value>The default work format.</value>
+        <remarks>
+          <para>An example of a format for work duration is the use of hours and minutes.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteObject">
@@ -619,9 +651,185 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Deletes the <b>PublishedProject</b> object.</summary>
+        <returns>A <b>QueueJob</b> object that contains information about the queued job.</returns>
+        <remarks>
+          <para>If the queue job is successful, the Project Server Queuing Service deletes the published version of the project. The draft version is also deleted.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example deletes a specified project from both the published store and the draft store. The Project 2013 SDK download includes the complete Visual Studio 2012 solution in the ~\Samples\DeleteOneProjectCSOM folder.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace DeleteOneProject
+{
+    class Program
+    {
+        // Change the path for your Project Web App instance.
+        private const string pwaPath = "http://servername/pwa/";
+        private static string projName = string.Empty;
+        private static int timeoutSeconds = 10;  // The default queue job wait time queue job, in seconds.
+
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp(false);
+            }
+
+            projContext = new ProjectContext(pwaPath);
+
+            bool projDeleted = DeleteTheProject(projName);
+
+            ExitApp(projDeleted);
+        }
+
+        // Delete the specified project from the collection of projects.
+        private static bool DeleteTheProject(string projectName)
+        {
+            bool isProjectDeleted = false;
+
+            Console.Write("Deleting the project: '{0}'", projName);
+
+            var projCollection = projContext.LoadQuery(
+                projContext.Projects
+                    .Where(p =&amp;gt; p.Name == projName));
+
+            projContext.ExecuteQuery();
+
+            int numProjectsInCollection = projCollection.Count();
+
+            if (numProjectsInCollection &amp;gt; 0)
+            {
+                projCollection.First().DeleteObject();
+
+                // Update the collection of published projects.
+                QueueJob qJob = projContext.Projects.Update();
+                isProjectDeleted = SubmitQueueJob(qJob);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\nNo project named '{0}' exists.", projName);
+            }
+
+            if (isProjectDeleted)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\nThe '{0}' project was deleted.", projName);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\nThere was a problem deleting the project: '{0}'.", projName);
+                Console.ResetColor();
+            }
+            return isProjectDeleted;
+        }
+
+        // Call WaitForQueue, for the specified maximum time. If the job state is not successful,
+        // write an error message.
+        private static bool SubmitQueueJob(QueueJob qJob)
+        {
+            bool jobSuccess = false;
+            // Calling Load and ExecuteQuery for the queue job is optional. If qJob is 
+            // not initialized when you call WaitForQueue, Project Server initializes it.
+            //projContext.Load(qJob);
+            //projContext.ExecuteQuery();
+
+            JobState jobState = projContext.WaitForQueue(qJob, timeoutSeconds);          
+
+            try
+            {
+                if (jobState == JobState.Success)
+                {
+                    jobSuccess = true;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nThere is a problem in the queue. Timeout is {0} seconds.",
+                        timeoutSeconds);
+                    Console.WriteLine("\tQueue JobState: {0}", jobState.ToString());
+                    Console.ResetColor();
+                }              
+            }
+
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nError: {0}", ex.Message);
+                Console.ResetColor();
+            }
+                return jobSuccess;
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*projname":
+                        case "*p":
+                            if (++i &amp;gt;= argsLen) return false;
+                            projName = args[i];
+                            break;                     
+                        case "*timeout":
+                        case "*t":
+                            if (++i &amp;gt;= argsLen) return false;
+                            timeoutSeconds = Convert.ToInt32(args[i]);
+                            break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+
+            if (string.IsNullOrEmpty(projName)) error = true;
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: -projName | -n \"Project name\" [-timeout | -t sec]";
+            example += "\nExample: -n \"My New Project\"";
+            Console.WriteLine(example);
+        }
+
+        private static void ExitApp(bool projDeleted)
+        {
+            Console.Write("\n{0}Press any key to exit... ", projDeleted ? "Success! " : "");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+    }
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="Description">
@@ -645,8 +853,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project description.</summary>
+        <value>The project description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -671,8 +879,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftProject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a <see cref="T:Microsoft.ProjectServer.Client.DraftProject" /> object if it is not already checked out.</summary>
+        <value>A <b>DraftProject</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -692,9 +900,144 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the custom field values for the published project.</summary>
+        <value>A set of key-value pairs for custom field values, where the key is the internal custom field name, and the value is either the custom field value or the internal name of a lookup table entry.</value>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The following code example queries each published enterprise project for its collection of custom fields. It lists the GUID and name of the project, the name and value of each custom field, and the internal name of each custom field in the project as the key in a key-value pair. If the custom field uses a lookup table, the <b>FieldValues</b> item contains the internal name of the lookup table entry. If the custom field is a multivalue text field, the example lists the value and internal name of each lookup table entry for that custom field in the project. If the custom field does not use a lookup table, the value is simply the custom field value.</para>
+          <para>The internal name of a custom field is a string with the value "Custom_[GUID]", for example, Custom_9d77d62aa92e4d40adc8446c90eb7456. The internal name of a lookup table entry is a string with the value "Entry_[GUID]", for example, Entry_4a2750309d91e21193f90021704e28a0.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace GetProjectFieldValues
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa";    // Change the path for Project Web App.
+
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath);
+
+            // Get the list of published projects in Project Web App.
+            projContext.Load(projContext.Projects);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("\t\tProject ID\t     :\tProject name");
+
+            if (projContext.Projects.Count &amp;gt; 0)
+            {
+                for (int i = 0; i &amp;lt; projContext.Projects.Count; i++)
+                {
+                    var pubProj = projContext.Projects[i].IncludeCustomFields;
+                    projContext.Load(pubProj);
+                    projContext.Load(pubProj.CustomFields);
+                    projContext.ExecuteQuery();
+
+                    Console.WriteLine("\n{0} :\t{1}", pubProj.Id.ToString(), pubProj.Name);
+                    int numCFs = pubProj.CustomFields.Count;
+                    Console.WriteLine("Number of custom fields: {0}", numCFs.ToString());
+
+                    Dictionary&amp;lt;string, object&amp;gt; projDict = pubProj.FieldValues;
+
+                    // Variables to compare with custom field types:
+                    string textValue = "";                  // TEXT - no lookup table
+                    String[] lutTextValues = { "" };        // TEXT - lookup table
+                    DateTime dateValue = DateTime.MinValue; // DATE - no lookup table
+
+                    foreach (KeyValuePair&amp;lt;string, object&amp;gt; kvp in projDict)
+                    {
+                        object oVal = kvp.Value;
+                        string keyStr = kvp.Key;
+
+                        var projCFs = projContext.LoadQuery(pubProj.CustomFields
+                            .Where(cf =&amp;gt; cf.InternalName == keyStr));
+                        projContext.ExecuteQuery();
+
+                        Console.WriteLine("\n    Custom field: '{0}'; FieldType = {1};\n\tInternalName = {2}",
+                            projCFs.First().Name, projCFs.First().FieldType.ToString(), keyStr);
+
+                        // Check whether the custom field is a simple text field.
+                        if (object.ReferenceEquals(oVal.GetType(), textValue.GetType()))
+                        {
+                            textValue = (string)oVal;
+                            Console.WriteLine("\tSingle-line string value = {0}", textValue.ToString());
+                        }
+                        // Check whether the custom field is a text (or multivalue text) field from a lookup table.
+                        else if (object.ReferenceEquals(oVal.GetType(), lutTextValues.GetType()))
+                        {
+                            projContext.Load(projCFs.First().LookupTable);
+                            projContext.ExecuteQuery();
+                            string lutName = projCFs.First().LookupTable.Name;
+
+                            Console.WriteLine("\tLookup table: {0}", lutName);
+
+                            var luts = projContext.LoadQuery(projContext.LookupTables
+                                .Where(lut =&amp;gt; lut.Name == lutName));
+                            projContext.ExecuteQuery();
+
+                            lutTextValues = (string[])oVal;
+
+                            for (var j = 0; j &amp;lt; lutTextValues.Count(); j++)
+                            {
+                                var entries = projContext.LoadQuery(luts.First().Entries
+                                    .Where(e =&amp;gt; e.InternalName == lutTextValues[j]));
+                                projContext.ExecuteQuery();
+                                Console.WriteLine("\t    Entry({0}): String value = {1};\n\t\t  InternalName = {2}",
+                                    j, entries.First().FullValue, lutTextValues[j]);
+                            }
+                        }
+                        // Check whether the custom field is a date.
+                        else if (object.ReferenceEquals(oVal.GetType(), dateValue.GetType()))
+                        {
+                            dateValue = (DateTime)oVal;
+
+                            Console.WriteLine("\tDate value = {0}", dateValue.ToString());
+                        }
+                        // Add other cases for cost, duration, flag, and number custom fields,
+                        // with and without lookup tables.
+                    }
+                }
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+          <para>For example, a project named TestProject9 has a Project Departments custom field value, a multivalue text custom field with three lookup table entry values, a simple text custom field, and a date custom field. Because Project Departments is a built-in custom field, the GUID for the Project Departments custom field in default Project Web App instances is 9d77d62a-a92e-4d40-adc8-446c90eb7456. Following is the output of the <b>GetProjectFieldValues</b> sample app:</para>
+          <code>b846e947-29e0-43eb-b5c6-5ddeaf08d5c0 :  TestProject9
+Number of custom fields: 4
+
+    Custom field: 'Project Departments'; FieldType = TEXT;
+        InternalName = Custom_9d77d62aa92e4d40adc8446c90eb7456
+        Lookup table: Department
+            Entry(0): String value = Test Dept 1;
+                  InternalName = Entry_bbc07ff5b06de21193f40021704e28a0
+
+    Custom field: 'ProjectMVText'; FieldType = TEXT;
+        InternalName = Custom_9295a8759d91e21193f90021704e28a0
+        Lookup table: TestTextMV
+            Entry(0): String value = First.001;
+                  InternalName = Entry_4a2750309d91e21193f90021704e28a0
+            Entry(1): String value = Second.002;
+                  InternalName = Entry_4d2750309d91e21193f90021704e28a0
+            Entry(2): String value = Third;
+                  InternalName = Entry_4f2750309d91e21193f90021704e28a0
+
+    Custom field: 'Test Project Date'; FieldType = DATE;
+        InternalName = Custom_37f61601a991e21193f90021704e28a0
+        Date value = 3/29/2013 8:00:00 AM
+
+    Custom field: 'Test project simple text'; FieldType = TEXT;
+        InternalName = Custom_8bf7eed5cc94e21193f90021704e28a0
+        Single-line string value = This is a line of text</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="FinishDate">
@@ -718,8 +1061,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project finish date.</summary>
+        <value>The project finish date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -744,8 +1087,8 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of the first month in the fiscal year.</summary>
+        <value>A numerical value that represents the first month in the fiscal year.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -770,8 +1113,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether scheduling constraints take precedence over dependencies.</summary>
+        <value>
+          <b>True</b> if scheduling constraints take precedence over dependencies; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -796,9 +1140,34 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedProject</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets a <b>PublishedProject</b> object that includes custom fields.</summary>
+        <value>A published project.</value>
+        <remarks>
+          <para>For projects with many custom fields, performance can be slow when retrieving and saving the project. When you use the <see cref="M:Microsoft.ProjectServer.Client.PublishedProject.CheckOut" /> method to check out a project, by default, the <b>DraftProject</b> object does not include custom fields. By using the <b>IncludeCustomFields</b> property, the project that is checked out includes custom field information.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following <b>CheckoutProject</b> method checks out a project that includes custom fields.</para>
+          <code>private static DraftProject &lt;span class="label"&gt;CheckoutProject&lt;/span&gt;(ProjectContext projContext, string projName)
+{
+    DraftProject projCheckedOut = null;
+
+    var projCollection = projContext.LoadQuery(
+        projContext.Projects
+            .Where(p =&amp;gt; p.Name == projName));
+
+    projContext.ExecuteQuery();
+
+    if (projCollection.Count() &amp;gt; 0)
+    {
+        PublishedProject proj2Edit = projCollection.First().IncludeCustomFields;
+
+        projCheckedOut = proj2Edit.CheckOut().&lt;span class="label"&gt;IncludeCustomFields&lt;/span&gt;;
+    }
+    return projCheckedOut;
+}</code>
+          <para>For another code example, see <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.IncludeCustomFields" />.</para>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="InitNonPropertyFieldFromJson">
@@ -821,9 +1190,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -847,10 +1216,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -875,8 +1245,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the published project is an enterprise project (managed by Project Server).</summary>
+        <value>
+          <b>True</b> if the published project is an enterprise project; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -907,9 +1278,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of a project item.</param>
+        <summary>Gets or sets an item in the project.</summary>
+        <value>A <b>PublishedProject</b> item.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -930,7 +1301,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Initializes the extended properties that are associated with the <b>PublishedProject</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -955,8 +1326,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default number of minutes per day.</summary>
+        <value>A numerical value that represents the default number of minutes per day.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -981,8 +1352,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default number of minutes per week.</summary>
+        <value>A numerical value that represent the default number of minutes per week.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1007,8 +1378,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to move the end date of completed parts forward to the status date, if the actual end date falls before the status date.</summary>
+        <value>
+          <b>True</b> if the end date of completed parts should be moved forward to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1033,8 +1405,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to move the end date of completed parts back to the status date, if the actual end data falls after the status date.</summary>
+        <value>
+          <b>True</b> if the end date of completed parts should be moved back to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1059,8 +1432,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to move the start date of remaining parts forward to the status date, if the actual start date falls before the status date.</summary>
+        <value>
+          <b>True</b> if the start date of remaining parts should be moved forward to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1085,8 +1459,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to move the start date of the remaining parts back to the status date, if the actual start date falls after the status date.</summary>
+        <value>
+          <b>True</b> if the start date of the remaining parts should be moved back to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1111,8 +1486,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to calculate multiple critical paths.</summary>
+        <value>
+          <b>True</b> if multiple critical paths should be calculated; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1137,8 +1513,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the project.</summary>
+        <value>The project name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1163,8 +1539,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether new tasks are manually scheduled.</summary>
+        <value>
+          <b>True</b> if new tasks are manually scheduled; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1189,8 +1566,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to use the project start year for fiscal year numbering.</summary>
+        <value>
+          <b>True</b> if the project start year should be used for fiscal year numbering; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1215,8 +1593,8 @@
         <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the owner of the project.</summary>
+        <value>The project owner.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1241,8 +1619,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedProjectResourceCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of resources for a project.</summary>
+        <value>A collection of <b>PublishedProjectResource</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1267,8 +1645,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets whether the project actuals are synchronized with the protected actuals.</summary>
+        <value>
+          <b>True</b> if the project actuals are synchronized with the protected actuals; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1289,7 +1668,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>PublishedProject</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1314,8 +1693,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets whether the project is scheduled from the finish date instead of the start date.</summary>
+        <value>
+          <b>True</b> if the project is scheduled from the finish date instead of the start date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1340,8 +1720,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether a question mark is displayed after an estimated duration for a task.</summary>
+        <value>
+          <b>True</b> if a question mark is displayed after an estimated duration for a task; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1366,8 +1747,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether to split tasks that are in progress.</summary>
+        <value>
+          <b>True</b> if tasks that are in progress are to be split; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1392,8 +1774,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether actual costs are spread to the status date or to the stop date.</summary>
+        <value>
+          <b>True</b> if actual costs are spread to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1418,8 +1801,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the percentage complete consideration period is spread to the status date or to the task finish date.</summary>
+        <value>
+          <b>True</b> if the percentage complete consideration period is spread to the status date; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1444,8 +1828,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the project start date.</summary>
+        <value>The project start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1470,8 +1854,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the status date for the project.</summary>
+        <value>The status date for the project.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1497,7 +1881,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Causes the workflow to run.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1522,8 +1906,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedTaskLinkCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of task links for the project. </summary>
+        <value>A collection of <b>PublishedTaskLink</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1548,8 +1932,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.PublishedTaskCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of tasks for the project.</summary>
+        <value>A collection of <b>PublishedTask</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1574,8 +1958,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TrackingMode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the default tracking method for all assignments in the project.</summary>
+        <value>A numerical value that represents the tracking method that is used.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1601,8 +1985,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Updates the custom fields for a project in visibility mode.</summary>
+        <returns>A <b>QueueJob</b> object that contains information about the queued job. If the queue job is successful, the Project Server Queuing Service saves the published version of the project.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1627,8 +2011,8 @@
         <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the day of the week on which a work week starts.</summary>
+        <value>A numerical value that represents a day of the week.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1653,8 +2037,8 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the version of Project Professional that created the published project.</summary>
+        <value>A decimal number.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

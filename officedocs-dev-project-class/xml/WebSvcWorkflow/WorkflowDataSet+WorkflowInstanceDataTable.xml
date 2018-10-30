@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about workflow instances contained in one or more <see cref="T:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>WorkflowInstanceDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>WorkflowInstanceDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the workflow instance row that is to be added.</param>
+        <summary>Adds a <b>WorkflowInstanceRow</b> object to the <b>WorkflowInstanceDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -139,7 +142,7 @@
         <param name="PROJ_UID">To be added.</param>
         <param name="ENTERPRISE_PROJECT_TYPE_UID">To be added.</param>
         <param name="ENTERPRISE_PROJECT_TYPE_NAME">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,8 +198,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of rows in the <b>WorkflowInstanceDataTable</b>.</summary>
+        <value>The number of rows.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -248,8 +251,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow.ENTERPRISE_PROJECT_TYPE_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -274,8 +277,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow.ENTERPRISE_PROJECT_TYPE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,8 +306,8 @@
         <Parameter Name="PROJ_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="PROJ_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <summary>Retrieves a <b>WorkflowInstanceRow</b> object by using the specified project GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -334,8 +337,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>WorkflowInstanceDataTable</b>.</summary>
+        <returns>An interator for the workflow instance data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -390,8 +393,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -420,9 +423,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>WorkflowInstanceDataTable</b>, where the row is specified by an index.</summary>
+        <value>A row in the workflow instance data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -478,8 +481,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a row object in the <b>WorkflowInstanceDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -620,8 +623,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow.WORKFLOW_PROJ_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -649,8 +652,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>WorkflowInstanceDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -675,8 +678,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow.WORKFLOW_ENGINE_VERSION" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -701,8 +704,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.WorkflowDataSet.WorkflowInstanceRow.WORKFLOW_INSTANCE_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -722,7 +725,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -742,7 +745,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -762,7 +765,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -782,7 +785,7 @@
         <ReturnType>WebSvcWorkflow.WorkflowDataSet+WorkflowInstanceRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

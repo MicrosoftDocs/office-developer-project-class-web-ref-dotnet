@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about workflow resources that is contained in one or more <see cref="T:WebSvcWorkflow.ResourceDataSet.ResourcesRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>ResourcesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>ResourcesDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+ResourcesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">Contains the resources row to be added.</param>
+        <summary>Adds a <b>ResourcesRow</b> object to the <b>ResourcesDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddResourcesRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcWorkflow.ResourceDataSet.ResourcesRow" /> parameter, for example, AddResourcesRow(ResourceDataSet.ResourcesRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload which uses individual parameters for all fields in <b>ResourcesRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaseCalendarUniqueIdColumn">
@@ -127,8 +141,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -183,8 +197,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of row objects in the <b>ResourcesDataTable</b>.</summary>
+        <value>The number of row objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -209,8 +223,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.CREATED_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -265,9 +279,9 @@
         <Parameter Name="RES_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="RES_UID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="RES_UID">Contains the resource GUID.</param>
+        <summary>Retrieves a <b>ResourcesRow</b> object by using the specified resource GUID.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -296,8 +310,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>ResourcesDataTable</b>.</summary>
+        <returns>An iterator for the resources data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -352,8 +366,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Contains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -382,9 +396,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>ResourcesDataTable</b>, where the row is specified by an index.</summary>
+        <value>A row in the resources data table.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -409,8 +423,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.MOD_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -436,8 +450,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a row object in the <b>ResourcesDataTable</b>.</summary>
+        <returns>A row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -611,8 +625,8 @@
         <Parameter Name="row" Type="WebSvcWorkflow.ResourceDataSet+ResourcesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the resources row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>ResourcesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -637,8 +651,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -663,8 +677,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -689,8 +703,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -715,8 +729,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -741,8 +755,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -767,8 +781,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -793,8 +807,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_CODE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -819,8 +833,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_COST_CENTER" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -845,8 +859,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -871,8 +885,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -897,8 +911,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -923,8 +937,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -949,8 +963,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_GROUP" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -975,8 +989,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1001,8 +1015,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1027,8 +1041,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1053,8 +1067,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1079,8 +1093,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1105,8 +1119,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_ID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1131,8 +1145,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_INITIALS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1157,8 +1171,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_IS_TEAM" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1183,8 +1197,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1209,8 +1223,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1235,8 +1249,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1261,8 +1275,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_NOTES" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1287,8 +1301,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_PHONETICS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1313,8 +1327,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1339,8 +1353,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1365,8 +1379,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1391,8 +1405,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_TYPE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1417,8 +1431,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.RES_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1438,7 +1452,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourcesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1458,7 +1472,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourcesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1478,7 +1492,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourcesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1498,7 +1512,7 @@
         <ReturnType>WebSvcWorkflow.ResourceDataSet+ResourcesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1523,8 +1537,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1549,8 +1563,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1575,8 +1589,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcWorkflow.ResourceDataSet.ResourcesRow.WRES_EMAIL" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -22,7 +22,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides a collection of actual work entries for a timesheet. </summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -47,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>TimeSheetWorkCollection</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,9 +77,9 @@
         <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.TimeSheetWorkCreationInformation" />
       </Parameters>
       <Docs>
-        <param name="parameters">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="parameters">An object that contains information for the creation of an actual work item.</param>
+        <summary>Adds an actual work value to a timesheet.</summary>
+        <returns>A <b>TimesheetWork</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -107,9 +107,9 @@
         <Parameter Name="objectId" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="objectId">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="objectId">The string representation of a timesheet actual work GUID.</param>
+        <summary>Gets a timesheet actual work object from the collection with the <see cref="P:Microsoft.ProjectServer.Client.TimesheetWork.Id" /> value.</summary>
+        <returns>A <b>TimesheetWork</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,9 +137,9 @@
         <Parameter Name="start" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="start">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="start">The start date and time.</param>
+        <summary>Gets a timesheet actual work object from the collection with a specified start date.</summary>
+        <returns>A <b>TimeSheetWork</b> object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -167,9 +167,10 @@
         <Parameter Name="work" Type="Microsoft.ProjectServer.Client.TimeSheetWork" />
       </Parameters>
       <Docs>
-        <param name="work">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="work">The actual work element to remove.</param>
+        <summary>Removes a specified actual work value from a timesheet.</summary>
+        <returns>
+          <b>True</b> if the work element was removed; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

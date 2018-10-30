@@ -19,8 +19,38 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Includes methods for managing backup and restore operations by using the Archive database in Project Server.</summary>
+    <remarks>
+      <para>The <b>Archive</b> class includes the following kinds of archival methods:</para>
+      <list type="bullet">
+        <item>
+          <description>Allows a user to manage interactions between active projects and archived projects.</description>
+        </item>
+        <item>
+          <description>Allows a user to set scheduling information for archive operations.</description>
+        </item>
+        <item>
+          <description>Allows a user to determine archive retention parameters.</description>
+        </item>
+      </list>
+      <para>The Project Server Archive pages in Project Web App use many of the <b>Archive</b> class methods. If you have administrator permission, click Server Settings in Project Web App.</para>
+      <para>The following methods are located in other PSI web services:</para>
+      <list type="bullet">
+        <item>
+          <description>For administration functions, see the <see cref="T:WebSvcAdmin.Admin" /> class.</description>
+        </item>
+        <item>
+          <description>For managing permissions, see the <see cref="T:WebSvcSecurity.Security" /> class.</description>
+        </item>
+        <item>
+          <description>For managing Project Server event handler associations, see the <see cref="T:WebSvcEvents.Events" /> class.</description>
+        </item>
+        <item>
+          <description>For managing SharePoint sites for projects, see the <see cref="T:WebSvcWssInterop.WssInterop" /> class.</description>
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,8 +66,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an <b>Archive</b> object from the ASMX-based <b>Archive</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Archive</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>ArchiveClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>ArchiveWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Archive</b> web service.</para>
+          <code>private static ArchiveWebSvc.Archive archive = new ArchiveWebSvc.Archive();</code>
+          <para>In the following statement, <b>SvcArchive</b> is an arbitrary namespace for the WCF-based <b>Archive</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcArchive.ArchiveClient archiveClient = new SvcArchive.ArchiveClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveCategories">
@@ -64,9 +103,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of tables for security categories from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveCategories</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveCustomFields">
@@ -93,9 +145,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of tables for enterprise custom fields from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveCustomFields</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveGlobalProject">
@@ -122,9 +187,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of the enterprise global project from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveGlobalProject</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveProject">
@@ -156,15 +234,198 @@
         <Parameter Name="permanentArchive" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <param name="projectUID">To be added.</param>
-        <param name="archivedProjectUID">To be added.</param>
-        <param name="versionDescription">To be added.</param>
-        <param name="retentionPolicy">To be added.</param>
-        <param name="permanentArchive">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <param name="projectUID">The GUID of the project to archive.</param>
+        <param name="archivedProjectUID">The GUID of the archived project.</param>
+        <param name="versionDescription">The description of the project version.</param>
+        <param name="retentionPolicy">Specifies the retention policy; values can be <b>-2</b>, <b>-1</b>, <b>0</b>, or <b>greater than 0</b>. </param>
+        <param name="permanentArchive">Set <b>true</b> to maintain a permanent copy and avoid accidental deletion.</param>
+        <summary>Saves a copy of the specified project from the Published database to the Archive database, and creates a version of the project.</summary>
+        <returns>Returns a GUID for the project version.</returns>
+        <remarks>
+          <para>
+            <b>QueueArchiveProject</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Following are the values for retention policy.</para>
+          <list type="table">
+            <item>
+              <term>&gt; 0</term>
+              <description>Set the project retention policy; override the Project Server default retention policy.</description>
+            </item>
+            <item>
+              <term>0</term>
+              <description>Unlimited retention. Archive the project and do not check for retention delete.</description>
+            </item>
+            <item>
+              <term>-1</term>
+              <description>Use the project policy if it is set; otherwise, use the Project Server default.</description>
+            </item>
+            <item>
+              <term>-2</term>
+              <description>Use the Project Server default retention policy and clear the project retention policy.</description>
+            </item>
+          </list>
+          <para>Save the returned project version GUID to use with <b>QueueRestoreProject</b>.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code saves a copy of the specified project from the Published database to the Archived database, and retrieves the list of archived projects.</para>
+          <para>For information about running this code sample, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>
+using System;
+using System.IO;
+using System.ServiceModel;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadArchivedProjectsList
+{
+  class Program
+  {
+    private const string ENDPOINT = "basicHttp_Archive";
+    private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+    private const string VERSION_DESCRIPTION = "2010-01-19 14:52:30";
+    private const string PID = "56B5C90D-28C0-42A1-A2CF-8BC205F062BA";
+    private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+
+    private const int RETENTION_POLICY = -2;
+
+    private static SvcArchive.ArchiveClient archiveClient;
+    private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+    private static string outFilePath;
+
+    private static int numProjects;
+
+    static void Main1(string[] args)
+    {
+      try
+      {
+        Guid jobUID = Guid.NewGuid();
+        Guid projectUID = new Guid(PID);
+        Guid archivedProjectUID = Guid.NewGuid();
+        DateTime startTime = DateTime.Now;
+        numProjects = 1;
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        SetClientEndpoints(ENDPOINT_Q);
+        ConfigClientEndpoints(ENDPOINT);
+
+        // If the directory does not exist, create it.
+        if (!Directory.Exists(OUTPUT_FILES))
+        {
+          Directory.CreateDirectory(OUTPUT_FILES);
+        }
+        // Assign the path where the output XML file will be saved.
+        outFilePath = OUTPUT_FILES + "ArchivedProjectsList.xml";
+
+        // Queue the archive project.
+        Guid projectVersionUID = archiveClient.QueueArchiveProject(
+          jobUID, projectUID, archivedProjectUID, VERSION_DESCRIPTION, RETENTION_POLICY, true);
+
+        Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectArchive, numProjects,
+          queueSystemClient, startTime);
+
+        Console.WriteLine("Projects archived successfully");
+
+        Console.WriteLine("Retrieving the list of archived projects...");
+
+        // Create a dataset.
+        SvcArchive.ArchivedProjectsDataSet archivedProjectsDs =
+            new SvcArchive.ArchivedProjectsDataSet();
+
+        // Assign the datasource to the dataset.
+        archivedProjectsDs = archiveClient.ReadArchivedProjectsList();
+        archivedProjectsDs.WriteXml(outFilePath);
+
+        // Get the count of projects.
+        Console.WriteLine("Number of archived projects: {0}",
+            archivedProjectsDs.Projects.Count.ToString());
+        archiveClient.Close();
+
+        // Write the list of projects to an XML file.
+        Console.WriteLine("\nSee XML output of the ArchivedProjectsDataSet at {0}",
+            outFilePath);
+      }
+      catch (CommunicationException e)
+      {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+        Console.WriteLine(e.ToString());
+        Console.ResetColor();
+      }
+      finally
+      {
+        Console.Write("\r\n\r\nPress any key....");
+        Console.ReadKey();
+      }
+    }
+
+    // Configure the client endpoints.
+    public static void ConfigClientEndpoints(string endpt)
+    {
+      archiveClient = new SvcArchive.ArchiveClient(endpt);
+    }
+    // Configure the client endpoints.
+    public static void SetClientEndpoints(string qendpt)
+    {
+      queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+    }
+  }
+
+  // Utility class.
+  class Helpers
+  {
+    // Waits for the Project Server Queuing Service to finish archiving the project.
+    public static bool WaitForQueue(SvcQueueSystem.QueueMsgType jobType,
+      int numJobs, SvcQueueSystem.QueueSystemClient queueSystemClient, DateTime startTime)
+    {
+      const int maxSeconds2Wait = 50;
+      SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+
+      int timeout = 0; // The number of secs waited.
+      Console.WriteLine("Waiting for job" + jobType.ToString());
+
+      SvcQueueSystem.QueueMsgType[] messageTypes = { jobType };
+      SvcQueueSystem.JobState[] jobStates = { SvcQueueSystem.JobState.Success };
+
+      while ((timeout &amp;lt; maxSeconds2Wait) &amp;amp;&amp;amp; (queueStatusDs.Status.Count &amp;lt; numJobs))
+      {
+        System.Threading.Thread.Sleep(1000);
+
+        queueStatusDs = queueSystemClient.ReadMyJobStatus(
+          messageTypes,
+          jobStates,
+          startTime,
+          DateTime.Now,
+          numJobs,
+          true,
+          SvcQueueSystem.SortColumn.QueuePosition,
+          SvcQueueSystem.SortOrder.LastOrder);
+
+        timeout++;
+        Console.Write(".");
+      }
+      Console.WriteLine();
+
+      if (queueStatusDs.Status.Count == numJobs)
+      {
+        return true;
+      }
+      return false;
+    }
+  }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveProjects">
@@ -189,8 +450,22 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Archives all projects that have changed since the last archive action.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveProjects</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>This method is used by the Administrative Backup page (http://ServerName/ProjectServerName/_layouts/pwa/Admin/Backup.aspx) of Project Web App, to archive projects.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveResources">
@@ -217,9 +492,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of the enterprise resource tables from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveResources</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveSystemSettings">
@@ -246,9 +534,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of tables with Project Server settings from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveSystemSettings</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueArchiveViews">
@@ -275,9 +576,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Saves a copy of the views tables from the Published database to the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueArchiveViews</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueDeleteArchivedProject">
@@ -306,11 +620,30 @@
         <Parameter Name="archiveUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <param name="projectUID">To be added.</param>
-        <param name="archiveUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <param name="projectUID">The GUID of the project to delete in the archive.</param>
+        <param name="archiveUID">The GUID of the archive.</param>
+        <summary>Deletes the specified project in the Archive database.</summary>
+        <remarks>
+          <para>
+            <b>QueueDeleteArchivedProject</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" />
+              </term>
+              <description>Allows a user to delete or move projects. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.DeleteProject" />
+              </term>
+              <description>Allows a user to delete the specified projects. Applies only if the current user does not have the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" /> permission. Category permission. </description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreCategories">
@@ -337,9 +670,20 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores tables related to security categories from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreCustomFields">
@@ -366,9 +710,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores tables related to enterprise custom fields from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreCustomFields</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreGlobalProject">
@@ -395,9 +752,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores the enterprise global project from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreGlobalProject</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreProject">
@@ -426,11 +796,24 @@
         <Parameter Name="versionUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <param name="projectUID">To be added.</param>
-        <param name="versionUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <param name="projectUID">The GUID of the archived project.</param>
+        <param name="versionUID">The GUID of the project version.</param>
+        <summary>Restores the specified archived project version from the Archive database to the Published database</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreProject</b> is an asynchronous method that sends a message to the Project Server Queuing Service. The <paramref name="versionUID" /> is the value from the <b>QueueArchiveProject</b> call that created the archived project version.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreResources">
@@ -457,9 +840,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores archived enterprise resources from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreResource</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreSystemSettings">
@@ -486,9 +882,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores Project Server system settings from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreSystemSettings</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueRestoreViews">
@@ -515,9 +924,22 @@
         <Parameter Name="jobUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="jobUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="jobUID">The GUID of the queue job.</param>
+        <summary>Restores archived views from the Archive database to the Published database.</summary>
+        <remarks>
+          <para>
+            <b>QueueRestoreViews</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueScheduleArchives">
@@ -544,9 +966,22 @@
         <Parameter Name="opCode" Type="WebSvcArchive.ArchiveOpcode" />
       </Parameters>
       <Docs>
-        <param name="opCode">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="opCode">The operation code for the archive schedule.</param>
+        <summary>Sets the archive schedule.</summary>
+        <remarks>
+          <para>
+            <b>QueueScheduleArchives</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadArchivedProjectsList">
@@ -571,9 +1006,179 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a list of archived projects; the list includes the project name and GUID.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            <b>Note</b>: This method retrieves draft projects and published projects.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" />
+              </term>
+              <description>Allows a user to delete or move projects. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example saves a copy of the specified project from the Published database to the Archive database, and retrieves the list of archived projects </para>
+          <para>For information about running this code sample, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>
+using System;
+using System.IO;
+using System.ServiceModel;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadArchivedProjectsList
+{
+  class Program
+  {
+    private const string ENDPOINT = "basicHttp_Archive";
+    private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+    private const string VERSION_DESCRIPTION = "2010-01-19 14:52:30";
+    private const string PID = "56B5C90D-28C0-42A1-A2CF-8BC205F062BA";
+    private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+
+    private const int RETENTION_POLICY = -2;
+
+    private static SvcArchive.ArchiveClient archiveClient;
+    private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+    private static string outFilePath;
+
+    private static int numProjects;
+
+    static void Main(string[] args)
+    {
+      try
+      {
+        Guid jobUID = Guid.NewGuid();
+        Guid projectUID = new Guid(PID);
+        Guid archivedProjectUID = Guid.NewGuid();
+        DateTime startTime = DateTime.Now;
+        numProjects = 1;
+
+        // Use the endpoints that are defined in app.config to configure the client.
+        SetClientEndpoints(ENDPOINT_Q);
+        ConfigClientEndpoints(ENDPOINT);
+
+        // Assign the path where the output XML file will be saved.
+        outFilePath = OUTPUT_FILES + "ArchivedProjectsList.xml";
+
+        // Queue archive project
+        Guid projectVersionUID = archiveClient.QueueArchiveProject(
+          jobUID, projectUID, archivedProjectUID, VERSION_DESCRIPTION, RETENTION_POLICY, true);
+
+        Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectArchive, numProjects,
+          queueSystemClient, startTime);
+
+        Console.WriteLine("Projects archived successfully");
+
+        Console.WriteLine("Retrieving the list of archived projects...");
+
+        // Create a dataset.
+        SvcArchive.ArchivedProjectsDataSet archivedProjectsDs =
+            new SvcArchive.ArchivedProjectsDataSet();
+
+        // Assign the datasource to the dataset.
+        archivedProjectsDs = archiveClient.ReadArchivedProjectsList();
+        archivedProjectsDs.WriteXml(outFilePath);
+
+        // Get the count of projects.
+        Console.WriteLine("Number of archived projects: {0}",
+            archivedProjectsDs.Projects.Count.ToString());
+        archiveClient.Close();
+
+        // Write the list of projects to an XML file.
+        Console.WriteLine("\nSee XML output of the ArchivedProjectsDataSet at {0}",
+            outFilePath);
+      }
+      catch (CommunicationException e)
+      {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+        Console.WriteLine(e.ToString());
+        Console.ResetColor();
+      }
+      finally
+      {
+        Console.Write("\r\n\r\nPress any key....");
+        Console.ReadKey();
+      }
+    }
+
+    // Configure the client endpoints.
+    public static void ConfigClientEndpoints(string endpt)
+    {
+      archiveClient = new SvcArchive.ArchiveClient(endpt);
+    }
+    // Configure the client endpoints.
+    public static void SetClientEndpoints(string qendpt)
+    {
+      queueSystemClient = new SvcQueueSystem.QueueSystemClient(qendpt);
+    }
+  }
+
+  // Utility class.
+  class Helpers
+  {
+    // Waits for the Project Server Queuing Service to finish archiving the project.
+    public static bool WaitForQueue(SvcQueueSystem.QueueMsgType jobType,
+      int numJobs, SvcQueueSystem.QueueSystemClient queueSystemClient, DateTime startTime)
+    {
+      const int maxSeconds2Wait = 50;
+      SvcQueueSystem.QueueStatusDataSet queueStatusDs = new SvcQueueSystem.QueueStatusDataSet();
+
+      int timeout = 0; // The number of secs waited.
+      Console.WriteLine("Waiting for job" + jobType.ToString());
+
+      SvcQueueSystem.QueueMsgType[] messageTypes = { jobType };
+      SvcQueueSystem.JobState[] jobStates = { SvcQueueSystem.JobState.Success };
+
+      while ((timeout &amp;lt; maxSeconds2Wait) &amp;amp;&amp;amp; (queueStatusDs.Status.Count &amp;lt; numJobs))
+      {
+        System.Threading.Thread.Sleep(1000);
+
+        queueStatusDs = queueSystemClient.ReadMyJobStatus(
+          messageTypes,
+          jobStates,
+          startTime,
+          DateTime.Now,
+          numJobs,
+          true,
+          SvcQueueSystem.SortColumn.QueuePosition,
+          SvcQueueSystem.SortOrder.LastOrder);
+
+        timeout++;
+        Console.Write(".");
+      }
+      Console.WriteLine();
+
+      if (queueStatusDs.Status.Count == numJobs)
+      {
+        return true;
+      }
+      return false;
+    }
+  }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadArchiveSchedule">
@@ -598,9 +1203,26 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets information about the archive schedule.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadProjectArchiveRetentionSetting">
@@ -625,9 +1247,26 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the default Project Server archive retention setting.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerRestore" />
+              </term>
+              <description>Allows a user to perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateArchiveSchedule">
@@ -654,9 +1293,20 @@
         <Parameter Name="scheduleDataSet" Type="WebSvcArchive.ArchiveScheduleDataSet" />
       </Parameters>
       <Docs>
-        <param name="scheduleDataSet">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="scheduleDataSet">Contains the archive schedule information.</param>
+        <summary>Updates the archive schedule.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageProjectServerBackup" />
+              </term>
+              <description>Allows a user to schedule or perform a backup of Project Server entities. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

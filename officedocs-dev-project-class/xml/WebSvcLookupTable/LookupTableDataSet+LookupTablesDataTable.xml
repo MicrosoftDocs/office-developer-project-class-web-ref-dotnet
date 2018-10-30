@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a collection of lookup tables.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of the <b>LookupTablesDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates a new instance of the <b>LookupTablesDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcLookupTable.LookupTableDataSet+LookupTablesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LookupTablesRow</b> to be added to the <b>LookupTablesDataTable</b> table.</param>
+        <summary>Adds a new <b>LookupTablesRow</b> to the <b>LookupTablesDataTable</b> by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,7 +150,7 @@
         <param name="LT_CHECKOUTDATE">To be added.</param>
         <param name="MOD_DATE">To be added.</param>
         <param name="APP_ENTITY_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -173,8 +176,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.APP_ENTITY_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -229,8 +232,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the number of row objects in the <b>LookupTablesDataTable</b>.</summary>
+        <value>The number of rows.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -285,8 +288,8 @@
         <Parameter Name="LT_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="LT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="LT_UID">Specifies the unique identifier of the lookup table.</param>
+        <summary>Retrieves a <b>LookupTablesRow</b> object by using the specified parameter.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -316,8 +319,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>LookupTablesDataTable</b>.</summary>
+        <returns>An iterator for the lookup tables data table.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -373,7 +376,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -402,9 +405,9 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="index">An integer that specifies a row in the <b>LookupTablesDataTable</b>.</param>
+        <summary>Gets a row object in the <b>LookupTablesDataTable</b> by using the specified parameter.</summary>
+        <value>A lookup table row object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -424,7 +427,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTablesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>LookupTablesDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -444,7 +447,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTablesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>LookupTablesDataTable</b> is to be changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -464,7 +467,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTablesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>LookupTablesDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -484,7 +487,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTablesRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>LookupTablesDataTable</b> is to be deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -509,8 +512,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUTBY" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -535,8 +538,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_CHECKOUTDATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -561,8 +564,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_FILL_ALL_LEVELS" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -587,8 +590,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_NAME" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -613,8 +616,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_PRIMARY_LCID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -639,8 +642,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_SORT_ORDER_ENUM" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -665,8 +668,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.LT_UID" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -691,8 +694,8 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTablesRow.MOD_DATE" /> field.</summary>
+        <value>A <b>DataColumn</b> object for the field.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -718,8 +721,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Creates a new instance of a <b>LookupTablesRow</b> for the <b>LookupTablesDataTable</b>.</summary>
+        <returns>A new row object.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -777,8 +780,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTablesDataTable.LookupTablesRowChanged" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -806,8 +809,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTablesDataTable.LookupTablesRowChanging" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -835,8 +838,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTablesDataTable.LookupTablesRowDeleted" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -864,8 +867,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTablesDataTable.LookupTablesRowDeleting" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -893,8 +896,8 @@
         <Parameter Name="row" Type="WebSvcLookupTable.LookupTableDataSet+LookupTablesRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LookupTablesRow</b> to be deleted.</param>
+        <summary>Deletes the specified <b>LookupTablesRow</b> from the <b>LookupTablesDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

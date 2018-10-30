@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ProjectEventReceiver.OnWssWorkspaceAddressUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.WssWorkspaceAddressUpdatingEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -53,10 +58,10 @@
         <Parameter Name="newWSSServerUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="newWebName">To be added.</param>
-        <param name="newWSSServerUID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">The GUID of the project.</param>
+        <param name="newWebName">The new name of the project site.</param>
+        <param name="newWSSServerUID">The GUID of the new instance of the Sharepoint site for the project.</param>
+        <summary>Creates an instance of the <see cref="T:Microsoft.Office.Project.Server.Events.WssWorkspaceAddressUpdatingEventArgs" /> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,7 +81,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the new name of the project site.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,7 +102,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the new instance of the Sharepoint site for the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,7 +123,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Deprecated. Represents information about resource assignment custom fields that is contained in one or more <see cref="T:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>PlanAssignmentCustomFieldsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>ActualsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,20 @@
         <Parameter Name="row" Type="WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">The plan assignment custom fields row to add.</param>
+        <summary>Adds a <b>PlanAssignmentCustomFieldsRow</b> object to the <b>PlanAssignmentCustomFieldsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddPlanAssignmentCustomFieldsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow" /> parameter, for example, AddPlanAssignmentCustomFieldsRow(ResourcePlanDataSet.PlanAssignmentCustomFieldsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload, which uses individual parameters for all fields in <b>PlanAssignmentCustomFieldsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AddPlanAssignmentCustomFieldsRow">
@@ -157,7 +171,7 @@
         <param name="NUM_VALUE">To be added.</param>
         <param name="DUR_FMT">To be added.</param>
         <param name="IS_ROLLED_DOWN">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -183,7 +197,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.ASSN_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -236,7 +250,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.CODE_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -265,7 +279,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>PlanAssignmentCustomFieldsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -318,7 +332,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.CUSTOM_FIELD_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -344,7 +358,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.DATE_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -370,7 +384,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.DUR_FMT" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -396,7 +410,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.DUR_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -422,7 +436,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.FIELD_TYPE_ENUM" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -452,9 +466,9 @@
         <Parameter Name="ASSN_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="CUSTOM_FIELD_UID">To be added.</param>
-        <param name="ASSN_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="CUSTOM_FIELD_UID">Contains the custom field GUID.</param>
+        <param name="ASSN_UID">Contains the assignment GUID.</param>
+        <summary>Gets the <b>PlanAssignmentCustomFieldsRow</b> object specified by the custom field and the assignment.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -480,7 +494,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.FLAG_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -510,7 +524,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>PlanAssignmentCustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -567,7 +581,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -593,7 +607,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.IS_ROLLED_DOWN" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -622,8 +636,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row in the <b>PlanAssignmentCustomFieldsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -649,7 +663,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.MD_PROP_ID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -675,7 +689,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.MD_PROP_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -702,7 +716,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>PlanAssignmentCustomFieldsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -758,7 +772,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.NUM_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -895,7 +909,7 @@
         <ReturnType>WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -915,7 +929,7 @@
         <ReturnType>WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -935,7 +949,7 @@
         <ReturnType>WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -955,7 +969,7 @@
         <ReturnType>WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -980,7 +994,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.PROJ_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1009,8 +1023,8 @@
         <Parameter Name="row" Type="WebSvcResourcePlan.ResourcePlanDataSet+PlanAssignmentCustomFieldsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from the <b>PlanAssignmentCustomFieldsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1035,7 +1049,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcResourcePlan.ResourcePlanDataSet.PlanAssignmentCustomFieldsRow.TEXT_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

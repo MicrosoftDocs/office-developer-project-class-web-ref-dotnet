@@ -13,8 +13,26 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the status of the project stage in a Project Server workflow.</summary>
+    <remarks>
+      <para>The <b>UpdateProjectStageStatusFieldValue</b> enumeration in the CSOM is equivalent to <see cref="T:Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" /> in the <b>Microsoft.Office.Project.Server.Library</b> namespace. The <b>UpdateProjectStageStatusFieldValue</b> constants can be used as the <paramref name="stageStatusValue" /> parameter in the following methods:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="M:Microsoft.ProjectServer.Client.Project.UpdateProjectStageStatus(Microsoft.ProjectServer.Client.Stage,System.String,Microsoft.ProjectServer.Client.UpdateProjectStageStatusFieldValue,System.Boolean)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:Microsoft.ProjectServer.Client.WorkflowActivities.UpdateProjectStageStatus(System.Guid,System.Guid,System.String,Microsoft.ProjectServer.Client.UpdateProjectStageStatusFieldValue,System.Boolean)" />
+          </description>
+        </item>
+        <item>
+          <description />
+        </item>
+      </list>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="None">
@@ -34,7 +52,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. The workflow stage status field is empty.</summary>
       </Docs>
     </Member>
     <Member MemberName="WaitingForApproval">
@@ -54,7 +72,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. The workflow stage is waiting for approval.</summary>
       </Docs>
     </Member>
     <Member MemberName="WaitingForInput">
@@ -74,7 +92,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. The workflow stage is waiting for input.</summary>
       </Docs>
     </Member>
     <Member MemberName="WorkflowProcessing">
@@ -94,7 +112,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. The workflow stage is processing.</summary>
       </Docs>
     </Member>
   </Members>

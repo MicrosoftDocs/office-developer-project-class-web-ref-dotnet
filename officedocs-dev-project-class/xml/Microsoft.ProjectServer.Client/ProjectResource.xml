@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides information about a project resource.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates a new instance of the <b>ProjectResource</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the costs incurred for work that has been performed by the project resource, along with any other recorded costs.</summary>
+        <value>The costs incurred for work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,9 +97,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the actual cost for work that has been performed by the project resource to date.</summary>
+        <value>The actual cost for work performed to date.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual cost of work performed, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.ActualCostWorkPerformedTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualCostWorkPerformedTimeSpan">
@@ -123,8 +126,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the actual cost for work that has been performed by the project resource to date.</summary>
+        <value>The duration of the actual cost for work performed to date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +152,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the actual cost incurred for overtime work that has been performed by the project resource.</summary>
+        <value>The actual cost for overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,9 +178,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the actual amount of overtime work that has been performed by the project resource.</summary>
+        <value>The actual amount of overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.ActualOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualOvertimeWorkTimeSpan">
@@ -201,8 +207,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the actual amount of overtime work that has been performed by the project resource.</summary>
+        <value>The duration of the actual amount of overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,9 +233,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the actual amount of work that has already been performed by the project resource.</summary>
+        <value>The actual amount of work already performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualWorkTimeSpan">
@@ -253,8 +262,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the actual amount of work that has already been performed by the project resource.</summary>
+        <value>The duration of the actual amount of work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -279,8 +288,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the starting date that the project resource is available for work, at the units specified for the current time period.</summary>
+        <value>The starting date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +314,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the end date that the project resource is available for work, at the units specified for the current time period.</summary>
+        <value>The end date that the project resource is available for work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,9 +340,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the planned total cost for work to be performed by the project resource.</summary>
+        <value>The planned total cost for work.</value>
+        <remarks>
+          <para>Baseline Cost = (Work * Standard Rate) + (Overtime Work * Overtime Rate) + Per Use Cost</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineWork">
@@ -357,9 +369,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the planned amount of work to be performed by the project resource.</summary>
+        <value>The planned amount of work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the baseline work, use the <see cref="P:Microsoft.ProjectServer.Client.Assignment.BaselineWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BaselineWorkTimeSpan">
@@ -383,8 +398,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the planned amount of work to be performed by the project resource.</summary>
+        <value>The duration of the planned amount of work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -409,8 +424,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the budgeted cost for work performed by the project resource to date.</summary>
+        <value>The budgeted cost for work performed to date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -435,8 +450,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total budgeted cost for work performed by the project resource.</summary>
+        <value>The total budgeted cost for the work of the project resource.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,8 +476,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the budgeted cost of scheduled work for the project resource.</summary>
+        <value>The budgeted cost of scheduled work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -487,9 +502,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total budgeted amount of work to be performed by the project resource.</summary>
+        <value>The total budgeted amount of work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the budgeted work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.BudgetedWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BudgetedWorkTimeSpan">
@@ -513,8 +531,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total budgeted amount of work to be performed by the project resource.</summary>
+        <value>The duration of the total budgeted amount of work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -539,8 +557,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the total scheduled or estimated cost for work that has been performed, and work that remains to be performed, by the project resource.</summary>
+        <value>The total scheduled or estimated cost for work already done.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -565,8 +583,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the difference between the baseline cost and actual cost for the project resource.</summary>
+        <value>The cost variance.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -591,8 +609,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the difference between the baseline cost and actual cost of the project resource at the completion of a project.</summary>
+        <value>The cost variance at completion.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -617,8 +635,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time when the task was added to the project.</summary>
+        <value>The date and time when the task was added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -643,8 +661,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the difference between the baseline cost and the actual cost of the project resource to date.</summary>
+        <value>The current cost variance.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -669,8 +687,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of custom fields that have values set for this project resource.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -695,8 +713,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets identification information for the project resource.</summary>
+        <value>An <b>EnterpriseResource</b> object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -721,8 +739,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when the project resource is scheduled to complete work on all assigned tasks.</summary>
+        <value>The date that the project resource finishes the work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -747,8 +765,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the project resource.</summary>
+        <value>The project resource GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -772,10 +790,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -800,8 +819,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project resource is used for budgeting purposes or is a regular resource.</summary>
+        <value>
+          <b>True</b> if it is the project resource that is used for budgeting purposes; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -826,8 +846,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project resource is a generic placeholder.</summary>
+        <value>
+          <b>True</b> if the project resource is a generic placeholder; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -852,8 +873,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a value that indicates whether the project resource is assigned to do more work on all assigned tasks than can be done within the normal working capacity.</summary>
+        <value>
+          <b>True</b> if the project resource is overallocated; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -878,8 +900,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date of modification.</summary>
+        <value>The date of modification.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -904,8 +926,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets comments entered about the project resource.</summary>
+        <value>An object that contains the comments.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -930,9 +952,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total overtime cost for a  project resource on all assigned tasks. </summary>
+        <value>The total overtime cost.</value>
+        <remarks>
+          <para>Overtime cost includes actual overtime costs already incurred by the project resource, in addition to any planned overtime costs on remaining work.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeWork">
@@ -956,9 +981,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of overtime work that is scheduled to be performed on all tasks assigned to the project resource and that is charged at the overtime rates of the project resource involved.</summary>
+        <value>The amount of scheduled overtime.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.OvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="OvertimeWorkTimeSpan">
@@ -982,8 +1010,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of overtime work that is scheduled to be performed on all tasks assigned to the project resource and that is charged at the overtime rates of the project resource involved.</summary>
+        <value>The duration of the amount of scheduled overtime.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1008,9 +1036,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the maximum effort that the project resource is scheduled to work on all assigned tasks.</summary>
+        <value>The maximum assignment units.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the peak work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.PeakWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PeakWorkTimeSpan">
@@ -1034,8 +1065,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the duration of the maximum effort that the project resource is scheduled to work on all assigned tasks.</summary>
+        <value>The duration of the maximum assignment units.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1060,8 +1091,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the current status of the project resource, expressed as the percentage of work that has been completed by the project resouce.</summary>
+        <value>The current status of a task expressed as a percentage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1086,9 +1117,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total amount of non-overtime work that is scheduled to be performed by the project resource.</summary>
+        <value>The total amount of non-overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the regular work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.RegularWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RegularWorkTimeSpan">
@@ -1112,8 +1146,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total amount of non-overtime work that is scheduled to be performed by the project resource.</summary>
+        <value>The duration of the total amount of non-overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1138,8 +1172,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the remaining scheduled expense that will be incurred by the project resource in completing the remaining scheduled work.</summary>
+        <value>The remaining scheduled expense.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1164,8 +1198,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the remaining scheduled overtime expense for the project resource.</summary>
+        <value>The remaining scheduled overtime expense.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1190,9 +1224,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of remaining scheduled overtime work for the project resource.</summary>
+        <value>The amount of remaining scheduled overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.RemainingOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingOvertimeWorkTimeSpan">
@@ -1216,8 +1253,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of remaining scheduled overtime work for the project resource.</summary>
+        <value>The duration of the amount of remaining scheduled overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1242,9 +1279,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the amount of time, such as person-hours or days, that is still required for the project resource to complete a task or set of tasks.</summary>
+        <value>The amount of time that is still required to complete a task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.RemainingWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingWorkTimeSpan">
@@ -1268,8 +1308,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the amount of time, such as person-hours or days, that is still required for the project resource to complete a task or set of tasks.</summary>
+        <value>The duration of the amount of time that is still required to complete a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1294,9 +1334,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the scheduled cost variance for the project resource.</summary>
+        <value>The scheduled cost variance.</value>
+        <remarks>
+          <para>Cost variance is the difference between the baseline cost and the scheduled cost of the assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Start">
@@ -1320,8 +1363,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date when an assigned resource is scheduled to begin working on a task.</summary>
+        <value>The date when the project resource starts working.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1346,9 +1389,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the total amount of time to which the project resource is scheduled for a task.</summary>
+        <value>The total amount of resource scheduled work time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the work, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.WorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkTimeSpan">
@@ -1372,8 +1418,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time interval for the total amount of time to which the project resource is scheduled for a task.</summary>
+        <value>The duration of the total amount of resource scheduled work time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1398,9 +1444,13 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the difference between baseline work of a project resource and the currently scheduled work.</summary>
+        <value>The work variance.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para>To get the <b>TimeSpan</b> value for the work variance, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectResource.WorkVarianceTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkVarianceTimeSpan">
@@ -1424,9 +1474,12 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the time interval for the difference between baseline work of a project resource and the currently scheduled work.</summary>
+        <value>The duration of the work variance.</value>
+        <remarks>
+          <para>Work Variance = Work - Baseline Work</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

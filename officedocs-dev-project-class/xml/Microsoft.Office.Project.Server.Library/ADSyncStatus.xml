@@ -16,10 +16,18 @@
     <Attribute>
       <AttributeName>System.CLSCompliant(true)</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Status of the Enterprise Resource Pool synchronization with Active Directory directory service groups.</summary>
+    <remarks>
+      <para>The <see cref="P:WebSvcAdmin.ADSyncERPSettings.Status" /> property uses the <see cref="T:Microsoft.Office.Project.Server.Library.ADSyncStatus" /> enumeration. For more information, see the <see cref="M:WebSvcAdmin.Admin.GetActiveDirectorySyncEnterpriseResourcePoolSettings" /> and <see cref="M:WebSvcAdmin.Admin.SetActiveDirectorySyncEnterpriseResourcePoolSettings(WebSvcAdmin.ADSyncERPSettings)" /> PSI methods.</para>
+      <para>
+        <b>Note</b>: The <see cref="N:WebSvcAdmin" /> namespace also includes the <see cref="T:WebSvcAdmin.ADSyncStatus" /> type.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Failed">
@@ -39,7 +47,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Status failed.</summary>
       </Docs>
     </Member>
     <Member MemberName="GroupNotFound">
@@ -59,7 +67,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Status group not found.</summary>
       </Docs>
     </Member>
     <Member MemberName="InProgress">
@@ -79,7 +87,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Status in progress.</summary>
       </Docs>
     </Member>
     <Member MemberName="NeverRun">
@@ -99,7 +107,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Status never run.</summary>
       </Docs>
     </Member>
     <Member MemberName="PartialFail">
@@ -119,7 +127,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Status partially failed.</summary>
       </Docs>
     </Member>
     <Member MemberName="Succeeded">
@@ -139,7 +147,7 @@
       </ReturnValue>
       <MemberValue>5</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=5. Status succeeded.</summary>
       </Docs>
     </Member>
   </Members>

@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about the boundary between efficient optimizer solutions and inefficient optimizer solutions that is contained in one or more <see cref="T:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>SolutionEfficientFrontierDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>SolutionEfficientFrontierDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contians the row information.</param>
+        <summary>Adds a <b>SolutionEfficientFrontierRow</b> object to the <b>SolutionEfficientFrontierDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -134,14 +137,17 @@
         <Parameter Name="Y_VALUE" Type="System.Decimal" />
       </Parameters>
       <Docs>
-        <param name="FRONTIER_UID">To be added.</param>
-        <param name="ANALYSIS_UID">To be added.</param>
-        <param name="POINT_UID">To be added.</param>
-        <param name="X_VALUE">To be added.</param>
-        <param name="Y_VALUE">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="FRONTIER_UID">Contains the GUID of the efficient frontier.</param>
+        <param name="ANALYSIS_UID">Contains the analysis GUID.</param>
+        <param name="POINT_UID">Contains the GUID of the efficient frontier point.</param>
+        <param name="X_VALUE">Contains the X value for the point corresponding to the primary constraint max value.</param>
+        <param name="Y_VALUE">Contains the Y value for the point corresponding to the total priority of the selected projects.</param>
+        <summary>Adds a <b>SolutionEfficientFrontierRow</b> object to the <b>SolutionEfficientFrontierDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>In general, developers should use the <see cref="M:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierDataTable.AddSolutionEfficientFrontierRow(WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow)" /> overload.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_UIDColumn">
@@ -165,7 +171,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow.ANALYSIS_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -221,7 +227,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>SolutionEfficientFrontierDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -277,8 +283,8 @@
         <Parameter Name="POINT_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="POINT_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="POINT_UID">Contains the GUID of the efficient frontier point.</param>
+        <summary>Retrieves a <b>SolutionEfficientFrontierRow</b> object by using the specified point GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -304,7 +310,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow.FRONTIER_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -334,7 +340,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>SolutionEfficientFrontierDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -390,8 +396,8 @@
         <Parameter Name="xs" Type="System.Xml.Schema.XmlSchemaSet" />
       </Parameters>
       <Docs>
-        <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="xs">Cotains the XML schema set.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -420,8 +426,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row.</param>
+        <summary>Gets a row object in the <b>SolutionFrontierDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -478,7 +484,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>SolutionEfficientFrontierDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -620,7 +626,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow.POINT_UID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -649,8 +655,8 @@
         <Parameter Name="row" Type="WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row object from the <b>SolutionEfficientFrontierDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -670,7 +676,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -690,7 +696,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -710,7 +716,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -730,7 +736,7 @@
         <ReturnType>WebSvcPortfolioAnalyses.OptimizerSolutionDataSet+SolutionEfficientFrontierRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -755,7 +761,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow.X_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -781,7 +787,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcPortfolioAnalyses.OptimizerSolutionDataSet.SolutionEfficientFrontierRow.Y_VALUE" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

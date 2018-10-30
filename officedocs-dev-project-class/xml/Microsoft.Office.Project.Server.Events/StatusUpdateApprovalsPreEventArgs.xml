@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnApprovalsUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusUpdateApprovalsPreEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -31,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>StatusUpdateApprovalsPreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -51,8 +56,8 @@
         <Parameter Name="statusApprovals" Type="Microsoft.Office.Project.Server.Schema.StatusApprovalDataSet" />
       </Parameters>
       <Docs>
-        <param name="statusApprovals">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="statusApprovals">A dataset that contains summary information about submitted status updates.</param>
+        <summary>Creates an instance of the <b>StatusUpdateApprovalsPreEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -72,7 +77,7 @@
         <ReturnType>Microsoft.Office.Project.Server.Schema.StatusApprovalDataSet</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a dataset that contains summary information about submitted status updates.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

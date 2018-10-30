@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.AdminDeletePostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -52,9 +57,9 @@
         <Parameter Name="deletionComments" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="deletedItems">To be added.</param>
-        <param name="deletionComments">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="deletedItems">A collection of GUIDs that belong to items in the category that has been deleted.</param>
+        <param name="deletionComments">Text that provides information about the deleted category.</param>
+        <summary>Creates an instance of the <b>CategoryDeletePostEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

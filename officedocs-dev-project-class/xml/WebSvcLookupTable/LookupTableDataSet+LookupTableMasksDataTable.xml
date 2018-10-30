@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a lookup table of code mask values.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>LookupTableMasksDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">An object that stores all the data needed to serialize or deserialize an object.</param>
+        <param name="context">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
+        <summary>Creates an instance of the <b>LookupTableMasksDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LookupTableMasksRow</b> that is to be added to the <b>LookupTableMasksDataTable</b>.</param>
+        <summary>Adds a new <b>LookupTableMasksRow</b> to the <b>LookupTableMasksDataTable</b> by using the specified parameter.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -135,11 +138,11 @@
       </Parameters>
       <Docs>
         <param name="parentLookupTablesRowByLookupTablesLookupTableMasks">To be added.</param>
-        <param name="LT_MASK_STRUCT_LEVEL">To be added.</param>
-        <param name="LT_MASK_STRUCT_TYPE_ENUM">To be added.</param>
-        <param name="LT_MASK_STRUCT_LENGTH">To be added.</param>
-        <param name="LT_MASK_VALUE_SEPARATOR">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="LT_MASK_STRUCT_LEVEL">The outline level of the code mask structure.</param>
+        <param name="LT_MASK_STRUCT_TYPE_ENUM">The type of data for a lookup table mask structure, specified by the <b>LookupTables.MaskSequence</b> enumeration.</param>
+        <param name="LT_MASK_STRUCT_LENGTH">The number of characters, numbers, or letters in the code mask.</param>
+        <param name="LT_MASK_VALUE_SEPARATOR">The separator character that is used in a lookup table mask for lookup table values.</param>
+        <summary>Adds a new <b>LookupTableMasksRow</b> to the <b>LookupTableMasksDataTable</b> by using the specified parameters.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -166,7 +169,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clones the structure of the <b>LookupTableMasksDataTable</b>, including all <b>LookupTableMasksDataTable</b> schemas and constraints.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -195,7 +198,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>LookupTableMasksDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -222,7 +225,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a new instance of a <b>LookupTableMasksDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -252,9 +255,9 @@
         <Parameter Name="LT_MASK_STRUCT_LEVEL" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="LT_UID">To be added.</param>
-        <param name="LT_MASK_STRUCT_LEVEL">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="LT_UID">The unique identifier of the multilanguage lookup table that uses the code mask structure.</param>
+        <param name="LT_MASK_STRUCT_LEVEL">The outline level of the code mask structure.</param>
+        <summary>Retrieves a <b>LookupTableMasksRow</b> object by using the specified multilanguage lookup table GUID and the outline level of the code mask structure.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -284,7 +287,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>LookupTableMasksDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -311,7 +314,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns the type of the <b>LookupTableMasksRow</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -341,7 +344,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -370,8 +373,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">An integer that specifies a row in the <b>LookupTableMasksDataTable</b>.</param>
+        <summary>Gets a row object in the <b>LookupTableMasksDataTable</b> by using the specified parameter.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -392,7 +395,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>LookupTableMasksDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -412,7 +415,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>LookupTableMasksDataTable</b> is to be changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -432,7 +435,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A post-event that is raised when a row in a <b>LookupTableMasksDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -452,7 +455,7 @@
         <ReturnType>WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>A pre-event that is raised when a row in a <b>LookupTableMasksDataTable</b> is to be deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -477,7 +480,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LT_MASK_STRUCT_LENGTH" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -503,7 +506,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LT_MASK_STRUCT_LEVEL" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -529,7 +532,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LT_MASK_STRUCT_TYPE_ENUM" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -555,7 +558,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LT_MASK_VALUE_SEPARATOR" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -581,7 +584,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <b>LT_UID</b> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -608,7 +611,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new instance of a <b>LookupTableMasksRow</b> for the <b>LookupTableMasksDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -638,7 +641,7 @@
       </Parameters>
       <Docs>
         <param name="builder">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -667,8 +670,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LookupTableMasksRowChanged" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -696,8 +699,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LookupTableMasksRowChanging" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -725,8 +728,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LookupTableMasksRowDeleted" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -754,8 +757,8 @@
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" />
       </Parameters>
       <Docs>
-        <param name="e">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="E:WebSvcLookupTable.LookupTableDataSet.LookupTableMasksDataTable.LookupTableMasksRowDeleting" /> event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -783,8 +786,8 @@
         <Parameter Name="row" Type="WebSvcLookupTable.LookupTableDataSet+LookupTableMasksRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">The <b>LookupTableMasksRow</b> that is to be deleted.</param>
+        <summary>Deletes the specified <b>LookupTableMasksRow</b> from the <b>LookupTableMasksDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

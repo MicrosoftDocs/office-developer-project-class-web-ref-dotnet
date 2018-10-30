@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents a task in a checked-out project.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -44,9 +44,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>DraftTask</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +71,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or set costs incurred for work already performed on a task, together with any other recorded costs that are associated with a task.</summary>
+        <value>The actual cost.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +97,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets costs incurred for work already performed on a task to date.</summary>
+        <value>The costs incurred for work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +123,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a date and time when a task is complete.</summary>
+        <value>The actual finish date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +149,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets costs incurred for overtime work already performed on a task.</summary>
+        <value>The costs incurred for overtime work already performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,9 +175,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the actual amount of overtime work already performed on a task.</summary>
+        <value>The actual amount of overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.ActualOvertimeWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualOvertimeWorkTimeSpan">
@@ -201,8 +204,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the actual amount of overtime work already performed on a task.</summary>
+        <value>The duration of the actual amount of overtime work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -227,8 +230,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a date and time that a task actually began, based on progress information that has been entered.</summary>
+        <value>The actual start date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -253,9 +256,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of work that has already been performed on a task.</summary>
+        <value>The actual amount of work performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ActualWorkTimeSpan">
@@ -279,8 +285,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of work that has already been performed on a task.</summary>
+        <value>The duration of the actual amount of work performed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -305,8 +311,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftAssignmentCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the assignments for a task.</summary>
+        <value>A collection of <b>DraftAssignment</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -331,8 +337,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the estimated cost of work performed to date on a task.</summary>
+        <value>The estimated cost of work performed to date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -357,8 +363,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the estimated cost of scheduled work on a task.</summary>
+        <value>An estimated cost of scheduled work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -383,9 +389,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of work that is estimated to be performed on a task.</summary>
+        <value>The amount of estimated work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the budget work, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.BudgetWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="BudgetWorkTimeSpan">
@@ -409,8 +418,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of work that is estimated to be performed on a task.</summary>
+        <value>The duration of the amount of estimated work.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -435,8 +444,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Calendar</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the task calendar.</summary>
+        <value>A calendar.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -461,8 +470,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a completion date for a task.</summary>
+        <value>The completion date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -487,9 +496,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a constraint start date or end date for a task.</summary>
+        <value>The constraint start date or end date.</value>
+        <remarks>
+          <para>Whether the get or set processes work with the constraint start date or the constraint end date is determined by the constraint type.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ConstraintType">
@@ -513,8 +525,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ConstraintType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time constraint type for a task.</summary>
+        <value>One of several different time constraints.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -539,8 +551,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a task contact.</summary>
+        <value>A task contact.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -565,8 +577,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the total scheduled or projected cost based on costs already incurred for work performed on a task, in addition to the costs planned for the remaining work.</summary>
+        <value>A total cost.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -591,9 +603,12 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the date that was entered as a deadline for a task. </summary>
+        <value>The deadline date.</value>
+        <remarks>
+          <para>A deadline is the target date that indicates when a task has to be completed.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteObject">
@@ -618,7 +633,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>DraftTask</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -643,9 +658,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of time that it takes to complete a task.</summary>
+        <value>A span of time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the duration, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.DurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DurationTimeSpan">
@@ -669,8 +687,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of time that it takes to complete a task.</summary>
+        <value>A time duration.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -690,9 +708,12 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the collection of custom fields that have values set for a task.</summary>
+        <value>A set of custom field values.</value>
+        <remarks>
+          <para>For code examples that use <b>FieldValues</b>, see <see cref="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" /> and <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.FieldValues" />.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Finish">
@@ -716,8 +737,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a task finish date.</summary>
+        <value>The date when a task is finished.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -742,8 +763,8 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets any non-resource task expense.</summary>
+        <value>Any non-resource task expense.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -768,8 +789,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.FixedCostAccrual</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the choices for how and when fixed costs are to be charged to the cost of a task.</summary>
+        <value>An enumerated value that indicates how and when fixed costs are to be charged.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -793,9 +814,9 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -819,10 +840,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -847,8 +869,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether a task is active.</summary>
+        <value>
+          <b>True</b> if a task is active; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -873,9 +896,13 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a value that indicates whether the scheduling of a task is effort-driven.</summary>
+        <value>
+          <b>True</b> if scheduling of a task is effort-driven; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>Effort-driven scheduling occurs when the duration of tasks is affected by the assigning or removing of resources on a task.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsLockedByManager">
@@ -899,8 +926,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether a task has been locked for changes by a manager.</summary>
+        <value>
+          <b>True</b> if a task has been locked for changes by a manager; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -925,8 +953,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether a task is manually scheduled.</summary>
+        <value>
+          <b>True</b> if a task is manually scheduled; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -951,8 +980,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether a task has been marked as having special meaning.</summary>
+        <value>
+          <b>True</b> if a task has been marked as having special meaning; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -977,8 +1007,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether a task is a milestone.</summary>
+        <value>
+          <b>True</b> if a task is a milestone; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1009,9 +1040,9 @@
         <Parameter Name="fieldName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="fieldName">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <param name="fieldName">The name of a project item.</param>
+        <summary>Gets or sets an item in the project.</summary>
+        <value>A <b>DraftTask</b> item.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1036,8 +1067,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether leveling can delay or split assignments (rather than the task itself) to resolve overallocations.</summary>
+        <value>
+          <b>True</b> if leveling can delay or split assignments to resolve overallocations; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1062,8 +1094,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether leveling can interrupt and split a task.</summary>
+        <value>
+          <b>True</b> if leveling can interrupt and split a task; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1088,9 +1121,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the amount of time that leveling can delay a task from its early start.</summary>
+        <value>An amount of time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the leveling delay, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.LevelingDelayTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LevelingDelayTimeSpan">
@@ -1114,8 +1150,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the amount of time that leveling can delay a task from its early start.</summary>
+        <value>A duration of time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1136,7 +1172,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use.  Initializes the extended properties that are associated with the <b>DraftTask</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1161,8 +1197,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of a task.</summary>
+        <value>The name of a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1187,8 +1223,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the task outline level in a hierarchical task list.</summary>
+        <value>A numerical value that refers to the task outline level.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1213,8 +1249,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftTask</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the parent task.</summary>
+        <value>The parent task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1239,8 +1275,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the percent of duration completed on a task.</summary>
+        <value>The percent of duration completed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1265,8 +1301,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the percentage of physical work completed on a task.</summary>
+        <value>The percentage of physical work completed.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1291,8 +1327,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftTaskLinkCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the links to the predecessor tasks that the current task depends on.</summary>
+        <value>A collection of <b>DraftTaskLink</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1317,9 +1353,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the task priority.</summary>
+        <value>The task priority.</value>
+        <remarks>
+          <para>Valid values range from <b>0</b>–<b>1000</b> (default <b>500</b>). This value is used to pick lower-priority tasks to modify during leveling.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RefreshLoad">
@@ -1339,7 +1378,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>DraftTask</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1364,9 +1403,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the remaining task duration.</summary>
+        <value>The remaining task duration.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining duration, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.RemainingDurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RemainingDurationTimeSpan">
@@ -1390,8 +1432,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the remaining task duration.</summary>
+        <value>The remaining task duration.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1416,8 +1458,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the task start date.</summary>
+        <value>The task start date.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1442,8 +1484,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.DraftTaskLinkCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets links to tasks that depend on the current task.</summary>
+        <value>A collection of <b>DraftTaskLink</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1468,8 +1510,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.TaskType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the task type.</summary>
+        <value>The task type.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1494,8 +1536,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether to use <b>PercentPhysicalWorkComplete</b> or <b>PercentComplete</b> to compute earned value.</summary>
+        <value>
+          <b>True</b> if <b>PercentPhysicalWorkComplete</b> is used to compute earned value; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1520,9 +1563,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the total time scheduled for a task.</summary>
+        <value>The total time scheduled for a task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the work, use the <see cref="P:Microsoft.ProjectServer.Client.DraftTask.WorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkTimeSpan">
@@ -1546,8 +1592,8 @@
         <ReturnType>System.TimeSpan</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the time interval for the total time scheduled for a task.</summary>
+        <value>The duration of the total time scheduled for a task.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

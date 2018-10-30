@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a data table that maintains rows of timesheet status settings.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcAdmin.StatusingSettingsDataSet.StatusingSettingsRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>StatusingSettingsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +77,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a serialized stream.</param>
+        <summary>Creates an instance of the <b>StatusingSettingsDataTable</b> class by using the specified parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +107,20 @@
         <Parameter Name="row" Type="WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="row">The <b>StatusingSettingsRow</b> to add.</param>
+        <summary>Adds a <b>StatusingSettingsRow</b> to the <b>StatusingSettingsDataTable</b>.</summary>
+        <remarks>
+          <para>The <b>AddStatusingSettingsRow</b> method signature is overloaded as follows:</para>
+          <list type="bullet">
+            <item>
+              <description>Third-party developers should use the overload that has a single <see cref="T:WebSvcAdmin.StatusingSettingsDataSet.StatuisngSettingsRow" /> parameter. For example, AddStatusingSettingsRow(StatusingSettingsDataSet.StatusingSettingsRow row). </description>
+            </item>
+            <item>
+              <description>The Object Explorer in Microsoft Visual Studio shows another overload that uses individual parameters for all fields in <b>StatusingSettingsRow</b>. The overload is used internally.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Clone">
@@ -157,7 +174,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies the number of rows in the data table.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -214,7 +231,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that is used to iterate through the rows of the <b>StatusingSettingsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -271,8 +288,8 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the <b>complexType</b> XML schema for the <b>StatusingSettingsDataTable</b>.</summary>
+        <returns>A specified XML schema definition.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -301,8 +318,8 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a row of table management methods and class information, at the specified index location in the <b>StatusingSettingsDataTable</b>.</summary>
+        <value>An integer offset into the <b>StatusingSettingsDataTable</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,7 +375,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a <b>StatusingSettingsRow</b> object that represents a row of settings information in the <b>StatusingSettingsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -503,8 +520,8 @@
         <Parameter Name="row" Type="WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">A <b>StatusingSettingsDataTable</b> row object.</param>
+        <summary>Removes the specified row of settings information in the <b>StatusingSettingsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -524,7 +541,7 @@
         <ReturnType>WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when row information in the <b>StatusingSettingsDataTable</b> has been changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -544,7 +561,7 @@
         <ReturnType>WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that row information in the <b>StatusingSettingsDataTable</b> has changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -564,7 +581,7 @@
         <ReturnType>WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event activity that occurs when a row in the <b>StatusingSettingsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -584,7 +601,7 @@
         <ReturnType>WebSvcAdmin.StatusingSettingsDataSet+StatusingSettingsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event activity that occurs before sending a notification that a row in the <b>StatusingSettingsDataTable</b> has been deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -609,7 +626,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_DEFAULT_TRACKING_METHODColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -635,7 +652,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_IS_TRACKING_METHOD_LOCKEDColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -661,7 +678,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_PROTECT_ACTUALSColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -687,7 +704,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_ALLOW_FREEFORM_PERIODSColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -713,7 +730,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_ENABLE_DOWNLOADColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -739,7 +756,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_LOOK_AHEAD_PERIODSColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -765,7 +782,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_LOOK_AHEADColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -791,7 +808,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_PERIOD_TYPEColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -817,7 +834,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_STAT_TIMESHEET_TIEDColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -843,7 +860,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_TS_DEF_ENTRY_MODE_ENUMColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -869,7 +886,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_TS_IS_FUTURE_REP_ALLOWEDColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -895,7 +912,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_TS_OUTLOOK_DISPLAY_ENUMColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -921,7 +938,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_TS_TIED_MODEColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -947,7 +964,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_UIDFAKEColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -973,7 +990,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the schema of the <b>WADMIN_WEEK_START_ON_ENUMColumn</b> in the <b>StatusingSettingsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

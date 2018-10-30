@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains constants and read-only properties for validation and calculation of various project field values.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -31,7 +31,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Instantiates a <b>ValidationConst</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -52,7 +52,7 @@
       </ReturnValue>
       <MemberValue>4095</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>4095</b>. The maximum number of characters in an assignment note.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -73,7 +73,7 @@
       </ReturnValue>
       <MemberValue>512</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>512</b>. The maximum number of characters in an enterprise project type description field.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -94,7 +94,7 @@
       </ReturnValue>
       <MemberValue>1000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>1000</b>. The maximum number of characters in a field description.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -115,7 +115,7 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>255</b>. The maximum number of characters in a field name.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -136,7 +136,7 @@
       </ReturnValue>
       <MemberValue>4000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>4000</b>. The maximum number of characters in a project detail page field description.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -156,7 +156,7 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>99999999999999</b> (one unit less than 100,000,000,000,000 cost units). The maximum project cost.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -176,8 +176,14 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>Saturday, January 01, 2050, 11:59:54 PM</b>. The maximum project date.</summary>
+        <remarks>
+          <para>The <b>MaxProjectDate</b> value is calculated as follows:</para>
+          <code>DateTime MaxProjectDate = new DateTime(1984, 1, 1)
+    .AddDays(s_max_day)
+    .AddTicks(TimeSpan.TicksPerDay - s_ticks_per_proj_dur);</code>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxProjectDuration">
@@ -196,8 +202,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>346896000</b> tenths of minutes, or 66 years. The maximum project duration, of type <b>Double</b>.</summary>
+        <remarks>
+          <para>Project duration is measured in tenths of a minute. The maximum project duration is 66 years, which is 66 * 365 * 1440 = 34,689,600 minutes, or 346,896,000 tenths of minutes. (One day contains 24 hours * 60 minutes/hour = 1440 minutes.)</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxProjectUnits">
@@ -216,8 +225,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>100000000</b>. The maximum project units.</summary>
+        <remarks>
+          <para>
+            <b>MaxProjectUnits</b> is used in validating resource units for doing work on an assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MaxProjectWork">
@@ -236,8 +249,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>99999999999999</b>. The maximum project work.</summary>
+        <remarks>
+          <para>
+            <b>MaxProjectWork</b> is used in validating work on task assignments. Work on an assignment is calculated as follows:  Work = (Resource Units) * Duration</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinProjectCost">
@@ -256,8 +273,11 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>-99999999999999</b> (one unit more than -100,000,000,000,000 cost units). The minimum project cost.</summary>
+        <remarks>
+          <para>Costs can be negative.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinProjectDate">
@@ -276,8 +296,11 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>Sunday, January 01, 1984, 12:00:00 AM</b>. The minimum project date.</summary>
+        <remarks>
+          <para>The <b>MinProjectDate</b> value is calculated as follows:  MinProjectDate = new DateTime(1984, 1, 1);</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinProjectDuration">
@@ -296,8 +319,11 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>0</b>. The minimum project duration.</summary>
+        <remarks>
+          <para>Project duration is measured in tenths of a minute.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinProjectUnits">
@@ -316,8 +342,12 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>0</b>. The minimum project units.</summary>
+        <remarks>
+          <para>
+            <b>MinProjectUnits</b> is used in validating resource available units.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="MinProjectWork">
@@ -336,8 +366,12 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>0</b>. The minimum project work.</summary>
+        <remarks>
+          <para>
+            <b>MinProjectWork</b> is used in validating work on task assignments. Work on an assignment is calculated as follows:   Work = (Resource Units) * Duration</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_bad_work">
@@ -357,7 +391,7 @@
       </ReturnValue>
       <MemberValue>-1E-06</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>-0.000001</b>. Indicates that the work calculation is incorrect.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -378,8 +412,11 @@
       </ReturnValue>
       <MemberValue>600</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>600</b>. The number of units that are calculated per hour.</summary>
+        <remarks>
+          <para>Units are calculated to the nearest tenth of a minute.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_cal_units_per_minute">
@@ -399,8 +436,11 @@
       </ReturnValue>
       <MemberValue>10</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>10</b>. The number of units that are calculated per minute.</summary>
+        <remarks>
+          <para>Units are calculated to the nearest tenth of a minute.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_cost_multiplier">
@@ -420,8 +460,11 @@
       </ReturnValue>
       <MemberValue>100</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>100</b>. The multiplier for cost units.</summary>
+        <remarks>
+          <para>Costs are calculated to the nearest 1/100 of a cost unit. For example, if the unit of cost is USD (U.S. dollar), costs are calculated to the nearest penny.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_dur_multiplier">
@@ -441,7 +484,7 @@
       </ReturnValue>
       <MemberValue>10</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>10</b>. The multiplier for duration, which is measured in tenths of a minute.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,8 +505,12 @@
       </ReturnValue>
       <MemberValue>60631</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>24107</b>. The maximum number of days after the Julian date of the minimum project date.</summary>
+        <remarks>
+          <para>Microsoft Project Server 2010 cannot calculate days after December 31, 2049 or before January 1, 1984. The <b>s_max_day</b> value = (Julian date of the maximum project date) – (Julian date of the minimum project date). That is, 2469808 – 2445701 = 24107.</para>
+          <para>The Julian date is the number of days since January 1, 4713 BC.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_max_duration_long">
@@ -483,8 +530,11 @@
       </ReturnValue>
       <MemberValue>346896000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>346896000</b> tenths of minutes, or 66 years. The maximum project duration, of type <b>Long</b>.</summary>
+        <remarks>
+          <para>Project duration is measured in tenths of a minute. The maximum project duration is 66 years, which is 66 * 365 * 1440 = 34,689,600 minutes, or 346,896,000 tenths of minutes. (One day contains 24 hours * 60 minutes/hour = 1440 minutes.)</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_max_units">
@@ -504,8 +554,12 @@
       </ReturnValue>
       <MemberValue>100000000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>100000000</b>. The maximum project units.</summary>
+        <remarks>
+          <para>
+            <b>MaxProjectUnits</b> is used in validating resource units for doing work on an assignment.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_max_work">
@@ -525,8 +579,12 @@
       </ReturnValue>
       <MemberValue>99999999999999</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>99999999999999</b>. The maximum project work.</summary>
+        <remarks>
+          <para>
+            <b>MaxProjectWork</b> is used in validating work on task assignments. Work on an assignment is calculated as follows:  Work = (Resource Units) * Duration</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="s_proj_dur_to_rel_dur">
@@ -546,7 +604,7 @@
       </ReturnValue>
       <MemberValue>60000000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>60000000</b>. The conversion factor for project duration to relative duration, which is the same as <see cref="F:Microsoft.Office.Project.Server.Library.ValidationConst.s_ticks_per_proj_dur" />.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -567,7 +625,7 @@
       </ReturnValue>
       <MemberValue>60000000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>60000000</b>. The number of ticks in one project duration unit (1/10 minute).</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -588,7 +646,7 @@
       </ReturnValue>
       <MemberValue>9999</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>9999</b>. The validation constant for an uninitialized unit.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -609,7 +667,7 @@
       </ReturnValue>
       <MemberValue>10000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>10000</b>. The multiplier for an initialized unit.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -630,7 +688,7 @@
       </ReturnValue>
       <MemberValue>1000</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>1000</b>. The multiplier for a unit of work.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -651,7 +709,7 @@
       </ReturnValue>
       <MemberValue>100</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = <b>100</b>. The scaling factor for a unit of work.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -672,8 +730,13 @@
       </ReturnValue>
       <MemberValue>0.00166666666666667</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Value = <b>0.00166666666666667</b>. The multiplier for the cost of a unit of work.</summary>
+        <remarks>
+          <para>The <b>s_workcost_multiplier</b> value is calculated as follows:</para>
+          <code>Double s_workcost_multiplier = 
+    (((double) s_cost_multiplier)/(s_work_multiplier*60));</code>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

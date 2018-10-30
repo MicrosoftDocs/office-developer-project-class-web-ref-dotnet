@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a stage in a project workflow.</summary>
+    <remarks>
+      <para>A project stage represents one step in a project life cycle. A stage includes one or more project detail pages that are linked by common logic or theme. Stages at a user level appear as steps in a project. At each step, data must be entered, modified, reviewed, or processed.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>Stage</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StrategicImpactBehavior</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the Strategic Impact value for a stage; for example, <b>Read Only</b>.</summary>
+        <value>An enumerated value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -97,8 +100,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether project check in is required.</summary>
+        <value>
+          <b>True</b> if project check in is required; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +127,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StageCustomFieldCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the collection of all custom field objects that have values set for the stage.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -150,7 +154,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>Stage</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,8 +179,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the stage description.</summary>
+        <value>A workflow stage description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -201,8 +205,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the GUID of the stage.</summary>
+        <value>A GUID value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -226,10 +230,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +259,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the stage.</summary>
+        <value>The name of the project stage.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,8 +285,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Phase</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the phase that contains the stage.</summary>
+        <value>A workflow phase.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,8 +311,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.StageDetailPageCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a collection of project detail pages that are associated with the stage.</summary>
+        <value>A collection of <b>StageDetailPage</b> objects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -332,8 +337,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the stage description for submit.</summary>
+        <value>An object that contains a description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -358,8 +363,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPage</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the workflow status project detail page for the stage.</summary>
+        <value>A workflow status project detail page.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

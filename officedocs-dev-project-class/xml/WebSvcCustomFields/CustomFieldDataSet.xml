@@ -26,10 +26,49 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedDataSetSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents one or more task, resource, or project enterprise custom fields.</summary>
+    <remarks>
+      <para>The following methods return a <b>CustomFieldDataSet</b>: </para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFields(System.String,System.Boolean)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFields2(System.String,System.Boolean)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity2(System.Guid)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByMdPropUids(System.Guid[],System.Boolean)" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByMdPropUids2(System.Guid[],System.Boolean)" />
+          </description>
+        </item>
+      </list>
+      <para>If a custom field is created by a formula, the <b>ReadCustomFields2</b> method, the <b>ReadCustomFieldsByEntity2</b> method, and the <b>ReadCustomFieldsByMdPropUids2</b> method show the formula in the locale format of the computer running Project Server.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -50,7 +89,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>CustomFieldDataSet</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,9 +115,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object.</param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>CustomFieldDataSet</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -136,7 +175,7 @@
         <ReturnType>WebSvcCustomFields.CustomFieldDataSet+CustomFieldsDataTable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the enterprise custom fields in the <b>CustomFieldDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -193,7 +232,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -277,7 +316,7 @@
         <ReturnType>System.Data.DataRelationCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of relations that link tables and allow navigation from parent tables to child tables in the <b>CustomFieldDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -392,7 +431,7 @@
         <ReturnType>System.Data.DataTableCollection</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of tables in the <b>CustomFieldDataSet</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

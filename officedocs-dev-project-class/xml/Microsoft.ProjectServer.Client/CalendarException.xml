@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents a difference (an exception) from the base calendar.</summary>
+    <remarks>
+      <para>A calendar exception is an instance in which a task or resource calendar differs from the project calendar. For example, if the project calendar shows 9 am to 5 pm working time Monday through Friday, a calendar exception for one resource might be Tuesday working time from noon to 7 pm.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -44,9 +47,9 @@
         <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="objectPath">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>CalendarException</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,8 +74,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.Calendar</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the calendar that is associated with the exception.</summary>
+        <value>A Project Server calendar.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -98,7 +101,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Deletes the <b>CalendarException</b> object.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -123,8 +126,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the date and time that the calendar exception ends.</summary>
+        <value>A date and time object.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -149,8 +152,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the object identifier as an index into the collection of calendar exceptions.</summary>
+        <value>An integer index value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -174,10 +177,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -202,8 +206,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the exception, such as Vacation.</summary>
+        <value>The name of the exception.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -228,8 +232,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceDays</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets a mask that represents the days of the week on which the calendar exception is effective.</summary>
+        <value>A bitwise combination of day values.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -254,8 +258,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the interval at which the calendar exception occurs.</summary>
+        <value>A value that represents the frequency.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,8 +284,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the month value when setting a yearly recurrence.</summary>
+        <value>A value that represents a month.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -306,8 +310,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the day of the month when setting a yearly recurrence.</summary>
+        <value>A value that represents a day.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -332,9 +336,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets the recurrence type for the calendar exception.</summary>
+        <value>An enumerated value that represents the recurrence type for the calendar exception.</value>
+        <remarks>
+          <para>Value=0. Daily recurrence; Value=1. Daily, with recurrence defined by skipping a specified number of days; Value=2. Weekly recurrence; Value=3. Monthly recurrence; Value=4. Yearly recurrence.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="RecurrenceWeek">
@@ -358,8 +365,8 @@
         <ReturnType>Microsoft.ProjectServer.Client.CalendarRecurrenceWeek</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the week number of a monthly occurrence.</summary>
+        <value>An enumerated value that represents one of successive weeks in a month.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -384,8 +391,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the first shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -410,8 +417,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the first shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -436,8 +443,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the second shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,8 +469,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the second shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -488,8 +495,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the third shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -514,8 +521,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the third shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -540,8 +547,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the fourth shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -566,8 +573,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the fourth shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -592,8 +599,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the fifth shift ends.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -618,8 +625,8 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the minute of the day that the fifth shift starts.</summary>
+        <value>A minute value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -644,8 +651,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the time and date of the start of the calendar exception.</summary>
+        <value>An exception start date and time.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

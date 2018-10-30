@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ReportingEventReceiver.OnResourceChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ReportingPostResourceChangedEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -53,10 +58,10 @@
         <Parameter Name="fCapacityDataChanged" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="resourceUid">To be added.</param>
-        <param name="fNonTimePhasedDataChanged">To be added.</param>
-        <param name="fCapacityDataChanged">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="resourceUid">The GUID of the changed resource.</param>
+        <param name="fNonTimePhasedDataChanged">A Boolean value that indicates whether data that is not time-phased, including custom field values, has been changed.</param>
+        <param name="fCapacityDataChanged">A Boolean value that indicates whether time-phased (capacity) data has been changed.</param>
+        <summary>Creates an instance of the <b>ReportingPostResourceChangedEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,7 +81,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether time-phased (capacity) data has been changed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,7 +102,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether data that is not time-phrased, including custom field values, has been changed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,7 +123,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the changed resource.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -140,7 +145,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a text string that contains the GUID for the resource that has been changed and two flags: one flag indicates whether time-phased data has been changed and one flag indicates whether data that is not time-phased has been changed.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Deprecated. Contains methods to manage resource plans in Project Server.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,8 +36,18 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a <b>ResourcePlan</b> object from the ASMX-based <b>ResourcePlan</b> web service.</summary>
+        <remarks>
+          <para>The Resource Plan PSI is deprecated. It will continue to be supported for Project 2013 development, but will not be supported in future releases.</para>
+          <para>To create an object that is equivalent to <b>ResourcePlan</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>ResourcePlanClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>ResourcePlanWebSvc</b> is an arbitrary namespace for the ASMX-based <b>ResourcePlan</b> web service.</para>
+          <code>private static ResourcePlanWebSvc.ResourcePlan resourcePlan = new ResourcePlanWebSvc.ResourcePlan();</code>
+          <para>In the following statement, <b>SvcResourcePlan</b> is an arbitrary namespace for the WCF-based <b>ResourcePlan</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcResourcePlan.ResourcePlanClient resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CheckOutResourcePlans">
@@ -64,8 +74,8 @@
         <Parameter Name="projectUids" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="projectUids">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUids">Contains an array of project GUIDs.</param>
+        <summary>Checks out the specified resource plans.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -95,10 +105,10 @@
         <Parameter Name="jobUids" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="projectUids">To be added.</param>
-        <param name="force">To be added.</param>
-        <param name="jobUids">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUids">Contains an array of project GUIDs.</param>
+        <param name="force">If <b>true</b>, force check in. </param>
+        <param name="jobUids">Contains an array of queue job GUIDs.</param>
+        <summary>Checks in the specified resource plans.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -130,13 +140,637 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="rpds">To be added.</param>
-        <param name="timephasedFTE">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">Contains the project GUID.</param>
+        <param name="rpds">
+          <b>ResourcePlanDataSet</b> that specifies the resource plan to create.</param>
+        <param name="timephasedFTE">If <b>true</b>, create with timephased full-time equivalent resources.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the resource plan to the Published database after creation.</param>
+        <param name="jobUid">Contains the Queue job GUID.</param>
+        <summary>Creates a new resource plan.</summary>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcResourcePlan</b> namespace in the ProjectServerServices.dll proxy assembly. The methods <b>SetResPlanClientEndPoints</b>, <b>SetQueueClientEndPoints</b>, <b>SetProjectClientEndPoints</b>, and <b>SetResourceClientEndPoints</b> use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example demonstrates the use of the <b>QueueCreateResourcePlan</b> method; it is not a full solution.</para>
+          <para>The <b>GenerateResourcePlan</b> method calls <b>GenerateResources</b> to create two resources and calls the <b>GenerateProject</b> method to create a project. Next, it creates a resource plan of specified length and adds the resources to the plan. After it adds the resources, the <b>GenerateResourcePlan</b> method calls <b>GetIntervalNameByDate</b> to get the intervals and sets the work for each interval by calling the <b>SetWorkForResourceForInterval</b> method.</para>
+          <para>Intervals are generated when the <b>ResourcePlan</b> is read from the server based on the date range and the timescale, but in Project Web App, you only see the resource information and the timephased data. For example, when you read the resource plan with a date range and a timescale (interval) type, (for example, from 1/1/2010 to 12/31/2010 in MONTHS) it returns twelve rows or intervals in the <b>Dates</b> table. These rows have names that are columns in the <b>PlanResources</b> table. This is demonstrated by the following code snippet.</para>
+          <code>// Read the ResourcePlan.
+            SvcResourcePlan.ResourcePlanDataSet rpds = 
+                new SvcResourcePlan.ResourcePlanDataSet();
+            rpds = resourcePlanClient.ReadResourcePlan("", projUid, 
+                DateTime.Now, endDate, 
+                (short)PSLibrary.ResourcePlan.TimeScale.Months, false, false);
+</code>
+          <para>To set the work value for an interval, you find the resource row (by <b>RES_UID</b>) and the interval name (from the <b>Dates</b> table, for example, <b>Interval0</b> to <b>Interval11</b>). Set the value there in project units (for example, 4800 for 1 day of work), as shown in the following code snippet.</para>
+          <code>SvcResourcePlan.ResourcePlanDataSet.DatesRow drow = 
+                rds.Dates.FindByIntervalName(intervalName);
+            if (drow == null)
+            {
+                Console.WriteLine("Failed to set value for interval {0}. Did not find interval.", 
+                    intervalName);
+                return;
+            }
+            SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow prow = 
+                rds.PlanResources.FindByRES_UIDPROJ_UID(resourceGuid, pGuid);
+            prow[intervalName] = value * PSLibrary.ValidationConst.s_cal_units_per_hour; // 8*60*10 = 4800
+</code>
+          <para>Finally, the <b>QueueCreateResourcePlan</b> method is called to create the resource plan. The timescale used is months and the timephased full-time equivalents are set to <b>false</b>. The complete sample code is as follows.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ResourcePlan
+{
+
+    class TimephasedResourcePlan
+    {
+
+        private const string ENDPOINT_RESPLAN = "basicHttp_ResourcePlan";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string ENDPOINT_R = "basicHttp_Resource";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private const string XML_FILE1 = "ResourcePlanDS.xml";
+        private const string XML_FILE2 = "UpdatedResourcePlanDS.xml";
+
+        private static SvcResourcePlan.ResourcePlanClient resourcePlanClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private static SvcProject.ProjectClient projectClient;
+        private static string outFile_ResourcePlanDS;
+        private static string outFile_UpdatedResourcePlanDS;
+
+        private static List&amp;lt;Guid&amp;gt; createdResources = new List&amp;lt;Guid&amp;gt;();
+        private static List&amp;lt;Guid&amp;gt; createdProjects = new List&amp;lt;Guid&amp;gt;();
+        private static PSLibrary.ResourcePlan.TimeScale timescale = 
+            new PSLibrary.TimeScaleClass.TimeScale();
+        private static int numResources = 2;    // Default number of resources to create.
+        private static int numDays = 10;        // Default number of days for the plan.
+        private static bool deletePlan = true;  // Delete the plan, project, and resources after creating them.
+
+        static void Main(string[] args)
+        {
+            timescale = PSLibrary.TimeScaleClass.TimeScale.Months; // Default timescale.
+
+            try
+            {
+                if (args.Length &amp;gt; 1 &amp;amp;&amp;amp; args.Length &amp;lt; 9)
+                {
+                    if (args[0].ToLower() == "-delete")
+                    {
+                        deletePlan = Convert.ToBoolean(args[1]);
+                    }
+                    if (args.Length &amp;gt; 3)
+                    {
+                        if (args[2].ToLower() == "-timescale")
+                            switch (args[3].ToLower())
+                            {
+                                case "days":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Days;
+                                    break;
+                                case "quarters":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Quarters;
+                                    break;
+                                case "weeks":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Weeks;
+                                    break;
+                                case "years":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Years;
+                                    break;
+                                default:
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Months;
+                                    break;
+                            }
+                    }
+                    if (args.Length &amp;gt; 5)
+                    {
+                        if (args[4].ToLower() == "-numresources")
+                            numResources = Convert.ToInt32(args[5]);
+
+                    }
+                    if (args.Length &amp;gt; 7)
+                    {
+                        if (args[6].ToLower() == "-numdays")
+                            numDays = Convert.ToInt32(args[7]);
+                    }
+                }
+
+                // Configure the endpoints.
+                bool configResult = false;
+                configResult = ConfigClientEndpoints(ENDPOINT_RESPLAN);
+                configResult = ConfigClientEndpoints(ENDPOINT_Q);
+                configResult = ConfigClientEndpoints(ENDPOINT_P);
+                configResult = ConfigClientEndpoints(ENDPOINT_R);
+
+                if (!configResult) throw new ApplicationException();
+
+                // If output directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Set the output file path.
+                outFile_ResourcePlanDS = OUTPUT_FILES + XML_FILE1;
+                outFile_UpdatedResourcePlanDS = OUTPUT_FILES + XML_FILE2;
+
+                try
+                {
+                    bool createAssignments = true;
+
+                    GenerateResourcePlan(numResources, numDays, createAssignments);
+                }
+                catch (FaultException fault)
+                {
+                    // Use the WCF FaultException, because the ASMX SoapException does not 
+                    // exist in a WCF-based application.
+                    WriteFaultOutput(fault);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        "\n***System.ServiceModel.CommunicationException\n{0}:", e.Message);
+                    Console.ResetColor();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n***Exception:\n{0}", ex.Message);
+                Console.ResetColor();
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Generate the resource plan.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="resourceCount"&amp;gt;Number of resources.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="lengthInDays"&amp;gt;Length of the resource plan in days.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="generateAssignmentValues"&amp;gt;True to generate assignment values.&amp;lt;/param&amp;gt;
+        public static void GenerateResourcePlan(int resourceCount, 
+            int lengthInDays, bool generateAssignmentValues)
+        {
+            // Create enterprise resources.
+            Guid[] resGuids = GenerateResources(resourceCount);
+
+            // Create a project.
+            Guid projUid = GenerateProject();
+
+            // Create a resource plan DataSet of the specified duration.
+            int daysLeft = lengthInDays;
+            DateTime endDate = DateTime.Now;
+
+            while (daysLeft &amp;gt; 0)
+            {
+                endDate = endDate.AddDays(1);
+                if (!(endDate.DayOfWeek == DayOfWeek.Saturday 
+                    || endDate.DayOfWeek == DayOfWeek.Sunday))
+                    --daysLeft;
+            }
+
+            // Read the resource plan.
+            string resPlanFilter = string.Empty;
+            bool fteTime = false;
+            bool autoCheckOut = false;
+
+            SvcResourcePlan.ResourcePlanDataSet rpds = 
+                resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid,
+                DateTime.Now, endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Add the resources to the resource plan DataSet.
+            for (int i = 0; i &amp;lt; resGuids.Length; i++)
+            {
+                SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow newRes = 
+                    rpds.PlanResources.NewPlanResourcesRow();
+
+                newRes.RES_UID = resGuids[i];
+                newRes.ASSN_BOOKING_TYPE = 
+                    (byte)PSLibrary.Resource.BookingType.Proposed;
+                newRes.PROJ_UID = projUid;
+                rpds.PlanResources.AddPlanResourcesRow(newRes);
+            }
+
+            // Set the resource utilization date limit.
+            SvcResourcePlan.ResourcePlanDataSet.UtilizationRow utilizationRow =
+                rpds.Utilization.NewUtilizationRow();
+            utilizationRow.RESPLAN_UTILIZATION_TYPE = 
+                (int)PSLibrary.ResourcePlan.UtilizationType.FromResourcePlan;
+            utilizationRow.RESPLAN_UTILIZATION_DATE = new DateTime(2031, 2, 20);
+            utilizationRow.PROJ_UID = projUid;
+
+            if (rpds.Utilization.Count == 0)
+            {
+                rpds.Utilization.AddUtilizationRow(utilizationRow);
+            }
+
+            // Set assignment values.
+            if (generateAssignmentValues)
+            {
+                for (DateTime d = DateTime.Now; d &amp;lt;= endDate; d = d.AddDays(1))
+                {
+                    // Set the number of hours in each workday.
+                    double workVal = (d.DayOfWeek == DayOfWeek.Saturday || 
+                        d.DayOfWeek == DayOfWeek.Sunday) 
+                        ? 0 
+                        : 8;
+
+                    string interval = GetIntervalNameByDate(d, rpds);
+
+                    foreach (Guid res in resGuids)
+                    {
+                        SetWorkForResourceForInterval(interval, res,
+                            projUid, workVal, rpds);
+                    }
+                }
+            }
+
+            // Create the resource plan.
+            Guid jobGuid = Guid.NewGuid();
+            int numJobs = 1;
+            bool autoCheckIn = false;
+            resourcePlanClient.QueueCreateResourcePlan(projUid, rpds,
+                fteTime, autoCheckIn, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan created successfully.");
+
+            // Publish the resource plan.
+            resourcePlanClient.QueuePublishResourcePlan(projUid, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanPublish,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan published.");
+
+            // Read the resource plan.
+            rpds = resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid, DateTime.Now,
+                endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Write the ResourcePlan DataSet to an XML file.
+            rpds.WriteXml(outFile_ResourcePlanDS);
+            Console.WriteLine("\nSee XML output of resource plan DataSet at\n\t{0}",
+                outFile_ResourcePlanDS);
+            Console.Write("\nPress any key to continue: ");
+            Console.ReadKey(true);
+            
+            // Change the booking type for a resource and update the resource plan.
+            Guid updateJob = Guid.NewGuid();
+
+            rpds.PlanResources[0].ASSN_BOOKING_TYPE = 
+                (int)PSLibrary.Resource.BookingType.Committed;
+            resourcePlanClient.QueueUpdateResourcePlan(projUid, rpds, 
+                fteTime, autoCheckIn, updateJob);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                  numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan updated successfully.");
+
+            // Write the updated resource plan DataSet to an XML file.
+            rpds.WriteXml(outFile_UpdatedResourcePlanDS);
+            Console.WriteLine("\nSee XML output of the updated resource plan DataSet at \n\t{0}",
+                outFile_UpdatedResourcePlanDS);
+
+            if (deletePlan)
+            {
+                Console.WriteLine("\nPress any key to continue");
+                Console.Write("...and delete the resource plan, project, and resources:");
+                Console.ReadKey(true);
+                DeleteResourcePlan(projUid, resGuids);
+            }
+        }
+
+        // Delete the resource plan and the test project and resources.
+        public static void DeleteResourcePlan(Guid projUid, Guid[] resUids)
+        {
+            // QueueDeleteResourcePlan takes an array of project GUIDs and job GUIDs.
+            Guid deleteResPlanJob = Guid.NewGuid();
+            Guid[] deleteJobs = new Guid[1] { deleteResPlanJob };
+            Guid[] projects = new Guid[1] { projUid };
+
+            resourcePlanClient.QueueDeleteResourcePlan(projects, deleteJobs);
+
+            int numJobs = 1;
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanDelete,
+                                 numJobs, queueSystemClient, deleteResPlanJob);
+
+            Guid projDeleteJob = Guid.NewGuid();
+            bool deleteProjectSite = false;  // No project site was created during publish.
+            bool deleteInPubAndDraftDb = true;
+            projectClient.QueueDeleteProjects(projDeleteJob, deleteProjectSite, 
+                                              projects, deleteInPubAndDraftDb);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectDelete,
+                                 numJobs, queueSystemClient, projDeleteJob);
+
+            // Resources must be checked out before they can be deleted.
+            resourceClient.CheckOutResources(resUids);
+            string noComment = string.Empty;
+            resourceClient.DeleteResources(resUids, noComment);
+
+            Console.WriteLine("Resource plan, project, and resources deleted successfully.");             
+        }
+
+        // Create the specified number of enterprise resources.
+        public static Guid[] GenerateResources(int numRes)
+        {
+            Console.WriteLine("Creating {0} resources:", numRes.ToString());
+            Guid[] resUids = new Guid[numRes];
+            SvcResource.ResourceDataSet rds = new SvcResource.ResourceDataSet();
+            for (int i = 0; i &amp;lt; numRes; i++)
+            {
+                SvcResource.ResourceDataSet.ResourcesRow resRow = 
+                    rds.Resources.NewResourcesRow();
+                resRow.RES_UID = Guid.NewGuid();
+
+                string resName = "Res Name " + resRow.RES_UID;
+                Console.WriteLine("\t {0}", resName);
+                resRow.RES_NAME = resName;
+
+                rds.Resources.AddResourcesRow(resRow);
+                resUids[i] = resRow.RES_UID;
+            }
+            resourceClient.CreateResources(rds, false, true);
+            createdResources.AddRange(resUids);
+            return resUids;
+        }
+
+        // Create a project.
+        public static Guid GenerateProject()
+        {
+            SvcProject.ProjectDataSet pds = new SvcProject.ProjectDataSet();
+            SvcProject.ProjectDataSet.ProjectRow pRow = pds.Project.NewProjectRow();
+            pRow.PROJ_UID = Guid.NewGuid();
+
+            string projName = "Proj " + pRow.PROJ_UID;
+            Console.WriteLine("Creating project: {0}", projName);
+            pRow.PROJ_NAME = projName;
+            pds.Project.AddProjectRow(pRow);
+
+            Guid jobUid = Guid.NewGuid();
+            projectClient.QueueCreateProject(jobUid, pds, false);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectCreate,
+                           1, queueSystemClient, jobUid);
+            Guid joubUid = Guid.NewGuid();
+            string mssUrl = string.Empty;   // Don't create a project site.
+            bool fullPublish = true;
+            projectClient.QueuePublish(jobUid, pRow.PROJ_UID, fullPublish, mssUrl);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectPublish, 1, 
+                queueSystemClient, jobUid);
+            createdProjects.Add(pRow.PROJ_UID);
+            return pRow.PROJ_UID;
+        }
+
+        // Get the assignment interval name.
+        public static string GetIntervalNameByDate(DateTime date, 
+            SvcResourcePlan.ResourcePlanDataSet resDS)
+        {
+            foreach (SvcResourcePlan.ResourcePlanDataSet.DatesRow row in resDS.Dates)
+                if (date &amp;gt;= row.StartDate &amp;amp;&amp;amp; date &amp;lt; row.EndDate)
+                    return row.IntervalName;
+            return string.Empty;
+        }
+
+        // Set work for a resource, for the specified interval.
+        public static void SetWorkForResourceForInterval(string intervalName, 
+            Guid resourceGuid, 
+            Guid projUid, double value, 
+            SvcResourcePlan.ResourcePlanDataSet rpds)
+        {
+            SvcResourcePlan.ResourcePlanDataSet.DatesRow datesRow = 
+                rpds.Dates.FindByIntervalName(intervalName);
+            if (datesRow == null)
+            {
+                Console.WriteLine("\nFailed to set value for interval: {0}. Did not find interval.", 
+                    intervalName);
+                return;
+            }
+            SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow planRow = 
+                rpds.PlanResources.FindByRES_UIDPROJ_UID(resourceGuid, projUid);
+            planRow[intervalName] = value * PSLibrary.ValidationConst.s_cal_units_per_hour;
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_RESPLAN:
+                    resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_Q:
+                    queueSystemClient = new SvcQueueSystem.QueueSystemClient(endpt);
+                    break;
+                case ENDPOINT_R:
+                    resourceClient = new SvcResource.ResourceClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+    }
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets or sets the timeout for WaitForQueue calls.&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default timeout is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(
+            SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? 
+                TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = 
+                new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("\nWaiting for job" + jobType.ToString());
+
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = 
+                    queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = 
+                    queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("\tJob completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueDeleteResourcePlan">
@@ -164,10 +798,611 @@
         <Parameter Name="jobUids" Type="System.Guid[]" />
       </Parameters>
       <Docs>
-        <param name="projectUids">To be added.</param>
-        <param name="jobUids">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUids"> Contains an array of project GUIDs.</param>
+        <param name="jobUids">Contains an array of queue job GUIDs.</param>
+        <summary>Deletes the specified resource plans.</summary>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcResourcePlan</b> namespace in the ProjectServerServices.dll proxy assembly. The methods <b>SetResPlanClientEndPoints</b>, <b>SetQueueClientEndPoints</b>, <b>SetProjectClientEndPoints</b>, and <b>SetResourceClientEndPoints</b> use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example demonstrates the use of the <b>QueueDeleteResourcePlan</b> method; it is not a full solution.</para>
+          <para>For the sample code on how to create a resource plan, see <see cref="M:WebSvcResourcePlan.ResourcePlan.QueueCreateResourcePlan(System.Guid,WebSvcResourcePlan.ResourcePlanDataSet,System.Boolean,System.Boolean,System.Guid)" />.After the resource plan is created, the <b>GenerateResourcePlan</b> method calls the <b>QueueDeleteResourcePlan</b> method to delete the resource plans for the specified projects. The complete sample code is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ResourcePlan
+{
+
+    class TimephasedResourcePlan
+    {
+
+        private const string ENDPOINT_RESPLAN = "basicHttp_ResourcePlan";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string ENDPOINT_R = "basicHttp_Resource";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private const string XML_FILE1 = "ResourcePlanDS.xml";
+        private const string XML_FILE2 = "UpdatedResourcePlanDS.xml";
+
+        private static SvcResourcePlan.ResourcePlanClient resourcePlanClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private static SvcProject.ProjectClient projectClient;
+        private static string outFile_ResourcePlanDS;
+        private static string outFile_UpdatedResourcePlanDS;
+
+        private static List&amp;lt;Guid&amp;gt; createdResources = new List&amp;lt;Guid&amp;gt;();
+        private static List&amp;lt;Guid&amp;gt; createdProjects = new List&amp;lt;Guid&amp;gt;();
+        private static PSLibrary.ResourcePlan.TimeScale timescale = 
+            new PSLibrary.TimeScaleClass.TimeScale();
+        private static int numResources = 2;    // Default number of resources to create.
+        private static int numDays = 10;        // Default number of days for the plan.
+        private static bool deletePlan = true;  // Delete the plan, project, and resources after creating them.
+
+        static void Main(string[] args)
+        {
+            timescale = PSLibrary.TimeScaleClass.TimeScale.Months; // Default timescale.
+
+            try
+            {
+                if (args.Length &amp;gt; 1 &amp;amp;&amp;amp; args.Length &amp;lt; 9)
+                {
+                    if (args[0].ToLower() == "-delete")
+                    {
+                        deletePlan = Convert.ToBoolean(args[1]);
+                    }
+                    if (args.Length &amp;gt; 3)
+                    {
+                        if (args[2].ToLower() == "-timescale")
+                            switch (args[3].ToLower())
+                            {
+                                case "days":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Days;
+                                    break;
+                                case "quarters":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Quarters;
+                                    break;
+                                case "weeks":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Weeks;
+                                    break;
+                                case "years":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Years;
+                                    break;
+                                default:
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Months;
+                                    break;
+                            }
+                    }
+                    if (args.Length &amp;gt; 5)
+                    {
+                        if (args[4].ToLower() == "-numresources")
+                            numResources = Convert.ToInt32(args[5]);
+
+                    }
+                    if (args.Length &amp;gt; 7)
+                    {
+                        if (args[6].ToLower() == "-numdays")
+                            numDays = Convert.ToInt32(args[7]);
+                    }
+                }
+
+                // Configure the endpoints.
+                bool configResult = false;
+                configResult = ConfigClientEndpoints(ENDPOINT_RESPLAN);
+                configResult = ConfigClientEndpoints(ENDPOINT_Q);
+                configResult = ConfigClientEndpoints(ENDPOINT_P);
+                configResult = ConfigClientEndpoints(ENDPOINT_R);
+
+                if (!configResult) throw new ApplicationException();
+
+                // If output directory does not exist,create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Set the output file path.
+                outFile_ResourcePlanDS = OUTPUT_FILES + XML_FILE1;
+                outFile_UpdatedResourcePlanDS = OUTPUT_FILES + XML_FILE2;
+
+                try
+                {
+                    bool createAssignments = true;
+
+                    GenerateResourcePlan(numResources, numDays, createAssignments);
+                }
+                catch (FaultException fault)
+                {
+                    // Use the WCF FaultException, because the ASMX SoapException does not 
+                    // exist in a WCF-based application.
+                    WriteFaultOutput(fault);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        "\n***System.ServiceModel.CommunicationException\n{0}:", e.Message);
+                    Console.ResetColor();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n***Exception:\n{0}", ex.Message);
+                Console.ResetColor();
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Generate the resource plan.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="resourceCount"&amp;gt;Number of resources.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="lengthInDays"&amp;gt;Length of the resource plan in days.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="generateAssignmentValues"&amp;gt;True to generate assignment values.&amp;lt;/param&amp;gt;
+        public static void GenerateResourcePlan(int resourceCount, 
+            int lengthInDays, bool generateAssignmentValues)
+        {
+            // Create enterprise resources.
+            Guid[] resGuids = GenerateResources(resourceCount);
+
+            // Create a project.
+            Guid projUid = GenerateProject();
+
+            // Create a resource plan DataSet of the specified duration.
+            int daysLeft = lengthInDays;
+            DateTime endDate = DateTime.Now;
+
+            while (daysLeft &amp;gt; 0)
+            {
+                endDate = endDate.AddDays(1);
+                if (!(endDate.DayOfWeek == DayOfWeek.Saturday 
+                    || endDate.DayOfWeek == DayOfWeek.Sunday))
+                    --daysLeft;
+            }
+
+            // Read the resource plan.
+            string resPlanFilter = string.Empty;
+            bool fteTime = false;
+            bool autoCheckOut = false;
+
+            SvcResourcePlan.ResourcePlanDataSet rpds = 
+                resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid,
+                DateTime.Now, endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Add the resources to the resource plan DataSet.
+            for (int i = 0; i &amp;lt; resGuids.Length; i++)
+            {
+                SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow newRes = 
+                    rpds.PlanResources.NewPlanResourcesRow();
+
+                newRes.RES_UID = resGuids[i];
+                newRes.ASSN_BOOKING_TYPE = 
+                    (byte)PSLibrary.Resource.BookingType.Proposed;
+                newRes.PROJ_UID = projUid;
+                rpds.PlanResources.AddPlanResourcesRow(newRes);
+            }
+
+            // Set the resource utilization date limit.
+            SvcResourcePlan.ResourcePlanDataSet.UtilizationRow utilizationRow =
+                rpds.Utilization.NewUtilizationRow();
+            utilizationRow.RESPLAN_UTILIZATION_TYPE = 
+                (int)PSLibrary.ResourcePlan.UtilizationType.FromResourcePlan;
+            utilizationRow.RESPLAN_UTILIZATION_DATE = new DateTime(2031, 2, 20);
+            utilizationRow.PROJ_UID = projUid;
+
+            if (rpds.Utilization.Count == 0)
+            {
+                rpds.Utilization.AddUtilizationRow(utilizationRow);
+            }
+
+            // Set assignment values.
+            if (generateAssignmentValues)
+            {
+                for (DateTime d = DateTime.Now; d &amp;lt;= endDate; d = d.AddDays(1))
+                {
+                    // Set the number of hours in each workday.
+                    double workVal = (d.DayOfWeek == DayOfWeek.Saturday || 
+                        d.DayOfWeek == DayOfWeek.Sunday) 
+                        ? 0 
+                        : 8;
+
+                    string interval = GetIntervalNameByDate(d, rpds);
+
+                    foreach (Guid res in resGuids)
+                    {
+                        SetWorkForResourceForInterval(interval, res,
+                            projUid, workVal, rpds);
+                    }
+                }
+            }
+
+            // Create the resource plan.
+            Guid jobGuid = Guid.NewGuid();
+            int numJobs = 1;
+            bool autoCheckIn = false;
+            resourcePlanClient.QueueCreateResourcePlan(projUid, rpds,
+                fteTime, autoCheckIn, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan created successfully.");
+
+            // Publish the resource plan.
+            resourcePlanClient.QueuePublishResourcePlan(projUid, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanPublish,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan published.");
+
+            // Read the resource plan.
+            rpds = resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid, DateTime.Now,
+                endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Write the ResourcePlan DataSet to an XML file.
+            rpds.WriteXml(outFile_ResourcePlanDS);
+            Console.WriteLine("\nSee XML output of resource plan DataSet at\n\t{0}",
+                outFile_ResourcePlanDS);
+            Console.Write("\nPress any key to continue: ");
+            Console.ReadKey(true);
+            
+            // Change the booking type for a resource and update the resource plan.
+            Guid updateJob = Guid.NewGuid();
+
+            rpds.PlanResources[0].ASSN_BOOKING_TYPE = 
+                (int)PSLibrary.Resource.BookingType.Committed;
+            resourcePlanClient.QueueUpdateResourcePlan(projUid, rpds, 
+                fteTime, autoCheckIn, updateJob);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                  numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan updated successfully.");
+
+            // Write the updated resource plan DataSet to an XML file.
+            rpds.WriteXml(outFile_UpdatedResourcePlanDS);
+            Console.WriteLine("\nSee XML output of the updated resource plan DataSet at \n\t{0}",
+                outFile_UpdatedResourcePlanDS);
+
+            if (deletePlan)
+            {
+                Console.WriteLine("\nPress any key to continue");
+                Console.Write("...and delete the resource plan, project, and resources:");
+                Console.ReadKey(true);
+                DeleteResourcePlan(projUid, resGuids);
+            }
+        }
+
+        // Delete the resource plan and the test project and resources.
+        public static void DeleteResourcePlan(Guid projUid, Guid[] resUids)
+        {
+            // QueueDeleteResourcePlan takes an array of project GUIDs and job GUIDs.
+            Guid deleteResPlanJob = Guid.NewGuid();
+            Guid[] deleteJobs = new Guid[1] { deleteResPlanJob };
+            Guid[] projects = new Guid[1] { projUid };
+
+            resourcePlanClient.QueueDeleteResourcePlan(projects, deleteJobs);
+
+            int numJobs = 1;
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanDelete,
+                                 numJobs, queueSystemClient, deleteResPlanJob);
+
+            Guid projDeleteJob = Guid.NewGuid();
+            bool deleteProjectSite = false;  // No project site was created during publish.
+            bool deleteInPubAndDraftDb = true;
+            projectClient.QueueDeleteProjects(projDeleteJob, deleteProjectSite, 
+                                              projects, deleteInPubAndDraftDb);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectDelete,
+                                 numJobs, queueSystemClient, projDeleteJob);
+
+            // Resources must be checked out before they can be deleted.
+            resourceClient.CheckOutResources(resUids);
+            string noComment = string.Empty;
+            resourceClient.DeleteResources(resUids, noComment);
+
+            Console.WriteLine("Resource plan, project, and resources deleted successfully.");             
+        }
+
+        // Create the specified number of enterprise resources.
+        public static Guid[] GenerateResources(int numRes)
+        {
+            Console.WriteLine("Creating {0} resources:", numRes.ToString());
+            Guid[] resUids = new Guid[numRes];
+            SvcResource.ResourceDataSet rds = new SvcResource.ResourceDataSet();
+            for (int i = 0; i &amp;lt; numRes; i++)
+            {
+                SvcResource.ResourceDataSet.ResourcesRow resRow = 
+                    rds.Resources.NewResourcesRow();
+                resRow.RES_UID = Guid.NewGuid();
+
+                string resName = "Res Name " + resRow.RES_UID;
+                Console.WriteLine("\t {0}", resName);
+                resRow.RES_NAME = resName;
+
+                rds.Resources.AddResourcesRow(resRow);
+                resUids[i] = resRow.RES_UID;
+            }
+            resourceClient.CreateResources(rds, false, true);
+            createdResources.AddRange(resUids);
+            return resUids;
+        }
+
+        // Create a project.
+        public static Guid GenerateProject()
+        {
+            SvcProject.ProjectDataSet pds = new SvcProject.ProjectDataSet();
+            SvcProject.ProjectDataSet.ProjectRow pRow = pds.Project.NewProjectRow();
+            pRow.PROJ_UID = Guid.NewGuid();
+
+            string projName = "Proj " + pRow.PROJ_UID;
+            Console.WriteLine("Creating project: {0}", projName);
+            pRow.PROJ_NAME = projName;
+            pds.Project.AddProjectRow(pRow);
+
+            Guid jobUid = Guid.NewGuid();
+            projectClient.QueueCreateProject(jobUid, pds, false);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectCreate,
+                           1, queueSystemClient, jobUid);
+            Guid joubUid = Guid.NewGuid();
+            string mssUrl = string.Empty;   // Don't create a project site.
+            bool fullPublish = true;
+            projectClient.QueuePublish(jobUid, pRow.PROJ_UID, fullPublish, mssUrl);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectPublish, 1, 
+                queueSystemClient, jobUid);
+            createdProjects.Add(pRow.PROJ_UID);
+            return pRow.PROJ_UID;
+        }
+
+        // Get the assignment interval name.
+        public static string GetIntervalNameByDate(DateTime date, 
+            SvcResourcePlan.ResourcePlanDataSet resDS)
+        {
+            foreach (SvcResourcePlan.ResourcePlanDataSet.DatesRow row in resDS.Dates)
+                if (date &amp;gt;= row.StartDate &amp;amp;&amp;amp; date &amp;lt; row.EndDate)
+                    return row.IntervalName;
+            return string.Empty;
+        }
+
+        // Set work for a resource, for the specified interval.
+        public static void SetWorkForResourceForInterval(string intervalName, 
+            Guid resourceGuid, 
+            Guid projUid, double value, 
+            SvcResourcePlan.ResourcePlanDataSet rpds)
+        {
+            SvcResourcePlan.ResourcePlanDataSet.DatesRow datesRow = 
+                rpds.Dates.FindByIntervalName(intervalName);
+            if (datesRow == null)
+            {
+                Console.WriteLine("\nFailed to set value for interval: {0}. Did not find interval.", 
+                    intervalName);
+                return;
+            }
+            SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow planRow = 
+                rpds.PlanResources.FindByRES_UIDPROJ_UID(resourceGuid, projUid);
+            planRow[intervalName] = value * PSLibrary.ValidationConst.s_cal_units_per_hour;
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_RESPLAN:
+                    resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_Q:
+                    queueSystemClient = new SvcQueueSystem.QueueSystemClient(endpt);
+                    break;
+                case ENDPOINT_R:
+                    resourceClient = new SvcResource.ResourceClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+    }
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets or sets the timeout for WaitForQueue calls.&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default timeout is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(
+            SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? 
+                TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = 
+                new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("\nWaiting for job" + jobType.ToString());
+
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = 
+                    queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = 
+                    queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("\tJob completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueuePublishResourcePlan">
@@ -195,10 +1430,614 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">Contains the project GUID.</param>
+        <param name="jobUid">Contains the queue job GUID.</param>
+        <summary>Publishes resource plans for the specified project to the Published database. Uses the Project Server Queuing Service.</summary>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcResourcePlan</b> namespace in the ProjectServerServices.dll proxy assembly. The methods <b>SetResPlanClientEndPoints</b>, <b>SetQueueClientEndPoints</b>, <b>SetProjectClientEndPoints</b>, and <b>SetResourceClientEndPoints</b> use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example  demonstrates the use of the <b>QueuePublishResourcePlan</b> method; it is not a full solution.</para>
+          <para>For the sample code about how to create a resource plan, see <see cref="M:WebSvcResourcePlan.ResourcePlan.QueueCreateResourcePlan(System.Guid,WebSvcResourcePlan.ResourcePlanDataSet,System.Boolean,System.Boolean,System.Guid)" />.After the resource plan is created, the <b>GenerateResourcePlan</b> method calls the <b>QueuePublishResourePlan</b> method to publish the resource plan. The timescale used is months and the timephased full-time equivalents are set to <b>false</b>. </para>
+          <para>
+            <b>Note</b>: A resource plan can be published only if the associated project is published.</para>
+          <para>The complete sample code is as follows.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ResourcePlan
+{
+
+    class TimephasedResourcePlan
+    {
+
+        private const string ENDPOINT_RESPLAN = "basicHttp_ResourcePlan";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string ENDPOINT_R = "basicHttp_Resource";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private const string XML_FILE1 = "ResourcePlanDS.xml";
+        private const string XML_FILE2 = "UpdatedResourcePlanDS.xml";
+
+        private static SvcResourcePlan.ResourcePlanClient resourcePlanClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private static SvcProject.ProjectClient projectClient;
+        private static string outFile_ResourcePlanDS;
+        private static string outFile_UpdatedResourcePlanDS;
+
+        private static List&amp;lt;Guid&amp;gt; createdResources = new List&amp;lt;Guid&amp;gt;();
+        private static List&amp;lt;Guid&amp;gt; createdProjects = new List&amp;lt;Guid&amp;gt;();
+        private static PSLibrary.ResourcePlan.TimeScale timescale = 
+            new PSLibrary.TimeScaleClass.TimeScale();
+        private static int numResources = 2;    // Default number of resources to create.
+        private static int numDays = 10;        // Default number of days for the plan.
+        private static bool deletePlan = true;  // Delete the plan, project, and resources after creating them.
+
+        static void Main(string[] args)
+        {
+            timescale = PSLibrary.TimeScaleClass.TimeScale.Months; // Default timescale.
+
+            try
+            {
+                if (args.Length &amp;gt; 1 &amp;amp;&amp;amp; args.Length &amp;lt; 9)
+                {
+                    if (args[0].ToLower() == "-delete")
+                    {
+                        deletePlan = Convert.ToBoolean(args[1]);
+                    }
+                    if (args.Length &amp;gt; 3)
+                    {
+                        if (args[2].ToLower() == "-timescale")
+                            switch (args[3].ToLower())
+                            {
+                                case "days":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Days;
+                                    break;
+                                case "quarters":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Quarters;
+                                    break;
+                                case "weeks":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Weeks;
+                                    break;
+                                case "years":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Years;
+                                    break;
+                                default:
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Months;
+                                    break;
+                            }
+                    }
+                    if (args.Length &amp;gt; 5)
+                    {
+                        if (args[4].ToLower() == "-numresources")
+                            numResources = Convert.ToInt32(args[5]);
+
+                    }
+                    if (args.Length &amp;gt; 7)
+                    {
+                        if (args[6].ToLower() == "-numdays")
+                            numDays = Convert.ToInt32(args[7]);
+                    }
+                }
+
+                // Configure the endpoints.
+                bool configResult = false;
+                configResult = ConfigClientEndpoints(ENDPOINT_RESPLAN);
+                configResult = ConfigClientEndpoints(ENDPOINT_Q);
+                configResult = ConfigClientEndpoints(ENDPOINT_P);
+                configResult = ConfigClientEndpoints(ENDPOINT_R);
+
+                if (!configResult) throw new ApplicationException();
+
+                // If output directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Set the output file path.
+                outFile_ResourcePlanDS = OUTPUT_FILES + XML_FILE1;
+                outFile_UpdatedResourcePlanDS = OUTPUT_FILES + XML_FILE2;
+
+                try
+                {
+                    bool createAssignments = true;
+
+                    GenerateResourcePlan(numResources, numDays, createAssignments);
+                }
+                catch (FaultException fault)
+                {
+                    // Use the WCF FaultException, because the ASMX SoapException does not 
+                    // exist in a WCF-based application.
+                    WriteFaultOutput(fault);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        "\n***System.ServiceModel.CommunicationException\n{0}:", e.Message);
+                    Console.ResetColor();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n***Exception:\n{0}", ex.Message);
+                Console.ResetColor();
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Generate the resource plan.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="resourceCount"&amp;gt;Number of resources.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="lengthInDays"&amp;gt;Length of the resource plan in days.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="generateAssignmentValues"&amp;gt;True to generate assignment values.&amp;lt;/param&amp;gt;
+        public static void GenerateResourcePlan(int resourceCount, 
+            int lengthInDays, bool generateAssignmentValues)
+        {
+            // Create enterprise resources.
+            Guid[] resGuids = GenerateResources(resourceCount);
+
+            // Create a project.
+            Guid projUid = GenerateProject();
+
+            // Create a resource plan DataSet of the specified duration.
+            int daysLeft = lengthInDays;
+            DateTime endDate = DateTime.Now;
+
+            while (daysLeft &amp;gt; 0)
+            {
+                endDate = endDate.AddDays(1);
+                if (!(endDate.DayOfWeek == DayOfWeek.Saturday 
+                    || endDate.DayOfWeek == DayOfWeek.Sunday))
+                    --daysLeft;
+            }
+
+            // Read the resource plan.
+            string resPlanFilter = string.Empty;
+            bool fteTime = false;
+            bool autoCheckOut = false;
+
+            SvcResourcePlan.ResourcePlanDataSet rpds = 
+                resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid,
+                DateTime.Now, endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Add the resources to the resource plan DataSet.
+            for (int i = 0; i &amp;lt; resGuids.Length; i++)
+            {
+                SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow newRes = 
+                    rpds.PlanResources.NewPlanResourcesRow();
+
+                newRes.RES_UID = resGuids[i];
+                newRes.ASSN_BOOKING_TYPE = 
+                    (byte)PSLibrary.Resource.BookingType.Proposed;
+                newRes.PROJ_UID = projUid;
+                rpds.PlanResources.AddPlanResourcesRow(newRes);
+            }
+
+            // Set the resource utilization date limit.
+            SvcResourcePlan.ResourcePlanDataSet.UtilizationRow utilizationRow =
+                rpds.Utilization.NewUtilizationRow();
+            utilizationRow.RESPLAN_UTILIZATION_TYPE = 
+                (int)PSLibrary.ResourcePlan.UtilizationType.FromResourcePlan;
+            utilizationRow.RESPLAN_UTILIZATION_DATE = new DateTime(2031, 2, 20);
+            utilizationRow.PROJ_UID = projUid;
+
+            if (rpds.Utilization.Count == 0)
+            {
+                rpds.Utilization.AddUtilizationRow(utilizationRow);
+            }
+
+            // Set assignment values.
+            if (generateAssignmentValues)
+            {
+                for (DateTime d = DateTime.Now; d &amp;lt;= endDate; d = d.AddDays(1))
+                {
+                    // Set the number of hours in each workday.
+                    double workVal = (d.DayOfWeek == DayOfWeek.Saturday || 
+                        d.DayOfWeek == DayOfWeek.Sunday) 
+                        ? 0 
+                        : 8;
+
+                    string interval = GetIntervalNameByDate(d, rpds);
+
+                    foreach (Guid res in resGuids)
+                    {
+                        SetWorkForResourceForInterval(interval, res,
+                            projUid, workVal, rpds);
+                    }
+                }
+            }
+
+            // Create the resource plan.
+            Guid jobGuid = Guid.NewGuid();
+            int numJobs = 1;
+            bool autoCheckIn = false;
+            resourcePlanClient.QueueCreateResourcePlan(projUid, rpds,
+                fteTime, autoCheckIn, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan created successfully.");
+
+            // Publish the resource plan.
+            resourcePlanClient.QueuePublishResourcePlan(projUid, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanPublish,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan published.");
+
+            // Read the resource plan.
+            rpds = resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid, DateTime.Now,
+                endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Write the ResourcePlan DataSet to an XML file.
+            rpds.WriteXml(outFile_ResourcePlanDS);
+            Console.WriteLine("\nSee XML output of resource plan DataSet at\n\t{0}",
+                outFile_ResourcePlanDS);
+            Console.Write("\nPress any key to continue: ");
+            Console.ReadKey(true);
+            
+            // Change the booking type for a resource and update the resource plan.
+            Guid updateJob = Guid.NewGuid();
+
+            rpds.PlanResources[0].ASSN_BOOKING_TYPE = 
+                (int)PSLibrary.Resource.BookingType.Committed;
+            resourcePlanClient.QueueUpdateResourcePlan(projUid, rpds, 
+                fteTime, autoCheckIn, updateJob);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                  numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan updated successfully.");
+
+            // Write the updated resource plan DataSet to an XML file.
+            rpds.WriteXml(outFile_UpdatedResourcePlanDS);
+            Console.WriteLine("\nSee XML output of the updated resource plan DataSet at \n\t{0}",
+                outFile_UpdatedResourcePlanDS);
+
+            if (deletePlan)
+            {
+                Console.WriteLine("\nPress any key to continue");
+                Console.Write("...and delete the resource plan, project, and resources:");
+                Console.ReadKey(true);
+                DeleteResourcePlan(projUid, resGuids);
+            }
+        }
+
+        // Delete the resource plan and the test project and resources.
+        public static void DeleteResourcePlan(Guid projUid, Guid[] resUids)
+        {
+            // QueueDeleteResourcePlan takes an array of project GUIDs and job GUIDs.
+            Guid deleteResPlanJob = Guid.NewGuid();
+            Guid[] deleteJobs = new Guid[1] { deleteResPlanJob };
+            Guid[] projects = new Guid[1] { projUid };
+
+            resourcePlanClient.QueueDeleteResourcePlan(projects, deleteJobs);
+
+            int numJobs = 1;
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanDelete,
+                                 numJobs, queueSystemClient, deleteResPlanJob);
+
+            Guid projDeleteJob = Guid.NewGuid();
+            bool deleteProjectSite = false;  // No project site was created during publish.
+            bool deleteInPubAndDraftDb = true;
+            projectClient.QueueDeleteProjects(projDeleteJob, deleteProjectSite, 
+                                              projects, deleteInPubAndDraftDb);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectDelete,
+                                 numJobs, queueSystemClient, projDeleteJob);
+
+            // Resources must be checked out before they can be deleted.
+            resourceClient.CheckOutResources(resUids);
+            string noComment = string.Empty;
+            resourceClient.DeleteResources(resUids, noComment);
+
+            Console.WriteLine("Resource plan, project, and resources deleted successfully.");             
+        }
+
+        // Create the specified number of enterprise resources.
+        public static Guid[] GenerateResources(int numRes)
+        {
+            Console.WriteLine("Creating {0} resources:", numRes.ToString());
+            Guid[] resUids = new Guid[numRes];
+            SvcResource.ResourceDataSet rds = new SvcResource.ResourceDataSet();
+            for (int i = 0; i &amp;lt; numRes; i++)
+            {
+                SvcResource.ResourceDataSet.ResourcesRow resRow = 
+                    rds.Resources.NewResourcesRow();
+                resRow.RES_UID = Guid.NewGuid();
+
+                string resName = "Res Name " + resRow.RES_UID;
+                Console.WriteLine("\t {0}", resName);
+                resRow.RES_NAME = resName;
+
+                rds.Resources.AddResourcesRow(resRow);
+                resUids[i] = resRow.RES_UID;
+            }
+            resourceClient.CreateResources(rds, false, true);
+            createdResources.AddRange(resUids);
+            return resUids;
+        }
+
+        // Create a project.
+        public static Guid GenerateProject()
+        {
+            SvcProject.ProjectDataSet pds = new SvcProject.ProjectDataSet();
+            SvcProject.ProjectDataSet.ProjectRow pRow = pds.Project.NewProjectRow();
+            pRow.PROJ_UID = Guid.NewGuid();
+
+            string projName = "Proj " + pRow.PROJ_UID;
+            Console.WriteLine("Creating project: {0}", projName);
+            pRow.PROJ_NAME = projName;
+            pds.Project.AddProjectRow(pRow);
+
+            Guid jobUid = Guid.NewGuid();
+            projectClient.QueueCreateProject(jobUid, pds, false);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectCreate,
+                           1, queueSystemClient, jobUid);
+            Guid joubUid = Guid.NewGuid();
+            string mssUrl = string.Empty;   // Don't create a project site.
+            bool fullPublish = true;
+            projectClient.QueuePublish(jobUid, pRow.PROJ_UID, fullPublish, mssUrl);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectPublish, 1, 
+                queueSystemClient, jobUid);
+            createdProjects.Add(pRow.PROJ_UID);
+            return pRow.PROJ_UID;
+        }
+
+        // Get the assignment interval name.
+        public static string GetIntervalNameByDate(DateTime date, 
+            SvcResourcePlan.ResourcePlanDataSet resDS)
+        {
+            foreach (SvcResourcePlan.ResourcePlanDataSet.DatesRow row in resDS.Dates)
+                if (date &amp;gt;= row.StartDate &amp;amp;&amp;amp; date &amp;lt; row.EndDate)
+                    return row.IntervalName;
+            return string.Empty;
+        }
+
+        // Set work for a resource, for the specified interval.
+        public static void SetWorkForResourceForInterval(string intervalName, 
+            Guid resourceGuid, 
+            Guid projUid, double value, 
+            SvcResourcePlan.ResourcePlanDataSet rpds)
+        {
+            SvcResourcePlan.ResourcePlanDataSet.DatesRow datesRow = 
+                rpds.Dates.FindByIntervalName(intervalName);
+            if (datesRow == null)
+            {
+                Console.WriteLine("\nFailed to set value for interval: {0}. Did not find interval.", 
+                    intervalName);
+                return;
+            }
+            SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow planRow = 
+                rpds.PlanResources.FindByRES_UIDPROJ_UID(resourceGuid, projUid);
+            planRow[intervalName] = value * PSLibrary.ValidationConst.s_cal_units_per_hour;
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_RESPLAN:
+                    resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_Q:
+                    queueSystemClient = new SvcQueueSystem.QueueSystemClient(endpt);
+                    break;
+                case ENDPOINT_R:
+                    resourceClient = new SvcResource.ResourceClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+    }
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets or sets the timeout for WaitForQueue calls.&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default timeout is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(
+            SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? 
+                TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = 
+                new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("\nWaiting for job" + jobType.ToString());
+
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = 
+                    queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = 
+                    queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("\tJob completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="QueueUpdateResourcePlan">
@@ -229,13 +2068,669 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <param name="rpds">To be added.</param>
-        <param name="timephasedFTE">To be added.</param>
-        <param name="autoCheckIn">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid">Contains the project GUID.</param>
+        <param name="rpds">The <b>ResourcePlanDataSet</b> that specifies changes in the specified resource plan.</param>
+        <param name="timephasedFTE">If <b>true</b>, update with timephased full-time equivalent resources.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in the resource plan after updating.</param>
+        <param name="jobUid">Contains the queue job GUID.</param>
+        <summary>Creates, updates, and deletes resource plans for a specified project based on data in the <b>ResourcePlanDataSet</b> parameter.</summary>
         <remarks>To be added.</remarks>
+        <example>
+          <para>The example uses the <b>SvcResourcePlan</b> namespace in the ProjectServerServices.dll proxy assembly. The methods <b>SetResPlanClientEndPoints</b>, <b>SetQueueClientEndPoints</b>, <b>SetProjectClientEndPoints</b>, and <b>SetResourceClientEndPoints</b> use an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example demonstrates the use of the <b>QueueUpdateResourcePlan</b> method; it is not a full solution.</para>
+          <para>For the sample code about how to create a resource plan, see <see cref="M:WebSvcResourcePlan.ResourcePlan.QueueCreateResourcePlan(System.Guid,WebSvcResourcePlan.ResourcePlanDataSet,System.Boolean,System.Boolean,System.Guid)" />. After the resource plan is created and published, the <b>GenerateResoucePlan</b> method calls the <b>QueueUpdateResourcePlan</b> method to update the resource plan. In this example, the booking type for a resource is modified and the plan is updated. The contents of the updated <b>ResourcePlanDataSet</b> are written to the XML file <b>UpdatedResourcePlanDS.xml</b>, and are as follows.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;ResourcePlanDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/ResourcePlanDataSet/"&amp;gt;
+  &amp;lt;Utilization&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;66778c9a-b0dd-46e1-82df-611f9912a8a2&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;RESPLAN_UTILIZATION_TYPE&amp;gt;0&amp;lt;/RESPLAN_UTILIZATION_TYPE&amp;gt;
+    &amp;lt;RESPLAN_START_DATE&amp;gt;2010-09-21T08:00:00-07:00&amp;lt;/RESPLAN_START_DATE&amp;gt;
+    &amp;lt;RESPLAN_FINISH_DATE&amp;gt;2010-10-05T17:00:00-07:00&amp;lt;/RESPLAN_FINISH_DATE&amp;gt;
+  &amp;lt;/Utilization&amp;gt;
+  &amp;lt;PlanResources&amp;gt;
+    &amp;lt;RES_UID&amp;gt;39d4b541-4eb7-419f-9121-b8265e172e48&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;66778c9a-b0dd-46e1-82df-611f9912a8a2&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;ea599a60-13c8-4e88-9417-a1845e263185&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;RES_NAME&amp;gt;Res Name 39d4b541-4eb7-419f-9121-b8265e172e48&amp;lt;/RES_NAME&amp;gt;
+    &amp;lt;RES_TYPE&amp;gt;2&amp;lt;/RES_TYPE&amp;gt;
+    &amp;lt;RES_CAN_LEVEL&amp;gt;true&amp;lt;/RES_CAN_LEVEL&amp;gt;
+    &amp;lt;RES_TIMESHEET_MGR_UID&amp;gt;39d4b541-4eb7-419f-9121-b8265e172e48
+&amp;lt;/RES_TIMESHEET_MGR_UID&amp;gt;
+    &amp;lt;RES_DEF_ASSN_OWNER&amp;gt;39d4b541-4eb7-419f-9121-b8265e172e48
+    &amp;lt;/RES_DEF_ASSN_OWNER&amp;gt;
+    &amp;lt;RES_INITIALS&amp;gt;R&amp;lt;/RES_INITIALS&amp;gt;
+    &amp;lt;RES_ID&amp;gt;88&amp;lt;/RES_ID&amp;gt;
+    &amp;lt;ASSN_BOOKING_TYPE&amp;gt;1&amp;lt;/ASSN_BOOKING_TYPE&amp;gt;
+    &amp;lt;RES_IS_TEAM&amp;gt;false&amp;lt;/RES_IS_TEAM&amp;gt;
+    &amp;lt;Interval0&amp;gt;4800&amp;lt;/Interval0&amp;gt;
+    &amp;lt;Interval1&amp;gt;4800&amp;lt;/Interval1&amp;gt;
+  &amp;lt;/PlanResources&amp;gt;
+  &amp;lt;PlanResources&amp;gt;
+    &amp;lt;RES_UID&amp;gt;aa74ffa6-1286-4a30-a0e1-6d48392b9a88&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;66778c9a-b0dd-46e1-82df-611f9912a8a2&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;3642097f-92d4-4d3b-9754-f9c597139f97&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;RES_NAME&amp;gt;Res Name aa74ffa6-1286-4a30-a0e1-6d48392b9a88
+    &amp;lt;/RES_NAME&amp;gt;
+    &amp;lt;RES_TYPE&amp;gt;2&amp;lt;/RES_TYPE&amp;gt;
+    &amp;lt;RES_CAN_LEVEL&amp;gt;true&amp;lt;/RES_CAN_LEVEL&amp;gt;
+    &amp;lt;RES_TIMESHEET_MGR_UID&amp;gt;aa74ffa6-1286-4a30-a0e1-6d48392b9a88&amp;lt;/RES_TIMESHEET_MGR_UID&amp;gt;
+    &amp;lt;RES_DEF_ASSN_OWNER&amp;gt;aa74ffa6-1286-4a30-a0e1-6d48392b9a88&amp;lt;/RES_DEF_ASSN_OWNER&amp;gt;
+    &amp;lt;RES_INITIALS&amp;gt;R&amp;lt;/RES_INITIALS&amp;gt;
+    &amp;lt;RES_ID&amp;gt;87&amp;lt;/RES_ID&amp;gt;
+    &amp;lt;ASSN_BOOKING_TYPE&amp;gt;0&amp;lt;/ASSN_BOOKING_TYPE&amp;gt;
+    &amp;lt;RES_IS_TEAM&amp;gt;false&amp;lt;/RES_IS_TEAM&amp;gt;
+    &amp;lt;Interval0&amp;gt;4800&amp;lt;/Interval0&amp;gt;
+    &amp;lt;Interval1&amp;gt;4800&amp;lt;/Interval1&amp;gt;
+  &amp;lt;/PlanResources&amp;gt;
+  &amp;lt;Dates&amp;gt;
+    &amp;lt;StartDate&amp;gt;2010-09-21T00:00:00-07:00&amp;lt;/StartDate&amp;gt;
+    &amp;lt;EndDate&amp;gt;2010-10-01T00:00:00-07:00&amp;lt;/EndDate&amp;gt;
+    &amp;lt;IntervalName&amp;gt;Interval0&amp;lt;/IntervalName&amp;gt;
+  &amp;lt;/Dates&amp;gt;
+  &amp;lt;Dates&amp;gt;
+    &amp;lt;StartDate&amp;gt;2010-10-01T00:00:00-07:00&amp;lt;/StartDate&amp;gt;
+    &amp;lt;EndDate&amp;gt;2010-10-06T00:00:00-07:00&amp;lt;/EndDate&amp;gt;
+    &amp;lt;IntervalName&amp;gt;Interval1&amp;lt;/IntervalName&amp;gt;
+  &amp;lt;/Dates&amp;gt;
+&amp;lt;/ResourcePlanDataSet&amp;gt;</code>
+          <para>The complete sample code is as follows.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ResourcePlan
+{
+
+    class TimephasedResourcePlan
+    {
+
+        private const string ENDPOINT_RESPLAN = "basicHttp_ResourcePlan";
+        private const string ENDPOINT_Q = "basicHttp_QueueSystem";
+        private const string ENDPOINT_R = "basicHttp_Resource";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private const string XML_FILE1 = "ResourcePlanDS.xml";
+        private const string XML_FILE2 = "UpdatedResourcePlanDS.xml";
+
+        private static SvcResourcePlan.ResourcePlanClient resourcePlanClient;
+        private static SvcQueueSystem.QueueSystemClient queueSystemClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private static SvcProject.ProjectClient projectClient;
+        private static string outFile_ResourcePlanDS;
+        private static string outFile_UpdatedResourcePlanDS;
+
+        private static List&amp;lt;Guid&amp;gt; createdResources = new List&amp;lt;Guid&amp;gt;();
+        private static List&amp;lt;Guid&amp;gt; createdProjects = new List&amp;lt;Guid&amp;gt;();
+        private static PSLibrary.ResourcePlan.TimeScale timescale = 
+            new PSLibrary.TimeScaleClass.TimeScale();
+        private static int numResources = 2;    // Default number of resources to create.
+        private static int numDays = 10;        // Default number of days for the plan.
+        private static bool deletePlan = true;  // Delete the plan, project, and resources after creating them.
+
+        static void Main(string[] args)
+        {
+            timescale = PSLibrary.TimeScaleClass.TimeScale.Months; // Default timescale.
+
+            try
+            {
+                if (args.Length &amp;gt; 1 &amp;amp;&amp;amp; args.Length &amp;lt; 9)
+                {
+                    if (args[0].ToLower() == "-delete")
+                    {
+                        deletePlan = Convert.ToBoolean(args[1]);
+                    }
+                    if (args.Length &amp;gt; 3)
+                    {
+                        if (args[2].ToLower() == "-timescale")
+                            switch (args[3].ToLower())
+                            {
+                                case "days":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Days;
+                                    break;
+                                case "quarters":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Quarters;
+                                    break;
+                                case "weeks":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Weeks;
+                                    break;
+                                case "years":
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Years;
+                                    break;
+                                default:
+                                    timescale = PSLibrary.TimeScaleClass.TimeScale.Months;
+                                    break;
+                            }
+                    }
+                    if (args.Length &amp;gt; 5)
+                    {
+                        if (args[4].ToLower() == "-numresources")
+                            numResources = Convert.ToInt32(args[5]);
+
+                    }
+                    if (args.Length &amp;gt; 7)
+                    {
+                        if (args[6].ToLower() == "-numdays")
+                            numDays = Convert.ToInt32(args[7]);
+                    }
+                }
+
+                // Configure the endpoints.
+                bool configResult = false;
+                configResult = ConfigClientEndpoints(ENDPOINT_RESPLAN);
+                configResult = ConfigClientEndpoints(ENDPOINT_Q);
+                configResult = ConfigClientEndpoints(ENDPOINT_P);
+                configResult = ConfigClientEndpoints(ENDPOINT_R);
+
+                if (!configResult) throw new ApplicationException();
+
+                // If output directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Set the output file path.
+                outFile_ResourcePlanDS = OUTPUT_FILES + XML_FILE1;
+                outFile_UpdatedResourcePlanDS = OUTPUT_FILES + XML_FILE2;
+
+                try
+                {
+                    bool createAssignments = true;
+
+                    GenerateResourcePlan(numResources, numDays, createAssignments);
+                }
+                catch (FaultException fault)
+                {
+                    // Use the WCF FaultException, because the ASMX SoapException does not 
+                    // exist in a WCF-based application.
+                    WriteFaultOutput(fault);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        "\n***System.ServiceModel.CommunicationException\n{0}:", e.Message);
+                    Console.ResetColor();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n***Exception:\n{0}", ex.Message);
+                Console.ResetColor();
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Generate the resource plan.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="resourceCount"&amp;gt;Number of resources.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="lengthInDays"&amp;gt;Length of the resource plan in days.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="generateAssignmentValues"&amp;gt;True to generate assignment values.&amp;lt;/param&amp;gt;
+        public static void GenerateResourcePlan(int resourceCount, 
+            int lengthInDays, bool generateAssignmentValues)
+        {
+            // Create enterprise resources.
+            Guid[] resGuids = GenerateResources(resourceCount);
+
+            // Create a project.
+            Guid projUid = GenerateProject();
+
+            // Create a resource plan DataSet of the specified duration.
+            int daysLeft = lengthInDays;
+            DateTime endDate = DateTime.Now;
+
+            while (daysLeft &amp;gt; 0)
+            {
+                endDate = endDate.AddDays(1);
+                if (!(endDate.DayOfWeek == DayOfWeek.Saturday 
+                    || endDate.DayOfWeek == DayOfWeek.Sunday))
+                    --daysLeft;
+            }
+
+            // Read the resource plan.
+            string resPlanFilter = string.Empty;
+            bool fteTime = false;
+            bool autoCheckOut = false;
+
+            SvcResourcePlan.ResourcePlanDataSet rpds = 
+                resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid,
+                DateTime.Now, endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Add the resources to the resource plan DataSet.
+            for (int i = 0; i &amp;lt; resGuids.Length; i++)
+            {
+                SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow newRes = 
+                    rpds.PlanResources.NewPlanResourcesRow();
+
+                newRes.RES_UID = resGuids[i];
+                newRes.ASSN_BOOKING_TYPE = 
+                    (byte)PSLibrary.Resource.BookingType.Proposed;
+                newRes.PROJ_UID = projUid;
+                rpds.PlanResources.AddPlanResourcesRow(newRes);
+            }
+
+            // Set the resource utilization date limit.
+            SvcResourcePlan.ResourcePlanDataSet.UtilizationRow utilizationRow =
+                rpds.Utilization.NewUtilizationRow();
+            utilizationRow.RESPLAN_UTILIZATION_TYPE = 
+                (int)PSLibrary.ResourcePlan.UtilizationType.FromResourcePlan;
+            utilizationRow.RESPLAN_UTILIZATION_DATE = new DateTime(2031, 2, 20);
+            utilizationRow.PROJ_UID = projUid;
+
+            if (rpds.Utilization.Count == 0)
+            {
+                rpds.Utilization.AddUtilizationRow(utilizationRow);
+            }
+
+            // Set assignment values.
+            if (generateAssignmentValues)
+            {
+                for (DateTime d = DateTime.Now; d &amp;lt;= endDate; d = d.AddDays(1))
+                {
+                    // Set the number of hours in each workday.
+                    double workVal = (d.DayOfWeek == DayOfWeek.Saturday || 
+                        d.DayOfWeek == DayOfWeek.Sunday) 
+                        ? 0 
+                        : 8;
+
+                    string interval = GetIntervalNameByDate(d, rpds);
+
+                    foreach (Guid res in resGuids)
+                    {
+                        SetWorkForResourceForInterval(interval, res,
+                            projUid, workVal, rpds);
+                    }
+                }
+            }
+
+            // Create the resource plan.
+            Guid jobGuid = Guid.NewGuid();
+            int numJobs = 1;
+            bool autoCheckIn = false;
+            resourcePlanClient.QueueCreateResourcePlan(projUid, rpds,
+                fteTime, autoCheckIn, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan created successfully.");
+
+            // Publish the resource plan.
+            resourcePlanClient.QueuePublishResourcePlan(projUid, jobGuid);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanPublish,
+                   numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan published.");
+
+            // Read the resource plan.
+            rpds = resourcePlanClient.ReadResourcePlan(resPlanFilter, projUid, DateTime.Now,
+                endDate, (short)timescale, fteTime, autoCheckOut);
+
+            // Write the ResourcePlan DataSet to an XML file.
+            rpds.WriteXml(outFile_ResourcePlanDS);
+            Console.WriteLine("\nSee XML output of resource plan DataSet at\n\t{0}",
+                outFile_ResourcePlanDS);
+            Console.Write("\nPress any key to continue: ");
+            Console.ReadKey(true);
+            
+            // Change the booking type for a resource and update the resource plan.
+            Guid updateJob = Guid.NewGuid();
+
+            rpds.PlanResources[0].ASSN_BOOKING_TYPE = 
+                (int)PSLibrary.Resource.BookingType.Committed;
+            resourcePlanClient.QueueUpdateResourcePlan(projUid, rpds, 
+                fteTime, autoCheckIn, updateJob);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanSave,
+                  numJobs, queueSystemClient, jobGuid);
+            Console.WriteLine("Resource plan updated successfully.");
+
+            // Write the updated resource plan DataSet to an XML file.
+            rpds.WriteXml(outFile_UpdatedResourcePlanDS);
+            Console.WriteLine("\nSee XML output of the updated resource plan DataSet at \n\t{0}",
+                outFile_UpdatedResourcePlanDS);
+
+            if (deletePlan)
+            {
+                Console.WriteLine("\nPress any key to continue");
+                Console.Write("...and delete the resource plan, project, and resources:");
+                Console.ReadKey(true);
+                DeleteResourcePlan(projUid, resGuids);
+            }
+        }
+
+        // Delete the resource plan and the test project and resources.
+        public static void DeleteResourcePlan(Guid projUid, Guid[] resUids)
+        {
+            // QueueDeleteResourcePlan takes an array of project GUIDs and job GUIDs.
+            Guid deleteResPlanJob = Guid.NewGuid();
+            Guid[] deleteJobs = new Guid[1] { deleteResPlanJob };
+            Guid[] projects = new Guid[1] { projUid };
+
+            resourcePlanClient.QueueDeleteResourcePlan(projects, deleteJobs);
+
+            int numJobs = 1;
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ResourcePlanDelete,
+                                 numJobs, queueSystemClient, deleteResPlanJob);
+
+            Guid projDeleteJob = Guid.NewGuid();
+            bool deleteProjectSite = false;  // No project site was created during publish.
+            bool deleteInPubAndDraftDb = true;
+            projectClient.QueueDeleteProjects(projDeleteJob, deleteProjectSite, 
+                                              projects, deleteInPubAndDraftDb);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectDelete,
+                                 numJobs, queueSystemClient, projDeleteJob);
+
+            // Resources must be checked out before they can be deleted.
+            resourceClient.CheckOutResources(resUids);
+            string noComment = string.Empty;
+            resourceClient.DeleteResources(resUids, noComment);
+
+            Console.WriteLine("Resource plan, project, and resources deleted successfully.");             
+        }
+
+        // Create the specified number of enterprise resources.
+        public static Guid[] GenerateResources(int numRes)
+        {
+            Console.WriteLine("Creating {0} resources:", numRes.ToString());
+            Guid[] resUids = new Guid[numRes];
+            SvcResource.ResourceDataSet rds = new SvcResource.ResourceDataSet();
+            for (int i = 0; i &amp;lt; numRes; i++)
+            {
+                SvcResource.ResourceDataSet.ResourcesRow resRow = 
+                    rds.Resources.NewResourcesRow();
+                resRow.RES_UID = Guid.NewGuid();
+
+                string resName = "Res Name " + resRow.RES_UID;
+                Console.WriteLine("\t {0}", resName);
+                resRow.RES_NAME = resName;
+
+                rds.Resources.AddResourcesRow(resRow);
+                resUids[i] = resRow.RES_UID;
+            }
+            resourceClient.CreateResources(rds, false, true);
+            createdResources.AddRange(resUids);
+            return resUids;
+        }
+
+        // Create a project.
+        public static Guid GenerateProject()
+        {
+            SvcProject.ProjectDataSet pds = new SvcProject.ProjectDataSet();
+            SvcProject.ProjectDataSet.ProjectRow pRow = pds.Project.NewProjectRow();
+            pRow.PROJ_UID = Guid.NewGuid();
+
+            string projName = "Proj " + pRow.PROJ_UID;
+            Console.WriteLine("Creating project: {0}", projName);
+            pRow.PROJ_NAME = projName;
+            pds.Project.AddProjectRow(pRow);
+
+            Guid jobUid = Guid.NewGuid();
+            projectClient.QueueCreateProject(jobUid, pds, false);
+
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectCreate,
+                           1, queueSystemClient, jobUid);
+            Guid joubUid = Guid.NewGuid();
+            string mssUrl = string.Empty;   // Don't create a project site.
+            bool fullPublish = true;
+            projectClient.QueuePublish(jobUid, pRow.PROJ_UID, fullPublish, mssUrl);
+            Helpers.WaitForQueue(SvcQueueSystem.QueueMsgType.ProjectPublish, 1, 
+                queueSystemClient, jobUid);
+            createdProjects.Add(pRow.PROJ_UID);
+            return pRow.PROJ_UID;
+        }
+
+        // Get the assignment interval name.
+        public static string GetIntervalNameByDate(DateTime date, 
+            SvcResourcePlan.ResourcePlanDataSet resDS)
+        {
+            foreach (SvcResourcePlan.ResourcePlanDataSet.DatesRow row in resDS.Dates)
+                if (date &amp;gt;= row.StartDate &amp;amp;&amp;amp; date &amp;lt; row.EndDate)
+                    return row.IntervalName;
+            return string.Empty;
+        }
+
+        // Set work for a resource, for the specified interval.
+        public static void SetWorkForResourceForInterval(string intervalName, 
+            Guid resourceGuid, 
+            Guid projUid, double value, 
+            SvcResourcePlan.ResourcePlanDataSet rpds)
+        {
+            SvcResourcePlan.ResourcePlanDataSet.DatesRow datesRow = 
+                rpds.Dates.FindByIntervalName(intervalName);
+            if (datesRow == null)
+            {
+                Console.WriteLine("\nFailed to set value for interval: {0}. Did not find interval.", 
+                    intervalName);
+                return;
+            }
+            SvcResourcePlan.ResourcePlanDataSet.PlanResourcesRow planRow = 
+                rpds.PlanResources.FindByRES_UIDPROJ_UID(resourceGuid, projUid);
+            planRow[intervalName] = value * PSLibrary.ValidationConst.s_cal_units_per_hour;
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_RESPLAN:
+                    resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_Q:
+                    queueSystemClient = new SvcQueueSystem.QueueSystemClient(endpt);
+                    break;
+                case ENDPOINT_R:
+                    resourceClient = new SvcResource.ResourceClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+    }
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Public TimeOut property.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;value&amp;gt;Gets or sets the timeout for WaitForQueue calls.&amp;lt;/value&amp;gt;
+        public static int TimeOut
+        {
+            get
+            {
+                return timeOut;
+            }
+            set
+            {
+                timeOut = value;
+            }
+        }
+        // Default timeout is 3 minutes.
+        private static int timeOut = 3 * 60 * 1000;
+
+        // Incremental sleep time is 2 seconds.
+        private static int incrementalSleepTime = 2 * 1000;
+
+        public static SvcQueueSystem.JobState WaitForQueue(
+            SvcQueueSystem.QueueMsgType jobType, int numJobs,
+            SvcQueueSystem.QueueSystemClient queueSystemClient, Guid jobId)
+        {
+            int timeSlept = 0;
+            int sleepInterval = (TimeOut / 60 &amp;gt; incrementalSleepTime) ? 
+                TimeOut / 60 : incrementalSleepTime;
+
+            SvcQueueSystem.QueueStatusDataSet queueStatusDs = 
+                new SvcQueueSystem.QueueStatusDataSet();
+            String errorString = String.Empty;
+            Console.WriteLine("\nWaiting for job" + jobType.ToString());
+
+            while (true)
+            {
+                SvcQueueSystem.JobState jobState = 
+                    queueSystemClient.GetJobCompletionState(out errorString, jobId);
+
+                SvcQueueSystem.QueueStatusDataSet jobStatus = 
+                    queueSystemClient.ReadJobStatusSimple(new Guid[] { jobId }, true);
+                if (jobState == SvcQueueSystem.JobState.Unknown)
+                {
+                    string jobStatusInfo = "Job status is unknown.";
+                    jobStatusInfo += "\n\tWas the job placed on the Queue?";
+                    jobStatusInfo += "\n\t--returning from WaitForQueue.";
+                    Console.WriteLine(jobStatusInfo);
+                    return jobState;
+                }
+                if (jobState == SvcQueueSystem.JobState.Success ||
+                    jobState == SvcQueueSystem.JobState.Failed ||
+                    jobState == SvcQueueSystem.JobState.FailedNotBlocking ||
+                    jobState == SvcQueueSystem.JobState.CorrelationBlocked ||
+                    jobState == SvcQueueSystem.JobState.Canceled)
+                {
+                    Console.WriteLine("\tJob completed, returning from WaitForQueue");
+                    return jobState;
+                }
+                System.Threading.Thread.CurrentThread.Join(sleepInterval);
+                timeSlept += sleepInterval;
+
+                if (timeSlept &amp;gt; TimeOut)
+                {
+                    return SvcQueueSystem.JobState.Unknown;
+                }
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}
+
+</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadResourcePlan">
@@ -268,16 +2763,388 @@
         <Parameter Name="autoCheckOut" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="filter">To be added.</param>
-        <param name="projectUid">To be added.</param>
-        <param name="startDate">To be added.</param>
-        <param name="endDate">To be added.</param>
-        <param name="timeScale">To be added.</param>
-        <param name="timephasedFTE">To be added.</param>
-        <param name="autoCheckOut">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="filter">Contains the XML filter to limit the data that is returned. </param>
+        <param name="projectUid">Contains the project GUID.</param>
+        <param name="startDate">Contains the start date.</param>
+        <param name="endDate">Contains the end date.</param>
+        <param name="timeScale">Specifies the time scale with <see cref="T:Microsoft.Office.Project.Server.Library.TimeScaleClass.TimeScale" /> enumeration.</param>
+        <param name="timephasedFTE">If <b>true</b>, converts the time values to a full-time equivalent resource.</param>
+        <param name="autoCheckOut">If <b>true</b>, checks out the resource plan for editing.</param>
+        <summary>Reads resource plan data for the specified project by using an optional filter or date range. Optionally, checks out the resource plan for modification.</summary>
+        <returns>The <b>ResourcePlanDataSet.PlanResourcesDataTable</b> includes the data that is specified by the <paramref name="filter" /> or date parameters.</returns>
+        <remarks>
+          <para>The primary <b>DataTable</b> in a <b>ResoucePlanDataSet</b> is the <b>PlanResourcesDataTable</b>.</para>
+          <para>
+            <b>Note</b>: The <paramref name="filter" /> parameter works with the <b>Criteria</b> operators to filter rows only in the primary <b>PlanResourcesDataTable</b>. For example, you cannot use <paramref name="filter" /> with the <b>ReadResourcePlan</b> method to filter rows in the <b>PlanAssignmentCustomFieldsDataTable</b>. If you try to filter rows in a secondary <b>DataTable</b>, the PSI returns a <b>FilterInvalid</b> exception.</para>
+          <para>However, you can use the <b>Fields.Add</b> method to filter columns in the primary <b>CalendarsDataTable</b> and in any secondary <b>DataTable</b>. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcResourcePlan</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file to set the WCF binding, behavior, and endpoint for the <b>resourcePlanClient</b> object, the <b>resourceClient</b> object, and the <b>projectClient</b> object. For information about creating and using a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: The following example demonstrates the use of the <b>ReadResourcePlan</b> method; it is not a full solution.</para>
+          <para>For sample code about how to create a resource plan, see <see cref="M:WebSvcResourcePlan.ResourcePlan.QueueCreateResourcePlan(System.Guid,WebSvcResourcePlan.ResourcePlanDataSet,System.Boolean,System.Boolean,System.Guid)" />.To use the <b>ReadResourcePlan</b> sample, create a project, build the project team from the enterprise resources, and then create and publish a resource plan by using Project Web App.</para>
+          <para>After the resource plan is created and the project is published, compile and run the sample. For example, the following command reads the resource plan for a project named My Swell Project, and then writes the <b>ResourcePlanDataSet</b> contents to the C:\Project\Samples\Output\ReadResourcePlanDS.xml file. </para>
+          <code>ReadResourcePlan -project "My Swell Project"</code>
+          <para>The sample code is as follows:</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+using System.Data;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadResourcePlan
+{
+    class ReadResourcePlan
+    {
+
+        private const string ENDPOINT_RESPLAN = "basicHttp_ResourcePlan";
+        private const string ENDPOINT_R = "basicHttp_Resource";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private const string XML_FILE = "ReadResourcePlanDS.xml";
+
+        private static SvcResourcePlan.ResourcePlanClient resourcePlanClient;
+        private static SvcResource.ResourceClient resourceClient;
+        private static SvcProject.ProjectClient projectClient;
+        private static string outFile_ResourcePlanDS;
+
+        static void Main(string[] args)
+        {
+            string projName = string.Empty;
+            bool badNews = false;
+
+            try
+            {
+                if (args.Length == 2)
+                {
+                    if (args[0].ToLower() == "-project")
+                        projName = args[1];
+                    else
+                    {
+                        Console.WriteLine("Incorrect argument: {0}", args[0]);
+                        badNews = true;
+                    }
+                }
+                else
+                {
+                    badNews = true;
+                }
+
+                if (badNews) throw new ApplicationException(
+                    @"Usage: ReadResourcePlan -project ""Project Name""");
+
+                // Configure the endpoints.
+                bool configResult = false;
+                configResult = ConfigClientEndpoints(ENDPOINT_RESPLAN);
+                configResult = ConfigClientEndpoints(ENDPOINT_P);
+                configResult = ConfigClientEndpoints(ENDPOINT_R);
+
+                if (!configResult) throw new ApplicationException(
+                    "Error(s) in WCF client configuration");
+
+                // If output directory does not exist, create it.
+                if (!Directory.Exists(OUTPUT_FILES))
+                {
+                    Directory.CreateDirectory(OUTPUT_FILES);
+                }
+
+                // Set the output file path.
+                outFile_ResourcePlanDS = OUTPUT_FILES + XML_FILE;
+
+                try
+                {
+                    GetResourcePlan(projName);
+                }
+                catch (FaultException fault)
+                {
+                    // Use the WCF FaultException, because the ASMX SoapException does not 
+                    // exist in a WCF-based application.
+                    WriteFaultOutput(fault);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        "\n***System.ServiceModel.CommunicationException\n{0}:", e.Message);
+                    Console.ResetColor();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n***Exception:\n{0}", ex.Message);
+                Console.ResetColor();
+            }
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Get the resource plan for the specified project.
+        public static void GetResourcePlan(string projName)
+        {
+            Guid projUid = GetProjectUid(projName);
+
+            // Get project start date and end date.
+            List&amp;lt;DateTime&amp;gt; startFinishDates = GetStartFinishDates(projUid);
+            if (startFinishDates.Count != 2) 
+                throw new ApplicationException("Invalid project start and finish dates.");
+
+            DateTime startDate = startFinishDates[0];
+            DateTime endDate = startFinishDates[1];
+
+            // Read the resource plan.
+            Console.WriteLine("Reading the resource plan of the project: \n\t{0}\n\t{1}",
+                projName, projUid.ToString());
+
+            string resPlanFilter = string.Empty;
+            bool fteTime = false;
+            bool autoCheckOut = false;
+
+            SvcResourcePlan.ResourcePlanDataSet resPlanDs = resourcePlanClient.ReadResourcePlan(
+                resPlanFilter, projUid, startDate, endDate,
+                (short)PSLibrary.ResourcePlan.TimeScale.Days, fteTime, autoCheckOut);
+
+            // Write the ResourcePlan DataSet to an XML file.
+            resPlanDs.WriteXml(outFile_ResourcePlanDS);
+            Console.WriteLine("\nSee XML output of resource plan DataSet at {0}",
+                outFile_ResourcePlanDS);
+        }
+   
+        // Get the project GUID.
+        public static Guid GetProjectUid(string projName)
+        {
+            Guid projUid = Guid.Empty;
+
+            SvcProject.ProjectDataSet projectDs = projectClient.ReadProjectStatus(
+                Guid.Empty, SvcProject.DataStoreEnum.PublishedStore, 
+                projName, (int)PSLibrary.Project.ProjectType.Project);
+
+            foreach (SvcProject.ProjectDataSet.ProjectRow project in projectDs.Project)
+            {
+                if (project.PROJ_NAME == projName)
+                {
+                    projUid = project.PROJ_UID;
+                    break;
+                }
+            }
+            if (projUid == Guid.Empty)
+                throw new ApplicationException(string.Format("No project name: {0}", projName));
+
+            return projUid;
+        }
+
+        // Get the project start date and finish date.
+        public static List&amp;lt;DateTime&amp;gt; GetStartFinishDates(Guid projUid)
+        {
+            List&amp;lt;DateTime&amp;gt; dates = new List&amp;lt;DateTime&amp;gt;();
+
+            SvcProject.ProjectDataSet projectDs = projectClient.ReadProject(
+                projUid, SvcProject.DataStoreEnum.PublishedStore);
+
+            dates.Add(projectDs.Project.Rows[0].Field&amp;lt;DateTime&amp;gt;("PROJ_INFO_START_DATE"));
+            dates.Add(projectDs.Project.Rows[0].Field&amp;lt;DateTime&amp;gt;("PROJ_INFO_FINISH_DATE"));
+            return dates;
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+                case ENDPOINT_RESPLAN:
+                    resourcePlanClient = new SvcResourcePlan.ResourcePlanClient(endpt);
+                    break;
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_R:
+                    resourceClient = new SvcResource.ResourceClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }        
+    }
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}</code>
+          <para>For a project that extends over two weeks, using the <b>ReadResourcePlan</b> method with the timescale in weeks shows two intervals named <b>Interval0</b> and <b>Interval1</b> in the resource plan. In this example, the resource plan intervals contain 0 hours of time. Following is an example of output in the ReadResourcePlanDS.xml file.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;ResourcePlanDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/ResourcePlanDataSet/"&amp;gt;
+  &amp;lt;Utilization&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;4f4b5ffb-e143-4c84-9cf4-299d316c7d8e&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;RESPLAN_UTILIZATION_TYPE&amp;gt;0&amp;lt;/RESPLAN_UTILIZATION_TYPE&amp;gt;
+  &amp;lt;/Utilization&amp;gt;
+  &amp;lt;PlanResources&amp;gt;
+    &amp;lt;RES_UID&amp;gt;0285a4e6-53f8-459a-945a-62f7ca465400&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;4f4b5ffb-e143-4c84-9cf4-299d316c7d8e&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;cc3f29ec-d033-473e-a6c4-5604c2e84601&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;RES_NAME&amp;gt;Resource Name1&amp;lt;/RES_NAME&amp;gt;
+    &amp;lt;RES_TYPE&amp;gt;2&amp;lt;/RES_TYPE&amp;gt;
+    &amp;lt;RES_CAN_LEVEL&amp;gt;true&amp;lt;/RES_CAN_LEVEL&amp;gt;
+    &amp;lt;RES_TIMESHEET_MGR_UID&amp;gt;0285a4e6-53f8-459a-945a-62f7ca465400&amp;lt;/RES_TIMESHEET_MGR_UID&amp;gt;
+    &amp;lt;RES_DEF_ASSN_OWNER&amp;gt;0285a4e6-53f8-459a-945a-62f7ca465400&amp;lt;/RES_DEF_ASSN_OWNER&amp;gt;
+    &amp;lt;RES_INITIALS&amp;gt;R1&amp;lt;/RES_INITIALS&amp;gt;
+    &amp;lt;RES_ID&amp;gt;71&amp;lt;/RES_ID&amp;gt;
+    &amp;lt;ASSN_BOOKING_TYPE&amp;gt;0&amp;lt;/ASSN_BOOKING_TYPE&amp;gt;
+    &amp;lt;RES_IS_TEAM&amp;gt;false&amp;lt;/RES_IS_TEAM&amp;gt;
+    &amp;lt;RES_CHECKOUTDATE&amp;gt;2010-10-06T16:08:23.17-07:00&amp;lt;/RES_CHECKOUTDATE&amp;gt;
+    &amp;lt;Interval0&amp;gt;0&amp;lt;/Interval0&amp;gt;
+    &amp;lt;Interval1&amp;gt;0&amp;lt;/Interval1&amp;gt;
+  &amp;lt;/PlanResources&amp;gt;
+  &amp;lt;PlanResources&amp;gt;
+    &amp;lt;RES_UID&amp;gt;009380d1-29ad-40df-9511-f82adb874834&amp;lt;/RES_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;4f4b5ffb-e143-4c84-9cf4-299d316c7d8e&amp;lt;/PROJ_UID&amp;gt;
+    &amp;lt;ASSN_UID&amp;gt;ad15c911-ac55-4463-9d1c-cf29d9b6938a&amp;lt;/ASSN_UID&amp;gt;
+    &amp;lt;RES_NAME&amp;gt;Resource Name2&amp;lt;/RES_NAME&amp;gt;
+    &amp;lt;RES_TYPE&amp;gt;2&amp;lt;/RES_TYPE&amp;gt;
+    &amp;lt;RES_CAN_LEVEL&amp;gt;true&amp;lt;/RES_CAN_LEVEL&amp;gt;
+    &amp;lt;RES_TIMESHEET_MGR_UID&amp;gt;009380d1-29ad-40df-9511-f82adb874834&amp;lt;/RES_TIMESHEET_MGR_UID&amp;gt;
+    &amp;lt;RES_DEF_ASSN_OWNER&amp;gt;009380d1-29ad-40df-9511-f82adb874834&amp;lt;/RES_DEF_ASSN_OWNER&amp;gt;
+    &amp;lt;RES_INITIALS&amp;gt;R2&amp;lt;/RES_INITIALS&amp;gt;
+    &amp;lt;RES_ID&amp;gt;24&amp;lt;/RES_ID&amp;gt;
+    &amp;lt;ASSN_BOOKING_TYPE&amp;gt;0&amp;lt;/ASSN_BOOKING_TYPE&amp;gt;
+    &amp;lt;RES_HIRE_DATE&amp;gt;2010-09-21T00:00:00-07:00&amp;lt;/RES_HIRE_DATE&amp;gt;
+    &amp;lt;RES_TERMINATION_DATE&amp;gt;2011-09-25T00:00:00-07:00&amp;lt;/RES_TERMINATION_DATE&amp;gt;
+    &amp;lt;RES_IS_TEAM&amp;gt;false&amp;lt;/RES_IS_TEAM&amp;gt;
+    &amp;lt;RES_CHECKOUTDATE&amp;gt;2010-10-06T15:43:12.73-07:00&amp;lt;/RES_CHECKOUTDATE&amp;gt;
+    &amp;lt;Interval0&amp;gt;0&amp;lt;/Interval0&amp;gt;
+    &amp;lt;Interval1&amp;gt;0&amp;lt;/Interval1&amp;gt;
+  &amp;lt;/PlanResources&amp;gt;
+  &amp;lt;Dates&amp;gt;
+    &amp;lt;StartDate&amp;gt;2010-10-27T00:00:00-07:00&amp;lt;/StartDate&amp;gt;
+    &amp;lt;EndDate&amp;gt;2010-11-01T00:00:00-07:00&amp;lt;/EndDate&amp;gt;
+    &amp;lt;IntervalName&amp;gt;Interval0&amp;lt;/IntervalName&amp;gt;
+  &amp;lt;/Dates&amp;gt;
+  &amp;lt;Dates&amp;gt;
+    &amp;lt;StartDate&amp;gt;2010-11-01T00:00:00-07:00&amp;lt;/StartDate&amp;gt;
+    &amp;lt;EndDate&amp;gt;2010-11-05T00:00:00-07:00&amp;lt;/EndDate&amp;gt;
+    &amp;lt;IntervalName&amp;gt;Interval1&amp;lt;/IntervalName&amp;gt;
+  &amp;lt;/Dates&amp;gt;
+&amp;lt;/ResourcePlanDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadResourcePlanStatus">
@@ -304,8 +3171,8 @@
         <Parameter Name="projectUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectUid"> Contains the project GUID.</param>
+        <summary>Gets the resource plan status for the specified project.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

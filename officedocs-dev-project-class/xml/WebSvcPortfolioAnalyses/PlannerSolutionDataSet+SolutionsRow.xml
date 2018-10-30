@@ -14,7 +14,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents planner solutions information as a row in the <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsDataTable" /> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -39,9 +39,13 @@
         <ReturnType>System.Double</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets a percentage number between 0 and 100 that specifies the minimum threshold for a resource to be allocated for a project.</summary>
+        <value>Returns <see cref="T:System.Double" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: If the allocation threshold is below 100%, projects can be selected or resourced using fewer resources.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ANALYSIS_NAME">
@@ -65,8 +69,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the analysis the planner solution is based on.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -91,8 +95,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the analysis the planner solution is based on.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -117,9 +121,12 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the constraint type that the current planner solution is using.</summary>
+        <value>Returns <see cref="T:System.Byte" />.</value>
+        <remarks>
+          <para>This should correspond to a value in <see cref="T:Microsoft.Office.Project.Server.Library.Planner.ConstraintType" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="CONSTRAINT_VALUE">
@@ -143,8 +150,8 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the numeric value for the planner constraint.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -169,8 +176,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the resource that created the planner solution.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -195,8 +202,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the resource that created the planner solution.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,8 +228,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date when the planner solution was originally created.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -247,8 +254,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the solution scenario chart (formerly efficient frontier chart) that corresponds to the planner solution.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -274,8 +281,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the information about the boundary between efficient and inefficient solutions.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionEfficientFrontierRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -301,8 +308,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the project role requirements information.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectRequirementsByRoleRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -328,8 +335,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the solution project information.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionProjectsRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -355,8 +362,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets the resources hired information.</summary>
+        <returns>Returns <see cref="T:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionResHiredRow" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -381,9 +388,13 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the hiring type of the resources corresponding to the current planner solution.</summary>
+        <value>Returns <see cref="T:System.Byte" />.</value>
+        <remarks>
+          <para>
+            <b>Note</b>: This value mush correspond to one of the values in the <see cref="T:Microsoft.Office.Project.Server.Library.Planner.PlannerHiringType" /> enumeration.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="IsANALYSIS_NAMENull">
@@ -408,8 +419,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.ANALYSIS_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -435,8 +446,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_BY_RES_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -462,8 +473,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_BY_RES_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -489,8 +500,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -516,8 +527,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.FRONTIER_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -543,8 +554,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.LAST_UPDATED_BY_RES_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -570,8 +581,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.LAST_UPDATED_BY_RES_UID" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -597,8 +608,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.MOD_DATE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -624,8 +635,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.OPTIMIZER_SOLUTION_NAME" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -651,8 +662,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.SOLUTION_DESCRIPTION" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -678,8 +689,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Determines whether the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.TOTAL_PRIORITY_VALUE" /> property is set to a null value.</summary>
+        <returns>Returns <see cref="T:System.Boolean" />.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -704,8 +715,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the name of the resource that last updated the planner solution. Read-only.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -730,8 +741,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the resource that last updated the planner solution.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -756,8 +767,8 @@
         <ReturnType>System.DateTime</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the date when the planner solution was last modified.</summary>
+        <value>Returns <see cref="T:System.DateTime" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -782,8 +793,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the Boolean value to enforce project dependency.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -808,8 +819,8 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the Boolean value to enforce scheduling dependency.</summary>
+        <value>Returns <see cref="T:System.Boolean" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -834,8 +845,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the planner solution.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -860,8 +871,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the planner solution.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -886,8 +897,8 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets one of the 5 resource cost rate table.</summary>
+        <value>Returns <see cref="T:System.Byte" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -913,7 +924,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.ANALYSIS_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -939,7 +950,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_BY_RES_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -965,7 +976,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_BY_RES_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -991,7 +1002,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.CREATED_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1017,7 +1028,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.FRONTIER_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1043,7 +1054,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.LAST_UPDATED_BY_RES_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1069,7 +1080,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.LAST_UPDATED_BY_RES_UID" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1095,7 +1106,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.MOD_DATE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1121,7 +1132,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.OPTIMIZER_SOLUTION_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1147,7 +1158,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.SOLUTION_DESCRIPTION" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1173,7 +1184,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcPortfolioAnalyses.PlannerSolutionDataSet.SolutionsRow.TOTAL_PRIORITY_VALUE" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1198,8 +1209,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the description of the planner solution.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1224,8 +1235,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the planner solution.</summary>
+        <value>Returns <see cref="T:System.String" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1250,8 +1261,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the planner solution.</summary>
+        <value>Returns <see cref="T:System.Guid" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1276,8 +1287,8 @@
         <ReturnType>System.Decimal</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets the value that is the sum of the priority values of all projects that are selected in the planner solution. Read-only.</summary>
+        <value>Returns <see cref="T:System.Decimal" />.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

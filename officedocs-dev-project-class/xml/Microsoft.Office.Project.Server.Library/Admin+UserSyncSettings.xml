@@ -18,8 +18,14 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Specifies the user synchronization settings, to help manage Project Server resources.</summary>
+    <remarks>
+      <para>
+        <b>Caution</b>: The <b>Microsoft.Office.Project.Server.Library.Admin.UserSyncSettings</b> enumeration contains the correct values; it replaces the <see cref="T:WebSvcAdmin.UserSyncSettings" /> enumeration, which has incorrect values.</para>
+      <para>For example, if your Project Server performance is slowed by too many team members with access to project sites, you can disable access to project sites by using the <see cref="M:WebSvcAdmin.Admin.UpdateUserSyncSetting(WebSvcAdmin.UserSyncSettings)" /> method with <see cref="F:Microsoft.Office.Project.Server.Library.Admin.UserSyncSettings.DisablePWS" />, and then individually manage project site permissions. </para>
+      <para>In the pub.MSP_WEB_ADMIN table for the Project Web App instance, the <b>WADMIN_USER_SYNC_SETTING</b> column shows the current setting for user synchronization. For more information, see <a href="http://technet.microsoft.com/en-us/library/hh670402.aspx">Best practices for managing a large number of resources in Project Server 2010</a></para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="DisableAll">
@@ -44,7 +50,7 @@
       </ReturnValue>
       <MemberValue>4</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=4. Disable all synchronizations.</summary>
       </Docs>
     </Member>
     <Member MemberName="DisableEmailSync">
@@ -69,7 +75,7 @@
       </ReturnValue>
       <MemberValue>3</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=3. Disable email synchronization.</summary>
       </Docs>
     </Member>
     <Member MemberName="DisableEverything">
@@ -89,7 +95,7 @@
       </ReturnValue>
       <MemberValue>255</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value = 255. Disable everything.</summary>
       </Docs>
     </Member>
     <Member MemberName="DisablePWA">
@@ -109,7 +115,7 @@
       </ReturnValue>
       <MemberValue>1</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=1. Disable synchronization with Project Web App.</summary>
       </Docs>
     </Member>
     <Member MemberName="DisablePWS">
@@ -129,7 +135,7 @@
       </ReturnValue>
       <MemberValue>2</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=2. Disable synchronization with project sites.</summary>
       </Docs>
     </Member>
     <Member MemberName="DisableVisbilityProjects">
@@ -149,7 +155,7 @@
       </ReturnValue>
       <MemberValue>8</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=8. Disable Visibility projects synchronization only.</summary>
       </Docs>
     </Member>
     <Member MemberName="Enabled">
@@ -169,7 +175,7 @@
       </ReturnValue>
       <MemberValue>0</MemberValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Value=0. Enable all synchronizations.</summary>
       </Docs>
     </Member>
   </Members>

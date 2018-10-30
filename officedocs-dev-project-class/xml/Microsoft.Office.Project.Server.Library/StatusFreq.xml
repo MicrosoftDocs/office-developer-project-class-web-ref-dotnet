@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Contains methods that get status report periods.</summary>
+    <remarks>
+      <para>A <b>StatusFreq</b> object represents the frequency (series of beginning and ending dates) of status periods.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -34,8 +37,8 @@
         <Parameter Name="dr" Type="System.Data.DataRow[]" />
       </Parameters>
       <Docs>
-        <param name="dr">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="dr">The array of beginning and ending dates of status periods.</param>
+        <summary>Creates a <b>StatusFreq</b> object by using an array of <b>DataRow</b> objects that contain dates for the beginning and ending of status periods.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -55,8 +58,8 @@
         <Parameter Name="dt" Type="System.Data.DataTable" />
       </Parameters>
       <Docs>
-        <param name="dt">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="dt">The table of beginning and ending dates of status periods.</param>
+        <summary>Creates a <b>StatusFreq</b> object by using a <b>DataTable</b> object that contains dates for the beginning and ending of status periods.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -77,8 +80,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <summary>Gets a list of status periods that include the start date of a report to the current date, plus 12 more periods.</summary>
+        <returns>The list of periods.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,9 +104,9 @@
         <Parameter Name="period" Type="Microsoft.Office.Project.Server.Library.SrPeriod" />
       </Parameters>
       <Docs>
-        <param name="period">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="period">The status period.</param>
+        <summary>Gets the next period after the specified status period.</summary>
+        <returns>The next status period after the specified period.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -126,9 +129,9 @@
         <Parameter Name="date" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="date">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="date">The date that is used to find the status period.</param>
+        <summary>Gets the status period within which the specified date falls.</summary>
+        <returns>The status period that contains the specified date.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -152,10 +155,10 @@
         <Parameter Name="end" Type="System.DateTime" />
       </Parameters>
       <Docs>
-        <param name="start">To be added.</param>
-        <param name="end">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="start">The starting date.</param>
+        <param name="end">The ending date.</param>
+        <summary>Gets status report periods that span the specified starting and ending dates.</summary>
+        <returns>The status periods that span the specified dates.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

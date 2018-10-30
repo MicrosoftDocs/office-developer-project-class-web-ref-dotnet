@@ -19,8 +19,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Provides information for the creation of an enterprise project type (EPT).</summary>
+    <remarks>
+      <para>In Project Web App, an enterprise project type represents a wrapper that encapsulates phases, stages, project detail pages (PDPs), and a project plan template, and associates them with a Project Server site workflow. An EPT is used as a template to create new projects or proposals that are managed by a workflow.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -36,7 +39,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Initializes an instance of the <b>EnterpriseProjectTypeCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,8 +64,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the description for an EPT.</summary>
+        <value>An EPT description.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -87,8 +90,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for an EPT.</summary>
+        <value>An EPT GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -113,8 +116,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the URL of an image that is associated with an EPT.</summary>
+        <value>An image location.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -138,10 +141,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,8 +170,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets whether an EPT is the type that all new projects should use by default.</summary>
+        <value>
+          <b>True</b> if the EPT is to be the default; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -192,8 +197,9 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets whether a project that an EPT creates is fully managed by Project Server, or is a SharePoint tasks list.</summary>
+        <value>
+          <b>True</b> if the EPT creates projects that Project Server manages; <b>False</b> if the EPT creates projects as SharePoint tasks list projects.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -218,8 +224,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of an EPT.</summary>
+        <value>An EPT name.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -244,8 +250,9 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets a value that indicates whether the user wants the enterprise project type to appear at the end of the list of EPTs, or whether the user wants to control where it is placed in the list.</summary>
+        <value>
+          <b>True</b> if the EPT is to appear at the end of a list of EPTs; otherwise, <b>False</b>.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -270,8 +277,8 @@
         <ReturnType>System.Collections.Generic.IEnumerable&lt;Microsoft.ProjectServer.Client.ProjectDetailPageCreationInformation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the project detail page that is used as the first page in the workflow for an enterprise project type.</summary>
+        <value>The project detail page that starts the workflow for the EPT.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -296,8 +303,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the project plan template that was created with an EPT.</summary>
+        <value>The GUID of the project plan template.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -348,8 +355,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the workflow that is associated with an EPT.</summary>
+        <value>The workflow GUID.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -374,8 +381,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the workflow that is associated with an EPT.</summary>
+        <value>The name of the workflow.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -400,8 +407,8 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the name of the project site template that is associated with an EPT.</summary>
+        <value>The name of the project site template.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -429,9 +436,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use. </param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

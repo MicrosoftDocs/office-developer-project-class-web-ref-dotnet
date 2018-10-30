@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ReportingEventReceiver.OnProjectWorkflowInformationChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ReportingPostProjectWorkflowInformationChangedEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -53,10 +58,10 @@
         <Parameter Name="newEptUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectGuid">To be added.</param>
-        <param name="crtStageUid">To be added.</param>
-        <param name="newEptUid">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="projectGuid">The GUID of the project.</param>
+        <param name="crtStageUid">The GUID of the current stage of the project workflow.</param>
+        <param name="newEptUid">The GUID of the new enterprise project type.</param>
+        <summary>Creates an instance of the <b>ReportingPostProjectWorkflowInformationChangedEventArgs</b> class; used internally.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -76,7 +81,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the new enterprise project type.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -97,7 +102,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the current stage of the project workflow.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -118,7 +123,7 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the GUID of the project.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -140,7 +145,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Returns a text string that contains the GUIDs for the project, the current workflow stage, and the new enterprise project type.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

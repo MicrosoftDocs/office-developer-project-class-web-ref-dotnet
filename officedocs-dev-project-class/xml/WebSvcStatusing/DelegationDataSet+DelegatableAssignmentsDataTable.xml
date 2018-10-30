@@ -21,9 +21,12 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents information about delegatable assignments that is contained in one or more <see cref="T:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow" /> objects.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>DelegatableAssignmentsDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -71,9 +74,9 @@
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" />
       </Parameters>
       <Docs>
-        <param name="info">To be added.</param>
-        <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="info">Contains information that is needed to serialize or deserialize an object. </param>
+        <param name="context">Contains the source and destination of a given serialized stream.</param>
+        <summary>Creates an instance of the <b>DelegatableAssignmentsDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +104,8 @@
         <Parameter Name="row" Type="WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Specifies the row that is to be added.</param>
+        <summary>Adds a <b>DelegatableAssignmentsRow</b> object to the <b>DelegatableAssignmentsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -138,16 +141,16 @@
         <Parameter Name="NewRes" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="ASSN_UID">To be added.</param>
-        <param name="RES_UID">To be added.</param>
-        <param name="PROJ_UID">To be added.</param>
-        <param name="TASK_NAME">To be added.</param>
-        <param name="ASSN_START_DATE">To be added.</param>
-        <param name="ASSN_FINISH_DATE">To be added.</param>
-        <param name="RES_NAME">To be added.</param>
-        <param name="PROJ_NAME">To be added.</param>
-        <param name="NewRes">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ASSN_UID">Contains the assignment GUID.</param>
+        <param name="RES_UID">Contains the resource GUID.</param>
+        <param name="PROJ_UID">Contains the project GUID.</param>
+        <param name="TASK_NAME">Contains the task name.</param>
+        <param name="ASSN_START_DATE">Contains the assignment start date.</param>
+        <param name="ASSN_FINISH_DATE">Contains the assignment finish date.</param>
+        <param name="RES_NAME">Contains the resource name.</param>
+        <param name="PROJ_NAME">Contains the project name.</param>
+        <param name="NewRes">Contains the new resource GUID.</param>
+        <summary>Adds a <b>DelegatableAssignmentsRow</b> object to the <b>DelegatableAssignmentsDataTable</b> by using separate parameters.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -173,7 +176,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.ASSN_FINISH_DATE" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -199,7 +202,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.ASSN_START_DATE" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -225,7 +228,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.ASSN_UID" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -281,7 +284,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>DelegatableAssignmentsDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -329,7 +332,7 @@
         <ReturnType>WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -349,7 +352,7 @@
         <ReturnType>WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -369,7 +372,7 @@
         <ReturnType>WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -389,7 +392,7 @@
         <ReturnType>WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before the row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -417,8 +420,8 @@
         <Parameter Name="ASSN_UID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="ASSN_UID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="ASSN_UID">Contains the assignment GUID.</param>
+        <summary>Retrieves an <b>DelegatableAssignmentsRow</b> object by using the specified assignment GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -448,7 +451,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>DelegatableAssignmentsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -505,7 +508,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -534,8 +537,8 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="index">Specifies the row that is to be retrieved.</param>
+        <summary>Gets a row in the <b>DelegatableAssignmentsDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -562,7 +565,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>DelegatableAssignmentsDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -588,7 +591,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.NewRes" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -760,7 +763,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.PROJ_NAME" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -786,7 +789,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.PROJ_UID" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -815,8 +818,8 @@
         <Parameter Name="row" Type="WebSvcStatusing.DelegationDataSet+DelegatableAssignmentsRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be deleted.</param>
+        <summary>Deletes the specified row object from <b>DelegatableAssignmentsDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -841,7 +844,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.RES_NAME" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -867,7 +870,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.RES_UID" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -893,7 +896,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcStatusing.DelegationDataSet.DelegatableAssignmentsRow.TASK_NAME" /> field. </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

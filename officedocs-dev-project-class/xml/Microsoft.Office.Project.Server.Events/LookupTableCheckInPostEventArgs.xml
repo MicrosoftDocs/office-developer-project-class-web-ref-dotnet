@@ -13,8 +13,13 @@
     <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
   </Base>
   <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckedIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs)" /> event handler method.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -52,9 +57,9 @@
         <Parameter Name="force" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="lookupTables">To be added.</param>
-        <param name="force">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="lookupTables">The collection of GUIDs that are associated with the lookup table that has been checked in.</param>
+        <param name="force">Indicates whether an administrator or project owner forced check in of a lookup table.</param>
+        <summary>Creates an instance of the <b>LookupTableCheckInPostEventArgs</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -74,7 +79,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets a Boolean value that indicates whether an administrator or project owner forced check in of a lookup table.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -95,7 +100,7 @@
         <ReturnType>System.Guid[]</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the collection of GUIDs that are associated with the lookup table that has been checked in.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Provides information for the creation of a <b>PlanAssignment</b> object.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,7 +36,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>PlanAssignmentCreationInformation</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -61,9 +61,12 @@
         <ReturnType>Microsoft.ProjectServer.Client.BookingType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the booking type of the assignment.</summary>
+        <value>The booking type.</value>
+        <remarks>
+          <para>Examples of booking types are proposed, committed, and not specified.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Id">
@@ -87,8 +90,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID for the plan assignment.</summary>
+        <value>A GUID value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -112,10 +115,11 @@
         <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
       </Parameters>
       <Docs>
-        <param name="peekedName">To be added.</param>
-        <param name="reader">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -140,8 +144,8 @@
         <ReturnType>System.Collections.Generic.IEnumerable&lt;Microsoft.ProjectServer.Client.PlanAssignmentIntervalCreationInformation&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets an enumerator that iterates through a collection of time intervals.</summary>
+        <value>An iterator for a time interval collection.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -166,8 +170,8 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Gets or sets the GUID of the resource.</summary>
+        <value>A GUID value.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -221,9 +225,9 @@
         <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
       </Parameters>
       <Docs>
-        <param name="writer">To be added.</param>
-        <param name="serializationContext">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="writer">An <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

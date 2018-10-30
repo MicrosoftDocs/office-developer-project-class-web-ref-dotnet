@@ -14,8 +14,11 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Represents an organizational (Project Web App) security permission as a row in the <see cref="T:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsDataTable" /> object.</summary>
+    <remarks>
+      <para>The organizational permissions are shown on the Project Web App Permissions page ( http://ServerName/ProjectServerName/_layouts/pwa/Admin/OrgPermissions.aspx ). The <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure includes organizational permission fields.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsWSEC_ACTION_NAMENull">
@@ -40,7 +43,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_ACTION_NAME" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -67,7 +70,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_FEA_ACT_PARENT" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -94,7 +97,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Determines whether the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_FEATURE_NAME" /> property is set to a null value.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -121,7 +124,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_ACTION_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -147,7 +150,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_FEA_ACT_PARENT" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -173,7 +176,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Sets the <see cref="P:WebSvcSecurity.SecurityOrganizationalPermissionsDataSet.SecurityOrganizationalPermissionsRow.WSEC_FEATURE_NAME" /> property to a null value.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -198,7 +201,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Name of the web security action.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -224,7 +227,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Specifies whether the security action is allowed.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -250,9 +253,46 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the parent feature of the security action.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>WSEC_FEA_ACT_PARENT</b> property can have one of the following values:</para>
+          <list type="table">
+            <item>
+              <term>00007526-2310-466E-AD87-C2C36316F5C4</term>
+              <description>Time and task management</description>
+            </item>
+            <item>
+              <term>0000B708-D985-43B2-BDBF-E822EBB86C6A</term>
+              <description>Resource</description>
+            </item>
+            <item>
+              <term>0000B7E3-566E-49E7-B73D-E8623F41E6DA</term>
+              <description>Project</description>
+            </item>
+            <item>
+              <term>06B1877F-551A-4D6A-9B60-CB99B6F1C274</term>
+              <description>Portfolio strategy</description>
+            </item>
+            <item>
+              <term>3ABE6FFC-EADD-4AC4-8199-C9700D063D0A</term>
+              <description>Status reports</description>
+            </item>
+            <item>
+              <term>3AEB94A1-1F19-4440-B82D-EABD5B7CEDF6</term>
+              <description>General</description>
+            </item>
+            <item>
+              <term>6E0A750D-034D-40F3-AD17-3E92A316BCFC</term>
+              <description>Views</description>
+            </item>
+            <item>
+              <term>72E6A92E-4ED5-4106-9A6C-4C9AEAB02E8B</term>
+              <description>Administration</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WSEC_FEA_ACT_UID">
@@ -276,9 +316,12 @@
         <ReturnType>System.Guid</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets or sets the GUID of the action for the security feature.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The GUID value of <b>WSEC_FEA_ACT_UID</b> corresponds to one of the field values in the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WSEC_FEATURE_NAME">
@@ -302,9 +345,12 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The name of the Project Web App security feature.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>The <b>WSEC_FEATURE_NAME</b> property is one of the field names in the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

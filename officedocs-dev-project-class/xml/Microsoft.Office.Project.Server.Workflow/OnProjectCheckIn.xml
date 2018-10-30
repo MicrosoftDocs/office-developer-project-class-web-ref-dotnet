@@ -41,8 +41,11 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>The workflow activity that waits for the <b>PSWorkflowService.OnProjectCheckIn</b> event, which occurs when the associated project is checked in, before continuing to other activities in the workflow.</summary>
+    <remarks>
+      <para> The Workflow Designer pane and the Properties pane in Microsoft Visual Studio enable you to get and set properties in fields for the <b>OnProjectCheckIn</b> activity.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -58,7 +61,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>OnProjectCheckIn</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -81,9 +84,9 @@
         <Parameter Name="executionContext" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="executionContext">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="executionContext">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>OnProjectCheckIn</b> workflow activity if it is currently executing.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -106,9 +109,9 @@
         <Parameter Name="executionContext" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
       </Parameters>
       <Docs>
-        <param name="executionContext">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="executionContext">The execution environment of a Project Server workflow activity.</param>
+        <summary>Executes the <b>OnProjectCheckIn</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -131,7 +134,7 @@
         <ReturnType>System.IComparable</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the name of the workflow activity event queue. Read-only.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -158,9 +161,9 @@
         <Parameter Name="eventHandler" Type="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="eventHandler">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The parent context of the workflow activity.</param>
+        <param name="eventHandler">The method that handles the event. The parent activity owns the event handler.</param>
+        <summary>Subscribes the <b>OnProjectCheckIn</b> workflow activity to an event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -186,9 +189,9 @@
         <Parameter Name="eventHandler" Type="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;" />
       </Parameters>
       <Docs>
-        <param name="context">To be added.</param>
-        <param name="eventHandler">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="context">The context of the workflow activity.</param>
+        <param name="eventHandler">The method that handles the event. The parent activity owns the event handler.</param>
+        <summary>Cancels the subscription of the <b>OnProjectCheckIn</b> workflow activity to an event.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -244,9 +247,12 @@
         <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Gets or sets the context of the <b>OnProjectCheckIn</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <value>An object that contains information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if the <b>OnProjectCheckIn</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorkflowContextProperty">
@@ -265,8 +271,11 @@
         <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Contains the <b>WorkflowContext</b> property.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if the <b>OnProjectCheckIn</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

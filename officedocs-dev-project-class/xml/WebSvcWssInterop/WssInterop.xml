@@ -19,7 +19,7 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Includes methods for managing SharePoint sites for project sites in Project Server.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -36,8 +36,17 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an <b>WssInterop</b> object from the ASMX-based <b>WssInterop</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>WssInterop</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>WssInteropClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>WssInteropWebSvc</b> is an arbitrary namespace for the ASMX-based <b>WssInterop</b> web service.</para>
+          <code>private static WssInteropWebSvc.WssInterop wssInterop = new WssInteropWebSvc.WssInterop();</code>
+          <para>In the following statement, <b>SvcWssInterop</b> is an arbitrary namespace for the WCF-based <b>WssInterop</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcWssInterop.WssInteropClient wssInteropClient = new SvcWssInterop.WssInteropClient(endpt);</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="CreateWssSite">
@@ -68,13 +77,37 @@
         <Parameter Name="webTemplateName" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="projectUID">To be added.</param>
-        <param name="wssServerUID">To be added.</param>
-        <param name="wssWebFullUrl">To be added.</param>
-        <param name="webTemplateLcid">To be added.</param>
-        <param name="webTemplateName">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUID">The unique identifier of the project.</param>
+        <param name="wssServerUID">The unique identifier of the server within a farm.</param>
+        <param name="wssWebFullUrl">The full URL of the SharePoint site to create.</param>
+        <param name="webTemplateLcid">The locale identifier of the site template.</param>
+        <param name="webTemplateName">The name of the site template.</param>
+        <summary>Creates a SharePoint site for the specified project and server.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <para>If the <b>ManageWindowsSharePointServices</b> permission is not explicitly denied, the <b>CreateWssSite</b> method checks whether the user has one of the following permissions.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows a user to manage the project site. Global permission. </description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.NewProject" />
+              </term>
+              <description>Allows a user to create a project. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.PublishProject" />
+              </term>
+              <description>Allows a user to publish the specified project. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="DeleteWSSSite">
@@ -101,9 +134,112 @@
         <Parameter Name="projectUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUID">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUID">The unique identifier of the project.</param>
+        <summary>Deletes the SharePoint site of the project site for the specified project.</summary>
+        <remarks>
+          <para>The <b>DeleteWSSSite</b> method makes the following checks before it deletes a project site:</para>
+          <list type="bullet">
+            <item>
+              <description>If the project site is a top-level site, <b>DeleteWSSSite</b> cannot delete it.</description>
+            </item>
+            <item>
+              <description>If the project site site has any children, you must first delete the child sites.</description>
+            </item>
+            <item>
+              <description>The project site must have the project site template features.</description>
+            </item>
+            <item>
+              <description>The project GUID associated with the project site must match the <paramref name="projectUID" /> parameter.</description>
+            </item>
+          </list>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows the user to manage the project site site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether a project has a project site site, and if so, deletes the site after verifying the action. </para>
+          <para>The <b>DeleteWorkspace</b> sample method parameters are a validated <b>WssInterop</b> object, a <b>Project</b> object, and the unique identifier of the project. <b>WssInteropWebSvc</b> and <b>ProjectWebSvc</b> are arbitrary namespaces for the <see cref="N:WebSvcWssInterop" /> service and the <see cref="N:WebSvcProject" /> service. For information about using the code example, see Prerequisites for ASMX-Based Code Samples.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Services.Protocols;
+using System.Windows.Forms;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public bool DeleteWorkspace(WebSvcWssInterop.WssInterop wssInterop, 
+    WebSvcProject.Project project, Guid projectUid)
+{
+    bool deleted = false;
+
+    try
+    {
+        WebSvcWssInterop.ProjectWSSInfoDataSet dsWssInfo =
+            wssInterop.ReadWssData(projectUid);
+        bool workspaceExists = dsWssInfo.ProjWssInfo.Count &amp;gt; 0;
+
+        if (workspaceExists)
+        {
+            string projectName = project.GetProjectNameFromProjectUid(projectUid,
+                                        WebSvcProject.DataStoreEnum.PublishedStore);
+            WebSvcWssInterop.ProjectWSSInfoDataSet.ProjWssInfoRow wssInfoRow =
+               dsWssInfo.ProjWssInfo[0];
+
+            string currentWorkspace = wssInfoRow.PROJECT_WORKSPACE_URL;
+
+            string msg = string.Format(
+                "Remove the link and delete the workspace site {0} for project {1}?",
+                currentWorkspace, projectName);
+            DialogResult result =
+                MessageBox.Show(msg, "Delete Workspace",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Delete the workspace.
+                wssInterop.DeleteWSSSite(projectUid);
+                deleted = true;
+            }
+        }
+    }
+    catch (SoapException ex)
+    {
+        string errAttributeName;
+        string errAttribute;
+        string errMess = "".PadRight(30, '=') + "\r\n" + "Error: " + "\r\n";
+
+        PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+        PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+        PSLibrary.PSErrorInfo thisError;
+
+        for (int i = 0; i &amp;lt; errors.Length; i++)
+        {
+            thisError = errors[i];
+            errMess += "\n" + ex.Message.ToString() + "\r\n";
+            errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+            errMess += thisError.ErrId.ToString() + "\n";
+
+            for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+            {
+                errAttributeName = thisError.ErrorAttributeNames()[j];
+                errAttribute = thisError.ErrorAttributes[j];
+                errMess += "\r\n\t" + errAttributeName +
+                           ": " + errAttribute;
+            }
+            errMess += "\r\n".PadRight(30, '=');
+        }
+        MessageBox.Show(errMess, "Error", MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
+    }
+    return deleted;
+}</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="GetWSSVServerURL">
@@ -130,10 +266,22 @@
         <Parameter Name="wssServerUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="wssServerUID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="wssServerUID">The GUID of the server within a farm.</param>
+        <summary>Gets the URL of a specified SharePoint site.</summary>
+        <returns>The string of the SharePoint site URL.</returns>
+        <remarks>
+          <para>The site must be within the SharePoint farm.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetWSSVServerURLs">
@@ -158,9 +306,21 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Gets a list of URLs for SharePoint virtual servers within a farm.</summary>
+        <returns>The string array of SharePoint URLs.</returns>
+        <remarks>
+          <para>The sites must be within a SharePoint farm.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="QueueSynchronizeMembershipForWssSite">
@@ -188,10 +348,31 @@
         <Parameter Name="jobUid" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUID">To be added.</param>
-        <param name="jobUid">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUID">The unique identifier of the project.</param>
+        <param name="jobUid">The unique identifier of the queue job.</param>
+        <summary>Synchronizes Project Server users with the SharePoint site for the specified project site.</summary>
+        <remarks>
+          <para>The <b>QueueSynchronizeMembershipForWssSite</b> method deletes and then recreates the following project site roles: Administrator, Project Manager, Team Member, and Reader. The method then adds the correct Project Server users to each role. </para>
+          <para>
+            <b>QueueSynchronizeMembershipForWssSite</b> is an asynchronous method that sends a message to the Project Server Queuing Service.</para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows the user to manage the project site. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.PublishProject" />
+              </term>
+              <description>Allows the user to publish a project. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadProjectSiteBaseUrls">
@@ -216,9 +397,91 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reads the web application GUIDs and base site URLs that can be used to create project sites.</summary>
+        <returns>Lists web applications that are configured to allow creation of project sites.</returns>
+        <remarks>
+          <para>The <b>WssServersDataTable</b> contains a row for each web application that is configured to allow creation of project sites. The data includes only the <b>WSTS_SERVER_UID</b> property and the <b>WSS_SERVER_URL</b> property.</para>
+          <para>The <b>ReadProjectSiteBaseUrls</b> method populates the Web Application drop-down list in the Bulk Update Project Sites page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/UpdateSites.aspx). The <b>ReadProjectSiteBaseUrls</b> method is generally used to get data for the <see cref="M:WebSvcWssInterop.WssInterop.UpdateProjectSitePaths(System.Guid,System.String,System.Guid,System.String,System.Boolean,System.Boolean)" /> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows a user to manage the project site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example uses <b>ReadProjectSiteBaseUrls</b> to read the web application GUIDs and base site URLs, and then writes the <b>WssServersDataSet</b> contents to an XML file.</para>
+          <para>The example uses the <b>SvcWssInterop</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.IO;
+using System.ServiceModel;
+using System.Text;
+
+namespace Microsoft.SDK.Project.Samples.ProjectSitePaths
+{
+    class Program
+    {
+        private const string ENDPOINT = "basicHttp_WssInterop";
+        private const string OUTPUT_DIRECTORY = @"C:\Projects\Samples\Output\";
+
+        private static SvcWssInterop.WssInteropClient wssInteropClient;
+        private static string outFilePath;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                 // Use the endpoints that are defined in app.config to configure the client.
+                ConfigClientEndpoints(ENDPOINT);
+
+                // Assign the path for the output XML file.
+                outFilePath = OUTPUT_DIRECTORY + "WssServersDataSet.xml";
+
+                SvcWssInterop.WssServersDataSet wssServersDs = wssInteropClient.&lt;span class="label"&gt;ReadProjectSiteBaseUrls&lt;/span&gt;();
+
+                // Write the WssServersDataSet to an XML file.
+                DirectoryInfo outDir = new DirectoryInfo(OUTPUT_DIRECTORY);
+
+                if (!outDir.Exists) outDir.Create();
+
+                wssServersDs.WriteXml(outFilePath);
+
+                Console.WriteLine("\nXML output of the WssServersDataSet is at:\n\t{0}", outFilePath);
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            finally
+            {
+                Console.Write("\r\n\r\nPress any key....");
+                Console.ReadKey();
+            }
+        }
+
+        // Configure the client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            wssInteropClient = new SvcWssInterop.WssInteropClient(endpt);
+        }
+    }
+}</code>
+          <para>If there is only one base site for project sites, the sample creates the C:\Projects\Samples\Output\WssServersDataSet.xml file with the following contents (the <b>WSTS_SERVER_UID</b> element and the <b>WSS_SERVER_URL</b> element will contain your own values):</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;WssServersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/WssServersDataSet/"&amp;gt;
+  &amp;lt;WssServers&amp;gt;
+    &lt;span class="label"&gt;&amp;lt;WSTS_SERVER_UID&amp;gt;&lt;/span&gt;d1344232-a892-4df9-b74e-5e38396a981a&amp;lt;/WSTS_SERVER_UID&amp;gt;
+    &lt;span class="label"&gt;&amp;lt;WSS_SERVER_URL&amp;gt;&lt;/span&gt;http://&lt;i&gt;ServerBase&lt;/i&gt;&amp;lt;/WSS_SERVER_URL&amp;gt;
+  &amp;lt;/WssServers&amp;gt;
+&amp;lt;/WssServersDataSet&amp;gt;</code>
+        </example>
       </Docs>
     </Member>
     <Member MemberName="ReadWssData">
@@ -245,10 +508,29 @@
         <Parameter Name="projectUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="projectUID">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="projectUID">The GUID of the project.</param>
+        <summary>Gets information about the SharePoint site of a project site for the specified project.</summary>
+        <returns>The <b>ProjectWSSInfoDataSet</b> provides information about the project and the project site.</returns>
+        <remarks>
+          <para>The <b>ProjectWSSInfoDataSet</b> includes the <paramref name="PROJ_UID" />, <paramref name="PROJ_NAME" />, <paramref name="WSTS_SERVER_UID" />, and <paramref name="WPROJ_STS_SUBWEB_NAME" /> fields. If the project site is not empty, additional information includes the Project Web App administrator role ID, the project manager role ID, the user role ID, URLs for the project site, and lists of issues, risks, deliverables, and views.</para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows the user to manage the project site site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWssServerInfo">
@@ -273,9 +555,27 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Gets information about all of the SharePoint servers and sites in a farm.</summary>
+        <returns>The <b>WssServersDataSet</b> includes the following information for each site: GUID, host name, port, URL, and whether the site uses SSL.</returns>
+        <remarks>
+          <para>The sites are within a SharePoint farm.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows the user to manage the project project site site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ReadWssSettings">
@@ -300,9 +600,20 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets settings for Project Web App in the SharePoint Central Administration site.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="SynchronizeMembershipForPwaAppRootSite">
@@ -327,8 +638,19 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Synchronizes the SharePoint site membership with the Project Web App root site.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows a user to manage the project site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateMembershipForWssSite">
@@ -356,10 +678,35 @@
         <Parameter Name="lastRevCounter" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="projectUID">To be added.</param>
-        <param name="lastRevCounter">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="projectUID">The unique identifier of the project.</param>
+        <param name="lastRevCounter">The counter for the last revision.</param>
+        <summary>Updates changes in role membership for a specified project site SharePoint site.</summary>
+        <remarks>
+          <para>The role membership changes are those that have occurred since the last revision. The SharePoint roles for a project site are Administrator, Project Manager, Team Member, and Reader.</para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows the user to manage the project site. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.PublishProject" />
+              </term>
+              <description>Allows the user to publish a project. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" />
+              </term>
+              <description>Allows the user to save a project. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateProjectSitePaths">
@@ -391,14 +738,36 @@
         <Parameter Name="synchronizeSitePermissions" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="oldWebAppUid">To be added.</param>
-        <param name="oldSitePath">To be added.</param>
-        <param name="newWebAppUid">To be added.</param>
-        <param name="newSitePath">To be added.</param>
-        <param name="updateContentTypes">To be added.</param>
-        <param name="synchronizeSitePermissions">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="oldWebAppUid">The GUID of the current web application, as returned by <see cref="M:WebSvcWssInterop.WssInterop.ReadProjectSiteBaseUrls" />. The <paramref name="oldWebAppUid" /> and <paramref name="oldSitePath" /> parameters together uniquely identify the settings that are to be migrated.</param>
+        <param name="oldSitePath">The URL of the current site path. Can be a null reference (Nothing in Visual Basic).</param>
+        <param name="newWebAppUid">The GUID of the updated web application. The value must be a new GUID if <paramref name="newSitePath" /> is not a null reference (Nothing in Visual Basic). If <paramref name="newSitePath" /> is a null reference (Nothing in Visual Basic), <paramref name="newWebAppUid" /> can be a null reference (Nothing in Visual Basic).</param>
+        <param name="newSitePath">The URL of the updated location of the web application. Can be a null reference (Nothing in Visual Basic).</param>
+        <param name="updateContentTypes">
+          <b>True</b> if content types in the web application are to be updated; otherwise, <b>false</b>.</param>
+        <param name="synchronizeSitePermissions">
+          <b>True</b> if site permissions are to be resynchronized after changing the project site URL; otherwise, <b>false</b>.</param>
+        <summary>Changes the location of a project site URL, synchronizes user permissions, and updates the issues and documents lists for Project Server enhanced lists.</summary>
+        <remarks>
+          <para>The <b>UpdateProjectSitePaths</b> method corresponds to the Bulk Update Project Sites page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/UpdateSites.aspx).</para>
+          <para>Use the <see cref="M:WebSvcWssInterop.WssInterop.ReadProjectSiteBaseUrls" /> method to get the current web application GUID and URL. If the <paramref name="oldSitePath" /> parameter and the <paramref name="newSitePath" /> parameter are both specified, <b>UpdateProjectSitePaths</b> changes the web application path to the new URL. If the old path and the new path are not both specified, <b>UpdateProjectSitePaths</b> updates the specified data on the current web application.</para>
+          <para>If <paramref name="updateContentTypes" /> is <b>True</b>, <b>UpdateProjectSitePaths</b> updates the content type for issues and documents lists from a generic type to enhanced lists for Project Server.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows a user to manage the project site. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateWssSettings">
@@ -424,9 +793,59 @@
         <Parameter Name="wssSettingsDataSet" Type="WebSvcWssInterop.WssSettingsDataSet" />
       </Parameters>
       <Docs>
-        <param name="wssSettingsDataSet">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="wssSettingsDataSet">Contains the project site settings.</param>
+        <summary>Updates settings for project site provisioning in SharePoint Server.</summary>
+        <remarks>
+          <para>The project site settings include the following fields in the <b>WssSettingsDataSet</b>:</para>
+          <list type="table">
+            <item>
+              <term>
+                <paramref name="WADMIN_CURRENT_STS_SERVER_UID" />
+              </term>
+              <description>The unique identifier of the SharePoint server.</description>
+            </item>
+            <item>
+              <term>
+                <paramref name="WADMIN_DEFAULT_SITE_COLLECTION" />
+              </term>
+              <description>The site collection ID.</description>
+            </item>
+            <item>
+              <term>
+                <paramref name="WADMIN_STS_TEMPLATE_ID" />
+              </term>
+              <description>The project site template ID.</description>
+            </item>
+            <item>
+              <term>
+                <paramref name="WADMIN_STS_TEMPLATE_LCID" />
+              </term>
+              <description>The project site template LCID value. 1033 is for US English.</description>
+            </item>
+            <item>
+              <term>
+                <paramref name="WADMIN_AUTO_CREATE_SUBWEBS" />
+              </term>
+              <description>The byte value for whether to automatically create subwebs.</description>
+            </item>
+            <item>
+              <term>
+                <paramref name="WADMIN_AUTO_ADD_USER_TO_SUBWEB" />
+              </term>
+              <description>The byte value for whether to automatically add users to a subweb.</description>
+            </item>
+          </list>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWindowsSharePointServices" />
+              </term>
+              <description>Allows a user to manage the project site. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WSSWebExists">
@@ -453,10 +872,22 @@
         <Parameter Name="wssWebFullUrl" Type="System.String" />
       </Parameters>
       <Docs>
-        <param name="wssWebFullUrl">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="wssWebFullUrl">The URL of a website to check.</param>
+        <summary>Checks whether a specified project site exists.</summary>
+        <returns>Returns <b>true</b> if the specified SharePoint site exists; otherwise, <b>false</b>. </returns>
+        <remarks>
+          <para>The <b>WSSWebExists</b> method validates that the <paramref name="wssWebFullUrl" /> value is a well-formed URI and that the site hierarchy exists. The method then validates that the project site name is not blank and that the project site exists.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
       </Docs>
     </Member>
   </Members>

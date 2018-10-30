@@ -21,10 +21,16 @@
     <Attribute>
       <AttributeName>System.Xml.Serialization.XmlSchemaProvider("GetTypedTableSchema")</AttributeName>
     </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Used to maintain a collection of subscription alerts.</summary>
+    <remarks>
+      <para>Each row of the data table contains a <see cref="T:WebSvcNotifications.AlertSubscriptionInfoDataSet.AlertSubscriptionInfoRow" /> object.</para>
+      <para />
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -45,7 +51,7 @@
       </Attributes>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AlertSubscriptionInfoDataTable</b> class.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -73,7 +79,7 @@
       <Docs>
         <param name="info">To be added.</param>
         <param name="context">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the <b>AlertSubscriptionInfoDataTable</b> class by using separate parameters.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -101,8 +107,8 @@
         <Parameter Name="row" Type="WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row that is to be added.</param>
+        <summary>Adds an <b>AddAlertSubscriptionInfoRow</b> object to the <b>AlertSubscriptionInfoDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -137,7 +143,7 @@
         <param name="AlertName">To be added.</param>
         <param name="EnabledByDefault">To be added.</param>
         <param name="IsSubscribed">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -163,7 +169,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcNotifications.AlertSubscriptionInfoDataSet.AlertSubscriptionInfoRow.AlertName" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -184,7 +190,7 @@
         <ReturnType>WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -204,7 +210,7 @@
         <ReturnType>WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is changed.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -224,7 +230,7 @@
         <ReturnType>WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The post-event that occurs after a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -244,7 +250,7 @@
         <ReturnType>WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRowChangeEventHandler</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The pre-event that occurs before a row is deleted.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -269,7 +275,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcNotifications.AlertSubscriptionInfoDataSet.AlertSubscriptionInfoRow.AlertID" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -325,7 +331,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets the number of row objects in the <b>AlertSubscriptionInfoDataTable</b>.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -378,7 +384,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcNotifications.AlertSubscriptionInfoDataSet.AlertSubscriptionInfoRow.EnabledByDefaultColumn" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -407,8 +413,8 @@
         <Parameter Name="AlertUID" Type="System.Guid" />
       </Parameters>
       <Docs>
-        <param name="AlertUID">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="AlertUID">Contains the alert GUID.</param>
+        <summary>Retrieves an <b>AlertSubscriptionInfoRow</b> object by using the specified alert GUID.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -438,7 +444,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Gets an enumerator that can be used to iterate through the rows of the <b>AlertSubscriptionInfoDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -495,7 +501,7 @@
       </Parameters>
       <Docs>
         <param name="xs">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -521,7 +527,7 @@
         <ReturnType>System.Data.DataColumn</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Defines the column for the <see cref="P:WebSvcNotifications.AlertSubscriptionInfoDataSet.AlertSubscriptionInfoRow.IsSubscribedColumn" /> field.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -551,7 +557,7 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Gets a row in the <b>AlertSubscriptionInfoDataTable</b>, where the row is specified by an index.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -578,7 +584,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a row object in the <b>AlertSubscriptionInfoDataTable</b>.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -753,8 +759,8 @@
         <Parameter Name="row" Type="WebSvcNotifications.AlertSubscriptionInfoDataSet+AlertSubscriptionInfoRow" />
       </Parameters>
       <Docs>
-        <param name="row">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="row">Contains the row information.</param>
+        <summary>Deletes the specified row object from the <b>AlertSubscriptionInfoDataTable</b>.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
