@@ -1,0 +1,132 @@
+﻿<Type Name="TimesheetPreUpdateEventArgs" FullName="Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs">
+  <TypeSignature Language="C#" Value="public class TimesheetPreUpdateEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit TimesheetPreUpdateEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class TimesheetPreUpdateEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class TimesheetPreUpdateEventArgs : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type TimesheetPreUpdateEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.TimesheetEventReceiver.OnUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected TimesheetPreUpdateEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; TimesheetPreUpdateEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TimesheetPreUpdateEventArgs (Guid tsUID, Guid resUID, Microsoft.Office.Project.Server.Schema.TimesheetDataSet dsDelta);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid tsUID, valuetype System.Guid resUID, class Microsoft.Office.Project.Server.Schema.TimesheetDataSet dsDelta) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.#ctor(System.Guid,System.Guid,Microsoft.Office.Project.Server.Schema.TimesheetDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (tsUID As Guid, resUID As Guid, dsDelta As TimesheetDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; TimesheetPreUpdateEventArgs(Guid tsUID, Guid resUID, Microsoft::Office::Project::Server::Schema::TimesheetDataSet ^ dsDelta);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs : Guid * Guid * Microsoft.Office.Project.Server.Schema.TimesheetDataSet -&gt; Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs" Usage="new Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs (tsUID, resUID, dsDelta)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tsUID" Type="System.Guid" />
+        <Parameter Name="resUID" Type="System.Guid" />
+        <Parameter Name="dsDelta" Type="Microsoft.Office.Project.Server.Schema.TimesheetDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="tsUID">The GUID for the timesheet that is to be updated.</param>
+        <param name="resUID">The GUID of the creator of a timesheet.</param>
+        <param name="dsDelta">A dataset that contains changes to timesheet settings.</param>
+        <summary>Creates an instance of the <b>TimesheetPreUpdateEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DsDelta">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Schema.TimesheetDataSet DsDelta { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Schema.TimesheetDataSet DsDelta" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.DsDelta" />
+      <MemberSignature Language="VB.NET" Value="Public Property DsDelta As TimesheetDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Schema::TimesheetDataSet ^ DsDelta { Microsoft::Office::Project::Server::Schema::TimesheetDataSet ^ get(); void set(Microsoft::Office::Project::Server::Schema::TimesheetDataSet ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.DsDelta : Microsoft.Office.Project.Server.Schema.TimesheetDataSet with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.DsDelta" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Schema.TimesheetDataSet</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a dataset that contains changes to timesheet settings.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ResUID">
+      <MemberSignature Language="C#" Value="public Guid ResUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ResUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.ResUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property ResUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ResUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.ResUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.ResUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the creator of a timesheet.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TsUID">
+      <MemberSignature Language="C#" Value="public Guid TsUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid TsUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.TsUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property TsUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid TsUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.TsUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreUpdateEventArgs.TsUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID for the timesheet that is to be updated.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

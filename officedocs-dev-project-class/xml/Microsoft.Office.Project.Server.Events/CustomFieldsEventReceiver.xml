@@ -1,0 +1,658 @@
+﻿<Type Name="CustomFieldsEventReceiver" FullName="Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class CustomFieldsEventReceiver : Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit CustomFieldsEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class CustomFieldsEventReceiver&#xA;Implements ICustomFieldsEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class CustomFieldsEventReceiver abstract : Microsoft::Office::Project::Server::Events::ICustomFieldsEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type CustomFieldsEventReceiver = class&#xA;    interface ICustomFieldsEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcCustomFields.CustomFields" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected CustomFieldsEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; CustomFieldsEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>CustomFieldsEventReceiver</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckedIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedIn (contextInfo As PSContextInfo, e As CustomFieldsCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckedIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CheckInCustomFields(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedInRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckedInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckedOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOut (contextInfo As PSContextInfo, e As CustomFieldsCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckedOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CheckOutCustomFields(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOutRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckedOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckingIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingIn (contextInfo As PSContextInfo, e As CustomFieldsCheckInPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs -&gt; unit&#xA;override this.OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckingIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CheckInCustomFields(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingInRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs OnCheckingInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs OnCheckingInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsCheckInPreEventArgs) As CustomFieldsCheckInPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::CustomFieldsCheckInPreEventArgs ^ OnCheckingInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs&#xA;override this.OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs" Usage="customFieldsEventReceiver.OnCheckingInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckingOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingOut (contextInfo As PSContextInfo, e As CustomFieldsCheckOutPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs -&gt; unit&#xA;override this.OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCheckingOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CheckOutCustomFields(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOutRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs OnCheckingOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs OnCheckingOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsCheckOutPreEventArgs) As CustomFieldsCheckOutPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::CustomFieldsCheckOutPreEventArgs ^ OnCheckingOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs&#xA;override this.OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs" Usage="customFieldsEventReceiver.OnCheckingOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreated (contextInfo As PSContextInfo, e As CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit&#xA;override this.OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CreateCustomFields(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCreatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit&#xA;override this.OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCreatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreating (contextInfo As PSContextInfo, e As CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; unit&#xA;override this.OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.CreateCustomFields(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs OnCreatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs OnCreatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCreatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsPreEventArgs) As CustomFieldsPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ OnCreatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs&#xA;override this.OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" Usage="customFieldsEventReceiver.OnCreatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleted (contextInfo As PSContextInfo, e As CustomFieldsDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs -&gt; unit&#xA;override this.OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.DeleteCustomFields(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnDeletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs -&gt; unit&#xA;override this.OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnDeletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleting (contextInfo As PSContextInfo, e As CustomFieldsDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs -&gt; unit&#xA;override this.OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.DeleteCustomFields(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs OnDeletingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs OnDeletingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnDeletingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsDeletePreEventArgs) As CustomFieldsDeletePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::CustomFieldsDeletePreEventArgs ^ OnDeletingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs&#xA;override this.OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs" Usage="customFieldsEventReceiver.OnDeletingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdated (contextInfo As PSContextInfo, e As CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit&#xA;override this.OnUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.UpdateCustomFields(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit&#xA;override this.OnUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnUpdatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdating (contextInfo As PSContextInfo, e As CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; unit&#xA;override this.OnUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; unit" Usage="customFieldsEventReceiver.OnUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcCustomFields.CustomFields.UpdateCustomFields(WebSvcCustomFields.CustomFieldDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing custom fields data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs OnUpdatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs OnUpdatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.CustomFieldsEventReceiver.OnUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnUpdatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As CustomFieldsPreEventArgs) As CustomFieldsPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ OnUpdatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::CustomFieldsPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs&#xA;override this.OnUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" Usage="customFieldsEventReceiver.OnUpdatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ICustomFieldsEventReceiverRemote.OnUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CustomFieldsPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

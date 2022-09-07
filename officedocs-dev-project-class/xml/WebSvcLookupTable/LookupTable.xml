@@ -1,0 +1,1012 @@
+﻿<Type Name="LookupTable" FullName="WebSvcLookupTable.LookupTable">
+  <TypeSignature Language="C#" Value="public class LookupTable : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LookupTable extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcLookupTable.LookupTable" />
+  <TypeSignature Language="VB.NET" Value="Public Class LookupTable&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class LookupTable : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type LookupTable = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="LookupTableSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for managing custom field lookup tables and corresponding code masks in Project Server.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LookupTable ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; LookupTable();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates a <b>LookupTable</b> object from the ASMX-based <b>LookupTable</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>LookupTable</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>LookupTableClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>LookupTableWebSvc</b> is an arbitrary namespace for the ASMX-based <b>LookupTable</b> web service.</para>
+          <code>private static LookupTableWebSvc.LookupTable lookupTable = new LookupTableWebSvc.LookupTable();</code>
+          <para>In the following statement, <b>SvcLookupTable</b> is an arbitrary namespace for the WCF-based <b>LookupTable</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcLookupTable.LookupTableClient lookupTableClient = new SvcLookupTable.LookupTableClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckInLookupTables">
+      <MemberSignature Language="C#" Value="public void CheckInLookupTables (Guid[] array, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CheckInLookupTables(valuetype System.Guid[] array, bool force) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.CheckInLookupTables(System.Guid[],System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CheckInLookupTables (array As Guid(), force As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CheckInLookupTables(cli::array &lt;Guid&gt; ^ array, bool force);" />
+      <MemberSignature Language="F#" Value="member this.CheckInLookupTables : Guid[] * bool -&gt; unit" Usage="lookupTable.CheckInLookupTables (array, force)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CheckInLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="System.Guid[]" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="array">Array of lookup table GUIDs.</param>
+        <param name="force">Force checkin, if checked out by another user.</param>
+        <summary>Checks in the specified custom field lookup tables.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckOutLookupTables">
+      <MemberSignature Language="C#" Value="public void CheckOutLookupTables (Guid[] array);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CheckOutLookupTables(valuetype System.Guid[] array) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.CheckOutLookupTables(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CheckOutLookupTables (array As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CheckOutLookupTables(cli::array &lt;Guid&gt; ^ array);" />
+      <MemberSignature Language="F#" Value="member this.CheckOutLookupTables : Guid[] -&gt; unit" Usage="lookupTable.CheckOutLookupTables array" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CheckOutLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="array">Array of lookup table GUIDs.</param>
+        <summary>Checks out the specified custom field lookup tables for editing.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateLookupTables">
+      <MemberSignature Language="C#" Value="public void CreateLookupTables (WebSvcLookupTable.LookupTableDataSet ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateLookupTables(class WebSvcLookupTable.LookupTableDataSet ltds, bool validateOnly, bool autoCheckIn) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateLookupTables (ltds As LookupTableDataSet, validateOnly As Boolean, autoCheckIn As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateLookupTables(WebSvcLookupTable::LookupTableDataSet ^ ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="F#" Value="member this.CreateLookupTables : WebSvcLookupTable.LookupTableDataSet * bool * bool -&gt; unit" Usage="lookupTable.CreateLookupTables (ltds, validateOnly, autoCheckIn)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CreateLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltds" Type="WebSvcLookupTable.LookupTableDataSet" />
+        <Parameter Name="validateOnly" Type="System.Boolean" />
+        <Parameter Name="autoCheckIn" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="ltds">
+          <b>LookupTableDataSet</b> containing data in the datatables.</param>
+        <param name="validateOnly">Validate only, do not create.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in after creating.</param>
+        <summary>Creates custom field lookup tables and corresponding code masks.</summary>
+        <remarks>
+          <para>If you create a non-text lookup table such as type <b>Cost</b>, <b>Date</b>, <b>Duration</b>, or <b>Number</b>, you still need to programmatically create a code mask. Project Web App hides the code mask for non-text lookup tables in the New Lookup Table page, but creates a code mask for the call to <b>CreateLookupTable</b>. For an example that creates a Duration lookup table, see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />. For more examples, see Using the ProjTool Test Application.</para>
+          <para>The pre-event for <b>CreateLookupTables</b> is <see cref="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" /> and the post-event is <see cref="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />.</para>
+          <para>
+            <b>Note</b>: The pre- and post-events for <b>CreateLookupTables</b> expose <see cref="T:WebSvcLookupTable.LookupTableMultiLangDataSet" /> in the <paramref name="e" /> parameter of event handlers, rather than a <b>LookupTableDataSet</b>. </para>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Write and Debug a Project Server Event Handler. For more examples, see Using the ProjTool Test Application.</para>
+          <para>
+            <b>Caution</b>: When you use the PSI to create or update a number lookup table, do not add values that have more than two decimal places.The <b>CreateLookupTables</b> method enables you to save a number with more than two decimal places. When you create a custom field that uses the number lookup table, Project Professional 2010 rounds the number custom field values to two decimal places and shows them as strings in the drop-down list to select a value. When you select a value, Project Professional 2010 converts the string back to a number. The process shows an error, because the numeric value with only two decimal places does not exist.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code is a pre-event handler for <b>CreateLookupTables</b> that gets data from different tables in a <b>LookupTableMultiLanguageDataSet</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateLookupTablesMultiLang">
+      <MemberSignature Language="C#" Value="public void CreateLookupTablesMultiLang (WebSvcLookupTable.LookupTableMultiLangDataSet ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateLookupTablesMultiLang(class WebSvcLookupTable.LookupTableMultiLangDataSet ltds, bool validateOnly, bool autoCheckIn) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateLookupTablesMultiLang (ltds As LookupTableMultiLangDataSet, validateOnly As Boolean, autoCheckIn As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateLookupTablesMultiLang(WebSvcLookupTable::LookupTableMultiLangDataSet ^ ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="F#" Value="member this.CreateLookupTablesMultiLang : WebSvcLookupTable.LookupTableMultiLangDataSet * bool * bool -&gt; unit" Usage="lookupTable.CreateLookupTablesMultiLang (ltds, validateOnly, autoCheckIn)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/CreateLookupTablesMultiLang", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltds" Type="WebSvcLookupTable.LookupTableMultiLangDataSet" />
+        <Parameter Name="validateOnly" Type="System.Boolean" />
+        <Parameter Name="autoCheckIn" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="ltds">
+          <b>LookupTableMultiLangDataSet</b> containing data in the datatables.</param>
+        <param name="validateOnly">Validate only, do not create.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in after creating.</param>
+        <summary>Creates multilanguage custom field lookup tables and corresponding code masks.</summary>
+        <remarks>
+          <para>If you create a non-text lookup table such as type <b>Cost</b>, <b>Date</b>, <b>Duration</b>, or <b>Number</b>, you still need to programmatically create a code mask. Project Web App hides the code mask for non-text lookup tables on the New Lookup Table page, but creates a code mask for the call to <b>CreateLookupTable</b>. The Example section includes sample code that creates a Duration lookup table. For more examples, see Using the ProjTool Test Application. </para>
+          <para>The pre-event for <b>CreateLookupTables</b> is <see cref="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" /> and the post-event is <see cref="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />.</para>
+          <para>For example, the <paramref name="e" /> parameter in an <b>OnCreating</b> event handler exposes a <b>LookupTableMultiLanguageDataSet</b> object. The following code shows examples of how to get data from different tables such as <b>LookupTableLanguages</b>, <b>LookupTables</b>, and <b>LookupTableValues</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+    }</code>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Write and Debug a Project Server Event Handler. </para>
+          <para>
+            <b>Caution</b>: When you use the PSI to create or update a number lookup table, do not add values that have more than two decimal places.The <b>CreateLookupTablesMultiLang</b> method enables you to save a number with more than two decimal places. When you create a custom field that uses the number lookup table, Project Professional 2010 rounds the number custom field values to two decimal places and shows them as strings in the drop-down list to select a value. When you select a value, Project Professional 2010 converts the string back to a number. The process shows an error, because the numeric value with only two decimal places does not exist.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment creates a lookup table named Test Duration LUT of type Duration. <b>LookupTableWS</b> is an arbitrary name for a reference to the LookupTable Web service. To test the code, add it to a sample console application. For more information, see Prerequisites for ASMX-Based Code Samples.</para>
+          <para>The comments include names of the tables changed in the Published database after the call to <b>CreateLookupTablesMultiLang</b>.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private const string LOOKUPTABLEWEBSERVICE = "_vti_bin/PSI/LookupTable.asmx";
+private string baseUrl = "http://ServerName/ProjectServerName"/
+private static WebSvcLookupTable.LookupTable lookupTable =
+    new WebSvcLookupTable.LookupTable();
+LookupTableWS.LookupTableMultiLangDataSet lutMultiDS = 
+    new LookupTableWS.LookupTableMultiLangDataSet();
+
+// Initialize the LookupTable Web service for Windows logon.
+lookupTable.Url = baseUrl + LOOKUPTABLEWEBSERVICE;
+lookupTable.Credentials = CredentialCache.DefaultCredentials;
+. . .
+private void btnCreateNonTextLUT_Click(object sender, EventArgs e)
+{
+    LookupTableWS.LookupTableMultiLangDataSet lutMultiDS = 
+        new LookupTableWS.LookupTableMultiLangDataSet();
+
+    // Create the main LookupTable row in MSP_LOOKUP_TABLES.
+    LookupTableWS.LookupTableMultiLangDataSet.LookupTablesRow lutMainRow =
+        lutMultiDS.LookupTables.NewLookupTablesRow();
+    lutMainRow.LT_UID = Guid.NewGuid();
+    lutMainRow.LT_FILL_ALL_LEVELS = false;
+    lutMainRow.LT_PRIMARY_LCID = 1033;
+    lutMainRow.LT_SORT_ORDER_ENUM = (byte)PSLibrary.LookupTables.SortOrder.Ascending;
+    lutMainRow.LT_NAME = "Test Duration LUT";
+    lutMultiDS.LookupTables.Rows.Add(lutMainRow);
+
+    // Create the 1-level mask structure in MSP_LOOKUP_TABLE_MASK_STRUCTURES.
+    LookupTableWS.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow lutMaskStructureRow =
+        lutMultiDS.LookupTableMaskStructures.NewLookupTableMaskStructuresRow();
+    lutMaskStructureRow.LT_UID = lutMainRow.LT_UID;
+    lutMaskStructureRow.LT_MASK_STRUCT_LENGTH = (int)PSLibrary.LookupTables.ANY_LENGTH_SEQUENCE;
+    lutMaskStructureRow.LT_MASK_STRUCT_LEVEL = 1;
+    lutMaskStructureRow.LT_MASK_STRUCT_TYPE_ENUM = (byte)PSLibrary.LookupTables.MaskSequence.DURATION;
+    lutMultiDS.LookupTableMaskStructures.Rows.Add(lutMaskStructureRow);
+
+    // Create the 1-level mask value in MSP_LOOKUP_TABLE_MASK_VALUES.
+    LookupTableWS.LookupTableMultiLangDataSet.LookupTableMaskValuesRow lutMaskValueRow =
+        lutMultiDS.LookupTableMaskValues.NewLookupTableMaskValuesRow();
+    lutMaskValueRow.LCID = 1033;
+    lutMaskValueRow.LT_UID = lutMainRow.LT_UID;
+    lutMaskValueRow.LT_MASK_STRUCT_LEVEL = 1;
+    lutMaskValueRow.LT_MASK_VALUE_SEPARATOR = ".";
+    lutMultiDS.LookupTableMaskValues.Rows.Add(lutMaskValueRow);
+
+    // Create the value structure in MSP_LOOKUP_TABLE_STRUCTURES.
+    LookupTableWS.LookupTableMultiLangDataSet.LookupTableStructuresRow lutStructureRow =
+        lutMultiDS.LookupTableStructures.NewLookupTableStructuresRow();
+    lutStructureRow.LT_UID = lutMainRow.LT_UID;
+    lutStructureRow.LT_STRUCT_UID = Guid.NewGuid();
+    lutMultiDS.LookupTableStructures.Rows.Add(lutStructureRow);
+
+    // Create values (one value per LCID) in MSP_LOOKUP_TABLE_VALUES.
+    LookupTableWS.LookupTableMultiLangDataSet.LookupTableValuesRow lutValueRow =
+        lutMultiDS.LookupTableValues.NewLookupTableValuesRow();
+    lutValueRow.LCID = 1033;
+    lutValueRow.LT_VALUE_DESC = "This is root level A";
+    lutValueRow.LT_VALUE_DUR = 30;
+    lutValueRow.LT_VALUE_DUR_FMT = (byte)PSLibrary.Task.DurationFormat.Hour;
+    lutValueRow.LT_STRUCT_UID = lutStructureRow.LT_STRUCT_UID;
+    lutMultiDS.LookupTableValues.Rows.Add(lutValueRow);
+
+    // Create the lookup table.
+    bool validateOnly = false;
+    bool autoCheckIn = true;
+    lookupTable.CreateLookupTablesMultiLang(lutMultiDS, validateOnly, autoCheckIn);
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteLookupTables">
+      <MemberSignature Language="C#" Value="public void DeleteLookupTables (Guid[] ltGuids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteLookupTables(valuetype System.Guid[] ltGuids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteLookupTables (ltGuids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteLookupTables(cli::array &lt;Guid&gt; ^ ltGuids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteLookupTables : Guid[] -&gt; unit" Usage="lookupTable.DeleteLookupTables ltGuids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/DeleteLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltGuids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="ltGuids">Array of lookup table GUIDs.</param>
+        <summary>Deletes the specified custom field lookup tables.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows a user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLookupTables">
+      <MemberSignature Language="C#" Value="public WebSvcLookupTable.LookupTableDataSet ReadLookupTables (string xmlFilter, bool autoCheckOut, int language);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcLookupTable.LookupTableDataSet ReadLookupTables(string xmlFilter, bool autoCheckOut, int32 language) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.ReadLookupTables(System.String,System.Boolean,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadLookupTables (xmlFilter As String, autoCheckOut As Boolean, language As Integer) As LookupTableDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcLookupTable::LookupTableDataSet ^ ReadLookupTables(System::String ^ xmlFilter, bool autoCheckOut, int language);" />
+      <MemberSignature Language="F#" Value="member this.ReadLookupTables : string * bool * int -&gt; WebSvcLookupTable.LookupTableDataSet" Usage="lookupTable.ReadLookupTables (xmlFilter, autoCheckOut, language)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcLookupTable.LookupTableDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="xmlFilter" Type="System.String" />
+        <Parameter Name="autoCheckOut" Type="System.Boolean" />
+        <Parameter Name="language" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="xmlFilter">XML filter to read specific data. An empty string returns all lookup table data.</param>
+        <param name="autoCheckOut">If <b>true</b>, check out for making changes.</param>
+        <param name="language">Locale ID (LCID).</param>
+        <summary>Gets custom field lookup tables and corresponding code masks. The <paramref name="language" /> parameter is used only if <paramref name="xmlFilter" /> is an empty string.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>The primary <b>DataTable</b> in a <b>LookupTableDataSet</b> is the <b>LookupTablesDataTable</b>. </para>
+          <para>
+            <b>Note</b>: The <paramref name="xmlFilter" /> parameter works with the <b>Criteria</b> operators to filter rows only in the primary <b>LookupTablesDataTable</b>. For example, you cannot use <paramref name="filter" /> with the <b>ReadLookupTables</b> method to filter rows in the <b>LookupTableTreesDataTable</b>. If you try to filter rows in a secondary <b>DataTable</b>, the PSI returns a <b>FilterInvalid</b> exception.</para>
+          <para>However, you can use the <b>Fields.Add</b> method to filter columns in the primary <b>LookupTablesDataTable</b> and the in secondary <b>LookupTableTreesDataTable</b> and <b>LookupTableMasksDataTable</b>. </para>
+          <para>For more information about the <paramref name="xmlFilter" /> parameter, see How to: Use a Filter Parameter with PSI Methods.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows the user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows the user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>ReadCustomFieldsTest</b> sample does the following:</para>
+          <list type="bullet">
+            <item>
+              <description>Reads all custom fields in the Project Web App installation that is specified by the endpoint address in the app.config file, and then writes an XML file of the <b>CustomFieldDataSet</b>.</description>
+            </item>
+            <item>
+              <description>Reads lookup table data for the specified language LCID, and then writes an XML file of the <b>LookupTableDataSet</b>. The lookup table XML data includes collections of the following tables: <b>LookupTables</b>, <b>LookupTableMasks</b>, and <b>LookupTableTrees</b>.</description>
+            </item>
+          </list>
+          <para>For information about using the code sample in a Microsoft Visual Studio 2010 project and creating an app.config file for configuration of the WCF endpoints, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Text;
+using System.ServiceModel;
+using System.Xml;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadCustomFieldsTest
+{
+    class Program
+    {
+        private const string ENDPOINT_CUSTOMFIELDS = "basicHttp_CustomFields";
+        private const string ENDPOINT_LOOKUPTABLE = "basicHttp_LookupTable";
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+
+        private static SvcCustomFields.CustomFieldsClient customFieldsClient;
+        private static SvcLookupTable.LookupTable lookupTableClient;
+
+        private static string outFileCustomFieldsDs;
+        private static string outFileLookupTableDs;
+        private static int language = 1033;         // Use the English LCID by default.
+
+        static void Main(string[] args)
+        {
+            if (args.Length &amp;gt; 0 &amp;amp;&amp;amp; args.Length &amp;lt; 3)
+            {
+                if (args[0].ToLower() == "-lcid")
+                {
+                    language = Convert.ToInt32(args[1]);
+                }
+            }
+
+            outFileCustomFieldsDs = OUTPUT_FILES + "CustomFieldDataSet.xml";
+            outFileLookupTableDs = OUTPUT_FILES + "LookupTableDataSet.xml";
+            ConfigClientEndpoints(ENDPOINT_CUSTOMFIELDS);
+            ConfigClientEndpoints(ENDPOINT_LOOKUPTABLE);
+
+            try
+            {
+                Console.WriteLine("Reading custom fields...");
+                SvcCustomFields.CustomFieldDataSet customFieldDs = 
+                    customFieldsClient.ReadCustomFields2(string.Empty, false);
+
+                Console.WriteLine(
+                    "\nXML output of the CustomFieldDataSet:\n\t{0}",
+                    outFileCustomFieldsDs);
+                customFieldDs.WriteXml(outFileCustomFieldsDs);
+
+                Console.WriteLine("Reading lookup tables...");
+                SvcLookupTable.LookupTableDataSet lookupTableDs =
+                    lookupTableClient.ReadLookupTables(string.Empty, false, language);
+
+                Console.WriteLine(
+                    "\nXML output of the LookupTableDataSet:\n\t{0}",
+                    outFileCustomFieldsDs);
+                lookupTableDs.WriteXml(outFileLookupTableDs);
+            }
+            catch (FaultException fault)
+            {
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+            }
+            catch (EndpointNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("\nInnerException: \n" + ex.InnerException.Message);
+            }
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: " + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            if (error != null)
+            {
+                PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+                PSLibrary.PSErrorInfo thisError;
+
+                for (int i = 0; i &amp;lt; errors.Length; i++)
+                {
+                    thisError = errors[i];
+                    errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n";
+                    errMess += thisError.ErrId.ToString() + "\n";
+
+                    for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                    {
+                        errAttributeName = thisError.ErrorAttributeNames()[j];
+                        errAttribute = thisError.ErrorAttributes[j];
+                        errMess += "\r\n\t" + errAttributeName
+                            + ": " + errAttribute;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+            Console.ResetColor();
+        }
+
+        // Use the endpoints defined in app.config to configure the client.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            if (endpt == ENDPOINT_CUSTOMFIELDS)
+                customFieldsClient = new SvcCustomFields.CustomFieldsClient(endpt);
+            else if (endpt == ENDPOINT_LOOKUPTABLE)
+                lookupTableClient = new SvcLookupTable.LookupTableClient(endpt);
+        }
+    }
+
+    // Helper methods
+    class Helpers
+    {
+        /// &amp;lt;summary&amp;gt;
+        /// Extract a PSClientError object from the ServiceModel.FaultException,
+        /// for use in output of the GetPSClientError stack of errors.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+        /// about the errors than PSClientError has. FaultException can also contain 
+        /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+        public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                               out string errOut)
+        {
+            const string PREFIX = "GetPSClientError() returns null: ";
+            errOut = string.Empty;
+            PSLibrary.PSClientError psClientError = null;
+
+            if (e == null)
+            {
+                errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                psClientError = null;
+            }
+            else
+            {
+                // Get a ServiceModel.MessageFault object.
+                var messageFault = e.CreateMessageFault();
+
+                if (messageFault.HasDetail)
+                {
+                    using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                    {
+                        var xml = new XmlDocument();
+                        xml.Load(xmlReader);
+
+                        var serverExecutionFault = xml["ServerExecutionFault"];
+                        if (serverExecutionFault != null)
+                        {
+                            var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                            if (exceptionDetails != null)
+                            {
+                                try
+                                {
+                                    errOut = exceptionDetails.InnerXml + "\r\n";
+                                    psClientError =
+                                        new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                }
+                                catch (InvalidOperationException ex)
+                                {
+                                    errOut = PREFIX + "Unable to convert fault exception info ";
+                                    errOut += "a valid Project Server error message. Message: \n\t";
+                                    errOut += ex.Message;
+                                    psClientError = null;
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                    + "but does not have ExceptionDetails.";
+                            }
+                        }
+                        else
+                        {
+                            errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                        }
+                    }
+                }
+                else // No detail in the MessageFault.
+                {
+                    errOut = PREFIX + "The FaultException e does not have any detail.";
+                }
+            }
+            errOut += "\r\n" + e.ToString() + "\r\n";
+            return psClientError;
+        }
+    }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLookupTablesByUids">
+      <MemberSignature Language="C#" Value="public WebSvcLookupTable.LookupTableDataSet ReadLookupTablesByUids (Guid[] ltUidList, bool autoCheckOut, int language);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcLookupTable.LookupTableDataSet ReadLookupTablesByUids(valuetype System.Guid[] ltUidList, bool autoCheckOut, int32 language) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.ReadLookupTablesByUids(System.Guid[],System.Boolean,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadLookupTablesByUids (ltUidList As Guid(), autoCheckOut As Boolean, language As Integer) As LookupTableDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcLookupTable::LookupTableDataSet ^ ReadLookupTablesByUids(cli::array &lt;Guid&gt; ^ ltUidList, bool autoCheckOut, int language);" />
+      <MemberSignature Language="F#" Value="member this.ReadLookupTablesByUids : Guid[] * bool * int -&gt; WebSvcLookupTable.LookupTableDataSet" Usage="lookupTable.ReadLookupTablesByUids (ltUidList, autoCheckOut, language)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesByUids", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcLookupTable.LookupTableDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltUidList" Type="System.Guid[]" />
+        <Parameter Name="autoCheckOut" Type="System.Boolean" />
+        <Parameter Name="language" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="ltUidList">Array of lookup table GUIDs.</param>
+        <param name="autoCheckOut">If <b>true</b>, check out for making changes.</param>
+        <param name="language">Locale ID (LCID).</param>
+        <summary>Gets the lookup tables and the corresponding code masks for a specified list of lookup table GUIDs.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>To create a lookup table for test purposes, see Walkthrough: Creating a Hierarchical Lookup Table or see Using the ProjTool Test Application.</para>
+          <para>
+            <b>Caution</b>: Create test lookup tables only on a test installation of Project Server.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following code fragment, the <b>ReadOneLUT</b> method reads a lookup table specified by the <paramref name="lutUid" /> parameter. <b>LookupTableWS</b> is an arbitrary name for a reference to the LookupTable Web service. To test the code, add it to a sample console application. For more information, see Prerequisites for ASMX-Based Code Samples.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private const string LOOKUPTABLEWEBSERVICE = "_vti_bin/PSI/LookupTable.asmx";
+private string baseUrl = "http://ServerName/ProjectServerName/";
+private static LookupTableWS.LookupTable lookupTable =
+    new LookupTableWS.LookupTable();
+
+// Initialize the LookupTable Web service for Windows logon.
+lookupTable.Url = baseUrl + LOOKUPTABLEWEBSERVICE;
+lookupTable.Credentials = CredentialCache.DefaultCredentials;
+. . . 
+private void ReadOneLUT (Guid lutUid)
+{
+    LookupTableWS.LookupTableDataSet lut =
+        new LookupTableWS.LookupTableDataSet ();
+
+    if (lutUid == Guid.Empty)
+        lutUid = new Guid("23bdb945-eacc-4390-af70-f8644683c5bb");
+    Guid[] lutUids = { lutUid };
+
+    lut = lookupTable.ReadLookupTablesByUids(lutUids, false);
+    string xmlFile = @"C:\Project\DataSets\HealthTrendsLookupTableDataSet.xml";
+    SaveDataSetToXml(lut, xmlFile);
+}
+// Save the DataSet for examination.
+private void SaveDataSetToXml(DataSet ds, string filePathName)
+{
+    ds.WriteXml(filePathName);
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLookupTablesMultiLang">
+      <MemberSignature Language="C#" Value="public WebSvcLookupTable.LookupTableMultiLangDataSet ReadLookupTablesMultiLang (string xmlFilter, bool autoCheckOut);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcLookupTable.LookupTableMultiLangDataSet ReadLookupTablesMultiLang(string xmlFilter, bool autoCheckOut) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.ReadLookupTablesMultiLang(System.String,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadLookupTablesMultiLang (xmlFilter As String, autoCheckOut As Boolean) As LookupTableMultiLangDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcLookupTable::LookupTableMultiLangDataSet ^ ReadLookupTablesMultiLang(System::String ^ xmlFilter, bool autoCheckOut);" />
+      <MemberSignature Language="F#" Value="member this.ReadLookupTablesMultiLang : string * bool -&gt; WebSvcLookupTable.LookupTableMultiLangDataSet" Usage="lookupTable.ReadLookupTablesMultiLang (xmlFilter, autoCheckOut)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLang", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcLookupTable.LookupTableMultiLangDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="xmlFilter" Type="System.String" />
+        <Parameter Name="autoCheckOut" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="xmlFilter">XML filter to read specific data.</param>
+        <param name="autoCheckOut">If <b>true</b>, check out for making changes.</param>
+        <summary>Gets multilanguage custom field lookup tables and corresponding code masks.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>The primary <b>DataTable</b> in a <b>LookupTableMultiLangDataSet</b> is the <b>LookupTablesDataTable</b>. </para>
+          <para>
+            <b>Note</b>: The <paramref name="xmlFilter" /> parameter works with the <b>Criteria</b> operators to filter rows only in the primary <b>LookupTablesDataTable</b>. For example, you cannot use <paramref name="filter" /> with the <b>ReadLookupTables</b> method to filter rows in the <b>LookupTableLanguagesDataTable</b>. If you try to filter rows in a secondary <b>DataTable</b>, the PSI returns a <b>FilterInvalid</b> exception.</para>
+          <para>However, you can use the <b>Fields.Add</b> method to filter columns in the primary <b>LookupTablesDataTable</b> and the in secondary <b>LookupTableLanguagesDataTable</b>, <b>LookupTableMaskStructuresDataTable</b>, <b>LookupTableMaskValuesDataTable</b>, <b>LookupTableStructuresDataTable</b>, or <b>LookupTableValuesDataTable</b>. </para>
+          <para>For more information about the <paramref name="xmlFilter" /> parameter, see How to: Use a Filter Parameter with PSI Methods.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOnToProjectServerFromProjectProfessional" />
+              </term>
+              <description>Allows a user to connect to the Project Server database from Project Professional. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows the user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadLookupTablesMultiLangByUids">
+      <MemberSignature Language="C#" Value="public WebSvcLookupTable.LookupTableMultiLangDataSet ReadLookupTablesMultiLangByUids (Guid[] ltUidList, bool autoCheckOut);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcLookupTable.LookupTableMultiLangDataSet ReadLookupTablesMultiLangByUids(valuetype System.Guid[] ltUidList, bool autoCheckOut) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.ReadLookupTablesMultiLangByUids(System.Guid[],System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadLookupTablesMultiLangByUids (ltUidList As Guid(), autoCheckOut As Boolean) As LookupTableMultiLangDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcLookupTable::LookupTableMultiLangDataSet ^ ReadLookupTablesMultiLangByUids(cli::array &lt;Guid&gt; ^ ltUidList, bool autoCheckOut);" />
+      <MemberSignature Language="F#" Value="member this.ReadLookupTablesMultiLangByUids : Guid[] * bool -&gt; WebSvcLookupTable.LookupTableMultiLangDataSet" Usage="lookupTable.ReadLookupTablesMultiLangByUids (ltUidList, autoCheckOut)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/ReadLookupTablesMultiLangByUids", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcLookupTable.LookupTableMultiLangDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltUidList" Type="System.Guid[]" />
+        <Parameter Name="autoCheckOut" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="ltUidList">Array of multilanguage lookup table GUIDs.</param>
+        <param name="autoCheckOut">If true, automatically checks out the specified lookup tables for editing.</param>
+        <summary>Gets the multilanguage lookup tables and the corresponding code masks of specified list of lookup table GUIDs.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>To create a multilanguage lookup table for test purposes, see the example in <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> or see the LookupTables section in Using the ProjTool Test Application. </para>
+          <para>
+            <b>Caution</b>: Create test lookup tables only on a test installation of Project Server.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following code fragment, <b>ReadOneMultiLangLUT</b> reads a lookup table specified by the <paramref name="lutUid" /> parameter. <b>LookupTableWS</b> is an arbitrary name for a reference to the LookupTable Web service. To test the code, add it to a sample console application. For more information, see Prerequisites for ASMX-Based Code Samples.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private const string LOOKUPTABLEWEBSERVICE = "_vti_bin/PSI/LookupTable.asmx";
+private string baseUrl = "http://ServerName/ProjectServerName"/
+private static LookupTableWS.LookupTable lookupTable =
+    new LookupTableWS.LookupTable();
+
+// Initialize the LookupTable Web service for Windows logon.
+lookupTable.Url = baseUrl + LOOKUPTABLEWEBSERVICE;
+lookupTable.Credentials = CredentialCache.DefaultCredentials;
+. . . 
+private void ReadOneMultiLangLUT (Guid lutUid)
+{
+    LookupTableWS.LookupTableMultiLangDataSet lutMultiLang =
+        new LookupTableWS.LookupTableMultiLangDataSet();
+
+    if (lutUid == Guid.Empty)
+        lutUid = new Guid("1796cacc-5406-4c93-80cb-e7fb1271d32a");
+    Guid[] lutUids = { lutUid };
+
+    lutMultiLang = lookupTable.ReadLookupTablesMultiLangByUids(lutUids, false);
+    string xmlFile = @"C:\Project\DataSets\MultilanguageLookupTableDataSet.xml";
+    SaveDataSetToXml(lutMultiLang, xmlFile);
+}
+// Save the DataSet for examination.
+private void SaveDataSetToXml(DataSet ds, string filePathName)
+{
+    ds.WriteXml(filePathName);
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateLookupTables">
+      <MemberSignature Language="C#" Value="public void UpdateLookupTables (WebSvcLookupTable.LookupTableDataSet ltds, bool validateOnly, bool autoCheckIn, int language);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateLookupTables(class WebSvcLookupTable.LookupTableDataSet ltds, bool validateOnly, bool autoCheckIn, int32 language) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.UpdateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateLookupTables (ltds As LookupTableDataSet, validateOnly As Boolean, autoCheckIn As Boolean, language As Integer)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateLookupTables(WebSvcLookupTable::LookupTableDataSet ^ ltds, bool validateOnly, bool autoCheckIn, int language);" />
+      <MemberSignature Language="F#" Value="member this.UpdateLookupTables : WebSvcLookupTable.LookupTableDataSet * bool * bool * int -&gt; unit" Usage="lookupTable.UpdateLookupTables (ltds, validateOnly, autoCheckIn, language)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/UpdateLookupTables", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltds" Type="WebSvcLookupTable.LookupTableDataSet" />
+        <Parameter Name="validateOnly" Type="System.Boolean" />
+        <Parameter Name="autoCheckIn" Type="System.Boolean" />
+        <Parameter Name="language" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="ltds">
+          <b>LookupTableDataSet</b> with data in the datatables.</param>
+        <param name="validateOnly">Validate only, do not update.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in after update.</param>
+        <param name="language">Locale ID (LCID).</param>
+        <summary>Creates, modifies, or deletes data in custom field lookup tables. <b>UpdateLookupTables</b> creates lookup tables and corresponding code masks if the <b>LookupTableDataSet</b> includes new lookup tables, modifies existing lookup tables, and deletes lookup tables that are not in the <b>LookupTableDataSet</b>.</summary>
+        <remarks>
+          <para>
+            <b>UpdateLookupTables</b> updates data in existing lookup tables. To create or delete lookup tables, you can also use <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" /> and <see cref="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" />.</para>
+          <para>To delete a lookup table value, first use the <see cref="M:WebSvcLookupTable.LookupTable.ReadLookupTablesByUids(System.Guid[],System.Boolean,System.Int32)" /> method to get a complete <b>LookupTableDataSet</b>, and then use the <b>LookupTableDataSet.LookupTableTrees.Rows[index].Delete</b> method, which marks the row for deletion. See the Example section.</para>
+          <para>To update one or more lookup tables, use <b>ReadLookupTablesByUids</b> to get all of the data tables necessary for each lookup table, and then modify the returned <b>LookupTableDataSet</b> to use for the <paramref name="ltds" /> parameter in <b>UpdateLookupTables</b>.</para>
+          <para>You can also use <see cref="M:WebSvcLookupTable.LookupTable.ReadLookupTables(System.String,System.Boolean,System.Int32)" /> with a null reference (Nothing in Visual Basic) for the <paramref name="xmlFilter" /> parameter. In the following example, <paramref name="lookupTable" /> is an instance of the <b>LookupTableWebService.LookupTable</b> class, and <paramref name="lookupTableDataSet" /> is an instance of a <b>LookupTableDataSet</b>.</para>
+          <code>bool autoCheckOut = false;
+string xmlFilter = null;
+int language = 0;
+lookupDataSet = lookupTable.ReadLookupTables(xmlFilter, autoCheckOut, language);
+// Add, delete, or modify lookup table rows 
+bool validateOnly = false;
+autoCheckOut = true;
+lookupTable.UpdateLookupTables(lookupTableDataSet, validateOnly, autoCheckOut, language);
+// Call lookupTable.CheckInLookupTables</code>
+          <para>
+            <b>Note</b>: If you use <b>ReadLookupTables</b> and specify <paramref name="xmlfilter" /> values, you may not get all of the tables necessary for an update. In that case, <b>UpdateLookupTables</b> results in a general unhandled exception.</para>
+          <para />
+          <para>
+            <b>Caution</b>: When you use the PSI to create or update a number lookup table, do not add values that have more than two decimal places.The <b>UpdateLookupTables</b> method enables you to save a number with more than two decimal places. When you create a custom field that uses the number lookup table, Project Professional 2010 rounds the number custom field values to two decimal places and shows them as strings in the drop-down list to select a value. When you select a value, Project Professional 2010 converts the string back to a number. The process shows an error, because the numeric value with only two decimal places does not exist.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows the user to modify the definitions of enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example reads a specified lookup table and deletes a specified row in the table. The <paramref name="lookupTable" /> parameter in the <b>DeleteLookupTableRow</b> sample method is a <b>LookupTable</b> object with valid <b>Url</b> and <b>Credentials</b> properties. The language parameter is an integer for the LCID; for example, 1033 is U.S. English. <b>LookupTableWebSvc</b> is an arbitrary reference name to the LookupTable.asmx Web service. For more information about using the code sample, see Prerequisites for ASMX-Based Code Samples. </para>
+          <code>public string DeleteLookupTableRow(SvcLookupTable.LookupTable lookupTable,
+    Guid lutGuid, int row, int language)
+{
+    string result = "";
+    string fmtResult = "Lookup table: {0}. ";
+    string tableName = "[unknown]";
+    string rowName = "";
+
+    SvcLookupTable.LookupTableDataSet lutDs = new SvcLookupTable.LookupTableDataSet();
+
+    Guid[] lutList = new Guid[] { lutGuid };
+    bool autoCheckOut = false;
+
+    lutDs = lookupTable.ReadLookupTablesByUids(lutList, autoCheckOut, language);
+    int numRows = lutDs.LookupTableTrees.Rows.Count;
+
+    foreach (DataRow lutRow in lutDs.LookupTables)
+    {
+        if ((Guid)lutRow[lutDs.LookupTables.LT_UIDColumn] == lutGuid)
+        {
+            tableName = (string)lutRow[lutDs.LookupTables.LT_NAMEColumn];
+            break;
+        }
+    }
+
+    if (row &amp;lt; numRows)
+    {
+        rowName = lutDs.LookupTableTrees[row].LT_VALUE_TEXT;
+        lutDs.LookupTableTrees.Rows[row].Delete();
+
+        lookupTable.CheckOutLookupTables(lutList);
+        bool validateOnly = false;
+        lookupTable.UpdateLookupTables(lutDs, validateOnly, autoCheckOut, language);
+        bool forceCheckIn = false;
+        lookupTable.CheckInLookupTables(lutList, forceCheckIn);
+
+        fmtResult += "Row {1} deleted: {2}";
+        result = string.Format(fmtResult, tableName, row, rowName);
+    }
+    else
+    {
+        fmtResult += "Requested row {1} greater than number of rows {2}.";
+        result = string.Format(fmtResult, tableName, row, numRows);
+    }
+    return result;
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateLookupTablesMultiLang">
+      <MemberSignature Language="C#" Value="public void UpdateLookupTablesMultiLang (WebSvcLookupTable.LookupTableMultiLangDataSet ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateLookupTablesMultiLang(class WebSvcLookupTable.LookupTableMultiLangDataSet ltds, bool validateOnly, bool autoCheckIn) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTable.UpdateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateLookupTablesMultiLang (ltds As LookupTableMultiLangDataSet, validateOnly As Boolean, autoCheckIn As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateLookupTablesMultiLang(WebSvcLookupTable::LookupTableMultiLangDataSet ^ ltds, bool validateOnly, bool autoCheckIn);" />
+      <MemberSignature Language="F#" Value="member this.UpdateLookupTablesMultiLang : WebSvcLookupTable.LookupTableMultiLangDataSet * bool * bool -&gt; unit" Usage="lookupTable.UpdateLookupTablesMultiLang (ltds, validateOnly, autoCheckIn)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LookupTable/UpdateLookupTablesMultiLang", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LookupTable/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ltds" Type="WebSvcLookupTable.LookupTableMultiLangDataSet" />
+        <Parameter Name="validateOnly" Type="System.Boolean" />
+        <Parameter Name="autoCheckIn" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="ltds">
+          <b>LookupTableMultiLangDataSet</b> containing updated data in the datatables.</param>
+        <param name="validateOnly">Validate only, do not update.</param>
+        <param name="autoCheckIn">If <b>true</b>, check in after making changes.</param>
+        <summary>Creates, modifies, or deletes data in multilanguage custom field lookup tables and corresponding code masks.</summary>
+        <remarks>
+          <para>
+            <b>Caution</b>: When you use the PSI to create or update a number lookup table, do not add values that have more than two decimal places.The <b>UpdateLookupTables</b> method enables you to save a number with more than two decimal places. When you create a custom field that uses the number lookup table, Project Professional 2010 rounds the number custom field values to two decimal places and shows them as strings in the drop-down list to select a value. When you select a value, Project Professional 2010 converts the string back to a number. The process shows an error, because the numeric value with only two decimal places does not exist.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageEnterpriseCustomFields" />
+              </term>
+              <description>Allows the user to modify the definitions of Enterprise custom fields and lookup table values. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

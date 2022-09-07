@@ -1,0 +1,759 @@
+﻿<Type Name="StatusTask" FullName="Microsoft.ProjectServer.Client.StatusTask">
+  <TypeSignature Language="C#" Value="public class StatusTask : Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit StatusTask extends Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.StatusTask" />
+  <TypeSignature Language="VB.NET" Value="Public Class StatusTask&#xA;Inherits ClientObject" />
+  <TypeSignature Language="C++ CLI" Value="public ref class StatusTask : Microsoft::SharePoint::Client::ClientObject" />
+  <TypeSignature Language="F#" Value="type StatusTask = class&#xA;    inherit ClientObject" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.SharePoint.Client.ClientObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.StatusTask", ServerTypeId="{cfadbef1-75e7-4a58-a7c8-9d5fd7de8ebf}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Provides an object that keeps track of the progress of a task.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public StatusTask (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.StatusTask.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; StatusTask(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.StatusTask : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.StatusTask" Usage="new Microsoft.ProjectServer.Client.StatusTask (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>StatusTask</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ActualWork">
+      <MemberSignature Language="C#" Value="public string ActualWork { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ActualWork" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.ActualWork" />
+      <MemberSignature Language="VB.NET" Value="Public Property ActualWork As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ ActualWork { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.ActualWork : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.ActualWork" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the amount of work that has already been performed by resources that are assigned to tasks.</summary>
+        <value>The amount of work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the actual work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.ActualWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ActualWorkTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan ActualWorkTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan ActualWorkTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.ActualWorkTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property ActualWorkTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan ActualWorkTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.ActualWorkTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.ActualWorkTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the amount of work that has already been performed by resources that are assigned to tasks.</summary>
+        <value>The duration of the amount of work.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Deadline">
+      <MemberSignature Language="C#" Value="public DateTime Deadline { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime Deadline" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Deadline" />
+      <MemberSignature Language="VB.NET" Value="Public Property Deadline As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime Deadline { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.Deadline : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Deadline" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the date that was entered as a deadline for the task.</summary>
+        <value>The deadline date.</value>
+        <remarks>
+          <para>A deadline is a target date that indicates when you want a task to be completed.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Duration">
+      <MemberSignature Language="C#" Value="public string Duration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Duration" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Duration" />
+      <MemberSignature Language="VB.NET" Value="Public Property Duration As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Duration { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Duration : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Duration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the total span of active working time for a task.</summary>
+        <value>The total span of active working time.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for duration, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.DurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DurationTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan DurationTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan DurationTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.DurationTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property DurationTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan DurationTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.DurationTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.DurationTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the total span of active working time for a task.</summary>
+        <value>The duration of the total span of active working time.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Finish">
+      <MemberSignature Language="C#" Value="public DateTime Finish { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime Finish" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Finish" />
+      <MemberSignature Language="VB.NET" Value="Public Property Finish As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime Finish { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.Finish : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Finish" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the date when a task is scheduled to be completed.</summary>
+        <value>The scheduled task completion date.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Id">
+      <MemberSignature Language="C#" Value="public Guid Id { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid Id" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Id" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Id As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid Id { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.Id : Guid" Usage="Microsoft.ProjectServer.Client.StatusTask.Id" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the <b>StatusTask</b> object.</summary>
+        <value>The GUID for the status task object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.StatusTask.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="statusTask.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Property Name As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Name { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Name : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the <b>StatusTask</b> object.</summary>
+        <value>The name of the status task object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Overtime">
+      <MemberSignature Language="C#" Value="public string Overtime { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Overtime" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Overtime" />
+      <MemberSignature Language="VB.NET" Value="Public Property Overtime As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Overtime { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Overtime : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Overtime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the amount of overtime that is scheduled to be performed by all resources that are assigned to a task, for all tasks that are assigned to a resource, or by a resource on a task, and charged at the overtime rates of the resources involved.</summary>
+        <value>The overtime work that is scheduled to be performed.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.OvertimeTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OvertimeTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan OvertimeTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan OvertimeTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.OvertimeTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property OvertimeTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan OvertimeTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.OvertimeTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.OvertimeTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the amount of overtime that is scheduled to be performed by all resources that are assigned to a task or by a resource on a task, and charged at the overtime rates of the resources involved.</summary>
+        <value>The duration of the overtime work that is scheduled to be performed.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PercentComplete">
+      <MemberSignature Language="C#" Value="public short PercentComplete { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 PercentComplete" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.PercentComplete" />
+      <MemberSignature Language="VB.NET" Value="Public Property PercentComplete As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short PercentComplete { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.PercentComplete : int16 with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.PercentComplete" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the current status of a task, expressed as the percentage of the task's duration that has been completed.</summary>
+        <value>The current status of a task, expressed as a percentage.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PercentWorkComplete">
+      <MemberSignature Language="C#" Value="public short PercentWorkComplete { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 PercentWorkComplete" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.PercentWorkComplete" />
+      <MemberSignature Language="VB.NET" Value="Public Property PercentWorkComplete As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short PercentWorkComplete { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.PercentWorkComplete : int16 with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.PercentWorkComplete" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the current status of a task, resource, or assignment, expressed as the percentage of work that has been completed.</summary>
+        <value>The percentage of work completed.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PhysicalPercentComplete">
+      <MemberSignature Language="C#" Value="public short PhysicalPercentComplete { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 PhysicalPercentComplete" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.PhysicalPercentComplete" />
+      <MemberSignature Language="VB.NET" Value="Public Property PhysicalPercentComplete As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short PhysicalPercentComplete { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.PhysicalPercentComplete : int16 with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.PhysicalPercentComplete" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the entered percent complete value that can be used as an alternative for calculating budgeted cost of work performed (BCWP).</summary>
+        <value>The percent complete value.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegularWork">
+      <MemberSignature Language="C#" Value="public string RegularWork { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RegularWork" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RegularWork" />
+      <MemberSignature Language="VB.NET" Value="Public Property RegularWork As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RegularWork { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RegularWork : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RegularWork" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the total amount of non-overtime work that is scheduled to be performed by resources.</summary>
+        <value>The total amount of non-overtime work.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegularWorkTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan RegularWorkTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan RegularWorkTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RegularWorkTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property RegularWorkTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan RegularWorkTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.RegularWorkTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RegularWorkTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the total amount of non-overtime work that is scheduled to be performed by resources.</summary>
+        <value>The duration of the total amount of non-overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the regular work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.RegularWork" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingDuration">
+      <MemberSignature Language="C#" Value="public string RemainingDuration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RemainingDuration" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingDuration" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingDuration As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RemainingDuration { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingDuration : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingDuration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the amount of time that is required to complete the unfinished part of a task.</summary>
+        <value>The amount of time that is required to complete the unfinished part of a task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining duration, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.RemainingDurationTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingDurationTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan RemainingDurationTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan RemainingDurationTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingDurationTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingDurationTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan RemainingDurationTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingDurationTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingDurationTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the the amount of time that is required to complete the unfinished part of a task.</summary>
+        <value>The duration of the amount of time that is required to complete the unfinished part of a task.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingOvertime">
+      <MemberSignature Language="C#" Value="public string RemainingOvertime { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RemainingOvertime" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingOvertime" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingOvertime As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RemainingOvertime { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingOvertime : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingOvertime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the amount of remaining scheduled overtime work.</summary>
+        <value>The amount of time that is needed to complete the overtime work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining overtime work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.RemainingOvertimeTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingOvertimeTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan RemainingOvertimeTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan RemainingOvertimeTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingOvertimeTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingOvertimeTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan RemainingOvertimeTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingOvertimeTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingOvertimeTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the amount of remaining scheduled overtime work.</summary>
+        <value>The duration of the amount of time that is needed to complete the overtime work.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingWork">
+      <MemberSignature Language="C#" Value="public string RemainingWork { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RemainingWork" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingWork" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingWork As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RemainingWork { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingWork : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingWork" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the amount of time, such as person-hours or days, that is still required to complete a task or set of tasks.</summary>
+        <value>The amount of time that is needed to complete the remaining work.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the remaining work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.RemainingWorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemainingWorkTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan RemainingWorkTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan RemainingWorkTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.RemainingWorkTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property RemainingWorkTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan RemainingWorkTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.RemainingWorkTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.RemainingWorkTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the amount of time, such as person-hours or days, that is still required to complete a task or set of tasks.</summary>
+        <value>The duration of the amount of time that is needed to complete the remaining work.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Resume">
+      <MemberSignature Language="C#" Value="public DateTime Resume { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime Resume" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Resume" />
+      <MemberSignature Language="VB.NET" Value="Public Property Resume As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime Resume { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.Resume : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Resume" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the date that the remaining part of a task is scheduled to resume after you enter any progress.</summary>
+        <value>The date that a task will resume.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public DateTime Start { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime Start" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Start" />
+      <MemberSignature Language="VB.NET" Value="Public Property Start As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime Start { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.Start : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Start" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the date when an assigned resource is scheduled to begin working on a task.</summary>
+        <value>The start date of a task.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Work">
+      <MemberSignature Language="C#" Value="public string Work { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Work" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.Work" />
+      <MemberSignature Language="VB.NET" Value="Public Property Work As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Work { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Work : string with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.Work" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the total amount of time that is scheduled on a task for all assigned resources, the total time to which a resource is scheduled on all assigned tasks, or the total amount of time scheduled for a resource on a task.</summary>
+        <value>The total time scheduled on a task.</value>
+        <remarks>
+          <para>To get the <b>TimeSpan</b> value for the work, use the <see cref="P:Microsoft.ProjectServer.Client.StatusTask.WorkTimeSpan" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkTimeSpan">
+      <MemberSignature Language="C#" Value="public TimeSpan WorkTimeSpan { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.TimeSpan WorkTimeSpan" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.StatusTask.WorkTimeSpan" />
+      <MemberSignature Language="VB.NET" Value="Public Property WorkTimeSpan As TimeSpan" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property TimeSpan WorkTimeSpan { TimeSpan get(); void set(TimeSpan value); };" />
+      <MemberSignature Language="F#" Value="member this.WorkTimeSpan : TimeSpan with get, set" Usage="Microsoft.ProjectServer.Client.StatusTask.WorkTimeSpan" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.TimeSpan</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the time interval for the total amount of time that is scheduled on a task for all assigned resources, the total time to which a resource is scheduled on all assigned tasks, or the total amount of time scheduled for a resource on a task.</summary>
+        <value>The duration of the total time scheduled on a task.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

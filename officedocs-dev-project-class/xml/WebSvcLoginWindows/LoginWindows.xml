@@ -1,0 +1,118 @@
+﻿<Type Name="LoginWindows" FullName="WebSvcLoginWindows.LoginWindows">
+  <TypeSignature Language="C#" Value="public class LoginWindows : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LoginWindows extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcLoginWindows.LoginWindows" />
+  <TypeSignature Language="VB.NET" Value="Public Class LoginWindows&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class LoginWindows : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type LoginWindows = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="LoginWindowsSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>The <b>LoginWindows</b> class is used only in multi-authentication (claims- and Forms-based) environments for ASMX applications.</summary>
+    <remarks>
+      <para>The <b>LoginWindows</b> class is not used in Microsoft Project Server 2013 installations that have only claims authentication. Because of claims authentication, integrated Windows authentication works without a call to the <see cref="M:WebSvcLoginWindows.LoginWindows.Login" /> method in Windows Communication Foundation (WCF) applications.</para>
+      <para>For more information about developing ASMX-based applications in a multi-authentication environment, see Prerequisites for ASMX-Based Code Samples.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LoginWindows ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLoginWindows.LoginWindows.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; LoginWindows();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates a <b>LoginWindows</b> object from the ASMX-based <b>LoginWindows</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>LoginWindows</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>LoginWindowsClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>LoginWindowsWebSvc</b> is an arbitrary namespace for the ASMX-based <b>LoginWindows</b> web service.</para>
+          <code>private static LoginWindowsWebSvc.LoginWindows loginWindows = new loginWindowsWebSvc.LoginWindows();</code>
+          <para>In the following statement, <b>SvcLoginWindows</b> is an arbitrary namespace for the WCF-based <b>LoginWindows</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcLoginWindows.LoginWindowsClient loginWindowsClient = new SvcLoginWindows.LoginWindowsClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="Login">
+      <MemberSignature Language="C#" Value="public bool Login ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Login() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLoginWindows.LoginWindows.Login" />
+      <MemberSignature Language="VB.NET" Value="Public Function Login () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool Login();" />
+      <MemberSignature Language="F#" Value="member this.Login : unit -&gt; bool" Usage="loginWindows.Login " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/Login", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Log on a user in ASMX-based applications for a Microsoft Project Server 2013 installation that has multi-authentication (claims- and Forms-based authentication).</summary>
+        <returns>Because of claims authentication for Windows applications, the <b>Login</b> method in applications based on Windows Communication Foundation (WCF) always returns false; no SOAP exceptions are returned.</returns>
+        <remarks>
+          <para>
+            <b>Note</b>: The <b>Login</b> method should not be used for applications that use WCF or that access the PSI on a Project Server installation that uses only claims authentication. Applications can use integrated Windows authentication automatically through claims authentication.</para>
+          <para>For more information about developing ASMX-based applications in a multi-authentication environment, see Prerequisites for ASMX-Based Code Samples.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Logoff">
+      <MemberSignature Language="C#" Value="public void Logoff ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Logoff() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLoginWindows.LoginWindows.Logoff" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Logoff ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void Logoff();" />
+      <MemberSignature Language="F#" Value="member this.Logoff : unit -&gt; unit" Usage="loginWindows.Logoff " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/Logoff", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/LoginWindows/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Log off a user in ASMX-based applications in a multi-authentication (claims- and Forms-based) environment.</summary>
+        <remarks>
+          <para>Applications can use integrated Windows authentication automatically through Claims authentication.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

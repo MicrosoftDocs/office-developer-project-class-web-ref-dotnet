@@ -1,0 +1,2305 @@
+﻿<Type Name="DraftProject" FullName="Microsoft.ProjectServer.Client.DraftProject">
+  <TypeSignature Language="C#" Value="public class DraftProject : Microsoft.ProjectServer.Client.Project" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DraftProject extends Microsoft.ProjectServer.Client.Project" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.DraftProject" />
+  <TypeSignature Language="VB.NET" Value="Public Class DraftProject&#xA;Inherits Project" />
+  <TypeSignature Language="C++ CLI" Value="public ref class DraftProject : Microsoft::ProjectServer::Client::Project" />
+  <TypeSignature Language="F#" Value="type DraftProject = class&#xA;    inherit Project" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.ProjectServer.Client.Project</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.DraftProject", ServerTypeId="{e4ecf863-df42-46dd-b72a-d8c813969224}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents the draft version of a project, which is a project that is checked out.</summary>
+    <remarks>
+      <para>To check out a published project for editing, use the <see cref="P:Microsoft.ProjectServer.Client.PublishedProject.CheckOut" /> method.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DraftProject (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; DraftProject(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.DraftProject : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.DraftProject" Usage="new Microsoft.ProjectServer.Client.DraftProject (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Initializes a new instance of the <b>DraftProject</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Assignments">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftAssignmentCollection Assignments { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftAssignmentCollection Assignments" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Assignments" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Assignments As DraftAssignmentCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftAssignmentCollection ^ Assignments { Microsoft::ProjectServer::Client::DraftAssignmentCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Assignments : Microsoft.ProjectServer.Client.DraftAssignmentCollection" Usage="Microsoft.ProjectServer.Client.DraftProject.Assignments" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftAssignmentCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of assignments for a project.</summary>
+        <value>A collection of assignments.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CalculateActualCosts">
+      <MemberSignature Language="C#" Value="public bool CalculateActualCosts { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CalculateActualCosts" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CalculateActualCosts" />
+      <MemberSignature Language="VB.NET" Value="Public Property CalculateActualCosts As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool CalculateActualCosts { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.CalculateActualCosts : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CalculateActualCosts" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets whether Project Server automatically calculates actual and remaining work and costs.</summary>
+        <value>
+          <b>True</b> if actual and remaining work and costs are automatically calculated; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CalculatesActualCosts">
+      <MemberSignature Language="C#" Value="public bool CalculatesActualCosts { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool CalculatesActualCosts" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CalculatesActualCosts" />
+      <MemberSignature Language="VB.NET" Value="Public Property CalculatesActualCosts As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool CalculatesActualCosts { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.CalculatesActualCosts : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CalculatesActualCosts" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets whether the project always calculates actual costs.</summary>
+        <value>
+          <b>True</b> if the project always calculates actual costs; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Calendar">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.Calendar Calendar { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.Calendar Calendar" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Calendar" />
+      <MemberSignature Language="VB.NET" Value="Public Property Calendar As Calendar" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::Calendar ^ Calendar { Microsoft::ProjectServer::Client::Calendar ^ get(); void set(Microsoft::ProjectServer::Client::Calendar ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Calendar : Microsoft.ProjectServer.Client.Calendar with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.Calendar" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.Calendar</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a Project Server calendar.</summary>
+        <value>A Project Server calendar.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckIn">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.QueueJob CheckIn (bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.QueueJob CheckIn(bool force) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.CheckIn(System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckIn (force As Boolean) As QueueJob" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::QueueJob ^ CheckIn(bool force);" />
+      <MemberSignature Language="F#" Value="member this.CheckIn : bool -&gt; Microsoft.ProjectServer.Client.QueueJob" Usage="draftProject.CheckIn force" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.QueueJob</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="force">
+          <b>True</b> if the administrator or project owner forces check in of a project; otherwise, <b>False</b>.</param>
+        <summary>Queues a check-in job for a draft project if it is still checked out.</summary>
+        <returns>A queued job that will check in the draft version of the project.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CriticalSlackLimit">
+      <MemberSignature Language="C#" Value="public int CriticalSlackLimit { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CriticalSlackLimit" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CriticalSlackLimit" />
+      <MemberSignature Language="VB.NET" Value="Public Property CriticalSlackLimit As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int CriticalSlackLimit { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.CriticalSlackLimit : int with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CriticalSlackLimit" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the number of days that a task can go past its end date before the project marks that task as critical.</summary>
+        <value>A value that represents a number of days.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrencyCode">
+      <MemberSignature Language="C#" Value="public string CurrencyCode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string CurrencyCode" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CurrencyCode" />
+      <MemberSignature Language="VB.NET" Value="Public Property CurrencyCode As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ CurrencyCode { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.CurrencyCode : string with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CurrencyCode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the currency code of the project, as defined in ISO 4217.</summary>
+        <value>An object that represents the currency code.</value>
+        <remarks>
+          <para>For example, USD represents United States Dollars.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrencyDigits">
+      <MemberSignature Language="C#" Value="public int CurrencyDigits { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CurrencyDigits" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CurrencyDigits" />
+      <MemberSignature Language="VB.NET" Value="Public Property CurrencyDigits As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int CurrencyDigits { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.CurrencyDigits : int with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CurrencyDigits" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the number of decimal digits in currency values.</summary>
+        <value>A numerical value that represents the number of decimal digits.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrencyPosition">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.CurrencySymbolPosition CurrencyPosition { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.CurrencySymbolPosition CurrencyPosition" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CurrencyPosition" />
+      <MemberSignature Language="VB.NET" Value="Public Property CurrencyPosition As CurrencySymbolPosition" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::CurrencySymbolPosition CurrencyPosition { Microsoft::ProjectServer::Client::CurrencySymbolPosition get(); void set(Microsoft::ProjectServer::Client::CurrencySymbolPosition value); };" />
+      <MemberSignature Language="F#" Value="member this.CurrencyPosition : Microsoft.ProjectServer.Client.CurrencySymbolPosition with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CurrencyPosition" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.CurrencySymbolPosition</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the placement of the currency symbol in relation to the currency value.</summary>
+        <value>A numerical value that represents the placement of the currency symbol.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrencySymbol">
+      <MemberSignature Language="C#" Value="public string CurrencySymbol { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string CurrencySymbol" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CurrencySymbol" />
+      <MemberSignature Language="VB.NET" Value="Public Property CurrencySymbol As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ CurrencySymbol { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.CurrencySymbol : string with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CurrencySymbol" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the currency symbol that represents the type of currency that is used in the project.</summary>
+        <value>A character that represents the currency symbol.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CurrentDate">
+      <MemberSignature Language="C#" Value="public DateTime CurrentDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime CurrentDate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.CurrentDate" />
+      <MemberSignature Language="VB.NET" Value="Public Property CurrentDate As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime CurrentDate { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.CurrentDate : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.CurrentDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the current date for the project.</summary>
+        <value>A <b>DateTime</b> object that represents the current date.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DaysPerMonth">
+      <MemberSignature Language="C#" Value="public short DaysPerMonth { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 DaysPerMonth" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DaysPerMonth" />
+      <MemberSignature Language="VB.NET" Value="Public Property DaysPerMonth As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short DaysPerMonth { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.DaysPerMonth : int16 with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DaysPerMonth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default number of working days per month.</summary>
+        <value>The number of working days per month.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultEffortDriven">
+      <MemberSignature Language="C#" Value="public bool DefaultEffortDriven { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DefaultEffortDriven" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultEffortDriven" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultEffortDriven As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool DefaultEffortDriven { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultEffortDriven : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultEffortDriven" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the scheduling of new tasks is effort-driven.</summary>
+        <value>
+          <b>True</b> if the scheduling of new tasks is effort-driven; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>Effort-driven scheduling occurs when the duration of tasks is affected by the assigning or removing of resources for the task.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultEstimatedDuration">
+      <MemberSignature Language="C#" Value="public bool DefaultEstimatedDuration { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DefaultEstimatedDuration" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultEstimatedDuration" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultEstimatedDuration As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool DefaultEstimatedDuration { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultEstimatedDuration : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultEstimatedDuration" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether new tasks have estimated durations.</summary>
+        <value>
+          <b>True</b> if new tasks have estimated durations; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultFinishTime">
+      <MemberSignature Language="C#" Value="public DateTime DefaultFinishTime { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime DefaultFinishTime" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultFinishTime" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultFinishTime As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime DefaultFinishTime { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultFinishTime : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultFinishTime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default end time of a working day.</summary>
+        <value>The default end time of a working day.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultFixedCostAccrual">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.FixedCostAccrual DefaultFixedCostAccrual { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.FixedCostAccrual DefaultFixedCostAccrual" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultFixedCostAccrual" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultFixedCostAccrual As FixedCostAccrual" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::FixedCostAccrual DefaultFixedCostAccrual { Microsoft::ProjectServer::Client::FixedCostAccrual get(); void set(Microsoft::ProjectServer::Client::FixedCostAccrual value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultFixedCostAccrual : Microsoft.ProjectServer.Client.FixedCostAccrual with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultFixedCostAccrual" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.FixedCostAccrual</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates which default fixed cost accrual method to use on new tasks.</summary>
+        <value>A numerical value that represents the default method.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultOvertimeRate">
+      <MemberSignature Language="C#" Value="public double DefaultOvertimeRate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 DefaultOvertimeRate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultOvertimeRate" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultOvertimeRate As Double" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property double DefaultOvertimeRate { double get(); void set(double value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultOvertimeRate : double with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultOvertimeRate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default overtime rate for local resources.</summary>
+        <value>A numerical value that represents the default overtime rate.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultStandardRate">
+      <MemberSignature Language="C#" Value="public double DefaultStandardRate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 DefaultStandardRate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultStandardRate" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultStandardRate As Double" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property double DefaultStandardRate { double get(); void set(double value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultStandardRate : double with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultStandardRate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default standard rate for local resources.</summary>
+        <value>A numerical value that represents the default standard rate.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultStartTime">
+      <MemberSignature Language="C#" Value="public DateTime DefaultStartTime { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime DefaultStartTime" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultStartTime" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultStartTime As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime DefaultStartTime { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultStartTime : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultStartTime" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default start time of a working day.</summary>
+        <value>The default start time of a working day.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultTaskType">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.TaskType DefaultTaskType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.TaskType DefaultTaskType" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultTaskType" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultTaskType As TaskType" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::TaskType DefaultTaskType { Microsoft::ProjectServer::Client::TaskType get(); void set(Microsoft::ProjectServer::Client::TaskType value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultTaskType : Microsoft.ProjectServer.Client.TaskType with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultTaskType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.TaskType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default type for tasks in the project.</summary>
+        <value>A numerical value that represents the task type.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultWorkFormat">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.WorkFormat DefaultWorkFormat { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.WorkFormat DefaultWorkFormat" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.DefaultWorkFormat" />
+      <MemberSignature Language="VB.NET" Value="Public Property DefaultWorkFormat As WorkFormat" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::WorkFormat DefaultWorkFormat { Microsoft::ProjectServer::Client::WorkFormat get(); void set(Microsoft::ProjectServer::Client::WorkFormat value); };" />
+      <MemberSignature Language="F#" Value="member this.DefaultWorkFormat : Microsoft.ProjectServer.Client.WorkFormat with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.DefaultWorkFormat" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.WorkFormat</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default format for work duration.</summary>
+        <value>The default work format.</value>
+        <remarks>
+          <para>An example of a format for work duration is the use of hours and minutes.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Description">
+      <MemberSignature Language="C#" Value="public string Description { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Description" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Description" />
+      <MemberSignature Language="VB.NET" Value="Public Property Description As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Description { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Description : string with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.Description" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a project description.</summary>
+        <value>An object that contains the project description.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FieldValues">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.Dictionary&lt;string,object&gt; FieldValues { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.Dictionary`2&lt;string, object&gt; FieldValues" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.FieldValues" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property FieldValues As Dictionary(Of String, Object)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Collections::Generic::Dictionary&lt;System::String ^, System::Object ^&gt; ^ FieldValues { System::Collections::Generic::Dictionary&lt;System::String ^, System::Object ^&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.FieldValues : System.Collections.Generic.Dictionary&lt;string, obj&gt;" Usage="Microsoft.ProjectServer.Client.DraftProject.FieldValues" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the custom field values for the draft project.</summary>
+        <value>A set of key-value pairs for custom field values, where the key is the internal custom field name, and the value is either the custom field value or the internal name of a lookup table entry.</value>
+        <remarks>To be added.</remarks>
+        <example>
+          <para>The following code example checks out the specified enterprise project and then queries the draft project for its collection of custom fields. The code example lists the GUID and name of the project, the name and value of each custom field, and the internal name of each custom field in the project as the key in a key-value pair. If the custom field uses a lookup table, the <b>FieldValues</b> item contains the internal name of the lookup table entry. If the custom field is a multivalue text field, the example lists the value and internal name of each lookup table entry for that custom field in the project. If the custom field does not use a lookup table, the value is simply the custom field value.</para>
+          <para>The internal name of a custom field is a string with the value "Custom_[GUID]", for example, Custom_9d77d62aa92e4d40adc8446c90eb7456. The internal name of a lookup table entry is a string with the value "Entry_[GUID]", for example, Entry_4a2750309d91e21193f90021704e28a0.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+using Microsoft.SharePoint.Client;
+
+namespace GetDraftProjectFieldValues
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa";    // Change the path for Project Web App.
+        private static string projName = string.Empty;
+
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp(string.Empty);
+            }
+
+            Dictionary&amp;lt;string, object&amp;gt; projDict = new Dictionary&amp;lt;string, object&amp;gt;();
+            projContext = new ProjectContext(pwaPath);
+
+            // Get the list of published projects in Project Web App.
+            var pubProjects = projContext.LoadQuery(projContext.Projects
+                .Where(p =&amp;gt; p.IsEnterpriseProject == true
+                         &amp;amp;&amp;amp; p.Name == projName));
+            projContext.ExecuteQuery();
+
+            if (pubProjects.Count() &amp;lt; 1)
+            {
+                ExitApp("No enterprise project name: " + projName);
+            }
+
+            Console.WriteLine("\t\tDraft project ID\t:\tProject name");
+
+            foreach (PublishedProject pubProj in pubProjects)
+            {
+                // Check out the project.
+                if (!pubProj.IsCheckedOut)
+                {
+                    DraftProject draftProj = pubProj.CheckOut().IncludeCustomFields;
+                    projContext.Load(draftProj);
+                    projContext.Load(draftProj.IncludeCustomFields);
+                    projContext.ExecuteQuery();
+
+                    Console.WriteLine("\n{0} :\t{1}", draftProj.Id.ToString(), draftProj.Name);
+
+                    projDict = draftProj.FieldValues;
+
+                    // Initialize variables to compare with custom field types:
+                    string textValue = "";                  // TEXT - no lookup table
+                    String[] lutTextValues = { "" };        // TEXT - lookup table
+                    DateTime dateValue = DateTime.MinValue; // DATE - no lookup table
+
+                    foreach (KeyValuePair&amp;lt;string, object&amp;gt; kvp in projDict)
+                    {
+                        object oVal = kvp.Value;
+                        string keyStr = kvp.Key;
+
+                        var projCFs = projContext.LoadQuery(draftProj.CustomFields
+                            .Where(cf =&amp;gt; cf.InternalName == keyStr));
+                        projContext.ExecuteQuery();
+
+                        WriteCustomFieldName(projCFs.First().Name);
+                        Console.WriteLine("; FieldType = {0};\n\tInternalName = {1}",
+                            projCFs.First().FieldType.ToString(), keyStr);
+
+                        // Check whether the custom field is a simple text field.
+                        if (object.ReferenceEquals(oVal.GetType(), textValue.GetType()))
+                        {
+                            textValue = (string)oVal;
+                            Console.WriteLine("\tSingle-line string value = {0}", textValue.ToString());
+                        }
+                        // Check whether the custom field is a text (or multivalue text) field from a lookup table.
+                        else if (object.ReferenceEquals(oVal.GetType(), lutTextValues.GetType()))
+                        {
+                            projContext.Load(projCFs.First().LookupTable);
+                            projContext.ExecuteQuery();
+                            string lutName = projCFs.First().LookupTable.Name;
+
+                            WriteLookupTableName(lutName);
+
+                            var luts = projContext.LoadQuery(projContext.LookupTables
+                                .Where(lut =&amp;gt; lut.Name == lutName));
+                            projContext.ExecuteQuery();
+
+                            lutTextValues = (string[])oVal;
+
+                            for (var j = 0; j &amp;lt; lutTextValues.Count(); j++)
+                            {
+                                var entries = projContext.LoadQuery(luts.First().Entries
+                                    .Where(e =&amp;gt; e.InternalName == lutTextValues[j]));
+                                projContext.ExecuteQuery();
+                                Console.WriteLine("\t    Entry({0}): String value = {1};\n\t\t  InternalName = {2}",
+                                    j, entries.First().FullValue, lutTextValues[j]);
+                            }
+                        }
+                        // Check whether the custom field is a date.
+                        else if (object.ReferenceEquals(oVal.GetType(), dateValue.GetType()))
+                        {
+                            dateValue = (DateTime)oVal;
+
+                            Console.WriteLine("\tDate value = {0}", dateValue.ToString());
+                        }
+                        // Add other cases for cost, duration, flag, and number custom fields. 
+                    }
+
+                    // Check in and publish the project.
+                    draftProj.Publish(true);
+                    projContext.ExecuteQuery();
+                }
+                ExitApp(string.Empty);
+            }
+        }
+
+        private static void WriteCustomFieldName(string cfName)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\n    Custom field: '{0}'", cfName);
+            Console.ResetColor();
+        }
+
+        private static void WriteLookupTableName(string lutName)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\tLookup table: {0}", lutName);
+            Console.ResetColor();
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*projname":
+                        case "*n":
+                            if (++i &amp;gt;= argsLen) return false;
+                            projName = args[i];
+                            break;
+                        //case "*timeout":
+                        //case "*t":
+                        //    if (++i &amp;gt;= argsLen) return false;
+                        //    timeoutSeconds = Convert.ToInt32(args[i]);
+                        //    break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+
+            if (string.IsNullOrEmpty(projName)) error = true;
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: -projName | -p \"Project name\"";
+            example += "\nExample: -p \"My New Project\"";
+            Console.WriteLine(example);
+        }
+
+        private static void ExitApp(string reason)
+        {
+            if (reason != string.Empty) Console.WriteLine(reason);
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+    }
+}</code>
+          <para>For example, a project named TestProject9 has a Project Departments custom field value, a multivalue text custom field with three lookup table entry values, a simple text custom field, and a date custom field. Because Project Departments is a built-in custom field, the GUID for the Project Departments custom field in default Project Web App instances is 9d77d62a-a92e-4d40-adc8-446c90eb7456. Following is the output of the <b>GetProjectFieldValues</b> sample app:</para>
+          <code>        Draft project ID        :       Project name
+
+b846e947-29e0-43eb-b5c6-5ddeaf08d5c0 :  CSOM Project9
+
+    Custom field: 'Project Departments'; FieldType = TEXT;
+        InternalName = Custom_9d77d62aa92e4d40adc8446c90eb7456
+        Lookup table: Department
+            Entry(0): String value = Test Dept 1;
+                  InternalName = Entry_bbc07ff5b06de21193f40021704e28a0
+
+    Custom field: 'ProjectMVText'; FieldType = TEXT;
+        InternalName = Custom_9295a8759d91e21193f90021704e28a0
+        Lookup table: TestTextMV
+            Entry(0): String value = First.001;
+                  InternalName = Entry_4a2750309d91e21193f90021704e28a0
+            Entry(1): String value = Second.002;
+                  InternalName = Entry_4d2750309d91e21193f90021704e28a0
+            Entry(2): String value = Third;
+                  InternalName = Entry_4f2750309d91e21193f90021704e28a0
+
+    Custom field: 'Test Project Date'; FieldType = DATE;
+        InternalName = Custom_37f61601a991e21193f90021704e28a0
+        Date value = 3/29/2013 8:00:00 AM
+
+    Custom field: 'Test project simple text'; FieldType = TEXT;
+        InternalName = Custom_8bf7eed5cc94e21193f90021704e28a0
+        Single-line string value = This is a line of text
+
+Press any key to exit...</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="FinishDate">
+      <MemberSignature Language="C#" Value="public DateTime FinishDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime FinishDate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.FinishDate" />
+      <MemberSignature Language="VB.NET" Value="Public Property FinishDate As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime FinishDate { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.FinishDate : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.FinishDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the project finish date.</summary>
+        <value>The project finish date.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FiscalYearStartMonth">
+      <MemberSignature Language="C#" Value="public short FiscalYearStartMonth { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 FiscalYearStartMonth" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.FiscalYearStartMonth" />
+      <MemberSignature Language="VB.NET" Value="Public Property FiscalYearStartMonth As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short FiscalYearStartMonth { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.FiscalYearStartMonth : int16 with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.FiscalYearStartMonth" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the number of the first month in the fiscal year.</summary>
+        <value>A numerical value that indicates the first month in the fiscal year.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HonorConstraints">
+      <MemberSignature Language="C#" Value="public bool HonorConstraints { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HonorConstraints" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.HonorConstraints" />
+      <MemberSignature Language="VB.NET" Value="Public Property HonorConstraints As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool HonorConstraints { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.HonorConstraints : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.HonorConstraints" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether scheduling constraints take precedence over dependencies.</summary>
+        <value>
+          <b>True</b> if scheduling constraints take precedence over dependencies; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IncludeCustomFields">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftProject IncludeCustomFields { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftProject IncludeCustomFields" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.IncludeCustomFields" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property IncludeCustomFields As DraftProject" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftProject ^ IncludeCustomFields { Microsoft::ProjectServer::Client::DraftProject ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.IncludeCustomFields : Microsoft.ProjectServer.Client.DraftProject" Usage="Microsoft.ProjectServer.Client.DraftProject.IncludeCustomFields" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftProject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a <b>DraftProject</b> object that includes custom fields.</summary>
+        <value>A draft project.</value>
+        <remarks>
+          <para>For projects with many custom fields, performance can be slow when retrieving and saving the project. When you use the <see cref="M:Microsoft.ProjectServer.Client.PublishedProject.CheckOut" /> method to check out a project, by default, the <b>DraftProject</b> object does not include custom fields. By using the <b>IncludeCustomFields</b> property, the project that is checked out includes custom field information.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following <b>CheckoutProject</b> method checks out a project that includes custom fields.</para>
+          <code>private static DraftProject &lt;span class="label"&gt;CheckoutProject&lt;/span&gt;(ProjectContext projContext, string projName)
+{
+    DraftProject projCheckedOut = null;
+
+    var projCollection = projContext.LoadQuery(
+        projContext.Projects
+            .Where(p =&amp;gt; p.Name == projName));
+
+    projContext.ExecuteQuery();
+
+    if (projCollection.Count() &amp;gt; 0)
+    {
+        PublishedProject proj2Edit = projCollection.First().IncludeCustomFields;
+
+        projCheckedOut = proj2Edit.CheckOut().&lt;span class="label"&gt;IncludeCustomFields&lt;/span&gt;;
+    }
+    return projCheckedOut;
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="InitNonPropertyFieldFromJson">
+      <MemberSignature Language="C#" Value="protected override void InitNonPropertyFieldFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void InitNonPropertyFieldFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.InitNonPropertyFieldFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Sub InitNonPropertyFieldFromJson (peekedName As String, reader As JsonReader)" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override void InitNonPropertyFieldFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitNonPropertyFieldFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; unit" Usage="draftProject.InitNonPropertyFieldFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="draftProject.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public object this[string fieldName] { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance object Item(string)" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Item(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Default Public Property Item(fieldName As String) As Object" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Object ^ default[System::String ^] { System::Object ^ get(System::String ^ fieldName); void set(System::String ^ fieldName, System::Object ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Item(string) : obj with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.Item" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: Microsoft.SharePoint.Client.PseudoRemote(Name="GetFieldValue")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: Microsoft.SharePoint.Client.Remote(Name="SetCustomFieldValue")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fieldName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fieldName">The name of a project item.</param>
+        <summary>Gets or sets an item in the project.</summary>
+        <value>A <b>DraftProject</b> item.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadExpandoFields">
+      <MemberSignature Language="C#" Value="protected override void LoadExpandoFields ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void LoadExpandoFields() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.LoadExpandoFields" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Sub LoadExpandoFields ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override void LoadExpandoFields();" />
+      <MemberSignature Language="F#" Value="override this.LoadExpandoFields : unit -&gt; unit" Usage="draftProject.LoadExpandoFields " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Reserved for internal use. Initializes the extended properties that are associated with the <b>DraftProject</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MinutesPerDay">
+      <MemberSignature Language="C#" Value="public int MinutesPerDay { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MinutesPerDay" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MinutesPerDay" />
+      <MemberSignature Language="VB.NET" Value="Public Property MinutesPerDay As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int MinutesPerDay { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.MinutesPerDay : int with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MinutesPerDay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default number of minutes per day.</summary>
+        <value>The number of minutes per day.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MinutesPerWeek">
+      <MemberSignature Language="C#" Value="public int MinutesPerWeek { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MinutesPerWeek" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MinutesPerWeek" />
+      <MemberSignature Language="VB.NET" Value="Public Property MinutesPerWeek As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int MinutesPerWeek { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.MinutesPerWeek : int with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MinutesPerWeek" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default number of minutes per week.</summary>
+        <value>The number of minutes per week.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveActualIfLater">
+      <MemberSignature Language="C#" Value="public bool MoveActualIfLater { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MoveActualIfLater" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MoveActualIfLater" />
+      <MemberSignature Language="VB.NET" Value="Public Property MoveActualIfLater As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool MoveActualIfLater { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.MoveActualIfLater : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MoveActualIfLater" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to move the end date of completed parts forward to the status date, if the actual end date falls before the status date.</summary>
+        <value>
+          <b>True</b> if the end date of completed parts should be moved forward to the status date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveActualToStatus">
+      <MemberSignature Language="C#" Value="public bool MoveActualToStatus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MoveActualToStatus" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MoveActualToStatus" />
+      <MemberSignature Language="VB.NET" Value="Public Property MoveActualToStatus As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool MoveActualToStatus { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.MoveActualToStatus : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MoveActualToStatus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to move the end date of completed parts back to the status date, if the actual end data falls after the status date.</summary>
+        <value>
+          <b>True</b> if the end date of completed parts should be moved back to the status date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveRemainingIfEarlier">
+      <MemberSignature Language="C#" Value="public bool MoveRemainingIfEarlier { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MoveRemainingIfEarlier" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MoveRemainingIfEarlier" />
+      <MemberSignature Language="VB.NET" Value="Public Property MoveRemainingIfEarlier As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool MoveRemainingIfEarlier { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.MoveRemainingIfEarlier : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MoveRemainingIfEarlier" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to move the start date of remaining parts forward to the status date, if the actual start date falls before the status date.</summary>
+        <value>
+          <b>True</b> if the start date of remaining parts should be moved forward to the status date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveRemainingToStatus">
+      <MemberSignature Language="C#" Value="public bool MoveRemainingToStatus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MoveRemainingToStatus" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MoveRemainingToStatus" />
+      <MemberSignature Language="VB.NET" Value="Public Property MoveRemainingToStatus As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool MoveRemainingToStatus { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.MoveRemainingToStatus : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MoveRemainingToStatus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to move the start date of the remaining parts back to the status date, if the actual start date falls after the status date.</summary>
+        <value>
+          <b>True</b> if the start date of remaining parts should be moved back to the status date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultipleCriticalPaths">
+      <MemberSignature Language="C#" Value="public bool MultipleCriticalPaths { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool MultipleCriticalPaths" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.MultipleCriticalPaths" />
+      <MemberSignature Language="VB.NET" Value="Public Property MultipleCriticalPaths As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool MultipleCriticalPaths { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.MultipleCriticalPaths : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.MultipleCriticalPaths" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to calculate multiple critical paths.</summary>
+        <value>
+          <b>True</b> if multiple critical paths should be calculated; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Property Name As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Name { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Name : string with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a project name.</summary>
+        <value>The project name.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NewTasksAreManual">
+      <MemberSignature Language="C#" Value="public bool NewTasksAreManual { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool NewTasksAreManual" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.NewTasksAreManual" />
+      <MemberSignature Language="VB.NET" Value="Public Property NewTasksAreManual As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool NewTasksAreManual { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.NewTasksAreManual : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.NewTasksAreManual" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether new tasks are manually scheduled.</summary>
+        <value>
+          <b>True</b> if new tasks are manually scheduled; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumberFiscalYearFromStart">
+      <MemberSignature Language="C#" Value="public bool NumberFiscalYearFromStart { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool NumberFiscalYearFromStart" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.NumberFiscalYearFromStart" />
+      <MemberSignature Language="VB.NET" Value="Public Property NumberFiscalYearFromStart As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool NumberFiscalYearFromStart { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.NumberFiscalYearFromStart : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.NumberFiscalYearFromStart" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to use the project start year for fiscal year numbering.</summary>
+        <value>
+          <b>True</b> if the project start year is used for fiscal year numbering; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Owner">
+      <MemberSignature Language="C#" Value="public Microsoft.SharePoint.Client.User Owner { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.SharePoint.Client.User Owner" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Owner" />
+      <MemberSignature Language="VB.NET" Value="Public Property Owner As User" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::SharePoint::Client::User ^ Owner { Microsoft::SharePoint::Client::User ^ get(); void set(Microsoft::SharePoint::Client::User ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Owner : Microsoft.SharePoint.Client.User with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.Owner" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.SharePoint.Client.User</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the project owner.</summary>
+        <value>The project owner.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProjectResources">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftProjectResourceCollection ProjectResources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftProjectResourceCollection ProjectResources" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.ProjectResources" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProjectResources As DraftProjectResourceCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftProjectResourceCollection ^ ProjectResources { Microsoft::ProjectServer::Client::DraftProjectResourceCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ProjectResources : Microsoft.ProjectServer.Client.DraftProjectResourceCollection" Usage="Microsoft.ProjectServer.Client.DraftProject.ProjectResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftProjectResourceCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of resources for a project.</summary>
+        <value>A collection of project resources.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProtectedActualsSynch">
+      <MemberSignature Language="C#" Value="public bool ProtectedActualsSynch { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ProtectedActualsSynch" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.ProtectedActualsSynch" />
+      <MemberSignature Language="VB.NET" Value="Public Property ProtectedActualsSynch As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool ProtectedActualsSynch { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.ProtectedActualsSynch : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.ProtectedActualsSynch" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the project actuals are synchronized with the protected actuals.</summary>
+        <value>
+          <b>True</b> if the project actuals are synchronized with the protected actuals; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Publish">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.QueueJob Publish (bool checkIn);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.QueueJob Publish(bool checkIn) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.Publish(System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function Publish (checkIn As Boolean) As QueueJob" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::QueueJob ^ Publish(bool checkIn);" />
+      <MemberSignature Language="F#" Value="member this.Publish : bool -&gt; Microsoft.ProjectServer.Client.QueueJob" Usage="draftProject.Publish checkIn" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.QueueJob</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="checkIn" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="checkIn">Boolean that indicates whether the project should be checked in after it is published.</param>
+        <summary>Queues a publish job to get the changes from the draft project back to the published version.</summary>
+        <returns>A <b>QueueJob</b> object that contains information about the queued job. If the queue job is successful, the Project Server Queuing Service publishes the draft version of the project.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RefreshLoad">
+      <MemberSignature Language="C#" Value="public override void RefreshLoad ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void RefreshLoad() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.RefreshLoad" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub RefreshLoad ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void RefreshLoad();" />
+      <MemberSignature Language="F#" Value="override this.RefreshLoad : unit -&gt; unit" Usage="draftProject.RefreshLoad " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Reserved for internal use. Reloads all scalar properties that are associated with the <b>DraftProject</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ScheduledFromStart">
+      <MemberSignature Language="C#" Value="public bool ScheduledFromStart { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ScheduledFromStart" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.ScheduledFromStart" />
+      <MemberSignature Language="VB.NET" Value="Public Property ScheduledFromStart As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool ScheduledFromStart { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.ScheduledFromStart : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.ScheduledFromStart" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the project is scheduled from the start date instead of the finish date.</summary>
+        <value>
+          <b>True</b> if the project is scheduled from the start date instead of the finish date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShowEstimatedDurations">
+      <MemberSignature Language="C#" Value="public bool ShowEstimatedDurations { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ShowEstimatedDurations" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.ShowEstimatedDurations" />
+      <MemberSignature Language="VB.NET" Value="Public Property ShowEstimatedDurations As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool ShowEstimatedDurations { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.ShowEstimatedDurations : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.ShowEstimatedDurations" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether a question mark is displayed after an estimated duration for a task.</summary>
+        <value>
+          <b>True</b> if a question mark is displayed after an estimated duration for a task; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SplitInProgress">
+      <MemberSignature Language="C#" Value="public bool SplitInProgress { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SplitInProgress" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.SplitInProgress" />
+      <MemberSignature Language="VB.NET" Value="Public Property SplitInProgress As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool SplitInProgress { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.SplitInProgress : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.SplitInProgress" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to split tasks that are in progress.</summary>
+        <value>
+          <b>True</b> if tasks that are in progress are to be split; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpreadActualCostsToStatus">
+      <MemberSignature Language="C#" Value="public bool SpreadActualCostsToStatus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SpreadActualCostsToStatus" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.SpreadActualCostsToStatus" />
+      <MemberSignature Language="VB.NET" Value="Public Property SpreadActualCostsToStatus As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool SpreadActualCostsToStatus { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.SpreadActualCostsToStatus : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.SpreadActualCostsToStatus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the consideration period for actual costs is spread to the status date or to the stop date.</summary>
+        <value>
+          <b>True</b> if the consideration period for actual costs is spread to the status date or to the stop date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpreadPercentCompleteToStatus">
+      <MemberSignature Language="C#" Value="public bool SpreadPercentCompleteToStatus { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SpreadPercentCompleteToStatus" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.SpreadPercentCompleteToStatus" />
+      <MemberSignature Language="VB.NET" Value="Public Property SpreadPercentCompleteToStatus As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool SpreadPercentCompleteToStatus { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.SpreadPercentCompleteToStatus : bool with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.SpreadPercentCompleteToStatus" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the consideration period for task percentage complete is spread to the status date or to the task finish date.</summary>
+        <value>
+          <b>True</b> if the consideration period for task percentage complete is spread to the status date or to the task finish date; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartDate">
+      <MemberSignature Language="C#" Value="public DateTime StartDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime StartDate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.StartDate" />
+      <MemberSignature Language="VB.NET" Value="Public Property StartDate As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime StartDate { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.StartDate : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.StartDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the project start date.</summary>
+        <value>The project start date.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StatusDate">
+      <MemberSignature Language="C#" Value="public DateTime StatusDate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime StatusDate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.StatusDate" />
+      <MemberSignature Language="VB.NET" Value="Public Property StatusDate As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime StatusDate { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.StatusDate : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.StatusDate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the current status date for the project.</summary>
+        <value>The status date for the project.</value>
+        <remarks>
+          <para>If the project status date is not set, <b>StatusDate</b> gets the current date of the project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TaskLinks">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftTaskLinkCollection TaskLinks { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftTaskLinkCollection TaskLinks" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.TaskLinks" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TaskLinks As DraftTaskLinkCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftTaskLinkCollection ^ TaskLinks { Microsoft::ProjectServer::Client::DraftTaskLinkCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.TaskLinks : Microsoft.ProjectServer.Client.DraftTaskLinkCollection" Usage="Microsoft.ProjectServer.Client.DraftProject.TaskLinks" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftTaskLinkCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of draft task link objects for the project. </summary>
+        <value>A collection of <b>DraftTaskLink</b> objects.</value>
+        <remarks>
+          <para>Task links set the timeline relationships among project tasks.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Tasks">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftTaskCollection Tasks { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftTaskCollection Tasks" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.Tasks" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Tasks As DraftTaskCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftTaskCollection ^ Tasks { Microsoft::ProjectServer::Client::DraftTaskCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Tasks : Microsoft.ProjectServer.Client.DraftTaskCollection" Usage="Microsoft.ProjectServer.Client.DraftProject.Tasks" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftTaskCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of task objects for the project.</summary>
+        <value>A collection of <b>DraftTask</b> objects.</value>
+        <remarks>To be added.</remarks>
+        <example>
+          <para>The following example gets a <b>ProjectCollection</b> object where a project name is specified, checks out the project, adds a task to the <b>Tasks</b> collection, and then publishes and checks the project back in. Because project names are unique, the <b>ProjectCollection</b> object can contain only one project.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.ProjectServer.Client;
+
+namespace AddTaskToProject
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa/"; // Change the path to Project Web App.
+        private static string projName = string.Empty;
+        private static string taskName = string.Empty;
+        private static int timeoutSeconds = 10;  // The maximum wait time for a queue job, in seconds.
+
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp();
+            }
+
+            projContext = new ProjectContext(pwaPath);
+
+            Console.Write("Editing project: '{0}'; adding task: '{1}' . . .", projName, taskName);
+
+            var projCollection = projContext.LoadQuery(
+                projContext.Projects
+                    .Where(p =&amp;gt; p.Name == projName));
+
+            projContext.ExecuteQuery();
+
+            if (projCollection.Count() &amp;gt; 0)
+            {
+                PublishedProject proj2Edit = projCollection.First();
+
+                DraftProject projCheckedOut = proj2Edit.CheckOut();
+
+                // Create a task.
+                TaskCreationInformation newTask = new TaskCreationInformation();
+                newTask.Name = taskName;
+                newTask.IsManual = false;
+                newTask.Duration = "3d";
+                newTask.Start = DateTime.Today;
+
+                // Add the task to the checked out project.
+                projCheckedOut.&lt;span class="label"&gt;Tasks&lt;/span&gt;.Add(newTask);
+                projCheckedOut.Publish(true);
+
+                // Update the published projects collection.
+                QueueJob qJob = projContext.Projects.Update();
+                JobState jobState = projContext.WaitForQueue(qJob, timeoutSeconds);
+
+                if (jobState == JobState.Success)
+                {
+                    Console.WriteLine("\nSuccess!");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nThere is a problem in the queue. Timeout is {0} seconds.",
+                        timeoutSeconds);
+                    Console.WriteLine("\tQueue JobState: {0}", jobState.ToString());
+                    Console.ResetColor();
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\nNo project with the name '{0}'", projName);
+                Console.ResetColor();
+            }
+
+            ExitApp();
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*projname":
+                        case "*p":
+                            if (++i &amp;gt;= argsLen) return false;
+                            projName = args[i];
+                            break;
+                        case "*taskname":
+                        case "*t":
+                            if (++i &amp;gt;= argsLen) return false;
+                            taskName = args[i];
+                            break;
+                        case "*queuetime":
+                        case "*q":
+                            if (++i &amp;gt;= argsLen) return false;
+                            timeoutSeconds = Convert.ToInt32(args[i]);
+                            break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+
+            if (string.IsNullOrEmpty(projName)) error = true;
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: AddTaskToProject -projName | -p \"Project name\"\n\t\t\t-taskName | -t \"Task name\"\n\t\t\t[-queueTime | -q sec]";
+            example += "\n\nExample: AddTaskToProject -p \"TestProj1\" -t \"Task name\"";
+            Console.WriteLine(example);
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+    }
+}</code>
+          <para />
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="TrackingMode">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.TrackingMode TrackingMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.TrackingMode TrackingMode" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.TrackingMode" />
+      <MemberSignature Language="VB.NET" Value="Public Property TrackingMode As TrackingMode" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::TrackingMode TrackingMode { Microsoft::ProjectServer::Client::TrackingMode get(); void set(Microsoft::ProjectServer::Client::TrackingMode value); };" />
+      <MemberSignature Language="F#" Value="member this.TrackingMode : Microsoft.ProjectServer.Client.TrackingMode with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.TrackingMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.TrackingMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the default tracking method for all assignments in the project.</summary>
+        <value>A numerical value that represents the tracking method used.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.QueueJob Update ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.QueueJob Update() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.Update" />
+      <MemberSignature Language="VB.NET" Value="Public Function Update () As QueueJob" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::QueueJob ^ Update();" />
+      <MemberSignature Language="F#" Value="member this.Update : unit -&gt; Microsoft.ProjectServer.Client.QueueJob" Usage="draftProject.Update " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.QueueJob</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Saves changes in a new project or checked-out draft project back to Project Server.</summary>
+        <returns>A <b>QueueJob</b> object that contains information about the queued job. If the queue job is successful, the Project Server Queuing Service saves the new or draft version of the project.</returns>
+        <remarks>
+          <para>The <b>Update</b> method cannot process a CSOM request greater than 2 MB in size. For more information about CSOM limitations, see What the CSOM does and does not do.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows the problem of creating a CSOM request that is greater than 2 MB in size. The example calls the <b>TestCreateTasks</b> method twice, first to add 252 tasks to a project, and then to try 253 tasks. Because the amount of data in the second request exceeds 2 MB, the request fails.</para>
+          <para>The <b>TestCreateTasksInGroups</b> method implements one way to break a large request into smaller groups.</para>
+          <code>using System;
+using System.Net;
+using Microsoft.ProjectServer.Client;
+using Microsoft.SharePoint.Client;
+
+namespace LimitTest
+{
+    internal static class Program
+    {
+        const int SUCCESS = 0;
+        const int ERROR = 1;
+
+        private static void Main()
+        {
+            using (var context = CreateContext())
+            {
+                // Create a request of less than 2 MB.
+                int numTasks = 252;
+                TestCreateTasks(context, numTasks);
+
+                // Create a request that is greater than 2 MB.
+                numTasks = 253;
+                TestCreateTasks(context, numTasks);
+
+                // Break a large request into groups of less than 2 MB.
+                numTasks = 301;
+                int groupCount = 200;
+                TestCreateTasksInGroups(context, numTasks, groupCount);
+            }
+            exitApp(SUCCESS);
+        }
+
+        private static ProjectContext CreateContext()
+        {
+            const string url = "http://ServerName/pwa";     // Change the PWA URL.
+            var context = new ProjectContext(url);
+            return context;
+        }
+
+        private static void &lt;span class="label"&gt;TestCreateTasks&lt;/span&gt;(ProjectContext context, int taskCount)
+        {
+            PublishedProject project;
+            DraftProject projectDraft = null;
+
+            Console.WriteLine("\n*** Creating project for {0} tasks", taskCount);
+            var projectInfo = new ProjectCreationInformation();
+            projectInfo.Id = Guid.NewGuid();
+            projectInfo.Name = "LimitTest_" + taskCount + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            projectInfo.Start = DateTime.Today;
+
+            project = context.Projects.Add(projectInfo);
+
+            var job = context.Projects.Update();
+
+            if (WaitForJob(context, job))
+            {
+                projectDraft = project.CheckOut();
+
+                Console.WriteLine("Creating the {0} tasks", taskCount);
+
+                for (var i = 0; i &amp;lt; taskCount; i++)
+                {
+                    CreateTask(projectDraft.Tasks, i);
+                }
+
+                Console.WriteLine("Calling DraftProject.Update for project: {0}", projectInfo.Name);
+
+                job = projectDraft.Update();
+            }
+            else
+            {
+                Console.WriteLine("\nThe Update job failed for Projects.Add.");
+                exitApp(ERROR);
+            }
+
+            Console.WriteLine("\tWaitForJob: after DraftProject:Update");
+
+            if (WaitForJob(context, job))
+            {
+                Console.WriteLine("\nChecking in and publishing project");
+                job = projectDraft.Publish(true);
+                Console.WriteLine("\tWaitForJob: after DraftProject.Publish");
+
+                if (!WaitForJob(context, job))
+                {
+                    Console.WriteLine("\nThe DraftProject.Publish job failed for the project.");
+                    exitApp(ERROR);
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nThe DraftProject.Update job failed for adding {0} tasks.", taskCount);
+            }
+
+            Console.WriteLine();
+        }
+
+        private static void &lt;span class="label"&gt;TestCreateTasksInGroups&lt;/span&gt;(ProjectContext context, int taskCount, int groupCount)
+        {
+            PublishedProject project;
+            DraftProject projectDraft = null;
+            int numGroups = taskCount / groupCount;
+            int remainingTasks = taskCount % groupCount;
+
+            if (remainingTasks &amp;gt; 0) numGroups++;
+
+            var projectInfo = new ProjectCreationInformation();
+            projectInfo.Id = Guid.NewGuid();
+            projectInfo.Name = "LimitTest_" + taskCount + "_groupCount_" + groupCount 
+                + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            projectInfo.Start = DateTime.Today;
+            Console.WriteLine("\n*** Creating project for {0} tasks in groups of {1}:\n\t{2}", 
+                taskCount, groupCount, projectInfo.Name);
+
+            project = context.Projects.Add(projectInfo);
+            var job = context.Projects.Update();
+
+            if (WaitForJob(context, job))
+            {
+                int tasks2Create = groupCount;
+
+                projectDraft = project.CheckOut();
+
+                for (int i = 0; i &amp;lt; numGroups; i++)
+                {
+                    if (i == numGroups - 1) tasks2Create = remainingTasks;
+
+                    Console.WriteLine("\nCreating group {0}: {1} tasks", i, tasks2Create);
+
+                    for (int t = 0; t &amp;lt; tasks2Create; t++)
+                    {
+                        CreateTask(projectDraft.Tasks, i);
+                    }
+
+                    Console.WriteLine("Calling DraftProject.Update for task group: {0}", i);
+                    job = projectDraft.Update();
+
+                    if (WaitForJob(context, job))
+                    {
+                        Console.WriteLine("\n\tSuccess: DraftProject.Update job complete");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nThe DraftProject.Update job failed.");
+                        exitApp(ERROR);
+                    }
+                }
+                Console.WriteLine("\nPublishing the project");
+                job = projectDraft.Publish(true);
+
+                if (WaitForJob(context, job))
+                {
+                    Console.WriteLine("\nThe project '{0}'\n\tis published, with {1} tasks.", 
+                        projectInfo.Name, taskCount);
+                }
+                else
+                {
+                    Console.WriteLine("\nThe DraftProject.Publish job failed.");
+                    exitApp(ERROR);
+                }
+            }
+        }
+
+        private static void exitApp(int exitCode)
+        {
+            Console.Write("Press any key to exit: ");
+            Console.ReadKey(true);
+            Environment.Exit(exitCode);
+        }
+
+        private static void CreateTask(DraftTaskCollection draftTasks, int i)
+        {
+            var taskInfo = new TaskCreationInformation();
+            taskInfo.Id = Guid.NewGuid();
+            taskInfo.Name = i.ToString();
+            taskInfo.IsManual = false;
+            taskInfo.Duration = "1d";
+
+            draftTasks.Add(taskInfo);
+        }
+
+        private static bool WaitForJob(ProjectContext context, QueueJob job)
+        {
+            bool result = true;
+
+            try
+            {
+                context.WaitForQueue(job, int.MaxValue);
+            }
+            catch (ServerException ex)
+            {
+                Console.WriteLine("\n" + ex);
+                result = false;
+            }
+            return result;
+        }
+    }
+}</code>
+          <para>Following is the output from running the <b>LimitTest</b> example:</para>
+          <code>
+*** Creating project for 252 tasks
+Creating the 252 tasks
+Calling DraftProject.Update for project: LimitTest_252_20120530_084023
+        WaitForJob: after DraftProject:Update
+
+Checking in and publishing project
+        WaitForJob: after DraftProject.Publish
+
+
+*** Creating project for 253 tasks
+Creating the 253 tasks
+Calling DraftProject.Update for project: LimitTest_253_20120530_084224
+        WaitForJob: after DraftProject:Update
+
+Microsoft.SharePoint.Client.ServerException: The request uses too many resources.
+   at Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   at Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   at Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   at Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   at Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Microsoft.ProjectServer.Client.ProjectContext.WaitForQueue(QueueJob job, Int32 timeoutSeconds)
+   at LimitTest.Program.WaitForJob(ProjectContext context, QueueJob job) 
+      in d:\Project\P15\CSOM\CSOMLimitTest\Program.cs:line 193
+
+The DraftProject.Update job failed for adding 253 tasks.
+
+
+*** Creating project for 301 tasks in groups of 200: 
+        LimitTest_301_groupCount_200_20120530_085506
+
+Creating group 0: 200 tasks
+Calling DraftProject.Update for task group: 0
+
+        Success: DraftProject.Update job complete
+
+Creating group 1: 101 tasks
+Calling DraftProject.Update for task group: 1
+
+        Success: DraftProject.Update job complete
+
+Publishing the project
+
+The project 'LimitTest_301_groupCount_200_20120530_085506' 
+        is published, with 301 tasks.
+
+Press any key to exit:</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="Validate">
+      <MemberSignature Language="C#" Value="public void Validate ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Validate() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftProject.Validate" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Validate ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void Validate();" />
+      <MemberSignature Language="F#" Value="member this.Validate : unit -&gt; unit" Usage="draftProject.Validate " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Validates pending changes from all added or removed projects.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WeekStartDay">
+      <MemberSignature Language="C#" Value="public short WeekStartDay { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 WeekStartDay" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.WeekStartDay" />
+      <MemberSignature Language="VB.NET" Value="Public Property WeekStartDay As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short WeekStartDay { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.WeekStartDay : int16 with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.WeekStartDay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the day of the week on which a work week starts.</summary>
+        <value>A day of the week.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WinprojVersion">
+      <MemberSignature Language="C#" Value="public decimal WinprojVersion { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Decimal WinprojVersion" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftProject.WinprojVersion" />
+      <MemberSignature Language="VB.NET" Value="Public Property WinprojVersion As Decimal" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Decimal WinprojVersion { System::Decimal get(); void set(System::Decimal value); };" />
+      <MemberSignature Language="F#" Value="member this.WinprojVersion : decimal with get, set" Usage="Microsoft.ProjectServer.Client.DraftProject.WinprojVersion" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Decimal</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the version of Project Professional that created the draft project.</summary>
+        <value>A decimal number.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

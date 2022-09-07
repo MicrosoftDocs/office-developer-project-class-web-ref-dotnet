@@ -1,0 +1,169 @@
+﻿<Type Name="NotificationsEventReceiver" FullName="Microsoft.Office.Project.Server.Events.NotificationsEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class NotificationsEventReceiver : Microsoft.Office.Project.Server.Events.INotificationsEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit NotificationsEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.INotificationsEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class NotificationsEventReceiver&#xA;Implements INotificationsEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class NotificationsEventReceiver abstract : Microsoft::Office::Project::Server::Events::INotificationsEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type NotificationsEventReceiver = class&#xA;    interface INotificationsEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.INotificationsEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Includes the <b>OnSending</b> and <b>OnSent</b> event handlers that occur when Project Server sends an alert or reminder.</summary>
+    <remarks>
+      <para>For information about creating, registering, and debugging an event handler, see How to: Create a Project Server Event Handler and Log an Event. For an example that changes e-mail using the <b>Notifications</b><b>Sending</b> event, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected NotificationsEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; NotificationsEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>NotificationsEventReceiver</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSending">
+      <MemberSignature Language="C#" Value="public virtual void OnSending (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSending(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSending(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnSending (contextInfo As PSContextInfo, e As NotificationsPreSendEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnSending(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::NotificationsPreSendEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSending : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs -&gt; unit&#xA;override this.OnSending : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs -&gt; unit" Usage="notificationsEventReceiver.OnSending (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">The Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler that occurs before Project Server sends an alert or reminder notification.</summary>
+        <remarks>
+          <para>Use the <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" /> and <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" /> properties to get the notification content. You can change the notification content in an <b>OnSending</b> event handler. The <see cref="T:Microsoft.Office.Project.Server.Library.Notification" /> class lists alerts and reminders.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event. For an example that changes e-mail using the <b>Notifications</b><b>Sending</b> event, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSendingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs OnSendingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs OnSendingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSendingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnSendingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As NotificationsPreSendEventArgs) As NotificationsPreSendEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::NotificationsPreSendEventArgs ^ OnSendingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::NotificationsPreSendEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSendingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs -&gt; Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs&#xA;override this.OnSendingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs -&gt; Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" Usage="notificationsEventReceiver.OnSendingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.INotificationsEventReceiverRemote.OnSendingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSent">
+      <MemberSignature Language="C#" Value="public virtual void OnSent (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSent(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSent(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnSent (contextInfo As PSContextInfo, e As NotificationsPostSendEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnSent(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::NotificationsPostSendEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSent : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs -&gt; unit&#xA;override this.OnSent : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs -&gt; unit" Usage="notificationsEventReceiver.OnSent (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">The Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler that occurs after Project Server sends an alert or reminder notification.</summary>
+        <remarks>
+          <para>Use the <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" /> and <see cref="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" /> properties to get content of the notification sent. To change the notification content, create an <b>OnSending</b> pre-event handler. The <see cref="T:Microsoft.Office.Project.Server.Library.Notification" /> class lists alerts and reminders.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSentRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnSentRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSentRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSentRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnSentRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As NotificationsPostSendEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnSentRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::NotificationsPostSendEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSentRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs -&gt; unit&#xA;override this.OnSentRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs -&gt; unit" Usage="notificationsEventReceiver.OnSentRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.INotificationsEventReceiverRemote.OnSentRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.NotificationsPostSendEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

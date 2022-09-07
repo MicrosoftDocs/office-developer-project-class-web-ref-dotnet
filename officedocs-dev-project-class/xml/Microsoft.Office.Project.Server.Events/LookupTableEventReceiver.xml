@@ -1,0 +1,699 @@
+﻿<Type Name="LookupTableEventReceiver" FullName="Microsoft.Office.Project.Server.Events.LookupTableEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class LookupTableEventReceiver : Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit LookupTableEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class LookupTableEventReceiver&#xA;Implements ILookupTableEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class LookupTableEventReceiver abstract : Microsoft::Office::Project::Server::Events::ILookupTableEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type LookupTableEventReceiver = class&#xA;    interface ILookupTableEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcLookupTable.LookupTable" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected LookupTableEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; LookupTableEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>LookupTableEventReceiver</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckedIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedIn (contextInfo As PSContextInfo, e As LookupTableCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckedIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckInLookupTables(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedInRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckedInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckedOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOut (contextInfo As PSContextInfo, e As LookupTableCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckedOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckOutLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOutRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckedOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckingIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingIn (contextInfo As PSContextInfo, e As LookupTableCheckInPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs -&gt; unit&#xA;override this.OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckingIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckInLookupTables(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingInRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs OnCheckingInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs OnCheckingInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableCheckInPreEventArgs) As LookupTableCheckInPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::LookupTableCheckInPreEventArgs ^ OnCheckingInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs&#xA;override this.OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs" Usage="lookupTableEventReceiver.OnCheckingInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckingOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingOut (contextInfo As PSContextInfo, e As LookupTableCheckOutPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs -&gt; unit&#xA;override this.OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCheckingOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CheckOutLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOutRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs OnCheckingOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs OnCheckingOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableCheckOutPreEventArgs) As LookupTableCheckOutPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::LookupTableCheckOutPreEventArgs ^ OnCheckingOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs&#xA;override this.OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs" Usage="lookupTableEventReceiver.OnCheckingOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreated (contextInfo As PSContextInfo, e As LookupTablePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTablePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit&#xA;override this.OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" /> and <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Note</b>: The pre- and post-events for both the <b>CreateLookupTables</b> and <b>CreateLookupTablesMultiLang</b> methods expose <see cref="T:WebSvcLookupTable.LookupTableMultiLangDataSet" />, rather than a <b>LookupTableDataSet</b>, in the <paramref name="e" /> parameter of event handlers. </para>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code shows examples of how to get data from different tables such as <b>LookupTableLanguages</b>, <b>LookupTables</b>, and <b>LookupTableValues</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+    }</code>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCreatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTablePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTablePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit&#xA;override this.OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCreatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreating (contextInfo As PSContextInfo, e As LookupTablePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; unit&#xA;override this.OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean)" /> and <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Note</b>: The pre- and post-events for both the <b>CreateLookupTables</b> and <b>CreateLookupTablesMultiLang</b> methods expose <see cref="T:WebSvcLookupTable.LookupTableMultiLangDataSet" />, rather than a <b>LookupTableDataSet</b>, in the <paramref name="e" /> parameter of event handlers. </para>
+          <para>To use datasets in event handlers, set a reference to the Microsoft.Office.Project.Schema.dll assembly. For more information, see How to: Create a Project Server Event Handler and Log an Event. </para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment is a pre-event handler for <b>CreateLookupTables</b> that gets data from different tables in a <b>LookupTableMultiLanguageDataSet</b>. </para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public class LookupTableEvents : LookupTableEventReceiver
+{
+    public override void OnCreating(PSLibrary.PSContextInfo contextInfo, 
+        LookupTablePreEventArgs e)
+    {
+        int lutLanguage = 
+            (int)e.LookupTableInformation.LookupTableLanguages.Rows[0]["LCID"];
+        Guid lutMultiUid = 
+            (Guid)e.LookupTableInformation.LookupTables.Rows[0]["LT_UID"];
+        string lutMultiValue = 
+            (string)e.LookupTableInformation.LookupTableValues.Rows[0]["LT_VALUE_TEXT"];
+        . . .
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs OnCreatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs OnCreatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCreatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTablePreEventArgs) As LookupTablePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ OnCreatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs&#xA;override this.OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" Usage="lookupTableEventReceiver.OnCreatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleted (contextInfo As PSContextInfo, e As LookupTableDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs -&gt; unit&#xA;override this.OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnDeletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs -&gt; unit&#xA;override this.OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnDeletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleting (contextInfo As PSContextInfo, e As LookupTableDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTableDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs -&gt; unit&#xA;override this.OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.DeleteLookupTables(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs OnDeletingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs OnDeletingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnDeletingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTableDeletePreEventArgs) As LookupTableDeletePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::LookupTableDeletePreEventArgs ^ OnDeletingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTableDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs&#xA;override this.OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs" Usage="lookupTableEventReceiver.OnDeletingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTableDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdated (contextInfo As PSContextInfo, e As LookupTablePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTablePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit&#xA;override this.OnUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean,System.Int32)" /> and <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTablePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTablePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit&#xA;override this.OnUpdatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnUpdatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnUpdatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnUpdating (contextInfo As PSContextInfo, e As LookupTablePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; unit&#xA;override this.OnUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; unit" Usage="lookupTableEventReceiver.OnUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTables(WebSvcLookupTable.LookupTableDataSet,System.Boolean,System.Boolean,System.Int32)" /> and <see cref="M:WebSvcLookupTable.LookupTable.UpdateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" /> methods.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing lookup table data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUpdatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs OnUpdatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs OnUpdatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.LookupTableEventReceiver.OnUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnUpdatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As LookupTablePreEventArgs) As LookupTablePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ OnUpdatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::LookupTablePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs&#xA;override this.OnUpdatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" Usage="lookupTableEventReceiver.OnUpdatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.ILookupTableEventReceiverRemote.OnUpdatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.LookupTablePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

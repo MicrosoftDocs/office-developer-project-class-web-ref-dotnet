@@ -1,0 +1,187 @@
+﻿<Type Name="Filter+FieldOperator" FullName="Microsoft.Office.Project.Server.Library.Filter+FieldOperator">
+  <TypeSignature Language="C#" Value="public class Filter.FieldOperator : Microsoft.Office.Project.Server.Library.Filter.IOperator" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi serializable beforefieldinit Filter/FieldOperator extends System.Object implements class Microsoft.Office.Project.Server.Library.Filter/IOperator" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.Filter.FieldOperator" />
+  <TypeSignature Language="VB.NET" Value="Public Class Filter.FieldOperator&#xA;Implements Filter.IOperator" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class Filter::FieldOperator : Microsoft::Office::Project::Server::Library::Filter::IOperator" />
+  <TypeSignature Language="F#" Value="type Filter.FieldOperator = class&#xA;    interface Filter.IOperator" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Library.Filter+IOperator</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>The operator for a field, as defined by the operation type, match type, and field definition.</summary>
+    <remarks>
+      <para>The nominal values in this class are unsigned types, which make them unavailable for CLS use.</para>
+      <para>The <b>FieldOperator</b> class implements the <see cref="T:Microsoft.Office.Project.Server.Library.Filter.IOperator" /> interface. For an example of the use of the <b>FieldOperator</b> class, see the <b>EnsureEnterpriseResource</b> method in <see cref="M:WebSvcResource.Resource.ReadResource(System.Guid)" />.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FieldOperator (Microsoft.Office.Project.Server.Library.Filter.FieldOperationType operation, string fieldName, params object[] operands);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Microsoft.Office.Project.Server.Library.Filter/FieldOperationType operation, string fieldName, object[] operands) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.#ctor(Microsoft.Office.Project.Server.Library.Filter.FieldOperationType,System.String,System.Object[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (operation As Filter.FieldOperationType, fieldName As String, ParamArray operands As Object())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; FieldOperator(Microsoft::Office::Project::Server::Library::Filter::FieldOperationType operation, System::String ^ fieldName, ... cli::array &lt;System::Object ^&gt; ^ operands);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.FieldOperator : Microsoft.Office.Project.Server.Library.Filter.FieldOperationType * string * obj[] -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldOperator" Usage="new Microsoft.Office.Project.Server.Library.Filter.FieldOperator (operation, fieldName, operands)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="operation" Type="Microsoft.Office.Project.Server.Library.Filter+FieldOperationType" />
+        <Parameter Name="fieldName" Type="System.String" />
+        <Parameter Name="operands" Type="System.Object[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="operation">An operation type for the field operator.</param>
+        <param name="fieldName">The name of a field.</param>
+        <param name="operands">A collection of operands for the field operator.</param>
+        <summary>Instantiates a <b>FieldOperator</b> object for a general field, with the field operation type, field name, and collection of operands.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FieldOperator (Microsoft.Office.Project.Server.Library.Filter.FieldOperationType operation, Microsoft.Office.Project.Server.Library.Filter.MatchType matchType, Guid customFieldGuid, Microsoft.Office.Project.Server.Library.Filter.PropertyTypeEnum propertyType, params object[] operands);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Microsoft.Office.Project.Server.Library.Filter/FieldOperationType operation, valuetype Microsoft.Office.Project.Server.Library.Filter/MatchType matchType, valuetype System.Guid customFieldGuid, valuetype Microsoft.Office.Project.Server.Library.Filter/PropertyTypeEnum propertyType, object[] operands) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.#ctor(Microsoft.Office.Project.Server.Library.Filter.FieldOperationType,Microsoft.Office.Project.Server.Library.Filter.MatchType,System.Guid,Microsoft.Office.Project.Server.Library.Filter.PropertyTypeEnum,System.Object[])" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; FieldOperator(Microsoft::Office::Project::Server::Library::Filter::FieldOperationType operation, Microsoft::Office::Project::Server::Library::Filter::MatchType matchType, Guid customFieldGuid, Microsoft::Office::Project::Server::Library::Filter::PropertyTypeEnum propertyType, ... cli::array &lt;System::Object ^&gt; ^ operands);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.FieldOperator : Microsoft.Office.Project.Server.Library.Filter.FieldOperationType * Microsoft.Office.Project.Server.Library.Filter.MatchType * Guid * Microsoft.Office.Project.Server.Library.Filter.PropertyTypeEnum * obj[] -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldOperator" Usage="new Microsoft.Office.Project.Server.Library.Filter.FieldOperator (operation, matchType, customFieldGuid, propertyType, operands)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="operation" Type="Microsoft.Office.Project.Server.Library.Filter+FieldOperationType" />
+        <Parameter Name="matchType" Type="Microsoft.Office.Project.Server.Library.Filter+MatchType" />
+        <Parameter Name="customFieldGuid" Type="System.Guid" />
+        <Parameter Name="propertyType" Type="Microsoft.Office.Project.Server.Library.Filter+PropertyTypeEnum" />
+        <Parameter Name="operands" Type="System.Object[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="operation">The operation type for the field operator.</param>
+        <param name="matchType">The match type for the field operator.</param>
+        <param name="customFieldGuid">The GUID for the custom field.</param>
+        <param name="propertyType">An enumeration that specifies a type.</param>
+        <param name="operands">A collection of operands for the field operator.</param>
+        <summary>Instantiates a <b>FieldOperator</b> object for a custom field, with the field operation type, match type, custom field GUID, property type, and collection of operands.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Field">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.FieldBase Field { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Filter/FieldBase Field" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Field" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Field As Filter.FieldBase" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Filter::FieldBase ^ Field { Microsoft::Office::Project::Server::Library::Filter::FieldBase ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Field : Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Field" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldBase</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the field for the field operator.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MatchType">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.MatchType MatchType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.Filter/MatchType MatchType" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.MatchType" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property MatchType As Filter.MatchType" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Filter::MatchType MatchType { Microsoft::Office::Project::Server::Library::Filter::MatchType get(); };" />
+      <MemberSignature Language="F#" Value="member this.MatchType : Microsoft.Office.Project.Server.Library.Filter.MatchType" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldOperator.MatchType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+MatchType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the match type for the field operator.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Operands">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.List&lt;object&gt; Operands { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.List`1&lt;object&gt; Operands" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Operands" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Operands As List(Of Object)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Collections::Generic::List&lt;System::Object ^&gt; ^ Operands { System::Collections::Generic::List&lt;System::Object ^&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Operands : System.Collections.Generic.List&lt;obj&gt;" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Operands" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.List&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of operands for the field operator.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Operation">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.FieldOperationType Operation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.Filter/FieldOperationType Operation" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Operation" />
+      <MemberSignature Language="VB.NET" Value="Public Property Operation As Filter.FieldOperationType" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Filter::FieldOperationType Operation { Microsoft::Office::Project::Server::Library::Filter::FieldOperationType get(); void set(Microsoft::Office::Project::Server::Library::Filter::FieldOperationType value); };" />
+      <MemberSignature Language="F#" Value="member this.Operation : Microsoft.Office.Project.Server.Library.Filter.FieldOperationType with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldOperator.Operation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldOperationType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the operation type for the field operator.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

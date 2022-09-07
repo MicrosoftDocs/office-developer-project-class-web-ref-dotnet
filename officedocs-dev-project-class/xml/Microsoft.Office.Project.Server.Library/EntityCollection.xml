@@ -1,0 +1,447 @@
+﻿<Type Name="EntityCollection" FullName="Microsoft.Office.Project.Server.Library.EntityCollection">
+  <TypeSignature Language="C#" Value="public sealed class EntityCollection : System.Collections.CollectionBase" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit EntityCollection extends System.Collections.CollectionBase" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.EntityCollection" />
+  <TypeSignature Language="VB.NET" Value="Public NotInheritable Class EntityCollection&#xA;Inherits CollectionBase" />
+  <TypeSignature Language="C++ CLI" Value="public ref class EntityCollection sealed : System::Collections::CollectionBase" />
+  <TypeSignature Language="F#" Value="type EntityCollection = class&#xA;    inherit CollectionBase" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Collections.CollectionBase</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Collection of entity metadata for assignment, calendar, constraint, outline code, project, resource, and task entities.</summary>
+    <remarks>
+      <para>Use <b>EntityCollection</b> to obtain the GUID of an entity type for use in PSI methods. </para>
+      <para />
+    </remarks>
+    <example>
+      <para>The following code fragment uses the resource entity GUID in order to get all of the resource custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+      <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string resourceEntity = PSLibrary.EntityCollection.Entities.ResourceEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(resourceEntity));
+. . .</code>
+    </example>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public EntityCollection ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.EntityCollection.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; EntityCollection();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>EntityCollection</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AssignmentEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity AssignmentEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity AssignmentEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.AssignmentEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AssignmentEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ AssignmentEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.AssignmentEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.AssignmentEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the assignment entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.AssignmentEntity.UniqueId</b> to obtain the GUID of the assignment entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the assignment entity GUID in order to get all of the assignment custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string assignmentEntity = PSLibrary.EntityCollection.Entities.AssignmentEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(assignmentEntity));
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CalendarEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity CalendarEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity CalendarEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.CalendarEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property CalendarEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ CalendarEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.CalendarEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.CalendarEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the calendar entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.CalendarEntity.UniqueId</b> to obtain the GUID of the calendar entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the calendar entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string calendarEntity = PSLibrary.EntityCollection.Entities.CalendarEntity.UniqueId;
+Guid calendarEntityUid = new Guid(calendarEntity);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ConstraintEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity ConstraintEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity ConstraintEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.ConstraintEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ConstraintEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ ConstraintEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ConstraintEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.ConstraintEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the constraint entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ConstraintEntity.UniqueId</b> to obtain the GUID of the assignment entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the constraint entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string constraintEntity = PSLibrary.EntityCollection.Entities.ConstraintEntity.UniqueId;
+Guid constraintEntityUid = new Guid(constraintEntity);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (Microsoft.Office.Project.Server.Library.Entity entity);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Contains(class Microsoft.Office.Project.Server.Library.Entity entity) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.EntityCollection.Contains(Microsoft.Office.Project.Server.Library.Entity)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool Contains(Microsoft::Office::Project::Server::Library::Entity ^ entity);" />
+      <MemberSignature Language="F#" Value="member this.Contains : Microsoft.Office.Project.Server.Library.Entity -&gt; bool" Usage="entityCollection.Contains entity" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="entity" Type="Microsoft.Office.Project.Server.Library.Entity" />
+      </Parameters>
+      <Docs>
+        <param name="entity">To be added.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CopyTo">
+      <MemberSignature Language="C#" Value="public void CopyTo (Microsoft.Office.Project.Server.Library.Entity[] array, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CopyTo(class Microsoft.Office.Project.Server.Library.Entity[] array, int32 index) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.EntityCollection.CopyTo(Microsoft.Office.Project.Server.Library.Entity[],System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CopyTo (array As Entity(), index As Integer)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CopyTo(cli::array &lt;Microsoft::Office::Project::Server::Library::Entity ^&gt; ^ array, int index);" />
+      <MemberSignature Language="F#" Value="member this.CopyTo : Microsoft.Office.Project.Server.Library.Entity[] * int -&gt; unit" Usage="entityCollection.CopyTo (array, index)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="Microsoft.Office.Project.Server.Library.Entity[]" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="array">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Entities">
+      <MemberSignature Language="C#" Value="public static Microsoft.Office.Project.Server.Library.EntityCollection Entities { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Microsoft.Office.Project.Server.Library.EntityCollection Entities" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.Entities" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ReadOnly Property Entities As EntityCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static property Microsoft::Office::Project::Server::Library::EntityCollection ^ Entities { Microsoft::Office::Project::Server::Library::EntityCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Entities : Microsoft.Office.Project.Server.Library.EntityCollection" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.Entities" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.EntityCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of <b>Entity</b> objects.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities</b> to access information for specific entity. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the task entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string taskEntity = PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+Guid taskEntityUid = new Guid(taskEntity);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="IndexOf">
+      <MemberSignature Language="C#" Value="public int IndexOf (Microsoft.Office.Project.Server.Library.Entity entity);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 IndexOf(class Microsoft.Office.Project.Server.Library.Entity entity) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.EntityCollection.IndexOf(Microsoft.Office.Project.Server.Library.Entity)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int IndexOf(Microsoft::Office::Project::Server::Library::Entity ^ entity);" />
+      <MemberSignature Language="F#" Value="member this.IndexOf : Microsoft.Office.Project.Server.Library.Entity -&gt; int" Usage="entityCollection.IndexOf entity" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="entity" Type="Microsoft.Office.Project.Server.Library.Entity" />
+      </Parameters>
+      <Docs>
+        <param name="entity">Specified entity from <b>EntityCollection.Entities</b>.</param>
+        <summary>Gets the index of a specified entity.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity this[int index] { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity Item(int32)" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.Item(System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Default Public ReadOnly Property Item(index As Integer) As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ default[int] { Microsoft::Office::Project::Server::Library::Entity ^ get(int index); };" />
+      <MemberSignature Language="F#" Value="member this.Item(int) : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.Item" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OutlineCodeEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity OutlineCodeEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity OutlineCodeEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.OutlineCodeEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property OutlineCodeEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ OutlineCodeEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.OutlineCodeEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.OutlineCodeEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the outline code entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.OutlineCodeEntity.UniqueId</b> to obtain the GUID of the outline code entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code gets the GUID of the outline code entity.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+string outlineCodeEntity = PSLibrary.EntityCollection.Entities.OutlineCodeEntity.UniqueId;
+Guid outlineCodeEntityUid = new Guid(outlineCodeEntity);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ProjectEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity ProjectEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity ProjectEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.ProjectEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProjectEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ ProjectEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ProjectEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.ProjectEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the project entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ProjectEntity.UniqueId</b> to obtain the GUID of the project entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the project entity GUID in order to get all of the project custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string projectEntity = PSLibrary.EntityCollection.Entities.ProjectEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(projectEntity));
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ResourceEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity ResourceEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity ResourceEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.ResourceEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ResourceEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ ResourceEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ResourceEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.ResourceEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the resource entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.ResourceEntity.UniqueId</b> to obtain the GUID of the resource entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the resource entity GUID in order to get all of the resource custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string resourceEntity = PSLibrary.EntityCollection.Entities.ResourceEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(resourceEntity));
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="TaskEntity">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Entity TaskEntity { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.Entity TaskEntity" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.EntityCollection.TaskEntity" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TaskEntity As Entity" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Entity ^ TaskEntity { Microsoft::Office::Project::Server::Library::Entity ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.TaskEntity : Microsoft.Office.Project.Server.Library.Entity" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.TaskEntity" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Entity</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets metadata for the task entity type. </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Use <b>EntityCollection.Entities.TaskEntity.UniqueId</b> to obtain the GUID of the task entity for use in PSI methods.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment uses the task entity GUID in order to get all of the task custom fields with the <see cref="M:WebSvcCustomFields.CustomFields.ReadCustomFieldsByEntity(System.Guid)" /> method. <b>WebSvcCustomFields</b> is the arbitrary name of a reference to the CustomFields.asmx Web service.</para>
+          <code>using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+public static WebSvcCustomFields.CustomFields customFields =
+    new WebSvcCustomFields.CustomFields();
+. . .
+string taskEntity = PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+
+WebSvcCustomFields.CustomFieldDataSet cfDs = customFields.ReadCustomFieldsByEntity(
+    new Guid(taskEntity));
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="WinProjIdMask">
+      <MemberSignature Language="C#" Value="public const int WinProjIdMask = 2147418112;" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal int32 WinProjIdMask = (2147418112)" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Library.EntityCollection.WinProjIdMask" />
+      <MemberSignature Language="VB.NET" Value="Public Const WinProjIdMask As Integer  = 2147418112" />
+      <MemberSignature Language="C++ CLI" Value="public: int WinProjIdMask = 2147418112;" />
+      <MemberSignature Language="F#" Value="val mutable WinProjIdMask : int" Usage="Microsoft.Office.Project.Server.Library.EntityCollection.WinProjIdMask" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <MemberValue>2147418112</MemberValue>
+      <Docs>
+        <summary>This member is reserved for internal use and is not intended to be used directly from your code.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,313 @@
+﻿<Type Name="EnterpriseResourceCollection" FullName="Microsoft.ProjectServer.Client.EnterpriseResourceCollection">
+  <TypeSignature Language="C#" Value="public class EnterpriseResourceCollection : Microsoft.SharePoint.Client.ClientObjectCollection&lt;Microsoft.ProjectServer.Client.EnterpriseResource&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit EnterpriseResourceCollection extends Microsoft.SharePoint.Client.ClientObjectCollection`1&lt;class Microsoft.ProjectServer.Client.EnterpriseResource&gt;" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.EnterpriseResourceCollection" />
+  <TypeSignature Language="VB.NET" Value="Public Class EnterpriseResourceCollection&#xA;Inherits ClientObjectCollection(Of EnterpriseResource)" />
+  <TypeSignature Language="C++ CLI" Value="public ref class EnterpriseResourceCollection : Microsoft::SharePoint::Client::ClientObjectCollection&lt;Microsoft::ProjectServer::Client::EnterpriseResource ^&gt;" />
+  <TypeSignature Language="F#" Value="type EnterpriseResourceCollection = class&#xA;    inherit ClientObjectCollection&lt;EnterpriseResource&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.SharePoint.Client.ClientObjectCollection&lt;Microsoft.ProjectServer.Client.EnterpriseResource&gt;</BaseTypeName>
+    <BaseTypeArguments>
+      <BaseTypeArgument TypeParamName="!0">Microsoft.ProjectServer.Client.EnterpriseResource</BaseTypeArgument>
+    </BaseTypeArguments>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.EnterpriseResourceCollection", ServerTypeId="{4906f478-38f2-405a-aeb9-3533866f500d}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents a collection of <see cref="T:Microsoft.ProjectServer.Client.EnterpriseResource" /> objects.</summary>
+    <remarks>
+      <para>You can get an <see cref="T:Microsoft.ProjectServer.Client.EnterpriseResource" /> object for editing by using the <b>GetByGuid</b>, <b>GetById</b>, or <b>GetByUser</b> method on the <b>EnterpriseResourceCollection</b> object. When you make a change to one of the editable properties, and then save the change, Project Server automatically checks out the resource, makes the change, and then checks the resource back in. This is similar to the process of opening an enterprise resource in Project Professional 2013, editing it, and then saving and closing the enterprise resource.</para>
+      <para />
+    </remarks>
+    <example>
+      <para>The following example uses the <b>GetByGuid</b> method to get an <b>EnterpriseResource</b> object for editing. The example toggles the <b>CanLevel</b> property from <b>True</b> to <b>False</b>.</para>
+      <para>If the resource is already checked out, the example throws a <b>PJClientCallableException</b>, such as <b>CICOAlreadyCheckedOutToYou</b>. You can use <b>Try</b> –<b>Catch</b> statements to handle the exception, or use the <see cref="P:Microsoft.ProjectServer.Client.EnterpriseResource.IsCheckedOut" /> property to determine whether an edit can be done.</para>
+      <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace EditEntResource
+{
+    class Program
+    {
+        private const string pwaPath = "http://ServerName/pwa/";    // Change the path for your Project Web App.
+        
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            projContext = new ProjectContext(pwaPath); 
+
+            Guid entResUid = new Guid("9f164f32-d985-e211-93f8-0021704e28a0");
+
+            // Get the list of enterprise resources in Project Web App.
+            projContext.Load(projContext.EnterpriseResources);
+            projContext.ExecuteQuery();
+
+            int numResInCollection = projContext.EnterpriseResources.Count();
+
+            if (numResInCollection &amp;gt; 0)
+            {
+                projContext.Load(projContext.EnterpriseResources.&lt;span class="label"&gt;GetByGuid&lt;/span&gt;(entResUid));
+                projContext.ExecuteQuery();
+
+                var entRes2Edit = projContext.EnterpriseResources.&lt;span class="label"&gt;GetByGuid&lt;/span&gt;(entResUid);
+
+                Console.WriteLine("\nEditing resource : GUID : Can Level");
+                Console.WriteLine("\n{0} : {1} : {2}", entRes2Edit.Name, entRes2Edit.Id.ToString(),
+                    entRes2Edit.CanLevel.ToString());
+
+                // Toggle the CanLevel property.
+                entRes2Edit.&lt;span class="label"&gt;CanLevel&lt;/span&gt; = !entRes2Edit.&lt;span class="label"&gt;CanLevel&lt;/span&gt;;
+
+                // The entRes2Edit object is in the EnterpriseResources collection.
+                projContext.EnterpriseResources.Update();
+                
+                // Save the change.
+                projContext.ExecuteQuery();
+
+                // Check that the change was made.
+                projContext.Load(projContext.EnterpriseResources.GetByGuid(entResUid));
+                projContext.ExecuteQuery();
+
+                entRes2Edit = projContext.EnterpriseResources.GetByGuid(entResUid);
+
+                Console.WriteLine("\n\nChanged resource : GUID : Can Level");
+                Console.WriteLine("\n{0} : {1} : {2}", entRes2Edit.Name, entRes2Edit.Id.ToString(),
+                    entRes2Edit.CanLevel.ToString());
+            }
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+      <para>Following is sample output:</para>
+      <code>Editing resource : GUID : Can Level
+TestUser Name : 9f164f32-d985-e211-93f8-0021704e28a0 : True
+
+Changed resource : GUID : Can Level
+TestUser Name : 9f164f32-d985-e211-93f8-0021704e28a0 : False
+Press any key to exit:</code>
+    </example>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public EnterpriseResourceCollection (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; EnterpriseResourceCollection(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.EnterpriseResourceCollection : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.EnterpriseResourceCollection" Usage="new Microsoft.ProjectServer.Client.EnterpriseResourceCollection (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>EnterpriseResourceCollection</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseResource Add (Microsoft.ProjectServer.Client.EnterpriseResourceCreationInformation parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.EnterpriseResource Add(class Microsoft.ProjectServer.Client.EnterpriseResourceCreationInformation parameters) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.Add(Microsoft.ProjectServer.Client.EnterpriseResourceCreationInformation)" />
+      <MemberSignature Language="VB.NET" Value="Public Function Add (parameters As EnterpriseResourceCreationInformation) As EnterpriseResource" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::EnterpriseResource ^ Add(Microsoft::ProjectServer::Client::EnterpriseResourceCreationInformation ^ parameters);" />
+      <MemberSignature Language="F#" Value="member this.Add : Microsoft.ProjectServer.Client.EnterpriseResourceCreationInformation -&gt; Microsoft.ProjectServer.Client.EnterpriseResource" Usage="enterpriseResourceCollection.Add parameters" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="Microsoft.ProjectServer.Client.EnterpriseResourceCreationInformation" />
+      </Parameters>
+      <Docs>
+        <param name="parameters">The properties of the enterprise resource to create.</param>
+        <summary>Adds the enterprise resource that is specified by the <see cref="T:Microsoft.ProjectServer.Client.AssignmentCreationInformation" /> object to the collection.</summary>
+        <returns>The enterprise resource.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetByGuid">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseResource GetByGuid (Guid uid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.EnterpriseResource GetByGuid(valuetype System.Guid uid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.GetByGuid(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetByGuid (uid As Guid) As EnterpriseResource" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::EnterpriseResource ^ GetByGuid(Guid uid);" />
+      <MemberSignature Language="F#" Value="member this.GetByGuid : Guid -&gt; Microsoft.ProjectServer.Client.EnterpriseResource" Usage="enterpriseResourceCollection.GetByGuid uid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="uid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="uid">A GUID value.</param>
+        <summary>Get an enterprise resource from the collection with the specified GUID.</summary>
+        <returns>An <b>EnterpriseResource</b> object.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetById">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseResource GetById (string objectId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.EnterpriseResource GetById(string objectId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.GetById(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetById (objectId As String) As EnterpriseResource" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::EnterpriseResource ^ GetById(System::String ^ objectId);" />
+      <MemberSignature Language="F#" Value="member this.GetById : string -&gt; Microsoft.ProjectServer.Client.EnterpriseResource" Usage="enterpriseResourceCollection.GetById objectId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectId" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="objectId">The string representation of the enterprise resource GUID.</param>
+        <summary>Gets an enterprise resource from the collection with the <see cref="P:Microsoft.ProjectServer.Client.EnterpriseResource.Name" /> value.</summary>
+        <returns>An <b>EnterpriseResource</b> object.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetByUser">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseResource GetByUser (Microsoft.SharePoint.Client.User user);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.ProjectServer.Client.EnterpriseResource GetByUser(class Microsoft.SharePoint.Client.User user) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.GetByUser(Microsoft.SharePoint.Client.User)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::ProjectServer::Client::EnterpriseResource ^ GetByUser(Microsoft::SharePoint::Client::User ^ user);" />
+      <MemberSignature Language="F#" Value="member this.GetByUser : Microsoft.SharePoint.Client.User -&gt; Microsoft.ProjectServer.Client.EnterpriseResource" Usage="enterpriseResourceCollection.GetByUser user" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResource</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="user" Type="Microsoft.SharePoint.Client.User" />
+      </Parameters>
+      <Docs>
+        <param name="user">An object of type <b>User</b>.</param>
+        <summary>Returns an element from the collection linked to the SharePoint user.</summary>
+        <returns>An <b>EnterpriseResource</b> object.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public Microsoft.SharePoint.Client.ClientResult&lt;bool&gt; Remove (Microsoft.ProjectServer.Client.EnterpriseResource resource);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.SharePoint.Client.ClientResult`1&lt;bool&gt; Remove(class Microsoft.ProjectServer.Client.EnterpriseResource resource) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.Remove(Microsoft.ProjectServer.Client.EnterpriseResource)" />
+      <MemberSignature Language="VB.NET" Value="Public Function Remove (resource As EnterpriseResource) As ClientResult(Of Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::SharePoint::Client::ClientResult&lt;bool&gt; ^ Remove(Microsoft::ProjectServer::Client::EnterpriseResource ^ resource);" />
+      <MemberSignature Language="F#" Value="member this.Remove : Microsoft.ProjectServer.Client.EnterpriseResource -&gt; Microsoft.SharePoint.Client.ClientResult&lt;bool&gt;" Usage="enterpriseResourceCollection.Remove resource" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.SharePoint.Client.ClientResult&lt;System.Boolean&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="Microsoft.ProjectServer.Client.EnterpriseResource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">The enterprise resource to remove.</param>
+        <summary>Removes the specified enterprise resource from a project.</summary>
+        <returns>
+          <b>True</b> if the object is removed from the collection; otherwise, <b>False</b>.</returns>
+        <remarks>
+          <para>If the project has been deleted, the <b>Remove</b> method returns <see cref="F:Microsoft.Office.Project.Server.Library.PSErrorID.ProjectDoesNotExist" />. If the draft project has been checked in, the <b>Remove</b> method returns <see cref="F:Microsoft.Office.Project.Server.Library.PSErrorID.ProjectCheckoutFailed" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public void Update ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Update() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.EnterpriseResourceCollection.Update" />
+      <MemberSignature Language="VB.NET" Value="Public Sub Update ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void Update();" />
+      <MemberSignature Language="F#" Value="member this.Update : unit -&gt; unit" Usage="enterpriseResourceCollection.Update " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Updates the enterprise resource collection.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

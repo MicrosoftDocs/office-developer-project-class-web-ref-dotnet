@@ -1,0 +1,962 @@
+﻿<Type Name="ResourceEventReceiver" FullName="Microsoft.Office.Project.Server.Events.ResourceEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class ResourceEventReceiver : Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit ResourceEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.ResourceEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class ResourceEventReceiver&#xA;Implements IResourceEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ResourceEventReceiver abstract : Microsoft::Office::Project::Server::Events::IResourceEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type ResourceEventReceiver = class&#xA;    interface IResourceEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcResource.Resource" /> class.</summary>
+    <remarks>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected ResourceEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; ResourceEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>ResourceEventReceiver</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnActivated">
+      <MemberSignature Language="C#" Value="public virtual void OnActivated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnActivated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnActivated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnActivated (contextInfo As PSContextInfo, e As ResourceActivatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnActivated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceActivatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnActivated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs -&gt; unit&#xA;override this.OnActivated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnActivated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.ActivateResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnActivatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnActivatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnActivatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnActivatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnActivatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceActivatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnActivatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceActivatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnActivatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs -&gt; unit&#xA;override this.OnActivatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnActivatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnActivatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceActivatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnActivating">
+      <MemberSignature Language="C#" Value="public virtual void OnActivating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnActivating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnActivating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnActivating (contextInfo As PSContextInfo, e As ResourceActivatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnActivating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceActivatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnActivating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs -&gt; unit&#xA;override this.OnActivating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnActivating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.ActivateResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnActivatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs OnActivatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs OnActivatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnActivatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnActivatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceActivatePreEventArgs) As ResourceActivatePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceActivatePreEventArgs ^ OnActivatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceActivatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnActivatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs&#xA;override this.OnActivatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs" Usage="resourceEventReceiver.OnActivatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnActivatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceActivatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnChanged">
+      <MemberSignature Language="C#" Value="public virtual void OnChanged (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnChanged(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnChanged(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnChanged (contextInfo As PSContextInfo, e As ResourceUpdatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnChanged(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceUpdatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnChanged : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs -&gt; unit&#xA;override this.OnChanged : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnChanged (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.UpdateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnChangedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnChangedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnChangedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnChangedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnChangedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceUpdatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnChangedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceUpdatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnChangedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs -&gt; unit&#xA;override this.OnChangedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnChangedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnChangedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceUpdatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnChanging">
+      <MemberSignature Language="C#" Value="public virtual void OnChanging (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnChanging(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnChanging(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnChanging (contextInfo As PSContextInfo, e As ResourceUpdatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnChanging(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceUpdatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnChanging : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs -&gt; unit&#xA;override this.OnChanging : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnChanging (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.UpdateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnChangingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs OnChangingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs OnChangingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnChangingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnChangingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceUpdatePreEventArgs) As ResourceUpdatePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceUpdatePreEventArgs ^ OnChangingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceUpdatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnChangingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs&#xA;override this.OnChangingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs" Usage="resourceEventReceiver.OnChangingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnChangingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceUpdatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckedIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedIn (contextInfo As PSContextInfo, e As ResourceCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckedIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.CheckInResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedInRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCheckInPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCheckInPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs -&gt; unit&#xA;override this.OnCheckedInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckedInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCheckedInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckedOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOut (contextInfo As PSContextInfo, e As ResourceCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckedOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.CheckOutResources(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckedOutRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckedOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckedOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckedOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCheckOutPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckedOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCheckOutPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs -&gt; unit&#xA;override this.OnCheckedOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckedOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCheckedOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckOutPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingIn">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingIn (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingIn(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckingIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingIn (contextInfo As PSContextInfo, e As ResourceCheckInPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingIn(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs -&gt; unit&#xA;override this.OnCheckingIn : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckingIn (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.CheckInResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingInRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs OnCheckingInRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs OnCheckingInRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingInRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCheckInPreEventArgs) As ResourceCheckInPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceCheckInPreEventArgs ^ OnCheckingInRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCheckInPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs&#xA;override this.OnCheckingInRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs" Usage="resourceEventReceiver.OnCheckingInRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCheckingInRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckInPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOut">
+      <MemberSignature Language="C#" Value="public virtual void OnCheckingOut (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCheckingOut(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckingOut(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCheckingOut (contextInfo As PSContextInfo, e As ResourceCheckOutPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCheckingOut(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs -&gt; unit&#xA;override this.OnCheckingOut : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCheckingOut (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.CheckOutResources(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCheckingOutRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs OnCheckingOutRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs OnCheckingOutRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCheckingOutRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCheckOutPreEventArgs) As ResourceCheckOutPreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceCheckOutPreEventArgs ^ OnCheckingOutRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCheckOutPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs&#xA;override this.OnCheckingOutRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs" Usage="resourceEventReceiver.OnCheckingOutRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCheckingOutRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCheckOutPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreated (contextInfo As PSContextInfo, e As ResourceCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs -&gt; unit&#xA;override this.OnCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnCreatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs -&gt; unit&#xA;override this.OnCreatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCreatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCreatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCreating (contextInfo As PSContextInfo, e As ResourceCreatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs -&gt; unit&#xA;override this.OnCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.CreateResources(WebSvcResource.ResourceDataSet,System.Boolean,System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCreatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs OnCreatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs OnCreatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnCreatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceCreatePreEventArgs) As ResourceCreatePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceCreatePreEventArgs ^ OnCreatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs&#xA;override this.OnCreatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs" Usage="resourceEventReceiver.OnCreatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnCreatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeactivated">
+      <MemberSignature Language="C#" Value="public virtual void OnDeactivated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeactivated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeactivated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeactivated (contextInfo As PSContextInfo, e As ResourceDeactivatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeactivated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceDeactivatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeactivated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs -&gt; unit&#xA;override this.OnDeactivated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeactivated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.DeactivateResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeactivatedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnDeactivatedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeactivatedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeactivatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeactivatedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceDeactivatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeactivatedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceDeactivatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeactivatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs -&gt; unit&#xA;override this.OnDeactivatedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeactivatedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnDeactivatedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeactivatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeactivating">
+      <MemberSignature Language="C#" Value="public virtual void OnDeactivating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeactivating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeactivating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeactivating (contextInfo As PSContextInfo, e As ResourceDeactivatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeactivating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceDeactivatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeactivating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs -&gt; unit&#xA;override this.OnDeactivating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeactivating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.DeactivateResources(System.Guid[],System.Boolean)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeactivatingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs OnDeactivatingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs OnDeactivatingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeactivatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnDeactivatingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceDeactivatePreEventArgs) As ResourceDeactivatePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceDeactivatePreEventArgs ^ OnDeactivatingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceDeactivatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeactivatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs&#xA;override this.OnDeactivatingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs" Usage="resourceEventReceiver.OnDeactivatingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnDeactivatingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeactivatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleted (contextInfo As PSContextInfo, e As ResourceDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs -&gt; unit&#xA;override this.OnDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.DeleteResources(System.Guid[],System.String)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnDeletedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeletedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeletedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeletedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs -&gt; unit&#xA;override this.OnDeletedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeletedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnDeletedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnDeleting (contextInfo As PSContextInfo, e As ResourceDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs -&gt; unit&#xA;override this.OnDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.DeleteResources(System.Guid[],System.String)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para>For information about additional Report Data Service (RDS) events for changing resource data in the Reporting database, see <a href="http://msdn.microsoft.com/en-us/library/aa494918.aspx">Events for the RDB</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnDeletingRemote">
+      <MemberSignature Language="C#" Value="public virtual Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs OnDeletingRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs OnDeletingRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Function OnDeletingRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As ResourceDeletePreEventArgs) As ResourceDeletePreEventArgs" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Events::ResourceDeletePreEventArgs ^ OnDeletingRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::ResourceDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs&#xA;override this.OnDeletingRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs -&gt; Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs" Usage="resourceEventReceiver.OnDeletingRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IResourceEventReceiverRemote.OnDeletingRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSetAuthorization">
+      <MemberSignature Language="C#" Value="public virtual void OnSetAuthorization (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSetAuthorization(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnSetAuthorization(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnSetAuthorization (contextInfo As PSContextInfo, e As ResourceAuthorizationPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnSetAuthorization(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceAuthorizationPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSetAuthorization : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs -&gt; unit&#xA;override this.OnSetAuthorization : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs -&gt; unit" Usage="resourceEventReceiver.OnSetAuthorization (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceAuthorizationPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcResource.Resource.SetResourceAuthorization(WebSvcResource.ResourceAuthorizationDataSet)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSettingAuthorization">
+      <MemberSignature Language="C#" Value="public virtual void OnSettingAuthorization (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnSettingAuthorization(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnSettingAuthorization(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnSettingAuthorization (contextInfo As PSContextInfo, e As ResourceAuthorizationPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnSettingAuthorization(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ResourceAuthorizationPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnSettingAuthorization : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs -&gt; unit&#xA;override this.OnSettingAuthorization : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs -&gt; unit" Usage="resourceEventReceiver.OnSettingAuthorization (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ResourceAuthorizationPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcResource.Resource.SetResourceAuthorization(WebSvcResource.ResourceAuthorizationDataSet)" /> method.</summary>
+        <remarks>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

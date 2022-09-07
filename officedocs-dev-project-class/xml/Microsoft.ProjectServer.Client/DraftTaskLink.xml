@@ -1,0 +1,189 @@
+﻿<Type Name="DraftTaskLink" FullName="Microsoft.ProjectServer.Client.DraftTaskLink">
+  <TypeSignature Language="C#" Value="public class DraftTaskLink : Microsoft.ProjectServer.Client.TaskLink" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DraftTaskLink extends Microsoft.ProjectServer.Client.TaskLink" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.DraftTaskLink" />
+  <TypeSignature Language="VB.NET" Value="Public Class DraftTaskLink&#xA;Inherits TaskLink" />
+  <TypeSignature Language="C++ CLI" Value="public ref class DraftTaskLink : Microsoft::ProjectServer::Client::TaskLink" />
+  <TypeSignature Language="F#" Value="type DraftTaskLink = class&#xA;    inherit TaskLink" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.ProjectServer.Client.TaskLink</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.DraftTaskLink", ServerTypeId="{cd90b992-1932-4c4c-a4d8-299b9f9ed079}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Creates an object to access the task links in a draft project.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DraftTaskLink (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftTaskLink.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; DraftTaskLink(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.DraftTaskLink : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.DraftTaskLink" Usage="new Microsoft.ProjectServer.Client.DraftTaskLink (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>DraftTaskLink</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteObject">
+      <MemberSignature Language="C#" Value="public void DeleteObject ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteObject() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftTaskLink.DeleteObject" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteObject ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteObject();" />
+      <MemberSignature Language="F#" Value="member this.DeleteObject : unit -&gt; unit" Usage="draftTaskLink.DeleteObject " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Deletes the <b>DraftTaskLink</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DependencyType">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DependencyType DependencyType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.ProjectServer.Client.DependencyType DependencyType" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftTaskLink.DependencyType" />
+      <MemberSignature Language="VB.NET" Value="Public Property DependencyType As DependencyType" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DependencyType DependencyType { Microsoft::ProjectServer::Client::DependencyType get(); void set(Microsoft::ProjectServer::Client::DependencyType value); };" />
+      <MemberSignature Language="F#" Value="member this.DependencyType : Microsoft.ProjectServer.Client.DependencyType with get, set" Usage="Microsoft.ProjectServer.Client.DraftTaskLink.DependencyType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DependencyType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the type of link relationship between two tasks.</summary>
+        <value>An object that represents one of several different dependency types.</value>
+        <remarks>
+          <para>An example of a dependency link type is <b>FinishStart</b>. The predecessor, task A, must finish before the successor, task B, can start.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="End">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftTask End { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftTask End" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftTaskLink.End" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property End As DraftTask" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftTask ^ End { Microsoft::ProjectServer::Client::DraftTask ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.End : Microsoft.ProjectServer.Client.DraftTask" Usage="Microsoft.ProjectServer.Client.DraftTaskLink.End" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftTask</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the task at the end of the link.</summary>
+        <value>A <b>DraftTask</b> object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.DraftTaskLink.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="draftTaskLink.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.DraftTask Start { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.DraftTask Start" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.DraftTaskLink.Start" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Start As DraftTask" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::DraftTask ^ Start { Microsoft::ProjectServer::Client::DraftTask ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Start : Microsoft.ProjectServer.Client.DraftTask" Usage="Microsoft.ProjectServer.Client.DraftTaskLink.Start" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.DraftTask</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the task at the start of the link.</summary>
+        <value>A <b>DraftTask</b> object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

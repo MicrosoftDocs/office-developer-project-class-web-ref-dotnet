@@ -1,0 +1,941 @@
+﻿<Type Name="CubeAdmin" FullName="WebSvcCubeAdmin.CubeAdmin">
+  <TypeSignature Language="C#" Value="public class CubeAdmin : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CubeAdmin extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcCubeAdmin.CubeAdmin" />
+  <TypeSignature Language="VB.NET" Value="Public Class CubeAdmin&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class CubeAdmin : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type CubeAdmin = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="CubeAdminSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for managing the OLAP Cube Build Service in Project Server.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CubeAdmin ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; CubeAdmin();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates a <b>CubeAdmin</b> object from the ASMX-based <b>CubeAdmin</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>CubeAdmin</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>CubeAdminClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>CubeAdminWebSvc</b> is an arbitrary namespace for the ASMX-based <b>CubeAdmin</b> web service.</para>
+          <code>private static CubeAdminWebSvc.CubeAdmin cubeAdmin = new CubeAdminWebSvc.CubeAdmin();</code>
+          <para>In the following statement, <b>SvcCubeAdmin</b> is an arbitrary namespace for the WCF-based <b>CubeAdmin</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcCubeAdmin.CubeAdminClient cubeAdminClient = new SvcCubeAdmin.CubeAdminClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="BuildOlapDatabase">
+      <MemberSignature Language="C#" Value="public Guid BuildOlapDatabase (Guid olapDatabaseGuid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Guid BuildOlapDatabase(valuetype System.Guid olapDatabaseGuid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.BuildOlapDatabase(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function BuildOlapDatabase (olapDatabaseGuid As Guid) As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Guid BuildOlapDatabase(Guid olapDatabaseGuid);" />
+      <MemberSignature Language="F#" Value="member this.BuildOlapDatabase : Guid -&gt; Guid" Usage="cubeAdmin.BuildOlapDatabase olapDatabaseGuid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/BuildOlapDatabase", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuid">To be added.</param>
+        <summary>Used to build an OLAP database using the specified unique identifier.</summary>
+        <returns>Returns <see cref="T:System.Guid" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateOlapDatabase">
+      <MemberSignature Language="C#" Value="public void CreateOlapDatabase (Guid olapDatabaseGuidCube, WebSvcCubeAdmin.CubeSettingsDataSet cubeSettings);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateOlapDatabase(valuetype System.Guid olapDatabaseGuidCube, class WebSvcCubeAdmin.CubeSettingsDataSet cubeSettings) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.CreateOlapDatabase(System.Guid,WebSvcCubeAdmin.CubeSettingsDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateOlapDatabase (olapDatabaseGuidCube As Guid, cubeSettings As CubeSettingsDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateOlapDatabase(Guid olapDatabaseGuidCube, WebSvcCubeAdmin::CubeSettingsDataSet ^ cubeSettings);" />
+      <MemberSignature Language="F#" Value="member this.CreateOlapDatabase : Guid * WebSvcCubeAdmin.CubeSettingsDataSet -&gt; unit" Usage="cubeAdmin.CreateOlapDatabase (olapDatabaseGuidCube, cubeSettings)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/CreateOlapDatabase", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuidCube" Type="System.Guid" />
+        <Parameter Name="cubeSettings" Type="WebSvcCubeAdmin.CubeSettingsDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuidCube">To be added.</param>
+        <param name="cubeSettings">To be added.</param>
+        <summary>Creates a new OLAP database with the appropriate cube settings.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteOlapDatabaseSetting">
+      <MemberSignature Language="C#" Value="public void DeleteOlapDatabaseSetting (Guid olapDatabaseGuid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteOlapDatabaseSetting(valuetype System.Guid olapDatabaseGuid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.DeleteOlapDatabaseSetting(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteOlapDatabaseSetting (olapDatabaseGuid As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteOlapDatabaseSetting(Guid olapDatabaseGuid);" />
+      <MemberSignature Language="F#" Value="member this.DeleteOlapDatabaseSetting : Guid -&gt; unit" Usage="cubeAdmin.DeleteOlapDatabaseSetting olapDatabaseGuid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/DeleteOlapDatabaseSetting", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuid">To be added.</param>
+        <summary>Deletes an OLAP cube database from the list.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetDefaultOlapDatabase">
+      <MemberSignature Language="C#" Value="public Guid GetDefaultOlapDatabase ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Guid GetDefaultOlapDatabase() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.GetDefaultOlapDatabase" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetDefaultOlapDatabase () As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Guid GetDefaultOlapDatabase();" />
+      <MemberSignature Language="F#" Value="member this.GetDefaultOlapDatabase : unit -&gt; Guid" Usage="cubeAdmin.GetDefaultOlapDatabase " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/GetDefaultOlapDatabase", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets the default OLAP cube database.</summary>
+        <returns>Returns <see cref="T:System.Guid" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueueCBSRequest">
+      <MemberSignature Language="C#" Value="public Guid QueueCBSRequest (WebSvcCubeAdmin.CBSRequestMessage settingcbsMsg);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype System.Guid QueueCBSRequest(class WebSvcCubeAdmin.CBSRequestMessage settingcbsMsg) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.QueueCBSRequest(WebSvcCubeAdmin.CBSRequestMessage)" />
+      <MemberSignature Language="VB.NET" Value="Public Function QueueCBSRequest (settingcbsMsg As CBSRequestMessage) As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Guid QueueCBSRequest(WebSvcCubeAdmin::CBSRequestMessage ^ settingcbsMsg);" />
+      <MemberSignature Language="F#" Value="member this.QueueCBSRequest : WebSvcCubeAdmin.CBSRequestMessage -&gt; Guid" Usage="cubeAdmin.QueueCBSRequest settingcbsMsg" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/QueueCBSRequest", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="settingcbsMsg" Type="WebSvcCubeAdmin.CBSRequestMessage" />
+      </Parameters>
+      <Docs>
+        <param name="settingcbsMsg">Contains the Cube Build Service request parameters.</param>
+        <summary>Sends a Cube Build Service (CBS) request to the Project Server Queuing service.</summary>
+        <returns>Job GUID of the request in the Project Server queue.</returns>
+        <remarks>
+          <para>For information about the request parameters in <paramref name="settingcbsMsg" />, see <see cref="T:WebSvcCubeAdmin.CBSRequestMessage" />. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadCalculatedMemberDefinitions">
+      <MemberSignature Language="C#" Value="public WebSvcCubeAdmin.CubeCalculatedMemberDataSet ReadCalculatedMemberDefinitions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcCubeAdmin.CubeCalculatedMemberDataSet ReadCalculatedMemberDefinitions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.ReadCalculatedMemberDefinitions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadCalculatedMemberDefinitions () As CubeCalculatedMemberDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcCubeAdmin::CubeCalculatedMemberDataSet ^ ReadCalculatedMemberDefinitions();" />
+      <MemberSignature Language="F#" Value="member this.ReadCalculatedMemberDefinitions : unit -&gt; WebSvcCubeAdmin.CubeCalculatedMemberDataSet" Usage="cubeAdmin.ReadCalculatedMemberDefinitions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/ReadCalculatedMemberDefinitions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcCubeAdmin.CubeCalculatedMemberDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Reads the calculated member definitions of the Project Server OLAP cube in Analysis Services.</summary>
+        <returns>The <b>CubeCalculatedMemberDataSet</b> contains </returns>
+        <remarks>
+          <para>The properties of the calculated members include <b>CubeID</b>, <b>IsEnabled</b>, <b>MemberDefinition</b>, <b>MemberName</b>, and <b>UID</b> of the calculated member. For information about the properties, see <see cref="T:WebSvcCubeAdmin.CubeCalculatedMemberDataSet.CalculatedMembersRow" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadCubeFieldSettings">
+      <MemberSignature Language="C#" Value="public WebSvcCubeAdmin.CubeFieldSettingDataSet ReadCubeFieldSettings ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcCubeAdmin.CubeFieldSettingDataSet ReadCubeFieldSettings() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.ReadCubeFieldSettings" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadCubeFieldSettings () As CubeFieldSettingDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcCubeAdmin::CubeFieldSettingDataSet ^ ReadCubeFieldSettings();" />
+      <MemberSignature Language="F#" Value="member this.ReadCubeFieldSettings : unit -&gt; WebSvcCubeAdmin.CubeFieldSettingDataSet" Usage="cubeAdmin.ReadCubeFieldSettings " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/ReadCubeFieldSettings", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcCubeAdmin.CubeFieldSettingDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about the fields that can appear in the OLAP cubes.</summary>
+        <returns>The <b>CubeFieldSettingDataSet</b> contains tables for dimensions and measures of the assignment, project, resource, and task fields.</returns>
+        <remarks>
+          <para>For more information on the field properties, see the following:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.AssignmentDimensionRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.AssignmentMeasureRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectDimensionRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ResourceDimensionRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ResourceMeasureRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.TaskDimensionRow" />
+              </description>
+            </item>
+            <item>
+              <description>
+                <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.TaskMeasureRow" />
+              </description>
+            </item>
+          </list>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadOlapDatabaseSetting">
+      <MemberSignature Language="C#" Value="public WebSvcCubeAdmin.CubeSettingsDataSet ReadOlapDatabaseSetting (Guid olapDatabaseGuid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcCubeAdmin.CubeSettingsDataSet ReadOlapDatabaseSetting(valuetype System.Guid olapDatabaseGuid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.ReadOlapDatabaseSetting(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadOlapDatabaseSetting (olapDatabaseGuid As Guid) As CubeSettingsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcCubeAdmin::CubeSettingsDataSet ^ ReadOlapDatabaseSetting(Guid olapDatabaseGuid);" />
+      <MemberSignature Language="F#" Value="member this.ReadOlapDatabaseSetting : Guid -&gt; WebSvcCubeAdmin.CubeSettingsDataSet" Usage="cubeAdmin.ReadOlapDatabaseSetting olapDatabaseGuid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/ReadOlapDatabaseSetting", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcCubeAdmin.CubeSettingsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuid">To be added.</param>
+        <summary>Reads the OLAP cube database settings based on the unique identifier.</summary>
+        <returns>Returns <see cref="T:WebSvcCubeAdmin.CubeSettingsDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadOlapDatabaseSettingList">
+      <MemberSignature Language="C#" Value="public WebSvcCubeAdmin.CubeSettingsDataSet ReadOlapDatabaseSettingList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcCubeAdmin.CubeSettingsDataSet ReadOlapDatabaseSettingList() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.ReadOlapDatabaseSettingList" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadOlapDatabaseSettingList () As CubeSettingsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcCubeAdmin::CubeSettingsDataSet ^ ReadOlapDatabaseSettingList();" />
+      <MemberSignature Language="F#" Value="member this.ReadOlapDatabaseSettingList : unit -&gt; WebSvcCubeAdmin.CubeSettingsDataSet" Usage="cubeAdmin.ReadOlapDatabaseSettingList " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/ReadOlapDatabaseSettingList", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcCubeAdmin.CubeSettingsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Reads the OLAP cube database settings from the list of all available databases.</summary>
+        <returns>Returns <see cref="T:WebSvcCubeAdmin.CubeSettingsDataSet" />.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCubeBuildingSettings">
+      <MemberSignature Language="C#" Value="public int SetCubeBuildingSettings (Guid asCubeUID, string ASServerName, string ASDBName, string ASDatabaseDescription, string ASExtraNetAddress, int dateRangeChoice, int pastNum, int pastUnit, int nextNum, int nextUnit, DateTime FromDate, DateTime ToDate, int updateFreqChoice, int freqNumber, int freqUnit, DateTime startDate, int startTime);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 SetCubeBuildingSettings(valuetype System.Guid asCubeUID, string ASServerName, string ASDBName, string ASDatabaseDescription, string ASExtraNetAddress, int32 dateRangeChoice, int32 pastNum, int32 pastUnit, int32 nextNum, int32 nextUnit, valuetype System.DateTime FromDate, valuetype System.DateTime ToDate, int32 updateFreqChoice, int32 freqNumber, int32 freqUnit, valuetype System.DateTime startDate, int32 startTime) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.SetCubeBuildingSettings(System.Guid,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32,System.Int32,System.Int32,System.DateTime,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function SetCubeBuildingSettings (asCubeUID As Guid, ASServerName As String, ASDBName As String, ASDatabaseDescription As String, ASExtraNetAddress As String, dateRangeChoice As Integer, pastNum As Integer, pastUnit As Integer, nextNum As Integer, nextUnit As Integer, FromDate As DateTime, ToDate As DateTime, updateFreqChoice As Integer, freqNumber As Integer, freqUnit As Integer, startDate As DateTime, startTime As Integer) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int SetCubeBuildingSettings(Guid asCubeUID, System::String ^ ASServerName, System::String ^ ASDBName, System::String ^ ASDatabaseDescription, System::String ^ ASExtraNetAddress, int dateRangeChoice, int pastNum, int pastUnit, int nextNum, int nextUnit, DateTime FromDate, DateTime ToDate, int updateFreqChoice, int freqNumber, int freqUnit, DateTime startDate, int startTime);" />
+      <MemberSignature Language="F#" Value="member this.SetCubeBuildingSettings : Guid * string * string * string * string * int * int * int * int * int * DateTime * DateTime * int * int * int * DateTime * int -&gt; int" Usage="cubeAdmin.SetCubeBuildingSettings (asCubeUID, ASServerName, ASDBName, ASDatabaseDescription, ASExtraNetAddress, dateRangeChoice, pastNum, pastUnit, nextNum, nextUnit, FromDate, ToDate, updateFreqChoice, freqNumber, freqUnit, startDate, startTime)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/SetCubeBuildingSettings", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="asCubeUID" Type="System.Guid" />
+        <Parameter Name="ASServerName" Type="System.String" />
+        <Parameter Name="ASDBName" Type="System.String" />
+        <Parameter Name="ASDatabaseDescription" Type="System.String" />
+        <Parameter Name="ASExtraNetAddress" Type="System.String" />
+        <Parameter Name="dateRangeChoice" Type="System.Int32" />
+        <Parameter Name="pastNum" Type="System.Int32" />
+        <Parameter Name="pastUnit" Type="System.Int32" />
+        <Parameter Name="nextNum" Type="System.Int32" />
+        <Parameter Name="nextUnit" Type="System.Int32" />
+        <Parameter Name="FromDate" Type="System.DateTime" />
+        <Parameter Name="ToDate" Type="System.DateTime" />
+        <Parameter Name="updateFreqChoice" Type="System.Int32" />
+        <Parameter Name="freqNumber" Type="System.Int32" />
+        <Parameter Name="freqUnit" Type="System.Int32" />
+        <Parameter Name="startDate" Type="System.DateTime" />
+        <Parameter Name="startTime" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="asCubeUID">GUID of the cube.</param>
+        <param name="ASServerName">Name of the Analysis Services server.</param>
+        <param name="ASDBName">Name of the Analysis Services database.</param>
+        <param name="ASDatabaseDescription">Description of the Analysis Services database.</param>
+        <param name="ASExtraNetAddress">Extranet address of the Analysis Services server.</param>
+        <param name="dateRangeChoice">Choice of date range (0 to 2).</param>
+        <param name="pastNum">Past date range number (0 to 3000).</param>
+        <param name="pastUnit">Past date range unit (0 to 2).</param>
+        <param name="nextNum">Next date range number (0 to 3000).</param>
+        <param name="nextUnit">Next date range unit (0 to 2).</param>
+        <param name="FromDate">Start date of data for the cube.</param>
+        <param name="ToDate">End date of data for the cube.</param>
+        <param name="updateFreqChoice">Update frequency (0 or 1).</param>
+        <param name="freqNumber">Frequency number (0 to 3000).</param>
+        <param name="freqUnit">Frequency unit (0 to 2).</param>
+        <param name="startDate">Date to start building the cube.</param>
+        <param name="startTime">Time to start building the cube (0 to 47).</param>
+        <summary>Deprecated in Project Server 2013. Instead, use <see cref="M:WebSvcCubeAdmin.CubeAdmin.UpdateOlapDatabaseSettings(System.Guid,WebSvcCubeAdmin.CubeSettingsDataSet)" />.</summary>
+        <returns>Returns -1 for an error, or 0 for success in making the CBS settings.</returns>
+        <remarks>
+          <para>
+            <b>Caution</b>: <b>SetCubeBuildingSettings</b> is available only for Office Project Server 2007 compatibility. The method sets the database passed in <paramref name="ASDBName" /> as the default database, so should not be used with Project Server 2010.</para>
+          <para>In Office Project Server 2007, <b>SetCubeBuildingSettings</b> makes the specified Cube Build Service (CBS) settings.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDefaultOlapDatabase">
+      <MemberSignature Language="C#" Value="public void SetDefaultOlapDatabase (Guid olapDatabaseGuid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetDefaultOlapDatabase(valuetype System.Guid olapDatabaseGuid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.SetDefaultOlapDatabase(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetDefaultOlapDatabase (olapDatabaseGuid As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetDefaultOlapDatabase(Guid olapDatabaseGuid);" />
+      <MemberSignature Language="F#" Value="member this.SetDefaultOlapDatabase : Guid -&gt; unit" Usage="cubeAdmin.SetDefaultOlapDatabase olapDatabaseGuid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/SetDefaultOlapDatabase", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuid">To be added.</param>
+        <summary>Sets the default OLAP cube database.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetOlapDatabaseEnabled">
+      <MemberSignature Language="C#" Value="public void SetOlapDatabaseEnabled (Guid olapDatabaseGuid, bool isEnabled);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetOlapDatabaseEnabled(valuetype System.Guid olapDatabaseGuid, bool isEnabled) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.SetOlapDatabaseEnabled(System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetOlapDatabaseEnabled (olapDatabaseGuid As Guid, isEnabled As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetOlapDatabaseEnabled(Guid olapDatabaseGuid, bool isEnabled);" />
+      <MemberSignature Language="F#" Value="member this.SetOlapDatabaseEnabled : Guid * bool -&gt; unit" Usage="cubeAdmin.SetOlapDatabaseEnabled (olapDatabaseGuid, isEnabled)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/SetOlapDatabaseEnabled", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuid" Type="System.Guid" />
+        <Parameter Name="isEnabled" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuid">To be added.</param>
+        <param name="isEnabled">To be added.</param>
+        <summary>Enables or disables the specified cube database based on the unique identifier.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCubeCalculatedMemberDefinition">
+      <MemberSignature Language="C#" Value="public void UpdateCubeCalculatedMemberDefinition (WebSvcCubeAdmin.CubeCalculatedMemberDataSet calculatedMembersDataset);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateCubeCalculatedMemberDefinition(class WebSvcCubeAdmin.CubeCalculatedMemberDataSet calculatedMembersDataset) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeCalculatedMemberDefinition(WebSvcCubeAdmin.CubeCalculatedMemberDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateCubeCalculatedMemberDefinition (calculatedMembersDataset As CubeCalculatedMemberDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateCubeCalculatedMemberDefinition(WebSvcCubeAdmin::CubeCalculatedMemberDataSet ^ calculatedMembersDataset);" />
+      <MemberSignature Language="F#" Value="member this.UpdateCubeCalculatedMemberDefinition : WebSvcCubeAdmin.CubeCalculatedMemberDataSet -&gt; unit" Usage="cubeAdmin.UpdateCubeCalculatedMemberDefinition calculatedMembersDataset" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/UpdateCubeCalculatedMemberDefinition", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="calculatedMembersDataset" Type="WebSvcCubeAdmin.CubeCalculatedMemberDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="calculatedMembersDataset">Contains information about the calculated members.</param>
+        <summary>Updates the definition of calculated members in OLAP cubes. </summary>
+        <remarks>
+          <para>The <b>UpdateCubeCalculatedMemberDefinition</b> method replaces the <b>UpdateCubeCalculatedMemberDefintion</b> method, which is misspelled. Both methods have the same parameter and both will be members of the <b>CubeAdmin</b> class in the final release of Project Server 2010. For future compatibility, you should use only the correctly spelled <b>UpdateCubeCalculatedMemberDefinition</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCubeCalculatedMemberDefintion">
+      <MemberSignature Language="C#" Value="public void UpdateCubeCalculatedMemberDefintion (WebSvcCubeAdmin.CubeCalculatedMemberDataSet calculatedMembersDataset);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateCubeCalculatedMemberDefintion(class WebSvcCubeAdmin.CubeCalculatedMemberDataSet calculatedMembersDataset) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeCalculatedMemberDefintion(WebSvcCubeAdmin.CubeCalculatedMemberDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateCubeCalculatedMemberDefintion (calculatedMembersDataset As CubeCalculatedMemberDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateCubeCalculatedMemberDefintion(WebSvcCubeAdmin::CubeCalculatedMemberDataSet ^ calculatedMembersDataset);" />
+      <MemberSignature Language="F#" Value="member this.UpdateCubeCalculatedMemberDefintion : WebSvcCubeAdmin.CubeCalculatedMemberDataSet -&gt; unit" Usage="cubeAdmin.UpdateCubeCalculatedMemberDefintion calculatedMembersDataset" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/UpdateCubeCalculatedMemberDefintion", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="calculatedMembersDataset" Type="WebSvcCubeAdmin.CubeCalculatedMemberDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="calculatedMembersDataset">Contains information about the calculated members.</param>
+        <summary>This method is replaced by <see cref="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeCalculatedMemberDefinition(WebSvcCubeAdmin.CubeCalculatedMemberDataSet)" />.</summary>
+        <remarks>
+          <para>The <b>UpdateCubeCalculatedMemberDefinition</b> method replaces the <b>UpdateCubeCalculatedMemberDefintion</b> method, which is misspelled. Both methods have the same parameter and both will be members of the <b>CubeAdmin</b> class in the final release of Project Server 2010. For future compatibility, you should use only the correctly spelled <b>UpdateCubeCalculatedMemberDefinition</b> method.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCubeFieldSettingForDimension">
+      <MemberSignature Language="C#" Value="public void UpdateCubeFieldSettingForDimension (Guid[] Dim_Project_PropUID_Add, Guid[] Dim_Project_PropUID_Del, Guid[] Dim_Resource_PropUID_Add, Guid[] Dim_Resource_PropUID_Del, Guid[] Dim_Task_PropUID_Add, Guid[] Dim_Task_PropUID_Del, Guid[] Dim_Assignment_PropUID_Add, Guid[] Dim_Assignment_PropUID_Del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateCubeFieldSettingForDimension(valuetype System.Guid[] Dim_Project_PropUID_Add, valuetype System.Guid[] Dim_Project_PropUID_Del, valuetype System.Guid[] Dim_Resource_PropUID_Add, valuetype System.Guid[] Dim_Resource_PropUID_Del, valuetype System.Guid[] Dim_Task_PropUID_Add, valuetype System.Guid[] Dim_Task_PropUID_Del, valuetype System.Guid[] Dim_Assignment_PropUID_Add, valuetype System.Guid[] Dim_Assignment_PropUID_Del) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeFieldSettingForDimension(System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateCubeFieldSettingForDimension (Dim_Project_PropUID_Add As Guid(), Dim_Project_PropUID_Del As Guid(), Dim_Resource_PropUID_Add As Guid(), Dim_Resource_PropUID_Del As Guid(), Dim_Task_PropUID_Add As Guid(), Dim_Task_PropUID_Del As Guid(), Dim_Assignment_PropUID_Add As Guid(), Dim_Assignment_PropUID_Del As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateCubeFieldSettingForDimension(cli::array &lt;Guid&gt; ^ Dim_Project_PropUID_Add, cli::array &lt;Guid&gt; ^ Dim_Project_PropUID_Del, cli::array &lt;Guid&gt; ^ Dim_Resource_PropUID_Add, cli::array &lt;Guid&gt; ^ Dim_Resource_PropUID_Del, cli::array &lt;Guid&gt; ^ Dim_Task_PropUID_Add, cli::array &lt;Guid&gt; ^ Dim_Task_PropUID_Del, cli::array &lt;Guid&gt; ^ Dim_Assignment_PropUID_Add, cli::array &lt;Guid&gt; ^ Dim_Assignment_PropUID_Del);" />
+      <MemberSignature Language="F#" Value="member this.UpdateCubeFieldSettingForDimension : Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] -&gt; unit" Usage="cubeAdmin.UpdateCubeFieldSettingForDimension (Dim_Project_PropUID_Add, Dim_Project_PropUID_Del, Dim_Resource_PropUID_Add, Dim_Resource_PropUID_Del, Dim_Task_PropUID_Add, Dim_Task_PropUID_Del, Dim_Assignment_PropUID_Add, Dim_Assignment_PropUID_Del)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/UpdateCubeFieldSettingForDimension", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Dim_Project_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Dim_Project_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Dim_Resource_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Dim_Resource_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Dim_Task_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Dim_Task_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Dim_Assignment_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Dim_Assignment_PropUID_Del" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="Dim_Project_PropUID_Add">Array of project GUIDs to add. </param>
+        <param name="Dim_Project_PropUID_Del">Array of project GUIDs to delete.</param>
+        <param name="Dim_Resource_PropUID_Add">Array of resource GUIDs to add.</param>
+        <param name="Dim_Resource_PropUID_Del">Array of resource GUIDs to delete.</param>
+        <param name="Dim_Task_PropUID_Add">Array of task GUIDs to add.</param>
+        <param name="Dim_Task_PropUID_Del">Array of task GUIDs to delete.</param>
+        <param name="Dim_Assignment_PropUID_Add">Array of assignment GUIDs to add.</param>
+        <param name="Dim_Assignment_PropUID_Del">Array of assignment GUIDs to delete.</param>
+        <summary>Updates the settings for fields that will be used as cube dimensions.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCubeFieldSettingForMeasure">
+      <MemberSignature Language="C#" Value="public void UpdateCubeFieldSettingForMeasure (Guid[] Measure_Project_PropUID_Add, Guid[] Measure_Project_PropUID_Del, Guid[] Measure_Resource_PropUID_Add, Guid[] Measure_Resource_PropUID_Del, Guid[] Measure_Task_PropUID_Add, Guid[] Measure_Task_PropUID_Del, Guid[] Measure_Assignment_PropUID_Add, Guid[] Measure_Assignment_PropUID_Del);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateCubeFieldSettingForMeasure(valuetype System.Guid[] Measure_Project_PropUID_Add, valuetype System.Guid[] Measure_Project_PropUID_Del, valuetype System.Guid[] Measure_Resource_PropUID_Add, valuetype System.Guid[] Measure_Resource_PropUID_Del, valuetype System.Guid[] Measure_Task_PropUID_Add, valuetype System.Guid[] Measure_Task_PropUID_Del, valuetype System.Guid[] Measure_Assignment_PropUID_Add, valuetype System.Guid[] Measure_Assignment_PropUID_Del) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.UpdateCubeFieldSettingForMeasure(System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[],System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateCubeFieldSettingForMeasure (Measure_Project_PropUID_Add As Guid(), Measure_Project_PropUID_Del As Guid(), Measure_Resource_PropUID_Add As Guid(), Measure_Resource_PropUID_Del As Guid(), Measure_Task_PropUID_Add As Guid(), Measure_Task_PropUID_Del As Guid(), Measure_Assignment_PropUID_Add As Guid(), Measure_Assignment_PropUID_Del As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateCubeFieldSettingForMeasure(cli::array &lt;Guid&gt; ^ Measure_Project_PropUID_Add, cli::array &lt;Guid&gt; ^ Measure_Project_PropUID_Del, cli::array &lt;Guid&gt; ^ Measure_Resource_PropUID_Add, cli::array &lt;Guid&gt; ^ Measure_Resource_PropUID_Del, cli::array &lt;Guid&gt; ^ Measure_Task_PropUID_Add, cli::array &lt;Guid&gt; ^ Measure_Task_PropUID_Del, cli::array &lt;Guid&gt; ^ Measure_Assignment_PropUID_Add, cli::array &lt;Guid&gt; ^ Measure_Assignment_PropUID_Del);" />
+      <MemberSignature Language="F#" Value="member this.UpdateCubeFieldSettingForMeasure : Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] * Guid[] -&gt; unit" Usage="cubeAdmin.UpdateCubeFieldSettingForMeasure (Measure_Project_PropUID_Add, Measure_Project_PropUID_Del, Measure_Resource_PropUID_Add, Measure_Resource_PropUID_Del, Measure_Task_PropUID_Add, Measure_Task_PropUID_Del, Measure_Assignment_PropUID_Add, Measure_Assignment_PropUID_Del)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/UpdateCubeFieldSettingForMeasure", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Measure_Project_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Measure_Project_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Measure_Resource_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Measure_Resource_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Measure_Task_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Measure_Task_PropUID_Del" Type="System.Guid[]" />
+        <Parameter Name="Measure_Assignment_PropUID_Add" Type="System.Guid[]" />
+        <Parameter Name="Measure_Assignment_PropUID_Del" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="Measure_Project_PropUID_Add">Array of project GUIDs to add. </param>
+        <param name="Measure_Project_PropUID_Del">Array of project GUIDs to delete.</param>
+        <param name="Measure_Resource_PropUID_Add">Array of resource GUIDs to add.</param>
+        <param name="Measure_Resource_PropUID_Del">Array of resource GUIDs to delete.</param>
+        <param name="Measure_Task_PropUID_Add">Array of task GUIDs to add.</param>
+        <param name="Measure_Task_PropUID_Del">Array of task GUIDs to delete.</param>
+        <param name="Measure_Assignment_PropUID_Add">Array of assignment GUIDs to add.</param>
+        <param name="Measure_Assignment_PropUID_Del">Array of assignment GUIDs to delete.</param>
+        <summary>Updates the settings for fields that will be used as cube measures.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateOlapDatabaseSettings">
+      <MemberSignature Language="C#" Value="public void UpdateOlapDatabaseSettings (Guid olapDatabaseGuidCube, WebSvcCubeAdmin.CubeSettingsDataSet cubeSettings);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateOlapDatabaseSettings(valuetype System.Guid olapDatabaseGuidCube, class WebSvcCubeAdmin.CubeSettingsDataSet cubeSettings) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeAdmin.UpdateOlapDatabaseSettings(System.Guid,WebSvcCubeAdmin.CubeSettingsDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateOlapDatabaseSettings (olapDatabaseGuidCube As Guid, cubeSettings As CubeSettingsDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateOlapDatabaseSettings(Guid olapDatabaseGuidCube, WebSvcCubeAdmin::CubeSettingsDataSet ^ cubeSettings);" />
+      <MemberSignature Language="F#" Value="member this.UpdateOlapDatabaseSettings : Guid * WebSvcCubeAdmin.CubeSettingsDataSet -&gt; unit" Usage="cubeAdmin.UpdateOlapDatabaseSettings (olapDatabaseGuidCube, cubeSettings)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/UpdateOlapDatabaseSettings", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/CubeAdmin/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="olapDatabaseGuidCube" Type="System.Guid" />
+        <Parameter Name="cubeSettings" Type="WebSvcCubeAdmin.CubeSettingsDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="olapDatabaseGuidCube">To be added.</param>
+        <param name="cubeSettings">To be added.</param>
+        <summary>Updates the cube settings for the current OLAP database.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageCubeBuildingService" />
+              </term>
+              <description>Allows a user to manage settings for OLAP cube creation. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSiteServices" />
+              </term>
+              <description>Allows a user to administer services such as Active Directory settings and database timeouts. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

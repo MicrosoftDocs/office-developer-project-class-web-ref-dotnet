@@ -1,0 +1,844 @@
+﻿<Type Name="SecurityEventReceiver" FullName="Microsoft.Office.Project.Server.Events.SecurityEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class SecurityEventReceiver" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit SecurityEventReceiver extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.SecurityEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class SecurityEventReceiver" />
+  <TypeSignature Language="C++ CLI" Value="public ref class SecurityEventReceiver abstract" />
+  <TypeSignature Language="F#" Value="type SecurityEventReceiver = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcSecurity.Security" /> class.</summary>
+    <remarks>
+      <para>
+        <b>Important</b>: Methods in the <b>SecurityEventReceiver</b> class are not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+      <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected SecurityEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; SecurityEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>SecurityEventReceiver</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryCreated (contextInfo As PSContextInfo, e As CategoryCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategoryCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs -&gt; unit&#xA;override this.OnCategoryCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategoryCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.CreateCategories(WebSvcSecurity.SecurityCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryCreated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryCreating (contextInfo As PSContextInfo, e As CategoryCreatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategoryCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs -&gt; unit&#xA;override this.OnCategoryCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategoryCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.CreateCategories(WebSvcSecurity.SecurityCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryCreating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryDeleted (contextInfo As PSContextInfo, e As CategoryDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategoryDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs -&gt; unit&#xA;override this.OnCategoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategoryDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteCategories(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryDeleted</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryDeleting (contextInfo As PSContextInfo, e As CategoryDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategoryDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs -&gt; unit&#xA;override this.OnCategoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteCategories(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryDeleting</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryUpdated (contextInfo As PSContextInfo, e As CategorySetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategorySetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs -&gt; unit&#xA;override this.OnCategoryUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategorySetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.SetCategories(WebSvcSecurity.SecurityCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryUpdated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCategoryUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnCategoryUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnCategoryUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnCategoryUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnCategoryUpdating (contextInfo As PSContextInfo, e As CategorySetPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnCategoryUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::CategorySetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnCategoryUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs -&gt; unit&#xA;override this.OnCategoryUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs -&gt; unit" Usage="securityEventReceiver.OnCategoryUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.CategorySetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.SetCategories(WebSvcSecurity.SecurityCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnCategoryUpdating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupCreated (contextInfo As PSContextInfo, e As GroupCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs -&gt; unit&#xA;override this.OnGroupCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.CreateGroups(WebSvcSecurity.SecurityGroupsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupCreated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupCreating (contextInfo As PSContextInfo, e As GroupCreatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs -&gt; unit&#xA;override this.OnGroupCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.CreateGroups(WebSvcSecurity.SecurityGroupsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupCreating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupDeleted (contextInfo As PSContextInfo, e As GroupDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs -&gt; unit&#xA;override this.OnGroupDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteGroups(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupDeleted</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupDeleting (contextInfo As PSContextInfo, e As GroupDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs -&gt; unit&#xA;override this.OnGroupDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteGroups(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupDeleting</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupUpdated (contextInfo As PSContextInfo, e As GroupSetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupSetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs -&gt; unit&#xA;override this.OnGroupUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupSetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.SetGroups(WebSvcSecurity.SecurityGroupsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupUpdated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnGroupUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnGroupUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnGroupUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnGroupUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnGroupUpdating (contextInfo As PSContextInfo, e As GroupSetPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnGroupUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::GroupSetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnGroupUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs -&gt; unit&#xA;override this.OnGroupUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs -&gt; unit" Usage="securityEventReceiver.OnGroupUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.GroupSetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.SetGroups(WebSvcSecurity.SecurityGroupsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnGroupUpdating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnOrganizationalPermissionsUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnOrganizationalPermissionsUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnOrganizationalPermissionsUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnOrganizationalPermissionsUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnOrganizationalPermissionsUpdated (contextInfo As PSContextInfo, e As OrganizationalPermissionsPostUpdateEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnOrganizationalPermissionsUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::OrganizationalPermissionsPostUpdateEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnOrganizationalPermissionsUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs -&gt; unit&#xA;override this.OnOrganizationalPermissionsUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs -&gt; unit" Usage="securityEventReceiver.OnOrganizationalPermissionsUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPostUpdateEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.UpdateOrganizationalPermissions(WebSvcSecurity.SecurityOrganizationalPermissionsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnOrganizationalPermissionsUpdated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnOrganizationalPermissionsUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnOrganizationalPermissionsUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnOrganizationalPermissionsUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnOrganizationalPermissionsUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnOrganizationalPermissionsUpdating (contextInfo As PSContextInfo, e As OrganizationalPermissionsPreUpdateEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnOrganizationalPermissionsUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::OrganizationalPermissionsPreUpdateEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnOrganizationalPermissionsUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs -&gt; unit&#xA;override this.OnOrganizationalPermissionsUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs -&gt; unit" Usage="securityEventReceiver.OnOrganizationalPermissionsUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OrganizationalPermissionsPreUpdateEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.UpdateOrganizationalPermissions(WebSvcSecurity.SecurityOrganizationalPermissionsDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnOrganizationalPermissionsUpdating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryCreated (contextInfo As PSContextInfo, e As ProjectCategoryCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategoryCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs -&gt; unit&#xA;override this.OnProjectCategoryCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.CreateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryCreated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryCreating (contextInfo As PSContextInfo, e As ProjectCategoryCreatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategoryCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs -&gt; unit&#xA;override this.OnProjectCategoryCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategoryCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler handler for the <see cref="M:WebSvcSecurity.Security.CreateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryCreating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryDeleted (contextInfo As PSContextInfo, e As ProjectCategoryDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategoryDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs -&gt; unit&#xA;override this.OnProjectCategoryDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteProjectCategories(System.Guid[])" />  method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryDeleted</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryDeleting (contextInfo As PSContextInfo, e As ProjectCategoryDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategoryDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs -&gt; unit&#xA;override this.OnProjectCategoryDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteProjectCategories(System.Guid[])" />  method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryDeleting</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryUpdated (contextInfo As PSContextInfo, e As ProjectCategorySetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategorySetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs -&gt; unit&#xA;override this.OnProjectCategoryUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategorySetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.UpdateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryUpdated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCategoryUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnProjectCategoryUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnProjectCategoryUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnProjectCategoryUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnProjectCategoryUpdating (contextInfo As PSContextInfo, e As ProjectCategorySetPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnProjectCategoryUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::ProjectCategorySetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnProjectCategoryUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs -&gt; unit&#xA;override this.OnProjectCategoryUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs -&gt; unit" Usage="securityEventReceiver.OnProjectCategoryUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.ProjectCategorySetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.UpdateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" /> methods.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnProjectCategoryUpdating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateCreated">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateCreated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateCreated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateCreated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateCreated (contextInfo As PSContextInfo, e As TemplateCreatePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateCreated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateCreatePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs -&gt; unit&#xA;override this.OnTemplateCreated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateCreated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateCreatePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.CreateTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateCreated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateCreating">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateCreating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateCreating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateCreating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateCreating (contextInfo As PSContextInfo, e As TemplateCreatePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateCreating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateCreatePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs -&gt; unit&#xA;override this.OnTemplateCreating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateCreating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateCreatePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.CreateTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateCreating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateDeleted">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateDeleted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateDeleted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateDeleted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateDeleted (contextInfo As PSContextInfo, e As TemplateDeletePostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateDeleted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateDeletePostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs -&gt; unit&#xA;override this.OnTemplateDeleted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateDeleted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateDeletePostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteTemplates(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateDeleted</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateDeleting">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateDeleting (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateDeleting(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateDeleting (contextInfo As PSContextInfo, e As TemplateDeletePreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateDeleting(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateDeletePreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs -&gt; unit&#xA;override this.OnTemplateDeleting : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateDeleting (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.DeleteTemplates(System.Guid[])" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateDeleting</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateUpdated">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateUpdated (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateUpdated(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateUpdated(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateUpdated (contextInfo As PSContextInfo, e As TemplateSetPostEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateUpdated(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateSetPostEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs -&gt; unit&#xA;override this.OnTemplateUpdated : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateUpdated (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateSetPostEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcSecurity.Security.SetTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateUpdated</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnTemplateUpdating">
+      <MemberSignature Language="C#" Value="public virtual void OnTemplateUpdating (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnTemplateUpdating(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.SecurityEventReceiver.OnTemplateUpdating(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnTemplateUpdating (contextInfo As PSContextInfo, e As TemplateSetPreEventArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnTemplateUpdating(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::TemplateSetPreEventArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnTemplateUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs -&gt; unit&#xA;override this.OnTemplateUpdating : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs -&gt; unit" Usage="securityEventReceiver.OnTemplateUpdating (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.TemplateSetPreEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A pre-event handler for the <see cref="M:WebSvcSecurity.Security.SetTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" /> method.</summary>
+        <remarks>
+          <para>
+            <b>Important</b>: The <b>OnTemplateUpdating</b> event receiver is not supported in the SharePoint Permission Mode, which is used by Project Online and a default on-premises installation of Project Server 2013. For more information, see <a href="http://technet.microsoft.com/en-us/library/ff631142(v=office.15)#section13">SharePoint Permission Mode</a>What's new for IT pros in Project Server 2013 article on TechNet.</para>
+          <para>For information about creating an event handler, see How to: Create a Project Server Event Handler and Log an Event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

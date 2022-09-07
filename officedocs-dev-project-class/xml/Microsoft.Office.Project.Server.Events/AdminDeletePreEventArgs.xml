@@ -1,0 +1,134 @@
+﻿<Type Name="AdminDeletePreEventArgs" FullName="Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs">
+  <TypeSignature Language="C#" Value="public abstract class AdminDeletePreEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract serializable beforefieldinit AdminDeletePreEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class AdminDeletePreEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class AdminDeletePreEventArgs abstract : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type AdminDeletePreEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Provides pre-event properties for deleted items in other event argument classes.</summary>
+    <remarks>
+      <para>Following are classes that take advantage of the <b>AdminDeletePreEventArgs</b> class:</para>
+      <list type="bullet">
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.ProjectCategoryDeletePreEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.CategoryDeletePreEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.GroupDeletePreEventArgs" />
+          </description>
+        </item>
+        <item>
+          <description>
+            <see cref="T:Microsoft.Office.Project.Server.Events.TemplateDeletePreEventArgs" />
+          </description>
+        </item>
+      </list>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected AdminDeletePreEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; AdminDeletePreEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AdminDeletePreEventArgs (Guid[] deletedItems, string deletionComments);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid[] deletedItems, string deletionComments) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.#ctor(System.Guid[],System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (deletedItems As Guid(), deletionComments As String)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; AdminDeletePreEventArgs(cli::array &lt;Guid&gt; ^ deletedItems, System::String ^ deletionComments);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs : Guid[] * string -&gt; Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs" Usage="new Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs (deletedItems, deletionComments)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="deletedItems" Type="System.Guid[]" />
+        <Parameter Name="deletionComments" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="deletedItems">A collection of GUIDS that represent items to be deleted.</param>
+        <param name="deletionComments">Text that provides information about items to be deleted.</param>
+        <summary>Creates an instance of the <b>AdminDeletePreEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeletedItems">
+      <MemberSignature Language="C#" Value="public Guid[] DeletedItems { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid[] DeletedItems" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.DeletedItems" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DeletedItems As Guid()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property cli::array &lt;Guid&gt; ^ DeletedItems { cli::array &lt;Guid&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.DeletedItems : Guid[]" Usage="Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.DeletedItems" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a collection of GUIDS that represent items to be deleted.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeletionComments">
+      <MemberSignature Language="C#" Value="public string DeletionComments { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DeletionComments" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.DeletionComments" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property DeletionComments As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ DeletionComments { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.DeletionComments : string" Usage="Microsoft.Office.Project.Server.Events.AdminDeletePreEventArgs.DeletionComments" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets text that provides information about items to be deleted.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

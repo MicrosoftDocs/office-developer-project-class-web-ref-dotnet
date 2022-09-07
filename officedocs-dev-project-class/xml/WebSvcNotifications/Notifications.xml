@@ -1,0 +1,1033 @@
+﻿<Type Name="Notifications" FullName="WebSvcNotifications.Notifications">
+  <TypeSignature Language="C#" Value="public class Notifications : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Notifications extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcNotifications.Notifications" />
+  <TypeSignature Language="VB.NET" Value="Public Class Notifications&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class Notifications : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type Notifications = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="NotificationsSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for managing reminders and alerts in Project Server.</summary>
+    <remarks>
+      <para>The <b>Notifications</b> web service manages pre-defined alerts and reminders for the current user. The alerts and reminders are listed in <see cref="T:Microsoft.Office.Project.Server.Library.Notification" />.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Notifications ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcNotifications.Notifications.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Notifications();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an <b>Notifications</b> object from the ASMX-based <b>Notifications</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Notifications</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>NotificationsClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>NotificationsWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Notifications</b> web service.</para>
+          <code>private static NotificationsWebSvc.Notifications notifications = new NotificationsWebSvc.Notifications();</code>
+          <para>In the following statement, <b>SvcNotifications</b> is an arbitrary namespace for the WCF-based <b>Notifications</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcNotifications.NotificationsClient notificationsClient = new SvcNotifications.NotificationsClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadAlertSubscriptions">
+      <MemberSignature Language="C#" Value="public WebSvcNotifications.AlertSubscriptionInfoDataSet ReadAlertSubscriptions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcNotifications.AlertSubscriptionInfoDataSet ReadAlertSubscriptions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcNotifications.Notifications.ReadAlertSubscriptions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadAlertSubscriptions () As AlertSubscriptionInfoDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcNotifications::AlertSubscriptionInfoDataSet ^ ReadAlertSubscriptions();" />
+      <MemberSignature Language="F#" Value="member this.ReadAlertSubscriptions : unit -&gt; WebSvcNotifications.AlertSubscriptionInfoDataSet" Usage="notifications.ReadAlertSubscriptions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Notifications/ReadAlertSubscriptions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcNotifications.AlertSubscriptionInfoDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets the alert subscription information for the current user.</summary>
+        <returns>
+          <see cref="T:WebSvcNotifications.AlertSubscriptionInfoDataSet" /> with alert subscription status for the current user.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>User must be a resource.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePersonalNotifications" />
+              </term>
+              <description>Allows the user to self-manage notifications. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageResourceNotifications" />
+              </term>
+              <description>Allows the user to manage notifications relating to other resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>This example retrieves the current user's alert subscription information and displays it on the console.</para>
+          <para>Please see Prerequisites for Reference Code Samples for critical information on running this code sample.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Net;
+using System.Web.Services.Protocols;
+using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadAlertSubscriptions
+{
+   class Program
+   {
+      [STAThread]
+      static void Main()
+      {
+         try
+         {
+            #region Setup
+            const string PROJECT_SERVER_URI = "http://ServerName/ProjectServerName/";
+            const string NOTIFICATIONS_SERVICE_PATH = "_vti_bin/psi/notifications.asmx";
+            // Set up the Web service objects
+            SvcNotifications.Notifications notificationsSvc = new SvcNotifications.Notifications();
+            notificationsSvc.Url = PROJECT_SERVER_URI + NOTIFICATIONS_SERVICE_PATH;
+            notificationsSvc.UseDefaultCredentials = true;
+         
+            #endregion
+            SvcNotifications.AlertSubscriptionInfoDataSet alertSubscriptionDs = notificationsSvc.ReadAlertSubscriptions();
+            WriteTablesToConsole(alertSubscriptionDs.Tables);
+
+         }
+         #region Error Handling and Final
+         catch (SoapException ex)
+         {
+            PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            string errMess = "==============================\r\nError: \r\n";
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+               errMess += "\n" + ex.Message.ToString() + "\r\n";
+               errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+               errMess += errors[i].ErrId.ToString() + "\n";
+
+               for (int j = 0; j &amp;lt; errors[i].ErrorAttributes.Length; j++)
+               {
+                  errMess += "\r\n\t" + errors[i].ErrorAttributeNames()[j] + ": " + errors[i].ErrorAttributes[j];
+               }
+               errMess += "\r\n".PadRight(30, '=');
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+         }
+         catch (WebException ex)
+         {
+            string errMess = ex.Message.ToString() +
+               "\n\nLog on, or check the Project Server Queuing Service";
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + errMess);
+         }
+         catch (Exception ex)
+         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + ex.Message);
+         }
+         finally
+         {
+            Console.ResetColor();
+            Console.WriteLine("\r\n\r\nPress any key...");
+            Console.ReadKey();
+         }
+         #endregion
+      }
+      private static void WriteTablesToConsole(System.Data.DataTableCollection theTables)
+      {
+         Console.ForegroundColor = ConsoleColor.DarkGreen;
+         foreach (System.Data.DataTable table in theTables)
+         {
+
+            int[] columnWidths = new int[table.Columns.Count];
+            int tableWidth = 0;
+            string dataString;
+            Console.WriteLine("Table: " + table.TableName);
+
+            // Write out the column names and get their spacing
+            StringBuilder tableRow = new StringBuilder();
+            for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+            {
+               columnWidths[i] = GetColumnWidth(table.Columns[i]);
+               tableRow.Append(table.Columns[i].ColumnName.PadRight(columnWidths[i]));
+
+               tableWidth += columnWidths[i];
+            }
+            // add a space so it won't wrap
+            tableWidth += 1;
+            // make the console as wide as the widest table
+            Console.BufferWidth = (Console.BufferWidth &amp;gt; tableWidth ? Console.BufferWidth : tableWidth);
+            tableRow.Append("\r\n");
+            Console.Write(tableRow.ToString());
+
+            // Write out the data
+            foreach (DataRow row in table.Rows)
+            {
+               tableRow = new StringBuilder();
+               for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+               {
+                  dataString = row[i].ToString();
+                  // truncate output if it is wider than 
+                  // the desired column width
+                  if (dataString.Length &amp;gt;= columnWidths[i])
+                  {
+                     dataString = dataString.Substring(0, columnWidths[i] - 1);
+                  }
+                  // add the output to the stringbuilder and pad right to fill
+                  // up to the column width.
+                  tableRow.Append(dataString.PadRight(columnWidths[i]));
+               }
+               tableRow.Append("\r\n");
+               Console.Write(tableRow.ToString());
+            }
+            Console.Write("\r\n".PadLeft(tableWidth, '-'));
+         }
+         Console.ResetColor();
+      }
+      // Helper function for WriteTablesToConsole
+      private static int GetColumnWidth(DataColumn column)
+      {
+         // Note: may not handle byte[]data types well
+         const int MAX_COL_WIDTH = 40;
+         int dataWidth = 0;
+
+         //return 12 for numbers, 30 for dates, and string width for strings.
+         switch (column.DataType.UnderlyingSystemType.ToString())
+         {
+            case "System.Boolean":
+            case "System.Byte":
+            case "System.Byte[]":
+            case "System.Char":
+            case "System.Decimal":
+            case "System.Double":
+            case "System.Int16":
+            case "System.Int32":
+            case "System.Int64":
+            case "System.SByte":
+            case "System.Single":
+            case "System.UInt16":
+            case "System.UInt32":
+            case "System.UInt64":
+               dataWidth = 12;
+               break;
+            case "System.DateTime":
+            case "System.TimeSpan":
+               dataWidth = 30;
+               break;
+            case "System.Guid":
+               dataWidth = 37;
+               break;
+            case "System.String":
+               // If it has a maxlength, use it
+               if (column.MaxLength &amp;gt; 0)
+               {
+                  dataWidth = column.MaxLength;
+               }
+               else
+               {
+                  // Otherwise use the max col width
+                  dataWidth = MAX_COL_WIDTH;
+               }
+               break;
+            default:
+               dataWidth = column.ColumnName.Length;
+               break;
+         }
+         // truncate if over the max length
+         if (dataWidth &amp;gt; MAX_COL_WIDTH)
+         {
+            dataWidth = MAX_COL_WIDTH;
+         }
+         // always be at least as wide as the colum name
+         return (column.ColumnName.Length &amp;gt; (dataWidth) ? column.ColumnName.Length + 1 : dataWidth);
+      }
+   }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadReminderSubscriptions">
+      <MemberSignature Language="C#" Value="public WebSvcNotifications.ReminderSubscriptionInfoDataSet ReadReminderSubscriptions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcNotifications.ReminderSubscriptionInfoDataSet ReadReminderSubscriptions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcNotifications.Notifications.ReadReminderSubscriptions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadReminderSubscriptions () As ReminderSubscriptionInfoDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcNotifications::ReminderSubscriptionInfoDataSet ^ ReadReminderSubscriptions();" />
+      <MemberSignature Language="F#" Value="member this.ReadReminderSubscriptions : unit -&gt; WebSvcNotifications.ReminderSubscriptionInfoDataSet" Usage="notifications.ReadReminderSubscriptions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Notifications/ReadReminderSubscriptions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcNotifications.ReminderSubscriptionInfoDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets the reminder subscription information for the current user.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>User must be a resource.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePersonalNotifications" />
+              </term>
+              <description>Allows the user to self-manage notifications. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageResourceNotifications" />
+              </term>
+              <description>Allows the user to manage notifications for other resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>This example retrieves the current user's reminder subscription information and displays it on the console.</para>
+          <para>Please see Prerequisites for Reference Code Samples for critical information on running this code sample.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Net;
+using System.Web.Services.Protocols;
+using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.ReadReminderSubscriptions
+{
+   class Program
+   {
+      [STAThread]
+      static void Main()
+      {
+         try
+         {
+            #region Setup
+            const string PROJECT_SERVER_URI = "http://ServerName/ProjectServerName/";
+            const string NOTIFICATIONS_SERVICE_PATH = "_vti_bin/psi/notifications.asmx";
+            // Set up the Web service objects
+            SvcNotifications.Notifications notificationsSvc = new SvcNotifications.Notifications();
+            notificationsSvc.Url = PROJECT_SERVER_URI + NOTIFICATIONS_SERVICE_PATH;
+            notificationsSvc.UseDefaultCredentials = true;
+
+            #endregion
+            SvcNotifications.ReminderSubscriptionInfoDataSet reminderSubscriptionDs = notificationsSvc.ReadReminderSubscriptions();
+            WriteTablesToConsole(reminderSubscriptionDs.Tables);
+
+         }
+         #region Error Handling and Final
+         catch (SoapException ex)
+         {
+            PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            string errMess = "==============================\r\nError: \r\n";
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+               errMess += "\n" + ex.Message.ToString() + "\r\n";
+               errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+               errMess += errors[i].ErrId.ToString() + "\n";
+
+               for (int j = 0; j &amp;lt; errors[i].ErrorAttributes.Length; j++)
+               {
+                  errMess += "\r\n\t" + errors[i].ErrorAttributeNames()[j] + ": " + errors[i].ErrorAttributes[j];
+               }
+               errMess += "\r\n".PadRight(30, '=');
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+         }
+         catch (WebException ex)
+         {
+            string errMess = ex.Message.ToString() +
+               "\n\nLog on, or check the Project Server Queuing Service";
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + errMess);
+         }
+         catch (Exception ex)
+         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + ex.Message);
+         }
+         finally
+         {
+            Console.ResetColor();
+            Console.WriteLine("\r\n\r\nPress any key...");
+            Console.ReadKey();
+         }
+         #endregion
+      }
+      #region Supporting Classes
+      private static void WriteTablesToConsole(System.Data.DataTableCollection theTables)
+      {
+         Console.ForegroundColor = ConsoleColor.DarkGreen;
+         foreach (System.Data.DataTable table in theTables)
+         {
+
+            int[] columnWidths = new int[table.Columns.Count];
+            int tableWidth = 0;
+            string dataString;
+            Console.WriteLine("Table: " + table.TableName);
+
+            // Write out the column names and get their spacing
+            StringBuilder tableRow = new StringBuilder();
+            for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+            {
+               columnWidths[i] = GetColumnWidth(table.Columns[i]);
+               tableRow.Append(table.Columns[i].ColumnName.PadRight(columnWidths[i]));
+
+               tableWidth += columnWidths[i];
+            }
+            // add a space so it won't wrap
+            tableWidth += 1;
+            // make the console as wide as the widest table
+            Console.BufferWidth = (Console.BufferWidth &amp;gt; tableWidth ? Console.BufferWidth : tableWidth);
+            tableRow.Append("\r\n");
+            Console.Write(tableRow.ToString());
+
+            // Write out the data
+            foreach (DataRow row in table.Rows)
+            {
+               tableRow = new StringBuilder();
+               for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+               {
+                  dataString = row[i].ToString();
+                  // truncate output if it is wider than 
+                  // the desired column width
+                  if (dataString.Length &amp;gt;= columnWidths[i])
+                  {
+                     dataString = dataString.Substring(0, columnWidths[i] - 1);
+                  }
+                  // add the output to the stringbuilder and pad right to fill
+                  // up to the column width.
+                  tableRow.Append(dataString.PadRight(columnWidths[i]));
+               }
+               tableRow.Append("\r\n");
+               Console.Write(tableRow.ToString());
+            }
+            Console.Write("\r\n".PadLeft(tableWidth, '-'));
+         }
+         Console.ResetColor();
+      }
+      // Helper function for WriteTablesToConsole
+      private static int GetColumnWidth(DataColumn column)
+      {
+         // Note: may not handle byte[]data types well
+         const int MAX_COL_WIDTH = 40;
+         int dataWidth = 0;
+
+         //return 12 for numbers, 30 for dates, and string width for strings.
+         switch (column.DataType.UnderlyingSystemType.ToString())
+         {
+            case "System.Boolean":
+            case "System.Byte":
+            case "System.Byte[]":
+            case "System.Char":
+            case "System.Decimal":
+            case "System.Double":
+            case "System.Int16":
+            case "System.Int32":
+            case "System.Int64":
+            case "System.SByte":
+            case "System.Single":
+            case "System.UInt16":
+            case "System.UInt32":
+            case "System.UInt64":
+               dataWidth = 12;
+               break;
+            case "System.DateTime":
+            case "System.TimeSpan":
+               dataWidth = 30;
+               break;
+            case "System.Guid":
+               dataWidth = 37;
+               break;
+            case "System.String":
+               // If it has a maxlength, use it
+               if (column.MaxLength &amp;gt; 0)
+               {
+                  dataWidth = column.MaxLength;
+               }
+               else
+               {
+                  // Otherwise use the max col width
+                  dataWidth = MAX_COL_WIDTH;
+               }
+               break;
+            default:
+               dataWidth = column.ColumnName.Length;
+               break;
+         }
+         // truncate if over the max length
+         if (dataWidth &amp;gt; MAX_COL_WIDTH)
+         {
+            dataWidth = MAX_COL_WIDTH;
+         }
+         // always be at least as wide as the colum name
+         return (column.ColumnName.Length &amp;gt; (dataWidth) ? column.ColumnName.Length + 1 : dataWidth);
+      }
+   }
+      #endregion
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateAlertSubscriptions">
+      <MemberSignature Language="C#" Value="public void UpdateAlertSubscriptions (WebSvcNotifications.AlertSubscriptionInfoDataSet subscriptionDataset);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateAlertSubscriptions(class WebSvcNotifications.AlertSubscriptionInfoDataSet subscriptionDataset) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcNotifications.Notifications.UpdateAlertSubscriptions(WebSvcNotifications.AlertSubscriptionInfoDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateAlertSubscriptions (subscriptionDataset As AlertSubscriptionInfoDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateAlertSubscriptions(WebSvcNotifications::AlertSubscriptionInfoDataSet ^ subscriptionDataset);" />
+      <MemberSignature Language="F#" Value="member this.UpdateAlertSubscriptions : WebSvcNotifications.AlertSubscriptionInfoDataSet -&gt; unit" Usage="notifications.UpdateAlertSubscriptions subscriptionDataset" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Notifications/UpdateAlertSubscriptions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionDataset" Type="WebSvcNotifications.AlertSubscriptionInfoDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionDataset">To be added.</param>
+        <summary>Sets alert subscriptions for the current user.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>User must be a resource.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePersonalNotifications" />
+              </term>
+              <description>Allows the user to self-manage notifications. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageResourceNotifications" />
+              </term>
+              <description>Allows the user to manage notifications for other resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>This example retrieves the current user's alert subscription information, toggles the subscription flag, and displays the updated settings.</para>
+          <para>Please see Prerequisites for Reference Code Samples for critical information on running this code sample.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Net;
+using System.Web.Services.Protocols;
+using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.UpdateAlertSubscriptions
+{
+   class Program
+   {
+      [STAThread]
+      static void Main()
+      {
+         try
+         {
+            #region Setup
+            const string PROJECT_SERVER_URI = "http://ServerName/ProjectServerName/";
+            const string NOTIFICATIONS_SERVICE_PATH = "_vti_bin/psi/notifications.asmx";
+            // Set up the Web service objects
+            SvcNotifications.Notifications notificationsSvc = new SvcNotifications.Notifications();
+            notificationsSvc.Url = PROJECT_SERVER_URI + NOTIFICATIONS_SERVICE_PATH;
+            notificationsSvc.UseDefaultCredentials = true;
+            #endregion
+            #region Update Alert Subscriptions
+
+            // Get the current alert subscriptions
+            SvcNotifications.AlertSubscriptionInfoDataSet alertSubscriptionDs = notificationsSvc.ReadAlertSubscriptions();
+            WriteTablesToConsole(alertSubscriptionDs.Tables);
+
+            // Update  alert subscriptions
+            alertSubscriptionDs.AlertSubscriptionInfo[0].IsSubscribed = !alertSubscriptionDs.AlertSubscriptionInfo[0].IsSubscribed;
+            
+            notificationsSvc.UpdateAlertSubscriptions(alertSubscriptionDs);
+
+            // Read the alert descriptions back and display them
+            alertSubscriptionDs = notificationsSvc.ReadAlertSubscriptions();
+            WriteTablesToConsole(alertSubscriptionDs.Tables);
+            #endregion
+
+         }
+         #region Error Handling and Final
+         catch (SoapException ex)
+         {
+            PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            string errMess = "==============================\r\nError: \r\n";
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+               errMess += "\n" + ex.Message.ToString() + "\r\n";
+               errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+               errMess += errors[i].ErrId.ToString() + "\n";
+
+               for (int j = 0; j &amp;lt; errors[i].ErrorAttributes.Length; j++)
+               {
+                  errMess += "\r\n\t" + errors[i].ErrorAttributeNames()[j] + ": " + errors[i].ErrorAttributes[j];
+               }
+               errMess += "\r\n".PadRight(30, '=');
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+         }
+         catch (WebException ex)
+         {
+            string errMess = ex.Message.ToString() +
+               "\n\nLog on, or check the Project Server Queuing Service";
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + errMess);
+         }
+         catch (Exception ex)
+         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + ex.Message);
+         }
+         finally
+         {
+            Console.ResetColor();
+            Console.WriteLine("\r\n\r\nPress any key...");
+            Console.ReadKey();
+         }
+         #endregion
+      }
+      #region Supporting Classes
+      private static void WriteTablesToConsole(System.Data.DataTableCollection theTables)
+      {
+         Console.ForegroundColor = ConsoleColor.DarkGreen;
+         foreach (System.Data.DataTable table in theTables)
+         {
+
+            int[] columnWidths = new int[table.Columns.Count];
+            int tableWidth = 0;
+            string dataString;
+            Console.WriteLine("Table: " + table.TableName);
+
+            // Write out the column names and get their spacing
+            StringBuilder tableRow = new StringBuilder();
+            for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+            {
+               columnWidths[i] = GetColumnWidth(table.Columns[i]);
+               tableRow.Append(table.Columns[i].ColumnName.PadRight(columnWidths[i]));
+
+               tableWidth += columnWidths[i];
+            }
+            // add a space so it won't wrap
+            tableWidth += 1;
+            // make the console as wide as the widest table
+            Console.BufferWidth = (Console.BufferWidth &amp;gt; tableWidth ? Console.BufferWidth : tableWidth);
+            tableRow.Append("\r\n");
+            Console.Write(tableRow.ToString());
+
+            // Write out the data
+            foreach (DataRow row in table.Rows)
+            {
+               tableRow = new StringBuilder();
+               for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+               {
+                  dataString = row[i].ToString();
+                  // truncate output if it is wider than 
+                  // the desired column width
+                  if (dataString.Length &amp;gt;= columnWidths[i])
+                  {
+                     dataString = dataString.Substring(0, columnWidths[i] - 1);
+                  }
+                  // add the output to the stringbuilder and pad right to fill
+                  // up to the column width.
+                  tableRow.Append(dataString.PadRight(columnWidths[i]));
+               }
+               tableRow.Append("\r\n");
+               Console.Write(tableRow.ToString());
+            }
+            Console.Write("\r\n".PadLeft(tableWidth, '-'));
+         }
+         Console.ResetColor();
+      }
+      // Helper function for WriteTablesToConsole
+      private static int GetColumnWidth(DataColumn column)
+      {
+         // Note: may not handle byte[]data types well
+         const int MAX_COL_WIDTH = 40;
+         int dataWidth = 0;
+
+         //return 12 for numbers, 30 for dates, and string width for strings.
+         switch (column.DataType.UnderlyingSystemType.ToString())
+         {
+            case "System.Boolean":
+            case "System.Byte":
+            case "System.Byte[]":
+            case "System.Char":
+            case "System.Decimal":
+            case "System.Double":
+            case "System.Int16":
+            case "System.Int32":
+            case "System.Int64":
+            case "System.SByte":
+            case "System.Single":
+            case "System.UInt16":
+            case "System.UInt32":
+            case "System.UInt64":
+               dataWidth = 12;
+               break;
+            case "System.DateTime":
+            case "System.TimeSpan":
+               dataWidth = 30;
+               break;
+            case "System.Guid":
+               dataWidth = 37;
+               break;
+            case "System.String":
+               // If it has a maxlength, use it
+               if (column.MaxLength &amp;gt; 0)
+               {
+                  dataWidth = column.MaxLength;
+               }
+               else
+               {
+                  // Otherwise use the max col width
+                  dataWidth = MAX_COL_WIDTH;
+               }
+               break;
+            default:
+               dataWidth = column.ColumnName.Length;
+               break;
+         }
+         // truncate if over the max length
+         if (dataWidth &amp;gt; MAX_COL_WIDTH)
+         {
+            dataWidth = MAX_COL_WIDTH;
+         }
+         // always be at least as wide as the colum name
+         return (column.ColumnName.Length &amp;gt; (dataWidth) ? column.ColumnName.Length + 1 : dataWidth);
+      }
+   }
+      #endregion
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateReminderSubscriptions">
+      <MemberSignature Language="C#" Value="public void UpdateReminderSubscriptions (WebSvcNotifications.ReminderSubscriptionInfoDataSet subscriptionDataset);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateReminderSubscriptions(class WebSvcNotifications.ReminderSubscriptionInfoDataSet subscriptionDataset) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcNotifications.Notifications.UpdateReminderSubscriptions(WebSvcNotifications.ReminderSubscriptionInfoDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateReminderSubscriptions (subscriptionDataset As ReminderSubscriptionInfoDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateReminderSubscriptions(WebSvcNotifications::ReminderSubscriptionInfoDataSet ^ subscriptionDataset);" />
+      <MemberSignature Language="F#" Value="member this.UpdateReminderSubscriptions : WebSvcNotifications.ReminderSubscriptionInfoDataSet -&gt; unit" Usage="notifications.UpdateReminderSubscriptions subscriptionDataset" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Notifications/UpdateReminderSubscriptions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Notifications/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subscriptionDataset" Type="WebSvcNotifications.ReminderSubscriptionInfoDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="subscriptionDataset">To be added.</param>
+        <summary>Sets reminder subscriptions for the current user.</summary>
+        <remarks>
+          <para>If you set <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.IsSubscribed" /> to true, you must also set <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyValue" />, <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.FrequencyPeriod" />, and <see cref="P:WebSvcNotifications.ReminderSubscriptionInfoDataSet.ReminderSubscriptionInfoRow.RecipientType" /> or you will receive an error when updates are applied. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>User must be a resource.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManagePersonalNotifications" />
+              </term>
+              <description>Allows the user to self-manage notifications. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageResourceNotifications" />
+              </term>
+              <description>Allows the user to manage notifications for other resources. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>This example retrieves the current user's reminder subscription information, toggles the subscription flag, sets some delivery information, sends the update to the server, and displays the updated settings.</para>
+          <para>Please see Prerequisites for Reference Code Samples for critical information on running this code sample.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Net;
+using System.Web.Services.Protocols;
+using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.UpdateReminderSubscriptions
+{
+   class Program
+   {
+      [STAThread]
+      static void Main()
+      {
+         try
+         {
+            #region Setup
+            const string PROJECT_SERVER_URI = "http://ServerName/ProjectServerName/";
+            const string NOTIFICATIONS_SERVICE_PATH = "_vti_bin/psi/notifications.asmx";
+            // Set up the Web service objects
+            SvcNotifications.Notifications notificationsSvc = new SvcNotifications.Notifications();
+            notificationsSvc.Url = PROJECT_SERVER_URI + NOTIFICATIONS_SERVICE_PATH;
+            notificationsSvc.UseDefaultCredentials = true;
+
+            #endregion
+            #region Update Reminder Subscriptions
+            // Read the original settings
+            SvcNotifications.ReminderSubscriptionInfoDataSet reminderSubscriptionDs = notificationsSvc.ReadReminderSubscriptions();
+            WriteTablesToConsole(reminderSubscriptionDs.Tables);
+
+            // Update settings
+            reminderSubscriptionDs.ReminderSubscriptionInfo[0].IsSubscribed = !reminderSubscriptionDs.ReminderSubscriptionInfo[0].IsSubscribed;
+                        if (reminderSubscriptionDs.ReminderSubscriptionInfo[0].IsSubscribed)
+            {
+               reminderSubscriptionDs.ReminderSubscriptionInfo[0].RecipientType = (int)PSLibrary.Notification.RecipientType.OnlyToTeamMember;
+               reminderSubscriptionDs.ReminderSubscriptionInfo[0].FrequencyPeriod = (int)PSLibrary.Notification.ReminderFrequencyType.Week;
+               reminderSubscriptionDs.ReminderSubscriptionInfo[0].FrequencyValue = 0; // Magic number meaning every day
+            }
+
+            notificationsSvc.UpdateReminderSubscriptions(reminderSubscriptionDs);
+
+            // Read settings back and display
+            Console.WriteLine("Updated settings:");
+            WriteTablesToConsole(reminderSubscriptionDs.Tables);
+            #endregion
+         }
+         #region Error Handling and Final
+         catch (SoapException ex)
+         {
+            PSLibrary.PSClientError error = new PSLibrary.PSClientError(ex);
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            string errMess = "==============================\r\nError: \r\n";
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+               errMess += "\n" + ex.Message.ToString() + "\r\n";
+               errMess += "".PadRight(30, '=') + "\r\nPSCLientError Output:\r\n \r\n";
+               errMess += errors[i].ErrId.ToString() + "\n";
+
+               for (int j = 0; j &amp;lt; errors[i].ErrorAttributes.Length; j++)
+               {
+                  errMess += "\r\n\t" + errors[i].ErrorAttributeNames()[j] + ": " + errors[i].ErrorAttributes[j];
+               }
+               errMess += "\r\n".PadRight(30, '=');
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errMess);
+         }
+         catch (WebException ex)
+         {
+            string errMess = ex.Message.ToString() +
+               "\n\nLog on, or check the Project Server Queuing Service";
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + errMess);
+         }
+         catch (Exception ex)
+         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: " + ex.Message);
+         }
+         finally
+         {
+            Console.ResetColor();
+            Console.WriteLine("\r\n\r\nPress any key...");
+            Console.ReadKey();
+         }
+         #endregion
+      }
+      #region Supporting Classes
+      private static void WriteTablesToConsole(System.Data.DataTableCollection theTables)
+      {
+         Console.ForegroundColor = ConsoleColor.DarkGreen;
+         foreach (System.Data.DataTable table in theTables)
+         {
+
+            int[] columnWidths = new int[table.Columns.Count];
+            int tableWidth = 0;
+            string dataString;
+            Console.WriteLine("Table: " + table.TableName);
+
+            // Write out the column names and get their spacing
+            StringBuilder tableRow = new StringBuilder();
+            for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+            {
+               columnWidths[i] = GetColumnWidth(table.Columns[i]);
+               tableRow.Append(table.Columns[i].ColumnName.PadRight(columnWidths[i]));
+
+               tableWidth += columnWidths[i];
+            }
+            // add a space so it won't wrap
+            tableWidth += 1;
+            // make the console as wide as the widest table
+            Console.BufferWidth = (Console.BufferWidth &amp;gt; tableWidth ? Console.BufferWidth : tableWidth);
+            tableRow.Append("\r\n");
+            Console.Write(tableRow.ToString());
+
+            // Write out the data
+            foreach (DataRow row in table.Rows)
+            {
+               tableRow = new StringBuilder();
+               for (int i = 0; i &amp;lt; table.Columns.Count; i++)
+               {
+                  dataString = row[i].ToString();
+                  // truncate output if it is wider than 
+                  // the desired column width
+                  if (dataString.Length &amp;gt;= columnWidths[i])
+                  {
+                     dataString = dataString.Substring(0, columnWidths[i] - 1);
+                  }
+                  // add the output to the stringbuilder and pad right to fill
+                  // up to the column width.
+                  tableRow.Append(dataString.PadRight(columnWidths[i]));
+               }
+               tableRow.Append("\r\n");
+               Console.Write(tableRow.ToString());
+            }
+            Console.Write("\r\n".PadLeft(tableWidth, '-'));
+         }
+         Console.ResetColor();
+      }
+      // Helper function for WriteTablesToConsole
+      private static int GetColumnWidth(DataColumn column)
+      {
+         // Note: may not handle byte[]data types well
+         const int MAX_COL_WIDTH = 40;
+         int dataWidth = 0;
+
+         //return 12 for numbers, 30 for dates, and string width for strings.
+         switch (column.DataType.UnderlyingSystemType.ToString())
+         {
+            case "System.Boolean":
+            case "System.Byte":
+            case "System.Byte[]":
+            case "System.Char":
+            case "System.Decimal":
+            case "System.Double":
+            case "System.Int16":
+            case "System.Int32":
+            case "System.Int64":
+            case "System.SByte":
+            case "System.Single":
+            case "System.UInt16":
+            case "System.UInt32":
+            case "System.UInt64":
+               dataWidth = 12;
+               break;
+            case "System.DateTime":
+            case "System.TimeSpan":
+               dataWidth = 30;
+               break;
+            case "System.Guid":
+               dataWidth = 37;
+               break;
+            case "System.String":
+               // If it has a maxlength, use it
+               if (column.MaxLength &amp;gt; 0)
+               {
+                  dataWidth = column.MaxLength;
+               }
+               else
+               {
+                  // Otherwise use the max col width
+                  dataWidth = MAX_COL_WIDTH;
+               }
+               break;
+            default:
+               dataWidth = column.ColumnName.Length;
+               break;
+         }
+         // truncate if over the max length
+         if (dataWidth &amp;gt; MAX_COL_WIDTH)
+         {
+            dataWidth = MAX_COL_WIDTH;
+         }
+         // always be at least as wide as the colum name
+         return (column.ColumnName.Length &amp;gt; (dataWidth) ? column.ColumnName.Length + 1 : dataWidth);
+      }
+   }
+      #endregion
+}</code>
+        </example>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

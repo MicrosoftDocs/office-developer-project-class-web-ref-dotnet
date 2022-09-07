@@ -1,0 +1,2401 @@
+﻿<Type Name="Security" FullName="WebSvcSecurity.Security">
+  <TypeSignature Language="C#" Value="public class Security : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Security extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcSecurity.Security" />
+  <TypeSignature Language="VB.NET" Value="Public Class Security&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class Security : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type Security = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="SecuritySoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/Security/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for checking user permissions and managing security groups, templates, categories, and organizational permissions in Project Server.</summary>
+    <remarks>
+      <para>For general information about Project Server security, see <a href="http://msdn.microsoft.com/en-us/library/ms512372.aspx">Project Server Security Primer</a><a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a><a href="http://msdn.microsoft.com/en-us/library/aa974255.aspx">Walkthrough: Creating and Using Custom Project Server Permissions</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Security ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Security();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates a <b>Security</b> object from the ASMX-based <b>Security</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Security</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>SecurityClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>SecurityWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Security</b> web service.</para>
+          <code>private static SecurityWebSvc.Security security = new SecurityWebSvc.Security();</code>
+          <para>In the following statement, <b>SvcSecurity</b> is an arbitrary namespace for the WCF-based <b>Security</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcSecurity.SecurityClient securityClient = new SvcSecurity.SecurityClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserGlobalPermission">
+      <MemberSignature Language="C#" Value="public bool CheckUserGlobalPermission (Guid globalPermissionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool CheckUserGlobalPermission(valuetype System.Guid globalPermissionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserGlobalPermission(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserGlobalPermission (globalPermissionUid As Guid) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool CheckUserGlobalPermission(Guid globalPermissionUid);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserGlobalPermission : Guid -&gt; bool" Usage="security.CheckUserGlobalPermission globalPermissionUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserGlobalPermission", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="globalPermissionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="globalPermissionUid">Specifies the unique identifier for a global permission.</param>
+        <summary>Checks whether the current user has the specified global permission. </summary>
+        <returns>
+          <b>True</b> if the current user has the permission; otherwise, <b>false</b>.</returns>
+        <remarks>
+          <para>To check multiple global permissions, use <see cref="M:WebSvcSecurity.Security.CheckUserGlobalPermissions(System.Guid[])" /> for better performance. To check a security permission for another resource requires using impersonation to log on as that resource.</para>
+          <para>For the <paramref name="globalPermissionUids" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUID value of a default global permission, or use <see cref="M:WebSvcSecurity.Security.ReadGlobalPermissions" /> to get the GUID for a custom global permission.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on toProject Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has the "About Project Server" permission. For additional information and a complete sample application that checks global permissions, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+//Check whether the user has the "About Project Server" permission.
+bool hasPermission = 
+   security.CheckUserGlobalPermission(PSLibrary.PSSecurityGlobalPermission.AboutMicrosoftOfficeProjectServer);
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserGlobalPermissions">
+      <MemberSignature Language="C#" Value="public bool[] CheckUserGlobalPermissions (Guid[] globalPermissionUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool[] CheckUserGlobalPermissions(valuetype System.Guid[] globalPermissionUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserGlobalPermissions(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserGlobalPermissions (globalPermissionUids As Guid()) As Boolean()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;bool&gt; ^ CheckUserGlobalPermissions(cli::array &lt;Guid&gt; ^ globalPermissionUids);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserGlobalPermissions : Guid[] -&gt; bool[]" Usage="security.CheckUserGlobalPermissions globalPermissionUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserGlobalPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="globalPermissionUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="globalPermissionUids">An array of unique identifiers for one or more global permissions.</param>
+        <summary>Checks whether the current user has one or more of the specified global permissions.</summary>
+        <returns>An array of <b>Boolean</b> values for each value in the <paramref name="globalPermissionUids" /> parameter.</returns>
+        <remarks>
+          <para>Use the plural <b>CheckUserGlobalPermissions</b> method for better performance than <see cref="M:WebSvcSecurity.Security.CheckUserGlobalPermission(System.Guid)" /> when you check for multiple global permissions. Checking a security permission for another resource requires using impersonation to log on as that resource.</para>
+          <para>For GUID values in the <paramref name="globalPermissionUids" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get default global permissions, or use <see cref="M:WebSvcSecurity.Security.ReadGlobalPermissions" /> to get the GUIDs for custom global permissions.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to the Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has three specific global permissions. For additional information and a complete sample application that checks multiple global permissions, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+Guid[] permissionChecks = { 
+      // Permissions for creating resources and security groups:
+   PSLibrary.PSSecurityGlobalPermission.NewResource, 
+   PSLibrary.PSSecurityGlobalPermission.ManageUsersAndGroups, 
+      // Permission for creating security categories:
+   PSLibrary.PSSecurityGlobalPermission.ManageSecurity }; 
+
+bool[] permissionResults = new bool[permissionChecks.Length];
+permissionResults = security.CheckUserGlobalPermissions(permissionChecks);
+
+bool permissionOk = true;
+
+for (int i = 0; i &amp;lt; permissionResults.Length; i++)
+{
+   permissionOk = permissionOk &amp;amp;&amp;amp; permissionResults[i];
+}
+
+if (permissionOk)
+{
+   // Continue the application.
+}
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserObjectPermission">
+      <MemberSignature Language="C#" Value="public bool CheckUserObjectPermission (Guid objectUid, Guid objectTypeUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool CheckUserObjectPermission(valuetype System.Guid objectUid, valuetype System.Guid objectTypeUid, valuetype System.Guid categoryPermissionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserObjectPermission(System.Guid,System.Guid,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserObjectPermission (objectUid As Guid, objectTypeUid As Guid, categoryPermissionUid As Guid) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool CheckUserObjectPermission(Guid objectUid, Guid objectTypeUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserObjectPermission : Guid * Guid * Guid -&gt; bool" Usage="security.CheckUserObjectPermission (objectUid, objectTypeUid, categoryPermissionUid)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserObjectPermission", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectUid" Type="System.Guid" />
+        <Parameter Name="objectTypeUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="objectUid">The GUID of an object.</param>
+        <param name="objectTypeUid">The GUID of an object type.</param>
+        <param name="categoryPermissionUid">The GUID of a security category permission.</param>
+        <summary>Checks whether the current user has the single specified security category permission for a project or resource object.</summary>
+        <returns>
+          <b>True</b> if the current user has the permission; otherwise, <b>false</b>.</returns>
+        <remarks>
+          <para>To avoid specifying the <paramref name="objectTypeUid" />, you can use <see cref="M:WebSvcSecurity.Security.CheckUserProjectPermission(System.Guid,System.Guid)" /> or <see cref="M:WebSvcSecurity.Security.CheckUserResourcePermission(System.Guid,System.Guid)" /> instead of <b>CheckUserObjectPermission</b>. </para>
+          <para>To check multiple object permissions, use <see cref="M:WebSvcSecurity.Security.CheckUserObjectPermissions(System.Guid,System.Guid,System.Guid[])" />, <see cref="M:WebSvcSecurity.Security.CheckUserProjectPermissions(System.Guid,System.Guid[])" />, or <see cref="M:WebSvcSecurity.Security.CheckUserResourcePermissions(System.Guid,System.Guid[])" /> for better performance. Checking a security permission for another resource requires using impersonation to log on as that resource.</para>
+          <para>For the <paramref name="objectTypeUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityObjectType" /> structure to get the GUID for the <b>Project</b> or <b>Resource</b> object type. For the <paramref name="categoryPermissionUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUID for one of the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUID for a custom category permission. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to the Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has the "Assign Resource" permission for a specific resource. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Check whether the user has the "Assign Resource" permission for a resource.
+// Set the GUID for an existing resource.
+Guid resourceUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+Guid resourceType = PSLibrary.PSSecurityObjectType.Resource;
+Guid categoryPermission = PSLibrary.PSSecurityCategoryPermission.AssignResource;
+
+bool hasAssignResourcePermission = 
+   security.CheckUserObjectPermission(resourceUid, resourceType, categoryPermission);
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserObjectPermissions">
+      <MemberSignature Language="C#" Value="public bool[] CheckUserObjectPermissions (Guid objectUid, Guid objectTypeUid, Guid[] categoryPermissionUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool[] CheckUserObjectPermissions(valuetype System.Guid objectUid, valuetype System.Guid objectTypeUid, valuetype System.Guid[] categoryPermissionUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserObjectPermissions(System.Guid,System.Guid,System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserObjectPermissions (objectUid As Guid, objectTypeUid As Guid, categoryPermissionUids As Guid()) As Boolean()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;bool&gt; ^ CheckUserObjectPermissions(Guid objectUid, Guid objectTypeUid, cli::array &lt;Guid&gt; ^ categoryPermissionUids);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserObjectPermissions : Guid * Guid * Guid[] -&gt; bool[]" Usage="security.CheckUserObjectPermissions (objectUid, objectTypeUid, categoryPermissionUids)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserObjectPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectUid" Type="System.Guid" />
+        <Parameter Name="objectTypeUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="objectUid">The GUID of an object.</param>
+        <param name="objectTypeUid">The GUID of an object type.</param>
+        <param name="categoryPermissionUids">An array of one or more category permission GUIDs.</param>
+        <summary>Checks whether the current user has one or more of the specified security category permissions for a project or resource object.</summary>
+        <returns>An array of <b>Boolean</b> values for each value in the <paramref name="categoryPermissionUids" /> parameter.</returns>
+        <remarks>
+          <para>To avoid specifying the <paramref name="objectTypeUid" />, you can use <see cref="M:WebSvcSecurity.Security.CheckUserProjectPermissions(System.Guid,System.Guid[])" /> or <see cref="M:WebSvcSecurity.Security.CheckUserResourcePermissions(System.Guid,System.Guid[])" /> instead of <b>CheckUserObjectPermissions</b>. Checking a security permission for another resource requires using impersonation to log on as that resource.</para>
+          <para>For the <paramref name="objectTypeUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityObjectType" /> structure to get the GUID for the <b>Project</b> or <b>Resource</b> object type. For the <paramref name="categoryPermissionUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUIDs of the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUIDs for custom category permissions. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to the Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has three specific category permissions for a project. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Set the GUID for an existing project.
+Guid projectUid = new Guid("BC323C21-B7E4-4631-AF99-C44E5C52BA4E");
+Guid objectType = PSLibrary.PSSecurityObjectType.Project;
+
+Guid[] permissionChecks = { 
+   PSLibrary.PSSecurityCategoryPermission.BuildTeamOnProject, 
+   PSLibrary.PSSecurityCategoryPermission.SaveProtectedBaseline, 
+   PSLibrary.PSSecurityCategoryPermission.ViewProjectWorkspace };
+
+bool[] permissionResults = new bool[permissionChecks.Length];
+permissionResults = security.CheckUserObjectPermissions(projectUid, objectType, permissionChecks);
+
+bool permissionOk = true;
+
+for (int i = 0; i &amp;lt; permissionResults.Length; i++)
+{
+   permissionOk = permissionOk &amp;amp;&amp;amp; permissionResults[i];
+}
+if (permissionOk)
+{
+   // Continue the application.
+}
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserProjectPermission">
+      <MemberSignature Language="C#" Value="public bool CheckUserProjectPermission (Guid projectUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool CheckUserProjectPermission(valuetype System.Guid projectUid, valuetype System.Guid categoryPermissionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserProjectPermission(System.Guid,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserProjectPermission (projectUid As Guid, categoryPermissionUid As Guid) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool CheckUserProjectPermission(Guid projectUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserProjectPermission : Guid * Guid -&gt; bool" Usage="security.CheckUserProjectPermission (projectUid, categoryPermissionUid)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserProjectPermission", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projectUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="projectUid">The GUID of the project.</param>
+        <param name="categoryPermissionUid">The GUID of the category permission.</param>
+        <summary>Checks whether the current user has the specified security category permission for a specified project.</summary>
+        <returns>
+          <b>True</b> if the current user has the category permission for the project; otherwise, <b>false</b>.</returns>
+        <remarks>
+          <para>
+            <b>CheckUserProjectPermission</b> wraps a call to <b>CheckUserObjectPermission</b>. To check multiple category permissions for a project, use <see cref="M:WebSvcSecurity.Security.CheckUserProjectPermissions(System.Guid,System.Guid[])" /> for better performance. Checking a category permission for another user on a project requires using impersonation to log on as that user.</para>
+          <para>For the <paramref name="categoryPermissionUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUID for one of the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUID for a custom category permission. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has the "Delete Project" permission for an existing project. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>
+using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Set the GUID for an existing project.
+Guid projectUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+Guid categoryPermission = PSLibrary.PSSecurityCategoryPermission.DeleteProject;
+
+bool hasDeleteProjectPermission = 
+   security.CheckUserProjectPermission(projectUid,  categoryPermission);
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserProjectPermissions">
+      <MemberSignature Language="C#" Value="public bool[] CheckUserProjectPermissions (Guid projectUid, Guid[] categoryPermissionUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool[] CheckUserProjectPermissions(valuetype System.Guid projectUid, valuetype System.Guid[] categoryPermissionUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserProjectPermissions(System.Guid,System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserProjectPermissions (projectUid As Guid, categoryPermissionUids As Guid()) As Boolean()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;bool&gt; ^ CheckUserProjectPermissions(Guid projectUid, cli::array &lt;Guid&gt; ^ categoryPermissionUids);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserProjectPermissions : Guid * Guid[] -&gt; bool[]" Usage="security.CheckUserProjectPermissions (projectUid, categoryPermissionUids)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserProjectPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projectUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="projectUid">The GUID of the project.</param>
+        <param name="categoryPermissionUids">An array of one or more category permission GUIDs.</param>
+        <summary>Checks whether the current user has one or more of the specified security category permissions for a specified project.</summary>
+        <returns>An array of <b>Boolean</b> values that correspond to security category permissions of the current user for the project.</returns>
+        <remarks>
+          <para>
+            <b>CheckUserProjectPermissions</b> wraps a call to <b>CheckUserObjectPermissions</b>. To check a single category permission for a project, you can use <see cref="M:WebSvcSecurity.Security.CheckUserProjectPermissions(System.Guid,System.Guid[])" />. Checking a category permission for another user on a project requires using impersonation to log on as that user.</para>
+          <para>For the <paramref name="categoryPermissionUids" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUIDs for the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUIDs for custom category permissions. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has three specificcategory permissions for an existing project. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Set the GUID for an existing project.
+Guid projectUid = new Guid("BC323C21-B7E4-4631-AF99-C44E5C52BA4E");
+
+Guid[] permissionChecks = { 
+   PSLibrary.PSSecurityCategoryPermission.BuildTeamOnProject, 
+   PSLibrary.PSSecurityCategoryPermission.SaveProtectedBaseline, 
+   PSLibrary.PSSecurityCategoryPermission.ViewProjectWorkspace };
+
+bool[] permissionResults = new bool[permissionChecks.Length];
+permissionResults = security.CheckUserProjectPermissions(projectUid, permissionChecks);
+
+bool permissionOk = true;
+
+for (int i = 0; i &amp;lt; permissionResults.Length; i++)
+{
+   permissionOk = permissionOk &amp;amp;&amp;amp; permissionResults[i];
+}
+if (permissionOk)
+{
+   // Continue the application.
+}
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserResourcePermission">
+      <MemberSignature Language="C#" Value="public bool CheckUserResourcePermission (Guid resourceUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool CheckUserResourcePermission(valuetype System.Guid resourceUid, valuetype System.Guid categoryPermissionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserResourcePermission(System.Guid,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserResourcePermission (resourceUid As Guid, categoryPermissionUid As Guid) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool CheckUserResourcePermission(Guid resourceUid, Guid categoryPermissionUid);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserResourcePermission : Guid * Guid -&gt; bool" Usage="security.CheckUserResourcePermission (resourceUid, categoryPermissionUid)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserResourcePermission", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="resourceUid">The GUID of the resource.</param>
+        <param name="categoryPermissionUid">The GUID of the category permission.</param>
+        <summary>Checks whether the current user has the specified security category permission for a specified resource.</summary>
+        <returns>
+          <b>true</b> if the current user has the category permission for the resource; otherwise, <b>false</b>.</returns>
+        <remarks>
+          <para>
+            <b>CheckUserResourcePermission</b> wraps a call to <b>CheckUserObjectPermission</b>. To check multiple category permissions for a resource, use <see cref="M:WebSvcSecurity.Security.CheckUserResourcePermissions(System.Guid,System.Guid[])" /> for better performance. Checking a category permission for another user on a resource requires using impersonation to log on as that user.</para>
+          <para>For the <paramref name="categoryPermissionUid" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUID for one of the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUID for a custom category permission. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has the "Create Surrogate Timesheet" permission for an existing resource. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Set the GUID for an existing resource.
+Guid resourceUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+Guid categoryPermission = PSLibrary.PSSecurityCategoryPermission.CreateSurrogateTimesheet;
+
+bool hasSurrogateTimesheetPermission = 
+   security.CheckUserResourcePermission(resourceUid,  categoryPermission);
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckUserResourcePermissions">
+      <MemberSignature Language="C#" Value="public bool[] CheckUserResourcePermissions (Guid resourceUid, Guid[] categoryPermissionUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool[] CheckUserResourcePermissions(valuetype System.Guid resourceUid, valuetype System.Guid[] categoryPermissionUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CheckUserResourcePermissions(System.Guid,System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckUserResourcePermissions (resourceUid As Guid, categoryPermissionUids As Guid()) As Boolean()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;bool&gt; ^ CheckUserResourcePermissions(Guid resourceUid, cli::array &lt;Guid&gt; ^ categoryPermissionUids);" />
+      <MemberSignature Language="F#" Value="member this.CheckUserResourcePermissions : Guid * Guid[] -&gt; bool[]" Usage="security.CheckUserResourcePermissions (resourceUid, categoryPermissionUids)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CheckUserResourcePermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resourceUid" Type="System.Guid" />
+        <Parameter Name="categoryPermissionUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="resourceUid">The GUID of the resource.</param>
+        <param name="categoryPermissionUids">An array of one or more category permission GUIDs.</param>
+        <summary>Checks whether the current user has one or more of the specified security category permissions for a specified resource.</summary>
+        <returns>An array of <b>Boolean</b> values that correspond to security category permissions of the current user for the resource.</returns>
+        <remarks>
+          <para>
+            <b>CheckUserResourcePermissions</b> wraps a call to <b>CheckUserObjectPermissions</b>. To check for a single category permission for a resource, you can use <see cref="M:WebSvcSecurity.Security.CheckUserResourcePermission(System.Guid,System.Guid)" />. Checking a category permission for another user on a project requires using impersonation to log on as that user.</para>
+          <para>For the <paramref name="categoryPermissionUids" /> parameter, use the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure to get the GUIDs for the default category permissions, or use <see cref="M:WebSvcSecurity.Security.ReadCategoryPermissions" /> to get the GUIDs for custom category permissions. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example checks whether the current user has three different category permissions for an existing resource. For additional information and a complete sample application, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+// Set the GUID for an existing resource.
+Guid resourceUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+
+Guid[] permissionChecks = { 
+   PSLibrary.PSSecurityCategoryPermission.AssignResource, 
+   PSLibrary.PSSecurityCategoryPermission.AdjustTimesheet, 
+   PSLibrary.PSSecurityCategoryPermission.ViewResourceAssignmentsInAssignmentViews };
+
+bool[] permissionResults = new bool[permissionChecks.Length];
+permissionResults = security.CheckUserProjectPermissions(projectUid, permissionChecks);
+
+bool permissionOk = true;
+
+for (int i = 0; i &amp;lt; permissionResults.Length; i++)
+{
+   permissionOk = permissionOk &amp;amp;&amp;amp; permissionResults[i];
+}
+if (permissionOk)
+{
+   // Continue the application.
+}
+. . .</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateCategories">
+      <MemberSignature Language="C#" Value="public void CreateCategories (WebSvcSecurity.SecurityCategoriesDataSet categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateCategories(class WebSvcSecurity.SecurityCategoriesDataSet categories) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CreateCategories(WebSvcSecurity.SecurityCategoriesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateCategories (categories As SecurityCategoriesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateCategories(WebSvcSecurity::SecurityCategoriesDataSet ^ categories);" />
+      <MemberSignature Language="F#" Value="member this.CreateCategories : WebSvcSecurity.SecurityCategoriesDataSet -&gt; unit" Usage="security.CreateCategories categories" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CreateCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categories" Type="WebSvcSecurity.SecurityCategoriesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="categories">Contains the information about one or more security categories.</param>
+        <summary>Creates one or more security categories.</summary>
+        <remarks>
+          <para>The <paramref name="categories" /> parameter must contain at least one <see cref="T:WebSvcSecurity.SecurityCategoriesDataSet.SecurityCategoriesRow" /> that defines a new category. The <b>SecurityCategoriesDataTable</b> can contain multiple <b>SecurityCategoriesRow</b> objects. Project Server validates each <b>SecurityCategoriesRow</b> for the following:</para>
+          <list type="bullet">
+            <item>
+              <description>Unique category name and GUID </description>
+            </item>
+            <item>
+              <description>Existence of users and groups (if any) that have the category permission</description>
+            </item>
+            <item>
+              <description>Existence of projects (if any) in the category </description>
+            </item>
+            <item>
+              <description>Existence of resources (if any) in the category </description>
+            </item>
+          </list>
+          <para>There are seven <b>DataTable</b> objects in a <b>SecurityCatagoriesDataSet</b>. Only the <b>SecurityCategoriesDataTable</b> must contain data. The data tables are in order, as follows:</para>
+          <list type="number">
+            <item>
+              <description>SecurityCategories   Each row specifies the category GUID, name, and description. Only the GUID and name (WSEC_CAT_UID  and WSEC_CAT_NAME) are required to create a security category.</description>
+            </item>
+            <item>
+              <description>UserRelations   Optional. Each row specifies the category GUID and the resource GUID.</description>
+            </item>
+            <item>
+              <description>GroupRelations   Optional. Specifies the category GUID and the group GUID.</description>
+            </item>
+            <item>
+              <description>UserPermissions   Optional. Each row specifies the category GUID, resource GUID, and permission, and sets <b>Allow</b> or <b>Deny</b> for the permission.</description>
+            </item>
+            <item>
+              <description>GroupPermissions   Optional. Each row specifies the category GUID, group GUID, and permission, and sets <b>Allow</b> or <b>Deny</b> for the permission.</description>
+            </item>
+            <item>
+              <description>SecurityCategoryObjects   Optional. Each row specifies the category GUID, object type (project or resource), and object GUID.</description>
+            </item>
+            <item>
+              <description>SecurityCategoryRules   Optional. Each row specifies the category GUID, object type (project or resource), and rule type. For information about the rule enumerations, see <see cref="T:Microsoft.Office.Project.Server.Library.ProjectSecurityRules" /> and <see cref="T:Microsoft.Office.Project.Server.Library.ResourceSecurityRules" />.</description>
+            </item>
+          </list>
+          <para>For examples of valid categories, click a category on the Manage Categories page in Project Web App, to see the fields and settings on the Add or Edit Category page.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example calls <b>CreateCategories</b> to create two security categories that are specified in the <b>SecurityCategoriesDataSet</b><paramref name="multiCategoryDs" />. </para>
+          <para>For additional information and a complete sample application that creates one security category with a group, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a><paramref name="resourceGuid" />. After you run the application, open the Manage Categories page in Project Web App, and then click Test Category 1 and Test Category 2 to see the results. </para>
+          <code>/* 
+ * Add this code to the sample code in the article
+ * Using Security Methods in the PSI.
+ */
+
+// Set the GUID for an existing resource.
+Guid resourceUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+
+Guid category1Guid = Guid.NewGuid();
+Guid category2Guid = Guid.NewGuid();
+
+SvcSecurity.SecurityCategoriesDataSet multiCategoryDs =
+   new SvcSecurity.SecurityCategoriesDataSet();
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoriesRow category1Row =
+   multiCategoryDs.SecurityCategories.NewSecurityCategoriesRow();
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoriesRow category2Row =
+   multiCategoryDs.SecurityCategories.NewSecurityCategoriesRow();
+
+category1Row.WSEC_CAT_UID = category1Guid;
+category1Row.WSEC_CAT_NAME = "Test Category 1";
+category1Row.WSEC_CAT_DESC = "This is test category 1.";
+multiCategoryDs.SecurityCategories.AddSecurityCategoriesRow(category1Row);
+
+category2Row.WSEC_CAT_UID = category2Guid;
+category2Row.WSEC_CAT_NAME = "Test Category 2";
+category2Row.WSEC_CAT_DESC = "This is test category 2.";
+multiCategoryDs.SecurityCategories.AddSecurityCategoriesRow(category2Row);
+
+// (Optional) Add a user to category 1.
+SvcSecurity.SecurityCategoriesDataSet.UserRelationsRow userRelationsRow =
+   multiCategoryDs.UserRelations.NewUserRelationsRow();
+userRelationsRow.WSEC_CAT_UID = category1Guid;
+// Change the following GUID to a resource that is on your system.
+Guid existingResUid = new Guid("88979803-2230-48b4-b23b-4af0e4a40392");
+userRelationsRow.RES_UID = existingResUid;
+multiCategoryDs.UserRelations.AddUserRelationsRow(userRelationsRow);
+
+// (Optional) Specify the permissions for the user on category 1.
+SvcSecurity.SecurityCategoriesDataSet.UserPermissionsRow userPermRow =
+   multiCategoryDs.UserPermissions.NewUserPermissionsRow();
+userPermRow.WSEC_CAT_UID = category1Guid;
+userPermRow.RES_UID = existingResUid;
+userPermRow.WSEC_ALLOW = true;
+
+// For example, add the "Open Project" permission.
+userPermRow.WSEC_FEA_ACT_UID = PSLibrary.PSSecurityCategoryPermission.OpenProject;
+multiCategoryDs.UserPermissions.AddUserPermissionsRow(userPermRow);
+
+// (Optional) Add an object (project or resource) to category 2.
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoryObjectsRow category2ObjectRow =
+   multiCategoryDs.SecurityCategoryObjects.NewSecurityCategoryObjectsRow();
+category2ObjectRow.WSEC_CAT_UID = category2Guid;
+category2ObjectRow.WSEC_OBJ_TYPE_UID = PSLibrary.PSSecurityObjectType.Project;
+
+// Add an existing project to category 2. 
+// Change the following GUID to a project that is on your system.
+category2ObjectRow.WSEC_OBJ_UID = new Guid("BC323C21-B7E4-4631-AF99-C44E5C52BA4E");
+multiCategoryDs.SecurityCategoryObjects.AddSecurityCategoryObjectsRow(category2ObjectRow);
+
+// (Optional) Set some dynamic rules on category 2.
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoryRulesRow category2RulesRow1 =
+   multiCategoryDs.SecurityCategoryRules.NewSecurityCategoryRulesRow();
+category2RulesRow1.WSEC_CAT_UID = category2Guid;
+category2RulesRow1.WSEC_OBJ_TYPE_UID = PSLibrary.PSSecurityObjectType.Project;
+category2RulesRow1.WSEC_OBJ_RULE_TYPE = (int)PSLibrary.ProjectSecurityRules.OwnerAtSameRbsNode;
+multiCategoryDs.SecurityCategoryRules.AddSecurityCategoryRulesRow(category2RulesRow1);
+
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoryRulesRow category2RulesRow2 =
+   multiCategoryDs.SecurityCategoryRules.NewSecurityCategoryRulesRow();
+category2RulesRow2.WSEC_CAT_UID = category2Guid;
+category2RulesRow2.WSEC_OBJ_TYPE_UID = PSLibrary.PSSecurityObjectType.Project;
+category2RulesRow2.WSEC_OBJ_RULE_TYPE = (int)PSLibrary.ProjectSecurityRules.AllCurrentAndFuture;
+multiCategoryDs.SecurityCategoryRules.AddSecurityCategoryRulesRow(category2RulesRow2);
+
+SvcSecurity.SecurityCategoriesDataSet.SecurityCategoryRulesRow category2RulesRow3 =
+   multiCategoryDs.SecurityCategoryRules.NewSecurityCategoryRulesRow();
+category2RulesRow3.WSEC_CAT_UID = category2Guid;
+category2RulesRow3.WSEC_OBJ_TYPE_UID = PSLibrary.PSSecurityObjectType.Project;
+category2RulesRow3.WSEC_OBJ_RULE_TYPE = (int)PSLibrary.ProjectSecurityRules.ManagedByUser;
+multiCategoryDs.SecurityCategoryRules.AddSecurityCategoryRulesRow(category2RulesRow3);
+
+security.CreateCategories(multiCategoryDs);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateGroups">
+      <MemberSignature Language="C#" Value="public void CreateGroups (WebSvcSecurity.SecurityGroupsDataSet groups);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateGroups(class WebSvcSecurity.SecurityGroupsDataSet groups) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CreateGroups(WebSvcSecurity.SecurityGroupsDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateGroups (groups As SecurityGroupsDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateGroups(WebSvcSecurity::SecurityGroupsDataSet ^ groups);" />
+      <MemberSignature Language="F#" Value="member this.CreateGroups : WebSvcSecurity.SecurityGroupsDataSet -&gt; unit" Usage="security.CreateGroups groups" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CreateGroups", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="groups" Type="WebSvcSecurity.SecurityGroupsDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="groups">Contains the information about one or more security groups.</param>
+        <summary>Creates one or more security groups.</summary>
+        <remarks>
+          <para>The <paramref name="groups" /> parameter must contain at least one <see cref="T:WebSvcSecurity.SecurityGroupsDataSet.SecurityGroupsRow" /> in the <b>SecurityGroups</b> table that defines a new group. The <b>SecurityGroupsDataTable</b> can contain multiple <b>SecurityGroupsRow</b> objects. Project Server validates each <b>SecurityGroupsRow</b> for the following:</para>
+          <list type="bullet">
+            <item>
+              <description>Unique group name and GUID </description>
+            </item>
+            <item>
+              <description>Existence of group users (if any) </description>
+            </item>
+          </list>
+          <para>There are five <b>DataTable</b> objects in a <b>SecurityGroupsDataSet</b>. Only the <b>SecurityGroupsDataTable</b> must contain data. The data tables are in order, as follows:</para>
+          <list type="number">
+            <item>
+              <description>SecurityGroups   Each row specifies the category GUID, name, and description. Only the GUID and name (WSEC_CAT_UID  and WSEC_CAT_NAME) are required to create a security category.</description>
+            </item>
+            <item>
+              <description>SecurityPrincipleCategoryRelations   Optional. Each row specifies the group GUID and the primary security category GUID. For the primarycategories, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategory" /> structure.</description>
+            </item>
+            <item>
+              <description>CategoryPermissions   Optional. Each row specifies the group GUID and category permission GUID, and sets <b>Allow</b> or <b>Deny</b> for the permission. For information about the category permissions, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure.</description>
+            </item>
+            <item>
+              <description>GlobalPermissions   Optional. Each row specifies the group GUID and global permission GUID, and sets <b>Allow</b> or <b>Deny</b> for the permission. For information about the global permissions, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure.</description>
+            </item>
+            <item>
+              <description>GroupMembers   Optional. Each row specifies the group GUID and the resource GUID.</description>
+            </item>
+          </list>
+          <para>For examples of valid groups, click a group on the Manage Groups page in Project Web App, to see the fields and settings on the Add or Edit Group page.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example creates a security group, adds a resource to the group, and adds a global permission set to <b>Allow</b> for the group.</para>
+          <para>For additional information and a complete sample application that creates one security category with a group, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>using System;
+using System.Net;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+CookieContainer cookiecontainer = new CookieContainer();
+SvcSecurity.Security security = new SvcSecurity.Security();
+security.Url = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/&lt;span class="placeholder"&gt;ProjectServerName&lt;/span&gt;/_vti_bin/psi/security.asmx";
+security.CookieContainer = cookiecontainer;
+security.Credentials = System.Net.CredentialCache.DefaultCredentials;
+. . .
+// Create a GUID for the new group.
+Guid groupGuid = Guid.NewGuid();
+
+// Specify basic group information.
+SvcSecurity.SecurityGroupsDataSet groupDs =
+   new SvcSecurity.SecurityGroupsDataSet();
+SvcSecurity.SecurityGroupsDataSet.SecurityGroupsRow groupRow =
+   groupDs.SecurityGroups.NewSecurityGroupsRow();
+groupRow.WSEC_GRP_NAME = "SDK Test Group";
+groupRow.WSEC_GRP_UID = groupGuid;
+groupRow.WSEC_GRP_DESC = "This is the SDK Test Group.";
+groupDs.SecurityGroups.AddSecurityGroupsRow(groupRow);
+
+// Set the GUID for an existing resource.
+Guid resourceUid = new Guid("a1fcbf91-e91d-44e2-a4a7-3b4b698cb984");
+
+// Add the resource to the new group.
+SvcSecurity.SecurityGroupsDataSet.GroupMembersRow groupMembersRow =
+   groupDs.GroupMembers.NewGroupMembersRow();
+groupMembersRow.WSEC_GRP_UID = groupGuid;
+groupMembersRow.RES_UID = resourceUid;
+groupDs.GroupMembers.AddGroupMembersRow(groupMembersRow);
+
+// Specify a global permission for the group.
+SvcSecurity.SecurityGroupsDataSet.GlobalPermissionsRow globalPermRow =
+   groupDs.GlobalPermissions.NewGlobalPermissionsRow();
+globalPermRow.WSEC_GRP_UID = groupGuid;
+// Add a permission that applies to the group. 
+// For example, add the "About Microsoft Office Project Server" permission.
+globalPermRow.WSEC_FEA_ACT_UID = 
+   PSLibrary.PSSecurityGlobalPermission.AboutMicrosoftOfficeProjectServer;
+globalPermRow.WSEC_ALLOW = true;
+groupDs.GlobalPermissions.AddGlobalPermissionsRow(globalPermRow);
+
+// Now that all the rows are added to the relevant tables,
+// create the group.
+security.CreateGroups(groupDs);</code>
+          <para>. . .</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateProjectCategories">
+      <MemberSignature Language="C#" Value="public void CreateProjectCategories (WebSvcSecurity.SecurityProjectCategoriesDataSet categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateProjectCategories(class WebSvcSecurity.SecurityProjectCategoriesDataSet categories) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CreateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateProjectCategories (categories As SecurityProjectCategoriesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateProjectCategories(WebSvcSecurity::SecurityProjectCategoriesDataSet ^ categories);" />
+      <MemberSignature Language="F#" Value="member this.CreateProjectCategories : WebSvcSecurity.SecurityProjectCategoriesDataSet -&gt; unit" Usage="security.CreateProjectCategories categories" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CreateProjectCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categories" Type="WebSvcSecurity.SecurityProjectCategoriesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="categories">To be added.</param>
+        <summary>Creates Project categories for web security.</summary>
+        <remarks>
+          <para>The Project Permissions feature allows users or groups that have been granted the "Manage Basic Project Security" category permission to grant users and groups access to the projects that they own. They function like security categories. For more information, see <a href="http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx">http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx</a></para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have the <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcSecurity</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example assumes that the project does not have any category assigned to it.</para>
+          <para>The example calls the <b>ReadProjectList</b> method to get the list of projects. It then calls <b>CreateProjectCategories</b> to create the <b>ProjectCategoriesDataset</b> and then writes it to the XML file <b>Categories.xml</b>, as shown in the following code. </para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+    321f7584-1f8b-4065-a432-a59b9412d8ba&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;ff9c1198-fb7b-4e9d-88a9-1415d46a3443&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>UpdateProjectCategories</b> method is called to update the <b>ProjectCategoriesDataset</b>. The updated DataSet is written to the <b>UpdatedCategories.xml</b> file, as shown in the following snippet.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+     8ce0a52b-6218-4670-bf53-8e8df21af590&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;aed0e69b-4470-4ddb-b063-184a9c06c9de&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>DeleteProjectCategories</b> method takes an array of project GUIDs and deletes the entries in the <b>ProjectCategoriesDataset</b>. Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.Security
+{
+    class Security
+    {
+        private const string ENDPOINT_S = "basicHttp_Security";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+
+        private static string outFilePathCategories;
+        private static string outFilePathUpdatedCategories;
+
+        private static SvcSecurity.SecurityClient securityClient;
+        private static SvcProject.ProjectClient projectClient;
+
+        static void Main(string[] args)
+        {
+            // If directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            // Assign the path where the output XML file will be saved.
+            outFilePathCategories = OUTPUT_FILES + "Categories.xml";
+            outFilePathUpdatedCategories = OUTPUT_FILES + "UpdatedCategories.xml";
+
+            // Configure the endpoints.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+            configResult = ConfigClientEndpoints(ENDPOINT_S);
+
+            try
+            {
+                // Create a project DataSet.
+                SvcProject.ProjectDataSet pDS = new SvcProject.ProjectDataSet();
+                pDS = projectClient.ReadProjectList();
+
+                // Create a project category.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet1 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row1 = 
+                    projectCategoryDataSet1.ProjectCategories.NewProjectCategoriesRow();
+                row1.WSEC_CAT_UID = Guid.NewGuid();
+                row1.PROJ_UID = pDS.Project[2].PROJ_UID;
+                projectCategoryDataSet1.ProjectCategories.AddProjectCategoriesRow(row1);
+                securityClient.CreateProjectCategories(projectCategoryDataSet1);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet = 
+                    securityClient.ReadProjectCategory(row1.PROJ_UID);
+
+                // Write the project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                projectCategoryDataSet.WriteXml(outFilePathCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Update project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet3 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row2 = 
+                    projectCategoryDataSet3.ProjectCategories.NewProjectCategoriesRow();
+                row2.WSEC_CAT_UID = Guid.NewGuid();
+                row2.PROJ_UID = pDS.Project[3].PROJ_UID;
+                projectCategoryDataSet3.ProjectCategories.AddProjectCategoriesRow(row2);
+                securityClient.UpdateProjectCategories(projectCategoryDataSet3);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet updatedPDS = 
+                    securityClient.ReadProjectCategory(row2.PROJ_UID);
+
+                // Write the updated project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                updatedPDS.WriteXml(outFilePathUpdatedCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathUpdatedCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Delete project categories.
+                Guid[] guidarray = new Guid[2];
+                guidarray[0] = row1.PROJ_UID;
+                guidarray[1] = row2.PROJ_UID;
+                securityClient.DeleteProjectCategories(guidarray);
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_S:
+                    securityClient = new SvcSecurity.SecurityClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }
+       
+
+    }
+}
+
+</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateTemplates">
+      <MemberSignature Language="C#" Value="public void CreateTemplates (WebSvcSecurity.SecurityTemplatesDataSet templates);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateTemplates(class WebSvcSecurity.SecurityTemplatesDataSet templates) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.CreateTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateTemplates (templates As SecurityTemplatesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateTemplates(WebSvcSecurity::SecurityTemplatesDataSet ^ templates);" />
+      <MemberSignature Language="F#" Value="member this.CreateTemplates : WebSvcSecurity.SecurityTemplatesDataSet -&gt; unit" Usage="security.CreateTemplates templates" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/CreateTemplates", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="templates" Type="WebSvcSecurity.SecurityTemplatesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="templates">Contains the information about one or more security templates.</param>
+        <summary>Creates one or more security templates.</summary>
+        <remarks>
+          <para>The <paramref name="templates" /> parameter must contain at least one <see cref="T:WebSvcSecurity.SecurityTemplatesDataSet.SecurityTemplatesRow" /> in the <b>SecurityTemplates</b> table that defines a new template. The <b>SecurityTemplatesDataTable</b> can contain multiple <b>SecurityTemplatesRow</b> objects. Project Server validates each <b>SecurityTemplatesRow</b> for the following:</para>
+          <list type="bullet">
+            <item>
+              <description>Unique template name and GUID </description>
+            </item>
+          </list>
+          <para>There are three <b>DataTable</b> objects in a <b>SecurityTemplatesDataSet</b>. Only the <b>SecurityTemplatesDataTable</b> must contain data. The data tables are in order, as follows:</para>
+          <list type="number">
+            <item>
+              <description>SecurityTemplates   Each row specifies the category GUID, name, and description. Only the GUID and name (WSEC_TMPL_UID and WSEC_TMPL_NAME) are required to create a security category.</description>
+            </item>
+            <item>
+              <description>CategoryPermissions   Optional. Each row specifies the template GUID and category permission GUID, and sets <b>Allow</b> or <b>Deny</b> for the permission. For information about the category permissions, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission" /> structure.</description>
+            </item>
+            <item>
+              <description>GlobalPermissions   Optional. Each row specifies the template GUID and the global permission GUID, and sets <b>Allow</b> or <b>Deny</b> for the permission. For information about the global permissions, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission" /> structure.</description>
+            </item>
+          </list>
+          <para>For examples of valid templates, click a template on the Manage Templates page in Project Web App, to see the fields and settings on the Add or Edit Template page.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example creates a security template and adds a global permission that is set to <b>Allow</b> for the group.</para>
+          <para>For additional information and a basic sample application for testing the <b>Security</b> class methods, see <a href="http://msdn.microsoft.com/en-us/library/aa974321.aspx">Using Security Methods in the PSI</a></para>
+          <code>/*
+ * Add this code to the sample application code in the article 
+ * Using Security Methods in the PSI.
+ */
+
+// Create a GUID for the new template.
+Guid templateGuid = Guid.NewGuid();
+
+// Specify basic template information.
+SvcSecurity.SecurityTemplatesDataSet templateDs =
+   new SvcSecurity.SecurityTemplatesDataSet();
+SvcSecurity.SecurityTemplatesDataSet.SecurityTemplatesRow templateRow =
+   templateDs.SecurityTemplates.NewSecurityTemplatesRow();
+templateRow.WSEC_TMPL_NAME = "SDK Test Template";
+templateRow.WSEC_TMPL_UID = templateGuid;
+templateRow.WSEC_TMPL_DESC = "This is the SDK Test Template.";
+templateDs.SecurityTemplates.AddSecurityTemplatesRow(templateRow);
+
+// Specify a global permission for the template.
+SvcSecurity.SecurityTemplatesDataSet.GlobalPermissionsRow globalPermissionRow =
+   templateDs.GlobalPermissions.NewGlobalPermissionsRow();
+globalPermissionRow.WSEC_TMPL_UID = templateGuid;
+// Add a permission that applies to the group. 
+// For example, add the "About Microsoft Office Project Server" permission.
+globalPermissionRow.WSEC_FEA_ACT_UID =
+   PSLibrary.PSSecurityGlobalPermission.AboutMicrosoftOfficeProjectServer;
+globalPermissionRow.WSEC_ALLOW = true;
+templateDs.GlobalPermissions.AddGlobalPermissionsRow(globalPermissionRow);
+
+// Now that the rows are added to the relevant tables, create the template.
+security.CreateTemplates(templateDs);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteCategories">
+      <MemberSignature Language="C#" Value="public void DeleteCategories (Guid[] categoryUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteCategories(valuetype System.Guid[] categoryUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.DeleteCategories(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteCategories (categoryUids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteCategories(cli::array &lt;Guid&gt; ^ categoryUids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteCategories : Guid[] -&gt; unit" Usage="security.DeleteCategories categoryUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/DeleteCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categoryUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="categoryUids">An array of one or more security category GUIDs.</param>
+        <summary>Deletes all specified security categories.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteGroups">
+      <MemberSignature Language="C#" Value="public void DeleteGroups (Guid[] groupUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteGroups(valuetype System.Guid[] groupUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.DeleteGroups(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteGroups (groupUids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteGroups(cli::array &lt;Guid&gt; ^ groupUids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteGroups : Guid[] -&gt; unit" Usage="security.DeleteGroups groupUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/DeleteGroups", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="groupUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="groupUids">An array of one or more security group GUIDs.</param>
+        <summary>Deletes all specified security groups.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage the Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteProjectCategories">
+      <MemberSignature Language="C#" Value="public void DeleteProjectCategories (Guid[] projUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteProjectCategories(valuetype System.Guid[] projUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.DeleteProjectCategories(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteProjectCategories (projUids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteProjectCategories(cli::array &lt;Guid&gt; ^ projUids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteProjectCategories : Guid[] -&gt; unit" Usage="security.DeleteProjectCategories projUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/DeleteProjectCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="projUids">To be added.</param>
+        <summary>Deletes Project category information for web security permissions.</summary>
+        <remarks>
+          <para>The Project Permissions feature allows users or groups that have been granted the "Manage Basic Project Security" category permission to grant users and groups access to the projects that they own. They function like security categories. For more information, see <a href="http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx">http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx</a></para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have the <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcSecurity</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example assumes that the project does not have any category assigned to it.</para>
+          <para>The example calls the <b>ReadProjectList</b> method to get the list of projects. It then calls <b>CreateProjectCategories</b> to create the <b>ProjectCategoriesDataset</b> and writes it to the XML file <b>Categories.xml</b>, as shown in the following code. </para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+    321f7584-1f8b-4065-a432-a59b9412d8ba&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;ff9c1198-fb7b-4e9d-88a9-1415d46a3443&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>UpdateProjectCategories</b> method is called to update the <b>ProjectCategoriesDataset</b> and the updated DataSet is written to the <b>UpdatedCategories.xml</b> file, as shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+     8ce0a52b-6218-4670-bf53-8e8df21af590&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;aed0e69b-4470-4ddb-b063-184a9c06c9de&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>DeleteProjectCategories</b> method takes an array of project GUIDs and deletes the entries in the <b>ProjectCategoriesDataset</b>. Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.Security
+{
+    class Security
+    {
+        private const string ENDPOINT_S = "basicHttp_Security";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+
+        private static string outFilePathCategories;
+        private static string outFilePathUpdatedCategories;
+
+        private static SvcSecurity.SecurityClient securityClient;
+        private static SvcProject.ProjectClient projectClient;
+
+        static void Main(string[] args)
+        {
+            // If directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            // Assign the path where the output XML file will be saved.
+            outFilePathCategories = OUTPUT_FILES + "Categories.xml";
+            outFilePathUpdatedCategories = OUTPUT_FILES + "UpdatedCategories.xml";
+
+            // Configure the endpoints.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+            configResult = ConfigClientEndpoints(ENDPOINT_S);
+
+            try
+            {
+                // Create a project DataSet.
+                SvcProject.ProjectDataSet pDS = new SvcProject.ProjectDataSet();
+                pDS = projectClient.ReadProjectList();
+
+                // Create a project category.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet1 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row1 = 
+                    projectCategoryDataSet1.ProjectCategories.NewProjectCategoriesRow();
+                row1.WSEC_CAT_UID = Guid.NewGuid();
+                row1.PROJ_UID = pDS.Project[2].PROJ_UID;
+                projectCategoryDataSet1.ProjectCategories.AddProjectCategoriesRow(row1);
+                securityClient.CreateProjectCategories(projectCategoryDataSet1);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet = 
+                    securityClient.ReadProjectCategory(row1.PROJ_UID);
+
+                // Write the project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                projectCategoryDataSet.WriteXml(outFilePathCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Update project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet3 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row2 = 
+                    projectCategoryDataSet3.ProjectCategories.NewProjectCategoriesRow();
+                row2.WSEC_CAT_UID = Guid.NewGuid();
+                row2.PROJ_UID = pDS.Project[3].PROJ_UID;
+                projectCategoryDataSet3.ProjectCategories.AddProjectCategoriesRow(row2);
+                securityClient.UpdateProjectCategories(projectCategoryDataSet3);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet updatedPDS = 
+                    securityClient.ReadProjectCategory(row2.PROJ_UID);
+
+                // Write the updated project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                updatedPDS.WriteXml(outFilePathUpdatedCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathUpdatedCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Delete project categories.
+                Guid[] guidarray = new Guid[2];
+                guidarray[0] = row1.PROJ_UID;
+                guidarray[1] = row2.PROJ_UID;
+                securityClient.DeleteProjectCategories(guidarray);
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_S:
+                    securityClient = new SvcSecurity.SecurityClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }
+       
+
+    }
+}
+
+</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteTemplates">
+      <MemberSignature Language="C#" Value="public void DeleteTemplates (Guid[] templateUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteTemplates(valuetype System.Guid[] templateUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.DeleteTemplates(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteTemplates (templateUids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteTemplates(cli::array &lt;Guid&gt; ^ templateUids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteTemplates : Guid[] -&gt; unit" Usage="security.DeleteTemplates templateUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/DeleteTemplates", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="templateUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="templateUids">An array of one or more security template GUIDs.</param>
+        <summary>Deletes all specified security templates.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadCategory">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityCategoriesDataSet ReadCategory (Guid categoryUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityCategoriesDataSet ReadCategory(valuetype System.Guid categoryUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadCategory(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadCategory (categoryUid As Guid) As SecurityCategoriesDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityCategoriesDataSet ^ ReadCategory(Guid categoryUid);" />
+      <MemberSignature Language="F#" Value="member this.ReadCategory : Guid -&gt; WebSvcSecurity.SecurityCategoriesDataSet" Usage="security.ReadCategory categoryUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadCategory", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categoryUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="categoryUid">The GUID of the security category.</param>
+        <summary>Gets information about the specified security category.</summary>
+        <returns>Returns information about the security category, including name, description, users and groups in the category, projects and dynamic project rule settings for the category, resources that users in the category can view, and dynamic resource rule settings.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadCategoryList">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityCategoriesDataSet ReadCategoryList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityCategoriesDataSet ReadCategoryList() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadCategoryList" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadCategoryList () As SecurityCategoriesDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityCategoriesDataSet ^ ReadCategoryList();" />
+      <MemberSignature Language="F#" Value="member this.ReadCategoryList : unit -&gt; WebSvcSecurity.SecurityCategoriesDataSet" Usage="security.ReadCategoryList " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadCategoryList", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityCategoriesDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all security categories in Project Server.</summary>
+        <returns>The names and GUIDs of all security categories.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageViews" />
+              </term>
+              <description>Allows a user to manage views in Project Web App. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadCategoryPermissions">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.PermissionDataSet ReadCategoryPermissions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.PermissionDataSet ReadCategoryPermissions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadCategoryPermissions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadCategoryPermissions () As PermissionDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::PermissionDataSet ^ ReadCategoryPermissions();" />
+      <MemberSignature Language="F#" Value="member this.ReadCategoryPermissions : unit -&gt; WebSvcSecurity.PermissionDataSet" Usage="security.ReadCategoryPermissions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadCategoryPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.PermissionDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all security category permissions.</summary>
+        <returns>The names and GUIDs of all security category permissions.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadGlobalPermissions">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.PermissionDataSet ReadGlobalPermissions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.PermissionDataSet ReadGlobalPermissions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadGlobalPermissions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadGlobalPermissions () As PermissionDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::PermissionDataSet ^ ReadGlobalPermissions();" />
+      <MemberSignature Language="F#" Value="member this.ReadGlobalPermissions : unit -&gt; WebSvcSecurity.PermissionDataSet" Usage="security.ReadGlobalPermissions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadGlobalPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.PermissionDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all global security permissions.</summary>
+        <returns>The names and GUIDs of all global permissions.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadGroup">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityGroupsDataSet ReadGroup (Guid groupUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityGroupsDataSet ReadGroup(valuetype System.Guid groupUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadGroup(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadGroup (groupUid As Guid) As SecurityGroupsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityGroupsDataSet ^ ReadGroup(Guid groupUid);" />
+      <MemberSignature Language="F#" Value="member this.ReadGroup : Guid -&gt; WebSvcSecurity.SecurityGroupsDataSet" Usage="security.ReadGroup groupUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadGroup", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityGroupsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="groupUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="groupUid">The GUID of the security group.</param>
+        <summary>Gets information about the specified security group.</summary>
+        <returns>Returns security group information including name, description, users that belong in the group, security categories that the group can access, and settings for global permissions.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadGroupList">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityGroupsDataSet ReadGroupList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityGroupsDataSet ReadGroupList() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadGroupList" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadGroupList () As SecurityGroupsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityGroupsDataSet ^ ReadGroupList();" />
+      <MemberSignature Language="F#" Value="member this.ReadGroupList : unit -&gt; WebSvcSecurity.SecurityGroupsDataSet" Usage="security.ReadGroupList " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadGroupList", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityGroupsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all security groups in Project Server.</summary>
+        <returns>The names and GUIDs of all security groups.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadOrganizationalPermissions">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityOrganizationalPermissionsDataSet ReadOrganizationalPermissions ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityOrganizationalPermissionsDataSet ReadOrganizationalPermissions() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadOrganizationalPermissions" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadOrganizationalPermissions () As SecurityOrganizationalPermissionsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityOrganizationalPermissionsDataSet ^ ReadOrganizationalPermissions();" />
+      <MemberSignature Language="F#" Value="member this.ReadOrganizationalPermissions : unit -&gt; WebSvcSecurity.SecurityOrganizationalPermissionsDataSet" Usage="security.ReadOrganizationalPermissions " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadOrganizationalPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityOrganizationalPermissionsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all organizational (Project Web App) permissions for Project Server.</summary>
+        <returns>Returns a list of all Project Web App permissions and whether they are enabled.</returns>
+        <remarks>
+          <para>Project Web App permissions control which global and category permissions are enabled on Project Server.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadPermissionMode">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.PermissionMode ReadPermissionMode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype WebSvcSecurity.PermissionMode ReadPermissionMode() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadPermissionMode" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadPermissionMode () As PermissionMode" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::PermissionMode ReadPermissionMode();" />
+      <MemberSignature Language="F#" Value="member this.ReadPermissionMode : unit -&gt; WebSvcSecurity.PermissionMode" Usage="security.ReadPermissionMode " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadPermissionMode", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.PermissionMode</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectCategory">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityProjectCategoriesDataSet ReadProjectCategory (Guid projUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityProjectCategoriesDataSet ReadProjectCategory(valuetype System.Guid projUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadProjectCategory(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadProjectCategory (projUid As Guid) As SecurityProjectCategoriesDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityProjectCategoriesDataSet ^ ReadProjectCategory(Guid projUid);" />
+      <MemberSignature Language="F#" Value="member this.ReadProjectCategory : Guid -&gt; WebSvcSecurity.SecurityProjectCategoriesDataSet" Usage="security.ReadProjectCategory projUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadProjectCategory", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityProjectCategoriesDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="projUid">To be added.</param>
+        <summary>Reads Project category information for web security.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>The Project Permissions feature allows users or groups that have been granted the "Manage Basic Project Security" category permission to grant users and groups access to the projects that they own. They function like security categories. For more information, see <a href="http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx">http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx</a></para>
+          <para>For the sample code, see <see cref="M:WebSvcSecurity.Security.CreateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global pemission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have the <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectCategoryPermissionsAll">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.PermissionDataSet ReadProjectCategoryPermissionsAll ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.PermissionDataSet ReadProjectCategoryPermissionsAll() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadProjectCategoryPermissionsAll" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadProjectCategoryPermissionsAll () As PermissionDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::PermissionDataSet ^ ReadProjectCategoryPermissionsAll();" />
+      <MemberSignature Language="F#" Value="member this.ReadProjectCategoryPermissionsAll : unit -&gt; WebSvcSecurity.PermissionDataSet" Usage="security.ReadProjectCategoryPermissionsAll " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadProjectCategoryPermissionsAll", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.PermissionDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Reads all Project categories information for web security permissions.</summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para />
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadTemplate">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityTemplatesDataSet ReadTemplate (Guid templateUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityTemplatesDataSet ReadTemplate(valuetype System.Guid templateUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadTemplate(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadTemplate (templateUid As Guid) As SecurityTemplatesDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityTemplatesDataSet ^ ReadTemplate(Guid templateUid);" />
+      <MemberSignature Language="F#" Value="member this.ReadTemplate : Guid -&gt; WebSvcSecurity.SecurityTemplatesDataSet" Usage="security.ReadTemplate templateUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadTemplate", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityTemplatesDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="templateUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="templateUid">Indicates the unique identifier for the specified security template.</param>
+        <summary>Gets information about the specified security template.</summary>
+        <returns>Returns name, description, and information about the category and global permissions in the security template.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadTemplateList">
+      <MemberSignature Language="C#" Value="public WebSvcSecurity.SecurityTemplatesDataSet ReadTemplateList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcSecurity.SecurityTemplatesDataSet ReadTemplateList() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.ReadTemplateList" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadTemplateList () As SecurityTemplatesDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcSecurity::SecurityTemplatesDataSet ^ ReadTemplateList();" />
+      <MemberSignature Language="F#" Value="member this.ReadTemplateList : unit -&gt; WebSvcSecurity.SecurityTemplatesDataSet" Usage="security.ReadTemplateList " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/ReadTemplateList", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcSecurity.SecurityTemplatesDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all security templates.</summary>
+        <returns>Specifies the name and unique identifier for all security templates.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCategories">
+      <MemberSignature Language="C#" Value="public void SetCategories (WebSvcSecurity.SecurityCategoriesDataSet categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCategories(class WebSvcSecurity.SecurityCategoriesDataSet categories) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.SetCategories(WebSvcSecurity.SecurityCategoriesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetCategories (categories As SecurityCategoriesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetCategories(WebSvcSecurity::SecurityCategoriesDataSet ^ categories);" />
+      <MemberSignature Language="F#" Value="member this.SetCategories : WebSvcSecurity.SecurityCategoriesDataSet -&gt; unit" Usage="security.SetCategories categories" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/SetCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categories" Type="WebSvcSecurity.SecurityCategoriesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="categories">Contains the update data for one or more security categories.</param>
+        <summary>Updates one or more security categories.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGroups">
+      <MemberSignature Language="C#" Value="public void SetGroups (WebSvcSecurity.SecurityGroupsDataSet group);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGroups(class WebSvcSecurity.SecurityGroupsDataSet group) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.SetGroups(WebSvcSecurity.SecurityGroupsDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetGroups (group As SecurityGroupsDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetGroups(WebSvcSecurity::SecurityGroupsDataSet ^ group);" />
+      <MemberSignature Language="F#" Value="member this.SetGroups : WebSvcSecurity.SecurityGroupsDataSet -&gt; unit" Usage="security.SetGroups group" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/SetGroups", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="group" Type="WebSvcSecurity.SecurityGroupsDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="group">Contains the update data for one or more security groups.</param>
+        <summary>Updates one or more security groups.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageUsersAndGroups" />
+              </term>
+              <description>Allows a user to manage Project Server users and groups. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetTemplates">
+      <MemberSignature Language="C#" Value="public void SetTemplates (WebSvcSecurity.SecurityTemplatesDataSet templates);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTemplates(class WebSvcSecurity.SecurityTemplatesDataSet templates) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.SetTemplates(WebSvcSecurity.SecurityTemplatesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetTemplates (templates As SecurityTemplatesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetTemplates(WebSvcSecurity::SecurityTemplatesDataSet ^ templates);" />
+      <MemberSignature Language="F#" Value="member this.SetTemplates : WebSvcSecurity.SecurityTemplatesDataSet -&gt; unit" Usage="security.SetTemplates templates" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/SetTemplates", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="templates" Type="WebSvcSecurity.SecurityTemplatesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="templates">Contains the update data for one or more security templates.</param>
+        <summary>Updates one or more security templates.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateOrganizationalPermissions">
+      <MemberSignature Language="C#" Value="public void UpdateOrganizationalPermissions (WebSvcSecurity.SecurityOrganizationalPermissionsDataSet permissions);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateOrganizationalPermissions(class WebSvcSecurity.SecurityOrganizationalPermissionsDataSet permissions) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.UpdateOrganizationalPermissions(WebSvcSecurity.SecurityOrganizationalPermissionsDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateOrganizationalPermissions (permissions As SecurityOrganizationalPermissionsDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateOrganizationalPermissions(WebSvcSecurity::SecurityOrganizationalPermissionsDataSet ^ permissions);" />
+      <MemberSignature Language="F#" Value="member this.UpdateOrganizationalPermissions : WebSvcSecurity.SecurityOrganizationalPermissionsDataSet -&gt; unit" Usage="security.UpdateOrganizationalPermissions permissions" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/UpdateOrganizationalPermissions", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="permissions" Type="WebSvcSecurity.SecurityOrganizationalPermissionsDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="permissions">Contains the update data for one or more organizational permissions.</param>
+        <summary>Updates organization permissions.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageSecurity" />
+              </term>
+              <description>Allows a user to manage Project Server security. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerConfiguration" />
+              </term>
+              <description>Allows a user to manage the configuration information for Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateProjectCategories">
+      <MemberSignature Language="C#" Value="public void UpdateProjectCategories (WebSvcSecurity.SecurityProjectCategoriesDataSet categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateProjectCategories(class WebSvcSecurity.SecurityProjectCategoriesDataSet categories) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcSecurity.Security.UpdateProjectCategories(WebSvcSecurity.SecurityProjectCategoriesDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateProjectCategories (categories As SecurityProjectCategoriesDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateProjectCategories(WebSvcSecurity::SecurityProjectCategoriesDataSet ^ categories);" />
+      <MemberSignature Language="F#" Value="member this.UpdateProjectCategories : WebSvcSecurity.SecurityProjectCategoriesDataSet -&gt; unit" Usage="security.UpdateProjectCategories categories" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Security/UpdateProjectCategories", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Security/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="categories" Type="WebSvcSecurity.SecurityProjectCategoriesDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="categories">To be added.</param>
+        <summary>Modifies (adds or deletes) subitems that are associated with Project security categories data.</summary>
+        <remarks>
+          <para>The Project Permissions feature allows users or groups that have been granted the "Manage Basic Project Security" category permission to grant users and groups access to the projects that they own. They function like security categories. For more information, see <a href="http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx">http://blogs.msdn.com/b/project/archive/2010/03/04/project-2010-project-permissions.aspx</a></para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>You must have either the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageWorkflow" /> global permission or the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ChangeWorkflow" /> global permission. If you have the <b>ChangeWorkflow</b> permission, you must also have both the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.OpenProject" /> category permission and the <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" /> category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The example uses the <b>SvcSecurity</b> namespace in the ProjectServerServices.dll proxy assembly. The <b>ConfigureClientEndPoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <para>
+            <b>Note</b>: This example assumes that the project does not have any category assigned to it.</para>
+          <para>The example calls the <b>ReadProjectList</b> method to get the list of projects. It then calls <b>CreateProjectCategories</b> to create the <b>ProjectCategoriesDataset</b> and writes it to the XML file <b>Categories.xml</b>, as shown in the following code. </para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+    321f7584-1f8b-4065-a432-a59b9412d8ba&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;ff9c1198-fb7b-4e9d-88a9-1415d46a3443&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>UpdateProjectCategories</b> method is called to update the <b>ProjectCategoriesDataset</b>, and then the updated DataSet is written to the <b>UpdatedCategories.xml</b> file, as shown in the following code.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="yes"?&amp;gt;
+&amp;lt;SecurityProjectCategoriesDataSet xmlns="http://schemas.microsoft.com/office/project/server/
+webservices/SecurityProjectCategoriesDataSet/"&amp;gt;
+  &amp;lt;ProjectCategories&amp;gt;
+    &amp;lt;WSEC_CAT_UID&amp;gt;
+     8ce0a52b-6218-4670-bf53-8e8df21af590&amp;lt;/WSEC_CAT_UID&amp;gt;
+    &amp;lt;PROJ_UID&amp;gt;aed0e69b-4470-4ddb-b063-184a9c06c9de&amp;lt;/PROJ_UID&amp;gt;
+  &amp;lt;/ProjectCategories&amp;gt;
+&amp;lt;/SecurityProjectCategoriesDataSet&amp;gt;</code>
+          <para>The <b>DeleteProjectCategories</b> method takes an array of project GUIDs and deletes the entries in the <b>ProjectCategoriesDataset</b>. Following is the complete sample code.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.ServiceModel;
+
+namespace Microsoft.SDK.Project.Samples.Security
+{
+    class Security
+    {
+        private const string ENDPOINT_S = "basicHttp_Security";
+        private const string ENDPOINT_P = "basicHttp_Project";
+        private const string OUTPUT_FILES = @"C:\Projects\Samples\Output\";
+
+        private static string outFilePathCategories;
+        private static string outFilePathUpdatedCategories;
+
+        private static SvcSecurity.SecurityClient securityClient;
+        private static SvcProject.ProjectClient projectClient;
+
+        static void Main(string[] args)
+        {
+            // If directory does not exist, create it.
+            if (!Directory.Exists(OUTPUT_FILES))
+            {
+                Directory.CreateDirectory(OUTPUT_FILES);
+            }
+            // Assign the path where the output XML file will be saved.
+            outFilePathCategories = OUTPUT_FILES + "Categories.xml";
+            outFilePathUpdatedCategories = OUTPUT_FILES + "UpdatedCategories.xml";
+
+            // Configure the endpoints.
+            bool configResult = false;
+            configResult = ConfigClientEndpoints(ENDPOINT_P);
+            configResult = ConfigClientEndpoints(ENDPOINT_S);
+
+            try
+            {
+                // Create a project DataSet.
+                SvcProject.ProjectDataSet pDS = new SvcProject.ProjectDataSet();
+                pDS = projectClient.ReadProjectList();
+
+                // Create a project category.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet1 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row1 = 
+                    projectCategoryDataSet1.ProjectCategories.NewProjectCategoriesRow();
+                row1.WSEC_CAT_UID = Guid.NewGuid();
+                row1.PROJ_UID = pDS.Project[2].PROJ_UID;
+                projectCategoryDataSet1.ProjectCategories.AddProjectCategoriesRow(row1);
+                securityClient.CreateProjectCategories(projectCategoryDataSet1);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet = 
+                    securityClient.ReadProjectCategory(row1.PROJ_UID);
+
+                // Write the project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                projectCategoryDataSet.WriteXml(outFilePathCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Update project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet projectCategoryDataSet3 = 
+                    new SvcSecurity.SecurityProjectCategoriesDataSet();
+                SvcSecurity.SecurityProjectCategoriesDataSet.ProjectCategoriesRow row2 = 
+                    projectCategoryDataSet3.ProjectCategories.NewProjectCategoriesRow();
+                row2.WSEC_CAT_UID = Guid.NewGuid();
+                row2.PROJ_UID = pDS.Project[3].PROJ_UID;
+                projectCategoryDataSet3.ProjectCategories.AddProjectCategoriesRow(row2);
+                securityClient.UpdateProjectCategories(projectCategoryDataSet3);
+
+                // Read project category DataSet.
+                SvcSecurity.SecurityProjectCategoriesDataSet updatedPDS = 
+                    securityClient.ReadProjectCategory(row2.PROJ_UID);
+
+                // Write the updated project category DataSet to an XML file.
+                Console.WriteLine("\nWriting the ProjectCategoryDataSet to an XML file...");
+                updatedPDS.WriteXml(outFilePathUpdatedCategories);
+                Console.WriteLine("\nSee XML output of ProjectCategoryDataSet at {0}",
+                outFilePathUpdatedCategories);
+                Console.Write("\nPress any key to continue: ");
+                Console.ReadKey(true);
+
+                // Delete project categories.
+                Guid[] guidarray = new Guid[2];
+                guidarray[0] = row1.PROJ_UID;
+                guidarray[1] = row2.PROJ_UID;
+                securityClient.DeleteProjectCategories(guidarray);
+            }
+            catch (CommunicationException e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(
+                    "\n***System.ServiceModel.CommunicationException:");
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            
+        }
+
+        // Configure the PSI client endpoints.
+        public static bool ConfigClientEndpoints(string endpt)
+        {
+            bool result = true;
+
+            switch (endpt)
+            {
+
+                case ENDPOINT_P:
+                    projectClient = new SvcProject.ProjectClient(endpt);
+                    break;
+                case ENDPOINT_S:
+                    securityClient = new SvcSecurity.SecurityClient(endpt);
+                    break;
+                default:
+                    result = false;
+                    Console.WriteLine("Invalid endpoint: {0}", endpt);
+                    break;
+            }
+            return result;
+        }
+       
+
+    }
+}
+
+</code>
+        </example>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,274 @@
+﻿<Type Name="LookupTableMultiLangDataSet+LookupTableMaskValuesRow" FullName="WebSvcLookupTable.LookupTableMultiLangDataSet+LookupTableMaskValuesRow">
+  <TypeSignature Language="C#" Value="public class LookupTableMultiLangDataSet.LookupTableMaskValuesRow : System.Data.DataRow" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi beforefieldinit LookupTableMultiLangDataSet/LookupTableMaskValuesRow extends System.Data.DataRow" />
+  <TypeSignature Language="DocId" Value="T:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow" />
+  <TypeSignature Language="VB.NET" Value="Public Class LookupTableMultiLangDataSet.LookupTableMaskValuesRow&#xA;Inherits DataRow" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class LookupTableMultiLangDataSet::LookupTableMaskValuesRow : System::Data::DataRow" />
+  <TypeSignature Language="F#" Value="type LookupTableMultiLangDataSet.LookupTableMaskValuesRow = class&#xA;    inherit DataRow" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Data.DataRow</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Represents one code mask value in a multilanguage lookup table.</summary>
+    <remarks>
+      <para>A code mask value relates the lookup table code mask to the value of a lookup table node for a specified language. To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application. For a code sample that creates a multilanguage lookup table, see the ProjTool source code, or see <see cref="M:WebSvcLookupTable.LookupTable.CreateLookupTablesMultiLang(WebSvcLookupTable.LookupTableMultiLangDataSet,System.Boolean,System.Boolean)" />.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="IsLT_MASK_VALUE_SEPARATORNull">
+      <MemberSignature Language="C#" Value="public bool IsLT_MASK_VALUE_SEPARATORNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsLT_MASK_VALUE_SEPARATORNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.IsLT_MASK_VALUE_SEPARATORNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsLT_MASK_VALUE_SEPARATORNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsLT_MASK_VALUE_SEPARATORNull();" />
+      <MemberSignature Language="F#" Value="member this.IsLT_MASK_VALUE_SEPARATORNull : unit -&gt; bool" Usage="lookupTableMaskValuesRow.IsLT_MASK_VALUE_SEPARATORNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" /> property is set to a null reference (Nothing in Visual Basic).</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LCID">
+      <MemberSignature Language="C#" Value="public int LCID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LCID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LCID" />
+      <MemberSignature Language="VB.NET" Value="Public Property LCID As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int LCID { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.LCID : int with get, set" Usage="WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LCID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the locale identifier value for a code mask in a multilanguage lookup table.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a lookup table node for the specified language. There should be one <b>LookupTableMaskValues</b> row for each <b>LCID</b> value and for each mask outline level in a multilanguage lookup table. For example, if there are three languages and two code mask levels, there should be six <b>LookupTableMaskValues</b> rows in the <b>LookupTableMultiLangDataSet</b>.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object which contains one lookup table with French, German, and Spanish values (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the <b>LookupTableMultiLangDataSet</b> element includes the following child elements.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1034&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1036&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1034&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;
+&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;2&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1036&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>For a list of LCIDs, see <a href="http://msdn2.microsoft.com/en-us/library/0h88fahh.aspx">Locale ID (LCID) Chart</a>Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LookupTableMaskStructuresRowParent">
+      <MemberSignature Language="C#" Value="public WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow LookupTableMaskStructuresRowParent { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class WebSvcLookupTable.LookupTableMultiLangDataSet/LookupTableMaskStructuresRow LookupTableMaskStructuresRowParent" />
+      <MemberSignature Language="DocId" Value="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LookupTableMaskStructuresRowParent" />
+      <MemberSignature Language="VB.NET" Value="Public Property LookupTableMaskStructuresRowParent As LookupTableMultiLangDataSet.LookupTableMaskStructuresRow" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property WebSvcLookupTable::LookupTableMultiLangDataSet::LookupTableMaskStructuresRow ^ LookupTableMaskStructuresRowParent { WebSvcLookupTable::LookupTableMultiLangDataSet::LookupTableMaskStructuresRow ^ get(); void set(WebSvcLookupTable::LookupTableMultiLangDataSet::LookupTableMaskStructuresRow ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.LookupTableMaskStructuresRowParent : WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskStructuresRow with get, set" Usage="WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LookupTableMaskStructuresRowParent" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcLookupTable.LookupTableMultiLangDataSet+LookupTableMaskStructuresRow</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the GUID of the parent <b>LookupTableMaskStructures</b> row for the code mask value.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LT_MASK_STRUCT_LEVEL">
+      <MemberSignature Language="C#" Value="public int LT_MASK_STRUCT_LEVEL { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 LT_MASK_STRUCT_LEVEL" />
+      <MemberSignature Language="DocId" Value="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_STRUCT_LEVEL" />
+      <MemberSignature Language="VB.NET" Value="Public Property LT_MASK_STRUCT_LEVEL As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int LT_MASK_STRUCT_LEVEL { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.LT_MASK_STRUCT_LEVEL : int with get, set" Usage="WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_STRUCT_LEVEL" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates the outline level of the lookup table mask structure for the code mask value.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a lookup table node for a specified language. If the full value of a German language lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^"). The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object which contains lookup table masks for level 1 and level 2 sequences of characters of any length (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the following is an example of a level 1 lookup table mask value for the German language.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LT_MASK_VALUE_SEPARATOR">
+      <MemberSignature Language="C#" Value="public string LT_MASK_VALUE_SEPARATOR { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string LT_MASK_VALUE_SEPARATOR" />
+      <MemberSignature Language="DocId" Value="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" />
+      <MemberSignature Language="VB.NET" Value="Public Property LT_MASK_VALUE_SEPARATOR As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ LT_MASK_VALUE_SEPARATOR { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.LT_MASK_VALUE_SEPARATOR : string with get, set" Usage="WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the Separator character to use for multilevel lookup table values.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>A code mask value relates the lookup table code mask to the value of a German language lookup table node for a specified language. If the full value of a lookup table node is "WA^Redmond", for example, the level 1 node value is "WA", the level 2 node value is "Redmond", and the separator character is the circumflex accent ("^").The code mask structure for level 1 is two uppercase letters and the code mask structure for level 2 is any number of characters.</para>
+          <para>Suppose <b>mlut </b>is a <b>LookupTableWS.LookupTableMultiLangDataSet</b> object that contains lookup table masks for level 1 and level 2 sequences of characters of any length (<b>LookupTableWS</b> is the name for a reference to the <b>LookupTable</b> Web service). </para>
+          <para>If you serialize <b>mlut</b> to an XML file, the following is an example of a level 1 lookup table mask value for the German language.</para>
+          <code>&amp;lt;LookupTableMaskValues&amp;gt;
+    &amp;lt;LT_UID&amp;gt;1796cacc-5406-4c93-80cb-e7fb1271d32a&amp;lt;/LT_UID&amp;gt;
+    &amp;lt;LT_MASK_VALUE_SEPARATOR&amp;gt;^&amp;lt;/LT_MASK_VALUE_SEPARATOR&amp;gt;
+    &amp;lt;LT_MASK_STRUCT_LEVEL&amp;gt;1&amp;lt;/LT_MASK_STRUCT_LEVEL&amp;gt;
+    &amp;lt;LCID&amp;gt;1031&amp;lt;/LCID&amp;gt;
+&amp;lt;/LookupTableMaskValues&amp;gt;</code>
+          <para>To create an example of a multilanguage lookup table on a test installation of Project Server, see Using the ProjTool Test Application.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LT_UID">
+      <MemberSignature Language="C#" Value="public Guid LT_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid LT_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property LT_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid LT_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.LT_UID : Guid with get, set" Usage="WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the unique identifier of the multilanguage lookup table that uses the code mask.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetLT_MASK_VALUE_SEPARATORNull">
+      <MemberSignature Language="C#" Value="public void SetLT_MASK_VALUE_SEPARATORNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetLT_MASK_VALUE_SEPARATORNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.SetLT_MASK_VALUE_SEPARATORNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetLT_MASK_VALUE_SEPARATORNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetLT_MASK_VALUE_SEPARATORNull();" />
+      <MemberSignature Language="F#" Value="member this.SetLT_MASK_VALUE_SEPARATORNull : unit -&gt; unit" Usage="lookupTableMaskValuesRow.SetLT_MASK_VALUE_SEPARATORNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcLookupTable.LookupTableMultiLangDataSet.LookupTableMaskValuesRow.LT_MASK_VALUE_SEPARATOR" /> property to a null reference (Nothing in Visual Basic).</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

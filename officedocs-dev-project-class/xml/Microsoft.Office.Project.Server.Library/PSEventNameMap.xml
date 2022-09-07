@@ -1,0 +1,99 @@
+﻿<Type Name="PSEventNameMap" FullName="Microsoft.Office.Project.Server.Library.PSEventNameMap">
+  <TypeSignature Language="C#" Value="public class PSEventNameMap" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PSEventNameMap extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.PSEventNameMap" />
+  <TypeSignature Language="VB.NET" Value="Public Class PSEventNameMap" />
+  <TypeSignature Language="C++ CLI" Value="public ref class PSEventNameMap" />
+  <TypeSignature Language="F#" Value="type PSEventNameMap = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Contains methods that get the source name of an event and the event name.</summary>
+    <remarks>
+      <para>The source of an event can be the name of a primary class in the PSI, such as <b>Project</b>, <b>Statusing</b>, or <b>LookupTable</b>. The event name can be a pre-event such as <b>Creating</b> or a post-event such as <b>Created</b>.</para>
+      <para>For a list of events in Project Server, see the <see cref="T:Microsoft.Office.Project.Server.Library.PSEventID" /> enumeration.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PSEventNameMap ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.PSEventNameMap.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; PSEventNameMap();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Instantiates a <b>PSEventNameMap</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEventName">
+      <MemberSignature Language="C#" Value="public static string GetEventName (Microsoft.Office.Project.Server.Library.PSEventID id);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string GetEventName(valuetype Microsoft.Office.Project.Server.Library.PSEventID id) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.PSEventNameMap.GetEventName(Microsoft.Office.Project.Server.Library.PSEventID)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function GetEventName (id As PSEventID) As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static System::String ^ GetEventName(Microsoft::Office::Project::Server::Library::PSEventID id);" />
+      <MemberSignature Language="F#" Value="static member GetEventName : Microsoft.Office.Project.Server.Library.PSEventID -&gt; string" Usage="Microsoft.Office.Project.Server.Library.PSEventNameMap.GetEventName id" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="Microsoft.Office.Project.Server.Library.PSEventID" />
+      </Parameters>
+      <Docs>
+        <param name="id">The identification number of the event.</param>
+        <summary>Gets the name of the specified event.</summary>
+        <returns>The name of the event.</returns>
+        <remarks>
+          <para>For example, the PSEventNameMap.GetEventName(PSEventId.ProjectDeleted) statement returns the value <b>"Deleted"</b>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetSourceName">
+      <MemberSignature Language="C#" Value="public static string GetSourceName (Microsoft.Office.Project.Server.Library.PSEventID id);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string GetSourceName(valuetype Microsoft.Office.Project.Server.Library.PSEventID id) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.PSEventNameMap.GetSourceName(Microsoft.Office.Project.Server.Library.PSEventID)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function GetSourceName (id As PSEventID) As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static System::String ^ GetSourceName(Microsoft::Office::Project::Server::Library::PSEventID id);" />
+      <MemberSignature Language="F#" Value="static member GetSourceName : Microsoft.Office.Project.Server.Library.PSEventID -&gt; string" Usage="Microsoft.Office.Project.Server.Library.PSEventNameMap.GetSourceName id" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="Microsoft.Office.Project.Server.Library.PSEventID" />
+      </Parameters>
+      <Docs>
+        <param name="id">The identification number of the event.</param>
+        <summary>Gets the source name of the specified event.</summary>
+        <returns>The source name of the event.</returns>
+        <remarks>
+          <para>For example, the PSEventNameMap.GetSourceName(PSEventId.ProjectDeleted) statement returns the value <b>"Project"</b>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

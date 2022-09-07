@@ -1,0 +1,869 @@
+﻿<Type Name="CompareProjectProperty" FullName="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty">
+  <TypeSignature Language="C#" Value="public sealed class CompareProjectProperty : System.Workflow.ComponentModel.Activity, System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit CompareProjectProperty extends System.Workflow.ComponentModel.Activity implements class System.Workflow.ComponentModel.IActivityEventListener`1&lt;class System.Workflow.ComponentModel.QueueEventArgs&gt;" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty" />
+  <TypeSignature Language="VB.NET" Value="Public NotInheritable Class CompareProjectProperty&#xA;Inherits Activity&#xA;Implements IActivityEventListener(Of QueueEventArgs)" />
+  <TypeSignature Language="C++ CLI" Value="public ref class CompareProjectProperty sealed : System::Workflow::ComponentModel::Activity, System::Workflow::ComponentModel::IActivityEventListener&lt;System::Workflow::ComponentModel::QueueEventArgs ^&gt;" />
+  <TypeSignature Language="F#" Value="type CompareProjectProperty = class&#xA;    inherit Activity&#xA;    interface IActivityEventListener&lt;QueueEventArgs&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Workflow.ComponentModel.Activity</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.ComponentModel.Designer(typeof(System.Workflow.ComponentModel.Design.ActivityDesigner), typeof(System.ComponentModel.Design.IDesigner))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.ComponentModel.DesignerCategory("code")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.ComponentModel.ToolboxItem(typeof(System.Workflow.ComponentModel.Design.ActivityToolboxItem))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Drawing.ToolboxBitmap(typeof(Microsoft.Office.Project.Server.Workflow.CompareProjectProperty), "Resources.CompareProjectProperty.bmp")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Workflow.ComponentModel.Compiler.ActivityValidator(typeof(Microsoft.Office.Project.Server.Workflow.CompareProjectPropertyValidator))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Workflow.ComponentModel.PersistOnClose</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>The workflow activity that compares the specified project property with another value.</summary>
+    <remarks>
+      <para>The property comparison is made based on the type of the specified property. The property type can be text, numeric, date-time, duration, or flag (a <b>Boolean</b> value). If the <b>MdPropUid</b> property GUID is specified, the <b>PropertyName</b> value is ignored.</para>
+      <para>The Workflow Designer pane and the Properties pane in Microsoft Visual Studio 2010 enable you to get and set properties in fields for the <b>CompareProjectProperty</b> activity.</para>
+      <para>For an example that uses the <b>CompareProjectProperty</b> activity and sets properties for the comparison, see How to: Create a Branching Workflow.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CompareProjectProperty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; CompareProjectProperty();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>CompareProjectProperty</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Cancel">
+      <MemberSignature Language="C#" Value="protected override System.Workflow.ComponentModel.ActivityExecutionStatus Cancel (System.Workflow.ComponentModel.ActivityExecutionContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Workflow.ComponentModel.ActivityExecutionStatus Cancel(class System.Workflow.ComponentModel.ActivityExecutionContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.Cancel(System.Workflow.ComponentModel.ActivityExecutionContext)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function Cancel (context As ActivityExecutionContext) As ActivityExecutionStatus" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override System::Workflow::ComponentModel::ActivityExecutionStatus Cancel(System::Workflow::ComponentModel::ActivityExecutionContext ^ context);" />
+      <MemberSignature Language="F#" Value="override this.Cancel : System.Workflow.ComponentModel.ActivityExecutionContext -&gt; System.Workflow.ComponentModel.ActivityExecutionStatus" Usage="compareProjectProperty.Cancel context" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.ActivityExecutionStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">Represents the execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>CompareProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CodePropertyValue">
+      <MemberSignature Language="C#" Value="public Guid CodePropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid CodePropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CodePropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property CodePropertyValue As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid CodePropertyValue { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.CodePropertyValue : Guid with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CodePropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the code property, such as a selection in a lookup table.</summary>
+        <value>Returns a <see cref="T:System.Guid" />.</value>
+        <remarks>
+          <para>If the project property specified is a code value, <b>CodePropertyValue</b> is the value that is used in the comparison. If the specified property is not a code value, <b>CodePropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CodePropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty CodePropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty CodePropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CodePropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared CodePropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ CodePropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable CodePropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CodePropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>CodePropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompartrueeProjectProperty.CodePropertyValue" /> property is the GUID of a code value, such as a selection in a lookup table.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareOperator">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator CompareOperator { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator CompareOperator" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CompareOperator" />
+      <MemberSignature Language="VB.NET" Value="Public Property CompareOperator As ProjectPropertyCompareOperator" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator CompareOperator { Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator get(); void set(Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator value); };" />
+      <MemberSignature Language="F#" Value="member this.CompareOperator : Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CompareOperator" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.TypeConverter(typeof(Microsoft.Office.Project.Server.Workflow.OperatorDropDown))</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the property comparison operator.</summary>
+        <value>An operator that compares project properties.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareOperatorProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty CompareOperatorProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty CompareOperatorProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CompareOperatorProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared CompareOperatorProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ CompareOperatorProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable CompareOperatorProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CompareOperatorProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>CompareOperator</b> property for comparing two properties.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.CompareOperator" /> property can be one of the constants in the  <see cref="T:Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" /> enumeration.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConditionValid">
+      <MemberSignature Language="C#" Value="public bool ConditionValid { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool ConditionValid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.ConditionValid" />
+      <MemberSignature Language="VB.NET" Value="Public Property ConditionValid As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool ConditionValid { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.ConditionValid : bool with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.ConditionValid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the condition is valid.</summary>
+        <value>
+          <b>True</b> if the comparison condition is valid; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConditionValidProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty ConditionValidProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty ConditionValidProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.ConditionValidProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared ConditionValidProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ ConditionValidProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable ConditionValidProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.ConditionValidProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>ConditionValid</b> property, which indicates when a comparison condition is valid.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.ConditionValid" /> property value is <b>False</b> until it is bound to a property in the Workflow Designer in Microsoft Visual Studio 2010. The value then includes the name of the workflow and the path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DateTimePropertyValue">
+      <MemberSignature Language="C#" Value="public DateTime DateTimePropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime DateTimePropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DateTimePropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property DateTimePropertyValue As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime DateTimePropertyValue { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.DateTimePropertyValue : DateTime with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DateTimePropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the <b>DateTime</b> value used in the property comparison.</summary>
+        <value>A date and a time.</value>
+        <remarks>
+          <para>If the project property specified by <b>PropertyName</b> or <b>MdPropUid</b> is a <b>DateTime</b> value, <b>DateTimePropertyValue</b> is the value that is used in the comparison. If the specified property is not a <b>DateTime</b> value, <b>DateTimePropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DateTimePropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty DateTimePropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty DateTimePropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DateTimePropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared DateTimePropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ DateTimePropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable DateTimePropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DateTimePropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>DateTimePropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DateTimePropertyValue" /> specifies the <b>DateTime</b> value used in the property comparison.</para>
+          <para>In the Properties pane of a workflow activity, the <b>DateTimePropertyValue</b> property can be the name of the workflow and path name of the property for comparison. The property value can also be a date selected in the date picker control or typed by the user, such as <b>5/11/2012</b>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DurationPropertyValue">
+      <MemberSignature Language="C#" Value="public string DurationPropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string DurationPropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DurationPropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property DurationPropertyValue As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ DurationPropertyValue { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.DurationPropertyValue : string with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DurationPropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the <b>String</b> value of the duration used in the property comparison.</summary>
+        <value>The value of the duration.</value>
+        <remarks>
+          <para>An example duration is "3d" for three days.</para>
+          <para>If the project property specified by <b>PropertyName</b> or <b>MdPropUid</b> is a duration value, <b>DurationPropertyValue</b> is the value that is used in the comparison. If the specified property is not a duration value, <b>DurationPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DurationPropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty DurationPropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty DurationPropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DurationPropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared DurationPropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ DurationPropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable DurationPropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DurationPropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>DurationPropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.DurationPropertyValue" /> specifies the duration value used in the property comparison, for example, "3d" for three days.</para>
+          <para>In the Properties pane of a workflow activity, the <b>DurationPropertyValue</b> property can be the name of the workflow and path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Execute">
+      <MemberSignature Language="C#" Value="protected override System.Workflow.ComponentModel.ActivityExecutionStatus Execute (System.Workflow.ComponentModel.ActivityExecutionContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Workflow.ComponentModel.ActivityExecutionStatus Execute(class System.Workflow.ComponentModel.ActivityExecutionContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.Execute(System.Workflow.ComponentModel.ActivityExecutionContext)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function Execute (context As ActivityExecutionContext) As ActivityExecutionStatus" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override System::Workflow::ComponentModel::ActivityExecutionStatus Execute(System::Workflow::ComponentModel::ActivityExecutionContext ^ context);" />
+      <MemberSignature Language="F#" Value="override this.Execute : System.Workflow.ComponentModel.ActivityExecutionContext -&gt; System.Workflow.ComponentModel.ActivityExecutionStatus" Usage="compareProjectProperty.Execute context" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.ActivityExecutionStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">Represents the execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>CompareProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FlagPropertyValue">
+      <MemberSignature Language="C#" Value="public bool FlagPropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FlagPropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.FlagPropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property FlagPropertyValue As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool FlagPropertyValue { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.FlagPropertyValue : bool with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.FlagPropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the value of the <b>Flag</b> property used in the comparison.</summary>
+        <value>The Boolean value of the flag.</value>
+        <remarks>
+          <para>If the project property specified is a <b>Boolean</b> value, <b>FlagPropertyValue</b> is the value that is used in the comparison. If the specified property is not a <b>Boolean</b> value, <b>FlagPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FlagPropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty FlagPropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty FlagPropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.FlagPropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared FlagPropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ FlagPropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable FlagPropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.FlagPropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>FlagPropertyValue</b> property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.FlagPropertyValue" /> specifies the flag value (<b>true</b> or <b>false</b>) used in the property comparison.</para>
+          <para>In the Properties pane of a workflow activity, the <b>FlagPropertyValue</b> property can be the name of the workflow and path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MdPropUid">
+      <MemberSignature Language="C#" Value="public Guid MdPropUid { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid MdPropUid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.MdPropUid" />
+      <MemberSignature Language="VB.NET" Value="Public Property MdPropUid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid MdPropUid { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.MdPropUid : Guid with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.MdPropUid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the project property to compare. Not required if <b>PropertyName</b> is specified.</summary>
+        <value>The property value GUID.</value>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and path name of the GUID property for comparison. If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MdPropUidProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty MdPropUidProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty MdPropUidProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.MdPropUidProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared MdPropUidProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ MdPropUidProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable MdPropUidProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.MdPropUidProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>MdPropUid</b> property, which is the GUID of the project property to compare.</summary>
+        <remarks>
+          <para>For example, the <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.MdPropUid" /> property can be the GUID of a custom field.</para>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and path name of the property for comparison.</para>
+          <para>If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumericPropertyValue">
+      <MemberSignature Language="C#" Value="public decimal NumericPropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Decimal NumericPropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.NumericPropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property NumericPropertyValue As Decimal" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Decimal NumericPropertyValue { System::Decimal get(); void set(System::Decimal value); };" />
+      <MemberSignature Language="F#" Value="member this.NumericPropertyValue : decimal with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.NumericPropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Decimal</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the value of the <b>Number</b> property used in the comparison.</summary>
+        <value>A decimal number.</value>
+        <remarks>
+          <para>If the project property specified by <b>PropertyName</b> or <b>MdPropUid</b> is a numeric value, <b>NumericPropertyValue</b> is the value that is used in the comparison. If the specified property is not a numeric value, <b>NumericPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NumericPropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty NumericPropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty NumericPropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.NumericPropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared NumericPropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ NumericPropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable NumericPropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.NumericPropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>NumericPropertyValue</b> property, which is the numeric value of the property to compare.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.NumericPropertyValue" /> specifies the numeric value used in the property comparison.</para>
+          <para>In the Properties pane of a workflow activity, the <b>NumericPropertyValue</b> property can be the name of the workflow and path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyName">
+      <MemberSignature Language="C#" Value="public string PropertyName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PropertyName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.PropertyName" />
+      <MemberSignature Language="VB.NET" Value="Public Property PropertyName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ PropertyName { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.PropertyName : string with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.PropertyName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.TypeConverter(typeof(Microsoft.Office.Project.Server.Workflow.CompareProjectPropertyDropDown))</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the property used in the comparison.</summary>
+        <value>A string that contains the name of the property.</value>
+        <remarks>
+          <para>If  a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyNameProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty PropertyNameProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty PropertyNameProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.PropertyNameProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared PropertyNameProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ PropertyNameProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable PropertyNameProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.PropertyNameProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>PropertyName</b> property, which is the name of the project property to compare.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.PropertyName" /> specifies the name of the project property for comparison. The property can be one of the following properties in the drop-down list in the Properties pane:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <b>PROJ_NAME</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>CREATED_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_TYPE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>WPROJ_LAST_PUB</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_START_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_FINISH_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>ProjectOwnerID</b>
+              </description>
+            </item>
+            <item>
+              <description>% Complete</description>
+            </item>
+            <item>
+              <description>Optimizer Decision</description>
+            </item>
+            <item>
+              <description>Planner Decision</description>
+            </item>
+            <item>
+              <description>Approved Start Date</description>
+            </item>
+            <item>
+              <description>Approved End Date</description>
+            </item>
+          </list>
+          <para>In the Properties pane of a workflow activity, the <b>PropertyName</b> property can also be the name of the workflow and path name of the property for comparison. If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent">
+      <MemberSignature Language="C#" Value="void IActivityEventListener&lt;QueueEventArgs&gt;.OnEvent (object sender, System.Workflow.ComponentModel.QueueEventArgs qea);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent(object sender, class System.Workflow.ComponentModel.QueueEventArgs qea) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.System#Workflow#ComponentModel#IActivityEventListener&lt;System#Workflow#ComponentModel#QueueEventArgs&gt;#OnEvent(System.Object,System.Workflow.ComponentModel.QueueEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Sub OnEvent (sender As Object, qea As QueueEventArgs) Implements IActivityEventListener(Of QueueEventArgs).OnEvent" />
+      <MemberSignature Language="C++ CLI" Value=" virtual void System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent(System::Object ^ sender, System::Workflow::ComponentModel::QueueEventArgs ^ qea) = System::Workflow::ComponentModel::IActivityEventListener&lt;System::Workflow::ComponentModel::QueueEventArgs ^&gt;::OnEvent;" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.Workflow.ComponentModel.IActivityEventListener`1.OnEvent(System.Object,`0)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="qea" Type="System.Workflow.ComponentModel.QueueEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="sender">To be added.</param>
+        <param name="qea">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextPropertyValue">
+      <MemberSignature Language="C#" Value="public string TextPropertyValue { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TextPropertyValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.TextPropertyValue" />
+      <MemberSignature Language="VB.NET" Value="Public Property TextPropertyValue As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ TextPropertyValue { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.TextPropertyValue : string with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.TextPropertyValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the value of the <b>Text</b> property used in the comparison.</summary>
+        <value>A string that contains text.</value>
+        <remarks>
+          <para>If the project property specified by <b>PropertyName</b> or <b>MdPropUid</b> is a text value, <b>TextPropertyValue</b> is the text that is used in the comparison. If the specified property is not a text value, <b>TextPropertyValue</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TextPropertyValueProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty TextPropertyValueProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty TextPropertyValueProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.TextPropertyValueProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared TextPropertyValueProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ TextPropertyValueProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable TextPropertyValueProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.TextPropertyValueProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>TextPropertyValue</b> property.</summary>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <b>TextPropertyValue</b> property can be the name of the workflow and path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WaitUntilValueIsSet">
+      <MemberSignature Language="C#" Value="public bool WaitUntilValueIsSet { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool WaitUntilValueIsSet" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WaitUntilValueIsSet" />
+      <MemberSignature Language="VB.NET" Value="Public Property WaitUntilValueIsSet As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool WaitUntilValueIsSet { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.WaitUntilValueIsSet : bool with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WaitUntilValueIsSet" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the project property comparison waits until the property value is set.</summary>
+        <value>
+          <b>True</b> if the project property comparison waits until the property value is set; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The default value of the <b>WaitUntilValueIsSet</b> property is <b>False</b>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WaitUntilValueIsSetProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty WaitUntilValueIsSetProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty WaitUntilValueIsSetProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WaitUntilValueIsSetProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared WaitUntilValueIsSetProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ WaitUntilValueIsSetProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable WaitUntilValueIsSetProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WaitUntilValueIsSetProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>WaitUntilValueIsSet</b> property.</summary>
+        <remarks>
+          <para>The value of the <b>WaitUntilValueIsSet</b> property can be <b>True</b> or <b>False</b>.</para>
+          <para>In the Properties pane of a workflow activity, the <b>WaitUntilValueIsSet</b> property can also be the name of the workflow and path name of the property for comparison.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowContext">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.ProjectWorkflowContext WorkflowContext { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext WorkflowContext" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WorkflowContext" />
+      <MemberSignature Language="VB.NET" Value="Public Property WorkflowContext As ProjectWorkflowContext" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ WorkflowContext { Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ get(); void set(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.WorkflowContext : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext with get, set" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WorkflowContext" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the context of the <b>CompareProjectProperty</b> activity in the parent workflow activity.</summary>
+        <value>An object that contains information that is related to the current instance of the workflow</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>CompareProjectProperty</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane would show the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowContextProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty WorkflowContextProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty WorkflowContextProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WorkflowContextProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared WorkflowContextProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ WorkflowContextProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable WorkflowContextProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.CompareProjectProperty.WorkflowContextProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>CompareProjectProperty</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>CompareProjectProperty</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

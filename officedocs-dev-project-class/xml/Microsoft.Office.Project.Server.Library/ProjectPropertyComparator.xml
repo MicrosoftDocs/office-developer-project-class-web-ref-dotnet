@@ -1,0 +1,412 @@
+﻿<Type Name="ProjectPropertyComparator" FullName="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator">
+  <TypeSignature Language="C#" Value="public class ProjectPropertyComparator" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ProjectPropertyComparator extends System.Object" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator" />
+  <TypeSignature Language="VB.NET" Value="Public Class ProjectPropertyComparator" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ProjectPropertyComparator" />
+  <TypeSignature Language="F#" Value="type ProjectPropertyComparator = class" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Provides the <b>Compare</b> method to compare project properties of various types with and without specifying a comparison operator.</summary>
+    <remarks>
+      <para>The <b>ProjectPropertyComparator.Compare</b> method is used in the <see cref="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CompareProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid)" /> method.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProjectPropertyComparator ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ProjectPropertyComparator();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Instantiates a <b>ProjectPropertyComparator</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static int Compare (bool prop1, bool prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Compare(bool prop1, bool prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Boolean, prop2 As Boolean) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static int Compare(bool prop1, bool prop2);" />
+      <MemberSignature Language="F#" Value="static member Compare : bool * bool -&gt; int" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Boolean" />
+        <Parameter Name="prop2" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>Boolean</b> value to be compared.</param>
+        <param name="prop2">The second <b>Boolean</b> value to be compared.</param>
+        <summary>Compares two <b>Boolean</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first parameter value is <b>False</b> and the second is <b>True</b>, returns "1" if the first parameter value is <b>True</b> and the second is <b>False</b>, or returns "0" if both are <b>True</b> or both are <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static int Compare (DateTime prop1, DateTime prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Compare(valuetype System.DateTime prop1, valuetype System.DateTime prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.DateTime,System.DateTime)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As DateTime, prop2 As DateTime) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static int Compare(DateTime prop1, DateTime prop2);" />
+      <MemberSignature Language="F#" Value="static member Compare : DateTime * DateTime -&gt; int" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.DateTime" />
+        <Parameter Name="prop2" Type="System.DateTime" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>DateTime</b> value to be compared.</param>
+        <param name="prop2">The second <b>DateTime</b> value to be compared.</param>
+        <summary>Compares two <b>DateTime</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first date is earlier than the second, returns "1" if the first date is later than the second , or returns "0" if they are the same date.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static int Compare (decimal prop1, decimal prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Compare(valuetype System.Decimal prop1, valuetype System.Decimal prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Decimal,System.Decimal)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Decimal, prop2 As Decimal) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static int Compare(System::Decimal prop1, System::Decimal prop2);" />
+      <MemberSignature Language="F#" Value="static member Compare : decimal * decimal -&gt; int" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Decimal" />
+        <Parameter Name="prop2" Type="System.Decimal" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>Decimal</b> value to be compared.</param>
+        <param name="prop2">The second <b>Decimal</b> value to be compared.</param>
+        <summary>Compares two <b>Decimal</b> values to identify their relative positions in the sort order.</summary>
+        <returns>Returns the positive difference between the parameter values if the first is a higher number than the second, returns the negative difference between the two parameter values if the first is a lower number than the second, or returns 0 if the two values are equal. The difference is expressed as an integer.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static int Compare (int prop1, int prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Compare(int32 prop1, int32 prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Int32,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Integer, prop2 As Integer) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static int Compare(int prop1, int prop2);" />
+      <MemberSignature Language="F#" Value="static member Compare : int * int -&gt; int" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Int32" />
+        <Parameter Name="prop2" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first integer value to be compared.</param>
+        <param name="prop2">The second integer value to be compared.</param>
+        <summary>Compares two integer values to identify their relative positions in the sort order.</summary>
+        <returns>Returns the positive difference between the parameter values if the first is a higher number than the second, returns the negative difference between the two parameter values if the first is a lower number than the second, or returns 0 if the two values are equal.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static int Compare (string prop1, string prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 Compare(string prop1, string prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As String, prop2 As String) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static int Compare(System::String ^ prop1, System::String ^ prop2);" />
+      <MemberSignature Language="F#" Value="static member Compare : string * string -&gt; int" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.String" />
+        <Parameter Name="prop2" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first string value to be compared.</param>
+        <param name="prop2">The second string value to be compared.</param>
+        <summary>Compares two string values to identify their relative positions in the sort order.</summary>
+        <returns>Returns "-1" if the first parameter is lower in ascending sort order than the second, returns "1" if the first parameter is higher in ascending sort order than the second, or returns "0" if they are the same string value.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (bool prop1, bool prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(bool prop1, bool prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Boolean,System.Boolean,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Boolean, prop2 As Boolean, op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(bool prop1, bool prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : bool * bool * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Boolean" />
+        <Parameter Name="prop2" Type="System.Boolean" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>Boolean</b> value to be compared.</param>
+        <param name="prop2">The second <b>Boolean</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>Boolean</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>Boolean</b> values are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (DateTime prop1, DateTime prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(valuetype System.DateTime prop1, valuetype System.DateTime prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.DateTime,System.DateTime,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As DateTime, prop2 As DateTime, op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(DateTime prop1, DateTime prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : DateTime * DateTime * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.DateTime" />
+        <Parameter Name="prop2" Type="System.DateTime" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>DateTime</b> value to be compared.</param>
+        <param name="prop2">The second <b>DateTime</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>DateTime</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>DateTime</b> values are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (decimal prop1, decimal prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(valuetype System.Decimal prop1, valuetype System.Decimal prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Decimal,System.Decimal,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Decimal, prop2 As Decimal, op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(System::Decimal prop1, System::Decimal prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : decimal * decimal * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Decimal" />
+        <Parameter Name="prop2" Type="System.Decimal" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first <b>Decimal</b> value to be compared.</param>
+        <param name="prop2">The second <b>Decimal</b> value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two <b>Decimal</b> values.</summary>
+        <returns>
+          <b>True</b> if the <b>Decimal</b> values are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (Guid[] prop1, Guid[] prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(valuetype System.Guid[] prop1, valuetype System.Guid[] prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Guid[],System.Guid[],Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Guid(), prop2 As Guid(), op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(cli::array &lt;Guid&gt; ^ prop1, cli::array &lt;Guid&gt; ^ prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : Guid[] * Guid[] * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Guid[]" />
+        <Parameter Name="prop2" Type="System.Guid[]" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first array of GUID values to be compared.</param>
+        <param name="prop2">The second array of GUID values to be compared.</param>
+        <param name="op">The comparison operator. This <b>Compare</b> overload supports only the <b>Contains</b>, <b>DoesNotContain</b>, and <b>Equal</b> operations.</param>
+        <summary>Compares two arrays of GUID values.</summary>
+        <returns>
+          <b>True</b> if the GUID arrays are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (int prop1, int prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(int32 prop1, int32 prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.Int32,System.Int32,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As Integer, prop2 As Integer, op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(int prop1, int prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : int * int * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Int32" />
+        <Parameter Name="prop2" Type="System.Int32" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first integer value to be compared.</param>
+        <param name="prop2">The second integer value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two integer values.</summary>
+        <returns>
+          <b>True</b> if the integers are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public static bool Compare (string prop1, string prop2, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Compare(string prop1, string prop2, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator op) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare(System.String,System.String,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Compare (prop1 As String, prop2 As String, op As ProjectPropertyCompareOperator) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Compare(System::String ^ prop1, System::String ^ prop2, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator op);" />
+      <MemberSignature Language="F#" Value="static member Compare : string * string * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Compare (prop1, prop2, op)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.String" />
+        <Parameter Name="prop2" Type="System.String" />
+        <Parameter Name="op" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first string value to be compared.</param>
+        <param name="prop2">The second string value to be compared.</param>
+        <param name="op">The comparison operator.</param>
+        <summary>Compares two string values.</summary>
+        <returns>
+          <b>True</b> if the strings are equal; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public static bool Contains (Guid[] prop1, Guid prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Contains(valuetype System.Guid[] prop1, valuetype System.Guid prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Contains(System.Guid[],System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Contains (prop1 As Guid(), prop2 As Guid) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Contains(cli::array &lt;Guid&gt; ^ prop1, Guid prop2);" />
+      <MemberSignature Language="F#" Value="static member Contains : Guid[] * Guid -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Contains (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.Guid[]" />
+        <Parameter Name="prop2" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">An array of GUID values.</param>
+        <param name="prop2">A GUID value.</param>
+        <summary>Searches for the specified GUID value in an array of GUIDs.</summary>
+        <returns>Returns <b>True</b> if the GUID array contains the specified GUID value; otherwise <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public static bool Contains (string prop1, string prop2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Contains(string prop1, string prop2) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Contains(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function Contains (prop1 As String, prop2 As String) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static bool Contains(System::String ^ prop1, System::String ^ prop2);" />
+      <MemberSignature Language="F#" Value="static member Contains : string * string -&gt; bool" Usage="Microsoft.Office.Project.Server.Library.ProjectPropertyComparator.Contains (prop1, prop2)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="prop1" Type="System.String" />
+        <Parameter Name="prop2" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="prop1">The first string to be compared.</param>
+        <param name="prop2">The second string to be compared.</param>
+        <summary>Compares two string values to determine whether the second is contained in the first.</summary>
+        <returns>
+          <b>True</b> if the second parameter string occurs within the first parameter string; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

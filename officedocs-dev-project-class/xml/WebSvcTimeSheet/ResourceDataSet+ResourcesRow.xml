@@ -1,0 +1,2953 @@
+﻿<Type Name="ResourceDataSet+ResourcesRow" FullName="WebSvcTimeSheet.ResourceDataSet+ResourcesRow">
+  <TypeSignature Language="C#" Value="public class ResourceDataSet.ResourcesRow : System.Data.DataRow" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi beforefieldinit ResourceDataSet/ResourcesRow extends System.Data.DataRow" />
+  <TypeSignature Language="DocId" Value="T:WebSvcTimeSheet.ResourceDataSet.ResourcesRow" />
+  <TypeSignature Language="VB.NET" Value="Public Class ResourceDataSet.ResourcesRow&#xA;Inherits DataRow" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class ResourceDataSet::ResourcesRow : System::Data::DataRow" />
+  <TypeSignature Language="F#" Value="type ResourceDataSet.ResourcesRow = class&#xA;    inherit DataRow" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Data.DataRow</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Represents an enterprise resource.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BaseCalendarUniqueId">
+      <MemberSignature Language="C#" Value="public Guid BaseCalendarUniqueId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid BaseCalendarUniqueId" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" />
+      <MemberSignature Language="VB.NET" Value="Public Property BaseCalendarUniqueId As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid BaseCalendarUniqueId { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.BaseCalendarUniqueId : Guid with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the default calendar to use when scheduling this resource.</summary>
+        <value>The GUID of a default calendar.</value>
+        <remarks>
+          <para>
+            <b>BaseCalendarUniqueId</b> is a foreign key into <see cref="P:WebSvcCalendar.CalendarDataSet.CalendarsRow.CAL_UID" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CREATED_DATE">
+      <MemberSignature Language="C#" Value="public DateTime CREATED_DATE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime CREATED_DATE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" />
+      <MemberSignature Language="VB.NET" Value="Public Property CREATED_DATE As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime CREATED_DATE { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.CREATED_DATE : DateTime with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the date when this row was first created.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetCalendarExceptionsRows">
+      <MemberSignature Language="C#" Value="public WebSvcTimeSheet.ResourceDataSet.CalendarExceptionsRow[] GetCalendarExceptionsRows ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcTimeSheet.ResourceDataSet/CalendarExceptionsRow[] GetCalendarExceptionsRows() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.GetCalendarExceptionsRows" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetCalendarExceptionsRows () As ResourceDataSet.CalendarExceptionsRow()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;WebSvcTimeSheet::ResourceDataSet::CalendarExceptionsRow ^&gt; ^ GetCalendarExceptionsRows();" />
+      <MemberSignature Language="F#" Value="member this.GetCalendarExceptionsRows : unit -&gt; WebSvcTimeSheet.ResourceDataSet.CalendarExceptionsRow[]" Usage="resourcesRow.GetCalendarExceptionsRows " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcTimeSheet.ResourceDataSet+CalendarExceptionsRow[]</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets an array of calendar exceptions for a resource.</summary>
+        <returns>An array of calendar exception row objects.</returns>
+        <remarks>
+          <para>An array of <see cref="T:WebSvcTimeSheet.ResourceDataSet.CalendarExceptionsRow" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceAvailabilitiesRows">
+      <MemberSignature Language="C#" Value="public WebSvcTimeSheet.ResourceDataSet.ResourceAvailabilitiesRow[] GetResourceAvailabilitiesRows ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcTimeSheet.ResourceDataSet/ResourceAvailabilitiesRow[] GetResourceAvailabilitiesRows() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.GetResourceAvailabilitiesRows" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetResourceAvailabilitiesRows () As ResourceDataSet.ResourceAvailabilitiesRow()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;WebSvcTimeSheet::ResourceDataSet::ResourceAvailabilitiesRow ^&gt; ^ GetResourceAvailabilitiesRows();" />
+      <MemberSignature Language="F#" Value="member this.GetResourceAvailabilitiesRows : unit -&gt; WebSvcTimeSheet.ResourceDataSet.ResourceAvailabilitiesRow[]" Usage="resourcesRow.GetResourceAvailabilitiesRows " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcTimeSheet.ResourceDataSet+ResourceAvailabilitiesRow[]</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets an array of availability data for the resource.</summary>
+        <returns>An array of resource availability rows.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceCustomFieldsRows">
+      <MemberSignature Language="C#" Value="public WebSvcTimeSheet.ResourceDataSet.ResourceCustomFieldsRow[] GetResourceCustomFieldsRows ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcTimeSheet.ResourceDataSet/ResourceCustomFieldsRow[] GetResourceCustomFieldsRows() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.GetResourceCustomFieldsRows" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetResourceCustomFieldsRows () As ResourceDataSet.ResourceCustomFieldsRow()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;WebSvcTimeSheet::ResourceDataSet::ResourceCustomFieldsRow ^&gt; ^ GetResourceCustomFieldsRows();" />
+      <MemberSignature Language="F#" Value="member this.GetResourceCustomFieldsRows : unit -&gt; WebSvcTimeSheet.ResourceDataSet.ResourceCustomFieldsRow[]" Usage="resourcesRow.GetResourceCustomFieldsRows " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcTimeSheet.ResourceDataSet+ResourceCustomFieldsRow[]</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets an array of custom fields for this resource.</summary>
+        <returns>An array of resource custom fields rows.</returns>
+        <remarks>
+          <para>An array of <see cref="T:WebSvcTimeSheet.ResourceDataSet.ResourceCustomFieldsRow" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetResourceRatesRows">
+      <MemberSignature Language="C#" Value="public WebSvcTimeSheet.ResourceDataSet.ResourceRatesRow[] GetResourceRatesRows ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcTimeSheet.ResourceDataSet/ResourceRatesRow[] GetResourceRatesRows() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.GetResourceRatesRows" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetResourceRatesRows () As ResourceDataSet.ResourceRatesRow()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; cli::array &lt;WebSvcTimeSheet::ResourceDataSet::ResourceRatesRow ^&gt; ^ GetResourceRatesRows();" />
+      <MemberSignature Language="F#" Value="member this.GetResourceRatesRows : unit -&gt; WebSvcTimeSheet.ResourceDataSet.ResourceRatesRow[]" Usage="resourcesRow.GetResourceRatesRows " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcTimeSheet.ResourceDataSet+ResourceRatesRow[]</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets an array of rate (cost) data for the resource.</summary>
+        <returns>An array of resource rates rows.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsBaseCalendarUniqueIdNull">
+      <MemberSignature Language="C#" Value="public bool IsBaseCalendarUniqueIdNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsBaseCalendarUniqueIdNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsBaseCalendarUniqueIdNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsBaseCalendarUniqueIdNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsBaseCalendarUniqueIdNull();" />
+      <MemberSignature Language="F#" Value="member this.IsBaseCalendarUniqueIdNull : unit -&gt; bool" Usage="resourcesRow.IsBaseCalendarUniqueIdNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsCREATED_DATENull">
+      <MemberSignature Language="C#" Value="public bool IsCREATED_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsCREATED_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsCREATED_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsCREATED_DATENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsCREATED_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.IsCREATED_DATENull : unit -&gt; bool" Usage="resourcesRow.IsCREATED_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsMOD_DATENull">
+      <MemberSignature Language="C#" Value="public bool IsMOD_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsMOD_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsMOD_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsMOD_DATENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsMOD_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.IsMOD_DATENull : unit -&gt; bool" Usage="resourcesRow.IsMOD_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_ACCRUE_ATNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_ACCRUE_ATNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_ACCRUE_ATNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_ACCRUE_ATNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_ACCRUE_ATNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_ACCRUE_ATNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_ACCRUE_ATNull : unit -&gt; bool" Usage="resourcesRow.IsRES_ACCRUE_ATNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_BOOKING_TYPENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_BOOKING_TYPENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_BOOKING_TYPENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_BOOKING_TYPENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_BOOKING_TYPENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_BOOKING_TYPENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_BOOKING_TYPENull : unit -&gt; bool" Usage="resourcesRow.IsRES_BOOKING_TYPENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_CAL_OOF_EXCHANGE_SYNCNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_CAL_OOF_EXCHANGE_SYNCNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_CAL_OOF_EXCHANGE_SYNCNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_CAL_OOF_EXCHANGE_SYNCNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_CAL_OOF_EXCHANGE_SYNCNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_CAL_OOF_EXCHANGE_SYNCNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_CAL_OOF_EXCHANGE_SYNCNull : unit -&gt; bool" Usage="resourcesRow.IsRES_CAL_OOF_EXCHANGE_SYNCNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_CAN_LEVELNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_CAN_LEVELNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_CAN_LEVELNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_CAN_LEVELNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_CAN_LEVELNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_CAN_LEVELNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_CAN_LEVELNull : unit -&gt; bool" Usage="resourcesRow.IsRES_CAN_LEVELNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_CHECKOUTBYNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_CHECKOUTBYNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_CHECKOUTBYNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_CHECKOUTBYNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_CHECKOUTBYNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_CHECKOUTBYNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_CHECKOUTBYNull : unit -&gt; bool" Usage="resourcesRow.IsRES_CHECKOUTBYNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_CHECKOUTDATENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_CHECKOUTDATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_CHECKOUTDATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_CHECKOUTDATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_CHECKOUTDATENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_CHECKOUTDATENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_CHECKOUTDATENull : unit -&gt; bool" Usage="resourcesRow.IsRES_CHECKOUTDATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_CODENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_CODENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_CODENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_CODENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_CODENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_CODENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_CODENull : unit -&gt; bool" Usage="resourcesRow.IsRES_CODENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_COST_CENTERNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_COST_CENTERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_COST_CENTERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_COST_CENTERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_COST_CENTERNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_COST_CENTERNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_COST_CENTERNull : unit -&gt; bool" Usage="resourcesRow.IsRES_COST_CENTERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_DEF_ASSN_OWNERNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_DEF_ASSN_OWNERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_DEF_ASSN_OWNERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_DEF_ASSN_OWNERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_DEF_ASSN_OWNERNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_DEF_ASSN_OWNERNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_DEF_ASSN_OWNERNull : unit -&gt; bool" Usage="resourcesRow.IsRES_DEF_ASSN_OWNERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_EXCHANGE_EWS_URLNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_EXCHANGE_EWS_URLNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_EXCHANGE_EWS_URLNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_EXCHANGE_EWS_URLNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_EXCHANGE_EWS_URLNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_EXCHANGE_EWS_URLNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_EXCHANGE_EWS_URLNull : unit -&gt; bool" Usage="resourcesRow.IsRES_EXCHANGE_EWS_URLNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_EXCHANGE_SYNCNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_EXCHANGE_SYNCNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_EXCHANGE_SYNCNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_EXCHANGE_SYNCNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_EXCHANGE_SYNCNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_EXCHANGE_SYNCNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_EXCHANGE_SYNCNull : unit -&gt; bool" Usage="resourcesRow.IsRES_EXCHANGE_SYNCNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_EXTERNAL_IDNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_EXTERNAL_IDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_EXTERNAL_IDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_EXTERNAL_IDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_EXTERNAL_IDNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_EXTERNAL_IDNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_EXTERNAL_IDNull : unit -&gt; bool" Usage="resourcesRow.IsRES_EXTERNAL_IDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_GROUPNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_GROUPNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_GROUPNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_GROUPNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_GROUPNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_GROUPNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_GROUPNull : unit -&gt; bool" Usage="resourcesRow.IsRES_GROUPNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_HAS_NOTESNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_HAS_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_HAS_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_HAS_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_HAS_NOTESNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_HAS_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_HAS_NOTESNull : unit -&gt; bool" Usage="resourcesRow.IsRES_HAS_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_HIRE_DATENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_HIRE_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_HIRE_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_HIRE_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_HIRE_DATENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_HIRE_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_HIRE_DATENull : unit -&gt; bool" Usage="resourcesRow.IsRES_HIRE_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_HYPERLINK_ADDRESSNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_HYPERLINK_ADDRESSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_HYPERLINK_ADDRESSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_HYPERLINK_ADDRESSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_HYPERLINK_ADDRESSNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_HYPERLINK_ADDRESSNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_HYPERLINK_ADDRESSNull : unit -&gt; bool" Usage="resourcesRow.IsRES_HYPERLINK_ADDRESSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_HYPERLINK_FRIENDLY_NAMENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_HYPERLINK_FRIENDLY_NAMENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_HYPERLINK_FRIENDLY_NAMENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_HYPERLINK_FRIENDLY_NAMENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_HYPERLINK_FRIENDLY_NAMENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_HYPERLINK_FRIENDLY_NAMENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_HYPERLINK_FRIENDLY_NAMENull : unit -&gt; bool" Usage="resourcesRow.IsRES_HYPERLINK_FRIENDLY_NAMENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_HYPERLINK_SUB_ADDRESSNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_HYPERLINK_SUB_ADDRESSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_HYPERLINK_SUB_ADDRESSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_HYPERLINK_SUB_ADDRESSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_HYPERLINK_SUB_ADDRESSNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_HYPERLINK_SUB_ADDRESSNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_HYPERLINK_SUB_ADDRESSNull : unit -&gt; bool" Usage="resourcesRow.IsRES_HYPERLINK_SUB_ADDRESSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_INITIALSNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_INITIALSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_INITIALSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_INITIALSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_INITIALSNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_INITIALSNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_INITIALSNull : unit -&gt; bool" Usage="resourcesRow.IsRES_INITIALSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_IS_TEAMNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_IS_TEAMNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_IS_TEAMNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_IS_TEAMNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_IS_TEAMNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_IS_TEAMNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_IS_TEAMNull : unit -&gt; bool" Usage="resourcesRow.IsRES_IS_TEAMNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_IS_WINDOWS_USERNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_IS_WINDOWS_USERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_IS_WINDOWS_USERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_IS_WINDOWS_USERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_IS_WINDOWS_USERNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_IS_WINDOWS_USERNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_IS_WINDOWS_USERNull : unit -&gt; bool" Usage="resourcesRow.IsRES_IS_WINDOWS_USERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_MATERIAL_LABELNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_MATERIAL_LABELNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_MATERIAL_LABELNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_MATERIAL_LABELNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_MATERIAL_LABELNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_MATERIAL_LABELNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_MATERIAL_LABELNull : unit -&gt; bool" Usage="resourcesRow.IsRES_MATERIAL_LABELNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_NOTESNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_NOTESNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_NOTESNull : unit -&gt; bool" Usage="resourcesRow.IsRES_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_PHONETICSNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_PHONETICSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_PHONETICSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_PHONETICSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_PHONETICSNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_PHONETICSNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_PHONETICSNull : unit -&gt; bool" Usage="resourcesRow.IsRES_PHONETICSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_RTF_NOTESNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_RTF_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_RTF_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_RTF_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_RTF_NOTESNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_RTF_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_RTF_NOTESNull : unit -&gt; bool" Usage="resourcesRow.IsRES_RTF_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_TERMINATION_DATENull">
+      <MemberSignature Language="C#" Value="public bool IsRES_TERMINATION_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_TERMINATION_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_TERMINATION_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_TERMINATION_DATENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_TERMINATION_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_TERMINATION_DATENull : unit -&gt; bool" Usage="resourcesRow.IsRES_TERMINATION_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRES_TIMESHEET_MGR_UIDNull">
+      <MemberSignature Language="C#" Value="public bool IsRES_TIMESHEET_MGR_UIDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsRES_TIMESHEET_MGR_UIDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsRES_TIMESHEET_MGR_UIDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsRES_TIMESHEET_MGR_UIDNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsRES_TIMESHEET_MGR_UIDNull();" />
+      <MemberSignature Language="F#" Value="member this.IsRES_TIMESHEET_MGR_UIDNull : unit -&gt; bool" Usage="resourcesRow.IsRES_TIMESHEET_MGR_UIDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsWRES_ACCOUNTNull">
+      <MemberSignature Language="C#" Value="public bool IsWRES_ACCOUNTNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsWRES_ACCOUNTNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsWRES_ACCOUNTNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsWRES_ACCOUNTNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsWRES_ACCOUNTNull();" />
+      <MemberSignature Language="F#" Value="member this.IsWRES_ACCOUNTNull : unit -&gt; bool" Usage="resourcesRow.IsWRES_ACCOUNTNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsWRES_EMAIL_LANGUAGENull">
+      <MemberSignature Language="C#" Value="public bool IsWRES_EMAIL_LANGUAGENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsWRES_EMAIL_LANGUAGENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsWRES_EMAIL_LANGUAGENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsWRES_EMAIL_LANGUAGENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsWRES_EMAIL_LANGUAGENull();" />
+      <MemberSignature Language="F#" Value="member this.IsWRES_EMAIL_LANGUAGENull : unit -&gt; bool" Usage="resourcesRow.IsWRES_EMAIL_LANGUAGENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsWRES_EMAILNull">
+      <MemberSignature Language="C#" Value="public bool IsWRES_EMAILNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsWRES_EMAILNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.IsWRES_EMAILNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsWRES_EMAILNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsWRES_EMAILNull();" />
+      <MemberSignature Language="F#" Value="member this.IsWRES_EMAILNull : unit -&gt; bool" Usage="resourcesRow.IsWRES_EMAILNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Determines whether the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" /> property is set to a null value.</summary>
+        <returns>
+          <b>True</b> if the property value is set to null; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MOD_DATE">
+      <MemberSignature Language="C#" Value="public DateTime MOD_DATE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime MOD_DATE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" />
+      <MemberSignature Language="VB.NET" Value="Public Property MOD_DATE As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime MOD_DATE { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.MOD_DATE : DateTime with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the last date when updated information about this row was saved to the server.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_ACCRUE_AT">
+      <MemberSignature Language="C#" Value="public short RES_ACCRUE_AT { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int16 RES_ACCRUE_AT" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_ACCRUE_AT As Short" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property short RES_ACCRUE_AT { short get(); void set(short value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_ACCRUE_AT : int16 with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates how and when resource standard costs and overtime costs should accrue to the cost of a task.</summary>
+        <value>A number that represents when and how costs accrue.</value>
+        <remarks>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.AccrueAt" /> type to a <b>short</b> to use with this property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_BOOKING_TYPE">
+      <MemberSignature Language="C#" Value="public int RES_BOOKING_TYPE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 RES_BOOKING_TYPE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_BOOKING_TYPE As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int RES_BOOKING_TYPE { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_BOOKING_TYPE : int with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates the default booking type for the resource on this project.</summary>
+        <value>An integer that represents the booking type.</value>
+        <remarks>
+          <para>Cast the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.BookingType" /> type to an <b>int</b> to use with this property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_CAL_OOF_EXCHANGE_SYNC">
+      <MemberSignature Language="C#" Value="public bool RES_CAL_OOF_EXCHANGE_SYNC { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_CAL_OOF_EXCHANGE_SYNC" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_CAL_OOF_EXCHANGE_SYNC As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_CAL_OOF_EXCHANGE_SYNC { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_CAL_OOF_EXCHANGE_SYNC : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether the out-of-office resource calendar has been synchronized with Microsoft Exchange.</summary>
+        <value>
+          <b>True</b> if synchronization with Microsoft Exchange has occurred; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_CAN_LEVEL">
+      <MemberSignature Language="C#" Value="public bool RES_CAN_LEVEL { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_CAN_LEVEL" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_CAN_LEVEL As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_CAN_LEVEL { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_CAN_LEVEL : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates whether resource leveling can be performed on a resource.</summary>
+        <value>
+          <b>True</b> if leveling can be performed; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>Leveling resolves resource conflicts or over-allocations by delaying or splitting certain tasks. When Project levels a resource, its selected assignments are distributed and rescheduled.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_CHECKOUTBY">
+      <MemberSignature Language="C#" Value="public Guid RES_CHECKOUTBY { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid RES_CHECKOUTBY" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_CHECKOUTBY As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid RES_CHECKOUTBY { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_CHECKOUTBY : Guid with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the unique ID of the user who has this resource checked out for modification.</summary>
+        <value>A resource GUID.</value>
+        <remarks>
+          <para>Read-only. Changes cannot be made when the resource is checked out to another user.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_CHECKOUTDATE">
+      <MemberSignature Language="C#" Value="public DateTime RES_CHECKOUTDATE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime RES_CHECKOUTDATE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_CHECKOUTDATE As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime RES_CHECKOUTDATE { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_CHECKOUTDATE : DateTime with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the date when the resource was checked out.</summary>
+        <value>A date and time object.</value>
+        <remarks>
+          <para>Read-only. </para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_CODE">
+      <MemberSignature Language="C#" Value="public string RES_CODE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_CODE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_CODE As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_CODE { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_CODE : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains a code.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_COST_CENTER">
+      <MemberSignature Language="C#" Value="public string RES_COST_CENTER { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_COST_CENTER" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_COST_CENTER As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_COST_CENTER { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_COST_CENTER : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains resource information.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_DEF_ASSN_OWNER">
+      <MemberSignature Language="C#" Value="public Guid RES_DEF_ASSN_OWNER { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid RES_DEF_ASSN_OWNER" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_DEF_ASSN_OWNER As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid RES_DEF_ASSN_OWNER { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_DEF_ASSN_OWNER : Guid with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the unique ID of the resource who is the default owner of assignments to which this resource is assigned.</summary>
+        <value>The GUID of a default owner of assignments.</value>
+        <remarks>
+          <para>
+            <b>RES_DEF_ASSN_OWNER</b> is a foreign key to another resource in the <see cref="T:WebSvcProject.ProjectDataSet.ProjectResourceRow" /> object.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_EXCHANGE_EWS_URL">
+      <MemberSignature Language="C#" Value="public string RES_EXCHANGE_EWS_URL { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_EXCHANGE_EWS_URL" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_EXCHANGE_EWS_URL As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_EXCHANGE_EWS_URL { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_EXCHANGE_EWS_URL : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the URL of the Microsoft Exchange web service for the resource.</summary>
+        <value>The URL of a Microsoft Exchange web service.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_EXCHANGE_SYNC">
+      <MemberSignature Language="C#" Value="public bool RES_EXCHANGE_SYNC { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_EXCHANGE_SYNC" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_EXCHANGE_SYNC As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_EXCHANGE_SYNC { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_EXCHANGE_SYNC : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether to synchronize resource information with Microsoft Exchange.</summary>
+        <value>
+          <b>True</b> if to synchronize with Microsoft Exchange; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_EXTERNAL_ID">
+      <MemberSignature Language="C#" Value="public string RES_EXTERNAL_ID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_EXTERNAL_ID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_EXTERNAL_ID As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_EXTERNAL_ID { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_EXTERNAL_ID : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains a code.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_GROUP">
+      <MemberSignature Language="C#" Value="public string RES_GROUP { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_GROUP" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_GROUP As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_GROUP { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_GROUP : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies any code, abbreviation, or number that you want to enter as part of a resource's information.</summary>
+        <value>A string that contains resource information.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_HAS_NOTES">
+      <MemberSignature Language="C#" Value="public bool RES_HAS_NOTES { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_HAS_NOTES" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_HAS_NOTES As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_HAS_NOTES { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_HAS_NOTES : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates whether any notes are stored in the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property.</summary>
+        <value>
+          <b>True</b> if notes are stored in the <b>RES_NOTES</b> property; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_HIRE_DATE">
+      <MemberSignature Language="C#" Value="public DateTime RES_HIRE_DATE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime RES_HIRE_DATE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_HIRE_DATE As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime RES_HIRE_DATE { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_HIRE_DATE : DateTime with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the date and time when a resource was hired.</summary>
+        <value>A date and time object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_HYPERLINK_ADDRESS">
+      <MemberSignature Language="C#" Value="public string RES_HYPERLINK_ADDRESS { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_HYPERLINK_ADDRESS" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_HYPERLINK_ADDRESS As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_HYPERLINK_ADDRESS { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_HYPERLINK_ADDRESS : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the URI for the hyperlink that is associated with this resource. </summary>
+        <value>A string that contains a URI.</value>
+        <remarks>
+          <para>
+            <b>RES_HYPERLINK_ADDRESS</b> does not include any anchor. The anchor portion of the URI is specified by the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_HYPERLINK_FRIENDLY_NAME">
+      <MemberSignature Language="C#" Value="public string RES_HYPERLINK_FRIENDLY_NAME { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_HYPERLINK_FRIENDLY_NAME" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_HYPERLINK_FRIENDLY_NAME As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_HYPERLINK_FRIENDLY_NAME { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_HYPERLINK_FRIENDLY_NAME : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the display text for the hyperlink that is associated with this resource.</summary>
+        <value>A string that contains the friendly name of a hyperlink.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_HYPERLINK_SUB_ADDRESS">
+      <MemberSignature Language="C#" Value="public string RES_HYPERLINK_SUB_ADDRESS { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_HYPERLINK_SUB_ADDRESS" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_HYPERLINK_SUB_ADDRESS As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_HYPERLINK_SUB_ADDRESS { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_HYPERLINK_SUB_ADDRESS : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the anchor portion of the URI of the hyperlink that is associated with this resource.</summary>
+        <value>A string that contains the anchor portion of a URI.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_ID">
+      <MemberSignature Language="C#" Value="public int RES_ID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 RES_ID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ID" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_ID As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int RES_ID { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_ID : int with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies an ordinal identifier of the resource.</summary>
+        <value>An integer identifier.</value>
+        <remarks>
+          <para>As you create or add resources to the project, Microsoft Project automatically assigns the next number in the sequence of resources that are listed. This value becomes the <b>RES_ID</b>. </para>
+          <para>
+            <b>RES_ID</b> is not a unique identifier for the resource. It changes whenever the order of resources changes. The persistent unique identifier is the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_UID" /> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_INITIALS">
+      <MemberSignature Language="C#" Value="public string RES_INITIALS { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_INITIALS" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_INITIALS As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_INITIALS { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_INITIALS : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies a short name for the resource, such as the initials of a person.</summary>
+        <value>A string that contains a set of initials.</value>
+        <remarks>
+          <para>
+            <b>RES_INITIALS</b> is usually two or three characters.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_IS_TEAM">
+      <MemberSignature Language="C#" Value="public bool RES_IS_TEAM { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_IS_TEAM" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_IS_TEAM As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_IS_TEAM { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_IS_TEAM : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates whether a resource is designated as a member of a team assignment pool.</summary>
+        <value>
+          <b>True</b> if the resource is designated as a team assignment pool; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_IS_WINDOWS_USER">
+      <MemberSignature Language="C#" Value="public bool RES_IS_WINDOWS_USER { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool RES_IS_WINDOWS_USER" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_IS_WINDOWS_USER As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool RES_IS_WINDOWS_USER { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_IS_WINDOWS_USER : bool with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates whether this resource is a Windows user.</summary>
+        <value>
+          <b>True</b> if resource is a Windows user; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_MATERIAL_LABEL">
+      <MemberSignature Language="C#" Value="public string RES_MATERIAL_LABEL { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_MATERIAL_LABEL" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_MATERIAL_LABEL As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_MATERIAL_LABEL { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_MATERIAL_LABEL : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies text that indicates units for this material resource.</summary>
+        <value>A string that names material resource units.</value>
+        <remarks>
+          <para>This field applies only if the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TYPE" /> property is of type <see cref="F:Microsoft.Office.Project.Server.Library.Resource.Type.MaterialResource" />. The <b>Material Label</b> field contains the unit of measurement that you enter for supplies or other consumable items that are used to complete tasks in a project; for example, tons, boxes, or cubic yards. This label is then used in conjunction with the material resource's assignment units; for example, eight tons or 22 boxes.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_NAME">
+      <MemberSignature Language="C#" Value="public string RES_NAME { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_NAME" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NAME" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_NAME As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_NAME { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_NAME : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NAME" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the full name of the resource.</summary>
+        <value>A string that contains a resource name.</value>
+        <remarks>
+          <para>
+            <b>RES_NAME</b> cannot be a duplicate of another enterprise resource.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_NOTES">
+      <MemberSignature Language="C#" Value="public string RES_NOTES { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_NOTES" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_NOTES As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_NOTES { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_NOTES : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies comments that are entered about a resource.</summary>
+        <value>This field contains only text; it does not contain formatting or graphics. To enter comments with formatting or graphics, use the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_PHONETICS">
+      <MemberSignature Language="C#" Value="public string RES_PHONETICS { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string RES_PHONETICS" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_PHONETICS As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ RES_PHONETICS { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_PHONETICS : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies phonetic information in either hiragana or katakana for resource names.</summary>
+        <value>A string that contains phonetic information.</value>
+        <remarks>
+          <para>
+            <b>RES_PHONETICS</b> is used only in the Japanese version of Microsoft Project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_RTF_NOTES">
+      <MemberSignature Language="C#" Value="public byte[] RES_RTF_NOTES { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int8[] RES_RTF_NOTES" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_RTF_NOTES As Byte()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property cli::array &lt;System::Byte&gt; ^ RES_RTF_NOTES { cli::array &lt;System::Byte&gt; ^ get(); void set(cli::array &lt;System::Byte&gt; ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_RTF_NOTES : byte[] with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Byte[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies comments that are entered about a resource.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>
+            <b>RES_RTF_NOTES</b> contains formatted text and graphics.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_TERMINATION_DATE">
+      <MemberSignature Language="C#" Value="public DateTime RES_TERMINATION_DATE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime RES_TERMINATION_DATE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_TERMINATION_DATE As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime RES_TERMINATION_DATE { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_TERMINATION_DATE : DateTime with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the date and time after which the resource can no longer be used.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_TIMESHEET_MGR_UID">
+      <MemberSignature Language="C#" Value="public Guid RES_TIMESHEET_MGR_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid RES_TIMESHEET_MGR_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_TIMESHEET_MGR_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid RES_TIMESHEET_MGR_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_TIMESHEET_MGR_UID : Guid with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the unique ID of the timesheet manager for this resource.</summary>
+        <value>The GUID of a timesheet manager.</value>
+        <remarks>
+          <para>If <b>RES_TIMESHEET_MGR_UID</b> is a null value, this resource is an optional timesheet user. This means that timesheets are not required for this user, and timesheets for this user will not appear on late timesheet reports.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_TYPE">
+      <MemberSignature Language="C#" Value="public int RES_TYPE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 RES_TYPE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TYPE" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_TYPE As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int RES_TYPE { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_TYPE : int with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TYPE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Indicates whether this resource is a work, material, or cost resource and whether it is a budget resource or a generic resource.</summary>
+        <value>An integer that represents the resource type.</value>
+        <remarks>
+          <para>Cast from the <see cref="T:Microsoft.Office.Project.Server.Library.Resource.Type" /> type to an <b>int</b> to use with this property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RES_UID">
+      <MemberSignature Language="C#" Value="public Guid RES_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid RES_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property RES_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid RES_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.RES_UID : Guid with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the unique identifier for this resource.</summary>
+        <value>The GUID of the resource.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetBaseCalendarUniqueIdNull">
+      <MemberSignature Language="C#" Value="public void SetBaseCalendarUniqueIdNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBaseCalendarUniqueIdNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetBaseCalendarUniqueIdNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetBaseCalendarUniqueIdNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetBaseCalendarUniqueIdNull();" />
+      <MemberSignature Language="F#" Value="member this.SetBaseCalendarUniqueIdNull : unit -&gt; unit" Usage="resourcesRow.SetBaseCalendarUniqueIdNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.BaseCalendarUniqueId" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetCREATED_DATENull">
+      <MemberSignature Language="C#" Value="public void SetCREATED_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCREATED_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetCREATED_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetCREATED_DATENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetCREATED_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.SetCREATED_DATENull : unit -&gt; unit" Usage="resourcesRow.SetCREATED_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.CREATED_DATE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMOD_DATENull">
+      <MemberSignature Language="C#" Value="public void SetMOD_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetMOD_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetMOD_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetMOD_DATENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetMOD_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.SetMOD_DATENull : unit -&gt; unit" Usage="resourcesRow.SetMOD_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.MOD_DATE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_ACCRUE_ATNull">
+      <MemberSignature Language="C#" Value="public void SetRES_ACCRUE_ATNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_ACCRUE_ATNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_ACCRUE_ATNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_ACCRUE_ATNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_ACCRUE_ATNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_ACCRUE_ATNull : unit -&gt; unit" Usage="resourcesRow.SetRES_ACCRUE_ATNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_ACCRUE_AT" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_BOOKING_TYPENull">
+      <MemberSignature Language="C#" Value="public void SetRES_BOOKING_TYPENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_BOOKING_TYPENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_BOOKING_TYPENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_BOOKING_TYPENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_BOOKING_TYPENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_BOOKING_TYPENull : unit -&gt; unit" Usage="resourcesRow.SetRES_BOOKING_TYPENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_BOOKING_TYPE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_CAL_OOF_EXCHANGE_SYNCNull">
+      <MemberSignature Language="C#" Value="public void SetRES_CAL_OOF_EXCHANGE_SYNCNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_CAL_OOF_EXCHANGE_SYNCNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_CAL_OOF_EXCHANGE_SYNCNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_CAL_OOF_EXCHANGE_SYNCNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_CAL_OOF_EXCHANGE_SYNCNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_CAL_OOF_EXCHANGE_SYNCNull : unit -&gt; unit" Usage="resourcesRow.SetRES_CAL_OOF_EXCHANGE_SYNCNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAL_OOF_EXCHANGE_SYNC" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_CAN_LEVELNull">
+      <MemberSignature Language="C#" Value="public void SetRES_CAN_LEVELNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_CAN_LEVELNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_CAN_LEVELNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_CAN_LEVELNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_CAN_LEVELNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_CAN_LEVELNull : unit -&gt; unit" Usage="resourcesRow.SetRES_CAN_LEVELNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CAN_LEVEL" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_CHECKOUTBYNull">
+      <MemberSignature Language="C#" Value="public void SetRES_CHECKOUTBYNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_CHECKOUTBYNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_CHECKOUTBYNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_CHECKOUTBYNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_CHECKOUTBYNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_CHECKOUTBYNull : unit -&gt; unit" Usage="resourcesRow.SetRES_CHECKOUTBYNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTBY" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_CHECKOUTDATENull">
+      <MemberSignature Language="C#" Value="public void SetRES_CHECKOUTDATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_CHECKOUTDATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_CHECKOUTDATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_CHECKOUTDATENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_CHECKOUTDATENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_CHECKOUTDATENull : unit -&gt; unit" Usage="resourcesRow.SetRES_CHECKOUTDATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CHECKOUTDATE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_CODENull">
+      <MemberSignature Language="C#" Value="public void SetRES_CODENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_CODENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_CODENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_CODENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_CODENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_CODENull : unit -&gt; unit" Usage="resourcesRow.SetRES_CODENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_CODE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_COST_CENTERNull">
+      <MemberSignature Language="C#" Value="public void SetRES_COST_CENTERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_COST_CENTERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_COST_CENTERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_COST_CENTERNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_COST_CENTERNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_COST_CENTERNull : unit -&gt; unit" Usage="resourcesRow.SetRES_COST_CENTERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_COST_CENTER" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_DEF_ASSN_OWNERNull">
+      <MemberSignature Language="C#" Value="public void SetRES_DEF_ASSN_OWNERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_DEF_ASSN_OWNERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_DEF_ASSN_OWNERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_DEF_ASSN_OWNERNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_DEF_ASSN_OWNERNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_DEF_ASSN_OWNERNull : unit -&gt; unit" Usage="resourcesRow.SetRES_DEF_ASSN_OWNERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_DEF_ASSN_OWNER" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_EXCHANGE_EWS_URLNull">
+      <MemberSignature Language="C#" Value="public void SetRES_EXCHANGE_EWS_URLNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_EXCHANGE_EWS_URLNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_EXCHANGE_EWS_URLNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_EXCHANGE_EWS_URLNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_EXCHANGE_EWS_URLNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_EXCHANGE_EWS_URLNull : unit -&gt; unit" Usage="resourcesRow.SetRES_EXCHANGE_EWS_URLNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_EWS_URL" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_EXCHANGE_SYNCNull">
+      <MemberSignature Language="C#" Value="public void SetRES_EXCHANGE_SYNCNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_EXCHANGE_SYNCNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_EXCHANGE_SYNCNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_EXCHANGE_SYNCNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_EXCHANGE_SYNCNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_EXCHANGE_SYNCNull : unit -&gt; unit" Usage="resourcesRow.SetRES_EXCHANGE_SYNCNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXCHANGE_SYNC" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_EXTERNAL_IDNull">
+      <MemberSignature Language="C#" Value="public void SetRES_EXTERNAL_IDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_EXTERNAL_IDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_EXTERNAL_IDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_EXTERNAL_IDNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_EXTERNAL_IDNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_EXTERNAL_IDNull : unit -&gt; unit" Usage="resourcesRow.SetRES_EXTERNAL_IDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_EXTERNAL_ID" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_GROUPNull">
+      <MemberSignature Language="C#" Value="public void SetRES_GROUPNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_GROUPNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_GROUPNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_GROUPNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_GROUPNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_GROUPNull : unit -&gt; unit" Usage="resourcesRow.SetRES_GROUPNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_GROUP" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_HAS_NOTESNull">
+      <MemberSignature Language="C#" Value="public void SetRES_HAS_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_HAS_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_HAS_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_HAS_NOTESNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_HAS_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_HAS_NOTESNull : unit -&gt; unit" Usage="resourcesRow.SetRES_HAS_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HAS_NOTES" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_HIRE_DATENull">
+      <MemberSignature Language="C#" Value="public void SetRES_HIRE_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_HIRE_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_HIRE_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_HIRE_DATENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_HIRE_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_HIRE_DATENull : unit -&gt; unit" Usage="resourcesRow.SetRES_HIRE_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HIRE_DATE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_HYPERLINK_ADDRESSNull">
+      <MemberSignature Language="C#" Value="public void SetRES_HYPERLINK_ADDRESSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_HYPERLINK_ADDRESSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_HYPERLINK_ADDRESSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_HYPERLINK_ADDRESSNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_HYPERLINK_ADDRESSNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_HYPERLINK_ADDRESSNull : unit -&gt; unit" Usage="resourcesRow.SetRES_HYPERLINK_ADDRESSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_ADDRESS" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_HYPERLINK_FRIENDLY_NAMENull">
+      <MemberSignature Language="C#" Value="public void SetRES_HYPERLINK_FRIENDLY_NAMENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_HYPERLINK_FRIENDLY_NAMENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_HYPERLINK_FRIENDLY_NAMENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_HYPERLINK_FRIENDLY_NAMENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_HYPERLINK_FRIENDLY_NAMENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_HYPERLINK_FRIENDLY_NAMENull : unit -&gt; unit" Usage="resourcesRow.SetRES_HYPERLINK_FRIENDLY_NAMENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_FRIENDLY_NAME" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_HYPERLINK_SUB_ADDRESSNull">
+      <MemberSignature Language="C#" Value="public void SetRES_HYPERLINK_SUB_ADDRESSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_HYPERLINK_SUB_ADDRESSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_HYPERLINK_SUB_ADDRESSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_HYPERLINK_SUB_ADDRESSNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_HYPERLINK_SUB_ADDRESSNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_HYPERLINK_SUB_ADDRESSNull : unit -&gt; unit" Usage="resourcesRow.SetRES_HYPERLINK_SUB_ADDRESSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_HYPERLINK_SUB_ADDRESS" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_INITIALSNull">
+      <MemberSignature Language="C#" Value="public void SetRES_INITIALSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_INITIALSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_INITIALSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_INITIALSNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_INITIALSNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_INITIALSNull : unit -&gt; unit" Usage="resourcesRow.SetRES_INITIALSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_INITIALS" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_IS_TEAMNull">
+      <MemberSignature Language="C#" Value="public void SetRES_IS_TEAMNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_IS_TEAMNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_IS_TEAMNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_IS_TEAMNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_IS_TEAMNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_IS_TEAMNull : unit -&gt; unit" Usage="resourcesRow.SetRES_IS_TEAMNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_TEAM" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_IS_WINDOWS_USERNull">
+      <MemberSignature Language="C#" Value="public void SetRES_IS_WINDOWS_USERNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_IS_WINDOWS_USERNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_IS_WINDOWS_USERNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_IS_WINDOWS_USERNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_IS_WINDOWS_USERNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_IS_WINDOWS_USERNull : unit -&gt; unit" Usage="resourcesRow.SetRES_IS_WINDOWS_USERNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_IS_WINDOWS_USER" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_MATERIAL_LABELNull">
+      <MemberSignature Language="C#" Value="public void SetRES_MATERIAL_LABELNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_MATERIAL_LABELNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_MATERIAL_LABELNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_MATERIAL_LABELNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_MATERIAL_LABELNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_MATERIAL_LABELNull : unit -&gt; unit" Usage="resourcesRow.SetRES_MATERIAL_LABELNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_MATERIAL_LABEL" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_NOTESNull">
+      <MemberSignature Language="C#" Value="public void SetRES_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_NOTESNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_NOTESNull : unit -&gt; unit" Usage="resourcesRow.SetRES_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_NOTES" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_PHONETICSNull">
+      <MemberSignature Language="C#" Value="public void SetRES_PHONETICSNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_PHONETICSNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_PHONETICSNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_PHONETICSNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_PHONETICSNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_PHONETICSNull : unit -&gt; unit" Usage="resourcesRow.SetRES_PHONETICSNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_PHONETICS" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_RTF_NOTESNull">
+      <MemberSignature Language="C#" Value="public void SetRES_RTF_NOTESNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_RTF_NOTESNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_RTF_NOTESNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_RTF_NOTESNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_RTF_NOTESNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_RTF_NOTESNull : unit -&gt; unit" Usage="resourcesRow.SetRES_RTF_NOTESNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_RTF_NOTES" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_TERMINATION_DATENull">
+      <MemberSignature Language="C#" Value="public void SetRES_TERMINATION_DATENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_TERMINATION_DATENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_TERMINATION_DATENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_TERMINATION_DATENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_TERMINATION_DATENull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_TERMINATION_DATENull : unit -&gt; unit" Usage="resourcesRow.SetRES_TERMINATION_DATENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TERMINATION_DATE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRES_TIMESHEET_MGR_UIDNull">
+      <MemberSignature Language="C#" Value="public void SetRES_TIMESHEET_MGR_UIDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRES_TIMESHEET_MGR_UIDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetRES_TIMESHEET_MGR_UIDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetRES_TIMESHEET_MGR_UIDNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetRES_TIMESHEET_MGR_UIDNull();" />
+      <MemberSignature Language="F#" Value="member this.SetRES_TIMESHEET_MGR_UIDNull : unit -&gt; unit" Usage="resourcesRow.SetRES_TIMESHEET_MGR_UIDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.RES_TIMESHEET_MGR_UID" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWRES_ACCOUNTNull">
+      <MemberSignature Language="C#" Value="public void SetWRES_ACCOUNTNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWRES_ACCOUNTNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetWRES_ACCOUNTNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetWRES_ACCOUNTNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetWRES_ACCOUNTNull();" />
+      <MemberSignature Language="F#" Value="member this.SetWRES_ACCOUNTNull : unit -&gt; unit" Usage="resourcesRow.SetWRES_ACCOUNTNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWRES_EMAIL_LANGUAGENull">
+      <MemberSignature Language="C#" Value="public void SetWRES_EMAIL_LANGUAGENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWRES_EMAIL_LANGUAGENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetWRES_EMAIL_LANGUAGENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetWRES_EMAIL_LANGUAGENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetWRES_EMAIL_LANGUAGENull();" />
+      <MemberSignature Language="F#" Value="member this.SetWRES_EMAIL_LANGUAGENull : unit -&gt; unit" Usage="resourcesRow.SetWRES_EMAIL_LANGUAGENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetWRES_EMAILNull">
+      <MemberSignature Language="C#" Value="public void SetWRES_EMAILNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetWRES_EMAILNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.SetWRES_EMAILNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetWRES_EMAILNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetWRES_EMAILNull();" />
+      <MemberSignature Language="F#" Value="member this.SetWRES_EMAILNull : unit -&gt; unit" Usage="resourcesRow.SetWRES_EMAILNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WRES_ACCOUNT">
+      <MemberSignature Language="C#" Value="public string WRES_ACCOUNT { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string WRES_ACCOUNT" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" />
+      <MemberSignature Language="VB.NET" Value="Public Property WRES_ACCOUNT As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ WRES_ACCOUNT { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.WRES_ACCOUNT : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_ACCOUNT" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies Windows account information for a work resource.</summary>
+        <value>A string that contains Windows account information.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WRES_EMAIL">
+      <MemberSignature Language="C#" Value="public string WRES_EMAIL { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string WRES_EMAIL" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" />
+      <MemberSignature Language="VB.NET" Value="Public Property WRES_EMAIL As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ WRES_EMAIL { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.WRES_EMAIL : string with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the resource's e-mail address.</summary>
+        <value>A string that contains the email address of the resource.</value>
+        <remarks>
+          <para>
+            <b>WRES_EMAIL</b> is the e-mail address for this resource.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WRES_EMAIL_LANGUAGE">
+      <MemberSignature Language="C#" Value="public int WRES_EMAIL_LANGUAGE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 WRES_EMAIL_LANGUAGE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" />
+      <MemberSignature Language="VB.NET" Value="Public Property WRES_EMAIL_LANGUAGE As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int WRES_EMAIL_LANGUAGE { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.WRES_EMAIL_LANGUAGE : int with get, set" Usage="WebSvcTimeSheet.ResourceDataSet.ResourcesRow.WRES_EMAIL_LANGUAGE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the language for e-mail messages to this resource.</summary>
+        <value>An integer that represents a language.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

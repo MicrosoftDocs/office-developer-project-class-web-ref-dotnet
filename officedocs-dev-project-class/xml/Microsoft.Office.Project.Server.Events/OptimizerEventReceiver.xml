@@ -1,0 +1,157 @@
+﻿<Type Name="OptimizerEventReceiver" FullName="Microsoft.Office.Project.Server.Events.OptimizerEventReceiver">
+  <TypeSignature Language="C#" Value="public abstract class OptimizerEventReceiver : Microsoft.Office.Project.Server.Events.IOptimizerEventReceiverRemote" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit OptimizerEventReceiver extends System.Object implements class Microsoft.Office.Project.Server.Events.IOptimizerEventReceiverRemote" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class OptimizerEventReceiver&#xA;Implements IOptimizerEventReceiverRemote" />
+  <TypeSignature Language="C++ CLI" Value="public ref class OptimizerEventReceiver abstract : Microsoft::Office::Project::Server::Events::IOptimizerEventReceiverRemote" />
+  <TypeSignature Language="F#" Value="type OptimizerEventReceiver = class&#xA;    interface IOptimizerEventReceiverRemote" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Events.IOptimizerEventReceiverRemote</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>Includes event handlers for methods in the <see cref="T:WebSvcPortfolioAnalyses.PortfolioAnalyses" /> class.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected OptimizerEventReceiver ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; OptimizerEventReceiver();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>OptimizerEventReceiver</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnOptimizerSolutionCommitted">
+      <MemberSignature Language="C#" Value="public virtual void OnOptimizerSolutionCommitted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnOptimizerSolutionCommitted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver.OnOptimizerSolutionCommitted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnOptimizerSolutionCommitted (contextInfo As PSContextInfo, e As OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnOptimizerSolutionCommitted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::OptimizerSolutionCommittedArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnOptimizerSolutionCommitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit&#xA;override this.OnOptimizerSolutionCommitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit" Usage="optimizerEventReceiver.OnOptimizerSolutionCommitted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the<see cref="M:WebSvcPortfolioAnalyses.PortfolioAnalyses.CommitOptimizerSolution(System.Guid)" /> method.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnOptimizerSolutionCommittedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnOptimizerSolutionCommittedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnOptimizerSolutionCommittedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver.OnOptimizerSolutionCommittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnOptimizerSolutionCommittedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnOptimizerSolutionCommittedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::OptimizerSolutionCommittedArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnOptimizerSolutionCommittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit&#xA;override this.OnOptimizerSolutionCommittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit" Usage="optimizerEventReceiver.OnOptimizerSolutionCommittedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IOptimizerEventReceiverRemote.OnOptimizerSolutionCommittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnPlannerSolutionCommitted">
+      <MemberSignature Language="C#" Value="public virtual void OnPlannerSolutionCommitted (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnPlannerSolutionCommitted(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, class Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver.OnPlannerSolutionCommitted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnPlannerSolutionCommitted (contextInfo As PSContextInfo, e As OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnPlannerSolutionCommitted(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Microsoft::Office::Project::Server::Events::OptimizerSolutionCommittedArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnPlannerSolutionCommitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit&#xA;override this.OnPlannerSolutionCommitted : Microsoft.Office.Project.Server.Library.PSContextInfo * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit" Usage="optimizerEventReceiver.OnPlannerSolutionCommitted (contextInfo, e)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">Contains the Project Server context information.</param>
+        <param name="e">The data for the event.</param>
+        <summary>A post-event handler for the <see cref="M:WebSvcPortfolioAnalyses.PortfolioAnalyses.CommitPlannerSolution(System.Guid)" /> method.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnPlannerSolutionCommittedRemote">
+      <MemberSignature Language="C#" Value="public virtual void OnPlannerSolutionCommittedRemote (Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, Guid eventHandlerUid, Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void OnPlannerSolutionCommittedRemote(class Microsoft.Office.Project.Server.Library.PSContextInfo contextInfo, valuetype System.Guid eventHandlerUid, class Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs e) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.OptimizerEventReceiver.OnPlannerSolutionCommittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="VB.NET" Value="Public Overridable Sub OnPlannerSolutionCommittedRemote (contextInfo As PSContextInfo, eventHandlerUid As Guid, e As OptimizerSolutionCommittedArgs)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void OnPlannerSolutionCommittedRemote(Microsoft::Office::Project::Server::Library::PSContextInfo ^ contextInfo, Guid eventHandlerUid, Microsoft::Office::Project::Server::Events::OptimizerSolutionCommittedArgs ^ e);" />
+      <MemberSignature Language="F#" Value="abstract member OnPlannerSolutionCommittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit&#xA;override this.OnPlannerSolutionCommittedRemote : Microsoft.Office.Project.Server.Library.PSContextInfo * Guid * Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs -&gt; unit" Usage="optimizerEventReceiver.OnPlannerSolutionCommittedRemote (contextInfo, eventHandlerUid, e)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Events.IOptimizerEventReceiverRemote.OnPlannerSolutionCommittedRemote(Microsoft.Office.Project.Server.Library.PSContextInfo,System.Guid,Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="contextInfo" Type="Microsoft.Office.Project.Server.Library.PSContextInfo" />
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+        <Parameter Name="e" Type="Microsoft.Office.Project.Server.Events.OptimizerSolutionCommittedArgs" />
+      </Parameters>
+      <Docs>
+        <param name="contextInfo">To be added.</param>
+        <param name="eventHandlerUid">To be added.</param>
+        <param name="e">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

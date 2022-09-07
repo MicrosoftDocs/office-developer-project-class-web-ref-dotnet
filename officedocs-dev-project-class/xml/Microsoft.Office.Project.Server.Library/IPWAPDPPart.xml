@@ -1,0 +1,145 @@
+﻿<Type Name="IPWAPDPPart" FullName="Microsoft.Office.Project.Server.Library.IPWAPDPPart">
+  <TypeSignature Language="C#" Value="public interface IPWAPDPPart" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IPWAPDPPart" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.IPWAPDPPart" />
+  <TypeSignature Language="VB.NET" Value="Public Interface IPWAPDPPart" />
+  <TypeSignature Language="C++ CLI" Value="public interface class IPWAPDPPart" />
+  <TypeSignature Language="F#" Value="type IPWAPDPPart = interface" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Docs>
+    <summary>An interface that enables communication between the project detail page (PDP) infrastructure and a Web Part on the PDP.</summary>
+    <remarks>
+      <para>A Web Part must implement the <b>IPWAPDPPart</b> interface to integrate with the PDP infrastructure.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DataStore">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.DataStoreEnum DataStore { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.DataStoreEnum DataStore" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.IPWAPDPPart.DataStore" />
+      <MemberSignature Language="VB.NET" Value="Public Property DataStore As DataStoreEnum" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::DataStoreEnum DataStore { Microsoft::Office::Project::Server::Library::DataStoreEnum get(); void set(Microsoft::Office::Project::Server::Library::DataStoreEnum value); };" />
+      <MemberSignature Language="F#" Value="member this.DataStore : Microsoft.Office.Project.Server.Library.DataStoreEnum with get, set" Usage="Microsoft.Office.Project.Server.Library.IPWAPDPPart.DataStore" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.DataStoreEnum</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the Draft database or the Published database as the source for reading project data in a Web Part on a project detail page.</summary>
+        <value>The value can be only <b>WorkingStore</b> or <b>PublishedStore</b>.</value>
+        <remarks>
+          <para>Project detail pages can be used for either viewing a published project or editing the working draft of a project. The PDP infrastructure sets the <b>DataStore</b> property based on the current edit mode of the project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Editable">
+      <MemberSignature Language="C#" Value="public bool Editable { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Editable" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.IPWAPDPPart.Editable" />
+      <MemberSignature Language="VB.NET" Value="Public Property Editable As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool Editable { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.Editable : bool with get, set" Usage="Microsoft.Office.Project.Server.Library.IPWAPDPPart.Editable" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets a value that indicates whether a Web Part on the project detail page can be edited.</summary>
+        <value>
+          <b>True</b> if the Web Part is editable; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure sets the <b>IPWAPDPPart</b> property during initialization of the PDP.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HasRequiredFields">
+      <MemberSignature Language="C#" Value="public bool HasRequiredFields { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HasRequiredFields" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.IPWAPDPPart.HasRequiredFields" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property HasRequiredFields As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool HasRequiredFields { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.HasRequiredFields : bool" Usage="Microsoft.Office.Project.Server.Library.IPWAPDPPart.HasRequiredFields" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a value that indicates whether the Web Part on a project detail page has any required fields.</summary>
+        <value>
+          <b>True</b> if the Web Part has one or more required fields; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure uses the <b>HasRequiredFields</b> property to determine whether the project detail page shows the Required Fields legend at the top of the page.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PDPUid">
+      <MemberSignature Language="C#" Value="public Guid PDPUid { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid PDPUid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.IPWAPDPPart.PDPUid" />
+      <MemberSignature Language="VB.NET" Value="Public Property PDPUid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid PDPUid { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.PDPUid : Guid with get, set" Usage="Microsoft.Office.Project.Server.Library.IPWAPDPPart.PDPUid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the project detail page on which a Web Part is currently loaded.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The PDP infrastructure sets the <b>PDPUid</b> property when a Web Part is initialized on a project detail page.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SaveEnabled">
+      <MemberSignature Language="C#" Value="public bool SaveEnabled { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SaveEnabled" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.IPWAPDPPart.SaveEnabled" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property SaveEnabled As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool SaveEnabled { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.SaveEnabled : bool" Usage="Microsoft.Office.Project.Server.Library.IPWAPDPPart.SaveEnabled" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a value that indicates whether the Save button is enabled in the Web Part on a project detail page.</summary>
+        <value>
+          <b>True</b> if the Save button is enabled; otherwise, <b>False</b>.</value>
+        <remarks>
+          <para>The PDP infrastructure uses the <b>SaveEnabled</b> property to enable the Save button on a Web Part.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

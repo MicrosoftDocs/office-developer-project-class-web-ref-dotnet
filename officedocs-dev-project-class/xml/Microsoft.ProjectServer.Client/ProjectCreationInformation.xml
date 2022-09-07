@@ -1,0 +1,518 @@
+﻿<Type Name="ProjectCreationInformation" FullName="Microsoft.ProjectServer.Client.ProjectCreationInformation">
+  <TypeSignature Language="C#" Value="public class ProjectCreationInformation : Microsoft.SharePoint.Client.ClientValueObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit ProjectCreationInformation extends Microsoft.SharePoint.Client.ClientValueObject" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.ProjectCreationInformation" />
+  <TypeSignature Language="VB.NET" Value="Public Class ProjectCreationInformation&#xA;Inherits ClientValueObject" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ProjectCreationInformation : Microsoft::SharePoint::Client::ClientValueObject" />
+  <TypeSignature Language="F#" Value="type ProjectCreationInformation = class&#xA;    inherit ClientValueObject" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.SharePoint.Client.ClientValueObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.ProjectCreationInformation", ServerTypeId="{1e88d96b-47f5-44ca-b0d2-7e8309cd03a8}", ValueObject=true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Contains the properties that can be set when creating a project.</summary>
+    <remarks>
+      <para>To get the collection of projects in a Project Web App instance, use the <see cref="P:Microsoft.ProjectServer.Client.ProjectServer.Projects" /> property.</para>
+      <para />
+    </remarks>
+    <example>
+      <para>The console application example named <b>QueueCreateProject</b> does the following jobs:</para>
+      <list type="bullet">
+        <item>
+          <description>Parses the command line to get the name of a new project, and an optional queue job wait time. The default wait time is 10 seconds. For example, if a project named Test proj 1 does not exist in Project Web App, you can run the application with the QueueCreateProject -projName "Test proj 1" command.</description>
+        </item>
+        <item>
+          <description>Creates a <b>ProjectContext</b> object for the specified Project Web App instance.</description>
+        </item>
+        <item>
+          <description>Gets the GUID of the enterprise project type (EPT) named "Enterprise Project".</description>
+        </item>
+        <item>
+          <description>Creates a project with the <b>CreateTestProject</b> method, which sets the properties of a <b>ProjectCreationInformation</b> object.</description>
+        </item>
+        <item>
+          <description>Waits for the Project Server Queue Service to publish the new project, by using the <b>ProjectContext.WaitForQueue</b> method.</description>
+        </item>
+        <item>
+          <description>Lists the published projects. If the <b>QueueCreateProject</b> application does not call the <b>WaitForQueue</b> method, the published projects may not yet include the new project.</description>
+        </item>
+      </list>
+      <para>For more information about this example, see Getting started with the Project Server CSOM and .NET.</para>
+      <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace QueueCreateProject
+{
+    class Program
+    {
+        private const string pwaPath = "http://&lt;span class="placeholder"&gt;ServerName&lt;/span&gt;/pwa/"; // Change the path to Project Web App.
+        private static string basicEpt = "Enterprise Project";   // Basic enterprise project type.
+        private static string projName = string.Empty;
+        private static int timeoutSeconds = 10;  // The maximum wait time for a queue job, in seconds.
+
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp();
+            }
+
+            projContext = new ProjectContext(pwaPath);
+
+            if (CreateTestProject())
+                ListPublishedProjects();
+            else
+                Console.WriteLine("\nProject creation failed: {0}", projName);
+
+            ExitApp();
+        }
+
+        // Create a project.
+        private static bool CreateTestProject()
+        {
+            bool projCreated = false;
+
+            try
+            {
+                Console.Write("\nCreating project: {0} ...", projName);
+                ProjectCreationInformation newProj = new ProjectCreationInformation();
+
+                newProj.Id = Guid.NewGuid();
+                newProj.Name = projName;
+                newProj.Description = "Test creating a project with CSOM";
+                newProj.Start = DateTime.Today.Date;
+
+                // Setting the EPT GUID is optional. If no EPT is specified, 
+                // Project Server uses the default EPT. 
+                newProj.EnterpriseProjectTypeId = GetEptUid(basicEpt);
+
+                PublishedProject newPublishedProj = projContext.Projects.Add(newProj);
+                QueueJob qJob = projContext.Projects.Update();
+
+                // Calling Load and ExecuteQuery for the queue job is optional. If qJob is 
+                // not initialized when you call WaitForQueue, Project Server initializes it.
+                // projContext.Load(qJob);
+                // projContext.ExecuteQuery();
+
+                JobState jobState = projContext.WaitForQueue(qJob, timeoutSeconds);
+
+                if (jobState == JobState.Success)
+                {
+                    projCreated = true;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nThere is a problem in the queue. Timeout is {0} seconds.", 
+                        timeoutSeconds);
+                    Console.WriteLine("\tQueue JobState: {0}", jobState.ToString());
+                    Console.ResetColor();
+                }
+
+                Console.WriteLine();
+            }
+            catch(Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nError: {0}", ex.Message);
+                Console.ResetColor();
+            }
+            return projCreated;
+        }
+
+        // Get the GUID of the specified enterprise project type.
+        private static Guid GetEptUid(string eptName)
+        {
+            Guid eptUid = Guid.Empty;
+
+            try
+            {
+                // Get the list of EPTs that have the specified name. 
+                // If the EPT name exists, the list will contain only one EPT.
+                var eptList = projContext.LoadQuery(
+                    projContext.EnterpriseProjectTypes.Where(
+                        ept =&amp;gt; ept.Name == eptName));
+                projContext.ExecuteQuery();
+
+                eptUid = eptList.First().Id;
+
+                // Alternate routines to find the EPT GUID. Both (a) and (b) download the entire list of EPTs.
+                // (a) Using a foreach block:
+                //foreach (EnterpriseProjectType ept in projSvr.EnterpriseProjectTypes)
+                //{
+                //    if (ept.Name == eptName)
+                //    {
+                //        eptUid = ept.Id;
+                //        break;
+                //    }
+                //}
+                // (b) Querying for the EPT list, and then using a lambda expression to select the EPT:
+                //var eptList = projContext.LoadQuery(projContext.EnterpriseProjectTypes);
+                //projContext.ExecuteQuery();
+                //eptUid = eptList.First(ept =&amp;gt; ept.Name == eptName).Id;
+            }
+            catch (Exception ex)
+            {
+                string msg = string.Format("GetEptUid: eptName = \"{0}\"\n\n{1}",
+                    eptName, ex.GetBaseException().ToString());
+                throw new ArgumentException(msg);
+            }
+            return eptUid;
+        }
+
+        // List the published projects.
+        private static void ListPublishedProjects()
+        {
+            // Get the list of projects on the server.
+            projContext.Load(projContext.Projects);
+            projContext.ExecuteQuery();
+
+            Console.WriteLine("\nProject ID : Project name : Created date");
+
+            foreach (PublishedProject pubProj in projContext.Projects)
+            {
+                Console.WriteLine("\n\t{0} :\n\t{1} : {2}", pubProj.Id.ToString(), pubProj.Name,
+                    pubProj.CreatedDate.ToString());
+            }
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*projname":
+                        case "*n":
+                            if (++i &amp;gt;= argsLen) return false;
+                            projName = args[i];
+                            break;
+                        case "*timeout":
+                        case "*t":
+                            if (++i &amp;gt;= argsLen) return false;
+                            timeoutSeconds = Convert.ToInt32(args[i]);
+                            break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+            if (string.IsNullOrEmpty(projName)) error = true;
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: QueueCreateProject -projName | -n \"New project name\" [-timeout | -t sec]";
+            example += "\nExample: QueueCreateProject -n \"My new project\"";
+            example += "\nDefault timeout seconds = " + timeoutSeconds.ToString();
+            Console.WriteLine(example);
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+    }
+}</code>
+    </example>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProjectCreationInformation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectCreationInformation.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ProjectCreationInformation();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an instance of the <b>ProjectCreationInformation</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Description">
+      <MemberSignature Language="C#" Value="public string Description { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Description" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.Description" />
+      <MemberSignature Language="VB.NET" Value="Public Property Description As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Description { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Description : string with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.Description" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the description of the project.</summary>
+        <value>The description of the project.</value>
+        <remarks>
+          <para>The <b>Description</b> property is optional.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnterpriseProjectTypeId">
+      <MemberSignature Language="C#" Value="public Guid EnterpriseProjectTypeId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid EnterpriseProjectTypeId" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.EnterpriseProjectTypeId" />
+      <MemberSignature Language="VB.NET" Value="Public Property EnterpriseProjectTypeId As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid EnterpriseProjectTypeId { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.EnterpriseProjectTypeId : Guid with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.EnterpriseProjectTypeId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the enterprise project type (EPT).</summary>
+        <value>The GUID of the EPT.</value>
+        <remarks>
+          <para>When creating a project, setting the <b>EnterpriseProjectTypeId</b> property is optional. If no EPT is specified, Project Server uses the default value. Unless the default value is changed, the default EPT is "Basic Project Plan." The default EPT can be changed by updating the <see cref="P:Microsoft.ProjectServer.Client.EPTCreationInformation.IsDefault" /> property, or by editing EPTs in the Enterprise Project Types page in Project Web App (http://ServerName/PwaName/_layouts/15/pwa/Admin/EnterpriseProjectTypes.aspx).</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Id">
+      <MemberSignature Language="C#" Value="public Guid Id { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid Id" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.Id" />
+      <MemberSignature Language="VB.NET" Value="Public Property Id As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid Id { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.Id : Guid with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.Id" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the project.</summary>
+        <value>The GUID of the project.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectCreationInformation.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="projectCreationInformation.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.Name" />
+      <MemberSignature Language="VB.NET" Value="Public Property Name As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Name { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Name : string with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the project.</summary>
+        <value>The name of the project.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Start">
+      <MemberSignature Language="C#" Value="public DateTime Start { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.DateTime Start" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.Start" />
+      <MemberSignature Language="VB.NET" Value="Public Property Start As DateTime" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property DateTime Start { DateTime get(); void set(DateTime value); };" />
+      <MemberSignature Language="F#" Value="member this.Start : DateTime with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.Start" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.DateTime</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the start date of the project.</summary>
+        <value>The start date of the project.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TaskList">
+      <MemberSignature Language="C#" Value="public Microsoft.SharePoint.Client.List TaskList { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.SharePoint.Client.List TaskList" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.TaskList" />
+      <MemberSignature Language="VB.NET" Value="Public Property TaskList As List" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::SharePoint::Client::List ^ TaskList { Microsoft::SharePoint::Client::List ^ get(); void set(Microsoft::SharePoint::Client::List ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.TaskList : Microsoft.SharePoint.Client.List with get, set" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.TaskList" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.SharePoint.Client.List</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the imported task list.</summary>
+        <value>A list of tasks.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TypeId">
+      <MemberSignature Language="C#" Value="public override string TypeId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TypeId" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectCreationInformation.TypeId" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides ReadOnly Property TypeId As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual property System::String ^ TypeId { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.TypeId : string" Usage="Microsoft.ProjectServer.Client.ProjectCreationInformation.TypeId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteToXml">
+      <MemberSignature Language="C#" Value="public override void WriteToXml (System.Xml.XmlWriter writer, Microsoft.SharePoint.Client.SerializationContext serializationContext);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void WriteToXml(class System.Xml.XmlWriter writer, class Microsoft.SharePoint.Client.SerializationContext serializationContext) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectCreationInformation.WriteToXml(System.Xml.XmlWriter,Microsoft.SharePoint.Client.SerializationContext)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void WriteToXml(System::Xml::XmlWriter ^ writer, Microsoft::SharePoint::Client::SerializationContext ^ serializationContext);" />
+      <MemberSignature Language="F#" Value="override this.WriteToXml : System.Xml.XmlWriter * Microsoft.SharePoint.Client.SerializationContext -&gt; unit" Usage="projectCreationInformation.WriteToXml (writer, serializationContext)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" />
+        <Parameter Name="serializationContext" Type="Microsoft.SharePoint.Client.SerializationContext" />
+      </Parameters>
+      <Docs>
+        <param name="writer">A <b>XmlWriter</b> object that generates streams or files that contain XML data. Reserved for internal use.</param>
+        <param name="serializationContext">An object that stores information about the client object, to transmit the path to the server. Reserved for internal use.</param>
+        <summary>Reserved for internal use.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

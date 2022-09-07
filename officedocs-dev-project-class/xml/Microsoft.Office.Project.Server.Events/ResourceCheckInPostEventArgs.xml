@@ -1,0 +1,109 @@
+﻿<Type Name="ResourceCheckInPostEventArgs" FullName="Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs">
+  <TypeSignature Language="C#" Value="public class ResourceCheckInPostEventArgs : Microsoft.Office.Project.Server.Events.PostEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit ResourceCheckInPostEventArgs extends Microsoft.Office.Project.Server.Events.PostEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class ResourceCheckInPostEventArgs&#xA;Inherits PostEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ResourceCheckInPostEventArgs : Microsoft::Office::Project::Server::Events::PostEventArgs" />
+  <TypeSignature Language="F#" Value="type ResourceCheckInPostEventArgs = class&#xA;    inherit PostEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.ResourceEventReceiver.OnCheckedIn(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected ResourceCheckInPostEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; ResourceCheckInPostEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ResourceCheckInPostEventArgs (Guid[] resources, bool force);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid[] resources, bool force) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.#ctor(System.Guid[],System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (resources As Guid(), force As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ResourceCheckInPostEventArgs(cli::array &lt;Guid&gt; ^ resources, bool force);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs : Guid[] * bool -&gt; Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs" Usage="new Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs (resources, force)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="resources" Type="System.Guid[]" />
+        <Parameter Name="force" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="resources">A collection of the GUIDs that represent the resources that have been checked in.</param>
+        <param name="force">A Boolean value that indicates whether an administrator or project owner can force check in of the resource.</param>
+        <summary>Creates a new instance of the <b>ResourceCheckInPostEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Force">
+      <MemberSignature Language="C#" Value="public bool Force { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Force" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.Force" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Force As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool Force { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.Force : bool" Usage="Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.Force" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a Boolean value that indicates whether an administrator or project owner can force check in of the resource.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Resources">
+      <MemberSignature Language="C#" Value="public Guid[] Resources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid[] Resources" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.Resources" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Resources As Guid()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property cli::array &lt;Guid&gt; ^ Resources { cli::array &lt;Guid&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Resources : Guid[]" Usage="Microsoft.Office.Project.Server.Events.ResourceCheckInPostEventArgs.Resources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a collection of the GUIDs that represent the resources that have been checked in.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

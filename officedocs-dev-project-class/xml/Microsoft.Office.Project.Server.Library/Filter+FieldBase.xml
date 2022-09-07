@@ -1,0 +1,353 @@
+﻿<Type Name="Filter+FieldBase" FullName="Microsoft.Office.Project.Server.Library.Filter+FieldBase">
+  <TypeSignature Language="C#" Value="public abstract class Filter.FieldBase : ICloneable" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract serializable beforefieldinit Filter/FieldBase extends System.Object implements class System.ICloneable" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.Filter.FieldBase" />
+  <TypeSignature Language="VB.NET" Value="Public MustInherit Class Filter.FieldBase&#xA;Implements ICloneable" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class Filter::FieldBase abstract : ICloneable" />
+  <TypeSignature Language="F#" Value="type Filter.FieldBase = class&#xA;    interface ICloneable" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.ICloneable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Diagnostics.DebuggerDisplay("{FormattedFieldName}")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Theabstract base class from which all fields are derived in the <b>Filter</b> infrastructure.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected FieldBase (string fieldName);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string fieldName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.#ctor(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New (fieldName As String)" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; FieldBase(System::String ^ fieldName);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.FieldBase : string -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="new Microsoft.Office.Project.Server.Library.Filter.FieldBase fieldName" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="fieldName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fieldName">To be added.</param>
+        <summary>Instantiates a <b>FieldBase</b> object with the specified name.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected FieldBase (string tableName, string fieldName);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string tableName, string fieldName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.#ctor(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New (tableName As String, fieldName As String)" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; FieldBase(System::String ^ tableName, System::String ^ fieldName);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.FieldBase : string * string -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="new Microsoft.Office.Project.Server.Library.Filter.FieldBase (tableName, fieldName)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tableName" Type="System.String" />
+        <Parameter Name="fieldName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tableName">The name of the <b>DataTable</b> to which the field belongs.</param>
+        <param name="fieldName">The name of a filter field.</param>
+        <summary>Instantiates a <b>FieldBase</b> object with the specified name and <b>DataTable</b>.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected FieldBase (string tableName, string fieldName, Microsoft.Office.Project.Server.Library.Filter.SortOrderTypeEnum sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor(string tableName, string fieldName, valuetype Microsoft.Office.Project.Server.Library.Filter/SortOrderTypeEnum sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.#ctor(System.String,System.String,Microsoft.Office.Project.Server.Library.Filter.SortOrderTypeEnum)" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New (tableName As String, fieldName As String, sortOrder As Filter.SortOrderTypeEnum)" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; FieldBase(System::String ^ tableName, System::String ^ fieldName, Microsoft::Office::Project::Server::Library::Filter::SortOrderTypeEnum sortOrder);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.FieldBase : string * string * Microsoft.Office.Project.Server.Library.Filter.SortOrderTypeEnum -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="new Microsoft.Office.Project.Server.Library.Filter.FieldBase (tableName, fieldName, sortOrder)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tableName" Type="System.String" />
+        <Parameter Name="fieldName" Type="System.String" />
+        <Parameter Name="sortOrder" Type="Microsoft.Office.Project.Server.Library.Filter+SortOrderTypeEnum" />
+      </Parameters>
+      <Docs>
+        <param name="tableName">The name of the <b>DataTable</b> to which the field belongs.</param>
+        <param name="fieldName">The name of a filter field.</param>
+        <param name="sortOrder">The sort order of the filter field.</param>
+        <summary>Instantiates a <b>FieldBase</b> object with the specified name, <b>DataTable</b>, and sort order.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Clone">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.FieldBase Clone ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Microsoft.Office.Project.Server.Library.Filter/FieldBase Clone() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.Clone" />
+      <MemberSignature Language="VB.NET" Value="Public Function Clone () As Filter.FieldBase" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Microsoft::Office::Project::Server::Library::Filter::FieldBase ^ Clone();" />
+      <MemberSignature Language="F#" Value="member this.Clone : unit -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="fieldBase.Clone " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldBase</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Creates a copy of the current field.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CloneThis">
+      <MemberSignature Language="C#" Value="protected abstract Microsoft.Office.Project.Server.Library.Filter.FieldBase CloneThis ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance class Microsoft.Office.Project.Server.Library.Filter/FieldBase CloneThis() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.CloneThis" />
+      <MemberSignature Language="VB.NET" Value="Protected MustOverride Function CloneThis () As Filter.FieldBase" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; abstract Microsoft::Office::Project::Server::Library::Filter::FieldBase ^ CloneThis();" />
+      <MemberSignature Language="F#" Value="abstract member CloneThis : unit -&gt; Microsoft.Office.Project.Server.Library.Filter.FieldBase" Usage="fieldBase.CloneThis " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+FieldBase</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Creates a base field object.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FieldName">
+      <MemberSignature Language="C#" Value="public string FieldName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FieldName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FieldName" />
+      <MemberSignature Language="VB.NET" Value="Public Property FieldName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ FieldName { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.FieldName : string with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.FieldName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of a filter field.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FilterField">
+      <MemberSignature Language="C#" Value="protected internal bool FilterField { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool FilterField" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FilterField" />
+      <MemberSignature Language="VB.NET" Value="Protected Friend Property FilterField As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected public:&#xA; property bool FilterField { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.FilterField : bool with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.FilterField" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies whether the field exists in a <b>Filter</b> object.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FormatFieldName">
+      <MemberSignature Language="C#" Value="public string FormatFieldName ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string FormatFieldName() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormatFieldName" />
+      <MemberSignature Language="VB.NET" Value="Public Function FormatFieldName () As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; System::String ^ FormatFieldName();" />
+      <MemberSignature Language="F#" Value="member this.FormatFieldName : unit -&gt; string" Usage="fieldBase.FormatFieldName " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Formats the field name by itself, or formats the field name with the <b>DataTable</b> name if the field is already part of a filter.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FormatFieldName">
+      <MemberSignature Language="C#" Value="public static string FormatFieldName (string fieldName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string FormatFieldName(string fieldName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormatFieldName(System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FormatFieldName (fieldName As String) As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static System::String ^ FormatFieldName(System::String ^ fieldName);" />
+      <MemberSignature Language="F#" Value="static member FormatFieldName : string -&gt; string" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormatFieldName fieldName" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fieldName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fieldName">The name of the field.</param>
+        <summary>Formats the field with the <b>InvariantCulture</b> information.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FormatFieldName">
+      <MemberSignature Language="C#" Value="public static string FormatFieldName (string tableName, string fieldName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string FormatFieldName(string tableName, string fieldName) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormatFieldName(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Shared Function FormatFieldName (tableName As String, fieldName As String) As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; static System::String ^ FormatFieldName(System::String ^ tableName, System::String ^ fieldName);" />
+      <MemberSignature Language="F#" Value="static member FormatFieldName : string * string -&gt; string" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormatFieldName (tableName, fieldName)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tableName" Type="System.String" />
+        <Parameter Name="fieldName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tableName">The name of the <b>DataTable</b> that contains the field.</param>
+        <param name="fieldName">The name of the field.</param>
+        <summary>Formats the field with the <b>InvariantCulture</b> information and the <b>DataTable</b> name.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FormattedFieldName">
+      <MemberSignature Language="C#" Value="public string FormattedFieldName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FormattedFieldName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormattedFieldName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property FormattedFieldName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ FormattedFieldName { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.FormattedFieldName : string" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.FormattedFieldName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the formatted name of the field.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SortOrder">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.SortOrderTypeEnum SortOrder { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.Filter/SortOrderTypeEnum SortOrder" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldBase.SortOrder" />
+      <MemberSignature Language="VB.NET" Value="Public Property SortOrder As Filter.SortOrderTypeEnum" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Filter::SortOrderTypeEnum SortOrder { Microsoft::Office::Project::Server::Library::Filter::SortOrderTypeEnum get(); void set(Microsoft::Office::Project::Server::Library::Filter::SortOrderTypeEnum value); };" />
+      <MemberSignature Language="F#" Value="member this.SortOrder : Microsoft.Office.Project.Server.Library.Filter.SortOrderTypeEnum with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.SortOrder" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+SortOrderTypeEnum</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the sort order of the filter field.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The <b>SortOrder</b> property is used to retrieve or set the order in which the field is returned. If the field is not part of an existing <b>Filter</b> object, setting the <b>SortOrder</b> value throws an <b>InvalidOperationException</b>.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.ICloneable.Clone">
+      <MemberSignature Language="C#" Value="object ICloneable.Clone ();" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance object System.ICloneable.Clone() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.FieldBase.System#ICloneable#Clone" />
+      <MemberSignature Language="VB.NET" Value="Function Clone () As Object Implements ICloneable.Clone" />
+      <MemberSignature Language="C++ CLI" Value=" virtual System::Object ^ System.ICloneable.Clone() = ICloneable::Clone;" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.ICloneable.Clone</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets or sets aclone of the <b>Field</b> object.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TableName">
+      <MemberSignature Language="C#" Value="public string TableName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string TableName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.FieldBase.TableName" />
+      <MemberSignature Language="VB.NET" Value="Public Property TableName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ TableName { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.TableName : string with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.FieldBase.TableName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the <b>DataTable</b> to which the field belongs.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

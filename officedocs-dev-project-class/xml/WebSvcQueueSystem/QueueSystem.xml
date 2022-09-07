@@ -1,0 +1,2129 @@
+﻿<Type Name="QueueSystem" FullName="WebSvcQueueSystem.QueueSystem">
+  <TypeSignature Language="C#" Value="public class QueueSystem : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit QueueSystem extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcQueueSystem.QueueSystem" />
+  <TypeSignature Language="VB.NET" Value="Public Class QueueSystem&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class QueueSystem : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type QueueSystem = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="QueueSystemSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for querying and managing the Queueing Service in Project Server.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public QueueSystem ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; QueueSystem();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an <b>QueueSystem</b> object from the ASMX-based <b>QueueSystem</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>QueueSystem</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>QueueSystemClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>QueueSystemWebSvc</b> is an arbitrary namespace for the ASMX-based <b>QueueSystem</b> web service.</para>
+          <code>private static QueueSystemWebSvc.QueueSystem queueSystem = new QueueSystemWebSvc.QueueSystem();</code>
+          <para>In the following statement, <b>SvcQueueSystem</b> is an arbitrary namespace for the WCF-based <b>QueueSystem</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcQueueSystem.QueueSystemClient queueSystemClient = new SvcQueueSystem.QueueSystemClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelCorrelation">
+      <MemberSignature Language="C#" Value="public void CancelCorrelation (Guid correlationUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelCorrelation(valuetype System.Guid correlationUID, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelCorrelation(System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelCorrelation (correlationUID As Guid, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelCorrelation(Guid correlationUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelCorrelation : Guid * bool -&gt; unit" Usage="queueSystem.CancelCorrelation (correlationUID, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationUID" Type="System.Guid" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="correlationUID">GUID of the job correlation to cancel.</param>
+        <param name="cancelSendIncompleteJobs">If <b>true</b>, also cancel jobs that are still getting queued (the <see cref="T:WebSvcQueueSystem.JobState" /> is <b>SendIncomplete</b>).</param>
+        <summary>Cancels the specified job correlation in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>
+            <b>CancelCorrelation</b> sets the job completion state (<see cref="T:WebSvcQueueSystem.JobState" />) of all correlated jobs to <b>Canceled</b>. To cancel the current job and let the remaining correlated jobs continue processing, see <see cref="M:WebSvcQueueSystem.QueueSystem.CancelJob(System.Guid,System.Boolean,System.Boolean)" />.</para>
+          <para>
+            <b>Note</b>: There is a potential race condition between checking the state of a job and calling <b>CancelCorrelation</b>. When an application checks the state of a job, it may be <b>ReadyForProcessing</b>. Before calling <b>CancelCorrelation</b>, the state can switch to <b>Processing</b> or any other state.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows a user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJob">
+      <MemberSignature Language="C#" Value="public void CancelJob (Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJob(valuetype System.Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJob(System.Guid,System.Boolean,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJob (jobUID As Guid, cancelCorrelationJobs As Boolean, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJob(Guid jobUID, bool cancelCorrelationJobs, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelJob : Guid * bool * bool -&gt; unit" Usage="queueSystem.CancelJob (jobUID, cancelCorrelationJobs, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJob", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="cancelCorrelationJobs" Type="System.Boolean" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">Queue job GUID.</param>
+        <param name="cancelCorrelationJobs">If <b>true</b>, cancel correlated jobs.</param>
+        <param name="cancelSendIncompleteJobs">If <b>true</b>, also cancel jobs that are still getting queued (the <see cref="T:WebSvcQueueSystem.JobState" /> is <b>SendIncomplete</b>).</param>
+        <summary>Cancels the specified job in the Project Server Queuing Service. Allows correlated and incomplete jobs to be cancelled.</summary>
+        <remarks>
+          <para>
+            <b>CancelJob</b> sets the job completion state (<see cref="T:WebSvcQueueSystem.JobState" />) of the specified job to <b>Canceled</b>. If <paramref name="cancelCorrelationJobs" /> is <b>false</b>, the result is functionally equivalent to setting the state to <b>FailedNotBlocking</b>; that is, the current job failed, but correlated jobs farther down the queue continue to process. </para>
+          <para>
+            <b>Note</b>: There is a potential race condition between checking the state of a job and calling <b>CancelJob</b>. When an application checks the state of a job, the state might be <b>ReadyForProcessing</b>. Before calling <b>CancelJob</b>, the state can switch to <b>Processing</b> or any other state.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJobAndCorrelation">
+      <MemberSignature Language="C#" Value="public void CancelJobAndCorrelation (Guid jobUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJobAndCorrelation(valuetype System.Guid jobUID, bool cancelSendIncompleteJobs) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJobAndCorrelation(System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJobAndCorrelation (jobUID As Guid, cancelSendIncompleteJobs As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJobAndCorrelation(Guid jobUID, bool cancelSendIncompleteJobs);" />
+      <MemberSignature Language="F#" Value="member this.CancelJobAndCorrelation : Guid * bool -&gt; unit" Usage="queueSystem.CancelJobAndCorrelation (jobUID, cancelSendIncompleteJobs)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJobAndCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="cancelSendIncompleteJobs" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">The GUID of the job to be cancelled.</param>
+        <param name="cancelSendIncompleteJobs">A Boolean value that indicates whether to cancel the sending of incomplete jobs.</param>
+        <summary>Cancels the selected job or jobs, as well as any related sub-jobs.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CancelJobSimple">
+      <MemberSignature Language="C#" Value="public void CancelJobSimple (Guid jobUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CancelJobSimple(valuetype System.Guid jobUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.CancelJobSimple(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CancelJobSimple (jobUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CancelJobSimple(Guid jobUID);" />
+      <MemberSignature Language="F#" Value="member this.CancelJobSimple : Guid -&gt; unit" Usage="queueSystem.CancelJobSimple jobUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/CancelJobSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">Queue job GUID.</param>
+        <summary>Cancels the specified job in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>
+            <b>CancelJobSimple</b> calls <see cref="M:WebSvcQueueSystem.QueueSystem.CancelJob(System.Guid,System.Boolean,System.Boolean)" /> with the parameters <paramref name="cancelCorrelationJobs" /> = <b>true</b> and <paramref name="cancelSendIncompleteJobs" /> = <b>false</b>.</para>
+          <para>
+            <b>Note</b>: There is a potential race condition between checking the state of a job and calling <b>CancelJobSimple</b>. When an application checks the state of a job, it might be <b>ReadyForProcessing</b>. Before calling <b>CancelJobSimple</b>, the state can switch to <b>Processing</b> or any other state.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>For another example of a <b>QueueSystem</b> utility class, see How to: Use the QueueSystem Service.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Xml;
+using System.Threading;
+
+namespace SomeNamespace
+{
+    class QueueSystemUtils
+    {
+        // Wait 2 seconds between each check for job completion.
+        private const int INCREMENTALSLEEPTIME = 2; 
+
+        public QueueSystemUtils()
+        {
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Wait a specified time for the Project Server Queuing service to process a job.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="q"&amp;gt;QueueSystem object&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="timeOut"&amp;gt;Maximum time to wait (seconds)&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="jobId"&amp;gt;GUID of queue job&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errorString"&amp;gt;out: error from GetJobCompletionState plus status&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;true for success; false for any queue failure&amp;lt;/returns&amp;gt;
+        public bool WaitForQueue(WebSvcQueueSystem.QueueSystem q, 
+            int timeOut, 
+            Guid jobId, 
+            out String statusOut)
+        {
+            
+            int wait;                 // Number of seconds to wait
+            decimal seconds;          // for reporting wait time in decimal format.
+            string xmlError;          // XML error output from the queue
+            string queueStatus;       // Outer XML of xmlError string.
+            string status = "";       // Summary status report for output.
+            bool firstPass = true;    // First iteration through the while statement.
+            int timeSlept = 0;        // Total time slept (seconds).
+            bool jobIsDone = false;   // The queue job completed successfully, if true.
+            bool stopWait = false;    // Abort the wait, if true.
+            WebSvcQueueSystem.JobState jobState; // Status of the queue job. 
+
+            while (true)
+            {
+                // On the first iteration, wait the incremental sleep time  
+                // or the maximum requested timeout. 
+                if (firstPass)
+                {
+                    // Get the estimated time to wait for the queue to process the job.
+                    // The output from GetJobWaitTime is in seconds.
+                    wait = q.GetJobWaitTime(jobId);
+
+                    status = string.Format("Estimated job wait time: {0} seconds", wait);
+
+                    if (timeOut &amp;lt; INCREMENTALSLEEPTIME) wait = timeOut;
+                    else wait = INCREMENTALSLEEPTIME;
+
+                    firstPass = false;
+                }
+                else
+                {
+                    // If job is not done, wait the incremental sleep time.  
+                    wait = INCREMENTALSLEEPTIME;
+                }
+
+                Thread.Sleep(wait * 1000); // Milliseconds
+
+                timeSlept += wait;
+
+                // Check job state.
+                jobState = q.GetJobCompletionState(jobId, out xmlError);
+
+                // Add the XML error output to the status.
+                StringReader sr = new StringReader(xmlError);
+                using (XmlReader reader = XmlReader.Create(sr))
+                {
+                    reader.MoveToContent();
+                    queueStatus = reader.ReadOuterXml();
+                }
+                // Don't add an empty &amp;lt;errinfo&amp;gt; element.
+                if (queueStatus != "&amp;lt;errinfo /&amp;gt;") status += "\n\n" + queueStatus;
+
+                if (jobState == WebSvcQueueSystem.JobState.Success)
+                {
+                    jobIsDone = true;
+                }
+                else if (jobState == WebSvcQueueSystem.JobState.Unknown
+                    || jobState == WebSvcQueueSystem.JobState.Failed
+                    || jobState == WebSvcQueueSystem.JobState.FailedNotBlocking
+                    || jobState == WebSvcQueueSystem.JobState.CorrelationBlocked
+                    || jobState == WebSvcQueueSystem.JobState.Canceled)
+                {
+                    stopWait = true;
+                }
+
+                if (!jobIsDone &amp;amp;&amp;amp; timeSlept &amp;gt;= timeOut)
+                {
+                    // Cancel the job, otherwise the queue keeps processing it until it is complete.
+                    &lt;span class="label"&gt;q.CancelJobSimple(jobId);&lt;/span&gt;
+                    stopWait = true;
+                    status += string.Format("\n\nExceeded timeout of {0} seconds", timeOut);
+                }
+
+                if (jobIsDone || stopWait)
+                {
+                    // Check jobState again, might be cancelled.
+                    seconds = Convert.ToDecimal(timeSlept);
+                    status += string.Format(
+                        "\n\nJobState: {0:G}\n\nTotal time slept: {1:N} seconds", 
+                        jobState, seconds);
+                    break;
+                }
+            }
+            statusOut = status;
+            return jobIsDone;
+        }
+    }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobCompletionState">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.JobState GetJobCompletionState (Guid jobUID, out string errorString);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype WebSvcQueueSystem.JobState GetJobCompletionState(valuetype System.Guid jobUID, [out] string&amp; errorString) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobCompletionState(System.Guid,System.String@)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobCompletionState (jobUID As Guid, ByRef errorString As String) As JobState" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::JobState GetJobCompletionState(Guid jobUID, [Runtime::InteropServices::Out] System::String ^ % errorString);" />
+      <MemberSignature Language="F#" Value="member this.GetJobCompletionState : Guid *  -&gt; WebSvcQueueSystem.JobState" Usage="queueSystem.GetJobCompletionState (jobUID, errorString)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobCompletionState", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.JobState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUID" Type="System.Guid" />
+        <Parameter Name="errorString" Type="System.String" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="jobUID">Queue job GUID.</param>
+        <param name="errorString">XML description of queue error.</param>
+        <summary>Gets the state and any queue error of a specified job in the Project Server Queuing Service.</summary>
+        <returns>
+          <see cref="T:WebSvcQueueSystem.JobState" /> enumeration value.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>The current user is the job owner.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>For another example of a <b>QueueSystem</b> utility class, see How to: Use the QueueSystem Service.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Xml;
+using System.Threading;
+
+namespace SomeNamespace
+{
+    class QueueSystemUtils
+    {
+        // Wait 2 seconds between each check for job completion.
+        private const int INCREMENTALSLEEPTIME = 2; 
+
+        public QueueSystemUtils()
+        {
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Wait a specified time for the Project Server Queuing service to process a job.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="q"&amp;gt;QueueSystem object&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="timeOut"&amp;gt;Maximum time to wait (seconds)&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="jobId"&amp;gt;GUID of queue job&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errorString"&amp;gt;out: error from GetJobCompletionState plus status&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;true for success; false for any queue failure&amp;lt;/returns&amp;gt;
+        public bool WaitForQueue(WebSvcQueueSystem.QueueSystem q, 
+            int timeOut, 
+            Guid jobId, 
+            out String statusOut)
+        {
+            
+            int wait;                 // Number of seconds to wait
+            decimal seconds;          // For reporting wait time in decimal format
+            string xmlError;          // XML error output from the queue
+            string queueStatus;       // Outer XML of xmlError string
+            string status = "";       // Summary status report for output
+            bool firstPass = true;    // First iteration through the while statement
+            int timeSlept = 0;        // Total time slept (seconds)
+            bool jobIsDone = false;   // The queue job completed successfully, if true
+            bool stopWait = false;    // Abort the wait, if true
+            WebSvcQueueSystem.JobState jobState; // Status of the queue job 
+
+            while (true)
+            {
+                // On the first iteration, wait the incremental sleep time  
+                // or the maximum requested timeout. 
+                if (firstPass)
+                {
+                    // Get the estimated time to wait for the queue to process the job.
+                    // The output from GetJobWaitTime is in seconds.
+                    wait = q.GetJobWaitTime(jobId);
+
+                    status = string.Format("Estimated job wait time: {0} seconds", wait);
+
+                    if (timeOut &amp;lt; INCREMENTALSLEEPTIME) wait = timeOut;
+                    else wait = INCREMENTALSLEEPTIME;
+
+                    firstPass = false;
+                }
+                else
+                {
+                    // If job is not done, wait the incremental sleep time  
+                    wait = INCREMENTALSLEEPTIME;
+                }
+
+                Thread.Sleep(wait * 1000); // Milliseconds
+
+                timeSlept += wait;
+
+                // Check job state
+                jobState = q.GetJobCompletionState(jobId, out xmlError);
+
+                // Add the XML error output to the status
+                StringReader sr = new StringReader(xmlError);
+                using (XmlReader reader = XmlReader.Create(sr))
+                {
+                    reader.MoveToContent();
+                    queueStatus = reader.ReadOuterXml();
+                }
+                // Don't add an empty &amp;lt;errinfo&amp;gt; element
+                if (queueStatus != "&amp;lt;errinfo /&amp;gt;") status += "\n\n" + queueStatus;
+
+                if (jobState == WebSvcQueueSystem.JobState.Success)
+                {
+                    jobIsDone = true;
+                }
+                else if (jobState == WebSvcQueueSystem.JobState.Unknown
+                    || jobState == WebSvcQueueSystem.JobState.Failed
+                    || jobState == WebSvcQueueSystem.JobState.FailedNotBlocking
+                    || jobState == WebSvcQueueSystem.JobState.CorrelationBlocked
+                    || jobState == WebSvcQueueSystem.JobState.Canceled)
+                {
+                    stopWait = true;
+                }
+
+                if (!jobIsDone &amp;amp;&amp;amp; timeSlept &amp;gt;= timeOut)
+                {
+                    // Cancel the job, otherwise the queue keeps processing it until it is complete.
+                    q.CancelJobSimple(jobId);
+                    stopWait = true;
+                    status += string.Format("\n\nExceeded timeout of {0} seconds", timeOut);
+                }
+
+                if (jobIsDone || stopWait)
+                {
+                    // Check jobState again, might be cancelled.
+                    seconds = Convert.ToDecimal(timeSlept);
+                    status += string.Format(
+                        "\n\nJobState: {0:G}\n\nTotal time slept: {1:N} seconds", 
+                        jobState, seconds);
+                    break;
+                }
+            }
+            statusOut = status;
+            return jobIsDone;
+        }
+    }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobCount">
+      <MemberSignature Language="C#" Value="public int GetJobCount (Guid[] CorrelationGUIDs, WebSvcQueueSystem.JobState[] jobStates, WebSvcQueueSystem.QueueMsgType[] messageTypes);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobCount(valuetype System.Guid[] CorrelationGUIDs, valuetype WebSvcQueueSystem.JobState[] jobStates, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobCount(System.Guid[],WebSvcQueueSystem.JobState[],WebSvcQueueSystem.QueueMsgType[])" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobCount (CorrelationGUIDs As Guid(), jobStates As JobState(), messageTypes As QueueMsgType()) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobCount(cli::array &lt;Guid&gt; ^ CorrelationGUIDs, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ jobStates, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes);" />
+      <MemberSignature Language="F#" Value="member this.GetJobCount : Guid[] * WebSvcQueueSystem.JobState[] * WebSvcQueueSystem.QueueMsgType[] -&gt; int" Usage="queueSystem.GetJobCount (CorrelationGUIDs, jobStates, messageTypes)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobCount", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="CorrelationGUIDs" Type="System.Guid[]" />
+        <Parameter Name="jobStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+      </Parameters>
+      <Docs>
+        <param name="CorrelationGUIDs">Array of job correlation GUIDs.</param>
+        <param name="jobStates">Array of <see cref="T:WebSvcQueueSystem.JobState" /> enumeration values.</param>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values.</param>
+        <summary>Gets the number of jobs of the specified correlations, job states, and message types in the Project Server Queuing Service.</summary>
+        <returns>Count of jobs with { [corrID1 OR corrID2 OR …] AND [state1 OR state2 OR …] AND [type1 OR type2 OR …]}</returns>
+        <remarks>
+          <para>Any of the parameters can be a null reference (Nothing in Visual Basic). For example, if <paramref name="CorrelationGUIDs" /> and <paramref name="jobStates" /> are both a null reference (Nothing in Visual Basic), <b>GetJobCount</b> returns the total number of jobs of the specified <paramref name="messageTypes" />.</para>
+          <para>If <paramref name="CorrelationGUIDs" /> is a null reference (Nothing in Visual Basic), <b>GetJobCount</b> counts all correlations. If <paramref name="jobStates" /> is a null reference (Nothing in Visual Basic), count all job states. If <paramref name="messageTypes" /> is a null reference (Nothing in Visual Basic), count all message types.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example returns the total number of queue jobs in the <paramref name="corGuid1" /> OR <paramref name="corGuid1" /> correlations that are of the <b>ProjectPublish</b> type AND in the <b>Success</b> state. The <paramref name="q" /> variable is an initialized instance of <b>WebSvcQueueSystem.QueueSystem</b>.</para>
+          <code>Guid[] correlationGuids = { corGuid1, corGuid2 };
+WebSvcQueueSystem.JobState[] jobStates = { WebSvcQueueSystem.JobState.Success };
+WebSvcQueueSystem.QueueMsgType[] jobTypes = { WebSvcQueueSystem.QueueMsgType.ProjectPublish };
+
+int numJobs = q.GetJobCount(null, jobStates, jobTypes);</code>
+          <para>The following example returns the number of publish jobs plus the number of save jobs in the <b>OnHold</b> OR <b>Failed</b> state.</para>
+          <code>WebSvcQueueSystem.JobState[] jobStates = { WebSvcQueueSystem.JobState.OnHold, 
+                                           WebSvcQueueSystem.JobState.Failed };
+WebSvcQueueSystem.QueueMsgType[] jobTypes = { WebSvcQueueSystem.QueueMsgType.ProjectPublish, 
+                                              WebSvcQueueSystem.QueueMsgType.ACProjectSave };
+int numJobs = q.GetJobCount(null, jobStates, jobTypes);</code>
+          <para>The following example returns the total number of jobs in the <b>OnHold</b> OR <b>Failed</b> state.</para>
+          <code>WebSvcQueueSystem.JobState[] jobStates = { WebSvcQueueSystem.JobState.OnHold, 
+                                           WebSvcQueueSystem.JobState.Failed };
+int numJobs = q.GetJobCount(null, jobStates, null);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobGroupWaitTime">
+      <MemberSignature Language="C#" Value="public int GetJobGroupWaitTime (Guid trackingID, WebSvcQueueSystem.QueueMsgType messageType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobGroupWaitTime(valuetype System.Guid trackingID, valuetype WebSvcQueueSystem.QueueMsgType messageType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobGroupWaitTime(System.Guid,WebSvcQueueSystem.QueueMsgType)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobGroupWaitTime (trackingID As Guid, messageType As QueueMsgType) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobGroupWaitTime(Guid trackingID, WebSvcQueueSystem::QueueMsgType messageType);" />
+      <MemberSignature Language="F#" Value="member this.GetJobGroupWaitTime : Guid * WebSvcQueueSystem.QueueMsgType -&gt; int" Usage="queueSystem.GetJobGroupWaitTime (trackingID, messageType)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobGroupWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="trackingID" Type="System.Guid" />
+        <Parameter Name="messageType" Type="WebSvcQueueSystem.QueueMsgType" />
+      </Parameters>
+      <Docs>
+        <param name="trackingID">Tracking GUID (<b>JobGroupGUID</b>) assigned to multiple jobs.</param>
+        <param name="messageType">
+          <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration value.</param>
+        <summary>Determines the expected time for the queue to process jobs of the specified type in a job group.</summary>
+        <returns>Expected number of seconds for jobs with the same <paramref name="trackingID" /> and of the specified type to complete.</returns>
+        <remarks>
+          <para>The expected wait time for jobs is only approximate, based on the average wait times for jobs of similar type. <b>GetJobGroupWaitTime</b> also takes into account the position the jobs have on the queue and the job correlation priority.</para>
+          <para>The names of PSI methods that use the Project or Timesheet queue start with Queue, for example <b>QueueCreateProject</b> and <b>QueueUpdateTimesheet</b>. To set the tracking GUID for PSI methods that use the Project or Timesheet queue, add the tracking GUID to the SOAP header of each PSI Web service that you use for the queue method calls. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following procedure shows how to modify the <b>WebRequest</b> method for the Project Web service.</para>
+          <list type="table">
+            <item>
+              <term>Set a Web reference to the Project Web service (http://ServerName/ProjectServerName/_vti_bin/psi/project.asmx). For example, name the Web reference <b>ProjectWS</b>.Add a class that derives from the <b>ProjectWS.Project</b> class. For example, name the class <b>ProjectDerived</b>.Add a private static class member for a GUID value. For example, name the member <b>trackingUid</b>.C# Copy codeusing System;
+using System.Net;
+
+namespace SomeNamespace.ProjectWS
+{
+    class ProjectDerived : Project
+    {
+        private static Guid trackingUid = Guid.Empty;
+        . . .
+    }
+}Add a public method to the <b>ProjectDerived</b> class that sets the value of <b>trackingUid</b>, such as shown in the following code.C# Copy codepublic static void SetTrackingGuid(Guid track)
+{
+    trackingUid = track;
+}Override the <b>GetWebRequest</b> method and add the tracking GUID to the SOAP header.C# Copy codeprotected override WebRequest GetWebRequest(Uri uri)
+{
+    WebRequest webRequest = base.GetWebRequest(uri);
+    webRequest.Headers.Add("PSTrackingGuid", trackingUid.ToString());
+
+    return webRequest;
+}NoteThe name parameter in the <b>Headers.Add</b> method must be spelled "PSTrackingGuid" exactly as shown.In the other classes of your application, create and initialize a <b>ProjectDerived</b> object for calls to the Project Web service, for example:C# Copy codeprivate static SomeNameSpace.ProjectWS.ProjectDerived projectDerived = 
+    new SomeNameSpace.ProjectWS.ProjectDerived();
+. . .
+    projectDerived.Url = "http://ServerName/ProjectServerName/_vti_bin/Project.asmx";
+    projectDerived.Credentials = CredentialCache.DefaultCredentials;</term>
+            </item>
+          </list>
+          <para>The <b>GetExpectedGroupWaitTime</b> method in the following example is in a class named <b>QueueSystemUtilities</b>. The method returns the expected wait time for the project publish data to be sent to the Reporting database. Jobs in the group are specified by the <paramref name="trackingGuid" /> parameter. <b>QueueSystemWS</b> is an arbitrary name of the <b>QueueSystem</b> Web reference.</para>
+          <code>public int GetExpectedGroupWaitTime(QueueSystemWS.QueueSystem q, 
+    Guid trackingGuid, QueueSystemWS.QueueMsgType msgType)
+{
+    int wait = q.GetJobGroupWaitTime(trackingGuid, msgType);
+    return wait;
+}</code>
+          <para>The following code fragment makes normal calls to the PSI methods where the <b>Project</b> object adds the tracking GUID to the SOAP header, as described in the previous procedure. </para>
+          <code>using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private static QueueSystemWS.QueueSystem queueSystem =
+    new QueueSystemWS.QueueSystem(); 
+private static QueueSystemUtils queueSystemUtils = new QueueSystemUtils();
+. . .
+ProjectWS.ProjectDataSet dsProject =
+    new ProjectWS.ProjectDataSet();
+ProjectWS.ProjectDataSet.ProjectRow projectRow =
+    dsProject.Project.NewProjectRow();
+
+Guid projectGuid = Guid.NewGuid();
+projectRow.PROJ_UID = projectGuid;
+projectRow.PROJ_NAME = "Name of Project";
+projectRow.PROJ_TYPE =
+    Convert.ToInt32(PSLibrary.Project.ProjectType.Project);
+
+dsProject.Project.AddProjectRow(projectRow);
+
+// Create the queue job and tracking GUIDs, and then set the tracking 
+// GUID for SOAP calls to the derived Project object.
+Guid jobGuid = Guid.NewGuid();
+Guid trackingGuid = Guid.NewGuid();
+SomeNameSpace.ProjectWS.ProjectDerived.SetTrackingGuid(trackingGuid);
+
+bool validateOnly = false;
+// Create and save project to the Draft database. 
+projectDerived.QueueCreateProject(jobGuid, dsProject, validateOnly);
+// Wait a few seconds, or create a WaitForQueue method.
+Thread.Sleep(3000);
+
+ProjectWS.ProjectRelationsDataSet dsProjectRelations =
+    new ProjectWS.ProjectRelationsDataSet();
+jobGuid = Guid.NewGuid();
+
+string wssUrl = "" // Default SharePoint project workspace, 
+bool fullPublish = true;
+
+// Publish the project to the Published database.
+dsProjectRelations = projectDerived.QueuePublish(jobGuid, projectGuid, fullPublish, wssUrl);
+
+// Try various wait times to see the effect of additional queue jobs 
+// spawned by QueuePublish.
+Thread.Sleep(500);
+
+QueueSystemWS.QueueMsgType msgType = QueueSystemWS.QueueMsgType.ReportingProjectPublish;
+int jobGroupWaitTime = queueSystemUtils.GetExpectedGroupWaitTime(queueSystem, trackingGuid, msgType);
+string waitTime = "After QueuePublish:\t\t" + jobGroupWaitTime.ToString() + " seconds for the ReportingProjectPublish job";
+. . .</code>
+          <para>Both the <b>QueueCreateProject</b> and <b>QueuePublish</b> calls use the same tracking GUID which is set in the SOAP headers by the <b>ProjectDerived</b> object. The <b>QueuePublish</b> method spawns additional queue jobs such as sending the published project data to the Reporting database. The <b>jobGroupWaitTime</b> value shows only the expected wait time of the <b>ReportingProjectPublish</b> job.</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobGroupWaitTimeSimple">
+      <MemberSignature Language="C#" Value="public int GetJobGroupWaitTimeSimple (Guid trackingID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobGroupWaitTimeSimple(valuetype System.Guid trackingID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobGroupWaitTimeSimple(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobGroupWaitTimeSimple (trackingID As Guid) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobGroupWaitTimeSimple(Guid trackingID);" />
+      <MemberSignature Language="F#" Value="member this.GetJobGroupWaitTimeSimple : Guid -&gt; int" Usage="queueSystem.GetJobGroupWaitTimeSimple trackingID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobGroupWaitTimeSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="trackingID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="trackingID">Tracking GUID (<b>JobGroupGUID</b>) assigned to multiple jobs.</param>
+        <summary>Determines the maximum expected time remaining for Project and Timesheet queues to process the specified job group.</summary>
+        <returns>Expected number of seconds for all jobs with the same <paramref name="trackingID" /> to complete.</returns>
+        <remarks>
+          <para>The expected wait time for jobs is only approximate, based on the average wait times for jobs of similar type. <b>GetJobGroupWaitTime</b> also takes into account the position the jobs have on the queue and the job correlation priority.</para>
+          <para>The names of PSI methods that use the Project or Timesheet queue start with Queue, for example <b>QueueCreateProject</b> and <b>QueueUpdateTimesheet</b>. To set the tracking GUID for PSI methods that use the Project or Timesheet queue, add the tracking GUID to the SOAP header of each PSI Web service that you use for the queue method calls. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following procedure shows how to modify the <b>WebRequest</b> method for the Project Web service.</para>
+          <list type="table">
+            <item>
+              <term>Set a Web reference to the Project Web service (http://ServerName/ProjectServerName/_vti_bin/psi/project.asmx). For example, name the Web reference <b>ProjectWS</b>.Add a class that derives from the <b>ProjectWS.Project</b> class. For example, name the class <b>ProjectDerived</b>.Add a private static class member for a GUID value. For example, name the member <b>trackingUid</b>.C# Copy codeusing System;
+using System.Net;
+
+namespace SomeNamespace.ProjectWS
+{
+    class ProjectDerived : Project
+    {
+        private static Guid trackingUid = Guid.Empty;
+        . . .
+    }
+}Add a public method to the <b>ProjectDerived</b> class that sets the value of <b>trackingUid</b>, such as the following code.C# Copy codepublic static void SetTrackingGuid(Guid track)
+{
+    trackingUid = track;
+}Override the <b>GetWebRequest</b> method and add the tracking GUID to the SOAP header.C# Copy codeprotected override WebRequest GetWebRequest(Uri uri)
+{
+    WebRequest webRequest = base.GetWebRequest(uri);
+    webRequest.Headers.Add("PSTrackingGuid", trackingUid.ToString());
+
+    return webRequest;
+}NoteThe name parameter in the <b>Headers.Add</b> method must be spelled "PSTrackingGuid" exactly as shown.In the other classes of your application, create and initialize a <b>ProjectDerived</b> object for calls to the Project Web service, for example:C# Copy codeprivate static SomeNameSpace.ProjectWS.ProjectDerived projectDerived = 
+    new SomeNameSpace.ProjectWS.ProjectDerived();
+. . .
+    projectDerived.Url = "http://ServerName/ProjectServerName/_vti_bin/Project.asmx";
+    projectDerived.Credentials = CredentialCache.DefaultCredentials;</term>
+            </item>
+          </list>
+          <para>The <b>GetExpectedGroupWaitTime</b> method in the following example is in a class named <b>QueueSystemUtilities</b>. The method returns the expected wait time for all queue jobs related to the <b>QueueProjectPublish</b> method. Jobs in the group are specified by the <paramref name="trackingGuid" /> parameter. <b>QueueSystemWS</b> is an arbitrary name of the <b>QueueSystem</b> Web reference.</para>
+          <code>public int GetAllExpectedGroupWaitTime(QueueSystemWS.QueueSystem q, 
+    Guid trackingGuid)
+{
+    int wait = q.GetJobGroupWaitTime(trackingGuid, msgType);
+    return wait;
+}</code>
+          <para>The following code fragment makes normal calls to the PSI methods where the <b>Project</b> object adds the tracking GUID to the SOAP header, as described in the previous procedure. </para>
+          <code>using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private static QueueSystemWS.QueueSystem queueSystem =
+    new QueueSystemWS.QueueSystem(); 
+private static QueueSystemUtils queueSystemUtils = new QueueSystemUtils();
+. . .
+ProjectWS.ProjectDataSet dsProject =
+    new ProjectWS.ProjectDataSet();
+ProjectWS.ProjectDataSet.ProjectRow projectRow =
+    dsProject.Project.NewProjectRow();
+
+Guid projectGuid = Guid.NewGuid();
+projectRow.PROJ_UID = projectGuid;
+projectRow.PROJ_NAME = "Name of Project";
+projectRow.PROJ_TYPE =
+    Convert.ToInt32(PSLibrary.Project.ProjectType.Project);
+
+dsProject.Project.AddProjectRow(projectRow);
+
+// Create the queue job and tracking GUIDs, and then set the tracking 
+// GUID for SOAP calls to the derived Project object.
+Guid jobGuid = Guid.NewGuid();
+Guid trackingGuid = Guid.NewGuid();
+SomeNameSpace.ProjectWS.ProjectDerived.SetTrackingGuid(trackingGuid);
+
+bool validateOnly = false;
+// Create and save project to the Draft database. 
+projectDerived.QueueCreateProject(jobGuid, dsProject, validateOnly);
+// Wait a few seconds, or create a WaitForQueue method.
+Thread.Sleep(3000);
+
+ProjectWS.ProjectRelationsDataSet dsProjectRelations =
+    new ProjectWS.ProjectRelationsDataSet();
+jobGuid = Guid.NewGuid();
+
+string wssUrl = "" // Default SharePoint project workspace, 
+bool fullPublish = true;
+
+// Publish the project to the Published database.
+dsProjectRelations = projectDerived.QueuePublish(jobGuid, projectGuid, fullPublish, wssUrl);
+
+// Try various wait times to see the effect of additional queue jobs 
+// spawned by QueuePublish.
+Thread.Sleep(500);
+
+QueueSystemWS.QueueMsgType msgType = QueueSystemWS.QueueMsgType.ReportingProjectPublish;
+int jobGroupWaitTime = queueSystemUtils.GetAllExpectedGroupWaitTime(queueSystem, trackingGuid);
+string waitTime = "After QueuePublish:\t\t" + jobGroupWaitTime.ToString() + " seconds for all related jobs";</code>
+          <para>Both the <b>QueueCreateProject</b> and <b>QueuePublish</b> calls use the same tracking GUID which is set in the SOAP headers by the <b>ProjectDerived</b> object. The <b>QueuePublish</b> method spawns additional queue jobs such as sending the published project data to the Reporting database. The <b>jobGroupWaitTime</b> value shows the expected wait time of all related jobs that currently exist in both queues.</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetJobWaitTime">
+      <MemberSignature Language="C#" Value="public int GetJobWaitTime (Guid jobID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetJobWaitTime(valuetype System.Guid jobID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetJobWaitTime(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetJobWaitTime (jobID As Guid) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetJobWaitTime(Guid jobID);" />
+      <MemberSignature Language="F#" Value="member this.GetJobWaitTime : Guid -&gt; int" Usage="queueSystem.GetJobWaitTime jobID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetJobWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="jobID">Queue job GUID.</param>
+        <summary>Calculates the expected amount of time remaining to process a specified job in the Project Server Queuing Service.</summary>
+        <returns>Number of seconds of remaining wait time.</returns>
+        <remarks>
+          <para>The expected wait time for a job is only approximate, based on the average wait times for jobs of similar type. <b>GetJobWaitTime</b> also takes into account the position the job has on the queue and the job correlation priority. </para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>The current user is the job owner.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>For another example of a <b>QueueSystem</b> utility class, see How to: Use the QueueSystem Service.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Xml;
+using System.Threading;
+
+namespace SomeNamespace
+{
+    class QueueSystemUtils
+    {
+        // Wait 2 seconds between each check for job completion.
+        private const int INCREMENTALSLEEPTIME = 2; 
+
+        public QueueSystemUtils()
+        {
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Wait a specified time for the Project Server Queuing service to process a job.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="q"&amp;gt;QueueSystem object&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="timeOut"&amp;gt;Maximum time to wait (seconds)&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="jobId"&amp;gt;GUID of queue job&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="errorString"&amp;gt;out: error from GetJobCompletionState plus status&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;true for success; false for any queue failure&amp;lt;/returns&amp;gt;
+        public bool WaitForQueue(WebSvcQueueSystem.QueueSystem q, 
+            int timeOut, 
+            Guid jobId, 
+            out String statusOut)
+        {
+            
+            int wait;                 // Number of seconds to wait
+            decimal seconds;          // For reporting wait time in decimal format
+            string xmlError;          // XML error output from the queue
+            string queueStatus;       // Outer XML of xmlError string
+            string status = "";       // Summary status report for output
+            bool firstPass = true;    // First iteration through the while statement
+            int timeSlept = 0;        // Total time slept (seconds)
+            bool jobIsDone = false;   // The queue job completed successfully, if true
+            bool stopWait = false;    // Abort the wait, if true
+            WebSvcQueueSystem.JobState jobState; // Status of the queue job 
+
+            while (true)
+            {
+                // On the first iteration, wait the incremental sleep time  
+                // or the maximum requested timeout. 
+                if (firstPass)
+                {
+                    // Get the estimated time to wait for the queue to process the job.
+                    // The output from GetJobWaitTime is in seconds.
+                    wait = q.GetJobWaitTime(jobId);
+
+                    status = string.Format("Estimated job wait time: {0} seconds", wait);
+
+                    if (timeOut &amp;lt; INCREMENTALSLEEPTIME) wait = timeOut;
+                    else wait = INCREMENTALSLEEPTIME;
+
+                    firstPass = false;
+                }
+                else
+                {
+                    // If job is not done, wait the incremental sleep time  
+                    wait = INCREMENTALSLEEPTIME;
+                }
+
+                Thread.Sleep(wait * 1000); // Milliseconds
+
+                timeSlept += wait;
+
+                // Check job state.
+                jobState = q.GetJobCompletionState(jobId, out xmlError);
+
+                // Add the XML error output to the status.
+                StringReader sr = new StringReader(xmlError);
+                using (XmlReader reader = XmlReader.Create(sr))
+                {
+                    reader.MoveToContent();
+                    queueStatus = reader.ReadOuterXml();
+                }
+                // Don't add an empty &amp;lt;errinfo&amp;gt; element.
+                if (queueStatus != "&amp;lt;errinfo /&amp;gt;") status += "\n\n" + queueStatus;
+
+                if (jobState == WebSvcQueueSystem.JobState.Success)
+                {
+                    jobIsDone = true;
+                }
+                else if (jobState == WebSvcQueueSystem.JobState.Unknown
+                    || jobState == WebSvcQueueSystem.JobState.Failed
+                    || jobState == WebSvcQueueSystem.JobState.FailedNotBlocking
+                    || jobState == WebSvcQueueSystem.JobState.CorrelationBlocked
+                    || jobState == WebSvcQueueSystem.JobState.Canceled)
+                {
+                    stopWait = true;
+                }
+
+                if (!jobIsDone &amp;amp;&amp;amp; timeSlept &amp;gt;= timeOut)
+                {
+                    // Cancel the job, otherwise the queue keeps processing it until it is complete.
+                    q.CancelJobSimple(jobId);
+                    stopWait = true;
+                    status += string.Format("\n\nExceeded timeout of {0} seconds", timeOut);
+                }
+
+                if (jobIsDone || stopWait)
+                {
+                    // Check jobState again, might be cancelled.
+                    seconds = Convert.ToDecimal(timeSlept);
+                    status += string.Format(
+                        "\n\nJobState: {0:G}\n\nTotal time slept: {1:N} seconds", 
+                        jobState, seconds);
+                    break;
+                }
+            }
+            statusOut = status;
+            return jobIsDone;
+        }
+    }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMyJobCount">
+      <MemberSignature Language="C#" Value="public int GetMyJobCount (WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetMyJobCount(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionState, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetMyJobCount(WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetMyJobCount (messageTypes As QueueMsgType(), JobCompletionState As JobState(), fromDate As DateTime, toDate As DateTime, maxRows As Integer) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetMyJobCount(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows);" />
+      <MemberSignature Language="F#" Value="member this.GetMyJobCount : WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int -&gt; int" Usage="queueSystem.GetMyJobCount (messageTypes, JobCompletionState, fromDate, toDate, maxRows)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetMyJobCount", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionState" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values. If a null reference (Nothing in Visual Basic), count all types.</param>
+        <param name="JobCompletionState">
+          <see cref="T:WebSvcQueueSystem.JobState" /> enumeration value. If a null reference (Nothing in Visual Basic), count all states.</param>
+        <param name="fromDate">Earliest date and time of queue jobs.</param>
+        <param name="toDate">Latest date and time of queue jobs.</param>
+        <param name="maxRows">Maximum number of jobs to count. If zero (0), count all.</param>
+        <summary>Gets the number of queue jobs submitted by the current user.</summary>
+        <returns>Count of number of queue jobs within the specified dates, of the specified types and states, submitted by the current user.</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code fragment counts the total number of jobs of all types and states the current user submitted to the queue during the current day.</para>
+          <code>private static QueueSystemWS.QueueSystem queueSystem =
+    new QueueSystemWS.QueueSystem();
+. . .
+int myJobCount = queueSystem.GetMyJobCount(null, null, DateTime.Today, DateTime.Now, 0);
+MessageBox.Show("Number of my queue jobs: " + myJobCount.ToString(), "Job Count");</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="GetProposedJobWaitTime">
+      <MemberSignature Language="C#" Value="public int GetProposedJobWaitTime (Guid correlationUID, WebSvcQueueSystem.QueueMsgType messageType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetProposedJobWaitTime(valuetype System.Guid correlationUID, valuetype WebSvcQueueSystem.QueueMsgType messageType) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.GetProposedJobWaitTime(System.Guid,WebSvcQueueSystem.QueueMsgType)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetProposedJobWaitTime (correlationUID As Guid, messageType As QueueMsgType) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; int GetProposedJobWaitTime(Guid correlationUID, WebSvcQueueSystem::QueueMsgType messageType);" />
+      <MemberSignature Language="F#" Value="member this.GetProposedJobWaitTime : Guid * WebSvcQueueSystem.QueueMsgType -&gt; int" Usage="queueSystem.GetProposedJobWaitTime (correlationUID, messageType)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/GetProposedJobWaitTime", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationUID" Type="System.Guid" />
+        <Parameter Name="messageType" Type="WebSvcQueueSystem.QueueMsgType" />
+      </Parameters>
+      <Docs>
+        <param name="correlationUID">GUID of the job correlation.</param>
+        <param name="messageType">
+          <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration value.</param>
+        <summary>Calculates the expected amount of time to process a proposed job of the specified type in the Project Server Queuing Service.</summary>
+        <returns>Number of seconds of expected wait time.</returns>
+        <remarks>
+          <para>The expected wait time for a proposed job is only approximate, based on the average wait times for jobs of similar type. <b>GetProposedJobWaitTime</b> also takes into account the position the job would have on the queue and the correlation priority.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PurgeQueueStatistics">
+      <MemberSignature Language="C#" Value="public void PurgeQueueStatistics (WebSvcQueueSystem.QueueMsgType[] messageTypes);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void PurgeQueueStatistics(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.PurgeQueueStatistics(WebSvcQueueSystem.QueueMsgType[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub PurgeQueueStatistics (messageTypes As QueueMsgType())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void PurgeQueueStatistics(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes);" />
+      <MemberSignature Language="F#" Value="member this.PurgeQueueStatistics : WebSvcQueueSystem.QueueMsgType[] -&gt; unit" Usage="queueSystem.PurgeQueueStatistics messageTypes" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/PurgeQueueStatistics", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values.</param>
+        <summary>Clears the statistics for jobs of the specified type in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>Removes the wait time history and queue performance counter data for the types of jobs specified in <paramref name="messageTypes" />. If actual wait times are significantly different from expected wait times, or if queue performance counters appear to be incorrect, call <b>PurgeQueueStatistics</b> to force recalculation of expected wait times based on current data. The expected wait time for a job is approximate, based on the average wait times for jobs of similar type, on position on the queue, and on correlation priority.</para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" />
+              </term>
+              <description>Allows the user to delete or move projects. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="QueuePurgeArchivedJobs">
+      <MemberSignature Language="C#" Value="public void QueuePurgeArchivedJobs (Guid jobUid, WebSvcQueueSystem.QueueID queueId, Nullable&lt;Guid&gt; correlationUID, Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt; messageType, Nullable&lt;int&gt; hoursHistory);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void QueuePurgeArchivedJobs(valuetype System.Guid jobUid, valuetype WebSvcQueueSystem.QueueID queueId, valuetype System.Nullable`1&lt;valuetype System.Guid&gt; correlationUID, valuetype System.Nullable`1&lt;valuetype WebSvcQueueSystem.QueueMsgType&gt; messageType, valuetype System.Nullable`1&lt;int32&gt; hoursHistory) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.QueuePurgeArchivedJobs(System.Guid,WebSvcQueueSystem.QueueID,System.Nullable{System.Guid},System.Nullable{WebSvcQueueSystem.QueueMsgType},System.Nullable{System.Int32})" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void QueuePurgeArchivedJobs(Guid jobUid, WebSvcQueueSystem::QueueID queueId, Nullable&lt;Guid&gt; correlationUID, Nullable&lt;WebSvcQueueSystem::QueueMsgType&gt; messageType, Nullable&lt;int&gt; hoursHistory);" />
+      <MemberSignature Language="F#" Value="member this.QueuePurgeArchivedJobs : Guid * WebSvcQueueSystem.QueueID * Nullable&lt;Guid&gt; * Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt; * Nullable&lt;int&gt; -&gt; unit" Usage="queueSystem.QueuePurgeArchivedJobs (jobUid, queueId, correlationUID, messageType, hoursHistory)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/QueuePurgeArchivedJobs", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUid" Type="System.Guid" />
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+        <Parameter Name="correlationUID" Type="System.Nullable&lt;System.Guid&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="messageType" Type="System.Nullable&lt;WebSvcQueueSystem.QueueMsgType&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+        <Parameter Name="hoursHistory" Type="System.Nullable&lt;System.Int32&gt;">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.Xml.Serialization.XmlElement(IsNullable=true)</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="jobUid">Queue job GUID.</param>
+        <param name="queueId">One of the <see cref="T:WebSvcQueueSystem.QueueID" /> enumeration values <b>ProjectQ</b> or <b>TimesheetQ</b>.</param>
+        <param name="correlationUID">GUID of the job correlation; if a null reference (Nothing in Visual Basic), purge all correlations.</param>
+        <param name="messageType">
+          <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration value; if a null reference (Nothing in Visual Basic), purge all types.</param>
+        <param name="hoursHistory">Specifies the number of hours of archived jobs to purge; if a null reference (Nothing in Visual Basic), purge all.</param>
+        <summary>Purges archived jobs from the Project Server queue.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" />
+              </term>
+              <description>Allows the user to delete or move projects. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadAllJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatus (WebSvcQueueSystem.JobState[] jobStates, WebSvcQueueSystem.QueueMsgType[] messageTypes, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatus(valuetype WebSvcQueueSystem.JobState[] jobStates, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadAllJobStatus(WebSvcQueueSystem.JobState[],WebSvcQueueSystem.QueueMsgType[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadAllJobStatus(cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ jobStates, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadAllJobStatus : WebSvcQueueSystem.JobState[] * WebSvcQueueSystem.QueueMsgType[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadAllJobStatus (jobStates, messageTypes, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadAllJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="jobStates">Array of <see cref="T:WebSvcQueueSystem.JobState" /> enumeration values.</param>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values.</param>
+        <param name="fromDate">Minimum date and time of queue jobs.</param>
+        <param name="toDate">Maximum date and time of queue jobs.</param>
+        <param name="maxRows">Maximum number of job status rows to return.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected job wait time.</param>
+        <param name="sortColumn">Specifies which field to sort in the list of jobs. </param>
+        <param name="sortOrder">Specifies whether to sort and in what order.</param>
+        <summary>Gets the status of all jobs of the specified types and states from the Project Server Queuing Service.</summary>
+        <returns>Status of the requested jobs, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>For examples of job status requests and resulting data, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> and <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadAllJobStatusSimple">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatusSimple (DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadAllJobStatusSimple(valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadAllJobStatusSimple(System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadAllJobStatusSimple(DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadAllJobStatusSimple : DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadAllJobStatusSimple (fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadAllJobStatusSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="fromDate">Minimum date and time of queue jobs.</param>
+        <param name="toDate">Maximum date and time of queue jobs.</param>
+        <param name="maxRows">Maximum number of job status rows to return.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected job wait time.</param>
+        <param name="sortColumn">Specifies which field to sort in the list of jobs. </param>
+        <param name="sortOrder">Specifies whether to sort and in what order.</param>
+        <summary>Gets the status of all Project Server Queuing Service jobs within the specified dates.</summary>
+        <returns>Status of the requested jobs, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>For examples of job status requests and resulting data, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> and <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadJobStatus (WebSvcQueueSystem.QueueStatusRequestDataSet qsrDS, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadJobStatus(class WebSvcQueueSystem.QueueStatusRequestDataSet qsrDS, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadJobStatus(WebSvcQueueSystem::QueueStatusRequestDataSet ^ qsrDS, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadJobStatus : WebSvcQueueSystem.QueueStatusRequestDataSet * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadJobStatus (qsrDS, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="qsrDS" Type="WebSvcQueueSystem.QueueStatusRequestDataSet" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="qsrDS">The <see cref="T:WebSvcQueueSystem.QueueStatusRequestDataSet.StatusRequestRow" /> can specify the job completion state, tracking GUID (<b>JobGroupGUID</b>), job GUID, and queue message type.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected wait time field.</param>
+        <param name="sortColumn">Specifies which field to sort in the list of jobs. </param>
+        <param name="sortOrder">Specifies whether to sort and in what order.</param>
+        <summary>Gets the status of the specified jobs in the Project Server Queuing Service.</summary>
+        <returns>Status of the requested jobs, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>
+            <b>ReadJobStatus</b> can return status data for specific jobs or for a group of jobs which have the same tracking GUID.</para>
+          <para>PSI methods that use a queue begin with the word Queue in the method name. To set the tracking GUID for PSI methods that use the Project or Timesheet queue, add the tracking GUID to the SOAP header of each PSI Web service that you use for the queue method calls. </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following procedure shows how to modify the <b>WebRequest</b> method for the Project Web service.</para>
+          <list type="table">
+            <item>
+              <term>Set a Web reference to the Project Web service (http://ServerName/ProjectServerName/_vti_bin/psi/project.asmx). For example, name the Web reference <b>ProjectWS</b>.Add a class that derives from the <b>ProjectWS.Project</b> class. For example, name the class <b>ProjectDerived</b>.Add a private static class member for a GUID value. For example, name the member <b>trackingUid</b>.C# Copy codeusing System;
+using System.Net;
+
+namespace SomeNamespace.ProjectWS
+{
+    class ProjectDerived : Project
+    {
+        private static Guid trackingUid = Guid.Empty;
+        . . .
+    }
+}Add a public method to the <b>ProjectDerived</b> class that sets the value of <b>trackingUid</b>, such as the following code.C# Copy codepublic static void SetTrackingGuid(Guid track)
+{
+    trackingUid = track;
+}Override the <b>GetWebRequest</b> method and add the tracking GUID to the SOAP header.C# Copy codeprotected override WebRequest GetWebRequest(Uri uri)
+{
+    WebRequest webRequest = base.GetWebRequest(uri);
+    webRequest.Headers.Add("PSTrackingGuid", trackingUid.ToString());
+
+    return webRequest;
+}NoteThe name parameter in the <b>Headers.Add</b> method must be spelled "PSTrackingGuid" exactly as shown.In the other classes of your application, create and initialize a <b>ProjectDerived</b> object for calls to the Project Web service, for example:C# Copy codeprivate static SomeNameSpace.ProjectWS.ProjectDerived projectDerived = 
+    new SomeNameSpace.ProjectWS.ProjectDerived();
+. . .
+    projectDerived.Url = "http://ServerName/ProjectServerName/_vti_bin/Project.asmx";
+    projectDerived.Credentials = CredentialCache.DefaultCredentials;</term>
+            </item>
+          </list>
+          <para>The <b>GetStatusOfQueueJobs</b> method in the following example is in a class named <b>QueueSystemUtilities</b>. <b>GetStatusOfQueueJobs</b> is an overload of the same method name in the example for <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />. The method returns the status of all jobs with the same tracking ID. Jobs in the group are specified by the <paramref name="trackingGuid" /> parameter. <b>QueueSystemWS</b> is an arbitrary name of the <b>QueueSystem</b> Web reference.</para>
+          <code>public QueueSystemWS.QueueStatusDataSet GetStatusOfQueueJobs(
+    QueueSystemWS.QueueSystem q,
+    Guid jobGuid,
+    Guid trackingGuid, 
+    int jobState,
+    int msgType,
+    QueueSystemWS.SortColumn sortColumn,
+    QueueSystemWS.SortOrder sortOrder,
+    bool includeWaitTime)
+{
+    QueueSystemWS.QueueStatusRequestDataSet dsQStatusRequest = 
+        new QueueSystemWS.QueueStatusRequestDataSet();
+    QueueSystemWS.QueueStatusRequestDataSet.StatusRequestRow qStatusRow =
+        dsQStatusRequest.StatusRequest.NewStatusRequestRow();
+
+    qStatusRow.JobGUID = jobGuid;
+    qStatusRow.JobGroupGUID = trackingGuid;
+    if (jobState != 0) 
+        qStatusRow.JobCompletionState = jobState;
+    if (msgType != 0)
+        qStatusRow.MessageType = msgType;
+    dsQStatusRequest.StatusRequest.AddStatusRequestRow(qStatusRow);
+
+    QueueSystemWS.QueueStatusDataSet dsQStatus = q.ReadJobStatus(dsQStatusRequest, 
+        includeWaitTime, 
+        sortColumn, 
+        sortOrder);
+    return dsQStatus;
+}</code>
+          <para>The following code fragment makes normal calls to the PSI methods where the <b>Project</b> object adds the tracking GUID to the SOAP header, as described in the previous procedure. </para>
+          <code>using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private static ProjectWS.ProjectDerived projectDerived = 
+            new ProjectWS.ProjectDerived();
+private static QueueSystemWS.QueueSystem queueSystem =
+    new QueueSystemWS.QueueSystem(); 
+private static QueueSystemUtils queueSystemUtils = new QueueSystemUtils();
+. . .
+ProjectWS.ProjectDataSet dsProject =
+    new ProjectWS.ProjectDataSet();
+ProjectWS.ProjectDataSet.ProjectRow projectRow =
+    dsProject.Project.NewProjectRow();
+
+Guid projectGuid = Guid.NewGuid();
+projectRow.PROJ_UID = projectGuid;
+projectRow.PROJ_NAME = "Name of Project";
+projectRow.PROJ_TYPE =
+    Convert.ToInt32(PSLibrary.Project.ProjectType.Project);
+
+dsProject.Project.AddProjectRow(projectRow);
+
+// Create the queue job and tracking GUIDs, and then set the tracking 
+// GUID for SOAP calls to the derived Project object.
+Guid jobGuid = Guid.NewGuid();
+Guid trackingGuid = Guid.NewGuid();
+SomeNameSpace.ProjectWS.ProjectDerived.SetTrackingGuid(trackingGuid);
+
+bool validateOnly = false;
+// Create and save project to the Draft database. 
+projectDerived.QueueCreateProject(jobGuid, dsProject, validateOnly);
+// Wait a few seconds, or create a WaitForQueue method.
+Thread.Sleep(3000);
+
+ProjectWS.ProjectRelationsDataSet dsProjectRelations =
+    new ProjectWS.ProjectRelationsDataSet();
+jobGuid = Guid.NewGuid();
+
+string wssUrl = "" // Default SharePoint project workspace, 
+bool fullPublish = true;
+
+// Publish the project to the Published database.
+dsProjectRelations = projectDerived.QueuePublish(jobGuid, projectGuid, fullPublish, wssUrl);
+
+Thread.Sleep(500);
+
+jobGuid = Guid.Empty;
+int jobState = (int)QueueSystemWS.JobState.Unknown;
+int msgType = (int) QueueSystemWS.QueueMsgType.Unknown;
+bool includeWaitTime = true;
+QueueSystemWS.SortColumn sortColumn = QueueSystemWS.SortColumn.Undefined;
+QueueSystemWS.SortOrder sortOrder = QueueSystemWS.SortOrder.Undefined;
+
+WebSvcQueueSystem.QueueStatusDataSet dsQStatus = 
+    queueSystemUtils.GetStatusOfQueueJobs(queueSystem, jobGuid, trackingGuid,
+        jobState, msgType, sortColumn, sortOrder, includeWaitTime);
+. . .</code>
+          <para>Both the <b>QueueCreateProject</b> and <b>QueuePublish</b> calls use the same tracking GUID, which is set in the SOAP headers by the <b>ProjectDerived</b> object. The <b>QueuePublish</b> method spawns additional queue jobs such as sending the published project data to the Reporting database. <b>QueueStatusDataSet</b> lists the status of all jobs that have the same tracking ID and have either completed processing or are on the queue. The following table shows some of the fields in the <b>QueueStatusDataSet.Status</b> table after running the previous code.</para>
+          <list type="table">
+            <item>
+              <term>1</term>
+              <description>22</description>
+              <description>4</description>
+              <description>-1</description>
+              <description>100</description>
+              <description>6/26/2011 14:06</description>
+              <description>6/26/2011 14:06</description>
+              <description>6/26/2011 14:06</description>
+              <description>0</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>30</description>
+              <description>3</description>
+              <description>3</description>
+              <description>100</description>
+              <description>6/26/2011 14:06</description>
+              <description>6/26/2011 14:06</description>
+              <description />
+              <description>0</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>24</description>
+              <description>1</description>
+              <description>4</description>
+              <description>0</description>
+              <description>6/26/2011 14:06</description>
+              <description />
+              <description />
+              <description>1</description>
+            </item>
+          </list>
+          <para>
+            <b>QueueMessageType</b> 22 is <b>ProjectCreate</b>. The job is no longer on the queue; <b>JobState</b> 4 is <b>Success</b>.</para>
+          <para>
+            <b>QueueMessageType</b> 30 is <b>PublishNotifications</b>. The job is third on the queue; <b>JobState</b> 3 is <b>QueueJobProcessing</b>.</para>
+          <para>
+            <b>QueueMessageType</b> 24 is <b>ProjectPublish</b>. The job is fourth on the queue; <b>JobState</b> 1 is <b>ReadyForProcessing</b>. The expected wait time is one second.</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadJobStatusSimple">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadJobStatusSimple (Guid[] jobUIDs, bool includeWaitTime);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadJobStatusSimple(valuetype System.Guid[] jobUIDs, bool includeWaitTime) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadJobStatusSimple (jobUIDs As Guid(), includeWaitTime As Boolean) As QueueStatusDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadJobStatusSimple(cli::array &lt;Guid&gt; ^ jobUIDs, bool includeWaitTime);" />
+      <MemberSignature Language="F#" Value="member this.ReadJobStatusSimple : Guid[] * bool -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadJobStatusSimple (jobUIDs, includeWaitTime)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadJobStatusSimple", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="jobUIDs" Type="System.Guid[]" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="jobUIDs">Array of queue job GUIDs.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected job wait time.</param>
+        <summary>Gets status information about the specified jobs on the Project Server queue.</summary>
+        <returns>Status of the requested jobs, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>
+            <b>ReadJobStatusSimple</b> does not use a tracking ID for job groups. For an example of getting the status of all jobs with the same tracking ID, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />. </para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>Non-standard</term>
+              <description>The current user is the job owner.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The <b>GetStatusOfQueueJobs</b> method in the following example is in a class named <b>QueueSystemUtilities</b>. <b>GetStatusOfQueueJobs</b> is an overload of the same method name in the example for <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />. <b>QueueSystemWS</b> is an arbitrary name of the <b>QueueSystem</b> Web reference.</para>
+          <code>public WebSvcQueueSystem.QueueStatusDataSet GetStatusOfQueueJobs(
+    WebSvcQueueSystem.QueueSystem q,
+    Guid[] jobGuids,
+    bool includeWaitTime)
+{
+    WebSvcQueueSystem.QueueStatusDataSet dsQStatus = 
+        q.ReadJobStatusSimple(jobGuids, includeWaitTime);
+    return dsQStatus;
+}</code>
+          <para>The following code fragment creates an array of job GUIDs for the <b>QueueCreateProject</b> and <b>QueuePublish</b> methods, and then calls <b>GetStatusOfQueueJobs</b>, which in turn calls <b>ReadJobStatusSimple</b>. </para>
+          <code>using System.Threading;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+. . .
+private static ProjectWS.Project project = 
+            new ProjectWS.Project();
+private static QueueSystemWS.QueueSystem queueSystem =
+    new QueueSystemWS.QueueSystem(); 
+private static QueueSystemUtils queueSystemUtils = new QueueSystemUtils();
+. . .
+ProjectWS.ProjectDataSet dsProject =
+    new ProjectWS.ProjectDataSet();
+ProjectWS.ProjectDataSet.ProjectRow projectRow =
+    dsProject.Project.NewProjectRow();
+
+Guid projectGuid = Guid.NewGuid();
+projectRow.PROJ_UID = projectGuid;
+projectRow.PROJ_NAME = this.txtProjectName.Text;
+projectRow.PROJ_TYPE =
+    Convert.ToInt32(PSLibrary.Project.ProjectType.Project);
+
+dsProject.Project.AddProjectRow(projectRow);
+
+// Create GUIDs for the queue job and for tracking multiple jobs.
+Guid jobGuidCreateProject = Guid.NewGuid();
+Guid trackingGuid = Guid.NewGuid();
+
+bool validateOnly = false;
+string queueStatus = "";
+// Create and save project to the Draft database.
+
+project.QueueCreateProject(jobGuidCreateProject, dsProject, validateOnly);
+// Wait a few seconds, or create a WaitForQueue method.
+Thread.Sleep(3000);
+
+ProjectWS.ProjectRelationsDataSet dsProjectRelations =
+    new ProjectWS.ProjectRelationsDataSet();
+Guid jobGuidPublish = Guid.NewGuid();
+
+string wssUrl = "" // Default SharePoint project workspace. 
+bool fullPublish = true;
+
+// Publish the project to the Published database.
+dsProjectRelations = project.QueuePublish(jobGuidPublish, projectGuid, fullPublish, wssUrl);
+
+Thread.Sleep(500);
+
+Guid[] jobGuids = { jobGuidCreateProject, jobGuidPublish };
+
+WebSvcQueueSystem.QueueStatusDataSet dsQStatus =
+    queueSystemUtils.GetStatusOfQueueJobs(queueSystem, jobGuids, includeWaitTime);
+. . .</code>
+          <para>The <b>QueueStatusDataSet.Status</b> table lists the status of all jobs in the <b>jobGuids</b> array. The following table shows some of the fields in the <b>Status</b> table after running the previous code.</para>
+          <list type="table">
+            <item>
+              <term>1</term>
+              <description>22</description>
+              <description>4</description>
+              <description>-1</description>
+              <description>100</description>
+              <description>6/28/2011 2:42 PM</description>
+              <description>6/28/2011 2:42 PM</description>
+              <description>6/28/2011 2:42 PM</description>
+              <description>0</description>
+            </item>
+            <item>
+              <term>1</term>
+              <description>24</description>
+              <description>1</description>
+              <description>4</description>
+              <description>0</description>
+              <description>6/28/2011 2:42 PM</description>
+              <description />
+              <description />
+              <description>1</description>
+            </item>
+          </list>
+          <para>
+            <b>QueueMessageType</b> 22 is <b>ProjectCreate</b>. The job is no longer on the queue; <b>JobState</b> 4 is <b>Success</b>.</para>
+          <para>
+            <b>QueueMessageType</b> 24 is <b>ProjectPublish</b>. The job is fourth on the queue; <b>JobState</b> 1 is <b>ReadyForProcessing</b>. The expected wait time is one second.</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadMyJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadMyJobStatus (WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadMyJobStatus(valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionState, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadMyJobStatus(WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadMyJobStatus(cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionState, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadMyJobStatus : WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadMyJobStatus (messageTypes, JobCompletionState, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadMyJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionState" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values.</param>
+        <param name="JobCompletionState">Array of <see cref="T:WebSvcQueueSystem.JobState" /> enumeration values.</param>
+        <param name="fromDate">Minimum date and time of queue jobs.</param>
+        <param name="toDate">Maximum date and time of queue jobs.</param>
+        <param name="maxRows">Maximum number of job status rows to return.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected job wait time.</param>
+        <param name="sortColumn">Specifies which field to sort in the list of jobs. </param>
+        <param name="sortOrder">Specifies whether to sort and in what order.</param>
+        <summary>Gets the status of jobs owned by the current user from the Project Server Queuing Service.</summary>
+        <returns>Status of the requested jobs submitted by the current user, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>For examples of job status requests and resulting data, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> and <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.LogOn" />
+              </term>
+              <description>Allows the user to log on to Project Server. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectJobStatus">
+      <MemberSignature Language="C#" Value="public WebSvcQueueSystem.QueueStatusDataSet ReadProjectJobStatus (Guid[] projectGUIDs, WebSvcQueueSystem.QueueMsgType[] messageTypes, WebSvcQueueSystem.JobState[] JobCompletionStates, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem.SortColumn sortColumn, WebSvcQueueSystem.SortOrder sortOrder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcQueueSystem.QueueStatusDataSet ReadProjectJobStatus(valuetype System.Guid[] projectGUIDs, valuetype WebSvcQueueSystem.QueueMsgType[] messageTypes, valuetype WebSvcQueueSystem.JobState[] JobCompletionStates, valuetype System.DateTime fromDate, valuetype System.DateTime toDate, int32 maxRows, bool includeWaitTime, valuetype WebSvcQueueSystem.SortColumn sortColumn, valuetype WebSvcQueueSystem.SortOrder sortOrder) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadProjectJobStatus(System.Guid[],WebSvcQueueSystem.QueueMsgType[],WebSvcQueueSystem.JobState[],System.DateTime,System.DateTime,System.Int32,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcQueueSystem::QueueStatusDataSet ^ ReadProjectJobStatus(cli::array &lt;Guid&gt; ^ projectGUIDs, cli::array &lt;WebSvcQueueSystem::QueueMsgType&gt; ^ messageTypes, cli::array &lt;WebSvcQueueSystem::JobState&gt; ^ JobCompletionStates, DateTime fromDate, DateTime toDate, int maxRows, bool includeWaitTime, WebSvcQueueSystem::SortColumn sortColumn, WebSvcQueueSystem::SortOrder sortOrder);" />
+      <MemberSignature Language="F#" Value="member this.ReadProjectJobStatus : Guid[] * WebSvcQueueSystem.QueueMsgType[] * WebSvcQueueSystem.JobState[] * DateTime * DateTime * int * bool * WebSvcQueueSystem.SortColumn * WebSvcQueueSystem.SortOrder -&gt; WebSvcQueueSystem.QueueStatusDataSet" Usage="queueSystem.ReadProjectJobStatus (projectGUIDs, messageTypes, JobCompletionStates, fromDate, toDate, maxRows, includeWaitTime, sortColumn, sortOrder)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadProjectJobStatus", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcQueueSystem.QueueStatusDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="projectGUIDs" Type="System.Guid[]" />
+        <Parameter Name="messageTypes" Type="WebSvcQueueSystem.QueueMsgType[]" />
+        <Parameter Name="JobCompletionStates" Type="WebSvcQueueSystem.JobState[]" />
+        <Parameter Name="fromDate" Type="System.DateTime" />
+        <Parameter Name="toDate" Type="System.DateTime" />
+        <Parameter Name="maxRows" Type="System.Int32" />
+        <Parameter Name="includeWaitTime" Type="System.Boolean" />
+        <Parameter Name="sortColumn" Type="WebSvcQueueSystem.SortColumn" />
+        <Parameter Name="sortOrder" Type="WebSvcQueueSystem.SortOrder" />
+      </Parameters>
+      <Docs>
+        <param name="projectGUIDs">Array of project GUIDs.</param>
+        <param name="messageTypes">Array of <see cref="T:WebSvcQueueSystem.QueueMsgType" /> enumeration values.</param>
+        <param name="JobCompletionStates">Array of <see cref="T:WebSvcQueueSystem.JobState" /> enumeration values.</param>
+        <param name="fromDate">Minimum date and time of queue jobs.</param>
+        <param name="toDate">Maximum date and time of queue jobs.</param>
+        <param name="maxRows">Maximum number of job status rows to return.</param>
+        <param name="includeWaitTime">If <b>true</b>, include the expected job wait time.</param>
+        <param name="sortColumn">Specifies which field to sort in the list of jobs. </param>
+        <param name="sortOrder">Specifies whether to sort and in what order.</param>
+        <summary>Gets the status of jobs for the specified projects, job types, and completion states from the Project Server Queuing Service.</summary>
+        <returns>Status of the requested jobs, with the <see cref="T:WebSvcQueueSystem.QueueStatusDataSet.StatusRow" /> data for each job.</returns>
+        <remarks>
+          <para>For examples of job status requests and resulting data, see <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatus(WebSvcQueueSystem.QueueStatusRequestDataSet,System.Boolean,WebSvcQueueSystem.SortColumn,WebSvcQueueSystem.SortOrder)" /> and <see cref="M:WebSvcQueueSystem.QueueSystem.ReadJobStatusSimple(System.Guid[],System.Boolean)" />.</para>
+          <para>Project Server Permissions</para>
+          <para>One of the following permissions is required.</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.CleanupProjectServerDatabase" />
+              </term>
+              <description>Allows the user to delete or move projects. Global permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.DeleteProject" />
+              </term>
+              <description>Allows the user to delete the specified projects. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.PublishProject" />
+              </term>
+              <description>Allows the user to publish the specified projects. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.SaveProject" />
+              </term>
+              <description>Allows the user to save the specified projects. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.BuildTeamOnProject" />
+              </term>
+              <description>Allows the user to assign resources from the resource pool to the specified project. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.ManageResourcePlan" />
+              </term>
+              <description>Allows the user to edit a resource plan. Category permission.</description>
+            </item>
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityCategoryPermission.EditProjectProperties" />
+              </term>
+              <description>Allows the user to edit the specified projects. Category permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadQueueConfiguration">
+      <MemberSignature Language="C#" Value="public string ReadQueueConfiguration (WebSvcQueueSystem.QueueID queueId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string ReadQueueConfiguration(valuetype WebSvcQueueSystem.QueueID queueId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.ReadQueueConfiguration(WebSvcQueueSystem.QueueID)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; System::String ^ ReadQueueConfiguration(WebSvcQueueSystem::QueueID queueId);" />
+      <MemberSignature Language="F#" Value="member this.ReadQueueConfiguration : WebSvcQueueSystem.QueueID -&gt; string" Usage="queueSystem.ReadQueueConfiguration queueId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/ReadQueueConfiguration", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+      </Parameters>
+      <Docs>
+        <param name="queueId">One of the <see cref="T:WebSvcQueueSystem.QueueID" /> enumeration values <b>ProjectQ</b> or <b>TimesheetQ</b>.</param>
+        <summary>Gets the configuration settings of the specified queue in Project Server.</summary>
+        <returns>Queue settings in XML format.</returns>
+        <remarks>
+          <para>You can create settings for the Project and Timesheet queues on the Queue Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queuesettings.aspx). </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <code>. . .
+QueueSystemWS.QueueID qType = QueueSystemWS.QueueID.ProjectQ;
+string qConfig = q.ReadQueueConfiguration(qType);</code>
+          <para>The example code fragment returns the following default results for the Project queue.</para>
+          <code>&amp;lt;?xml version="1.0" encoding="utf-8"?&amp;gt;
+&amp;lt;queueconfigurationsettings&amp;gt;
+  &amp;lt;setting name="MaxThreads" value="4" /&amp;gt;
+  &amp;lt;setting name="QueueTimeout" value="3" /&amp;gt;
+  &amp;lt;setting name="MsgRetryInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="MsgRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="GrpRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="SqlRetryInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="SqlRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="PollingInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="RestartThrottle" value="60000" /&amp;gt;
+  &amp;lt;setting name="EnablePerfMon" value="1" /&amp;gt;
+  &amp;lt;setting name="PeriodicTasksInterval" value="10000" /&amp;gt;
+  &amp;lt;setting name="CleanupSuccessAgeLimit" value="24" /&amp;gt;
+  &amp;lt;setting name="CleanupNonSuccessAgeLimit" value="168" /&amp;gt;
+  &amp;lt;setting name="CleanupInterval" value="24" /&amp;gt;
+  &amp;lt;setting name="CleanupIntervalOffset" value="0" /&amp;gt;
+  &amp;lt;setting name="SqlCommandTimeout" value="1800" /&amp;gt;
+  &amp;lt;setting name="FastPolling" value="1" /&amp;gt;
+&amp;lt;/queueconfigurationsettings&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="RetryCorrelation">
+      <MemberSignature Language="C#" Value="public void RetryCorrelation (Guid correlationGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RetryCorrelation(valuetype System.Guid correlationGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.RetryCorrelation(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub RetryCorrelation (correlationGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void RetryCorrelation(Guid correlationGUID);" />
+      <MemberSignature Language="F#" Value="member this.RetryCorrelation : Guid -&gt; unit" Usage="queueSystem.RetryCorrelation correlationGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/RetryCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="correlationGUID">GUID of the correlation.</param>
+        <summary>Sets a failed correlated job to be ready for reprocessing in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>Project Server allows <b>RetryCorrelation</b> only if the correlated job state is <b>Failed</b> or <b>CorrelationBlocked</b>. If the job state is any other value, <b>RetryCorrelation</b> generates a SOAP exception. </para>
+          <para>
+            <b>RetryCorrelation</b> sets the <b>Failed</b> state of the blocked job in the correlation to <b>ReadyForProcessing</b> and sets the state of all other blocked jobs in the correlation from <b>CorrelationBlocked</b> to <b>ReadyForProcessing</b>.</para>
+          <para>A Project Server administrator can use the Manage Queue Jobs page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queue.aspx) to view and retry blocked correlation jobs.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RetryJob">
+      <MemberSignature Language="C#" Value="public void RetryJob (Guid JobGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RetryJob(valuetype System.Guid JobGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.RetryJob(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub RetryJob (JobGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void RetryJob(Guid JobGUID);" />
+      <MemberSignature Language="F#" Value="member this.RetryJob : Guid -&gt; unit" Usage="queueSystem.RetryJob JobGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/RetryJob", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="JobGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="JobGUID">To be added.</param>
+        <summary>Reprocesses a failed job in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>Project Server allows <b>RetryJob</b> only if the job state is <b>Unknown</b>, <b>Failed</b>, <b>FailedNotBlocking</b>, or <b>Cancelled</b>. If the job state is any other value, <b>RetryJob</b> generates a SOAP exception. Using <b>RetryJob</b> on <b>CorrelationBlocked</b> jobs does not work because the retry needs to happen at the correlation level.</para>
+          <para>
+            <b>RetryJob</b> sets the job state to <b>ReadyForProcessing</b>. If the current job state is <b>Failed</b>, <b>RetryJob</b> also sets the state of all other jobs blocked by the failed job from <b>CorrelationBlocked</b> to <b>ReadyForProcessing</b>.</para>
+          <para>A Project Server administrator can use the Manage Queue Jobs page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queue.aspx) to view and retry failed jobs.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetQueueConfiguration">
+      <MemberSignature Language="C#" Value="public void SetQueueConfiguration (WebSvcQueueSystem.QueueID queueId, string name, string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetQueueConfiguration(valuetype WebSvcQueueSystem.QueueID queueId, string name, string value) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.SetQueueConfiguration(WebSvcQueueSystem.QueueID,System.String,System.String)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetQueueConfiguration(WebSvcQueueSystem::QueueID queueId, System::String ^ name, System::String ^ value);" />
+      <MemberSignature Language="F#" Value="member this.SetQueueConfiguration : WebSvcQueueSystem.QueueID * string * string -&gt; unit" Usage="queueSystem.SetQueueConfiguration (queueId, name, value)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/SetQueueConfiguration", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="queueId" Type="WebSvcQueueSystem.QueueID" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="queueId">One of the <see cref="T:WebSvcQueueSystem.QueueID" /> enumeration values <b>ProjectQ</b> or <b>TimesheetQ</b>.</param>
+        <param name="name">Name of the queue setting.</param>
+        <param name="value">Value of the queue setting.</param>
+        <summary>Makes a configuration setting for a specified queue in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>For minimum, maximum, and default values, see the Queue Settings page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queuesettings.aspx). </para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code example sets the Timesheet queue polling interval to 2 seconds. <b>SetQueueConfiguration</b> can set any one of the queue configuration settings that you can obtain with the <b>ReadQueueConfiguration</b> method.</para>
+          <code>. . .
+QueueSystemWS.QueueID qType = QueueSystemWS.QueueID.TimesheetQ;
+string qSettingName = "PollingInterval";
+string qSettingValue = "2000";
+string qConfig = q.SetQueueConfiguration(qType, qSettingName, qSettingValue);</code>
+          <para>Following are the default results of <see cref="M:WebSvcQueueSystem.QueueSystem.ReadQueueConfiguration(WebSvcQueueSystem.QueueID)" /> for the Timesheet queue.</para>
+          <code>&amp;lt;?xml version="1.0" encoding="utf-8"?&amp;gt;
+&amp;lt;queueconfigurationsettings&amp;gt;
+  &amp;lt;setting name="MaxThreads" value="4" /&amp;gt;
+  &amp;lt;setting name="QueueTimeout" value="3" /&amp;gt;
+  &amp;lt;setting name="MsgRetryInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="MsgRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="GrpRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="SqlRetryInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="SqlRetryLimit" value="5" /&amp;gt;
+  &amp;lt;setting name="PollingInterval" value="1000" /&amp;gt;
+  &amp;lt;setting name="RestartThrottle" value="60000" /&amp;gt;
+  &amp;lt;setting name="EnablePerfMon" value="1" /&amp;gt;
+  &amp;lt;setting name="PeriodicTasksInterval" value="10000" /&amp;gt;
+  &amp;lt;setting name="CleanupSuccessAgeLimit" value="24" /&amp;gt;
+  &amp;lt;setting name="CleanupNonSuccessAgeLimit" value="168" /&amp;gt;
+  &amp;lt;setting name="CleanupInterval" value="24" /&amp;gt;
+  &amp;lt;setting name="CleanupIntervalOffset" value="0" /&amp;gt;
+  &amp;lt;setting name="SqlCommandTimeout" value="1800" /&amp;gt;
+  &amp;lt;setting name="FastPolling" value="1" /&amp;gt;
+&amp;lt;/queueconfigurationsettings&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UnblockCorrelation">
+      <MemberSignature Language="C#" Value="public void UnblockCorrelation (Guid correlationGUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UnblockCorrelation(valuetype System.Guid correlationGUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcQueueSystem.QueueSystem.UnblockCorrelation(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UnblockCorrelation (correlationGUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UnblockCorrelation(Guid correlationGUID);" />
+      <MemberSignature Language="F#" Value="member this.UnblockCorrelation : Guid -&gt; unit" Usage="queueSystem.UnblockCorrelation correlationGUID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/UnblockCorrelation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/QueueSystem/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="correlationGUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="correlationGUID">GUID of the correlation.</param>
+        <summary>Unblocks a job correlation in the Project Server Queuing Service.</summary>
+        <remarks>
+          <para>If the job state is not <b>CorrelationBlocked</b>, <b>UnblockCorrelation</b> generates a SOAP exception.</para>
+          <para>
+            <b>UnblockCorrelation</b> sets the state of the blocked job to <b>FailedNotBlocking</b> and sets the other blocked jobs in the correlation from <b>CorrelationBlocked</b> to <b>ReadyForProcessing</b>.</para>
+          <para>
+            <b>Caution</b>: The Project Server Queuing Service blocks a correlation to prevent corruption of data. Arbitrarily unblocking a correlation can produce undesired results. Use <b>UnblockCorrelation</b> only if you are confident the remaining jobs behind the blocked job can proceed without harm.</para>
+          <para>A Project Server administrator can use the Manage Queue Jobs page in Project Web App (http://ServerName/ProjectServerName/_layouts/pwa/Admin/queue.aspx) to view and unblock correlated jobs.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageQueue" />
+              </term>
+              <description>Allows the user to manage the Project Server queue. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

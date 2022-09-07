@@ -1,0 +1,83 @@
+﻿<Type Name="CompareProjectPropertyResult" FullName="Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult">
+  <TypeSignature Language="C#" Value="public struct CompareProjectPropertyResult" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi serializable sealed beforefieldinit CompareProjectPropertyResult extends System.ValueType" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult" />
+  <TypeSignature Language="VB.NET" Value="Public Structure CompareProjectPropertyResult" />
+  <TypeSignature Language="C++ CLI" Value="public value class CompareProjectPropertyResult" />
+  <TypeSignature Language="F#" Value="type CompareProjectPropertyResult = struct" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Provides storage for the results of a comparison of two properties.</summary>
+    <remarks>
+      <para>Following is an example of the use of <b>CompareProjectPropertyResult</b>. The example verifies that the project name property value is the same as a specified text property value. The compare operator tests for equality.</para>
+      <para />
+    </remarks>
+    <example>
+      <para />
+      <code>CompareProjectPropertyResult result = new CompareProjectPropertyResult();
+ProjectDataSet projDSet;
+ProjectDataSet.ProjectRow PRow = projDSet.Project[0];
+
+if (!PRow.IsPROJ_NAMENull())
+{
+      result.CompareResult = ProjectPropertyComparator.Compare(PRow.PROJ_NAME, textPropertyValue, compareOperator);
+   result.ValueNotSet = false;
+}
+</code>
+    </example>
+  </Docs>
+  <Members>
+    <Member MemberName="CompareResult">
+      <MemberSignature Language="C#" Value="public bool CompareResult;" />
+      <MemberSignature Language="ILAsm" Value=".field public bool CompareResult" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult.CompareResult" />
+      <MemberSignature Language="VB.NET" Value="Public CompareResult As Boolean " />
+      <MemberSignature Language="C++ CLI" Value="public: bool CompareResult;" />
+      <MemberSignature Language="F#" Value="val mutable CompareResult : bool" Usage="Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult.CompareResult" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A Boolean value that indicates whether two specified properties are equal.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ValueNotSet">
+      <MemberSignature Language="C#" Value="public bool ValueNotSet;" />
+      <MemberSignature Language="ILAsm" Value=".field public bool ValueNotSet" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult.ValueNotSet" />
+      <MemberSignature Language="VB.NET" Value="Public ValueNotSet As Boolean " />
+      <MemberSignature Language="C++ CLI" Value="public: bool ValueNotSet;" />
+      <MemberSignature Language="F#" Value="val mutable ValueNotSet : bool" Usage="Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult.ValueNotSet" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A Boolean value that indicates whether a specified property is null.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

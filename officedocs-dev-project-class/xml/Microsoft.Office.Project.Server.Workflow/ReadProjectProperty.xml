@@ -1,0 +1,418 @@
+﻿<Type Name="ReadProjectProperty" FullName="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty">
+  <TypeSignature Language="C#" Value="public sealed class ReadProjectProperty : System.Workflow.ComponentModel.Activity, System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit ReadProjectProperty extends System.Workflow.ComponentModel.Activity implements class System.Workflow.ComponentModel.IActivityEventListener`1&lt;class System.Workflow.ComponentModel.QueueEventArgs&gt;" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty" />
+  <TypeSignature Language="VB.NET" Value="Public NotInheritable Class ReadProjectProperty&#xA;Inherits Activity&#xA;Implements IActivityEventListener(Of QueueEventArgs)" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ReadProjectProperty sealed : System::Workflow::ComponentModel::Activity, System::Workflow::ComponentModel::IActivityEventListener&lt;System::Workflow::ComponentModel::QueueEventArgs ^&gt;" />
+  <TypeSignature Language="F#" Value="type ReadProjectProperty = class&#xA;    inherit Activity&#xA;    interface IActivityEventListener&lt;QueueEventArgs&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Workflow.ComponentModel.Activity</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.ComponentModel.Designer(typeof(System.Workflow.ComponentModel.Design.ActivityDesigner), typeof(System.ComponentModel.Design.IDesigner))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.ComponentModel.DesignerCategory("code")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.ComponentModel.ToolboxItem(typeof(System.Workflow.ComponentModel.Design.ActivityToolboxItem))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Drawing.ToolboxBitmap(typeof(Microsoft.Office.Project.Server.Workflow.ReadProjectProperty), "Resources.ReadProjectProperty.bmp")</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Workflow.ComponentModel.Compiler.ActivityValidator(typeof(Microsoft.Office.Project.Server.Workflow.ReadProjectPropertyValidator))</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.Workflow.ComponentModel.PersistOnClose</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>The workflow activity that reads the specified property of a project. The property can be an intrinsic property, such as the start date, or a project custom field.</summary>
+    <remarks>
+      <para>The <b>ReadProjectProperty</b> activity sets the <b>PropertyValues</b> property, which is a <b>string</b> array of the localized property values. If the <b>MdPropUid</b> property GUID is specified, the <b>PropertyName</b> value is ignored.</para>
+      <para>The Workflow Designer pane and the Properties pane in Microsoft Visual Studio 2010 enable you to get and set properties in fields for the <b>ReadProjectProperty</b> activity.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ReadProjectProperty ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ReadProjectProperty();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates a new instance of the <b>ReadProjectProperty</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Cancel">
+      <MemberSignature Language="C#" Value="protected override System.Workflow.ComponentModel.ActivityExecutionStatus Cancel (System.Workflow.ComponentModel.ActivityExecutionContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Workflow.ComponentModel.ActivityExecutionStatus Cancel(class System.Workflow.ComponentModel.ActivityExecutionContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.Cancel(System.Workflow.ComponentModel.ActivityExecutionContext)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function Cancel (context As ActivityExecutionContext) As ActivityExecutionStatus" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override System::Workflow::ComponentModel::ActivityExecutionStatus Cancel(System::Workflow::ComponentModel::ActivityExecutionContext ^ context);" />
+      <MemberSignature Language="F#" Value="override this.Cancel : System.Workflow.ComponentModel.ActivityExecutionContext -&gt; System.Workflow.ComponentModel.ActivityExecutionStatus" Usage="readProjectProperty.Cancel context" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.ActivityExecutionStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Cancels the <b>ReadProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Execute">
+      <MemberSignature Language="C#" Value="protected override System.Workflow.ComponentModel.ActivityExecutionStatus Execute (System.Workflow.ComponentModel.ActivityExecutionContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Workflow.ComponentModel.ActivityExecutionStatus Execute(class System.Workflow.ComponentModel.ActivityExecutionContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.Execute(System.Workflow.ComponentModel.ActivityExecutionContext)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function Execute (context As ActivityExecutionContext) As ActivityExecutionStatus" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override System::Workflow::ComponentModel::ActivityExecutionStatus Execute(System::Workflow::ComponentModel::ActivityExecutionContext ^ context);" />
+      <MemberSignature Language="F#" Value="override this.Execute : System.Workflow.ComponentModel.ActivityExecutionContext -&gt; System.Workflow.ComponentModel.ActivityExecutionStatus" Usage="readProjectProperty.Execute context" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.ActivityExecutionStatus</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="context" Type="System.Workflow.ComponentModel.ActivityExecutionContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">The execution environment of a Project Server workflow activity.</param>
+        <summary>Runs the <b>ReadProjectProperty</b> workflow activity.</summary>
+        <returns>An enumerated value that corresponds to the status of an activity within a running workflow instance.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MdPropUid">
+      <MemberSignature Language="C#" Value="public Guid MdPropUid { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid MdPropUid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUid" />
+      <MemberSignature Language="VB.NET" Value="Public Property MdPropUid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid MdPropUid { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.MdPropUid : Guid with get, set" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the project property.</summary>
+        <value>The GUID of the project property.</value>
+        <remarks>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the GUID property for comparison. If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MdPropUidProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty MdPropUidProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty MdPropUidProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUidProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared MdPropUidProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ MdPropUidProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable MdPropUidProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUidProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>MdPropUid</b> property, which is the GUID of the project property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.MdPropUid" /> property can be the GUID of an intrinsic project property, such as the start date, or the GUID of a project custom field.</para>
+          <para>In the Properties pane of a workflow activity, the <b>MdPropUid</b> property can be the name of the workflow and the path name of the property for comparison.</para>
+          <para>If <b>MdPropUid</b> is a non-null and non-empty value, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyName">
+      <MemberSignature Language="C#" Value="public string PropertyName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PropertyName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyName" />
+      <MemberSignature Language="VB.NET" Value="Public Property PropertyName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ PropertyName { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.PropertyName : string with get, set" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.TypeConverter(typeof(Microsoft.Office.Project.Server.Workflow.ReadProjectPropertyDropDown))</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the project property.</summary>
+        <value>The project property name.</value>
+        <remarks>
+          <para>If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyNameProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty PropertyNameProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty PropertyNameProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyNameProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared PropertyNameProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ PropertyNameProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable PropertyNameProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyNameProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>PropertyName</b> property, which is the name of the project property.</summary>
+        <remarks>
+          <para>The <see cref="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyName" /> specifies the name of the project property. The property can be one of the following properties in the drop-down list in the Properties pane:</para>
+          <list type="bullet">
+            <item>
+              <description>
+                <b>PROJ_NAME</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>CREATED_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_TYPE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>WPROJ_LAST_PUB</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_START_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>
+                <b>PROJ_INFO_FINISH_DATE</b>
+              </description>
+            </item>
+            <item>
+              <description>ProjectOwnerID</description>
+            </item>
+            <item>
+              <description>% Complete</description>
+            </item>
+            <item>
+              <description>Optimizer Decision</description>
+            </item>
+            <item>
+              <description>Planner Decision</description>
+            </item>
+            <item>
+              <description>Approved Start Date</description>
+            </item>
+            <item>
+              <description>Approved End Date</description>
+            </item>
+          </list>
+          <para>In the Properties pane of a workflow activity, the <b>PropertyName</b> property can also be the name of the workflow and the path name of the property for comparison. If a non-null and non-empty <b>MdPropUid</b> value is specified, <b>PropertyName</b> is ignored.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyValues">
+      <MemberSignature Language="C#" Value="public string[] PropertyValues { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string[] PropertyValues" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyValues" />
+      <MemberSignature Language="VB.NET" Value="Public Property PropertyValues As String()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property cli::array &lt;System::String ^&gt; ^ PropertyValues { cli::array &lt;System::String ^&gt; ^ get(); void set(cli::array &lt;System::String ^&gt; ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.PropertyValues : string[] with get, set" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyValues" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets property values, in a localized string array.</summary>
+        <value>A string array of property values.</value>
+        <remarks>
+          <para>The <b>ReadProjectProperty</b> activity sets the result in the <b>PropertyValues</b> property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PropertyValuesProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty PropertyValuesProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty PropertyValuesProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyValuesProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared PropertyValuesProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ PropertyValuesProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable PropertyValuesProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.PropertyValuesProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>PropertyValues</b> property, which is a localized string array of the values of the specified property.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent">
+      <MemberSignature Language="C#" Value="void IActivityEventListener&lt;QueueEventArgs&gt;.OnEvent (object sender, System.Workflow.ComponentModel.QueueEventArgs qea);" />
+      <MemberSignature Language="ILAsm" Value=".method hidebysig newslot virtual instance void System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent(object sender, class System.Workflow.ComponentModel.QueueEventArgs qea) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.System#Workflow#ComponentModel#IActivityEventListener&lt;System#Workflow#ComponentModel#QueueEventArgs&gt;#OnEvent(System.Object,System.Workflow.ComponentModel.QueueEventArgs)" />
+      <MemberSignature Language="VB.NET" Value="Sub OnEvent (sender As Object, qea As QueueEventArgs) Implements IActivityEventListener(Of QueueEventArgs).OnEvent" />
+      <MemberSignature Language="C++ CLI" Value=" virtual void System.Workflow.ComponentModel.IActivityEventListener&lt;System.Workflow.ComponentModel.QueueEventArgs&gt;.OnEvent(System::Object ^ sender, System::Workflow::ComponentModel::QueueEventArgs ^ qea) = System::Workflow::ComponentModel::IActivityEventListener&lt;System::Workflow::ComponentModel::QueueEventArgs ^&gt;::OnEvent;" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:System.Workflow.ComponentModel.IActivityEventListener`1.OnEvent(System.Object,`0)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="qea" Type="System.Workflow.ComponentModel.QueueEventArgs" />
+      </Parameters>
+      <Docs>
+        <param name="sender">To be added.</param>
+        <param name="qea">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowContext">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.ProjectWorkflowContext WorkflowContext { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext WorkflowContext" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.WorkflowContext" />
+      <MemberSignature Language="VB.NET" Value="Public Property WorkflowContext As ProjectWorkflowContext" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ WorkflowContext { Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ get(); void set(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.WorkflowContext : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext with get, set" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.WorkflowContext" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.Browsable(true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.DesignerSerializationVisibility</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.ProjectWorkflowContext</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the context of the <b>ReadProjectProperty</b> activity in the parent workflow activity.</summary>
+        <value>An object that contains the information that is related to the current instance of the workflow.</value>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property in the parent activity. For example, if a <b>ReadProjectProperty</b> activity occurs within a <b>ProjectSequence</b> activity named <b>projectSequence1</b>, the Properties pane shows the <b>WorkflowContext</b> value as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowContextProperty">
+      <MemberSignature Language="C#" Value="public static System.Workflow.ComponentModel.DependencyProperty WorkflowContextProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static class System.Workflow.ComponentModel.DependencyProperty WorkflowContextProperty" />
+      <MemberSignature Language="DocId" Value="F:Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.WorkflowContextProperty" />
+      <MemberSignature Language="VB.NET" Value="Public Shared WorkflowContextProperty As DependencyProperty " />
+      <MemberSignature Language="C++ CLI" Value="public: static System::Workflow::ComponentModel::DependencyProperty ^ WorkflowContextProperty;" />
+      <MemberSignature Language="F#" Value=" staticval mutable WorkflowContextProperty : System.Workflow.ComponentModel.DependencyProperty" Usage="Microsoft.Office.Project.Server.Workflow.ReadProjectProperty.WorkflowContextProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Workflow.ComponentModel.DependencyProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Contains the <b>WorkflowContext</b> property, which is the context of the <b>ReadProjectProperty</b> activity in the parent <b>ProjectSequence</b> activity.</summary>
+        <remarks>
+          <para>The <b>WorkflowContext</b> property includes the name of the parent <b>ProjectSequence</b> activity instance and the path name of the <b>WorkflowContext</b> property. For example, the Properties pane can show the <b>WorkflowContext</b> value of a <b>ReadProjectProperty</b> activity as Activity=projectSequence1, Path=WorkflowContext.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

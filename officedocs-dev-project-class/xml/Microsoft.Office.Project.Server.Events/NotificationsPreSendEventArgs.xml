@@ -1,0 +1,120 @@
+﻿<Type Name="NotificationsPreSendEventArgs" FullName="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs">
+  <TypeSignature Language="C#" Value="public class NotificationsPreSendEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit NotificationsPreSendEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class NotificationsPreSendEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class NotificationsPreSendEventArgs : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type NotificationsPreSendEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.NotificationsEventReceiver.OnSending(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs)" /> method for notifications events.</summary>
+    <remarks>
+      <para>Event arguments for an <b>OnSending</b> pre-event handler expose the subject line and body of the notification. For more information, see  <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected NotificationsPreSendEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; NotificationsPreSendEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NotificationsPreSendEventArgs (string xmlBody, string subjLine);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string xmlBody, string subjLine) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.#ctor(System.String,System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (xmlBody As String, subjLine As String)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; NotificationsPreSendEventArgs(System::String ^ xmlBody, System::String ^ subjLine);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs : string * string -&gt; Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs" Usage="new Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs (xmlBody, subjLine)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="xmlBody" Type="System.String" />
+        <Parameter Name="subjLine" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="xmlBody">Notification data for an <b>OnSending</b> event handler.</param>
+        <param name="subjLine">The subject for an <b>OnSending</b> event handler.</param>
+        <summary>Creates an instance of the <b>NotificationsPreSendEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubjectLine">
+      <MemberSignature Language="C#" Value="public string SubjectLine { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string SubjectLine" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property SubjectLine As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ SubjectLine { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.SubjectLine : string" Usage="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.SubjectLine" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the subject for an <b>OnSending</b> event handler.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>You can use data in the <b>SubjectLine</b> property and the <b>xmlBody</b> property to help design an <b>OnSending</b> event handler. If you create a notifications pre-event handler that does nothing, you can install the event handler, set a breakpoint, and then debug the event handler to examine <b>e.SubjectLine</b> and <b>e.xmlBody</b>.</para>
+          <para>For more information, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="xmlBody">
+      <MemberSignature Language="C#" Value="public string xmlBody { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string xmlBody" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property xmlBody As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ xmlBody { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.xmlBody : string" Usage="Microsoft.Office.Project.Server.Events.NotificationsPreSendEventArgs.xmlBody" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets notification data for an <b>OnSending</b> event handler.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>You can use data in the <b>SubjectLine</b> property and the <b>xmlBody</b> property to help design an <b>OnSending</b> event handler. If you create a notifications pre-event handler that does nothing, you can install the event handler, set a breakpoint, and then debug the event handler to examine <b>e.SubjectLine</b> and <b>e.xmlBody</b>.</para>
+          <para>For more information, see <a href="http://msdn.microsoft.com/en-us/library/bb968451.aspx">How to: Customize E-Mail for Project Server Notifications</a></para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

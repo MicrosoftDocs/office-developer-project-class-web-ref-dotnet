@@ -1,0 +1,132 @@
+﻿<Type Name="StatusDeleteTaskPreEventArgs" FullName="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs">
+  <TypeSignature Language="C#" Value="public class StatusDeleteTaskPreEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit StatusDeleteTaskPreEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class StatusDeleteTaskPreEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class StatusDeleteTaskPreEventArgs : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type StatusDeleteTaskPreEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnAssignmentDeleting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected StatusDeleteTaskPreEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; StatusDeleteTaskPreEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public StatusDeleteTaskPreEventArgs (Guid projectguid, Guid assnguid, bool isrejected);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid projectguid, valuetype System.Guid assnguid, bool isrejected) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.#ctor(System.Guid,System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (projectguid As Guid, assnguid As Guid, isrejected As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; StatusDeleteTaskPreEventArgs(Guid projectguid, Guid assnguid, bool isrejected);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs : Guid * Guid * bool -&gt; Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs" Usage="new Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs (projectguid, assnguid, isrejected)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="projectguid" Type="System.Guid" />
+        <Parameter Name="assnguid" Type="System.Guid" />
+        <Parameter Name="isrejected" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="projectguid">The GUID of the project.</param>
+        <param name="assnguid">The GUID of the assignment of a resource to a task.</param>
+        <param name="isrejected">A Boolean value that indicates whether approval of a task is to be rejected.</param>
+        <summary>Creates an instance of the <b>StatusDeleteTaskPreEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AssnGuid">
+      <MemberSignature Language="C#" Value="public Guid AssnGuid { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid AssnGuid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.AssnGuid" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AssnGuid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid AssnGuid { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.AssnGuid : Guid" Usage="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.AssnGuid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the assignment of a resource to a task.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsRejected">
+      <MemberSignature Language="C#" Value="public bool IsRejected { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsRejected" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.IsRejected" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property IsRejected As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool IsRejected { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.IsRejected : bool" Usage="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.IsRejected" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a Boolean value that indicates whether approval of a task is to be rejected.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProjectGuid">
+      <MemberSignature Language="C#" Value="public Guid ProjectGuid { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ProjectGuid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.ProjectGuid" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProjectGuid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ProjectGuid { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.ProjectGuid : Guid" Usage="Microsoft.Office.Project.Server.Events.StatusDeleteTaskPreEventArgs.ProjectGuid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the project.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

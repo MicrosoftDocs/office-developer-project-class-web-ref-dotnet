@@ -1,0 +1,157 @@
+﻿<Type Name="AdSyncGroupSynchronizedEventArgs" FullName="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs">
+  <TypeSignature Language="C#" Value="public class AdSyncGroupSynchronizedEventArgs : Microsoft.Office.Project.Server.Events.ResUIDToDistinguishedNamePostEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit AdSyncGroupSynchronizedEventArgs extends Microsoft.Office.Project.Server.Events.ResUIDToDistinguishedNamePostEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class AdSyncGroupSynchronizedEventArgs&#xA;Inherits ResUIDToDistinguishedNamePostEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class AdSyncGroupSynchronizedEventArgs : Microsoft::Office::Project::Server::Events::ResUIDToDistinguishedNamePostEventArgs" />
+  <TypeSignature Language="F#" Value="type AdSyncGroupSynchronizedEventArgs = class&#xA;    inherit ResUIDToDistinguishedNamePostEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.ResUIDToDistinguishedNamePostEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.AdminEventReceiver.OnAdSyncGroupSynchronized(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AdSyncGroupSynchronizedEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; AdSyncGroupSynchronizedEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AdSyncGroupSynchronizedEventArgs (Guid PWAGroupGuid, string PWAGroupName, Guid ADGroupGuid, string ADGroupName, System.Collections.Generic.Dictionary&lt;Guid,string&gt; ResUIDToDistinguishedNameLookup);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid PWAGroupGuid, string PWAGroupName, valuetype System.Guid ADGroupGuid, string ADGroupName, class System.Collections.Generic.Dictionary`2&lt;valuetype System.Guid, string&gt; ResUIDToDistinguishedNameLookup) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.#ctor(System.Guid,System.String,System.Guid,System.String,System.Collections.Generic.Dictionary{System.Guid,System.String})" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (PWAGroupGuid As Guid, PWAGroupName As String, ADGroupGuid As Guid, ADGroupName As String, ResUIDToDistinguishedNameLookup As Dictionary(Of Guid, String))" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; AdSyncGroupSynchronizedEventArgs(Guid PWAGroupGuid, System::String ^ PWAGroupName, Guid ADGroupGuid, System::String ^ ADGroupName, System::Collections::Generic::Dictionary&lt;Guid, System::String ^&gt; ^ ResUIDToDistinguishedNameLookup);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs : Guid * string * Guid * string * System.Collections.Generic.Dictionary&lt;Guid, string&gt; -&gt; Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs" Usage="new Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs (PWAGroupGuid, PWAGroupName, ADGroupGuid, ADGroupName, ResUIDToDistinguishedNameLookup)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="PWAGroupGuid" Type="System.Guid" />
+        <Parameter Name="PWAGroupName" Type="System.String" />
+        <Parameter Name="ADGroupGuid" Type="System.Guid" />
+        <Parameter Name="ADGroupName" Type="System.String" />
+        <Parameter Name="ResUIDToDistinguishedNameLookup" Type="System.Collections.Generic.Dictionary&lt;System.Guid,System.String&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="PWAGroupGuid">The GUID for the security group that is synchronized with the Active Directory directory service.</param>
+        <param name="PWAGroupName">The name of the security group that is synchronized with Active Directory.</param>
+        <param name="ADGroupGuid">The GUID of an Active Directory group.</param>
+        <param name="ADGroupName">The name of an Active Directory group.</param>
+        <param name="ResUIDToDistinguishedNameLookup">A <b>Dictionary</b> object that contains a resource GUID and a distinguished name.</param>
+        <summary>Creates an instance of the <b>AdSyncGroupSynchronizedEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ADGroupGuid">
+      <MemberSignature Language="C#" Value="public Guid ADGroupGuid { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ADGroupGuid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.ADGroupGuid" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ADGroupGuid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ADGroupGuid { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.ADGroupGuid : Guid" Usage="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.ADGroupGuid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of an Active Directory group.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ADGroupName">
+      <MemberSignature Language="C#" Value="public string ADGroupName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ADGroupName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.ADGroupName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ADGroupName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ ADGroupName { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ADGroupName : string" Usage="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.ADGroupName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the name of an Active Directory group.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PWAGroupGuid">
+      <MemberSignature Language="C#" Value="public Guid PWAGroupGuid { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid PWAGroupGuid" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.PWAGroupGuid" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property PWAGroupGuid As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid PWAGroupGuid { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.PWAGroupGuid : Guid" Usage="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.PWAGroupGuid" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID for the security group that is synchronized with Active Directory.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PWAGroupName">
+      <MemberSignature Language="C#" Value="public string PWAGroupName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PWAGroupName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.PWAGroupName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property PWAGroupName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ PWAGroupName { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.PWAGroupName : string" Usage="Microsoft.Office.Project.Server.Events.AdSyncGroupSynchronizedEventArgs.PWAGroupName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the name of the security group that is synchronized with Active Directory.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

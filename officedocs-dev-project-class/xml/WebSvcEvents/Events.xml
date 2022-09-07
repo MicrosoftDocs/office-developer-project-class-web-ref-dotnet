@@ -1,0 +1,1669 @@
+﻿<Type Name="Events" FullName="WebSvcEvents.Events">
+  <TypeSignature Language="C#" Value="public class Events : System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Events extends System.Web.Services.Protocols.SoapHttpClientProtocol" />
+  <TypeSignature Language="DocId" Value="T:WebSvcEvents.Events" />
+  <TypeSignature Language="VB.NET" Value="Public Class Events&#xA;Inherits SoapHttpClientProtocol" />
+  <TypeSignature Language="C++ CLI" Value="public ref class Events : System::Web::Services::Protocols::SoapHttpClientProtocol" />
+  <TypeSignature Language="F#" Value="type Events = class&#xA;    inherit SoapHttpClientProtocol" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Web.Services.Protocols.SoapHttpClientProtocol</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Web.Services.WebServiceBinding(Name="EventsSoap", Namespace="http://schemas.microsoft.com/office/project/server/webservices/Events/")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Includes methods for managing Project Server event handler associations. Read the list of Project Server events, event handler associations for a specific event, or all event handler associations. Create, update, and delete event handler associations.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Events ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; Events();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Creates an <b>Events</b> object from the ASMX-based <b>Events</b> web service.</summary>
+        <remarks>
+          <para>To create an object that is equivalent to <b>Events</b> by using the Windows Communication Foundation (WCF) API, use one of the <b>EventsClient</b> constructors.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>In the following statement, <b>EventsWebSvc</b> is an arbitrary namespace for the ASMX-based <b>Events</b> web service.</para>
+          <code>private static EventsWebSvc.Events events = new EventsWebSvc.Events();</code>
+          <para>In the following statement, <b>SvcEvents</b> is an arbitrary namespace for the WCF-based <b>Events</b> service. The <paramref name="endpt" /> parameter is a <b>String</b> value that specifies the name of the client endpoint address in the app.config file (or in the web.config file for web applications).</para>
+          <code>private static SvcEvents.EventsClient eventsClient = new SvcEvents.EventsClient(endpt);</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateEventHandlerAssociations">
+      <MemberSignature Language="C#" Value="public void CreateEventHandlerAssociations (WebSvcEvents.EventHandlersDataSet eventHandlers);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void CreateEventHandlerAssociations(class WebSvcEvents.EventHandlersDataSet eventHandlers) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.CreateEventHandlerAssociations(WebSvcEvents.EventHandlersDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CreateEventHandlerAssociations (eventHandlers As EventHandlersDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void CreateEventHandlerAssociations(WebSvcEvents::EventHandlersDataSet ^ eventHandlers);" />
+      <MemberSignature Language="F#" Value="member this.CreateEventHandlerAssociations : WebSvcEvents.EventHandlersDataSet -&gt; unit" Usage="events.CreateEventHandlerAssociations eventHandlers" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/CreateEventHandlerAssociations", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventHandlers" Type="WebSvcEvents.EventHandlersDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="eventHandlers">DataSet with list of events and event handlers to associate.</param>
+        <summary>Associates Project Server events with event handlers.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows use of the <b>CreateEventHandlerAssociations</b> method. At the start of execution, an event handler dataset is created. Using <b>CreateEventHandlerAssociations</b>, the application establishes associations between the newly created event handler dataset and the CustomFieldsCreated event. The application writes the original event handler dataset and the modified event handler dataset to two separate XML files and then writes a list of all the Project Server events to a third XML file.</para>
+          <para>The example uses the <b>SvcEvent</b> namespace in the ProjectServerServices.dll proxy assembly.</para>
+          <para>
+            <b>Note</b>: In some cases, it could take as long as 60 seconds for the event handler association process to complete. A sleep interval must be set so that there is enough time for this process to finish. Otherwise, a dataset indexing error might terminate the application. If the application does run without completing a previous step, the outcome will not be reliable. In this example, the time allowed for creating the event handler is 45 seconds and the time allowed for accessing the event handler is 5 seconds. In a specific environment, experimentation is needed to determine the amount of time that is required for these operations to complete.The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Threading;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml;
+using Microsoft.SharePoint;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using Microsoft.Office.Project.Server.Events;
+
+namespace ManageEventHandler
+{
+    class Program
+    {
+        private static SvcEvents.EventsClient eventsClient;
+        private const string ENDPOINT_EVENTS = "basicHttp_Events";
+
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private static string outFileCreatedEH;
+        private static string outFileUpdatedEH;
+        private static string outFileAllEvents;
+
+        private static int dbWriteInterval = 35000;
+        private static int dbReadInterval = 5000;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\nStart Time: {0}", DateTime.Now.ToString());
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            // Set path and file name for output files and configure web service client endpoints.
+            outFileCreatedEH = OUTPUT_FILES + "MEH_CreatedHandler.xml";
+            outFileUpdatedEH = OUTPUT_FILES + "MEH_CreatedHandlerUpdated.xml";
+            outFileAllEvents = OUTPUT_FILES + "MEH_AllEvents.xml";
+
+            ConfigClientEndpoints();
+
+            try
+            {
+                // Create an instance of an event handler dataset with one row.
+                SvcEvents.EventHandlersDataSet eventHandlerDS = new SvcEvents.EventHandlersDataSet();
+                SvcEvents.EventHandlersDataSet.EventHandlersRow ehRow = eventHandlerDS.EventHandlers.NewEventHandlersRow();
+
+                // Add CustomFieldsCreated event handler registration information to the row.
+                Guid uid = Guid.NewGuid();
+                ehRow.EventHandlerUid = uid;
+                ehRow.Name = "Custom Fields Created Event Handler";
+                ehRow.AssemblyName =
+                    "TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c";
+                ehRow.ClassName =
+                    "Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent";
+                ehRow.EventId = (int)SvcEvents.PSEventID.CustomFieldsCreated;
+                ehRow.Description = "Test the OnCreated event handler for custom fields.";
+                ehRow.Order = 1;
+                eventHandlerDS.EventHandlers.AddEventHandlersRow(ehRow.EventHandlerUid, ehRow.Name,
+                    ehRow.AssemblyName, ehRow.ClassName, ehRow.EventId, ehRow.Description, ehRow.Order);
+
+                // Associate the event handler with the CustomFieldCreated event.
+                eventsClient.CreateEventHandlerAssociations(eventHandlerDS);
+                DisplayComment("\nCreating and storing a CustomFieldCreated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+                // Retrieve the new event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet initEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the new event handler from the database...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                initEvDS.WriteXml(outFileCreatedEH);
+
+                string currDesc = "\nDescription field of the retrieved event handler: \n  " + initEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+
+                // Modify the event handler description field and update the dataset.
+                initEvDS.EventHandlers[0].Description = "This is the modified event handler description.";
+
+                eventsClient.UpdateEventHandlerAssociations(initEvDS);
+                DisplayComment("\nModifying the description field and updating the event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+
+                // Retrieve the event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet updEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the updated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                currDesc = "\nDescription field of the updated event handler: \n  " + updEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+                updEvDS.WriteXml(outFileUpdatedEH);
+
+                // Compare the original and the modified description fields to verify that the dataset was updated.
+                int same = eventHandlerDS.EventHandlers[0].Description.CompareTo(updEvDS.EventHandlers[0].Description);
+
+                if (same == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nThe description field was not modified during the alloted time.");
+                    Console.ResetColor();
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(
+                        "\n\nThe CustomFieldCreated event handler description has been modified \n  from '{0}' \n  to '{1}'",
+                        eventHandlerDS.EventHandlers[0].Description, updEvDS.EventHandlers[0].Description, ".");
+                    Console.ResetColor();
+                }
+
+                // Read the list of all events and write them to an output file.
+                SvcEvents.EventsDataSet AllEventsDS = new SvcEvents.EventsDataSet();
+                AllEventsDS = eventsClient.ReadEventsList();
+                AllEventsDS.WriteXml(outFileAllEvents);
+            }
+
+            catch (FaultException fault)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+            }
+            finally
+            {
+                DisplayTime(timer);
+                Console.ResetColor();
+                Console.Write("\nPress any key to exit... ");
+                Console.ReadKey(true);
+            }
+        }
+
+
+        // Use the endpoint that is defined in app.config to configure the client.
+        public static void ConfigClientEndpoints()
+        {
+            eventsClient = new SvcEvents.EventsClient(ENDPOINT_EVENTS);
+        }
+
+        public static void DisplayTime(Stopwatch timer)
+        {
+
+            // Pause the timer and display the current accumulated time in seconds.
+            timer.Stop();
+            TimeSpan ts = timer.Elapsed;
+            string elapsedTime = String.Format("\n\tElapsed time: {0:F4} seconds ({1:F2} minutes) ",
+                ts.TotalSeconds, ts.TotalMinutes);
+            Console.WriteLine(elapsedTime);
+            timer.Start();
+        }
+
+        public static void DisplayComment(string comment, string color)
+        {
+            switch (color)
+            {
+                case "White": Console.ForegroundColor = ConsoleColor.White; break;
+                case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+                case "Yellow": Console.ForegroundColor = ConsoleColor.Yellow; break;
+                case "Cyan": Console.ForegroundColor = ConsoleColor.Cyan; break;
+                default: Console.ForegroundColor = ConsoleColor.White; break;
+            }
+
+            Console.WriteLine("\n\n" + comment);
+            Console.ResetColor();
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: \n" + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.WriteLine(errMess);
+        }
+
+        // Helper methods: GetPSClientError.
+        class Helpers
+        {
+            // Helper method: GetPSClientError.
+            /// &amp;lt;summary&amp;gt;
+            /// Extract a PSClientError object from the ServiceModel.FaultException,
+            /// for use in output of the GetPSClientError stack of errors.
+            /// &amp;lt;/summary&amp;gt;
+            /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+            /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+            /// about the errors than PSClientError has. FaultException can also contain 
+            /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+            /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+            public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                                   out string errOut)
+            {
+                const string PREFIX = "GetPSClientError() returns null: ";
+                errOut = string.Empty;
+                PSLibrary.PSClientError psClientError = null;
+
+                if (e == null)
+                {
+                    errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                    psClientError = null;
+                }
+                else
+                {
+                    // Get a ServiceModel.MessageFault object.
+                    var messageFault = e.CreateMessageFault();
+
+                    if (messageFault.HasDetail)
+                    {
+                        using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                        {
+                            var xml = new XmlDocument();
+                            xml.Load(xmlReader);
+
+                            var serverExecutionFault = xml["ServerExecutionFault"];
+                            if (serverExecutionFault != null)
+                            {
+                                var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                                if (exceptionDetails != null)
+                                {
+                                    try
+                                    {
+                                        errOut = exceptionDetails.InnerXml + "\r\n";
+                                        psClientError =
+                                            new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                    }
+                                    catch (InvalidOperationException ex)
+                                    {
+                                        errOut = PREFIX + "Unable to convert fault exception info ";
+                                        errOut += "a valid Project Server error message. Message: \n\t";
+                                        errOut += ex.Message;
+                                        psClientError = null;
+                                    }
+                                }
+                                else
+                                {
+                                    errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                        + "but does not have ExceptionDetails.";
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                            }
+                        }
+                    }
+                    else // There is no detail in the MessageFault.
+                    {
+                        errOut = PREFIX + "The FaultException e does not have any detail.";
+                    }
+                }
+                errOut += "\r\n" + e.ToString() + "\r\n";
+                return psClientError;
+            }
+
+
+        }
+    }
+}
+
+</code>
+          <para>The following is an example of the MEH_CreatedHandler.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt; 
+&amp;lt;EventHandlers&amp;gt; 
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt; 
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;Test the OnCreated event handler for custom fields.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt; 
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_CreatedHandlerUpdated.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt;
+&amp;lt;EventHandlers&amp;gt;
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt;
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;This is the modified event handler description.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt;
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_AllEvents.xml output files that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventsDataSet/"&amp;gt; -&amp;lt;Event&amp;gt; &amp;lt;EventId&amp;gt;0&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;1&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;2&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;3&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;4&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleted&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;5&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleting&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;10&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;AdSyncERPSynchronized&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt;
+…
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;197&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Activating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;198&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changed&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;199&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changing&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;200&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;201&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;/EventsDataSet&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteEventHandlerAssociations">
+      <MemberSignature Language="C#" Value="public void DeleteEventHandlerAssociations (Guid[] eventHandlerUids);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteEventHandlerAssociations(valuetype System.Guid[] eventHandlerUids) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.DeleteEventHandlerAssociations(System.Guid[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteEventHandlerAssociations (eventHandlerUids As Guid())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteEventHandlerAssociations(cli::array &lt;Guid&gt; ^ eventHandlerUids);" />
+      <MemberSignature Language="F#" Value="member this.DeleteEventHandlerAssociations : Guid[] -&gt; unit" Usage="events.DeleteEventHandlerAssociations eventHandlerUids" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/DeleteEventHandlerAssociations", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventHandlerUids" Type="System.Guid[]" />
+      </Parameters>
+      <Docs>
+        <param name="eventHandlerUids">An array of event handler GUIDs.</param>
+        <summary>Deletes Project Server event handler associations.</summary>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadEventHandlerAssociation">
+      <MemberSignature Language="C#" Value="public WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociation (Guid eventHandlerUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociation(valuetype System.Guid eventHandlerUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.ReadEventHandlerAssociation(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadEventHandlerAssociation (eventHandlerUid As Guid) As EventHandlersDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcEvents::EventHandlersDataSet ^ ReadEventHandlerAssociation(Guid eventHandlerUid);" />
+      <MemberSignature Language="F#" Value="member this.ReadEventHandlerAssociation : Guid -&gt; WebSvcEvents.EventHandlersDataSet" Usage="events.ReadEventHandlerAssociation eventHandlerUid" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/ReadEventHandlerAssociation", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcEvents.EventHandlersDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventHandlerUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="eventHandlerUid">The GUID of the event handler.</param>
+        <summary>Gets the information for a specified Project Server event handler.</summary>
+        <returns>The <b>EventHandlersDataSet</b> contains information about the specified event handler association, including the event handler assembly name, class name, description, related event, and the order in which the event handler is called (the sequence number).</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadEventHandlerAssociations">
+      <MemberSignature Language="C#" Value="public WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociations ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociations() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.ReadEventHandlerAssociations" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadEventHandlerAssociations () As EventHandlersDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcEvents::EventHandlersDataSet ^ ReadEventHandlerAssociations();" />
+      <MemberSignature Language="F#" Value="member this.ReadEventHandlerAssociations : unit -&gt; WebSvcEvents.EventHandlersDataSet" Usage="events.ReadEventHandlerAssociations " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/ReadEventHandlerAssociations", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcEvents.EventHandlersDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets information about all of the event handlers for all Project Server events.</summary>
+        <returns>The <b>EventHandlersDataSet</b> contains information about all of the event handler associations for all events, including the event handler assembly name, class name, description, related event, and the order in which the event handler is called (the sequence number).</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadEventHandlerAssociationsForEvent">
+      <MemberSignature Language="C#" Value="public WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociationsForEvent (WebSvcEvents.PSEventID eventId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcEvents.EventHandlersDataSet ReadEventHandlerAssociationsForEvent(valuetype WebSvcEvents.PSEventID eventId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.ReadEventHandlerAssociationsForEvent(WebSvcEvents.PSEventID)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadEventHandlerAssociationsForEvent (eventId As PSEventID) As EventHandlersDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcEvents::EventHandlersDataSet ^ ReadEventHandlerAssociationsForEvent(WebSvcEvents::PSEventID eventId);" />
+      <MemberSignature Language="F#" Value="member this.ReadEventHandlerAssociationsForEvent : WebSvcEvents.PSEventID -&gt; WebSvcEvents.EventHandlersDataSet" Usage="events.ReadEventHandlerAssociationsForEvent eventId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/ReadEventHandlerAssociationsForEvent", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcEvents.EventHandlersDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventId" Type="WebSvcEvents.PSEventID" />
+      </Parameters>
+      <Docs>
+        <param name="eventId">The GUID of the event.</param>
+        <summary>Gets information about all of the event handlers for a specified Project Server event.</summary>
+        <returns>The <b>EventHandlersDataSet</b> contains information about all of the event handler associations for a specified event, including the event handler assembly names, class names, descriptions, the related event, and the order in which each event handler is called (the sequence number).</returns>
+        <remarks>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows the server to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows use of the <b>ReadEventHandlerAssociationsForEvent</b> method. At the start of execution, an event handler is created for the <b>CustomFieldsCreated</b> event. The application uses <b>ReadEventHandlerAssociationsForEvent</b> to access the event handler prior to modifying it, and again prior to verifying that the modification occurred. The application writes the original event hander dataset and the modified event handler dataset to two separate XML files and then writes a listing of all the Project Server events to a third XML file.</para>
+          <para>The example uses the <b>SvcEvent</b> namespace in the ProjectServerServices.dll proxy assembly.</para>
+          <para>
+            <b>Note</b>: In some cases, it could take as long as 60 seconds for the event handler association process to complete. A sleep interval must be set so that there is enough time for this process to finish. Otherwise, a dataset indexing error might terminate the application. If the application does run without completing a previous step, the outcome will not be reliable. In this example, the time allowed for creating the event handler is 45 seconds and the time allowed for accessing the event handler is 5 seconds. In a specific environment, experimentation is needed to determine the amount of time that is required for these operations to complete.The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Threading;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml;
+using Microsoft.SharePoint;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using Microsoft.Office.Project.Server.Events;
+
+namespace ManageEventHandler
+{
+    class Program
+    {
+        private static SvcEvents.EventsClient eventsClient;
+        private const string ENDPOINT_EVENTS = "basicHttp_Events";
+
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private static string outFileCreatedEH;
+        private static string outFileUpdatedEH;
+        private static string outFileAllEvents;
+
+        private static int dbWriteInterval = 35000;
+        private static int dbReadInterval = 5000;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\nStart Time: {0}", DateTime.Now.ToString());
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            // Set path and file name for output files and configure web service client endpoints.
+            outFileCreatedEH = OUTPUT_FILES + "MEH_CreatedHandler.xml";
+            outFileUpdatedEH = OUTPUT_FILES + "MEH_CreatedHandlerUpdated.xml";
+            outFileAllEvents = OUTPUT_FILES + "MEH_AllEvents.xml";
+
+            ConfigClientEndpoints();
+
+            try
+            {
+                // Create an instance of an event handler dataset with one row.
+                SvcEvents.EventHandlersDataSet eventHandlerDS = new SvcEvents.EventHandlersDataSet();
+                SvcEvents.EventHandlersDataSet.EventHandlersRow ehRow = eventHandlerDS.EventHandlers.NewEventHandlersRow();
+
+                // Add CustomFieldsCreated event handler registration information to the row.
+                Guid uid = Guid.NewGuid();
+                ehRow.EventHandlerUid = uid;
+                ehRow.Name = "Custom Fields Created Event Handler";
+                ehRow.AssemblyName =
+                    "TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c";
+                ehRow.ClassName =
+                    "Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent";
+                ehRow.EventId = (int)SvcEvents.PSEventID.CustomFieldsCreated;
+                ehRow.Description = "Test the OnCreated event handler for custom fields.";
+                ehRow.Order = 1;
+                eventHandlerDS.EventHandlers.AddEventHandlersRow(ehRow.EventHandlerUid, ehRow.Name,
+                    ehRow.AssemblyName, ehRow.ClassName, ehRow.EventId, ehRow.Description, ehRow.Order);
+
+                // Associate the event handler with the CustomFieldCreated event.
+                eventsClient.CreateEventHandlerAssociations(eventHandlerDS);
+                DisplayComment("\nCreating and storing a CustomFieldCreated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+                // Retrieve the new event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet initEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the new event handler from the database...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                initEvDS.WriteXml(outFileCreatedEH);
+
+                string currDesc = "\nDescription field of the retrieved event handler: \n  " + initEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+
+                // Modify the event handler description field and update the dataset.
+                initEvDS.EventHandlers[0].Description = "This is the modified event handler description.";
+
+                eventsClient.UpdateEventHandlerAssociations(initEvDS);
+                DisplayComment("\nModifying the description field and updating the event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+
+                // Retrieve the event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet updEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the updated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                currDesc = "\nDescription field of the updated event handler: \n  " + updEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+                updEvDS.WriteXml(outFileUpdatedEH);
+
+                // Compare the original and the modified description fields to verify that the dataset was updated.
+                int same = eventHandlerDS.EventHandlers[0].Description.CompareTo(updEvDS.EventHandlers[0].Description);
+
+                if (same == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nThe description field was not modified during the alloted time.");
+                    Console.ResetColor();
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(
+                        "\n\nThe CustomFieldCreated event handler description has been modified \n  from '{0}' \n  to '{1}'",
+                        eventHandlerDS.EventHandlers[0].Description, updEvDS.EventHandlers[0].Description, ".");
+                    Console.ResetColor();
+                }
+
+                // Read the list of all events and write them to an output file.
+                SvcEvents.EventsDataSet AllEventsDS = new SvcEvents.EventsDataSet();
+                AllEventsDS = eventsClient.ReadEventsList();
+                AllEventsDS.WriteXml(outFileAllEvents);
+            }
+
+            catch (FaultException fault)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+            }
+            finally
+            {
+                DisplayTime(timer);
+                Console.ResetColor();
+                Console.Write("\nPress any key to exit... ");
+                Console.ReadKey(true);
+            }
+        }
+
+
+        // Use the endpoint that is defined in app.config to configure the client.
+        public static void ConfigClientEndpoints()
+        {
+            eventsClient = new SvcEvents.EventsClient(ENDPOINT_EVENTS);
+        }
+
+        public static void DisplayTime(Stopwatch timer)
+        {
+
+            // Pause the timer and display the current accumulated time in seconds.
+            timer.Stop();
+            TimeSpan ts = timer.Elapsed;
+            string elapsedTime = String.Format("\n\tElapsed time: {0:F4} seconds ({1:F2} minutes) ",
+                ts.TotalSeconds, ts.TotalMinutes);
+            Console.WriteLine(elapsedTime);
+            timer.Start();
+        }
+
+        public static void DisplayComment(string comment, string color)
+        {
+            switch (color)
+            {
+                case "White": Console.ForegroundColor = ConsoleColor.White; break;
+                case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+                case "Yellow": Console.ForegroundColor = ConsoleColor.Yellow; break;
+                case "Cyan": Console.ForegroundColor = ConsoleColor.Cyan; break;
+                default: Console.ForegroundColor = ConsoleColor.White; break;
+            }
+
+            Console.WriteLine("\n\n" + comment);
+            Console.ResetColor();
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: \n" + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.WriteLine(errMess);
+        }
+
+        // Helper methods: GetPSClientError.
+        class Helpers
+        {
+            // Helper method: GetPSClientError.
+            /// &amp;lt;summary&amp;gt;
+            /// Extract a PSClientError object from the ServiceModel.FaultException,
+            /// for use in output of the GetPSClientError stack of errors.
+            /// &amp;lt;/summary&amp;gt;
+            /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+            /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+            /// about the errors than PSClientError has. FaultException can also contain 
+            /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+            /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+            public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                                   out string errOut)
+            {
+                const string PREFIX = "GetPSClientError() returns null: ";
+                errOut = string.Empty;
+                PSLibrary.PSClientError psClientError = null;
+
+                if (e == null)
+                {
+                    errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                    psClientError = null;
+                }
+                else
+                {
+                    // Get a ServiceModel.MessageFault object.
+                    var messageFault = e.CreateMessageFault();
+
+                    if (messageFault.HasDetail)
+                    {
+                        using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                        {
+                            var xml = new XmlDocument();
+                            xml.Load(xmlReader);
+
+                            var serverExecutionFault = xml["ServerExecutionFault"];
+                            if (serverExecutionFault != null)
+                            {
+                                var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                                if (exceptionDetails != null)
+                                {
+                                    try
+                                    {
+                                        errOut = exceptionDetails.InnerXml + "\r\n";
+                                        psClientError =
+                                            new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                    }
+                                    catch (InvalidOperationException ex)
+                                    {
+                                        errOut = PREFIX + "Unable to convert fault exception info ";
+                                        errOut += "a valid Project Server error message. Message: \n\t";
+                                        errOut += ex.Message;
+                                        psClientError = null;
+                                    }
+                                }
+                                else
+                                {
+                                    errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                        + "but does not have ExceptionDetails.";
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                            }
+                        }
+                    }
+                    else // There is no detail in the MessageFault.
+                    {
+                        errOut = PREFIX + "The FaultException e does not have any detail.";
+                    }
+                }
+                errOut += "\r\n" + e.ToString() + "\r\n";
+                return psClientError;
+            }
+
+
+        }
+    }
+}
+
+</code>
+          <para>The following is an example of the MEH_CreatedHandler.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt; 
+&amp;lt;EventHandlers&amp;gt; 
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt; 
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;Test the OnCreated event handler for custom fields.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt; 
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_CreatedHandlerUpdated.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt;
+&amp;lt;EventHandlers&amp;gt;
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt;
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;This is the modified event handler description.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt;
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_AllEvents.xml output files that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventsDataSet/"&amp;gt; -&amp;lt;Event&amp;gt; &amp;lt;EventId&amp;gt;0&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;1&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;2&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;3&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;4&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleted&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;5&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleting&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;10&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;AdSyncERPSynchronized&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt;
+…
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;197&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Activating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;198&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changed&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;199&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changing&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;200&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;201&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;/EventsDataSet&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadEventsList">
+      <MemberSignature Language="C#" Value="public WebSvcEvents.EventsDataSet ReadEventsList ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class WebSvcEvents.EventsDataSet ReadEventsList() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.ReadEventsList" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadEventsList () As EventsDataSet" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; WebSvcEvents::EventsDataSet ^ ReadEventsList();" />
+      <MemberSignature Language="F#" Value="member this.ReadEventsList : unit -&gt; WebSvcEvents.EventsDataSet" Usage="events.ReadEventsList " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/ReadEventsList", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>WebSvcEvents.EventsDataSet</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets a list of Project Server events.</summary>
+        <returns>The <b>EventsDataSet</b> includes the event ID, event name, and source of the event.</returns>
+        <remarks>
+          <para>Event sources are Project Server entities such as Project, Calendar, Custom Field, LookupTable, and so on. The event names include pre-events and post-events. For example, the Project Publishing pre-event is triggered when you make a PSI call to publish a project and before the project is published. The Project Published post-event is triggered after the project is saved in the Published database.</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows use of the <b>ReadEventsList</b> method. After creating and modifying an event handler and writing the unmodified dataset and the modified dataset to two separate XML files, the application uses <b>ReadEventsList</b> to retrieve a list of all Project Server events and then write them to a third XML file.</para>
+          <para>The example uses the <b>SvcEvent</b> namespace in the ProjectServerServices.dll proxy assembly.</para>
+          <para>
+            <b>Note</b>: In some cases, it could take as long as 60 seconds for the event handler association process to complete. A sleep interval must be set so that there is enough time for this process to finish. Otherwise, a dataset indexing error might terminate the application. If the application does run without completing a previous step, the outcome will not be reliable. In this example, the time allowed for creating the event handler is 45 seconds and the time allowed for accessing the event handler is 5 seconds. In a specific environment, experimentation is needed to determine the amount of time that is required for these operations to complete.The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Threading;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml;
+using Microsoft.SharePoint;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using Microsoft.Office.Project.Server.Events;
+
+namespace ManageEventHandler
+{
+    class Program
+    {
+        private static SvcEvents.EventsClient eventsClient;
+        private const string ENDPOINT_EVENTS = "basicHttp_Events";
+
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private static string outFileCreatedEH;
+        private static string outFileUpdatedEH;
+        private static string outFileAllEvents;
+
+        private static int dbWriteInterval = 35000;
+        private static int dbReadInterval = 5000;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\nStart Time: {0}", DateTime.Now.ToString());
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            // Set path and file name for output files and configure web service client endpoints.
+            outFileCreatedEH = OUTPUT_FILES + "MEH_CreatedHandler.xml";
+            outFileUpdatedEH = OUTPUT_FILES + "MEH_CreatedHandlerUpdated.xml";
+            outFileAllEvents = OUTPUT_FILES + "MEH_AllEvents.xml";
+
+            ConfigClientEndpoints();
+
+            try
+            {
+                // Create an instance of an event handler dataset with one row.
+                SvcEvents.EventHandlersDataSet eventHandlerDS = new SvcEvents.EventHandlersDataSet();
+                SvcEvents.EventHandlersDataSet.EventHandlersRow ehRow = eventHandlerDS.EventHandlers.NewEventHandlersRow();
+
+                // Add CustomFieldsCreated event handler registration information to the row.
+                Guid uid = Guid.NewGuid();
+                ehRow.EventHandlerUid = uid;
+                ehRow.Name = "Custom Fields Created Event Handler";
+                ehRow.AssemblyName =
+                    "TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c";
+                ehRow.ClassName =
+                    "Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent";
+                ehRow.EventId = (int)SvcEvents.PSEventID.CustomFieldsCreated;
+                ehRow.Description = "Test the OnCreated event handler for custom fields.";
+                ehRow.Order = 1;
+                eventHandlerDS.EventHandlers.AddEventHandlersRow(ehRow.EventHandlerUid, ehRow.Name,
+                    ehRow.AssemblyName, ehRow.ClassName, ehRow.EventId, ehRow.Description, ehRow.Order);
+
+                // Associate the event handler with the CustomFieldCreated event.
+                eventsClient.CreateEventHandlerAssociations(eventHandlerDS);
+                DisplayComment("\nCreating and storing a CustomFieldCreated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+                // Retrieve the new event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet initEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the new event handler from the database...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                initEvDS.WriteXml(outFileCreatedEH);
+
+                string currDesc = "\nDescription field of the retrieved event handler: \n  " + initEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+
+                // Modify the event handler description field and update the dataset.
+                initEvDS.EventHandlers[0].Description = "This is the modified event handler description.";
+
+                eventsClient.UpdateEventHandlerAssociations(initEvDS);
+                DisplayComment("\nModifying the description field and updating the event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+
+                // Retrieve the event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet updEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the updated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                currDesc = "\nDescription field of the updated event handler: \n  " + updEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+                updEvDS.WriteXml(outFileUpdatedEH);
+
+                // Compare the original and the modified description fields to verify that the dataset was updated.
+                int same = eventHandlerDS.EventHandlers[0].Description.CompareTo(updEvDS.EventHandlers[0].Description);
+
+                if (same == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nThe description field was not modified during the alloted time.");
+                    Console.ResetColor();
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(
+                        "\n\nThe CustomFieldCreated event handler description has been modified \n  from '{0}' \n  to '{1}'",
+                        eventHandlerDS.EventHandlers[0].Description, updEvDS.EventHandlers[0].Description, ".");
+                    Console.ResetColor();
+                }
+
+                // Read the list of all events and write them to an output file.
+                SvcEvents.EventsDataSet AllEventsDS = new SvcEvents.EventsDataSet();
+                AllEventsDS = eventsClient.ReadEventsList();
+                AllEventsDS.WriteXml(outFileAllEvents);
+            }
+
+            catch (FaultException fault)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+            }
+            finally
+            {
+                DisplayTime(timer);
+                Console.ResetColor();
+                Console.Write("\nPress any key to exit... ");
+                Console.ReadKey(true);
+            }
+        }
+
+
+        // Use the endpoint defined in app.config to configure the client.
+        public static void ConfigClientEndpoints()
+        {
+            eventsClient = new SvcEvents.EventsClient(ENDPOINT_EVENTS);
+        }
+
+        public static void DisplayTime(Stopwatch timer)
+        {
+
+            // Pause the timer and display the current accumulated time in seconds.
+            timer.Stop();
+            TimeSpan ts = timer.Elapsed;
+            string elapsedTime = String.Format("\n\tElapsed time: {0:F4} seconds ({1:F2} minutes) ",
+                ts.TotalSeconds, ts.TotalMinutes);
+            Console.WriteLine(elapsedTime);
+            timer.Start();
+        }
+
+        public static void DisplayComment(string comment, string color)
+        {
+            switch (color)
+            {
+                case "White": Console.ForegroundColor = ConsoleColor.White; break;
+                case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+                case "Yellow": Console.ForegroundColor = ConsoleColor.Yellow; break;
+                case "Cyan": Console.ForegroundColor = ConsoleColor.Cyan; break;
+                default: Console.ForegroundColor = ConsoleColor.White; break;
+            }
+
+            Console.WriteLine("\n\n" + comment);
+            Console.ResetColor();
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: \n" + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.WriteLine(errMess);
+        }
+
+        // Helper methods: GetPSClientError.
+        class Helpers
+        {
+            // Helper method: GetPSClientError.         
+            /// &amp;lt;summary&amp;gt;
+            /// Extract a PSClientError object from the ServiceModel.FaultException,
+            /// for use in output of the GetPSClientError stack of errors.
+            /// &amp;lt;/summary&amp;gt;
+            /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+            /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+            /// about the errors than PSClientError has. FaultException can also contain 
+            /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+            /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+            public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                                   out string errOut)
+            {
+                const string PREFIX = "GetPSClientError() returns null: ";
+                errOut = string.Empty;
+                PSLibrary.PSClientError psClientError = null;
+
+                if (e == null)
+                {
+                    errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                    psClientError = null;
+                }
+                else
+                {
+                    // Get a ServiceModel.MessageFault object.
+                    var messageFault = e.CreateMessageFault();
+
+                    if (messageFault.HasDetail)
+                    {
+                        using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                        {
+                            var xml = new XmlDocument();
+                            xml.Load(xmlReader);
+
+                            var serverExecutionFault = xml["ServerExecutionFault"];
+                            if (serverExecutionFault != null)
+                            {
+                                var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                                if (exceptionDetails != null)
+                                {
+                                    try
+                                    {
+                                        errOut = exceptionDetails.InnerXml + "\r\n";
+                                        psClientError =
+                                            new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                    }
+                                    catch (InvalidOperationException ex)
+                                    {
+                                        errOut = PREFIX + "Unable to convert fault exception info ";
+                                        errOut += "a valid Project Server error message. Message: \n\t";
+                                        errOut += ex.Message;
+                                        psClientError = null;
+                                    }
+                                }
+                                else
+                                {
+                                    errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                        + "but does not have ExceptionDetails.";
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                            }
+                        }
+                    }
+                    else // There is no detail in the MessageFault.
+                    {
+                        errOut = PREFIX + "The FaultException e does not have any detail.";
+                    }
+                }
+                errOut += "\r\n" + e.ToString() + "\r\n";
+                return psClientError;
+            }
+
+
+        }
+    }
+}
+
+</code>
+          <para>The following is an example of the MEH_CreatedHandler.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt; 
+&amp;lt;EventHandlers&amp;gt; 
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt; 
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;Test the OnCreated event handler for custom fields.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt; 
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_CreatedHandlerUpdated.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt;
+&amp;lt;EventHandlers&amp;gt;
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt;
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;This is the modified event handler description.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt;
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_AllEvents.xml output files that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventsDataSet/"&amp;gt; -&amp;lt;Event&amp;gt; &amp;lt;EventId&amp;gt;0&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;1&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;2&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;3&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;4&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleted&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;5&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleting&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;10&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;AdSyncERPSynchronized&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt;
+…
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;197&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Activating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;198&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changed&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;199&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changing&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;200&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;201&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;/EventsDataSet&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateEventHandlerAssociations">
+      <MemberSignature Language="C#" Value="public void UpdateEventHandlerAssociations (WebSvcEvents.EventHandlersDataSet eventHandlers);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void UpdateEventHandlerAssociations(class WebSvcEvents.EventHandlersDataSet eventHandlers) cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcEvents.Events.UpdateEventHandlerAssociations(WebSvcEvents.EventHandlersDataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateEventHandlerAssociations (eventHandlers As EventHandlersDataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void UpdateEventHandlerAssociations(WebSvcEvents::EventHandlersDataSet ^ eventHandlers);" />
+      <MemberSignature Language="F#" Value="member this.UpdateEventHandlerAssociations : WebSvcEvents.EventHandlersDataSet -&gt; unit" Usage="events.UpdateEventHandlerAssociations eventHandlers" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Web.Services.Protocols.SoapDocumentMethod("http://schemas.microsoft.com/office/project/server/webservices/Events/UpdateEventHandlerAssociations", ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped, RequestNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", ResponseNamespace="http://schemas.microsoft.com/office/project/server/webservices/Events/", Use=System.Web.Services.Description.SoapBindingUse.Literal)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventHandlers" Type="WebSvcEvents.EventHandlersDataSet" />
+      </Parameters>
+      <Docs>
+        <param name="eventHandlers">DataSet with list of events and event handlers to associate.</param>
+        <summary>Updates one or more event handler associations.</summary>
+        <remarks>
+          <para>The <b>EventHandlersDataSet</b> contains information about the event handler associations to update, including the event handler assembly names, class names, descriptions, the related event, and the order in which each event handler is called (the sequence number).</para>
+          <para>Project Server Permissions</para>
+          <list type="table">
+            <item>
+              <term>
+                <see cref="F:Microsoft.Office.Project.Server.Library.PSSecurityGlobalPermission.ManageServerEvents" />
+              </term>
+              <description>Allows a user to manage event handlers for server-side events. Global permission.</description>
+            </item>
+          </list>
+          <para />
+        </remarks>
+        <example>
+          <para>The following example shows use of the <b>UpdateEventHandlerAssociations</b> method. After creating an event handler for the <b>CustomFieldsCreated</b> event, the application writes that event handler dataset to an XML file. It accesses it again and modifies the description field of the dataset. Then the application uses <b>UpdateEventHandlerAssociations</b> to update the events handler dataset with the modified event handler. The modified event handler dataset is written to an XML file and the application then retrieves a list of all events and writes the list to a third XML file.</para>
+          <para>The example uses the <b>SvcEvent</b> namespace in the ProjectServerServices.dll proxy assembly.</para>
+          <para>
+            <b>Note</b>: In some cases, it could take as long as 60 seconds for the event handler association process to complete. A sleep interval must be set so that there is enough time for this process to finish. Otherwise, a dataset indexing error might terminate the application. If the application does run without completing a previous step, the outcome will not be reliable. In this example, the time allowed for creating the event handler is 45 seconds and the time allowed for accessing the event handler is 5 seconds. In a specific environment, experimentation is needed to determine the amount of time that is required for these operations to complete.The <b>ConfigClientEndpoints</b> method uses an app.config file for setting the WCF binding, behavior, and endpoint. For information about creating a PSI proxy assembly and an app.config file, see Prerequisites for WCF-Based Code Samples.</para>
+          <code>using System;
+using System.Threading;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml;
+using Microsoft.SharePoint;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+using Microsoft.Office.Project.Server.Events;
+
+namespace ManageEventHandler
+{
+    class Program
+    {
+        private static SvcEvents.EventsClient eventsClient;
+        private const string ENDPOINT_EVENTS = "basicHttp_Events";
+
+        // Change the output directory for your computer.
+        private const string OUTPUT_FILES = @"C:\Project\Samples\Output\";
+        private static string outFileCreatedEH;
+        private static string outFileUpdatedEH;
+        private static string outFileAllEvents;
+
+        private static int dbWriteInterval = 35000;
+        private static int dbReadInterval = 5000;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\nStart Time: {0}", DateTime.Now.ToString());
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            // Set path and file name for output files and configure web service client endpoints.
+            outFileCreatedEH = OUTPUT_FILES + "MEH_CreatedHandler.xml";
+            outFileUpdatedEH = OUTPUT_FILES + "MEH_CreatedHandlerUpdated.xml";
+            outFileAllEvents = OUTPUT_FILES + "MEH_AllEvents.xml";
+
+            ConfigClientEndpoints();
+
+            try
+            {
+                // Create an instance of an event handler dataset with one row.
+                SvcEvents.EventHandlersDataSet eventHandlerDS = new SvcEvents.EventHandlersDataSet();
+                SvcEvents.EventHandlersDataSet.EventHandlersRow ehRow = eventHandlerDS.EventHandlers.NewEventHandlersRow();
+
+                // Add CustomFieldsCreated event handler registration information to the row.
+                Guid uid = Guid.NewGuid();
+                ehRow.EventHandlerUid = uid;
+                ehRow.Name = "Custom Fields Created Event Handler";
+                ehRow.AssemblyName =
+                    "TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c";
+                ehRow.ClassName =
+                    "Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent";
+                ehRow.EventId = (int)SvcEvents.PSEventID.CustomFieldsCreated;
+                ehRow.Description = "Test the OnCreated event handler for custom fields.";
+                ehRow.Order = 1;
+                eventHandlerDS.EventHandlers.AddEventHandlersRow(ehRow.EventHandlerUid, ehRow.Name,
+                    ehRow.AssemblyName, ehRow.ClassName, ehRow.EventId, ehRow.Description, ehRow.Order);
+
+                // Associate the event handler with the CustomFieldCreated event.
+                eventsClient.CreateEventHandlerAssociations(eventHandlerDS);
+                DisplayComment("\nCreating and storing a CustomFieldCreated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+                // Retrieve the new event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet initEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the new event handler from the database...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                initEvDS.WriteXml(outFileCreatedEH);
+
+                string currDesc = "\nDescription field of the retrieved event handler: \n  " + initEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+
+                // Modify the event handler description field and update the dataset.
+                initEvDS.EventHandlers[0].Description = "This is the modified event handler description.";
+
+                eventsClient.UpdateEventHandlerAssociations(initEvDS);
+                DisplayComment("\nModifying the description field and updating the event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbWriteInterval);
+                DisplayTime(timer);
+
+
+                // Retrieve the event handler from the dataset by using its event identifier. 
+                SvcEvents.EventHandlersDataSet updEvDS = eventsClient.ReadEventHandlerAssociationsForEvent(SvcEvents.PSEventID.CustomFieldsCreated);
+                DisplayComment("\nRetrieving the updated event handler...", "Yellow");
+                Thread.CurrentThread.Join(dbReadInterval);
+                DisplayTime(timer);
+
+                currDesc = "\nDescription field of the updated event handler: \n  " + updEvDS.EventHandlers[0].Description;
+                DisplayComment(currDesc, "White");
+
+                updEvDS.WriteXml(outFileUpdatedEH);
+
+                // Compare the original and the modified description fields to verify that the dataset was updated.
+                int same = eventHandlerDS.EventHandlers[0].Description.CompareTo(updEvDS.EventHandlers[0].Description);
+
+                if (same == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nThe description field was not modified during the alloted time.");
+                    Console.ResetColor();
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(
+                        "\n\nThe CustomFieldCreated event handler description has been modified \n  from '{0}' \n  to '{1}'",
+                        eventHandlerDS.EventHandlers[0].Description, updEvDS.EventHandlers[0].Description, ".");
+                    Console.ResetColor();
+                }
+
+                // Read the list of all events and write them to an output file.
+                SvcEvents.EventsDataSet AllEventsDS = new SvcEvents.EventsDataSet();
+                AllEventsDS = eventsClient.ReadEventsList();
+                AllEventsDS.WriteXml(outFileAllEvents);
+            }
+
+            catch (FaultException fault)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                // Use the WCF FaultException, because the ASMX SoapException does not 
+                // exist in a WCF-based application.
+                WriteFaultOutput(fault);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+            }
+            finally
+            {
+                DisplayTime(timer);
+                Console.ResetColor();
+                Console.Write("\nPress any key to exit... ");
+                Console.ReadKey(true);
+            }
+        }
+
+
+        // Use the endpoint that is defined in app.config to configure the client.
+        public static void ConfigClientEndpoints()
+        {
+            eventsClient = new SvcEvents.EventsClient(ENDPOINT_EVENTS);
+        }
+
+        public static void DisplayTime(Stopwatch timer)
+        {
+
+            // Pause the timer and display the current accumulated time in seconds.
+            timer.Stop();
+            TimeSpan ts = timer.Elapsed;
+            string elapsedTime = String.Format("\n\tElapsed time: {0:F4} seconds ({1:F2} minutes) ",
+                ts.TotalSeconds, ts.TotalMinutes);
+            Console.WriteLine(elapsedTime);
+            timer.Start();
+        }
+
+        public static void DisplayComment(string comment, string color)
+        {
+            switch (color)
+            {
+                case "White": Console.ForegroundColor = ConsoleColor.White; break;
+                case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+                case "Yellow": Console.ForegroundColor = ConsoleColor.Yellow; break;
+                case "Cyan": Console.ForegroundColor = ConsoleColor.Cyan; break;
+                default: Console.ForegroundColor = ConsoleColor.White; break;
+            }
+
+            Console.WriteLine("\n\n" + comment);
+            Console.ResetColor();
+        }
+
+        // Extract a PSClientError object from the WCF FaultException object, and
+        // then display the exception details and each error in the PSClientError stack.
+        private static void WriteFaultOutput(FaultException fault)
+        {
+            string errAttributeName;
+            string errAttribute;
+            string errOut;
+            string errMess = "".PadRight(30, '=') + "\r\n"
+                + "Error details: \n" + "\r\n";
+
+            PSLibrary.PSClientError error = Helpers.GetPSClientError(fault, out errOut);
+            errMess += errOut;
+
+            PSLibrary.PSErrorInfo[] errors = error.GetAllErrors();
+            PSLibrary.PSErrorInfo thisError;
+
+            for (int i = 0; i &amp;lt; errors.Length; i++)
+            {
+                thisError = errors[i];
+                errMess += "\r\n".PadRight(30, '=') + "\r\nPSClientError output:\r\n\n";
+                errMess += thisError.ErrId.ToString() + "\n";
+
+                for (int j = 0; j &amp;lt; thisError.ErrorAttributes.Length; j++)
+                {
+                    errAttributeName = thisError.ErrorAttributeNames()[j];
+                    errAttribute = thisError.ErrorAttributes[j];
+                    errMess += "\r\n\t" + errAttributeName
+                        + ": " + errAttribute;
+                }
+            }
+            Console.WriteLine(errMess);
+        }
+
+        // Helper methods: GetPSClientError.
+        class Helpers
+        {
+            // Helper method: GetPSClientError.
+            /// &amp;lt;summary&amp;gt;
+            /// Extract a PSClientError object from the ServiceModel.FaultException,
+            /// for use in output of the GetPSClientError stack of errors.
+            /// &amp;lt;/summary&amp;gt;
+            /// &amp;lt;param name="e"&amp;gt;&amp;lt;/param&amp;gt;
+            /// &amp;lt;param name="errOut"&amp;gt;Shows that FaultException has more information 
+            /// about the errors than PSClientError has. FaultException can also contain 
+            /// other types of errors, such as failure to connect to the server.&amp;lt;/param&amp;gt;
+            /// &amp;lt;returns&amp;gt;PSClientError object, for enumerating errors.&amp;lt;/returns&amp;gt;
+            public static PSLibrary.PSClientError GetPSClientError(FaultException e,
+                                                                   out string errOut)
+            {
+                const string PREFIX = "GetPSClientError() returns null: ";
+                errOut = string.Empty;
+                PSLibrary.PSClientError psClientError = null;
+
+                if (e == null)
+                {
+                    errOut = PREFIX + "Null parameter (FaultException e) passed in.";
+                    psClientError = null;
+                }
+                else
+                {
+                    // Get a ServiceModel.MessageFault object.
+                    var messageFault = e.CreateMessageFault();
+
+                    if (messageFault.HasDetail)
+                    {
+                        using (var xmlReader = messageFault.GetReaderAtDetailContents())
+                        {
+                            var xml = new XmlDocument();
+                            xml.Load(xmlReader);
+
+                            var serverExecutionFault = xml["ServerExecutionFault"];
+                            if (serverExecutionFault != null)
+                            {
+                                var exceptionDetails = serverExecutionFault["ExceptionDetails"];
+                                if (exceptionDetails != null)
+                                {
+                                    try
+                                    {
+                                        errOut = exceptionDetails.InnerXml + "\r\n";
+                                        psClientError =
+                                            new PSLibrary.PSClientError(exceptionDetails.InnerXml);
+                                    }
+                                    catch (InvalidOperationException ex)
+                                    {
+                                        errOut = PREFIX + "Unable to convert fault exception info ";
+                                        errOut += "a valid Project Server error message. Message: \n\t";
+                                        errOut += ex.Message;
+                                        psClientError = null;
+                                    }
+                                }
+                                else
+                                {
+                                    errOut = PREFIX + "The FaultException e is a ServerExecutionFault, "
+                                        + "but does not have ExceptionDetails.";
+                                }
+                            }
+                            else
+                            {
+                                errOut = PREFIX + "The FaultException e is not a ServerExecutionFault.";
+                            }
+                        }
+                    }
+                    else // There is no detail in the MessageFault.
+                    {
+                        errOut = PREFIX + "The FaultException e does not have any detail.";
+                    }
+                }
+                errOut += "\r\n" + e.ToString() + "\r\n";
+                return psClientError;
+            }
+
+
+        }
+    }
+}
+
+</code>
+          <para>The following is an example of the MEH_CreatedHandler.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt; 
+&amp;lt;EventHandlers&amp;gt; 
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt; 
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;Test the OnCreated event handler for custom fields.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt; 
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_CreatedHandlerUpdated.xml output file that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventHandlersDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventHandlersDataSet/"&amp;gt;
+&amp;lt;EventHandlers&amp;gt;
+&amp;lt;EventHandlerUid&amp;gt;d4d0a891-02cd-4c5a-9c08-a3f88b295270&amp;lt;/EventHandlerUid&amp;gt;
+&amp;lt;Name&amp;gt;Custom Fields Created Event Handler&amp;lt;/Name&amp;gt;
+&amp;lt;AssemblyName&amp;gt;TestCreatedCustomField, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f94f2907cf07bc7c&amp;lt;/AssemblyName&amp;gt; &amp;lt;ClassName&amp;gt;Microsoft.SDK.Project.Samples.EventHandlers.TestCreatedCustomField.WriteCustomFieldCreatedEvent&amp;lt;/ClassName&amp;gt; &amp;lt;EventId&amp;gt;26&amp;lt;/EventId&amp;gt;
+&amp;lt;Description&amp;gt;This is the modified event handler description.&amp;lt;/Description&amp;gt;
+&amp;lt;Order&amp;gt;1&amp;lt;/Order&amp;gt;
+&amp;lt;/EventHandlers&amp;gt;
+&amp;lt;/EventHandlersDataSet&amp;gt;</code>
+          <para>The following is an example of the MEH_AllEvents.xml output files that the application saves.</para>
+          <code>&amp;lt;?xml version="1.0" standalone="true"?&amp;gt;
+&amp;lt;EventsDataSet xmlns="http://schemas.microsoft.com/office/project/server/webservices/EventsDataSet/"&amp;gt; -&amp;lt;Event&amp;gt; &amp;lt;EventId&amp;gt;0&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;1&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;ReportingPeriodUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;2&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;3&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;LineClassUpdating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;4&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleted&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;5&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;StatusReportsDeleting&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;10&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;Admin&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;AdSyncERPSynchronized&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt;
+…
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;197&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Activating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;198&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changed&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;199&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Changing&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;200&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivated&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;Event&amp;gt;&amp;lt;EventId&amp;gt;201&amp;lt;/EventId&amp;gt;&amp;lt;SourceName&amp;gt;UserDelegation&amp;lt;/SourceName&amp;gt; &amp;lt;EventName&amp;gt;Deactivating&amp;lt;/EventName&amp;gt;&amp;lt;/Event&amp;gt; 
+&amp;lt;/EventsDataSet&amp;gt;</code>
+        </example>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,132 @@
+﻿<Type Name="TimesheetPreSubmitEventArgs" FullName="Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs">
+  <TypeSignature Language="C#" Value="public class TimesheetPreSubmitEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit TimesheetPreSubmitEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class TimesheetPreSubmitEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class TimesheetPreSubmitEventArgs : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type TimesheetPreSubmitEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.TimesheetEventReceiver.OnSubmitting(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected TimesheetPreSubmitEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; TimesheetPreSubmitEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TimesheetPreSubmitEventArgs (Guid tsUID, string comment, Guid approverUID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid tsUID, string comment, valuetype System.Guid approverUID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.#ctor(System.Guid,System.String,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (tsUID As Guid, comment As String, approverUID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; TimesheetPreSubmitEventArgs(Guid tsUID, System::String ^ comment, Guid approverUID);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs : Guid * string * Guid -&gt; Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs" Usage="new Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs (tsUID, comment, approverUID)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tsUID" Type="System.Guid" />
+        <Parameter Name="comment" Type="System.String" />
+        <Parameter Name="approverUID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="tsUID">The GUID of the timesheet that is to be submitted.</param>
+        <param name="comment">The comment to send with an event that precedes a timesheet submission.</param>
+        <param name="approverUID">The GUID of the user who approves a timesheet submission.</param>
+        <summary>Creates an instance of the <b>TimesheetPreSubmitEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApproverUID">
+      <MemberSignature Language="C#" Value="public Guid ApproverUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ApproverUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.ApproverUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property ApproverUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ApproverUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.ApproverUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.ApproverUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the user who approves a timesheet submission.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Comment">
+      <MemberSignature Language="C#" Value="public string Comment { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Comment" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.Comment" />
+      <MemberSignature Language="VB.NET" Value="Public Property Comment As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Comment { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Comment : string with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.Comment" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the comment to send with an event that precedes a timesheet submission.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TsUID">
+      <MemberSignature Language="C#" Value="public Guid TsUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid TsUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.TsUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property TsUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid TsUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.TsUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetPreSubmitEventArgs.TsUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the timesheet that is to be submitted.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

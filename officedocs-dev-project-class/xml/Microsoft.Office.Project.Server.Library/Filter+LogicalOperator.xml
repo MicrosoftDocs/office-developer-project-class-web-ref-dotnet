@@ -1,0 +1,109 @@
+﻿<Type Name="Filter+LogicalOperator" FullName="Microsoft.Office.Project.Server.Library.Filter+LogicalOperator">
+  <TypeSignature Language="C#" Value="public class Filter.LogicalOperator : Microsoft.Office.Project.Server.Library.Filter.IOperator" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi serializable beforefieldinit Filter/LogicalOperator extends System.Object implements class Microsoft.Office.Project.Server.Library.Filter/IOperator" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Library.Filter.LogicalOperator" />
+  <TypeSignature Language="VB.NET" Value="Public Class Filter.LogicalOperator&#xA;Implements Filter.IOperator" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class Filter::LogicalOperator : Microsoft::Office::Project::Server::Library::Filter::IOperator" />
+  <TypeSignature Language="F#" Value="type Filter.LogicalOperator = class&#xA;    interface Filter.IOperator" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Library.Filter+IOperator</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Logical operator for a field, as defined by the specified field operands and the operation (<b>AND</b> or <b>OR</b>). </summary>
+    <remarks>
+      <para>The nominal values in this class are unsigned types that make them unavailable for CLS use.</para>
+      <para>The <b>LogicalOperator</b> class implements the <see cref="T:Microsoft.Office.Project.Server.Library.Filter.IOperator" /> interface.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LogicalOperator (Microsoft.Office.Project.Server.Library.Filter.LogicalOperationType operation, params Microsoft.Office.Project.Server.Library.Filter.IOperator[] operands);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype Microsoft.Office.Project.Server.Library.Filter/LogicalOperationType operation, class Microsoft.Office.Project.Server.Library.Filter/IOperator[] operands) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Library.Filter.LogicalOperator.#ctor(Microsoft.Office.Project.Server.Library.Filter.LogicalOperationType,Microsoft.Office.Project.Server.Library.Filter.IOperator[])" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (operation As Filter.LogicalOperationType, ParamArray operands As Filter.IOperator())" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; LogicalOperator(Microsoft::Office::Project::Server::Library::Filter::LogicalOperationType operation, ... cli::array &lt;Microsoft::Office::Project::Server::Library::Filter::IOperator ^&gt; ^ operands);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Library.Filter.LogicalOperator : Microsoft.Office.Project.Server.Library.Filter.LogicalOperationType * Microsoft.Office.Project.Server.Library.Filter.IOperator[] -&gt; Microsoft.Office.Project.Server.Library.Filter.LogicalOperator" Usage="new Microsoft.Office.Project.Server.Library.Filter.LogicalOperator (operation, operands)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="operation" Type="Microsoft.Office.Project.Server.Library.Filter+LogicalOperationType" />
+        <Parameter Name="operands" Type="Microsoft.Office.Project.Server.Library.Filter+IOperator[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="operation">The logical operation.</param>
+        <param name="operands">The objects on which the operation is made.</param>
+        <summary>Instantiates a <b>LogicalOperator</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Operands">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.Filter.IOperator&gt; Operands { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.List`1&lt;class Microsoft.Office.Project.Server.Library.Filter/IOperator&gt; Operands" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.LogicalOperator.Operands" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Operands As List(Of Filter.IOperator)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Collections::Generic::List&lt;Microsoft::Office::Project::Server::Library::Filter::IOperator ^&gt; ^ Operands { System::Collections::Generic::List&lt;Microsoft::Office::Project::Server::Library::Filter::IOperator ^&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Operands : System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.Filter.IOperator&gt;" Usage="Microsoft.Office.Project.Server.Library.Filter.LogicalOperator.Operands" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.List&lt;Microsoft.Office.Project.Server.Library.Filter+IOperator&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the objects on which the operation is made.</summary>
+        <value>A list of type <b>Filter.IOperator</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Operation">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.Filter.LogicalOperationType Operation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Microsoft.Office.Project.Server.Library.Filter/LogicalOperationType Operation" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Library.Filter.LogicalOperator.Operation" />
+      <MemberSignature Language="VB.NET" Value="Public Property Operation As Filter.LogicalOperationType" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::Office::Project::Server::Library::Filter::LogicalOperationType Operation { Microsoft::Office::Project::Server::Library::Filter::LogicalOperationType get(); void set(Microsoft::Office::Project::Server::Library::Filter::LogicalOperationType value); };" />
+      <MemberSignature Language="F#" Value="member this.Operation : Microsoft.Office.Project.Server.Library.Filter.LogicalOperationType with get, set" Usage="Microsoft.Office.Project.Server.Library.Filter.LogicalOperator.Operation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Library</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.Filter+LogicalOperationType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the logical operation (<b>AND</b> or <b>OR</b>).</summary>
+        <value>An enumerated value that represents the operation.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

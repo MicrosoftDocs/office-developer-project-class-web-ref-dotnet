@@ -1,0 +1,441 @@
+﻿<Type Name="LookupEntry" FullName="Microsoft.ProjectServer.Client.LookupEntry">
+  <TypeSignature Language="C#" Value="public class LookupEntry : Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit LookupEntry extends Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.LookupEntry" />
+  <TypeSignature Language="VB.NET" Value="Public Class LookupEntry&#xA;Inherits ClientObject" />
+  <TypeSignature Language="C++ CLI" Value="public ref class LookupEntry : Microsoft::SharePoint::Client::ClientObject" />
+  <TypeSignature Language="F#" Value="type LookupEntry = class&#xA;    inherit ClientObject" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.SharePoint.Client.ClientObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.LookupEntry", ServerTypeId="{3e819ea7-2e1b-45a1-98b2-0179382830c0}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents a lookup table entry.</summary>
+    <remarks>To be added.</remarks>
+    <example>
+      <para>The following code example is a console application that queries the collection of lookup tables in a Project Web App instance and displays information about the code masks and entries for a specified lookup table. The <b>lut.Entries</b> property is a <b>LookupEntryCollection</b> object.</para>
+      <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.ProjectServer.Client;
+
+namespace ReadLookupTable
+{
+    class Program
+    {
+        // Change the path for your Project Web App instance.
+        private const string PWA_PATH = "http://ServerName/pwa/";    
+        private static string lutName = "Department";    // Default lookup table to read.
+
+        // Set the Project Server client context.
+        private static ProjectContext projContext;
+
+        static void Main(string[] args)
+        {
+
+            if (!ParseCommandLine(args))
+            {
+                Usage();
+                ExitApp();
+            }
+            projContext = new ProjectContext(PWA_PATH);
+
+            var projLutCollection = projContext.LoadQuery(
+                projContext.LookupTables
+                    .Where(lut =&amp;gt; lut.Name == lutName));
+
+            projContext.ExecuteQuery();
+
+            if (projLutCollection.Count() &amp;gt; 0)
+            {
+                foreach (LookupTable lut in projLutCollection)
+                {
+                    Console.WriteLine("'{0}' lookup table Id: {1}", lut.Name, lut.Id);
+                    Console.WriteLine("\tField type: {0}", lut.FieldType);
+
+                    // Get the lookup table mask data:
+                    Console.WriteLine("\nNumber of '{0}' lookup table masks: {1}\n", lut.Name, lut.Masks.Count());
+
+                    foreach (LookupMask lutMask in lut.Masks)
+                    {
+                        Console.WriteLine("\tMaskType: {0}\tLength: {1}\tSeparator: {2}", 
+                            lutMask.MaskType, lutMask.Length, lutMask.Separator);
+                    }
+
+                    // Get the collection of lookup table entries.
+                    projContext.Load(lut.Entries);
+                    projContext.ExecuteQuery();
+
+                    Console.WriteLine("\nNumber of '{0}' lookup table entries: {1}", lut.Name, lut.Entries.Count());
+
+                    foreach (LookupEntry lutEntry in lut.Entries)
+                    {
+                        Console.WriteLine("\n\t{0}, SortIndex: {1}\n\tFullValue: {2}",
+                            lutEntry.Id, lutEntry.SortIndex.ToString("F0"), lutEntry.FullValue);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No lookup table named '{0}'", lutName);
+            }
+
+            ExitApp();   
+        }
+
+        private static void ExitApp()
+        {
+            Console.Write("\nPress any key to exit... ");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
+
+        // Parse the command line. Return true if there are no errors.
+        private static bool ParseCommandLine(string[] args)
+        {
+            bool error = false;
+            int argsLen = args.Length;
+
+            try
+            {
+                for (int i = 0; i &amp;lt; argsLen; i++)
+                {
+                    if (error) break;
+                    if (args[i].StartsWith("-") || args[i].StartsWith("/"))
+                        args[i] = "*" + args[i].Substring(1).ToLower();
+
+                    switch (args[i])
+                    {
+                        case "*lookuptable":
+                        case "*lut":
+                            if (++i &amp;gt;= argsLen) return false;
+                            lutName = args[i];
+                            break;
+                        case "*?":
+                        default:
+                            error = true;
+                            break;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                error = true;
+            }
+            return !error;
+        }
+
+        private static void Usage()
+        {
+            string example = "Usage: ReadLookupTable [/lookuptable | /lut \"LookupTable Name\"";
+            example += "\n\nExample: ReadLookupTable /lut \"Department\"";
+            Console.WriteLine(example);
+        }
+    }
+}</code>
+      <para>For example, suppose the Department lookup table contains the following code masks and lookup table values:</para>
+      <code>Sequence              Length          Separator
+_______________________________________________
+Characters            Any             .
+Uppercase Letters     2               .</code>
+      <para> </para>
+      <code>
+Level              Value
+______________________________
+1                  Test Dept 1
+1                  Test Dept 2
+1                  Test Dept C
+2                      CA
+2                      CB</code>
+      <para>Following is the output of the <b>ReadLookupTable</b> application (the GUIDs for your entries would be different).</para>
+      <para>
+        <b>Note</b>: Because the Department lookup table is built-in, the GUID of the Department lookup table is the same in all Project Web App instances. The GUID is the value of the <b>Microsoft.Office.Project.Server.Library.LookupTables.DEPARTMENTS_LT_UID</b> field.</para>
+      <code>'Department' lookup table Id: e7397277-1ab0-4096-b2dd-57029a055ba4
+        Field type: TEXT
+
+Number of 'Department' lookup table masks: 2
+
+        MaskType: CHARACTERS    Length: 0       Separator: .
+        MaskType: UPPERCASE     Length: 2       Separator: .
+
+Number of 'Department' lookup table entries: 5
+
+        bbc07ff5-b06d-e211-93f4-0021704e28a0, SortIndex: 1
+        FullValue: Test Dept 1
+
+        bcc07ff5-b06d-e211-93f4-0021704e28a0, SortIndex: 2
+        FullValue: Test Dept 2
+
+        bdc07ff5-b06d-e211-93f4-0021704e28a0, SortIndex: 3
+        FullValue: Test Dept C
+
+        0a6ef8d8-6871-e211-93f4-0021704e28a0, SortIndex: 4
+        FullValue: Test Dept C.CA
+
+        0b6ef8d8-6871-e211-93f4-0021704e28a0, SortIndex: 5
+        FullValue: Test Dept C.CB
+
+Press any key to exit...</code>
+    </example>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public LookupEntry (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.LookupEntry.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; LookupEntry(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.LookupEntry : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.LookupEntry" Usage="new Microsoft.ProjectServer.Client.LookupEntry (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The client run-time context for using remote objects.</param>
+        <param name="objectPath">The path of the object in the client context.</param>
+        <summary>Creates an instance of the <b>LookupEntry</b> class.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AppAlternateId">
+      <MemberSignature Language="C#" Value="public Guid AppAlternateId { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid AppAlternateId" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.AppAlternateId" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property AppAlternateId As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid AppAlternateId { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.AppAlternateId : Guid" Usage="Microsoft.ProjectServer.Client.LookupEntry.AppAlternateId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the alternate GUID that is specified in an App package for Project Online.</summary>
+        <value>A <b>GUID</b> value.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteObject">
+      <MemberSignature Language="C#" Value="public void DeleteObject ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void DeleteObject() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.LookupEntry.DeleteObject" />
+      <MemberSignature Language="VB.NET" Value="Public Sub DeleteObject ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void DeleteObject();" />
+      <MemberSignature Language="F#" Value="member this.DeleteObject : unit -&gt; unit" Usage="lookupEntry.DeleteObject " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Deletes the <b>LookupEntry</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Description">
+      <MemberSignature Language="C#" Value="public string Description { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Description" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.Description" />
+      <MemberSignature Language="VB.NET" Value="Public Property Description As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Description { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.Description : string with get, set" Usage="Microsoft.ProjectServer.Client.LookupEntry.Description" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the description of the lookup table entry.</summary>
+        <value>The description of the entry.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FullValue">
+      <MemberSignature Language="C#" Value="public string FullValue { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FullValue" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.FullValue" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property FullValue As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ FullValue { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.FullValue : string" Usage="Microsoft.ProjectServer.Client.LookupEntry.FullValue" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the concatenated value of a hierarchical text lookup table entry.</summary>
+        <value>A string that contains the concatenated value.</value>
+        <remarks>
+          <para>Concatenation with parent table entry values is performed with the appropriate separator strings for each level of the table mask.</para>
+          <para>For a code example, see <see cref="T:Microsoft.ProjectServer.Client.LookupEntry" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Id">
+      <MemberSignature Language="C#" Value="public Guid Id { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid Id" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.Id" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Id As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid Id { Guid get(); };" />
+      <MemberSignature Language="F#" Value="member this.Id : Guid" Usage="Microsoft.ProjectServer.Client.LookupEntry.Id" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID for the lookup table entry.</summary>
+        <value>The lookup table entry GUID.For a code example, see <see cref="T:Microsoft.ProjectServer.Client.LookupEntry" />.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.LookupEntry.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="lookupEntry.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property is initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InternalName">
+      <MemberSignature Language="C#" Value="public string InternalName { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string InternalName" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.InternalName" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property InternalName As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ InternalName { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.InternalName : string" Usage="Microsoft.ProjectServer.Client.LookupEntry.InternalName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the internal name of the lookup table entry. Reserved for internal use..</summary>
+        <value>The name of the entry.</value>
+        <remarks>
+          <para>The name is unique to the lookup table entry, and it is typically used with the array indexer operator to get the value of the entry from the lookup table.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SortIndex">
+      <MemberSignature Language="C#" Value="public decimal SortIndex { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Decimal SortIndex" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.LookupEntry.SortIndex" />
+      <MemberSignature Language="VB.NET" Value="Public Property SortIndex As Decimal" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Decimal SortIndex { System::Decimal get(); void set(System::Decimal value); };" />
+      <MemberSignature Language="F#" Value="member this.SortIndex : decimal with get, set" Usage="Microsoft.ProjectServer.Client.LookupEntry.SortIndex" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Decimal</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets an index number for the lookup table entry.</summary>
+        <value>
+          <b>SortIndex</b> is used when the lookup table sort order is set to <b>UserDefined</b>.</value>
+        <remarks>
+          <para>For a code example, see <see cref="T:Microsoft.ProjectServer.Client.LookupEntry" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

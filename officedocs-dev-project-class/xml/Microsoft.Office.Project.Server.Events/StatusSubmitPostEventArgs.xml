@@ -1,0 +1,109 @@
+﻿<Type Name="StatusSubmitPostEventArgs" FullName="Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs">
+  <TypeSignature Language="C#" Value="public class StatusSubmitPostEventArgs : Microsoft.Office.Project.Server.Events.PostEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit StatusSubmitPostEventArgs extends Microsoft.Office.Project.Server.Events.PostEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class StatusSubmitPostEventArgs&#xA;Inherits PostEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class StatusSubmitPostEventArgs : Microsoft::Office::Project::Server::Events::PostEventArgs" />
+  <TypeSignature Language="F#" Value="type StatusSubmitPostEventArgs = class&#xA;    inherit PostEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PostEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the post-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.StatusingEventReceiver.OnStatusSubmitted(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected StatusSubmitPostEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; StatusSubmitPostEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public StatusSubmitPostEventArgs (Guid[] updateguids, string comment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid[] updateguids, string comment) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.#ctor(System.Guid[],System.String)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (updateguids As Guid(), comment As String)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; StatusSubmitPostEventArgs(cli::array &lt;Guid&gt; ^ updateguids, System::String ^ comment);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs : Guid[] * string -&gt; Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs" Usage="new Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs (updateguids, comment)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="updateguids" Type="System.Guid[]" />
+        <Parameter Name="comment" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="updateguids">A collection of GUIDs that represent one or more modified saved assignments that are submitted to the project manager for approval.</param>
+        <param name="comment">The comment to send with a status submission.</param>
+        <summary>Creates an instance of the <b>StatusSubmitPostEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Comment">
+      <MemberSignature Language="C#" Value="public string Comment { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Comment" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.Comment" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Comment As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ Comment { System::String ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Comment : string" Usage="Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.Comment" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the comment to send with a status submission.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateGuids">
+      <MemberSignature Language="C#" Value="public Guid[] UpdateGuids { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid[] UpdateGuids" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.UpdateGuids" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property UpdateGuids As Guid()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property cli::array &lt;Guid&gt; ^ UpdateGuids { cli::array &lt;Guid&gt; ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.UpdateGuids : Guid[]" Usage="Microsoft.Office.Project.Server.Events.StatusSubmitPostEventArgs.UpdateGuids" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a collection of GUIDs that represent one or more modified saved assignments that are submitted to the project manager for approval.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

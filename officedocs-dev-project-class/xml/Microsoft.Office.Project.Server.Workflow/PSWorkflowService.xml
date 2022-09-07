@@ -1,0 +1,773 @@
+﻿<Type Name="PSWorkflowService" FullName="Microsoft.Office.Project.Server.Workflow.PSWorkflowService">
+  <TypeSignature Language="C#" Value="public class PSWorkflowService : Microsoft.Office.Project.Server.Workflow.PSWorkflowServiceBase, Microsoft.Office.Project.Server.Library.IPSWorkflowService, Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit PSWorkflowService extends Microsoft.Office.Project.Server.Workflow.PSWorkflowServiceBase implements class Microsoft.Office.Project.Server.Library.IPSWorkflowService, class Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Workflow.PSWorkflowService" />
+  <TypeSignature Language="VB.NET" Value="Public Class PSWorkflowService&#xA;Inherits PSWorkflowServiceBase&#xA;Implements IPSWorkflowService, IPSWorkflowServiceEvents" />
+  <TypeSignature Language="C++ CLI" Value="public ref class PSWorkflowService : Microsoft::Office::Project::Server::Workflow::PSWorkflowServiceBase, Microsoft::Office::Project::Server::Library::IPSWorkflowService, Microsoft::Office::Project::Server::Library::IPSWorkflowServiceEvents" />
+  <TypeSignature Language="F#" Value="type PSWorkflowService = class&#xA;    inherit PSWorkflowServiceBase&#xA;    interface IPSWorkflowService&#xA;    interface IPSWorkflowServiceEvents" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Workflow.PSWorkflowServiceBase</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Library.IPSWorkflowService</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Implements methods and events for managing Project Server workflows.</summary>
+    <remarks>
+      <para>The <b>PSWorkflowService</b> class derives from <see cref="T:Microsoft.Office.Project.Server.Workflow.PSWorkflowServiceBase" />, <see cref="T:Microsoft.Office.Project.Server.Library.IPSWorkflowService" />, and <see cref="T:Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents" />.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public PSWorkflowService ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; PSWorkflowService();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Instantiates a <b>PSWorkflowService</b> object.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AfterWorkflowRun">
+      <MemberSignature Language="C#" Value="public override void AfterWorkflowRun (Guid instanceId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void AfterWorkflowRun(valuetype System.Guid instanceId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.AfterWorkflowRun(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub AfterWorkflowRun (instanceId As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void AfterWorkflowRun(Guid instanceId);" />
+      <MemberSignature Language="F#" Value="override this.AfterWorkflowRun : Guid -&gt; unit" Usage="pSWorkflowService.AfterWorkflowRun instanceId" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="instanceId" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="instanceId">The GUID of the Project Server workflow.</param>
+        <summary>When the workflow is finished, writes a message to the ULS log.</summary>
+        <remarks>
+          <para>The ULS message is,  "Entering AfterWorkflowRun for workflow: InstanceId = &lt;GUID&gt;".</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeforeWorkflowRun">
+      <MemberSignature Language="C#" Value="public override void BeforeWorkflowRun (Microsoft.SharePoint.Workflow.SPWorkflow workflow, System.Workflow.Runtime.IPendingWork pendingWork);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void BeforeWorkflowRun(class Microsoft.SharePoint.Workflow.SPWorkflow workflow, class System.Workflow.Runtime.IPendingWork pendingWork) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.BeforeWorkflowRun(Microsoft.SharePoint.Workflow.SPWorkflow,System.Workflow.Runtime.IPendingWork)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub BeforeWorkflowRun (workflow As SPWorkflow, pendingWork As IPendingWork)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void BeforeWorkflowRun(Microsoft::SharePoint::Workflow::SPWorkflow ^ workflow, System::Workflow::Runtime::IPendingWork ^ pendingWork);" />
+      <MemberSignature Language="F#" Value="override this.BeforeWorkflowRun : Microsoft.SharePoint.Workflow.SPWorkflow * System.Workflow.Runtime.IPendingWork -&gt; unit" Usage="pSWorkflowService.BeforeWorkflowRun (workflow, pendingWork)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflow" Type="Microsoft.SharePoint.Workflow.SPWorkflow" />
+        <Parameter Name="pendingWork" Type="System.Workflow.Runtime.IPendingWork" />
+      </Parameters>
+      <Docs>
+        <param name="workflow">The GUID of the Project Server workflow.</param>
+        <param name="pendingWork">An instance of an <b>IPendingWork</b> object, for workflow transactions.</param>
+        <summary>Before the workflow starts to run, writes a message to the ULS log.</summary>
+        <remarks>
+          <para>The ULS message is, "Entering BeforeWorkflowRun for workflow: InstanceId = &lt;GUID&gt;".</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CallEventHandler">
+      <MemberSignature Language="C#" Value="public override void CallEventHandler (Type eventType, string eventName, object[] eventData, Microsoft.SharePoint.Workflow.SPWorkflow workflow, string identity, System.Workflow.Runtime.IPendingWork workHandler, object workItem);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void CallEventHandler(class System.Type eventType, string eventName, object[] eventData, class Microsoft.SharePoint.Workflow.SPWorkflow workflow, string identity, class System.Workflow.Runtime.IPendingWork workHandler, object workItem) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CallEventHandler(System.Type,System.String,System.Object[],Microsoft.SharePoint.Workflow.SPWorkflow,System.String,System.Workflow.Runtime.IPendingWork,System.Object)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub CallEventHandler (eventType As Type, eventName As String, eventData As Object(), workflow As SPWorkflow, identity As String, workHandler As IPendingWork, workItem As Object)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void CallEventHandler(Type ^ eventType, System::String ^ eventName, cli::array &lt;System::Object ^&gt; ^ eventData, Microsoft::SharePoint::Workflow::SPWorkflow ^ workflow, System::String ^ identity, System::Workflow::Runtime::IPendingWork ^ workHandler, System::Object ^ workItem);" />
+      <MemberSignature Language="F#" Value="override this.CallEventHandler : Type * string * obj[] * Microsoft.SharePoint.Workflow.SPWorkflow * string * System.Workflow.Runtime.IPendingWork * obj -&gt; unit" Usage="pSWorkflowService.CallEventHandler (eventType, eventName, eventData, workflow, identity, workHandler, workItem)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventType" Type="System.Type" />
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="eventData" Type="System.Object[]" />
+        <Parameter Name="workflow" Type="Microsoft.SharePoint.Workflow.SPWorkflow" />
+        <Parameter Name="identity" Type="System.String" />
+        <Parameter Name="workHandler" Type="System.Workflow.Runtime.IPendingWork" />
+        <Parameter Name="workItem" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="eventType">The type of event.</param>
+        <param name="eventName">The name of the event.</param>
+        <param name="eventData">The event data.</param>
+        <param name="workflow">The workflow data.</param>
+        <param name="identity">The identity of the workflow.</param>
+        <param name="workHandler">The work handler for workflow transactions, which is included in initialization of the event arguments.</param>
+        <param name="workItem">The work item, which is included in initialization of the event arguments.</param>
+        <summary>Used internally. Calls the event handler for the specified Project Server workflow event.</summary>
+        <remarks>
+          <para>The <b>CallEventHandler</b> method writes the following message to the ULS log:  "Entering CallEventHandler for workflow: InstanceId = &lt;GUID&gt;, eventName = &lt;name of event&gt;".</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckQueueProcessed">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.QueueConstants.JobState CheckQueueProcessed (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid jobUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype Microsoft.Office.Project.Server.Library.QueueConstants/JobState CheckQueueProcessed(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid jobUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CheckQueueProcessed(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckQueueProcessed (workflowContext As ProjectWorkflowContext, jobUid As Guid) As QueueConstants.JobState" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Library::QueueConstants::JobState CheckQueueProcessed(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid jobUid);" />
+      <MemberSignature Language="F#" Value="abstract member CheckQueueProcessed : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid -&gt; Microsoft.Office.Project.Server.Library.QueueConstants.JobState&#xA;override this.CheckQueueProcessed : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid -&gt; Microsoft.Office.Project.Server.Library.QueueConstants.JobState" Usage="pSWorkflowService.CheckQueueProcessed (workflowContext, jobUid)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.CheckQueueProcessed(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.QueueConstants+JobState</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="jobUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="jobUid">The GUID of the queue job.</param>
+        <summary>Returns the current queue completion state of the specified queue job.</summary>
+        <returns>The job completion state for the specified job.</returns>
+        <remarks>
+          <para>The job completion state can be used to determine whether the queue job has completed processing.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckRequiredFields">
+      <MemberSignature Language="C#" Value="public bool CheckRequiredFields (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid stageUid, bool alwaysWait);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool CheckRequiredFields(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid stageUid, bool alwaysWait) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CheckRequiredFields(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CheckRequiredFields (workflowContext As ProjectWorkflowContext, stageUid As Guid, alwaysWait As Boolean) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual bool CheckRequiredFields(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid stageUid, bool alwaysWait);" />
+      <MemberSignature Language="F#" Value="abstract member CheckRequiredFields : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; bool&#xA;override this.CheckRequiredFields : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; bool" Usage="pSWorkflowService.CheckRequiredFields (workflowContext, stageUid, alwaysWait)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.CheckRequiredFields(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="stageUid" Type="System.Guid" />
+        <Parameter Name="alwaysWait" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the workflow stage to check.</param>
+        <param name="alwaysWait">
+          <b>True</b> if the current stage is set to wait always, even if there are no required fields; otherwise, <b>false</b>.</param>
+        <summary>Checks whether there are required custom fields or business drivers.</summary>
+        <returns>
+          <b>True</b> if there are required custom fields; otherwise, <b>false</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CleanupAfterWF">
+      <MemberSignature Language="C#" Value="public void CleanupAfterWF (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, bool error);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CleanupAfterWF(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, bool error) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CleanupAfterWF(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub CleanupAfterWF (workflowContext As ProjectWorkflowContext, error As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void CleanupAfterWF(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, bool error);" />
+      <MemberSignature Language="F#" Value="abstract member CleanupAfterWF : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * bool -&gt; unit&#xA;override this.CleanupAfterWF : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * bool -&gt; unit" Usage="pSWorkflowService.CleanupAfterWF (workflowContext, error)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.CleanupAfterWF(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="error" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="error">
+          <b>True</b> if there is an error in the workflow; otherwise, <b>false</b>.</param>
+        <summary>Marks a workflow stage as completed, or completed with errors.</summary>
+        <remarks>
+          <para>The <b>CleanupAfterWF</b> method is used when the workflow completes a stage or when it encounters an error. The stage is marked as <see cref="F:Microsoft.Office.Project.Server.Library.Workflow.StageStatus.Completed" /> or <see cref="F:Microsoft.Office.Project.Server.Library.Workflow.StageStatus.CompletedWithErrors" />.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareProjectProperty">
+      <MemberSignature Language="C#" Value="public Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult CompareProjectProperty (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, Guid mdPropUid, Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator compareOperator, string textPropertyValue, decimal numericPropertyValue, DateTime dateTimePropertyValue, string durationPropertyValue, bool flagPropertyValue, Guid codePropertyValue);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult CompareProjectProperty(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, valuetype System.Guid mdPropUid, valuetype Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator compareOperator, string textPropertyValue, valuetype System.Decimal numericPropertyValue, valuetype System.DateTime dateTimePropertyValue, string durationPropertyValue, bool flagPropertyValue, valuetype System.Guid codePropertyValue) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CompareProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function CompareProjectProperty (workflowContext As ProjectWorkflowContext, propertyName As String, mdPropUid As Guid, compareOperator As ProjectPropertyCompareOperator, textPropertyValue As String, numericPropertyValue As Decimal, dateTimePropertyValue As DateTime, durationPropertyValue As String, flagPropertyValue As Boolean, codePropertyValue As Guid) As CompareProjectPropertyResult" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual Microsoft::Office::Project::Server::Library::CompareProjectPropertyResult CompareProjectProperty(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, System::String ^ propertyName, Guid mdPropUid, Microsoft::Office::Project::Server::Library::ProjectPropertyCompareOperator compareOperator, System::String ^ textPropertyValue, System::Decimal numericPropertyValue, DateTime dateTimePropertyValue, System::String ^ durationPropertyValue, bool flagPropertyValue, Guid codePropertyValue);" />
+      <MemberSignature Language="F#" Value="abstract member CompareProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator * string * decimal * DateTime * string * bool * Guid -&gt; Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult&#xA;override this.CompareProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid * Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator * string * decimal * DateTime * string * bool * Guid -&gt; Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult" Usage="pSWorkflowService.CompareProjectProperty (workflowContext, propertyName, mdPropUid, compareOperator, textPropertyValue, numericPropertyValue, dateTimePropertyValue, durationPropertyValue, flagPropertyValue, codePropertyValue)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.CompareProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Microsoft.Office.Project.Server.Library.CompareProjectPropertyResult</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="propertyName" Type="System.String" />
+        <Parameter Name="mdPropUid" Type="System.Guid" />
+        <Parameter Name="compareOperator" Type="Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" />
+        <Parameter Name="textPropertyValue" Type="System.String" />
+        <Parameter Name="numericPropertyValue" Type="System.Decimal" />
+        <Parameter Name="dateTimePropertyValue" Type="System.DateTime" />
+        <Parameter Name="durationPropertyValue" Type="System.String" />
+        <Parameter Name="flagPropertyValue" Type="System.Boolean" />
+        <Parameter Name="codePropertyValue" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and is not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">The GUID of the custom field to be compared.</param>
+        <param name="compareOperator">The comparison operation to be performed, specified by a <see cref="T:Microsoft.Office.Project.Server.Library.ProjectPropertyCompareOperator" /> constant.</param>
+        <param name="textPropertyValue">The text value that is used in the comparison. If the property is not a text value, <paramref name="textPropertyValue" /> is ignored.</param>
+        <param name="numericPropertyValue">The numeric value that is used in the comparison. If the property is not a numeric value, <paramref name="numericPropertyValue" /> is ignored.</param>
+        <param name="dateTimePropertyValue">The <b>DateTime</b> value that is used in the comparison. If the property is not a <b>DateTime</b> value, <paramref name="dateTimePropertyValue" /> is ignored.</param>
+        <param name="durationPropertyValue">The duration value that is used in the comparison. If the property is not a duration value, <paramref name="durationPropertyValue" /> is ignored.</param>
+        <param name="flagPropertyValue">A <b>Boolean</b> value that is used in the comparison. If the property is not a <b>Boolean</b> value, <paramref name="flagPropertyValue" /> is ignored.</param>
+        <param name="codePropertyValue">A code value (such as the GUID of a selection in a lookup table) that is used in the comparison. If the property is not a code value, <paramref name="codePropertyValue" /> is ignored.</param>
+        <summary>Compares the value of the specified project property with the supplied value.</summary>
+        <returns>The result of the comparison operation.</returns>
+        <remarks>
+          <para>The comparison is based on the type of the specified project property.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateSubscription">
+      <MemberSignature Language="C#" Value="public override void CreateSubscription (System.Workflow.Activities.MessageEventSubscription sub);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void CreateSubscription(class System.Workflow.Activities.MessageEventSubscription sub) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.CreateSubscription(System.Workflow.Activities.MessageEventSubscription)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub CreateSubscription (sub As MessageEventSubscription)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void CreateSubscription(System::Workflow::Activities::MessageEventSubscription ^ sub);" />
+      <MemberSignature Language="F#" Value="override this.CreateSubscription : System.Workflow.Activities.MessageEventSubscription -&gt; unit" Usage="pSWorkflowService.CreateSubscription sub" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sub" Type="System.Workflow.Activities.MessageEventSubscription" />
+      </Parameters>
+      <Docs>
+        <param name="sub">The event subscription.</param>
+        <summary>Used internally.</summary>
+        <remarks>
+          <para>The <b>CreateSubscription</b> method does nothing in Project Server 2013. It is triggered by Windows Workflow Foundation upon the ordering of event-based activities in a workflow.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteSubscription">
+      <MemberSignature Language="C#" Value="public override void DeleteSubscription (Guid subID);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DeleteSubscription(valuetype System.Guid subID) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.DeleteSubscription(System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Overrides Sub DeleteSubscription (subID As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; override void DeleteSubscription(Guid subID);" />
+      <MemberSignature Language="F#" Value="override this.DeleteSubscription : Guid -&gt; unit" Usage="pSWorkflowService.DeleteSubscription subID" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subID" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="subID">The GUID of the event subscription.</param>
+        <summary>To be added.</summary>
+        <remarks>
+          <para>The <b>DeleteSubscription</b> method does nothing in Project Server 2013. It is triggered by Windows Workflow Foundation upon dropping the scope of event-based activities in a workflow.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEventSubscriptionCount">
+      <MemberSignature Language="C#" Value="public int GetEventSubscriptionCount (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid instanceUid, string eventName, Guid correlationId);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 GetEventSubscriptionCount(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid instanceUid, string eventName, valuetype System.Guid correlationId) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.GetEventSubscriptionCount(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function GetEventSubscriptionCount (workflowContext As ProjectWorkflowContext, instanceUid As Guid, eventName As String, correlationId As Guid) As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual int GetEventSubscriptionCount(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid instanceUid, System::String ^ eventName, Guid correlationId);" />
+      <MemberSignature Language="F#" Value="abstract member GetEventSubscriptionCount : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Guid -&gt; int&#xA;override this.GetEventSubscriptionCount : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Guid -&gt; int" Usage="pSWorkflowService.GetEventSubscriptionCount (workflowContext, instanceUid, eventName, correlationId)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.GetEventSubscriptionCount(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="instanceUid" Type="System.Guid" />
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="correlationId" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="instanceUid">The GUID of the workflow instance.</param>
+        <param name="eventName">The name of the event.</param>
+        <param name="correlationId">The GUID of the correlation identifier of the event. The correlation identifier can be used to uniquely identify an event within a workflow instance.</param>
+        <summary>Gets the total number of subscriptions for the specified workflow instance, event name, and correlation identifier combination.</summary>
+        <returns>The number of subscriptions to the event.</returns>
+        <remarks>
+          <para>Activities that provide a workflow consumable event should use the <b>GetEventSubscriptionCount</b> method to determine whether there are any active subscribers for the event. If there are no subscriptions for the event, the activity can choose to not raise the event.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCheckIn">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; OnProjectCheckIn;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; OnProjectCheckIn" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.OnProjectCheckIn" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event OnProjectCheckIn As EventHandler(Of PSWProjectEventArgs) " />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual event EventHandler&lt;Microsoft::Office::Project::Server::Library::PSWProjectEventArgs ^&gt; ^ OnProjectCheckIn;" />
+      <MemberSignature Language="F#" Value="member this.OnProjectCheckIn : EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; " Usage="member this.OnProjectCheckIn : System.EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <Implements>
+        <InterfaceMember>E:Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents.OnProjectCheckIn</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies an event handler for the <see cref="T:Microsoft.Office.Project.Server.Workflow.OnProjectCheckIn" /> event.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectCommit">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; OnProjectCommit;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; OnProjectCommit" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.OnProjectCommit" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event OnProjectCommit As EventHandler(Of PSWProjectEventArgs) " />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual event EventHandler&lt;Microsoft::Office::Project::Server::Library::PSWProjectEventArgs ^&gt; ^ OnProjectCommit;" />
+      <MemberSignature Language="F#" Value="member this.OnProjectCommit : EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; " Usage="member this.OnProjectCommit : System.EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <Implements>
+        <InterfaceMember>E:Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents.OnProjectCommit</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;Microsoft.Office.Project.Server.Library.PSWProjectEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies an event handler for the <see cref="T:Microsoft.Office.Project.Server.Workflow.OnProjectCommit" /> event.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnProjectSubmit">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;System.Workflow.Activities.ExternalDataEventArgs&gt; OnProjectSubmit;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class System.Workflow.Activities.ExternalDataEventArgs&gt; OnProjectSubmit" />
+      <MemberSignature Language="DocId" Value="E:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.OnProjectSubmit" />
+      <MemberSignature Language="VB.NET" Value="Public Custom Event OnProjectSubmit As EventHandler(Of ExternalDataEventArgs) " />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual event EventHandler&lt;System::Workflow::Activities::ExternalDataEventArgs ^&gt; ^ OnProjectSubmit;" />
+      <MemberSignature Language="F#" Value="member this.OnProjectSubmit : EventHandler&lt;System.Workflow.Activities.ExternalDataEventArgs&gt; " Usage="member this.OnProjectSubmit : System.EventHandler&lt;System.Workflow.Activities.ExternalDataEventArgs&gt; " />
+      <MemberType>Event</MemberType>
+      <Implements>
+        <InterfaceMember>E:Microsoft.Office.Project.Server.Library.IPSWorkflowServiceEvents.OnProjectSubmit</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;System.Workflow.Activities.ExternalDataEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies an event handler for the <see cref="T:Microsoft.Office.Project.Server.Workflow.OnProjectSubmit" /> event.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectProperty">
+      <MemberSignature Language="C#" Value="public string[] ReadProjectProperty (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, Guid mdPropUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string[] ReadProjectProperty(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, valuetype System.Guid mdPropUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.ReadProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadProjectProperty (workflowContext As ProjectWorkflowContext, propertyName As String, mdPropUid As Guid) As String()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual cli::array &lt;System::String ^&gt; ^ ReadProjectProperty(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, System::String ^ propertyName, Guid mdPropUid);" />
+      <MemberSignature Language="F#" Value="abstract member ReadProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid -&gt; string[]&#xA;override this.ReadProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid -&gt; string[]" Usage="pSWorkflowService.ReadProjectProperty (workflowContext, propertyName, mdPropUid)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.ReadProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="propertyName" Type="System.String" />
+        <Parameter Name="mdPropUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and is not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">The GUID of the custom field to be read.</param>
+        <summary>Returns the value of the specified property in a localized string format.</summary>
+        <returns>An array containing the localized string representation of the values.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReadProjectSecurityGroupMembers">
+      <MemberSignature Language="C#" Value="public string[] ReadProjectSecurityGroupMembers (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid securityGroupUid, bool filterByDepartment);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance string[] ReadProjectSecurityGroupMembers(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid securityGroupUid, bool filterByDepartment) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.ReadProjectSecurityGroupMembers(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Function ReadProjectSecurityGroupMembers (workflowContext As ProjectWorkflowContext, securityGroupUid As Guid, filterByDepartment As Boolean) As String()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual cli::array &lt;System::String ^&gt; ^ ReadProjectSecurityGroupMembers(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid securityGroupUid, bool filterByDepartment);" />
+      <MemberSignature Language="F#" Value="abstract member ReadProjectSecurityGroupMembers : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; string[]&#xA;override this.ReadProjectSecurityGroupMembers : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; string[]" Usage="pSWorkflowService.ReadProjectSecurityGroupMembers (workflowContext, securityGroupUid, filterByDepartment)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.ReadProjectSecurityGroupMembers(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="securityGroupUid" Type="System.Guid" />
+        <Parameter Name="filterByDepartment" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="securityGroupUid">The GUID of the security group.</param>
+        <param name="filterByDepartment">
+          <b>True</b> if group members are filtered by the department of the active project; otherwise, <b>false</b>.</param>
+        <summary>Returns a list of the user account names that are associated with the specified security group.</summary>
+        <returns>An array of user names for members of the specified group.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RegisterForEvent">
+      <MemberSignature Language="C#" Value="public void RegisterForEvent (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid instanceUid, string eventName, Guid correlationId, Guid subscriptionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RegisterForEvent(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid instanceUid, string eventName, valuetype System.Guid correlationId, valuetype System.Guid subscriptionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.RegisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub RegisterForEvent (workflowContext As ProjectWorkflowContext, instanceUid As Guid, eventName As String, correlationId As Guid, subscriptionUid As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void RegisterForEvent(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid instanceUid, System::String ^ eventName, Guid correlationId, Guid subscriptionUid);" />
+      <MemberSignature Language="F#" Value="abstract member RegisterForEvent : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Guid * Guid -&gt; unit&#xA;override this.RegisterForEvent : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Guid * Guid -&gt; unit" Usage="pSWorkflowService.RegisterForEvent (workflowContext, instanceUid, eventName, correlationId, subscriptionUid)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.RegisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="instanceUid" Type="System.Guid" />
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="correlationId" Type="System.Guid" />
+        <Parameter Name="subscriptionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="instanceUid">The GUID of the workflow activity instance.</param>
+        <param name="eventName">The name of the event that is being registered.</param>
+        <param name="correlationId">The GUID of the correlation identifier of the event. The correlation identifier can be used to uniquely identify an event within a workflow instance.</param>
+        <param name="subscriptionUid">The GUID that is supplied by the caller to register for the event. The registration is defined by the specified instance, event name, and correlation identifier.</param>
+        <summary>Registers a workflow activity for an event that is raised for the workflow.</summary>
+        <remarks>
+          <para>Project Server workflows integrate with the <b>SPWorkflowExternalDataExchangeService</b> to support raising events within the workflow.</para>
+          <para>Events that do not need to be uniquely identified within the workflow can use the workflow instance identifier for the correlation identifier. For example, the <b>OnProjectSubmit</b> event uses the workflow instance identifier as the correlation identifier.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetInitialStages">
+      <MemberSignature Language="C#" Value="public void SetInitialStages (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, System.Data.DataSet stageInfo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetInitialStages(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, class System.Data.DataSet stageInfo) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.SetInitialStages(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Data.DataSet)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetInitialStages (workflowContext As ProjectWorkflowContext, stageInfo As DataSet)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void SetInitialStages(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, System::Data::DataSet ^ stageInfo);" />
+      <MemberSignature Language="F#" Value="abstract member SetInitialStages : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * System.Data.DataSet -&gt; unit&#xA;override this.SetInitialStages : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * System.Data.DataSet -&gt; unit" Usage="pSWorkflowService.SetInitialStages (workflowContext, stageInfo)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.SetInitialStages(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Data.DataSet)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="stageInfo" Type="System.Data.DataSet" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageInfo">Contains the list of the workflow stages.</param>
+        <summary>Used internally. Updates the status information for the stages in a Project Server workflow.</summary>
+        <remarks>
+          <para>The <b>SetInitialStages</b> method first writes the following message to the ULS log: "Entering SetInitialStages for workflow: projectUid = &lt;GUID&gt;, SiteId = &lt;GUID&gt;, InstanceId = &lt;GUID&gt;".</para>
+          <para>After getting a reference to the PSI and updating the workflow status for the initial stages, the <b>SetInitialStages</b> method writes the following message to the ULS log: "Leaving SetInitialStages for workflow: projectUid = &lt;GUID&gt;, SiteId = &lt;GUID&gt;, InstanceId = &lt;GUID&gt;".</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetProjectProperty">
+      <MemberSignature Language="C#" Value="public void SetProjectProperty (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, Guid mdPropUid, string textPropertyValue, decimal numericPropertyValue, DateTime dateTimePropertyValue, string durationPropertyValue, bool flagPropertyValue, Guid codePropertyValue, bool deleteValue, Guid jobUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetProjectProperty(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string propertyName, valuetype System.Guid mdPropUid, string textPropertyValue, valuetype System.Decimal numericPropertyValue, valuetype System.DateTime dateTimePropertyValue, string durationPropertyValue, bool flagPropertyValue, valuetype System.Guid codePropertyValue, bool deleteValue, valuetype System.Guid jobUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.SetProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid,System.Boolean,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetProjectProperty (workflowContext As ProjectWorkflowContext, propertyName As String, mdPropUid As Guid, textPropertyValue As String, numericPropertyValue As Decimal, dateTimePropertyValue As DateTime, durationPropertyValue As String, flagPropertyValue As Boolean, codePropertyValue As Guid, deleteValue As Boolean, jobUid As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void SetProjectProperty(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, System::String ^ propertyName, Guid mdPropUid, System::String ^ textPropertyValue, System::Decimal numericPropertyValue, DateTime dateTimePropertyValue, System::String ^ durationPropertyValue, bool flagPropertyValue, Guid codePropertyValue, bool deleteValue, Guid jobUid);" />
+      <MemberSignature Language="F#" Value="abstract member SetProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid * string * decimal * DateTime * string * bool * Guid * bool * Guid -&gt; unit&#xA;override this.SetProjectProperty : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Guid * string * decimal * DateTime * string * bool * Guid * bool * Guid -&gt; unit" Usage="pSWorkflowService.SetProjectProperty (workflowContext, propertyName, mdPropUid, textPropertyValue, numericPropertyValue, dateTimePropertyValue, durationPropertyValue, flagPropertyValue, codePropertyValue, deleteValue, jobUid)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.SetProjectProperty(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,System.Guid,System.String,System.Decimal,System.DateTime,System.String,System.Boolean,System.Guid,System.Boolean,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="propertyName" Type="System.String" />
+        <Parameter Name="mdPropUid" Type="System.Guid" />
+        <Parameter Name="textPropertyValue" Type="System.String" />
+        <Parameter Name="numericPropertyValue" Type="System.Decimal" />
+        <Parameter Name="dateTimePropertyValue" Type="System.DateTime" />
+        <Parameter Name="durationPropertyValue" Type="System.String" />
+        <Parameter Name="flagPropertyValue" Type="System.Boolean" />
+        <Parameter Name="codePropertyValue" Type="System.Guid" />
+        <Parameter Name="deleteValue" Type="System.Boolean" />
+        <Parameter Name="jobUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="propertyName">The name of the project property to be set. If <paramref name="mdPropUid" /> is not a null reference (Nothing in Visual Basic) and is not empty, <paramref name="propertyName" /> is ignored.</param>
+        <param name="mdPropUid">The GUID of the custom field.</param>
+        <param name="textPropertyValue">The text value to be set. If the property is not a text value, <paramref name="textPropertyValue" /> is ignored.</param>
+        <param name="numericPropertyValue">The numeric value to be set. If the property is not a numeric value, <paramref name="numericPropertyValue" /> is ignored.</param>
+        <param name="dateTimePropertyValue">The <b>DateTime</b> value to be set. If the property is not a <b>DateTime</b> value, <paramref name="dateTimePropertyValue" /> is ignored.</param>
+        <param name="durationPropertyValue">The duration value to be set. If the property is not a duration value, <paramref name="durationPropertyValue" /> is ignored.</param>
+        <param name="flagPropertyValue">A <b>Boolean</b> value to be set. If the property is not a <b>Boolean</b> value, <paramref name="flagPropertyValue" /> is ignored.</param>
+        <param name="codePropertyValue">A code value (such as the GUID of a selection in a lookup table) to be set. If the property is not a code value, <paramref name="codePropertyValue" /> is ignored.</param>
+        <param name="deleteValue">Specifies whether to delete the custom field value (<b>true</b> to delete; otherwise, <b>false</b>).</param>
+        <param name="jobUid">The GUID of the queue job.</param>
+        <summary>Updates the specified custom field property of the Project Server workflow.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetProjectStage">
+      <MemberSignature Language="C#" Value="public void SetProjectStage (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid stageUid, bool leavingStage);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetProjectStage(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid stageUid, bool leavingStage) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.SetProjectStage(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetProjectStage (workflowContext As ProjectWorkflowContext, stageUid As Guid, leavingStage As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void SetProjectStage(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid stageUid, bool leavingStage);" />
+      <MemberSignature Language="F#" Value="abstract member SetProjectStage : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; unit&#xA;override this.SetProjectStage : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * bool -&gt; unit" Usage="pSWorkflowService.SetProjectStage (workflowContext, stageUid, leavingStage)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.SetProjectStage(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="stageUid" Type="System.Guid" />
+        <Parameter Name="leavingStage" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the workflow stage.</param>
+        <param name="leavingStage">
+          <b>False</b> if the workflow is entering the stage; <b>true</b> if the workflow is leaving the stage.</param>
+        <summary>Updates the current stage of the Project Server workflow.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnregisterForEvent">
+      <MemberSignature Language="C#" Value="public void UnregisterForEvent (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid subscriptionUid);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UnregisterForEvent(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid subscriptionUid) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.UnregisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UnregisterForEvent (workflowContext As ProjectWorkflowContext, subscriptionUid As Guid)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void UnregisterForEvent(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid subscriptionUid);" />
+      <MemberSignature Language="F#" Value="abstract member UnregisterForEvent : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid -&gt; unit&#xA;override this.UnregisterForEvent : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid -&gt; unit" Usage="pSWorkflowService.UnregisterForEvent (workflowContext, subscriptionUid)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.UnregisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="subscriptionUid" Type="System.Guid" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="subscriptionUid">The GUID for the subscription that was specified in the <see cref="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.RegisterForEvent(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,System.Guid,System.Guid)" /> method.</param>
+        <summary>Unregisters the specified event subscription.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateCurrentStageStatusInformation">
+      <MemberSignature Language="C#" Value="public void UpdateCurrentStageStatusInformation (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string statusInformation, Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue stageStatusValue, bool append);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UpdateCurrentStageStatusInformation(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, string statusInformation, valuetype Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue stageStatusValue, bool append) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.UpdateCurrentStageStatusInformation(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateCurrentStageStatusInformation (workflowContext As ProjectWorkflowContext, statusInformation As String, stageStatusValue As UpdateProjectStageStatusFieldValue, append As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void UpdateCurrentStageStatusInformation(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, System::String ^ statusInformation, Microsoft::Office::Project::Server::Library::UpdateProjectStageStatusFieldValue stageStatusValue, bool append);" />
+      <MemberSignature Language="F#" Value="abstract member UpdateCurrentStageStatusInformation : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue * bool -&gt; unit&#xA;override this.UpdateCurrentStageStatusInformation : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * string * Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue * bool -&gt; unit" Usage="pSWorkflowService.UpdateCurrentStageStatusInformation (workflowContext, statusInformation, stageStatusValue, append)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.UpdateCurrentStageStatusInformation(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.String,Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="statusInformation" Type="System.String" />
+        <Parameter Name="stageStatusValue" Type="Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" />
+        <Parameter Name="append" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="statusInformation">Information about the stage status.</param>
+        <param name="stageStatusValue">The stage status value to set. It uses one of the <see cref="T:Microsoft.Office.Project.Server.Library.Workflow.StageStatus" /> constants.</param>
+        <param name="append">
+          <b>True</b> if the <paramref name="statusInformation" /> value is to be appended; <b>false</b> if the <paramref name="statusInformation" /> value is to be replaced.</param>
+        <summary>Sets a stage status value and information for the current stage.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateStageStatusInformation">
+      <MemberSignature Language="C#" Value="public void UpdateStageStatusInformation (Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, Guid stageUid, string statusInformation, Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue stageStatusValue, bool append);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void UpdateStageStatusInformation(class Microsoft.Office.Project.Server.Library.ProjectWorkflowContext workflowContext, valuetype System.Guid stageUid, string statusInformation, valuetype Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue stageStatusValue, bool append) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Workflow.PSWorkflowService.UpdateStageStatusInformation(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub UpdateStageStatusInformation (workflowContext As ProjectWorkflowContext, stageUid As Guid, statusInformation As String, stageStatusValue As UpdateProjectStageStatusFieldValue, append As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; virtual void UpdateStageStatusInformation(Microsoft::Office::Project::Server::Library::ProjectWorkflowContext ^ workflowContext, Guid stageUid, System::String ^ statusInformation, Microsoft::Office::Project::Server::Library::UpdateProjectStageStatusFieldValue stageStatusValue, bool append);" />
+      <MemberSignature Language="F#" Value="abstract member UpdateStageStatusInformation : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue * bool -&gt; unit&#xA;override this.UpdateStageStatusInformation : Microsoft.Office.Project.Server.Library.ProjectWorkflowContext * Guid * string * Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue * bool -&gt; unit" Usage="pSWorkflowService.UpdateStageStatusInformation (workflowContext, stageUid, statusInformation, stageStatusValue, append)" />
+      <MemberType>Method</MemberType>
+      <Implements>
+        <InterfaceMember>M:Microsoft.Office.Project.Server.Library.IPSWorkflowService.UpdateStageStatusInformation(Microsoft.Office.Project.Server.Library.ProjectWorkflowContext,System.Guid,System.String,Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue,System.Boolean)</InterfaceMember>
+      </Implements>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Workflow</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="workflowContext" Type="Microsoft.Office.Project.Server.Library.ProjectWorkflowContext" />
+        <Parameter Name="stageUid" Type="System.Guid" />
+        <Parameter Name="statusInformation" Type="System.String" />
+        <Parameter Name="stageStatusValue" Type="Microsoft.Office.Project.Server.Library.UpdateProjectStageStatusFieldValue" />
+        <Parameter Name="append" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="workflowContext">Information that is related to the current instance of the workflow that is being processed.</param>
+        <param name="stageUid">The GUID of the stage.</param>
+        <param name="statusInformation">Information about the stage status.</param>
+        <param name="stageStatusValue">The stage status value to set. It uses one of the <see cref="T:Microsoft.Office.Project.Server.Library.Workflow.StageStatus" /> constants.</param>
+        <param name="append">
+          <b>True</b> if the <paramref name="statusInformation" /> value is to be appended; <b>false</b> if the <paramref name="statusInformation" /> value is to be replaced.</param>
+        <summary>Sets the status information and value for the specified stage.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

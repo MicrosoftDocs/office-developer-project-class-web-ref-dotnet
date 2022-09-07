@@ -1,0 +1,644 @@
+﻿<Type Name="ProjectServer" FullName="Microsoft.ProjectServer.Client.ProjectServer">
+  <TypeSignature Language="C#" Value="public sealed class ProjectServer : Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit ProjectServer extends Microsoft.SharePoint.Client.ClientObject" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.ProjectServer.Client.ProjectServer" />
+  <TypeSignature Language="VB.NET" Value="Public NotInheritable Class ProjectServer&#xA;Inherits ClientObject" />
+  <TypeSignature Language="C++ CLI" Value="public ref class ProjectServer sealed : Microsoft::SharePoint::Client::ClientObject" />
+  <TypeSignature Language="F#" Value="type ProjectServer = class&#xA;    inherit ClientObject" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.SharePoint.Client.ClientObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Microsoft.SharePoint.Client.ScriptType("PS.ProjectServer", ServerTypeId="{3a609e5f-e2a1-497c-87a2-e5e8a781c096}")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Used internally by client-side code. To initialize the client context for development with the Project Server CSOM, use <see cref="T:Microsoft.ProjectServer.Client.ProjectContext" />.</summary>
+    <remarks>
+      <para>You should use the <see cref="T:Microsoft.ProjectServer.Client.ProjectContext" /> class for development with the CSOM in Microsoft Project Server 2013. Because the  object inherits from the SharePoint <b>ClientContext</b> object, it maintains the context for development with both the Project Server CSOM and the SharePoint CSOM.</para>
+      <para>
+        <b>Note</b>: An advantage of the <b>ProjectContext</b> class is that it includes the <see cref="M:Microsoft.ProjectServer.Client.ProjectContext.WaitForQueue(Microsoft.ProjectServer.Client.QueueJob,System.Int32)" /> method. If you used the <b>ProjectServer</b> class, you would have to develop your own routines to wait for a queue job to complete.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProjectServer (Microsoft.SharePoint.Client.ClientRuntimeContext context);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectServer.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (context As ClientRuntimeContext)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ProjectServer(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.ProjectServer : Microsoft.SharePoint.Client.ClientRuntimeContext -&gt; Microsoft.ProjectServer.Client.ProjectServer" Usage="new Microsoft.ProjectServer.Client.ProjectServer context" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+      </Parameters>
+      <Docs>
+        <param name="context">The SharePoint client run-time context.</param>
+        <summary>Initializes a ProjectServer object by using the SharePoint client run-time context.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ProjectServer (Microsoft.SharePoint.Client.ClientRuntimeContext context, Microsoft.SharePoint.Client.ObjectPath objectPath);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Microsoft.SharePoint.Client.ClientRuntimeContext context, class Microsoft.SharePoint.Client.ObjectPath objectPath) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectServer.#ctor(Microsoft.SharePoint.Client.ClientRuntimeContext,Microsoft.SharePoint.Client.ObjectPath)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; ProjectServer(Microsoft::SharePoint::Client::ClientRuntimeContext ^ context, Microsoft::SharePoint::Client::ObjectPath ^ objectPath);" />
+      <MemberSignature Language="F#" Value="new Microsoft.ProjectServer.Client.ProjectServer : Microsoft.SharePoint.Client.ClientRuntimeContext * Microsoft.SharePoint.Client.ObjectPath -&gt; Microsoft.ProjectServer.Client.ProjectServer" Usage="new Microsoft.ProjectServer.Client.ProjectServer (context, objectPath)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="context" Type="Microsoft.SharePoint.Client.ClientRuntimeContext" />
+        <Parameter Name="objectPath" Type="Microsoft.SharePoint.Client.ObjectPath" />
+      </Parameters>
+      <Docs>
+        <param name="context">The SharePoint client run-time context.</param>
+        <param name="objectPath">The path of the Project Web App instance.</param>
+        <summary>Initializes a <b>ProjectServer</b> object by using the SharePoint client run-time context and the Project Web App path.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Calendars">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.CalendarCollection Calendars { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.CalendarCollection Calendars" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.Calendars" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Calendars As CalendarCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::CalendarCollection ^ Calendars { Microsoft::ProjectServer::Client::CalendarCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Calendars : Microsoft.ProjectServer.Client.CalendarCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.Calendars" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.CalendarCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Get the collection of calendars for the project server instance.</summary>
+        <value>A collection of calendars.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomFields">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.CustomFieldCollection CustomFields { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.CustomFieldCollection CustomFields" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.CustomFields" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property CustomFields As CustomFieldCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::CustomFieldCollection ^ CustomFields { Microsoft::ProjectServer::Client::CustomFieldCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.CustomFields : Microsoft.ProjectServer.Client.CustomFieldCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.CustomFields" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.CustomFieldCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of enterprise custom field definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>CustomField</b> objects.</value>
+        <remarks>
+          <para>Values for custom fields can be set on many entity types, including projects, tasks, resources, and assignments. A project can also include definitions for local custom fields that are specific to each project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnterpriseProjectTypes">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection EnterpriseProjectTypes { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection EnterpriseProjectTypes" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.EnterpriseProjectTypes" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EnterpriseProjectTypes As EnterpriseProjectTypeCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::EnterpriseProjectTypeCollection ^ EnterpriseProjectTypes { Microsoft::ProjectServer::Client::EnterpriseProjectTypeCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.EnterpriseProjectTypes : Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.EnterpriseProjectTypes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseProjectTypeCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of enterprise project types (EPTs) in the Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseProjectType</b> objects.</value>
+        <remarks>
+          <para>An EPT can include a workflow association, and templates for the initial project plan and the project site.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EnterpriseResources">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EnterpriseResourceCollection EnterpriseResources { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.EnterpriseResourceCollection EnterpriseResources" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.EnterpriseResources" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EnterpriseResources As EnterpriseResourceCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::EnterpriseResourceCollection ^ EnterpriseResources { Microsoft::ProjectServer::Client::EnterpriseResourceCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.EnterpriseResources : Microsoft.ProjectServer.Client.EnterpriseResourceCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.EnterpriseResources" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EnterpriseResourceCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of enterprise resources in a Project Web App instance.</summary>
+        <value>A collection of <b>EnterpriseResource</b> objects.</value>
+        <remarks>
+          <para>A project can also include local resources that are specific to each project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EntityTypes">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EntityTypes EntityTypes { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.EntityTypes EntityTypes" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.EntityTypes" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EntityTypes As EntityTypes" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::EntityTypes ^ EntityTypes { Microsoft::ProjectServer::Client::EntityTypes ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.EntityTypes : Microsoft.ProjectServer.Client.EntityTypes" Usage="Microsoft.ProjectServer.Client.ProjectServer.EntityTypes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EntityTypes</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the types of Project Server entities that are exposed through the CSOM.</summary>
+        <value>An <b>EntityTypes</b> object.</value>
+        <remarks>
+          <para>Project Server entity types include, for example, projects, enterprise resources, tasks, assignments, and custom fields.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EventHandlers">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EventHandlerCollection EventHandlers { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.EventHandlerCollection EventHandlers" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.EventHandlers" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property EventHandlers As EventHandlerCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::EventHandlerCollection ^ EventHandlers { Microsoft::ProjectServer::Client::EventHandlerCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.EventHandlers : Microsoft.ProjectServer.Client.EventHandlerCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.EventHandlers" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EventHandlerCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of event handlers that are defined in a Project Web App instance.</summary>
+        <value>A collection of <b>EventHandler</b> objects.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Events">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.EventCollection Events { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.EventCollection Events" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.Events" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Events As EventCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::EventCollection ^ Events { Microsoft::ProjectServer::Client::EventCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Events : Microsoft.ProjectServer.Client.EventCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.Events" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.EventCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of event objects in a Project Web App instance.</summary>
+        <value>A collection of <b>Event</b> objects.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InitOnePropertyFromJson">
+      <MemberSignature Language="C#" Value="protected override bool InitOnePropertyFromJson (string peekedName, Microsoft.SharePoint.Client.JsonReader reader);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool InitOnePropertyFromJson(string peekedName, class Microsoft.SharePoint.Client.JsonReader reader) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectServer.InitOnePropertyFromJson(System.String,Microsoft.SharePoint.Client.JsonReader)" />
+      <MemberSignature Language="VB.NET" Value="Protected Overrides Function InitOnePropertyFromJson (peekedName As String, reader As JsonReader) As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; override bool InitOnePropertyFromJson(System::String ^ peekedName, Microsoft::SharePoint::Client::JsonReader ^ reader);" />
+      <MemberSignature Language="F#" Value="override this.InitOnePropertyFromJson : string * Microsoft.SharePoint.Client.JsonReader -&gt; bool" Usage="projectServer.InitOnePropertyFromJson (peekedName, reader)" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="peekedName" Type="System.String" />
+        <Parameter Name="reader" Type="Microsoft.SharePoint.Client.JsonReader" />
+      </Parameters>
+      <Docs>
+        <param name="peekedName">The name of the property to initialize.</param>
+        <param name="reader">The <b>JsonReader</b> object that initializes the property value from the JSON data.</param>
+        <summary>Reserved for internal use.</summary>
+        <returns>
+          <b>True</b> if the property was initialized; otherwise, <b>False</b>.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsDelegate">
+      <MemberSignature Language="C#" Value="public bool IsDelegate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsDelegate" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.IsDelegate" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property IsDelegate As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool IsDelegate { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.IsDelegate : bool" Usage="Microsoft.ProjectServer.Client.ProjectServer.IsDelegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a value that indicates whether the current user has started a delegation session in PWA.</summary>
+        <value>
+          <b>True</b> if the current user has started a delegate session; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsReadOnly">
+      <MemberSignature Language="C#" Value="public bool IsReadOnly { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsReadOnly" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.IsReadOnly" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property IsReadOnly As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool IsReadOnly { bool get(); };" />
+      <MemberSignature Language="F#" Value="member this.IsReadOnly : bool" Usage="Microsoft.ProjectServer.Client.ProjectServer.IsReadOnly" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a value that indicates whether the Project Server database is in read-only mode.</summary>
+        <value>
+          <b>True</b> if the Project Server database is in read-only mode; otherwise, <b>False</b>.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LookupTables">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.LookupTableCollection LookupTables { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.LookupTableCollection LookupTables" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.LookupTables" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property LookupTables As LookupTableCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::LookupTableCollection ^ LookupTables { Microsoft::ProjectServer::Client::LookupTableCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.LookupTables : Microsoft.ProjectServer.Client.LookupTableCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.LookupTables" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.LookupTableCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of lookup table definitions in the Project Web App instance.</summary>
+        <value>A collection of <b>LookupTable</b> objects.</value>
+        <remarks>
+          <para>Custom field values can reference the values for entries in a lookup table. A project can also include definitions for local lookup tables that are specific to each project.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Phases">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.PhaseCollection Phases { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.PhaseCollection Phases" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.Phases" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Phases As PhaseCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::PhaseCollection ^ Phases { Microsoft::ProjectServer::Client::PhaseCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Phases : Microsoft.ProjectServer.Client.PhaseCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.Phases" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.PhaseCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of Project Server workflow phases in the Project Web App instance.</summary>
+        <value>A collection of <b>Phase</b> objects.</value>
+        <remarks>
+          <para>A workflow phase is a major part of a workflow. A phase can contain one or more stages in the workflow.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ProjectDetailPages">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.ProjectDetailPageCollection ProjectDetailPages { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.ProjectDetailPageCollection ProjectDetailPages" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.ProjectDetailPages" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property ProjectDetailPages As ProjectDetailPageCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::ProjectDetailPageCollection ^ ProjectDetailPages { Microsoft::ProjectServer::Client::ProjectDetailPageCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.ProjectDetailPages : Microsoft.ProjectServer.Client.ProjectDetailPageCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.ProjectDetailPages" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.ProjectDetailPageCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a collection of project detail pages.</summary>
+        <value>A collection of <b>ProjectDetailPage</b> objects.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Projects">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.ProjectCollection Projects { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.ProjectCollection Projects" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.Projects" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Projects As ProjectCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::ProjectCollection ^ Projects { Microsoft::ProjectServer::Client::ProjectCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Projects : Microsoft.ProjectServer.Client.ProjectCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.Projects" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.ProjectCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of projects in the Project Web App instance.</summary>
+        <value>A collection of <b>Project</b> objects.</value>
+        <remarks>
+          <para>A project entity contains additional entity types, such as tasks, resources, and assignments.</para>
+          <para />
+        </remarks>
+        <example>
+          <para>
+            <b>Note</b>: We recommend that you use the <b>ProjectContext</b> object instead of <b>ProjectServer</b>.</para>
+          <para>The following example uses the <b>ProjectServer</b> object to list the published projects in Project Web App. For the same application that uses the <b>ProjectContext</b> object, see <see cref="P:Microsoft.ProjectServer.Client.ProjectContext.Projects" />. For information about creating a simple CSOM application in Microsoft Visual Studio, see <see cref="N:Microsoft.ProjectServer.Client" />.</para>
+          <code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.SharePoint.Client;
+using Microsoft.ProjectServer.Client;
+
+namespace ReadProjectList
+{
+    class Program
+    {
+        private const string pwaPath = "http://&lt;i&gt;ServerName&lt;/i&gt;/PwaName/";    // Change the path for Project Web App.
+        private static &lt;span class="label"&gt;ProjectServer&lt;/span&gt; projSvr;
+        private static ClientRuntimeContext context;
+
+        static void Main(string[] args)
+        {
+            context = new ClientContext(pwaPath);
+            projSvr = new ProjectServer(context);
+
+            // Get the list of published projects in Project Web App.
+            context.Load(projSvr.Projects);
+            context.ExecuteQuery();
+
+            Console.WriteLine("\nProject ID : Project name : Created date");
+
+            foreach (PublishedProject pubProj in projSvr.Projects)
+            {
+                Console.WriteLine("\n\t{0}\n\t{1} : {2}", pubProj.Id.ToString(), pubProj.Name, 
+                    pubProj.CreatedDate.ToString());
+            }
+
+            Console.Write("\nPress any key to exit: ");
+            Console.ReadKey(false);
+        }
+    }
+}</code>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="Stages">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.StageCollection Stages { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.StageCollection Stages" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.Stages" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property Stages As StageCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::StageCollection ^ Stages { Microsoft::ProjectServer::Client::StageCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.Stages : Microsoft.ProjectServer.Client.StageCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.Stages" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.StageCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the collection of Project Server workflow stages in a Project Web App instance.</summary>
+        <value>A collection of <b>Stage</b> objects.</value>
+        <remarks>
+          <para>A workflow stage is a specific subsection of a workflow phase.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StopDelegation">
+      <MemberSignature Language="C#" Value="public void StopDelegation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopDelegation() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.ProjectServer.Client.ProjectServer.StopDelegation" />
+      <MemberSignature Language="VB.NET" Value="Public Sub StopDelegation ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void StopDelegation();" />
+      <MemberSignature Language="F#" Value="member this.StopDelegation : unit -&gt; unit" Usage="projectServer.StopDelegation " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Stops the current delegation session.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TimeSheetPeriods">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.TimeSheetPeriodCollection TimeSheetPeriods { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.TimeSheetPeriodCollection TimeSheetPeriods" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.TimeSheetPeriods" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property TimeSheetPeriods As TimeSheetPeriodCollection" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::TimeSheetPeriodCollection ^ TimeSheetPeriods { Microsoft::ProjectServer::Client::TimeSheetPeriodCollection ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.TimeSheetPeriods : Microsoft.ProjectServer.Client.TimeSheetPeriodCollection" Usage="Microsoft.ProjectServer.Client.ProjectServer.TimeSheetPeriods" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.TimeSheetPeriodCollection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the time sheets in a Project Server instance.</summary>
+        <value>A collection of <b>TimeSheetPeriod</b> objects.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowActivities">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.WorkflowActivities WorkflowActivities { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.WorkflowActivities WorkflowActivities" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.WorkflowActivities" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property WorkflowActivities As WorkflowActivities" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::WorkflowActivities ^ WorkflowActivities { Microsoft::ProjectServer::Client::WorkflowActivities ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.WorkflowActivities : Microsoft.ProjectServer.Client.WorkflowActivities" Usage="Microsoft.ProjectServer.Client.ProjectServer.WorkflowActivities" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.WorkflowActivities</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the methods that Project Server workflows can call at run time.</summary>
+        <value>A <b>WorkflowActivities</b> object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WorkflowDesigner">
+      <MemberSignature Language="C#" Value="public Microsoft.ProjectServer.Client.WorkflowDesigner WorkflowDesigner { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Microsoft.ProjectServer.Client.WorkflowDesigner WorkflowDesigner" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.ProjectServer.Client.ProjectServer.WorkflowDesigner" />
+      <MemberSignature Language="VB.NET" Value="Public ReadOnly Property WorkflowDesigner As WorkflowDesigner" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Microsoft::ProjectServer::Client::WorkflowDesigner ^ WorkflowDesigner { Microsoft::ProjectServer::Client::WorkflowDesigner ^ get(); };" />
+      <MemberSignature Language="F#" Value="member this.WorkflowDesigner : Microsoft.ProjectServer.Client.WorkflowDesigner" Usage="Microsoft.ProjectServer.Client.ProjectServer.WorkflowDesigner" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.ProjectServer.Client</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Microsoft.SharePoint.Client.Remote</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Microsoft.ProjectServer.Client.WorkflowDesigner</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a workflow designer that developers can call at design time.</summary>
+        <value>A <b>WorkflowDesigner</b> object.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

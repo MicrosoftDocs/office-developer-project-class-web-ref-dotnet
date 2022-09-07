@@ -1,0 +1,155 @@
+﻿<Type Name="TimesheetLinePreApproveEventArgs" FullName="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs">
+  <TypeSignature Language="C#" Value="public class TimesheetLinePreApproveEventArgs : Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi serializable beforefieldinit TimesheetLinePreApproveEventArgs extends Microsoft.Office.Project.Server.Events.PreEventArgs" />
+  <TypeSignature Language="DocId" Value="T:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs" />
+  <TypeSignature Language="VB.NET" Value="Public Class TimesheetLinePreApproveEventArgs&#xA;Inherits PreEventArgs" />
+  <TypeSignature Language="C++ CLI" Value="public ref class TimesheetLinePreApproveEventArgs : Microsoft::Office::Project::Server::Events::PreEventArgs" />
+  <TypeSignature Language="F#" Value="type TimesheetLinePreApproveEventArgs = class&#xA;    inherit PreEventArgs" />
+  <AssemblyInfo>
+    <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+    <AssemblyVersion>15.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Microsoft.Office.Project.Server.Events.PreEventArgs</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>Serializable</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Represents methods and properties in the pre-event arguments for the <see cref="M:Microsoft.Office.Project.Server.Events.TimesheetEventReceiver.OnLineApproving(Microsoft.Office.Project.Server.Library.PSContextInfo,Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs)" /> event handler method.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected TimesheetLinePreApproveEventArgs ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.#ctor" />
+      <MemberSignature Language="VB.NET" Value="Protected Sub New ()" />
+      <MemberSignature Language="C++ CLI" Value="protected:&#xA; TimesheetLinePreApproveEventArgs();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TimesheetLinePreApproveEventArgs (Guid tsUID, Guid lineUID, Guid approverUID, bool approved);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Guid tsUID, valuetype System.Guid lineUID, valuetype System.Guid approverUID, bool approved) cil managed" />
+      <MemberSignature Language="DocId" Value="M:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.#ctor(System.Guid,System.Guid,System.Guid,System.Boolean)" />
+      <MemberSignature Language="VB.NET" Value="Public Sub New (tsUID As Guid, lineUID As Guid, approverUID As Guid, approved As Boolean)" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; TimesheetLinePreApproveEventArgs(Guid tsUID, Guid lineUID, Guid approverUID, bool approved);" />
+      <MemberSignature Language="F#" Value="new Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs : Guid * Guid * Guid * bool -&gt; Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs" Usage="new Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs (tsUID, lineUID, approverUID, approved)" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="tsUID" Type="System.Guid" />
+        <Parameter Name="lineUID" Type="System.Guid" />
+        <Parameter Name="approverUID" Type="System.Guid" />
+        <Parameter Name="approved" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="tsUID">The GUID of the timesheet that is being approved.</param>
+        <param name="lineUID">The GUID of the timesheet line class.</param>
+        <param name="approverUID">The GUID of the user who approves the timesheet review.</param>
+        <param name="approved">Indicates whether the new line class status is approved.</param>
+        <summary>Creates an instance of the <b>TimesheetLinePreApproveEventArgs</b> class; used internally.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Approved">
+      <MemberSignature Language="C#" Value="public bool Approved { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Approved" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.Approved" />
+      <MemberSignature Language="VB.NET" Value="Public Property Approved As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool Approved { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.Approved : bool with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.Approved" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets a Boolean value that indicates whether the new line class status is approved.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ApproverUID">
+      <MemberSignature Language="C#" Value="public Guid ApproverUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ApproverUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.ApproverUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property ApproverUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ApproverUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.ApproverUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.ApproverUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the user who approves the timesheet review.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LineUID">
+      <MemberSignature Language="C#" Value="public Guid LineUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid LineUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.LineUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property LineUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid LineUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.LineUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.LineUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the timesheet line class.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TsUID">
+      <MemberSignature Language="C#" Value="public Guid TsUID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid TsUID" />
+      <MemberSignature Language="DocId" Value="P:Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.TsUID" />
+      <MemberSignature Language="VB.NET" Value="Public Property TsUID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid TsUID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.TsUID : Guid with get, set" Usage="Microsoft.Office.Project.Server.Events.TimesheetLinePreApproveEventArgs.TsUID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>Microsoft.Office.Project.Server.Events.Receivers</AssemblyName>
+        <AssemblyVersion>15.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets the GUID of the timesheet that is being approved.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

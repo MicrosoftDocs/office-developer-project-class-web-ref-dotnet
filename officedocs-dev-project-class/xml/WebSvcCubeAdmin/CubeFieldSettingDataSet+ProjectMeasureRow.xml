@@ -1,0 +1,594 @@
+﻿<Type Name="CubeFieldSettingDataSet+ProjectMeasureRow" FullName="WebSvcCubeAdmin.CubeFieldSettingDataSet+ProjectMeasureRow">
+  <TypeSignature Language="C#" Value="public class CubeFieldSettingDataSet.ProjectMeasureRow : System.Data.DataRow" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi beforefieldinit CubeFieldSettingDataSet/ProjectMeasureRow extends System.Data.DataRow" />
+  <TypeSignature Language="DocId" Value="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow" />
+  <TypeSignature Language="VB.NET" Value="Public Class CubeFieldSettingDataSet.ProjectMeasureRow&#xA;Inherits DataRow" />
+  <TypeSignature Language="C++ CLI" Value="public: ref class CubeFieldSettingDataSet::ProjectMeasureRow : System::Data::DataRow" />
+  <TypeSignature Language="F#" Value="type CubeFieldSettingDataSet.ProjectMeasureRow = class&#xA;    inherit DataRow" />
+  <AssemblyInfo>
+    <AssemblyName>ProjectServerServices</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Data.DataRow</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Contains a row of OLAP cube field settings.</summary>
+    <remarks>
+      <para>Represents one row from the <see cref="T:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureDataTable" /> table.</para>
+      <para />
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="ENT_NAME">
+      <MemberSignature Language="C#" Value="public string ENT_NAME { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ENT_NAME" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_NAME" />
+      <MemberSignature Language="VB.NET" Value="Public Property ENT_NAME As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ ENT_NAME { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.ENT_NAME : string with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_NAME" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the name of the data cube.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ENT_TYPE_UID">
+      <MemberSignature Language="C#" Value="public Guid ENT_TYPE_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid ENT_TYPE_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_TYPE_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property ENT_TYPE_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid ENT_TYPE_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.ENT_TYPE_UID : Guid with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_TYPE_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the cube type (Project, Resource, Task, or Assignment).</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>In Project Web App, you can set the <b>ENT_TYPE_UID</b> property by editing the configuration of an OLAP database. For example, on the OLAP Database Management page (http://ServerName/ProjectServerName/_layouts/PWA/CubeAdmin/CubeAnalysisAdmin.aspx), select a database, and then click <b>Configuration</b>. On the Database Configuration page, in the <b>Cube Measures</b> section, in the <b>Cube</b> drop-down list, select the <b>Project</b> type of cube. </para>
+          <para />
+        </remarks>
+        <example>
+          <para>The following code shows how to programmatically set <b>ENT_TYPE_UID</b>:</para>
+          <code>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using PSLibrary = Microsoft.Office.Project.Server.Library;
+
+namespace Microsoft.SDK.Project.Samples.CubeAdmin
+{
+    class Cube
+    {
+        private static SvcCubeAdmin.CubeAdminClient cubeAdminClient;
+        // the name of a WCF endpoint in app.config.
+        private const string ENDPOINT = "basicHttp_CubeAdmin";
+        public static void Main(string[] args)
+        {
+            ConfigClientEndpoints(ENDPOINT);
+            string taskEntity =
+                     PSLibrary.EntityCollection.Entities.TaskEntity.UniqueId;
+            SvcCubeAdmin.CubeFieldSettingDataSet cubeFieldSettings = 
+                new SvcCubeAdmin.CubeFieldSettingDataSet();
+            SvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow projectMeasureRow =
+                cubeFieldSettings.ProjectMeasure.NewProjectMeasureRow();
+            projectMeasureRow.ENT_TYPE_UID =
+                new Guid(PSLibrary.EntityCollection.Entities.ProjectEntity.UniqueId);
+        }
+        // Configure the client endpoints.
+        public static void ConfigClientEndpoints(string endpt)
+        {
+            cubeAdminClient = new SvcCubeAdmin.CubeAdminClient(endpt);
+        }
+    }
+}
+</code>
+          <para>For information about the primary cube type when you use an assignment custom field for a cube dimension, see <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PRIMARY_ENT_TYPE_UID" />.</para>
+        </example>
+      </Docs>
+    </Member>
+    <Member MemberName="InCube">
+      <MemberSignature Language="C#" Value="public bool InCube { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool InCube" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.InCube" />
+      <MemberSignature Language="VB.NET" Value="Public Property InCube As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool InCube { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.InCube : bool with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.InCube" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies whether the row member is stored in the data cube, or whether it is calculated and not stored.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsENT_NAMENull">
+      <MemberSignature Language="C#" Value="public bool IsENT_NAMENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsENT_NAMENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsENT_NAMENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsENT_NAMENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsENT_NAMENull();" />
+      <MemberSignature Language="F#" Value="member this.IsENT_NAMENull : unit -&gt; bool" Usage="projectMeasureRow.IsENT_NAMENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_NAME" /> property to a null value.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsIntrinsic">
+      <MemberSignature Language="C#" Value="public bool IsIntrinsic { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsIntrinsic" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIntrinsic" />
+      <MemberSignature Language="VB.NET" Value="Public Property IsIntrinsic As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool IsIntrinsic { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.IsIntrinsic : bool with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIntrinsic" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies whether the row member is supported by Microsoft SQL Server Analysis Reporting Services.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsIsIntrinsicNull">
+      <MemberSignature Language="C#" Value="public bool IsIsIntrinsicNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsIsIntrinsicNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIsIntrinsicNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsIsIntrinsicNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsIsIntrinsicNull();" />
+      <MemberSignature Language="F#" Value="member this.IsIsIntrinsicNull : unit -&gt; bool" Usage="projectMeasureRow.IsIsIntrinsicNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIntrinsic" /> property to a null value.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsIsLookUpNull">
+      <MemberSignature Language="C#" Value="public bool IsIsLookUpNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsIsLookUpNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIsLookUpNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsIsLookUpNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsIsLookUpNull();" />
+      <MemberSignature Language="F#" Value="member this.IsIsLookUpNull : unit -&gt; bool" Usage="projectMeasureRow.IsIsLookUpNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsLookUp" /> property to a null value.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsLookUp">
+      <MemberSignature Language="C#" Value="public bool IsLookUp { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsLookUp" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsLookUp" />
+      <MemberSignature Language="VB.NET" Value="Public Property IsLookUp As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property bool IsLookUp { bool get(); void set(bool value); };" />
+      <MemberSignature Language="F#" Value="member this.IsLookUp : bool with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsLookUp" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies whether the row member is associated with a lookup table.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsPROP_IDNull">
+      <MemberSignature Language="C#" Value="public bool IsPROP_IDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsPROP_IDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsPROP_IDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsPROP_IDNull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsPROP_IDNull();" />
+      <MemberSignature Language="F#" Value="member this.IsPROP_IDNull : unit -&gt; bool" Usage="projectMeasureRow.IsPROP_IDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_ID" /> property to a null value.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsPROP_TYPENull">
+      <MemberSignature Language="C#" Value="public bool IsPROP_TYPENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsPROP_TYPENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsPROP_TYPENull" />
+      <MemberSignature Language="VB.NET" Value="Public Function IsPROP_TYPENull () As Boolean" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; bool IsPROP_TYPENull();" />
+      <MemberSignature Language="F#" Value="member this.IsPROP_TYPENull : unit -&gt; bool" Usage="projectMeasureRow.IsPROP_TYPENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_TYPE" /> property to a null value.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PRIMARY_ENT_TYPE_UID">
+      <MemberSignature Language="C#" Value="public Guid PRIMARY_ENT_TYPE_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid PRIMARY_ENT_TYPE_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PRIMARY_ENT_TYPE_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property PRIMARY_ENT_TYPE_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid PRIMARY_ENT_TYPE_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.PRIMARY_ENT_TYPE_UID : Guid with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PRIMARY_ENT_TYPE_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the primary cube type (Project, Resource, Task, or Assignment), which can be different from the <b>ENT_TYPE_UID</b> when an assignment custom field is a dimension in an assignment cube.</summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Both the <b>ENT_TYPE_UID</b>  value and the <b>PRIMARY_ENT_TYPE_UID</b> value are required in tables of the <b>CubeFieldSettingDataSet</b>. If the <b>ENT_TYPE_UID</b> is for a Project, Resource, or Task custom field dimension, the <b>PRIMARY_ENT_TYPE_UID</b> value is the same as <b>ENT_TYPE_UID</b>. If the <b>ENT_TYPE_UID</b> is for an Assignment custom field dimension, the <b>PRIMARY_ENT_TYPE_UID</b> specifies the primary custom field type (Task or Resource). For example, if you select an Assignment cube, and select the <b>Flag Status_T_Assignment</b> custom field dimension, the <b>ENT_TYPE_UID</b> value is Guid(Microsoft.Office.Project.Server.Library.EntityCollection.Entities.AssignmentEntity.UniqueId) and the <b>PRIMARY_ENT_TYPE_UID</b> value is Guid(Microsoft.Office.Project.Server.Library.EntityCollection.Entities.TaskEntity.UniqueId).</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PROP_ID">
+      <MemberSignature Language="C#" Value="public int PROP_ID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 PROP_ID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_ID" />
+      <MemberSignature Language="VB.NET" Value="Public Property PROP_ID As Integer" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property int PROP_ID { int get(); void set(int value); };" />
+      <MemberSignature Language="F#" Value="member this.PROP_ID : int with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_ID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the integer-based identifier of the custom field that is associated with the data cube.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PROP_NAME">
+      <MemberSignature Language="C#" Value="public string PROP_NAME { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PROP_NAME" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_NAME" />
+      <MemberSignature Language="VB.NET" Value="Public Property PROP_NAME As String" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::String ^ PROP_NAME { System::String ^ get(); void set(System::String ^ value); };" />
+      <MemberSignature Language="F#" Value="member this.PROP_NAME : string with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_NAME" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the name of the custom field that is associated with the data cube.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PROP_TYPE">
+      <MemberSignature Language="C#" Value="public byte PROP_TYPE { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int8 PROP_TYPE" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_TYPE" />
+      <MemberSignature Language="VB.NET" Value="Public Property PROP_TYPE As Byte" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property System::Byte PROP_TYPE { System::Byte get(); void set(System::Byte value); };" />
+      <MemberSignature Language="F#" Value="member this.PROP_TYPE : byte with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_TYPE" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Byte</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the type of the custom field that is associated with the data cube.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PROP_UID">
+      <MemberSignature Language="C#" Value="public Guid PROP_UID { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Guid PROP_UID" />
+      <MemberSignature Language="DocId" Value="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_UID" />
+      <MemberSignature Language="VB.NET" Value="Public Property PROP_UID As Guid" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; property Guid PROP_UID { Guid get(); void set(Guid value); };" />
+      <MemberSignature Language="F#" Value="member this.PROP_UID : Guid with get, set" Usage="WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_UID" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Guid</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the GUID of the custom field that is associated with the data cube.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetENT_NAMENull">
+      <MemberSignature Language="C#" Value="public void SetENT_NAMENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetENT_NAMENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.SetENT_NAMENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetENT_NAMENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetENT_NAMENull();" />
+      <MemberSignature Language="F#" Value="member this.SetENT_NAMENull : unit -&gt; unit" Usage="projectMeasureRow.SetENT_NAMENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.ENT_NAME" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetIsIntrinsicNull">
+      <MemberSignature Language="C#" Value="public void SetIsIntrinsicNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetIsIntrinsicNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.SetIsIntrinsicNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetIsIntrinsicNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetIsIntrinsicNull();" />
+      <MemberSignature Language="F#" Value="member this.SetIsIntrinsicNull : unit -&gt; unit" Usage="projectMeasureRow.SetIsIntrinsicNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsIntrinsic" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetIsLookUpNull">
+      <MemberSignature Language="C#" Value="public void SetIsLookUpNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetIsLookUpNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.SetIsLookUpNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetIsLookUpNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetIsLookUpNull();" />
+      <MemberSignature Language="F#" Value="member this.SetIsLookUpNull : unit -&gt; unit" Usage="projectMeasureRow.SetIsLookUpNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.IsLookUp" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPROP_IDNull">
+      <MemberSignature Language="C#" Value="public void SetPROP_IDNull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPROP_IDNull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.SetPROP_IDNull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetPROP_IDNull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetPROP_IDNull();" />
+      <MemberSignature Language="F#" Value="member this.SetPROP_IDNull : unit -&gt; unit" Usage="projectMeasureRow.SetPROP_IDNull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_ID" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetPROP_TYPENull">
+      <MemberSignature Language="C#" Value="public void SetPROP_TYPENull ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetPROP_TYPENull() cil managed" />
+      <MemberSignature Language="DocId" Value="M:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.SetPROP_TYPENull" />
+      <MemberSignature Language="VB.NET" Value="Public Sub SetPROP_TYPENull ()" />
+      <MemberSignature Language="C++ CLI" Value="public:&#xA; void SetPROP_TYPENull();" />
+      <MemberSignature Language="F#" Value="member this.SetPROP_TYPENull : unit -&gt; unit" Usage="projectMeasureRow.SetPROP_TYPENull " />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyName>ProjectServerServices</AssemblyName>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerNonUserCode</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets the <see cref="P:WebSvcCubeAdmin.CubeFieldSettingDataSet.ProjectMeasureRow.PROP_TYPE" /> property to a null value.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
